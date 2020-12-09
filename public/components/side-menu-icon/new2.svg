@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="17.983" height="23.692" viewBox="0 0 17.983 23.692">
+  <g id="noun_notes_1703877" transform="translate(20.413 23.178) rotate(-180)">
+    <g id="Group_1299" data-name="Group 1299" transform="translate(3.348 0.386)">
+      <path id="Path_450" data-name="Path 450" d="M19.211.386H3.8a.377.377,0,0,0-.377.377V16.681a.343.343,0,0,0,.014.069.268.268,0,0,0,.009.046.373.373,0,0,0,.1.161s0,.006,0,.008l5.964,5.219s.01,0,.015.006a.368.368,0,0,0,.234.089h9.447a.377.377,0,0,0,.377-.377V.763A.379.379,0,0,0,19.211.386ZM4.734,17l4.307-.287.287,4.307Zm14.1,4.526H10.117l-.35-5.24a.374.374,0,0,0-.128-.258.393.393,0,0,0-.273-.093l-5.189.346V1.14H18.833V21.522Z" transform="translate(-3.424 -0.386)" stroke="#000" stroke-width="1.8"/>
+      <g id="Group_1300" data-name="Group 1300" transform="translate(3.513 4.698)">
+        <path id="Path_451" data-name="Path 451" d="M7.313,6.125h5.2c.126,0,.228-.169.228-.377s-.1-.377-.228-.377h-5.2c-.126,0-.228.169-.228.377S7.188,6.125,7.313,6.125Z" transform="translate(-3.387 -5.371)" stroke="#000" stroke-width="1.8"/>
+        <path id="Path_453" data-name="Path 453" d="M7.366,13.095h8.6a.377.377,0,0,0,0-.754h-8.6a.377.377,0,1,0,0,.754Z" transform="translate(-6.989 -8.6)" stroke="#000" stroke-width="1.8"/>
+      </g>
+    </g>
+  </g>
+</svg>
