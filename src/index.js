@@ -10,6 +10,8 @@ import axios from "axios";
 import * as _redux from "./redux";
 import store, { persistor } from "./redux/store";
 import App from "./app/App";
+import { ApolloProvider } from '@apollo/react-hooks';
+import client from './apolloClient.ts';
 import "./index.scss"; // Standard version
 // import "./sass/style.react.rtl.css"; // RTL version
 import "./_metronic/_assets/plugins/keenthemes-icons/font/ki.css";
@@ -52,9 +54,11 @@ ReactDOM.render(
   <MetronicI18nProvider>
     <MetronicLayoutProvider>
       <MetronicSubheaderProvider>
+      <ApolloProvider client={client}>
         <MetronicSplashScreenProvider>
           <App store={store} persistor={persistor} basename={PUBLIC_URL} />
         </MetronicSplashScreenProvider>
+        </ApolloProvider>
       </MetronicSubheaderProvider>
     </MetronicLayoutProvider>
   </MetronicI18nProvider>,
