@@ -41,10 +41,14 @@ var KTLayoutAside = function() {
             height: function() {
                 var height = parseInt(KTUtil.getViewPort().height);
                 var asideBrand = KTUtil.find(_element, '.aside-primary .aside-brand');
+                var asideHeader = KTUtil.find(_element, '.aside-primary .aside-header');
                 var asideFooter = KTUtil.find(_element, '.aside-primary .aside-footer');
 
                 height = height - (parseInt(KTUtil.css(asideBrand, 'height')));
                 height = height - (parseInt(KTUtil.css(asideBrand, 'marginBottom')) + parseInt(KTUtil.css(asideBrand, 'marginTop')));
+
+                height = height - (parseInt(KTUtil.css(asideHeader, 'height')));
+                height = height - (parseInt(KTUtil.css(asideHeader, 'marginBottom')) + parseInt(KTUtil.css(asideHeader, 'marginTop')));
 
                 height = height - (parseInt(KTUtil.css(asideFooter, 'height')));
                 height = height - (parseInt(KTUtil.css(asideFooter, 'marginBottom')) + parseInt(KTUtil.css(asideFooter, 'marginTop')));

@@ -27,6 +27,11 @@
 		.aside-secondary-enabled & {
 			border-right: 1px solid $border-color;
 		}
+		
+		.btn.btn-icon.btn-lg {
+			height: calc(1.15em + 1.3rem + 2px);
+			width: calc(1.15em + 1.3rem + 2px);	
+		}
 	}
 
 	// Aside Secondary Panel
@@ -120,6 +125,10 @@
 				.svg-icon {
 					@include svg-icon-size(26px);
 				}
+			}
+			.scroll.scroll-pull {
+				padding-right: 6px;
+				margin-right: -6px;
 			}
 		}
 

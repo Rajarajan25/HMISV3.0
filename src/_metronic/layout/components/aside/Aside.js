@@ -79,6 +79,95 @@ export function Aside() {
         {/* begin::Primary */}
         <div className="aside-primary d-flex flex-column align-items-center flex-row-auto">
           <Brand />
+          {/* begin::Header */}
+          <div className="aside-header d-flex flex-column align-items-center flex-column-auto">
+            
+            {/* begin::Quick Actions */}
+            {layoutProps.extrasQuickActionsDisplay && (
+              <OverlayTrigger
+              placement="right"
+              overlay={
+                <Tooltip id="latest-project">Latest Project</Tooltip>
+              }
+            >
+              <a
+                href="#"
+                className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===
+                  tabs.tabId1 && "active"}`}
+                data-toggle="tab"
+                data-target={`#${tabs.tabId1}`}
+                role="tab"
+                onClick={() => handleTabChange(tabs.tabId1)}
+              >
+                <span className="svg-icon svg-icon-sm">
+                  <SVG
+                    src={toAbsoluteUrl(
+                      "/media/svg/icons/Layout/Layout-home.svg"
+                    )}
+                  />
+                </span>
+              </a>
+            </OverlayTrigger>
+            )}
+            {/* end::Quick Actions */}
+
+            {/* begin::Quick Panel */}
+            {layoutProps.extrasQuickPanelDisplay && (
+              <OverlayTrigger
+              placement="right"
+              overlay={
+                <Tooltip id="metronic-features">Metronic Features</Tooltip>
+              }
+            >
+              <a
+                href="#"
+                className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===
+                  tabs.tabId2 && "active"}`}
+                data-toggle="tab"
+                data-target={`#${tabs.tabId2}`}
+                onClick={() => handleTabChange(tabs.tabId2)}
+                role="tab"
+              >
+                <span className="svg-icon svg-icon-sm">
+                  <SVG
+                    src={toAbsoluteUrl(
+                      "/media/svg/icons/Communication/Layout-check.svg"
+                    )}
+                  />
+                </span>
+              </a>
+            </OverlayTrigger>
+            )}
+            {/* end::Quick Panel */}
+            
+            {/* begin::Quick Panel */}
+            {layoutProps.extrasQuickPanelDisplay && (
+              <OverlayTrigger
+                  placement="right"
+                  overlay={
+                    <Tooltip id="latest-reports">Latest Reports</Tooltip>
+                  }
+                >
+                  <a
+                    href="#"
+                    className="nav-link btn btn-icon btn-clean btn-lg"
+                    data-toggle="tab"
+                    data-target="#kt_aside_tab_3"
+                    role="tab"
+                  >
+                    <span className="svg-icon svg-icon-sm">
+                      <SVG
+                        src={toAbsoluteUrl(
+                          "/media/svg/icons/Media/Equalizer.svg"
+                        )}
+                      />
+                    </span>
+                  </a>
+                </OverlayTrigger>
+              )}
+          </div>
+          {/* end::Header */}
+
           {/* begin::Nav Wrapper */}
           <div className="aside-nav d-flex flex-column align-items-center flex-column-fluid py-5 scroll scroll-pull">
             {/* begin::Nav */}
@@ -107,10 +196,10 @@ export function Aside() {
                     role="tab"
                     onClick={() => handleTabChange(tabs.tabId1)}
                   >
-                    <span className="svg-icon svg-icon-lg">
+                    <span className="svg-icon svg-icon-sm">
                       <SVG
                         src={toAbsoluteUrl(
-                          "/media/svg/icons/Layout/Layout-4-blocks.svg"
+                          "/media/svg/icons/Layout/Layout-home.svg"
                         )}
                       />
                     </span>
@@ -143,10 +232,10 @@ export function Aside() {
                     onClick={() => handleTabChange(tabs.tabId2)}
                     role="tab"
                   >
-                    <span className="svg-icon svg-icon-lg">
+                    <span className="svg-icon svg-icon-sm">
                       <SVG
                         src={toAbsoluteUrl(
-                          "/media/svg/icons/Communication/Group.svg"
+                          "/media/svg/icons/Communication/Layout-check.svg"
                         )}
                       />
                     </span>
@@ -177,7 +266,7 @@ export function Aside() {
                     data-target="#kt_aside_tab_3"
                     role="tab"
                   >
-                    <span className="svg-icon svg-icon-lg">
+                    <span className="svg-icon svg-icon-sm">
                       <SVG
                         src={toAbsoluteUrl(
                           "/media/svg/icons/Media/Equalizer.svg"
@@ -213,7 +302,7 @@ export function Aside() {
                     data-target="#kt_aside_tab_4"
                     role="tab"
                   >
-                    <span className="svg-icon svg-icon-lg">
+                    <span className="svg-icon svg-icon-sm">
                       <SVG
                         src={toAbsoluteUrl(
                           "/media/svg/icons/General/Shield-check.svg"
@@ -247,7 +336,7 @@ export function Aside() {
                     data-target="#kt_aside_tab_5"
                     role="tab"
                   >
-                    <span className="svg-icon svg-icon-lg">
+                    <span className="svg-icon svg-icon-sm">
                       <SVG
                         src={toAbsoluteUrl("/media/svg/icons/Home/Library.svg")}
                       />
@@ -281,7 +370,7 @@ export function Aside() {
                     data-target="#kt_aside_tab_6"
                     role="tab"
                   >
-                    <span className="svg-icon svg-icon-lg">
+                    <span className="svg-icon svg-icon-sm">
                       <SVG
                         src={toAbsoluteUrl(
                           "/media/svg/icons/Files/File-plus.svg"
@@ -329,7 +418,7 @@ export function Aside() {
                   className="btn btn-icon btn-clean btn-lg mb-1"
                   id="kt_quick_search_toggle"
                 >
-                  <span className="svg-icon svg-icon-lg">
+                  <span className="svg-icon svg-icon-sm">
                     <SVG
                       src={toAbsoluteUrl("/media/svg/icons/General/Search.svg")}
                     />
@@ -355,7 +444,7 @@ export function Aside() {
                   data-container="body"
                   data-boundary="window"
                 >
-                  <span className="svg-icon svg-icon-lg">
+                  <span className="svg-icon svg-icon-sm">
                     <SVG
                       src={toAbsoluteUrl("/media/svg/icons/Design/Layers.svg")}
                     />
@@ -378,7 +467,7 @@ export function Aside() {
                   className="btn btn-icon btn-clean btn-lg mb-1"
                   id="kt_quick_actions_toggle"
                 >
-                  <span className="svg-icon svg-icon-lg">
+                  <span className="svg-icon svg-icon-sm">
                     <SVG
                       src={toAbsoluteUrl(
                         "/media/svg/icons/Media/Equalizer.svg"
@@ -404,7 +493,7 @@ export function Aside() {
                   data-container="body"
                   data-boundary="window"
                 >
-                  <span className="svg-icon svg-icon-lg">
+                  <span className="svg-icon svg-icon-sm">
                     <SVG
                       src={toAbsoluteUrl(
                         "/media/svg/icons/Layout/Layout-4-blocks.svg"
