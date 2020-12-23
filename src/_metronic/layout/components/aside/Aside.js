@@ -7,6 +7,7 @@ import { useHtmlClassService } from "../../_core/MetronicLayout";
 import { toAbsoluteUrl } from "../../../_helpers";
 import { AsideSearch } from "./AsideSearch";
 import { AsideMenu } from "./aside-menu/AsideMenu";
+import {AsideStaffMenu} from './aside-menu/AsideStaffMenu';
 import { LanguageSelectorDropdown } from "../extras/dropdowns/LanguageSelectorDropdown";
 import { QuickUserToggler } from "../extras/QuickUserToggler";
 import { Brand } from "../brand/Brand";
@@ -56,6 +57,7 @@ export function Aside() {
   const tabs = {
     tabId1: "kt_aside_tab_1",
     tabId2: "kt_aside_tab_2",
+    tabId11: "kt_aside_tab_11"
   };
   const [activeTab, setActiveTab] = useState(tabs.tabId1);
   const handleTabChange = (id) => {
@@ -120,6 +122,39 @@ export function Aside() {
               {/* end::Item */}
 
               {/* begin::Item */}
+              <li
+                className="nav-item mb-3"
+                data-toggle="tooltip"
+                data-placement="rigth"
+                data-container="body"
+                data-boundary="window"
+                title="Staff"
+              >
+                <OverlayTrigger
+                  placement="right"
+                  overlay={
+                    <Tooltip id="latest-project">Staff</Tooltip>
+                  }
+                >
+                  <a
+                    href="#"
+                    className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===
+                      tabs.tabId11 && "active"}`}
+                    data-toggle="tab"
+                    data-target={`#${tabs.tabId11}`}
+                    role="tab"
+                    onClick={() => handleTabChange(tabs.tabId11)}
+                  >
+                    <span className="svg-icon svg-icon-lg">
+                      <SVG
+                        src={toAbsoluteUrl(
+                          "/media/svg/icons/Layout/Layout-4-blocks.svg"
+                        )}
+                      />
+                    </span>
+                  </a>
+                </OverlayTrigger>
+              </li>
               <li
                 className="nav-item mb-3"
                 data-toggle="tooltip"
@@ -440,6 +475,7 @@ export function Aside() {
                 <div className="tab-content">
                   <AsideSearch isActive={activeTab === tabs.tabId1} />
                   <AsideMenu isActive={activeTab === tabs.tabId2} />
+                  <AsideStaffMenu isActive={activeTab===tabs.tabId11}/>
                 </div>
               </div>
               {/* end::Workspace */}

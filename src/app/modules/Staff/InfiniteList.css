@@ -1,0 +1,14 @@
+.InfiniteList-list {
+  height: 100%;
+  width: 100%;
+  overflow-y: hidden;
+  height: 500px;
+  width: 340px;
+}
+.InfiniteList-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+}
