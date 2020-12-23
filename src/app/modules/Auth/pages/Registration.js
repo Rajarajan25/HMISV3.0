@@ -117,11 +117,11 @@ function Registration(props) {
 
   return (
     <div className="login-form login-signin" style={{ display: "block" }}>
-      <div className="text-center mb-10 mb-lg-20">
-        <h3 className="font-size-h1">
+      <div className="text-left mb-10 mb-lg-15">
+        <h1 className="font-size-30 color_01234B font-weight-600 mb-5">
           <FormattedMessage id="AUTH.REGISTER.TITLE" />
-        </h3>
-        <p className="text-muted font-weight-bold">
+        </h1>
+        <p className="font-size-14 text-muted font-weight-normal">
           Enter your details to create your account
         </p>
       </div>
@@ -141,98 +141,113 @@ function Registration(props) {
 
         {/* begin: Fullname */}
         <div className="form-group fv-plugins-icon-container">
-          <input
-            placeholder="Full name"
-            type="text"
-            className={`form-control form-control-solid h-auto py-5 px-6 ${getInputClasses(
-              "fullname"
-            )}`}
-            name="fullname"
-            {...formik.getFieldProps("fullname")}
-          />
-          {formik.touched.fullname && formik.errors.fullname ? (
-            <div className="fv-plugins-message-container">
-              <div className="fv-help-block">{formik.errors.fullname}</div>
-            </div>
-          ) : null}
+          <label class="form-label" for="exampleForm.ControlInput1">Full name</label>
+          <div className="userFullname">
+            <input
+              placeholder="Full name"
+              type="text"
+              className={`form-control py-5 px-6 ${getInputClasses(
+                "fullname"
+              )}`}
+              name="fullname"
+              {...formik.getFieldProps("fullname")}
+            />
+            {formik.touched.fullname && formik.errors.fullname ? (
+              <div className="fv-plugins-message-container">
+                <div className="fv-help-block">{formik.errors.fullname}</div>
+              </div>
+            ) : null}
+          </div>
         </div>
         {/* end: Fullname */}
 
         {/* begin: Email */}
         <div className="form-group fv-plugins-icon-container">
-          <input
-            placeholder="Email"
-            type="email"
-            className={`form-control form-control-solid h-auto py-5 px-6 ${getInputClasses(
-              "email"
-            )}`}
-            name="email"
-            {...formik.getFieldProps("email")}
-          />
-          {formik.touched.email && formik.errors.email ? (
-            <div className="fv-plugins-message-container">
-              <div className="fv-help-block">{formik.errors.email}</div>
-            </div>
-          ) : null}
+          <label class="form-label" for="exampleForm.ControlInput1">Email address</label>
+          <div className="emailIcon">
+            <input
+              placeholder="Email"
+              type="email"
+              className={`form-control py-5 px-6 ${getInputClasses(
+                "email"
+              )}`}
+              name="email"
+              {...formik.getFieldProps("email")}
+            />
+            {formik.touched.email && formik.errors.email ? (
+              <div className="fv-plugins-message-container">
+                <div className="fv-help-block">{formik.errors.email}</div>
+              </div>
+            ) : null}
+          </div>
         </div>
         {/* end: Email */}
 
         {/* begin: Username */}
         <div className="form-group fv-plugins-icon-container">
-          <input
-            placeholder="User name"
-            type="text"
-            className={`form-control form-control-solid h-auto py-5 px-6 ${getInputClasses(
-              "username"
-            )}`}
-            name="username"
-            {...formik.getFieldProps("username")}
-          />
-          {formik.touched.username && formik.errors.username ? (
-            <div className="fv-plugins-message-container">
-              <div className="fv-help-block">{formik.errors.username}</div>
-            </div>
-          ) : null}
+          <label class="form-label" for="exampleForm.ControlInput1">User name</label>
+          <div className="userName">
+            <input
+              placeholder="User name"
+              type="text"
+              className={`form-control py-5 px-6 ${getInputClasses(
+                "username"
+              )}`}
+              name="username"
+              {...formik.getFieldProps("username")}
+            />
+            {formik.touched.username && formik.errors.username ? (
+              <div className="fv-plugins-message-container">
+                <div className="fv-help-block">{formik.errors.username}</div>
+              </div>
+            ) : null}
+          </div>
         </div>
         {/* end: Username */}
 
         {/* begin: Password */}
         <div className="form-group fv-plugins-icon-container">
-          <input
-            placeholder="Password"
-            type="password"
-            className={`form-control form-control-solid h-auto py-5 px-6 ${getInputClasses(
-              "password"
-            )}`}
-            name="password"
-            {...formik.getFieldProps("password")}
-          />
-          {formik.touched.password && formik.errors.password ? (
-            <div className="fv-plugins-message-container">
-              <div className="fv-help-block">{formik.errors.password}</div>
-            </div>
-          ) : null}
+          <label class="form-label" for="exampleForm.ControlInput1">Password</label>
+          <div className="passwordIcon">
+            <input
+              placeholder="Password"
+              type="password"
+              className={`form-control py-5 px-6 ${getInputClasses(
+                "password"
+              )}`}
+              name="password"
+              {...formik.getFieldProps("password")}
+            />
+            {formik.touched.password && formik.errors.password ? (
+              <div className="fv-plugins-message-container">
+                <div className="fv-help-block">{formik.errors.password}</div>
+              </div>
+            ) : null}
+          </div>
         </div>
         {/* end: Password */}
 
         {/* begin: Confirm Password */}
         <div className="form-group fv-plugins-icon-container">
-          <input
-            placeholder="Confirm Password"
-            type="password"
-            className={`form-control form-control-solid h-auto py-5 px-6 ${getInputClasses(
-              "changepassword"
-            )}`}
-            name="changepassword"
-            {...formik.getFieldProps("changepassword")}
-          />
-          {formik.touched.changepassword && formik.errors.changepassword ? (
-            <div className="fv-plugins-message-container">
-              <div className="fv-help-block">
-                {formik.errors.changepassword}
+          <label class="form-label" for="exampleForm.ControlInput1">Confirm Password</label>
+          <div className="passwordIcon">
+            <input
+              placeholder="Confirm Password"
+              type="password"
+              className={`form-control py-5 px-6 ${getInputClasses(
+                "changepassword"
+              )}`}
+              name="changepassword"
+              {...formik.getFieldProps("changepassword")}
+            />
+            {formik.touched.changepassword && formik.errors.changepassword ? (
+              <div className="fv-plugins-message-container">
+                <div className="fv-help-block">
+                  {formik.errors.changepassword}
+                </div>
               </div>
-            </div>
-          ) : null}
+            ) : null}
+          </div>
         </div>
         {/* end: Confirm Password */}
 
@@ -270,7 +285,7 @@ function Registration(props) {
               !formik.isValid ||
               !formik.values.acceptTerms
             }
-            className="btn btn-primary font-weight-bold px-9 py-4 my-3 mx-4"
+            className="btn btn-primary h-77 font-weight-bold px-9 py-4 my-3 mx-4"
           >
             <span>Submit</span>
             {loading && <span className="ml-3 spinner spinner-white"></span>}
@@ -279,7 +294,7 @@ function Registration(props) {
           <Link to="/auth/login">
             <button
               type="button"
-              className="btn btn-light-primary font-weight-bold px-9 py-4 my-3 mx-4"
+              className="btn btn-light-primary h-77 font-weight-bold px-9 py-4 my-3 mx-4"
             >
               Cancel
             </button>
