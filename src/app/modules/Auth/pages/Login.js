@@ -191,7 +191,7 @@ function Login(props) {
         </div>
         <div className="form-group d-flex flex-wrap justify-content-between align-items-center">
           <button
-            id="kt_login_signin_submit"
+            id="social_google_signin_submit"
             type="submit"
             className={`btn btn-default borderRadius-10 h-77 text-dark border`}
           >
@@ -200,7 +200,7 @@ function Login(props) {
             {loading && <span className="ml-3 spinner spinner-white"></span>}
           </button>
           <button
-            id="kt_login_signin_submit"
+            id="social_facebook_signin_submit"
             type="submit"
             className={`btn btn-default borderRadius-10 h-77 text-dark border`}
           >

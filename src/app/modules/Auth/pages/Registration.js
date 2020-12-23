@@ -205,51 +205,53 @@ function Registration(props) {
         </div>
         {/* end: Username */}
 
-        {/* begin: Password */}
-        <div className="form-group fv-plugins-icon-container">
-          <label class="form-label" for="exampleForm.ControlInput1">Password</label>
-          <div className="passwordIcon">
-            <input
-              placeholder="Password"
-              type="password"
-              className={`form-control py-5 px-6 ${getInputClasses(
-                "password"
-              )}`}
-              name="password"
-              {...formik.getFieldProps("password")}
-            />
-            {formik.touched.password && formik.errors.password ? (
-              <div className="fv-plugins-message-container">
-                <div className="fv-help-block">{formik.errors.password}</div>
-              </div>
-            ) : null}
-          </div>
-        </div>
-        {/* end: Password */}
-
-        {/* begin: Confirm Password */}
-        <div className="form-group fv-plugins-icon-container">
-          <label class="form-label" for="exampleForm.ControlInput1">Confirm Password</label>
-          <div className="passwordIcon">
-            <input
-              placeholder="Confirm Password"
-              type="password"
-              className={`form-control py-5 px-6 ${getInputClasses(
-                "changepassword"
-              )}`}
-              name="changepassword"
-              {...formik.getFieldProps("changepassword")}
-            />
-            {formik.touched.changepassword && formik.errors.changepassword ? (
-              <div className="fv-plugins-message-container">
-                <div className="fv-help-block">
-                  {formik.errors.changepassword}
+        <div className="form-row fv-plugins-icon-container">
+          {/* begin: Password */}
+          <div className="form-group col-12 col-md">
+            <label class="form-label" for="exampleForm.ControlInput1">Password</label>
+            <div className="passwordIcon">
+              <input
+                placeholder="Password"
+                type="password"
+                className={`form-control py-5 px-6 ${getInputClasses(
+                  "password"
+                )}`}
+                name="password"
+                {...formik.getFieldProps("password")}
+              />
+              {formik.touched.password && formik.errors.password ? (
+                <div className="fv-plugins-message-container">
+                  <div className="fv-help-block">{formik.errors.password}</div>
                 </div>
-              </div>
-            ) : null}
+              ) : null}
+            </div>
           </div>
+          {/* end: Password */}
+          <div className="form-group d-none d-lg-block">&nbsp;</div>
+          {/* begin: Confirm Password */}
+          <div className="form-group col-12 col-md">
+            <label class="form-label" for="exampleForm.ControlInput1">Confirm Password</label>
+            <div className="passwordIcon">
+              <input
+                placeholder="Confirm Password"
+                type="password"
+                className={`form-control py-5 px-6 ${getInputClasses(
+                  "changepassword"
+                )}`}
+                name="changepassword"
+                {...formik.getFieldProps("changepassword")}
+              />
+              {formik.touched.changepassword && formik.errors.changepassword ? (
+                <div className="fv-plugins-message-container">
+                  <div className="fv-help-block">
+                    {formik.errors.changepassword}
+                  </div>
+                </div>
+              ) : null}
+            </div>
+          </div>
+          {/* end: Confirm Password */}
         </div>
-        {/* end: Confirm Password */}
 
         {/* begin: Terms and Conditions */}
         <div className="form-group">

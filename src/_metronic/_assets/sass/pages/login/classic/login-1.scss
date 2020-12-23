@@ -120,6 +120,9 @@
 .socialIcon{
     width: 25px;
 }
+.was-validated .form-control:valid, .form-control.is-valid{
+    background-size: calc(0.55em + 0.45rem) calc(0.55em + 0.45rem) !important;
+}
 // Desktop view
 @include media-breakpoint-up(lg) {
     .login.login-1 {
