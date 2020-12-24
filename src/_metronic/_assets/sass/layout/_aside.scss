@@ -49,6 +49,16 @@
 			@include perfect-scrollbar-ver-offset(4px);
 		}
 	}
+	#kt_quick_user_toggle .symbol{
+		background: #fda9bd;
+		border-radius: 50%;
+		border-color: #f34d9b;
+		width: 36px;
+		height: 36px;
+		line-height: 36px;
+		box-shadow: 0 0 0 2px #fff;
+	}
+
 }
 
 // Desktop Mode

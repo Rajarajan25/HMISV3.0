@@ -27,7 +27,7 @@ export function QuickUserToggler() {
           overlay={<Tooltip id="quick-user-tooltip">User Profile</Tooltip>}
         >
           <div
-            className="btn btn-icon btn-clean btn-lg w-40px h-40px"
+            className="d-inline-block w-40px text-center"
             id="kt_quick_user_toggle"
             data-placement="right"
             data-container="body"
@@ -35,7 +35,12 @@ export function QuickUserToggler() {
           >
             <span className="symbol symbol-30 symbol-lg-40">
               <span className="svg-icon svg-icon-lg">
-                <SVG src={toAbsoluteUrl("/media/svg/icons/General/User.svg")} />
+                <SVG src={toAbsoluteUrl("/media/svg/avatars/001-boy.svg")} />
+              </span>
+            </span>
+            <span className="symbol symbol-30 symbol-lg-40 mt-n5 bg-primary">
+              <span className="svg-icon svg-icon-lg">
+                <SVG src={toAbsoluteUrl("/media/svg/avatars/001-boy.svg")} />
               </span>
             </span>
           </div>

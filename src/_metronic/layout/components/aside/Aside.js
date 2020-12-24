@@ -56,6 +56,7 @@ export function Aside() {
   const tabs = {
     tabId1: "kt_aside_tab_1",
     tabId2: "kt_aside_tab_2",
+    tabId3: "kt_aside_tab_3",
   };
   const [activeTab, setActiveTab] = useState(tabs.tabId1);
   const handleTabChange = (id) => {
@@ -80,96 +81,123 @@ export function Aside() {
         <div className="aside-primary d-flex flex-column align-items-center flex-row-auto">
           <Brand />
           {/* begin::Header */}
-          <div className="aside-header d-flex flex-column align-items-center flex-column-auto">
-            
-            {/* begin::Quick Actions */}
-            {layoutProps.extrasQuickActionsDisplay && (
-              <OverlayTrigger
-              placement="right"
-              overlay={
-                <Tooltip id="latest-project">Latest Project</Tooltip>
-              }
-            >
-              <a
-                href="#"
-                className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===
-                  tabs.tabId1 && "active"}`}
-                data-toggle="tab"
-                data-target={`#${tabs.tabId1}`}
-                role="tab"
-                onClick={() => handleTabChange(tabs.tabId1)}
-              >
-                <span className="svg-icon svg-icon-sm">
-                  <SVG
-                    src={toAbsoluteUrl(
-                      "/media/svg/icons/Layout/Layout-home.svg"
-                    )}
-                  />
-                </span>
-              </a>
-            </OverlayTrigger>
-            )}
-            {/* end::Quick Actions */}
+          <div className="aside-header d-flex
+           flex-column align-items-center flex-column-auto">
 
-            {/* begin::Quick Panel */}
-            {layoutProps.extrasQuickPanelDisplay && (
-              <OverlayTrigger
-              placement="right"
-              overlay={
-                <Tooltip id="metronic-features">Metronic Features</Tooltip>
-              }
-            >
-              <a
-                href="#"
-                className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===
-                  tabs.tabId2 && "active"}`}
-                data-toggle="tab"
-                data-target={`#${tabs.tabId2}`}
-                onClick={() => handleTabChange(tabs.tabId2)}
-                role="tab"
+            <ul className="list-unstyled flex-column m-0" role="tablist">
+              {/* begin::Item */}
+              <li
+                className="nav-item mb-3"
+                data-toggle="tooltip"
+                data-placement="rigth"
+                data-container="body"
+                data-boundary="window"
+                title="Latest Project"
               >
-                <span className="svg-icon svg-icon-sm">
-                  <SVG
-                    src={toAbsoluteUrl(
-                      "/media/svg/icons/Communication/Layout-check.svg"
-                    )}
-                  />
-                </span>
-              </a>
-            </OverlayTrigger>
-            )}
-            {/* end::Quick Panel */}
-            
-            {/* begin::Quick Panel */}
-            {layoutProps.extrasQuickPanelDisplay && (
-              <OverlayTrigger
+                <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="latest-reports">Latest Reports</Tooltip>
+                    <Tooltip id="latest-project">Latest Project</Tooltip>
                   }
                 >
                   <a
                     href="#"
-                    className="nav-link btn btn-icon btn-clean btn-lg"
+                    className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===
+                    tabs.tabId1 && "active"}`}
                     data-toggle="tab"
-                    data-target="#kt_aside_tab_3"
+                    data-target={`#${tabs.tabId1}`}
                     role="tab"
+                    onClick={() => handleTabChange(tabs.tabId1)}
                   >
                     <span className="svg-icon svg-icon-sm">
                       <SVG
                         src={toAbsoluteUrl(
-                          "/media/svg/icons/Media/Equalizer.svg"
+                          "/media/svg/icons/Layout/Layout-home.svg"
                         )}
                       />
                     </span>
                   </a>
                 </OverlayTrigger>
-              )}
+              </li>
+              {/* end::Item */}
+
+              {/* begin::Item */}
+              <li
+                className="nav-item mb-3"
+                data-toggle="tooltip"
+                data-placement="rigth"
+                data-container="body"
+                data-boundary="window"
+                title="Metronic Features"
+              >
+                <OverlayTrigger
+                  placement="right"
+                  overlay={
+                    <Tooltip id="metronic-features">Metronic Features</Tooltip>
+                  }
+                >
+                  <a
+                    href="#"
+                    className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===
+                      tabs.tabId2 && "active"}`}
+                    data-toggle="tab"
+                    data-target={`#${tabs.tabId2}`}
+                    onClick={() => handleTabChange(tabs.tabId2)}
+                    role="tab"
+                  >
+                    <span className="svg-icon svg-icon-sm">
+                      <SVG
+                        src={toAbsoluteUrl(
+                          "/media/svg/icons/Communication/Layout-check.svg"
+                        )}
+                      />
+                    </span>
+                  </a>
+                </OverlayTrigger>
+              </li>
+              {/* end::Item */}
+
+              {/* begin::Item */}
+              <li
+                className="nav-item mb-3"
+                data-toggle="tooltip"
+                data-placement="rigth"
+                data-container="body"
+                data-boundary="window"
+                title="Metronic Features"
+              >
+                <OverlayTrigger
+                  placement="right"
+                  overlay={
+                    <Tooltip id="metronic-features">Metronic Features</Tooltip>
+                  }
+                >
+                  <a
+                    href="#"
+                    className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===
+                      tabs.tabId3 && "active"}`}
+                    data-toggle="tab"
+                    data-target={`#${tabs.tabId3}`}
+                    onClick={() => handleTabChange(tabs.tabId3)}
+                    role="tab"
+                  >
+                    <span className="svg-icon svg-icon-sm">
+                      <SVG
+                        src={toAbsoluteUrl(
+                          "/media/svg/icons/Communication/Layout-check.svg"
+                        )}
+                      />
+                    </span>
+                  </a>
+                </OverlayTrigger>
+              </li>
+              {/* end::Item */}
+            </ul>                        
           </div>
           {/* end::Header */}
 
           {/* begin::Nav Wrapper */}
-          <div className="aside-nav d-flex flex-column align-items-center flex-column-fluid py-5 scroll scroll-pull">
+          <div className="aside-nav d-flex flex-column align-items-center flex-column-fluid scroll scroll-pull">
             {/* begin::Nav */}
             <ul className="list-unstyled flex-column" role="tablist">
               {/* begin::Item */}
@@ -528,7 +556,8 @@ export function Aside() {
               <div className="aside-workspace scroll scroll-push my-2">
                 <div className="tab-content">
                   <AsideSearch isActive={activeTab === tabs.tabId1} />
-                  <AsideMenu isActive={activeTab === tabs.tabId2} />
+                  <AsideSearch isActive={activeTab === tabs.tabId2} />
+                  <AsideMenu isActive={activeTab === tabs.tabId3} />
                 </div>
               </div>
               {/* end::Workspace */}
