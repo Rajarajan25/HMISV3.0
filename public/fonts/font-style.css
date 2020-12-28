@@ -131,3 +131,12 @@
 	font-weight: 500;
 	font-style: italic;
 }
+@font-face {  
+    font-family: Proxima Nova;
+    src: url("ProximaNova-Regular.otf") format("opentype");
+}
+@font-face {
+    font-family: Proxima Nova;
+    font-weight: bold;
+    src: url("Proxima Nova Bold.otf") format("opentype");
+}

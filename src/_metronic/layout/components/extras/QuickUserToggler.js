@@ -32,6 +32,7 @@ export function QuickUserToggler() {
             data-placement="right"
             data-container="body"
             data-boundary="window"
+            offcanvas="overlay: false"
           >
             <span className="symbol symbol-30 symbol-lg-40">
               <span className="svg-icon svg-icon-lg">
