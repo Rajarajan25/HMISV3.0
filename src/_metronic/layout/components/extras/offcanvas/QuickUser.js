@@ -29,7 +29,7 @@ export function QuickUser() {
         <a
           href="#"
           className="btn btn-xs btn-icon btn-light btn-hover-primary"
-          id="kt_quick_user_close"
+          id="kt_quick_user_close1"
         >
           <i className="ki ki-close icon-xs text-muted" />
         </a>
@@ -281,7 +281,7 @@ export function QuickUser() {
           <a
             href="#"
             className="btn btn-xs btn-icon btn-light btn-hover-primary"
-            id="kt_quick_panel_close"
+            id="kt_quick_user_close"
           >
             <i className="ki ki-close icon-xs text-muted"></i>
           </a>
@@ -293,7 +293,7 @@ export function QuickUser() {
           <span className="userIcon bg-primary-light">K</span>
           <span className="userIcon bg-danger">D</span>
           <span className="userIcon bg-success">M</span>
-          <span className="userIcon bg-success font-size-h6">+</span>
+          <span className="userIcon bg-success font-size-h6 addNewevents">+</span>
         </div>
         <div className="d-flex w-100 userModalcontent">
           <div className="d-flex col">

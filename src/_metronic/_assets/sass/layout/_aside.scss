@@ -29,8 +29,23 @@
 		}
 		
 		.btn.btn-icon.btn-lg {
-			height: calc(1.15em + 1.3rem + 2px);
-			width: calc(1.15em + 1.3rem + 2px);	
+			height: 36px;
+			width: 36px;	
+		}
+		.active{
+			background-color: #4169e1 !important;
+			svg{
+				fill:#fff;
+			}
+		}
+		.aside-nav{
+			ul li{
+				margin:0 0 6px 0;
+				.svg-icon.svg-icon-md svg{
+					max-width: 18px;
+				}
+			}
+			
 		}
 	}
 
@@ -52,13 +67,30 @@
 	#kt_quick_user_toggle .symbol{
 		background: #fda9bd;
 		border-radius: 50%;
-		border-color: #f34d9b;
-		width: 36px;
-		height: 36px;
-		line-height: 36px;
+		width: 29px;
+		height: 29px;
 		box-shadow: 0 0 0 2px #fff;
+		margin: 0 auto;
+		font-weight: 500;
+		font-size: 11px;
+		line-height: 26px;
 	}
-	
+	.aside-brand{
+		padding: 11px 0 15px;
+	}
+	.aside-footer{
+		.asideFooterbottommenu{
+			margin-top: 5px;
+			padding: 10px 0 5px;
+			
+			a{
+				margin:0 0 6px 0 ;
+				.svg-icon.svg-icon-md svg{
+					max-width: 18px;
+				}
+			}
+		}
+	}
 }
 
 // Desktop Mode

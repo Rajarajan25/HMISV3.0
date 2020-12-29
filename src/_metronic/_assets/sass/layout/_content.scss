@@ -106,7 +106,8 @@
     background: #de4757;
     border-radius: 50%;
     text-align: center;
-    line-height: 26px;
+	line-height: 26px;
+	cursor: pointer;
 }
 .userName{
 	font-family: $font-family-base;
@@ -118,4 +119,42 @@
     overflow: hidden;
     text-overflow: ellipsis;
     color: #292d34;
+}
+.addNewevents,.addNewevents:hover{
+	background-color: transparent !important;
+	color: #343434;
+    border: 1px dashed #393b4b;
+    box-shadow: none !important;
+}
+.asideTopleftfixedmenu{
+	border-bottom:2px solid #e9ebf0;
+	padding-bottom: 3px;
+	margin-bottom:11px;
+	li{
+		margin:0 0 6px 0;
+	}
+	.svg-icon.svg-icon-md svg{
+		max-width: 18px;
+	}
+	.btn.btn-clean:not(:disabled):not(.disabled):active:not(.btn-text), 
+	.btn.btn-clean:not(:disabled):not(.disabled).active, 
+	.show > .btn.btn-clean.dropdown-toggle, 
+	.show .btn.btn-clean.btn-dropdown{
+		background-color: #4169e1;
+		svg{
+			fill:#fff;
+		}
+	}
+}
+.leftMenuuserprofileicon{
+	border-top: 1px solid #e9ebf0;
+	padding: 10px 0 7px;
+	.symbol:last-of-type{
+		margin-top: -12px !important;
+		width: 33px !important;
+		height: 33px !important;
+		border: 2px solid #fff !important;
+		box-shadow: none !important;
+		line-height: 29px !important;
+	}
 }
