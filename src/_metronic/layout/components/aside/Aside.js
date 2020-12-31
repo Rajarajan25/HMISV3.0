@@ -6,6 +6,7 @@ import SVG from "react-inlinesvg";
 import { useHtmlClassService } from "../../_core/MetronicLayout";
 import { toAbsoluteUrl } from "../../../_helpers";
 import { AsideSearch } from "./AsideSearch";
+import { AsideSubmenu } from "./aside-menu/AsideSubmenu";
 import { AsideMenu } from "./aside-menu/AsideMenu";
 import { LanguageSelectorDropdown } from "../extras/dropdowns/LanguageSelectorDropdown";
 import { QuickUserToggler } from "../extras/QuickUserToggler";
@@ -57,8 +58,9 @@ export function Aside() {
     tabId1: "kt_aside_tab_1",
     tabId2: "kt_aside_tab_2",
     tabId3: "kt_aside_tab_3",
+    tabId4: "kt_aside_tab_4", 
   };
-  const [activeTab, setActiveTab] = useState(tabs.tabId1);
+  const [activeTab, setActiveTab] = useState(tabs.tabId4);
   const handleTabChange = (id) => {
     setActiveTab(id);
     const asideWorkspace = KTUtil.find(
@@ -103,11 +105,11 @@ export function Aside() {
                   <a
                     href="#"
                     className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===
-                    tabs.tabId1 && "active"}`}
+                    tabs.tabId4 && "active"}`}
                     data-toggle="tab"
-                    data-target={`#${tabs.tabId1}`}
+                    data-target={`#${tabs.tabId4}`}
                     role="tab"
-                    onClick={() => handleTabChange(tabs.tabId1)}
+                    onClick={() => handleTabChange(tabs.tabId4)}
                   >
                     <span className="svg-icon svg-icon-md d-inline-flex">
                       <SVG
@@ -425,10 +427,10 @@ export function Aside() {
                     overlay={<Tooltip id="toggle-aside">Toggle Aside</Tooltip>}
                   >
                     <span
-                      className="aside-toggle btn btn-icon btn-primary btn-hover-primary shadow-sm"
+                      className="aside-toggle btn btn-icon btn-toggleIcon btn-hover-primary shadow-sm"
                       id="kt_aside_toggle"
                     >
-                      <i className="ki ki-bold-arrow-back icon-sm" />
+                      <i className="ki ki-arrow-back icon-xs" />
                     </span>
                   </OverlayTrigger>
                 </>
@@ -625,11 +627,12 @@ export function Aside() {
             {/* begin::Secondary */}
             <div className="aside-secondary d-flex flex-row-fluid">
               {/* begin::Workspace */}
-              <div className="aside-workspace scroll scroll-push my-2">
+              <div className="aside-workspace scroll scroll-push">
                 <div className="tab-content">
                   <AsideSearch isActive={activeTab === tabs.tabId1} />
                   <AsideSearch isActive={activeTab === tabs.tabId2} />
                   <AsideMenu isActive={activeTab === tabs.tabId3} />
+                  <AsideSubmenu isActive={activeTab === tabs.tabId4} />
                 </div>
               </div>
               {/* end::Workspace */}
