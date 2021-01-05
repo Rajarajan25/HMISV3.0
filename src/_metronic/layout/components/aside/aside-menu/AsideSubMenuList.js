@@ -143,14 +143,14 @@ export function AsideSubMenuList({ layoutProps }) {
           data-menu-toggle="hover"
         >
           <NavLink className="menu-link menu-toggle" to="/google-material">
+            <i className="fas fa-caret-right" />
             <span className="svg-icon menu-icon d-flex flex-column rounded customMenutexticon bgCustom1">
               A
             </span>
             <span className="menu-text">Material UI</span>
-            <i className="menu-arrow" />
+            
           </NavLink>
           <div className="menu-submenu ">
-            <i className="menu-arrow" />
             <ul className="menu-subnav">
               <li className="menu-item  menu-item-parent" aria-haspopup="true">
                 <span className="menu-link">
@@ -176,7 +176,7 @@ export function AsideSubMenuList({ layoutProps }) {
                     <SVG src={toAbsoluteUrl("/media/svg/icons/Design/Cap-2.svg")} />
                   </span>
                   <span className="menu-text">Inputs</span>
-                  <i className="menu-arrow" />
+                  
                 </NavLink>
                 <div className="menu-submenu ">
                   <i className="menu-arrow" />
@@ -262,10 +262,8 @@ export function AsideSubMenuList({ layoutProps }) {
                     <SVG src={toAbsoluteUrl("/media/svg/icons/Design/Cap-2.svg")} />
                   </span>
                   <span className="menu-text">Navigation</span>
-                  <i className="menu-arrow" />
                 </NavLink>
                 <div className="menu-submenu">
-                  <i className="menu-arrow" />
                   <ul className="menu-subnav">
                     {/*begin::3 Level*/}
                     <li
@@ -420,11 +418,11 @@ export function AsideSubMenuList({ layoutProps }) {
           data-menu-toggle="hover"
         >
           <NavLink className="menu-link menu-toggle" to="/react-bootstrap">
+            <i className="fas fa-caret-right" />
             <span className="svg-icon menu-icon d-flex flex-column rounded customMenutexticon">
               B
             </span>
             <span className="menu-text">Bootstrap</span>
-            <i className="menu-arrow" />
           </NavLink>
           <div className="menu-submenu ">
             <ul className="menu-subnav">

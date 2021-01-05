@@ -140,7 +140,7 @@
 	.btn.btn-clean:not(:disabled):not(.disabled).active, 
 	.show > .btn.btn-clean.dropdown-toggle, 
 	.show .btn.btn-clean.btn-dropdown{
-		background-color: #4169e1;
+		background-color:transparent;
 		svg{
 			fill:#fff;
 		}
@@ -158,3 +158,99 @@
 		line-height: 29px !important;
 	}
 }
+
+.filterFixedheader{
+	display: flex;
+	height: 54px;
+	margin-top: -2rem;
+	margin-bottom: 1rem;
+	background: transparent;
+	box-shadow: none !important;
+	font-size: 12px;
+  }
+  .filterFixedheader .btn,.filterFixedheader .btn:hover,.filterFixedheader .btn:focus,.filterFixedheader .btn:active,
+  .filterFixedheader .btn-light:not(:disabled):not(.disabled):active,.filterFixedheader .btn-light:not(:disabled):not(.disabled).active,
+  .filterFixedheader .show > .btn-light.dropdown-toggle{ 
+	background: transparent;
+	box-shadow: none !important;
+	font-size: 12px;
+	border:0px;
+	padding-left: 5px;
+	color: #707070 !important;
+  }
+  .filterFixedheader .card-body{
+	position: fixed;
+	top: 54px;
+	right: 2rem;
+	width: calc(100% - 392px - 0.5rem);
+	background: #eee;
+	z-index: 999;
+	border-radius: 0px !important;
+	padding: 12px 0;
+  }
+  .filterFixedheader .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn){
+	width:auto;
+	min-width: 80px;
+  }
+  .filterFixedheader .bootstrap-select .dropdown-menu li{
+	border-bottom: 1px solid #eeeeee;
+  }
+  .filterFixedheader .bootstrap-select .dropdown-menu li:last-child{
+	border: 0px;
+  }
+  .filterFixedheader .bs-searchbox .form-control{
+	height: 26px;
+	background: #f2f4f8;
+	border-radius: 5px;
+	margin: 5px 0 0;
+  }
+  .filterFixedheader .bootstrap-select .dropdown-menu li a span.text{
+	font-size: 12px;
+	min-width: 70px;
+  }
+  .filterFixedheader .dropdown .dropdown-menu .dropdown-item.active:after,.filterFixedheader  .btn-group .dropdown-menu .dropdown-item.active:after{
+	content:"\f00c";
+	position: absolute;
+	right: 5px;
+	font-family: 'FontAwesome';
+	font-size: 10px;
+	top: 7px;
+	font-weight: normal;
+  }
+  .filterFixedheader  .dropdown .dropdown-menu{
+	padding: 0;
+  }
+  .filterFixedheader  .dropdown .dropdown-menu .dropdown-item{
+	padding-left: 0.5rem;
+  }
+  .filterFixedheader  .dropdown .dropdown-menu .dropdown-item.active{
+	background: transparent !important;
+  }
+  .filterFixedheader .form-control{
+	background: transparent;
+	font-size: 12px;
+	border: 0;
+	box-shadow: none;
+	padding: 0;
+	height: auto;
+  }
+  .filterFixedheader .bootstrap-select.show-tick .dropdown-menu .selected span.check-mark{
+	top:10px;
+  }
+  .filterFixedheader .bootstrap-select .bs-ok-default:after {
+	content: '';
+	display: block;
+	width: 0.3em;
+	height: 0.6em;
+	border-style: solid;
+	border-width: 0 .17em .17em 0;
+  }
+  .filterFixedheader .form-group{
+	margin: auto;
+  }
+  .pageTitlecontent{
+	position: relative;
+  }
+  .pageTitlecontent .toggleLefticon{
+	top:4px;
+  }

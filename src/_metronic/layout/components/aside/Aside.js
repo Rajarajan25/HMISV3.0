@@ -114,7 +114,7 @@ export function Aside() {
                     <span className="svg-icon svg-icon-md d-inline-flex">
                       <SVG
                         src={toAbsoluteUrl(
-                          "/media/svg/icons/Layout/Layout-home.svg"
+                          "/media/svg/left-menu/Dashboard.svg"
                         )}
                       />
                     </span>
@@ -150,7 +150,7 @@ export function Aside() {
                     <span className="svg-icon svg-icon-md d-inline-flex">
                       <SVG
                         src={toAbsoluteUrl(
-                          "/media/svg/icons/Communication/Layout-check.svg"
+                          "/media/svg/left-menu/Calender.svg"
                         )}
                       />
                     </span>
@@ -186,7 +186,7 @@ export function Aside() {
                     <span className="svg-icon svg-icon-md d-inline-flex">
                       <SVG
                         src={toAbsoluteUrl(
-                          "/media/svg/icons/Communication/Layout-check.svg"
+                          "/media/svg/left-menu/Services.svg"
                         )}
                       />
                     </span>
@@ -229,7 +229,7 @@ export function Aside() {
                     <span className="svg-icon svg-icon-md d-inline-flex">
                       <SVG
                         src={toAbsoluteUrl(
-                          "/media/svg/icons/Layout/Layout-home.svg"
+                          "/media/svg/left-menu/Payment.svg"
                         )}
                       />
                     </span>
@@ -265,7 +265,7 @@ export function Aside() {
                     <span className="svg-icon svg-icon-md d-inline-flex">
                       <SVG
                         src={toAbsoluteUrl(
-                          "/media/svg/icons/Communication/Layout-check.svg"
+                          "/media/svg/left-menu/Speaker.svg"
                         )}
                       />
                     </span>
@@ -299,7 +299,7 @@ export function Aside() {
                     <span className="svg-icon svg-icon-md d-inline-flex">
                       <SVG
                         src={toAbsoluteUrl(
-                          "/media/svg/icons/Media/Equalizer.svg"
+                          "/media/svg/left-menu/Chart.svg"
                         )}
                       />
                     </span>
@@ -311,6 +311,40 @@ export function Aside() {
               {/* begin::Item */}
               <li
                 className="nav-item"
+                data-toggle="tooltip"
+                data-placement="rigth"
+                data-container="body"
+                data-boundary="window"
+                title="Latest Reports"
+              >
+                <OverlayTrigger
+                  placement="right"
+                  overlay={
+                    <Tooltip id="latest-reports">Latest Reports</Tooltip>
+                  }
+                >
+                  <a
+                    href="#"
+                    className="nav-link btn btn-icon btn-clean btn-lg"
+                    data-toggle="tab"
+                    data-target="#kt_aside_tab_3"
+                    role="tab"
+                  >
+                    <span className="svg-icon svg-icon-md d-inline-flex">
+                      <SVG
+                        src={toAbsoluteUrl(
+                          "/media/svg/left-menu/Products.svg"
+                        )}
+                      />
+                    </span>
+                  </a>
+                </OverlayTrigger>
+              </li>
+              {/* end::Item */}
+
+              {/* begin::Item */}
+              <li
+                className="nav-item d-none"
                 data-toggle="tooltip"
                 data-placement="rigth"
                 data-container="body"
@@ -335,7 +369,7 @@ export function Aside() {
                     <span className="svg-icon svg-icon-md d-inline-flex">
                       <SVG
                         src={toAbsoluteUrl(
-                          "/media/svg/icons/General/Shield-check.svg"
+                          "/media/svg/left-menu/Setting.svg"
                         )}
                       />
                     </span>
@@ -346,7 +380,7 @@ export function Aside() {
 
               {/* begin::Item */}
               <li
-                className="nav-item"
+                className="nav-item d-none"
                 data-toggle="tooltip"
                 data-placement="rigth"
                 data-container="body"
@@ -368,7 +402,7 @@ export function Aside() {
                   >
                     <span className="svg-icon svg-icon-md d-inline-flex">
                       <SVG
-                        src={toAbsoluteUrl("/media/svg/icons/Home/Library.svg")}
+                        src={toAbsoluteUrl("/media/svg/left-menu/Help.svg")}
                       />
                     </span>
                   </a>
@@ -376,41 +410,6 @@ export function Aside() {
               </li>
               {/* end::Item */}
 
-              {/* begin::Item */}
-              <li
-                className="nav-item"
-                data-toggle="tooltip"
-                data-placement="rigth"
-                data-container="body"
-                data-boundary="window"
-                title="Finance & Accounting"
-              >
-                <OverlayTrigger
-                  placement="right"
-                  overlay={
-                    <Tooltip id="finance-accounting">
-                      Finance & Accounting
-                    </Tooltip>
-                  }
-                >
-                  <a
-                    href="#"
-                    className="nav-link btn btn-icon btn-clean btn-lg"
-                    data-toggle="tab"
-                    data-target="#kt_aside_tab_6"
-                    role="tab"
-                  >
-                    <span className="svg-icon svg-icon-md d-inline-flex">
-                      <SVG
-                        src={toAbsoluteUrl(
-                          "/media/svg/icons/Files/File-plus.svg"
-                        )}
-                      />
-                    </span>
-                  </a>
-                </OverlayTrigger>
-              </li>
-              {/* end::Item */}
             </ul>
             {/* end::Nav */}
           </div>
@@ -500,7 +499,7 @@ export function Aside() {
                   <span className="svg-icon svg-icon-md d-inline-flex">
                     <SVG
                       src={toAbsoluteUrl(
-                        "/media/svg/icons/Media/Equalizer.svg"
+                        "/media/svg/left-menu/Setting.svg"
                       )}
                     />
                   </span>
@@ -524,7 +523,7 @@ export function Aside() {
                   <span className="svg-icon svg-icon-md d-inline-flex">
                     <SVG
                       src={toAbsoluteUrl(
-                        "/media/svg/icons/Media/Equalizer.svg"
+                        "/media/svg/left-menu/Help.svg"
                       )}
                     />
                   </span>
@@ -548,31 +547,7 @@ export function Aside() {
                   <span className="svg-icon svg-icon-md d-inline-flex">
                     <SVG
                       src={toAbsoluteUrl(
-                        "/media/svg/icons/Media/Equalizer.svg"
-                      )}
-                    />
-                  </span>
-                </a>
-              </OverlayTrigger>
-            )}
-            {/* end::Quick Actions */}
-            {/* begin::Quick Actions */}
-            {layoutProps.extrasQuickActionsDisplay && (
-              <OverlayTrigger
-                placement="right"
-                overlay={
-                  <Tooltip id="toggle-quick-actions">Quick Actions</Tooltip>
-                }
-              >
-                <a
-                  href="#"
-                  className="btn btn-icon btn-clean btn-lg"
-                  id="kt_quick_actions_toggle"
-                >
-                  <span className="svg-icon svg-icon-md d-inline-flex">
-                    <SVG
-                      src={toAbsoluteUrl(
-                        "/media/svg/icons/Media/Equalizer.svg"
+                        "/media/svg/left-menu/Thunder.svg"
                       )}
                     />
                   </span>
@@ -598,7 +573,7 @@ export function Aside() {
                   <span className="svg-icon svg-icon-md d-inline-flex">
                     <SVG
                       src={toAbsoluteUrl(
-                        "/media/svg/icons/Layout/Layout-4-blocks.svg"
+                        "/media/svg/left-menu/Notification.svg"
                       )}
                     />
                   </span>
