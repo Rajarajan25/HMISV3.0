@@ -136,6 +136,246 @@ export function AsideSubMenuList({ layoutProps }) {
         {/*begin::1 Level*/}
         <li
           className={`menu-item menu-item-submenu ${getMenuItemActive(
+            "/available-doctors",
+            true
+          )}`}
+          aria-haspopup="true"
+          data-menu-toggle="hover"
+        >
+          <NavLink className="menu-link menu-toggle" to="/available-doctors">
+            <i className="fas fa-caret-right" />
+            <span className="svg-icon menu-icon d-flex flex-column rounded customMenutexticon bgCustom1">
+              M
+            </span>
+            <span className="menu-text">Manage</span>
+            
+          </NavLink>
+          <div className="menu-submenu ">
+            <i className="menu-arrow" />
+            <ul className="menu-subnav">
+              {/*begin::1 Level*/}
+              <li
+                className={`menu-item  ${getMenuItemActive(
+                  "/available-doctors/profile-overview"
+                )}`}
+                aria-haspopup="true"
+              >
+                <NavLink
+                  className="menu-link"
+                  to="/available-doctors/profile-overview"
+                >
+                  <i className="menu-bullet menu-bullet-dot">
+                    <span />
+                  </i>
+                  <span className="menu-text">Staff</span>
+                </NavLink>
+              </li>
+              {/*end::1 Level*/}
+
+              {/*begin::2 Level*/}
+              <li
+                className={`menu-item ${getMenuItemActive(
+                  "/available-patients/profile-overview"
+                )}`}
+                aria-haspopup="true"
+              >
+                <NavLink
+                  className="menu-link"
+                  to="/available-patients/profile-overview"
+                >
+                  <i className="menu-bullet menu-bullet-dot">
+                    <span />
+                  </i>
+                  <span className="menu-text">Services</span>
+                </NavLink>
+              </li>
+              {/*end::2 Level*/}
+
+              {/*begin::3 Level*/}
+              <li
+                className={`menu-item ${getMenuItemActive(
+                  "/available-patients/profile-overview"
+                )}`}
+                aria-haspopup="true"
+              >
+                <NavLink
+                  className="menu-link"
+                  to="/available-patients/profile-overview"
+                >
+                  <i className="menu-bullet menu-bullet-dot">
+                    <span />
+                  </i>
+                  <span className="menu-text">Customers</span>
+                </NavLink>
+              </li>
+              {/*end::3 Level*/}
+
+              {/*begin::4 Level*/}
+              <li
+                className={`menu-item ${getMenuItemActive(
+                  "/available-patients/profile-overview"
+                )}`}
+                aria-haspopup="true"
+              >
+                <NavLink
+                  className="menu-link"
+                  to="/available-patients/profile-overview"
+                >
+                  <i className="menu-bullet menu-bullet-dot">
+                    <span />
+                  </i>
+                  <span className="menu-text">Events</span>
+                </NavLink>
+              </li>
+              {/*end::4 Level*/}
+
+              {/*begin::5 Level*/}
+              <li
+                className={`menu-item ${getMenuItemActive(
+                  "/available-patients/profile-overview"
+                )}`}
+                aria-haspopup="true"
+              >
+                <NavLink
+                  className="menu-link"
+                  to="/available-patients/profile-overview"
+                >
+                  <i className="menu-bullet menu-bullet-dot">
+                    <span />
+                  </i>
+                  <span className="menu-text">Class</span>
+                </NavLink>
+              </li>
+              {/*end::5 Level*/}
+
+              {/*begin::5 Level*/}
+              <li
+                className={`menu-item ${getMenuItemActive(
+                  "/available-patients/profile-overview"
+                )}`}
+                aria-haspopup="true"
+              >
+                <NavLink
+                  className="menu-link"
+                  to="/available-patients/profile-overview"
+                >
+                  <i className="menu-bullet menu-bullet-dot">
+                    <span />
+                  </i>
+                  <span className="menu-text">Leave</span>
+                </NavLink>
+              </li>
+              {/*end::5 Level*/}              
+            </ul>
+          </div>
+        </li>
+              
+        {/*begin::1 Level*/}
+        <li
+          className={`menu-item menu-item-submenu ${getMenuItemActive(
+            "/payments",
+            true
+          )}`}
+          aria-haspopup="true"
+          data-menu-toggle="hover"
+        >
+          <NavLink className="menu-link menu-toggle" to="/payments">
+            <i className="fas fa-caret-right" />
+            <span className="svg-icon menu-icon d-flex flex-column rounded customMenutexticon bgCustom2">
+              P
+            </span>
+            <span className="menu-text">Payments</span>
+            
+          </NavLink>
+          <div className="menu-submenu ">
+            <i className="menu-arrow" />
+            <ul className="menu-subnav">
+              {/*begin::1 Level*/}
+              <li
+                className={`menu-item  ${getMenuItemActive(
+                  "/payments/payment-overview"
+                )}`}
+                aria-haspopup="true"
+              >
+                <NavLink
+                  className="menu-link"
+                  to="/available-doctors/profile-overview"
+                >
+                  <i className="menu-bullet menu-bullet-dot">
+                    <span />
+                  </i>
+                  <span className="menu-text">Billing & Invoices</span>
+                </NavLink>
+              </li>
+              {/*end::1 Level*/}      
+            </ul>
+          </div>
+        </li>
+        {/*end::1 Level*/}  
+        {/*begin::1 Level*/}
+        <li
+          className={`menu-item menu-item-submenu ${getMenuItemActive(
+            "/payments",
+            true
+          )}`}
+          aria-haspopup="true"
+          data-menu-toggle="hover"
+        >
+          <NavLink className="menu-link menu-toggle" to="/payments">
+            <i className="fas fa-caret-right" />
+            <span className="svg-icon menu-icon d-flex flex-column rounded customMenutexticon bgCustom3">
+              M
+            </span>
+            <span className="menu-text">Marketing</span>
+            
+          </NavLink>
+          <div className="menu-submenu ">
+            <i className="menu-arrow" />
+            <ul className="menu-subnav">
+              {/*begin::1 Level*/}
+              <li
+                className={`menu-item  ${getMenuItemActive(
+                  "/payments/payment-overview"
+                )}`}
+                aria-haspopup="true"
+              >
+                <NavLink
+                  className="menu-link"
+                  to="/available-doctors/profile-overview"
+                >
+                  <i className="menu-bullet menu-bullet-dot">
+                    <span />
+                  </i>
+                  <span className="menu-text">Coupons</span>
+                </NavLink>
+              </li>
+              {/*end::1 Level*/}      
+              {/*begin::1 Level*/}
+              <li
+                className={`menu-item  ${getMenuItemActive(
+                  "/payments/payment-overview"
+                )}`}
+                aria-haspopup="true"
+              >
+                <NavLink
+                  className="menu-link"
+                  to="/available-doctors/profile-overview"
+                >
+                  <i className="menu-bullet menu-bullet-dot">
+                    <span />
+                  </i>
+                  <span className="menu-text">SMS</span>
+                </NavLink>
+              </li>
+              {/*end::1 Level*/}      
+            </ul>
+          </div>
+        </li>
+              
+
+        {/*begin::1 Level*/}
+        <li
+          className={`menu-item menu-item-submenu ${getMenuItemActive(
             "/google-material",
             true
           )}`}
@@ -144,7 +384,7 @@ export function AsideSubMenuList({ layoutProps }) {
         >
           <NavLink className="menu-link menu-toggle" to="/google-material">
             <i className="fas fa-caret-right" />
-            <span className="svg-icon menu-icon d-flex flex-column rounded customMenutexticon bgCustom1">
+            <span className="svg-icon menu-icon d-flex flex-column rounded customMenutexticon bgCustom4">
               A
             </span>
             <span className="menu-text">Material UI</span>
@@ -243,6 +483,7 @@ export function AsideSubMenuList({ layoutProps }) {
                 </div>
               </li>
               {/*end::2 Level*/}
+
 
               {/* Navigation */}
               {/*begin::2 Level*/}

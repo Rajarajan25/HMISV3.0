@@ -232,7 +232,16 @@ $text-white: #fff;
 			padding: 8px 7px;
 			min-height: 36px;
 			.bgCustom1{
-				background-color: $bgcolor1;
+				background-color: $red;
+			}
+			.bgCustom2{
+				background-color: $green;
+			}
+			.bgCustom3{
+				background-color: $blue;
+			}
+			.bgCustom4{
+				background-color: $pink;
 			}
 			.menu-text{
 				font-family: Gotham Pro,Proxima Nova,arial,serif;

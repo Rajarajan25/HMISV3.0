@@ -296,8 +296,8 @@ export function QuickUser() {
           <span className="userIcon bg-success font-size-h6 addNewevents">+</span>
         </div>
         <div className="d-flex w-100 userModalcontent">
-          <div className="d-flex col">
-            <div className="d-inline-block w-100">
+          <div className="d-flex col h-100">
+            <div className="d-inline-block w-100 h-100">
               <div className="d-flex">
                 <div className="modaluserIcon w-100 mb-3">
                   <span className="userIcon">SK</span>
