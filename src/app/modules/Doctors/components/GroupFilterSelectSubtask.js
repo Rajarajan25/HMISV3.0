@@ -28,11 +28,7 @@ export default function GroupFilterSelectSubtask() {
     age: '',
     name: 'hai',
   });
-
-  const inputLabel = React.useRef(null);
-  const [labelWidth, setLabelWidth] = React.useState(0);
   
-
   function handleChange(event) {
     setValues(oldValues => ({
       ...oldValues,
