@@ -42,6 +42,7 @@ export function Filter() {
                           <form autoComplete="off" className="filterForm">
                             <GroupFilter></GroupFilter>
                             <GroupFilterSelectSubtask></GroupFilterSelectSubtask>
+                            <GroupFilterSelectSubtask></GroupFilterSelectSubtask>
                           </form>
                         </div>
                         </div>
