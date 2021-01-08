@@ -196,7 +196,7 @@
 	z-index: 2;
 	.card-body{
 		
-		background: #fbfbfb;
+		background: $page-bg;
 		z-index: 999;
 		border-radius: 0px !important;
 		padding: 12px 0;
@@ -221,12 +221,15 @@
 		.MuiFormControl-root{
 			display: flex;
 			flex-direction: inherit;
+			margin: 0;
 
 			.MuiInputLabel-formControl{
 				position: relative;
 				margin:auto 0;
 				color: rgba(0, 0, 0, 0.8);
 				font-size: 1.2rem;
+				font-family: $font-family-base;
+				font-weight: 500;
 			}
 			.MuiInput-formControl{
 				margin:0px;
@@ -243,6 +246,12 @@
 }
   .pageTitlecontent{
 	position: relative;
+	.pageTitle {
+		font-size: 16px;
+		font-weight: 500;
+		font-family: $font-family-base;
+		color: #34313A;
+	}
   }
   .pageTitlecontent .toggleLefticon{
 	top:4px;
@@ -260,8 +269,16 @@
 	display: inline-block;
 	  position: relative;
 	  flex-grow: 1;
-	padding-left: 2rem;
+	padding-left: 3rem;
   }
+  .toggleLeftHeadericon{
+	  min-width: 16px;
+	  max-width: 16px;
+	  min-height: 16px;
+	  max-height: 16px;
+	  display: inline-block;
+  }
+
   .toggleLefticon{
 	position: absolute;
 	  left: -20px;
@@ -271,107 +288,122 @@
 	  display: inline-block;
   }
   
-  .toggleLefticon a{  
-	display: flex;
-	width: 100%;
-	height: 100%;
-	text-align: center;
-	border: 1px solid #707070;
-	border-radius: 50%;
-	color: #707070;
-	line-height: 14px;
-	align-items: center;
-  }
-  .toggleLefticon a i{  
-	transition: all 0.3s;
-	transition: all 0.2s ease-in-out;  
-	transform: rotate(0deg);
-	width: 100%;
-	font-size: 10px;
-  }
-  .toggleLefticon .collapsed i{
-	transform: rotate(-90deg);
-	transition: all 0.3s;
-	transition: all 0.2s ease-in-out; 
-  }
-  .topHeadercontent li:first-child{
-	padding: 0px;
-	vertical-align: bottom !important;
-  }
-  .topHeadercontent li:first-child  span{
-	padding: 3px 10px;
-  }
-  .topHeadercontent li span{
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	font-family: "Gotham Pro","Proxima Nova",arial,serif;
-	font-weight: 500;
-	font-size: 10px;
-	line-height: 1;
-	text-transform: uppercase;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	color: rgba(52,52,52,.5);
-	padding: 6px 0 4px;
-  }
-  .headingHighlight{
-	font-family: "Gotham Pro","Proxima Nova",arial,serif;
-	  display: inline-flex;
-	  align-items: center;
-	  height: 20px;
-	  line-height: 12px;
-	  padding: 0 7px;
-	  border: 1px solid transparent;
-	  border-radius: 3px 3px 0 0;
-	  font-size: 11px;
-	  color: #fff;
-	  text-transform: uppercase;
-	  white-space: nowrap;
-	  z-index: 10;
-	  align-self: flex-end;
-	  cursor: pointer;
-	  vertical-align: bottom;
-	  margin-right: 10px;
-  }
-  .topHeadercontent li:first-child span:last-child{
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	font-family: "Gotham Pro","Proxima Nova",arial,serif;
-	font-weight: 500;
-	font-size: 10px;
-	line-height: 1;
-	text-transform: uppercase;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	color: rgba(52,52,52,.5);
-	padding: 6px 0 4px;
-	vertical-align: bottom;
-	display: inline-flex;
-  }
-  .headingHighlight a{
-	display: none;
-	cursor: pointer;
-  }
-  .headingHighlight a,.headingHighlight a:hover{
-	margin-left: 0px;
-	color: inherit;
-	width: 18px;
-	height: 100%;
-	text-align: center;
-	border-left: 1px solid rgba(112,112,112,0.2);
-  }
-  .headingHighlight a:last-child{
-	margin-right:-10px;
-  }
-  .headingHighlight:hover a{
-	display: inline-block;
-  }
+  	.toggleLefticon,.toggleLeftHeadericon {
+		a{  
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			border: 1px solid #707070;
+			border-radius: 50%;
+			color: inherit;
+			line-height: 14px;
+			align-items: center;
+			
+			i{  
+				transition: all 0.3s;
+				transition: all 0.2s ease-in-out;  
+				transform: rotate(0deg);
+				width: 100%;
+				font-size: 10px;
+				color: inherit;
+			}
+		}
+	}
+	.toggleLefticon .collapsed i{
+		transform: rotate(-90deg);
+		transition: all 0.3s;
+		transition: all 0.2s ease-in-out; 
+	}
+  	.topHeadercontent{
+	   	li:first-child{
+			padding: 0px;
+			vertical-align: bottom !important;
+
+			span:last-child{
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				font-family: "Gotham Pro","Proxima Nova",arial,serif;
+				font-weight: 500;
+				font-size: 10px;
+				line-height: 1;
+				text-transform: uppercase;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				color: rgba(52,52,52,.5);
+				padding: 6px 0 4px;
+				vertical-align: bottom;
+				display: inline-flex;
+			}
+
+		}
+		li:first-child  span{
+			padding: 3px 10px;
+		}
+  		li span{
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			font-family: "Gotham Pro","Proxima Nova",arial,serif;
+			font-weight: 500;
+			font-size: 10px;
+			line-height: 1;
+			text-transform: uppercase;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			color: rgba(52,52,52,.5);
+			padding: 6px 0 4px;
+		}		
+		.headingHighlight{
+			font-family: "Gotham Pro","Proxima Nova",arial,serif;
+			display: inline-flex;
+			align-items: center;
+			height: 20px;
+			line-height: 12px;
+			padding: 0 7px;
+			border: 1px solid transparent;
+			border-radius: 3px 3px 0 0;
+			font-size: 11px;
+			color: #fff;
+			text-transform: uppercase;
+			white-space: nowrap;
+			z-index: 10;
+			align-self: flex-end;
+			cursor: pointer;
+			vertical-align: bottom;
+			margin-right: 10px;
+			
+			a{
+				display: none;
+				cursor: pointer;
+			}
+			a, a:hover{
+				margin-left: 0px;
+				color: inherit;
+				width: 18px;
+				height: 100%;
+				text-align: center;
+				border-left: 1px solid rgba(112,112,112,0.2);
+
+				i{
+					font-size: 0.75rem;
+					color: inherit;
+				}
+			}
+			a:last-child{
+				margin-right:-10px;
+			}
+			&:hover a{
+				display: inline-block !important;
+			}
+		
+		}
+	}
   .contentArea .topMiddlecontent ul{
 	border: 0px solid #fff;
 	box-shadow: 0 0 10px 0 rgba(0,0,0,.05);
@@ -399,7 +431,7 @@
 	 position: sticky;
 	 top: 108px;
 	 z-index: 1;
-	 background: #fbfbfb;
+	 background: $page-bg;
   }
   .topHeadercontent ul{
 	height: 45px;
@@ -422,6 +454,7 @@
   .topMiddlecontent li a.userLogoicon{
 	display: flex;
 	cursor: pointer;
+	position: relative;
   }
   
   .topMiddlecontent li span{
@@ -432,9 +465,9 @@
 	color: #707070;
   }
   span.listprofileIcon{
-	width: 28px;
-	height: 28px;
-	border-radius: 50%;
+	width: 10px;
+    height: 10px;
+    border-radius: 3px;
 	margin-right: 0.7rem !important;
 	line-height: 28px;
 	text-align: center;
@@ -442,6 +475,9 @@
 	font-size: 12px !important;
 	transform: scale(0.9);
 	transition: all 0.5s ease-in-out;
+	text-indent: -999px;
+	overflow: hidden;
+	white-space: nowrap;
   }
   span.listprofileIcon:hover{
 	transform: scale(1);
@@ -456,6 +492,14 @@
 	display: inline-block !important;
 	border: 1px dashed #707070;
 	color: #4a4a4a
+  }
+  .specialInfo{
+	  display: inline-flex;
+	  flex-direction: column;
+	  font-size: 10px;
+	  padding: 2px 5px;
+	  border-radius: 5px;
+	  margin: 0.1rem 0;
   }
   .customProfileBG1{
 	background-color: #ff1d1d !important;
@@ -586,7 +630,7 @@
   .topHeadercontent li,.topMiddlecontent li{
   display: table-cell;
   min-width: 105px;
-  padding:5px 0;
+  padding:7px 0;
   text-align: center;
   vertical-align: middle;
   color: #303030;
@@ -604,7 +648,7 @@
   width: 100%;
   max-width: initial;
   text-align: left;
-  vertical-align: bottom;
+  //vertical-align: bottom;
   padding-left: 15px;
   }
   .topMiddlecontent li:first-child .userLogoicon span:last-child{
@@ -724,7 +768,7 @@
 	  max-width: initial;
 	  text-align: left;
   }
-  .tableFixHead          {position: sticky; top: 0;  }
+  .tableFixHead{position: sticky; top: 0;  }
   
   .customeDropdownmenu li a > svg,.customeDropdownmenu li a > span{
 	display: flex;
@@ -733,4 +777,88 @@
   .customeDropdownmenu > li{
 	margin: 0 0 2px 0;
   }
+
+  .customNewtaskBTN{
+	transition: opacity .1s cubic-bezier(.785,.135,.15,.86) 0s;
+	font: 11px/11px "Gotham Pro","Proxima Nova",arial,serif;
+	color: #7c828d;
+	border: 0;
+	background-color:$page-bg;
+  }
+  .saveNewtask{
+	font: 500 11px/11px "Gotham Pro","Proxima Nova",arial,serif;
+	padding: 0.4rem;
+  }
+  .newTask_1{
+	border: 1px solid #1c6afc !important;
+  }
+  .newTask_1 li:last-child{
+	min-width: 280px;
+	padding-right:12px;
+  }
+  .newTaskinput,.newTaskinput:focus:active {
+	border: 0px !important;
+    box-shadow: none !important;
+    outline: none;
+	width:100%;  
+	height: 31px;
+	font-family: "Gotham Pro","Proxima Nova",arial,serif;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 1.5;
+	padding-left: 20px;
+  }
+	.newTaskinput::placeholder { /* Most modern browsers support this now. */
+	color:    rgb(187, 188, 196);
+	font-size: 12px;
+	}
+  .newTask_1 li:last-child .ctrlSpan{
+	font: 400 11px/1 "Gotham Pro","Proxima Nova",arial,serif;
+	color: #cbc9cf;
+  }
+  .removeNewtask{
+	position: absolute;
+	left: 18px;
+    top: 6px;
+	border: 0;
+	background: transparent;
+	font-weight: 600;
+	color: #707070;
+  }
+  .createNewtimeicon{
+	color: var(--kit-color-primary) ;
+  }
+  .createNewtimeicon span{
+	border-radius: 50%;
+	background-color: var(--kit-color-primary) ;
+	width: 20px;
+	line-height: 20px;
+	height: 20px;
+	text-align: center;
+	color: #fff;
+	display: inline-block;
+  }
+  .leftDoctorslist .kit__utils__avatar{
+	padding: 5px;
+	border: 1px dashed #a5a5a5;
+	border-radius: 50%;
+	position: relative;
+	overflow: visible;
+	width: 40px;
+	height: 40px;
+  }
+  .activeDoctorselectedtick{
+	position: absolute;
+	  right: 0;
+	  bottom: 0;
+	  background: #fff;
+	  border-radius: 50%;
+	  width: 15px;
+	  height: 15px;
+	  font-size: 10px;
+	  color: #000;
+	  line-height: 15px;
+	  text-align: center;
+  }
+
 /* Middle content section start */

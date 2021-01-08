@@ -15,7 +15,7 @@ export function ListActivity01() {
                 <ul className="list-inline w-100">
                   <li>
                     <span className="headingHighlight customProfileBG11 text-white">Healthy 
-                      <a href="javascript:void(0);" className="ml-3"><i className="fa fa-pencil"></i></a>
+                      <a href="javascript:void(0);" className="ml-3"><i className="fa fa-pen"></i></a>
                       <a href="javascript:void(0);"><i className="fa fa-check-square"></i></a>
                       <a href="javascript:void(0);"><i className="fa fa-ellipsis-h"></i></a>
                     </span>
@@ -52,7 +52,8 @@ export function ListActivity01() {
                         </li>
                         <li>Yes</li>
                         <li>
-                          <a href="javascript:void(0);" className="rounddashedCircle" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></a>
+                          <a href="javascript:void(0);" className="specialInfo bg-danger text-white" data-toggle="modal" data-target="#medicalDetails">PRINIVIL</a>
+                          <a href="javascript:void(0);" className="specialInfo bg-primary text-white" data-toggle="modal" data-target="#medicalDetails">PRINIVIL</a>
                         </li>
                         <li className="d-none">Physician</li>
                         <li className="d-none">Insurance</li>
@@ -76,7 +77,7 @@ export function ListActivity01() {
                         </li>
                         <li>Yes</li>
                         <li>
-                          <a href="javascript:void(0);" className="rounddashedCircle" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></a>
+                          <a href="javascript:void(0);" className="specialInfo bg-warning text-white" data-toggle="modal" data-target="#medicalDetails">Advil</a>
                         </li>
                         <li className="d-none">Physician</li>
                         <li className="d-none">Insurance</li>
@@ -136,7 +137,31 @@ export function ListActivity01() {
                           <a href="javascript:void(0);" className="rounddashedCircle" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-comments fa-sm"></i></a>
                         </li>
                       </ul>
+
+                      <ul className="newTask_1">
+                        <li>
+                          <a className="userLogoicon">
+                            <span className="listprofileIcon customProfileBG4">
+                              <i className="fe fe-user-plus"></i> 
+                            </span> 
+                            <button type="button" className="removeNewtask">X</button>
+                            <input type="text" className="newTaskinput" name="" id="" placeholder="Doctor name" />  
+                          </a>                            
+                        </li>              
+                        <li className="text-right">
+                          <span className="ctrlSpan">ctrl + enter to open </span>
+                          <a href="javascript:void(0);" className="rounddashedCircle mx-1 text-center" data-toggle="modal" data-target="#medicalDetails">
+                            <i className="fas fa-edit fa-sm"></i>
+                          </a>
+                          <a href="javascript:void(0);" className="rounddashedCircle mx-1 text-center" data-toggle="modal" data-target="#medicalDetails">
+                            <i className="fa fa-tags fa-sm"></i>
+                          </a>
+                          <button type="button" className="btn btn-primary btn-sm font-sm mx-1 saveNewtask">SAVE</button>
+                        </li>
+                      </ul>
+
                     </div>
+                    <button type="button" class="customNewtaskBTN">+ New Doctor</button>
                   </div>    
                 </div>                 
               </div>
@@ -160,7 +185,7 @@ export function ListActivity02() {
                 <ul className="list-inline w-100">
                   <li>
                     <span className="headingHighlight customProfileBG2 text-white">On-Field Doctors 
-                      <a href="javascript:void(0);" className="ml-3"><i className="fa fa-pencil"></i></a>
+                      <a href="javascript:void(0);" className="ml-3"><i className="fa fa-pen"></i></a>
                       <a href="javascript:void(0);"><i className="fa fa-check-square"></i></a>
                       <a href="javascript:void(0);"><i className="fa fa-ellipsis-h"></i></a>
                     </span>
@@ -266,7 +291,7 @@ export function ListActivity03() {
               <ul className="list-inline w-100">
                 <li>
                   <span className="headingHighlight customProfileBG3 text-white">Lab Assistant 
-                    <a href="javascript:void(0);" className="ml-3"><i className="fa fa-pencil"></i></a>
+                    <a href="javascript:void(0);" className="ml-3"><i className="fa fa-pen"></i></a>
                     <a href="javascript:void(0);"><i className="fa fa-check-square"></i></a>
                     <a href="javascript:void(0);"><i className="fa fa-ellipsis-h"></i></a>
                   </span>
@@ -373,7 +398,7 @@ export function ListActivity04() {
           <ul className="list-inline w-100">
             <li>
               <span className="headingHighlight customProfileBG9 text-white">Emergency Department 
-                <a href="javascript:void(0);" className="ml-3"><i className="fa fa-pencil"></i></a>
+                <a href="javascript:void(0);" className="ml-3"><i className="fa fa-pen"></i></a>
                 <a href="javascript:void(0);"><i className="fa fa-check-square"></i></a>
                 <a href="javascript:void(0);"><i className="fa fa-ellipsis-h"></i></a>
               </span>
