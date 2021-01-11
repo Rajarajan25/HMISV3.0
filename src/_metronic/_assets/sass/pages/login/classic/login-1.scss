@@ -13,6 +13,17 @@
     .login-signup,
     .login-forgot {
         display: none;
+        .form-label{
+            color: $dark-85 !important;
+            font-size: 15px;
+            margin-bottom: 0.75rem;
+        }
+        .btn{
+            height:56px;
+        }
+        .createAccountlink,.createAccountlink:hover{
+            text-decoration: underline !important;
+        }
     }
 
     &.login-signin-on {
@@ -58,17 +69,71 @@
     }
 }
 
+.font-size-36{
+    font-size: 36px !important;
+}
+.font-size-16{
+    font-size: 16px !important;
+}
+.font-size-30{
+    font-size: 30px !important;
+}
+.font-size-14{
+    font-size: 14px !important;
+}
+.color_01234B{
+    color: #01234B;
+}
+.loginRightimg{
+    max-width: 550px;
+}
+.passwordIcon,.emailIcon{
+    position: relative;
+}
+.emailIcon:before{
+    content: url(/media/auth-screen/emailIcon.svg);
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+.passwordIcon:before{
+    content: url(/media/auth-screen/passwordIcon.svg);
+    position: absolute;
+    top: 18px;
+    left: 20px;
+}
+.login-form input.form-control{
+    font-size: 14px;
+}
+.login-form input.form-control{
+    padding-left: 50px !important;
+    border-radius: 10px;
+    height: 56px !important;
+    color: $dark_85;
+}
+.borderRadius-10{
+    border-radius: 10px !important;
+}
+.font-weight-600{
+    font-weight: 600 !important;
+}
+.socialIcon{
+    width: 25px;
+}
+.was-validated .form-control:valid, .form-control.is-valid{
+    background-size: calc(0.55em + 0.45rem) calc(0.55em + 0.45rem) !important;
+}
 // Desktop view
 @include media-breakpoint-up(lg) {
     .login.login-1 {
         .login-aside {
             width: 100%;
-            max-width: 600px;
+            //max-width: 600px;
         }
 
         .login-form {
             width: 100%;
-            max-width: 400px;
+            max-width: 450px;
         }
     }
 }

@@ -4,11 +4,9 @@ import { LayoutSplashScreen, ContentRoute } from "../_metronic/layout";
 import { BuilderPage } from "./pages/BuilderPage";
 import { MyPage } from "./pages/MyPage";
 import { DashboardPage } from "./pages/DashboardPage";
+
 const GoogleMaterialPage = lazy(() =>
   import("./modules/GoogleMaterialExamples/GoogleMaterialPage")
-);
-const Staff = lazy(() =>
-  import("./modules/Staff/index")
 );
 const ReactBootstrapPage = lazy(() =>
   import("./modules/ReactBootstrapExamples/ReactBootstrapPage")
@@ -18,6 +16,9 @@ const ECommercePage = lazy(() =>
 );
 const UserProfilepage = lazy(() =>
   import("./modules/UserProfile/UserProfilePage")
+);
+const DoctorAvailablepage = lazy(() =>
+  import("./modules/Doctors/DoctorAvailablepage")
 );
 
 export default function BasePage() {
@@ -37,10 +38,10 @@ export default function BasePage() {
         <ContentRoute path="/builder" component={BuilderPage} />
         <ContentRoute path="/my-page" component={MyPage} />
         <Route path="/google-material" component={GoogleMaterialPage} />
-        <Route path="/staff" component={Staff} />
         <Route path="/react-bootstrap" component={ReactBootstrapPage} />
         <Route path="/e-commerce" component={ECommercePage} />
         <Route path="/user-profile" component={UserProfilepage} />
+        <Route path="/available-doctors" component={DoctorAvailablepage} />
         <Redirect to="error/error-v1" />
       </Switch>
     </Suspense>

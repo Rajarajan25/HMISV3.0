@@ -62,11 +62,11 @@ function ForgotPassword(props) {
       {isRequested && <Redirect to="/auth" />}
       {!isRequested && (
         <div className="login-form login-forgot" style={{ display: "block" }}>
-          <div className="text-center mb-10 mb-lg-20">
-            <h3 className="font-size-h1">Forgotten Password ?</h3>
-            <div className="text-muted font-weight-bold">
+          <div className="text-left mb-10 mb-lg-15">
+            <h1 className="font-size-h1font-size-30 color_01234B font-weight-600 mb-5">Forgotten Password ?</h1>
+            <p className="font-size-14 text-muted font-weight-normal">
               Enter your email to reset your password
-            </div>
+            </p>
           </div>
           <form
             onSubmit={formik.handleSubmit}
@@ -80,19 +80,23 @@ function ForgotPassword(props) {
               </div>
             )}
             <div className="form-group fv-plugins-icon-container">
-              <input
-                type="email"
-                className={`form-control form-control-solid h-auto py-5 px-6 ${getInputClasses(
-                  "email"
-                )}`}
-                name="email"
-                {...formik.getFieldProps("email")}
-              />
-              {formik.touched.email && formik.errors.email ? (
-                <div className="fv-plugins-message-container">
-                  <div className="fv-help-block">{formik.errors.email}</div>
+              <label class="form-label" for="exampleForm.ControlInput1">Email address</label>
+              <div className="emailIcon">
+                  <input
+                    placeholder="Email"
+                    type="email"
+                    className={`form-control py-5 px-6 ${getInputClasses(
+                      "email"
+                    )}`}
+                    name="email"
+                    {...formik.getFieldProps("email")}
+                  />
+                  {formik.touched.email && formik.errors.email ? (
+                    <div className="fv-plugins-message-container  invalid-feedback">
+                      <div className="fv-help-block">{formik.errors.email}</div>
+                    </div>
+                  ) : null}
                 </div>
-              ) : null}
             </div>
             <div className="form-group d-flex flex-wrap flex-center">
               <button
