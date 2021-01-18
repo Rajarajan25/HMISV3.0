@@ -91,10 +91,76 @@ function Login(props) {
   });
 
   return (
-    <div className="login-form login-signin" id="kt_login_signin_form">
+    <div className="d-flex justify-content-center w-100 shadow ">
+
+          <div className="d-flex w-100 loginMaincontent">
+            {/*begin::Aside*/}
+            <div
+              className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat p-10 p-lg-10 col-5 order-0 rounded-left"
+              style={{
+                backgroundColor: `#5382FC`,
+              }}
+            >
+              {/*
+              style={{
+                backgroundImage: `url(${toAbsoluteUrl("/media/bg/bg-4.jpg")})`,
+              }}
+              */}
+              {/*begin: Aside Container*/}
+              <div className="d-flex flex-row-fluid flex-column justify-content-between">
+
+                {/* start:: Aside content */}
+                <div className="flex-column-fluid d-flex flex-column justify-content-center">
+                  <div className="m-auto loginRightimg d-flex flex-column-reverse">
+                    <div className="text-center d-flex mx-7">
+                      <img src="/media/auth-screen/login-right.png" className="m-auto mw-100" alt="Login screen" />
+                    </div>
+                    <div className="mb-7 flex-column-fluid d-flex flex-column text-center">
+                      <h3 className="font-size-h1 mb-5 text-white">
+                        Welcome to HMIS!
+                      </h3>
+                      <p className="font-size-18 font-weight-lighter text-white opacity-90">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                {/* end:: Aside content */}
+
+                {/* start:: Aside footer for desktop d-lg-flex */}
+                <div className="d-none flex-column-auto  justify-content-between mt-10">
+                  <div className="opacity-70 font-weight-bold	text-dark">
+                    &copy; 2020 Metronic
+                  </div>
+                  <div className="d-flex">
+                    <Link to="/terms" className="text-dark font-size-14">
+                      Privacy
+                    </Link>
+                    <Link to="/terms" className="text-dark font-size-14 ml-10">
+                      Legal
+                    </Link>
+                    <Link to="/terms" className="text-dark font-size-14 ml-10">
+                      Contact
+                    </Link>
+                  </div>
+                </div>
+                {/* end:: Aside footer for desktop */}
+              </div>
+              {/*end: Aside Container*/}
+            </div>
+            {/*begin::Aside*/}
+
+        {/*begin::Login*/}
+        <div className="d-flex flex-column flex-1 position-relative p-7 col order-1 rounded-right"
+              style={{
+                backgroundColor: `#fff`,
+              }}
+            >
+              
+    <div className="login-form login-signin mx-auto" id="kt_login_signin_form">
       <Helmet  titleTemplate="HMIS | %s" title="Login Page" />
       {/* begin::Head */}
-      <div className="text-left mb-10 mb-lg-15">
+      <div className="text-left mb-7">
         <h1 className="font-size-30 color_01234B font-weight-600 mb-5">
           <FormattedMessage id="AUTH.LOGIN.TITLE" />
         </h1>
@@ -229,6 +295,10 @@ function Login(props) {
           </div>
       </form>
       {/*end::Form*/}
+    </div>
+    </div>
+    </div>
+
     </div>
   );
 }
