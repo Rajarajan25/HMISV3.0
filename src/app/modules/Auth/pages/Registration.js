@@ -121,7 +121,7 @@ function Registration(props) {
           <div className="d-flex w-100 loginMaincontent">
             {/*begin::Aside*/}
             <div
-              className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat p-10 p-lg-10 col-5 order-0 rounded-left"
+              className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat p-10 p-lg-10 col-4 order-0 rounded-left"
               style={{
                 backgroundColor: `#5382FC`,
               }}
@@ -181,8 +181,8 @@ function Registration(props) {
                 backgroundColor: `#fff`,
               }}
             >
-    <div className="registration-form login-signin mx-auto col-lg-8" style={{ display: "block" }}>
-      <div className="text-left mb-6">
+    <div className="registration-form login-signin mx-auto col-lg-10" style={{ display: "block" }}>
+      <div className="text-left mb-6 d-none">
         <h1 className="font-size-30 color_01234B font-weight-600 mb-5">
           <FormattedMessage id="AUTH.REGISTER.TITLE" />
         </h1>

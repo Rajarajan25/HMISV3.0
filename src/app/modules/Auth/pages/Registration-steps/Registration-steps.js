@@ -9,10 +9,14 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Step1 from './step1';
 import Step2 from './step2';
+import Step3 from './step3';
+import Step4 from './step4';
+import Step5 from './step5';
+import Step6 from './step6';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: '90%',
+    width: '100%',
   },
   backButton: {
     marginRight: theme.spacing(1),
@@ -24,19 +28,23 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function getSteps() {
-  return ['Select master blaster campaign settings', 'Create an ad group', 'Create an ad', 'test'];
+  return ['Select master blaster campaign settings', 'Create an ad group', 'Create an ad', 'test', 'test', 'test'];
 }
 
 function getStepContent(stepIndex) {
   switch (stepIndex) {
     case 0:
-      return step1();
+      return <Step1 />;
     case 1:
-      return step2();
+      return <Step2 />;
     case 2:
-      return step3();
+      return <Step3 />;
     case 3:
-      return step4();
+      return <Step4 />;
+    case 4:
+      return <Step5 />;
+    case 4:
+      return <Step6 />;
     default:
       return 'Uknown stepIndex';
   }
@@ -92,38 +100,5 @@ export default function HorizontalLabelPositionBelowStepper() {
         )}
       </div>
     </div>
-  );
-}
-
-
-export function step1() {
-  return (
-    <>
-      <Step1 />  
-    </>
-  );
-}
-
-export function step2() {
-  return (
-    <>
-    <Step2 />
-    </>
-  );
-}
-
-export function step3() {
-  return (
-    <>
-    test 3
-    </>
-  );
-}
-
-export function step4() {
-  return (
-    <>
-    test 4
-    </>
   );
 }

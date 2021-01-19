@@ -18,9 +18,9 @@
             font-size: 15px;
             margin-bottom: 0.75rem;
         }
-        .btn{
+        /*.btn{
             height:56px;
-        }
+        }*/
         .createAccountlink,.createAccountlink:hover{
             text-decoration: underline !important;
         }
@@ -183,6 +183,16 @@
         svg{
             vertical-align: text-bottom;
             margin-right:15px;
+        }
+    }
+    .categoryList{
+        .btn{
+            background:transparent;
+            border: 1px solid #C6DBF4;
+        }
+        .btn:active{
+            background:transparent;
+            border: 1px solid #1C6AFC
         }
     }
 }

@@ -117,7 +117,7 @@ function Registration(props) {
   return (
     <>
     
-      <div className="text-left mb-6">
+    <div className="text-left mb-6">
         <h1 className="font-size-30 color_01234B font-weight-600 mb-5">Choose Your Business Below</h1>      
         <p className="font-size-14 text-muted font-weight-normal">Enter your details to create your account</p>
       </div>
