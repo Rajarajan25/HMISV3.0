@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { FormattedMessage, injectIntl } from "react-intl";
 import * as auth from "../_redux/authRedux";
 import { register } from "../_redux/authCrud";
-
+import HorizontalLabelPositionBelowStepper from "./Registration-steps/Registration-steps"
 const initialValues = {
   fullname: "",
   email: "",
@@ -190,10 +190,10 @@ function Registration(props) {
           Enter your details to create your account
         </p>
       </div>
-
+      <HorizontalLabelPositionBelowStepper />
       <form
         id="kt_login_signin_form"
-        className="form fv-plugins-bootstrap fv-plugins-framework animated animate__animated animate__backInUp"
+        className="d-none form fv-plugins-bootstrap fv-plugins-framework animated animate__animated animate__backInUp"
         onSubmit={formik.handleSubmit}
       >
         {/* begin: Alert */}
@@ -358,8 +358,10 @@ function Registration(props) {
           </Link>
         </div>
       </form>
+    
     </div>
     </div>
+   
     </div>
 
     </div>

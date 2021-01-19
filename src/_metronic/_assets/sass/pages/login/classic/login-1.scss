@@ -163,7 +163,33 @@
         height: 46px !important;
         color: $dark_85;
     }
+    .rightPanel {
+        .h1{
+            color: #01234B;
+        }
+        .helpText{
+            color: #707070;
+        }
+    }
+    .customButton{
+        font-size: 18px;
+        color: #303030;
+        font-weight: 500;
+        border-radius:40px;
+        min-width: 430px;
+        height: 80px !important;
+        align-items: center;
+        
+        svg{
+            vertical-align: text-bottom;
+            margin-right:15px;
+        }
+    }
 }
+.leftPanel {
+	background:#5382FC;
+}
+
 .borderRadius-10{
     border-radius: 10px !important;
 }
