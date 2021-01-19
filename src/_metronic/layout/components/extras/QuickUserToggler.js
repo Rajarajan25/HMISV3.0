@@ -3,9 +3,9 @@
 import React, { useMemo } from "react";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 // import { useSelector } from "react-redux";
-import SVG from "react-inlinesvg";
+//import SVG from "react-inlinesvg";
 import objectPath from "object-path";
-import { toAbsoluteUrl } from "../../../_helpers";
+//import { toAbsoluteUrl } from "../../../_helpers";
 import { useHtmlClassService } from "../../_core/MetronicLayout";
 import { UserProfileDropdown } from "./dropdowns/UserProfileDropdown";
 
@@ -27,15 +27,21 @@ export function QuickUserToggler() {
           overlay={<Tooltip id="quick-user-tooltip">User Profile</Tooltip>}
         >
           <div
-            className="btn btn-icon btn-clean btn-lg w-40px h-40px"
+            className="d-flex flex-column text-center w-100 leftMenuuserprofileicon"
             id="kt_quick_user_toggle"
             data-placement="right"
             data-container="body"
             data-boundary="window"
+            offcanvas="overlay: false"
           >
-            <span className="symbol symbol-30 symbol-lg-40">
+            <span className="symbol userIcon symbol-30 symbol-lg-40">
               <span className="svg-icon svg-icon-lg">
-                <SVG src={toAbsoluteUrl("/media/svg/icons/General/User.svg")} />
+                AS
+              </span>
+            </span>
+            <span className="symbol userIcon symbol-30 symbol-lg-40 bg-primary">
+              <span className="svg-icon svg-icon-lg">
+                A
               </span>
             </span>
           </div>

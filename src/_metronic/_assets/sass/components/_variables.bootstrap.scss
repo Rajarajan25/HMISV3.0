@@ -23,6 +23,7 @@ $gray-600: 											#7E8299 !default;
 $gray-700: 											#5E6278 !default;
 $gray-800: 											#3F4254 !default;
 $gray-900: 											#181C32 !default;
+$gray-1000: 										#01234B !default;
 
 // Dark colors
 $dark:          									$gray-900 !default;
@@ -30,6 +31,7 @@ $dark-75:          									$gray-800 !default; // Custom variable
 $dark-65:          									$gray-700 !default; // Custom variable
 $dark-50:          									$gray-600 !default; // Custom variable
 $dark-25:          									$gray-400 !default; // Custom variable
+$dark-85:          									$gray-1000 !default; // Custom variable
 
 // Text muted
 $text-muted:                  						$gray-500 !default; // Custom variable
@@ -378,7 +380,8 @@ $body-color:                						$dark-75 !default;
 // Font, line-height, and color for body text, headings, and more.
 
 // Font family
-$font-family-base:            						Poppins, Helvetica, "sans-serif" !default;
+$font-family-base:            						"Gotham Pro","Proxima Nova", Helvetica, "sans-serif" !default;
+$font-family-secondary:            					"Proxima Nova", Helvetica, "sans-serif" !default;
 
 $font-size-base:              						1rem !default; // Assumes the browser default, typically `13px`
 $font-size-lg:               	 					$font-size-base * 1.08 !default;   // 14.04px

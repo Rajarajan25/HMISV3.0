@@ -29,6 +29,16 @@
 		}
 
 		// menu item link's icon
+		.customMenutexticon{
+			background: #707070;
+			color: #fff !important;
+			flex: initial !important;
+			width:20px;
+			height:20px;
+			line-height: 20px;
+			font-size: 12px !important;
+			margin-right: 10px;
+		}
 		.menu-icon {
 			text-align: get($item, link, icon, align);
 			flex: 0 0 get($item, link, icon, width);
@@ -55,9 +65,10 @@
 
 			&.menu-bullet-dot {
 				> span {
-					width: get($item, link, bullet, dot, size);
-					height: get($item, link, bullet, dot, size);
-					border-radius: 100%;
+					border: 1px dashed #343434;
+					width: 8px;
+					height: 8px;
+					border-radius: 50%;
 				}
 			}
 
@@ -140,13 +151,13 @@
 		.menu-bullet {
 			&.menu-bullet-dot {
 				> span {
-					@include attr(background-color, get($item, link, bullet, dot, bg-color, default));
+					@include attr(border-color, get($item, link, bullet, dot, bg-color, default));
 				}
 			}
 
 			&.menu-bullet-line {
 				> span {
-					@include attr(background-color, get($item, link, bullet, line, bg-color, default));
+					@include attr(border-color, get($item, link, bullet, line, bg-color, default));
 				}
 			}
 		}
@@ -185,13 +196,13 @@
 			.menu-bullet {
 				&.menu-bullet-dot {
 					> span {
-						@include attr(background-color, get($item, link, bullet, dot, bg-color, open));
+						@include attr(border-color, get($item, link, bullet, dot, bg-color, open));
 					}
 				}
 
 				&.menu-bullet-line {
 					> span {
-						@include attr(background-color, get($item, link, bullet, line, bg-color, open));
+						@include attr(border-color, get($item, link, bullet, line, bg-color, open));
 					}
 				}
 			}
@@ -231,13 +242,13 @@
 			.menu-bullet {
 				&.menu-bullet-dot {
 					> span {
-						@include attr(background-color, get($item, link, bullet, dot, bg-color, here));
+						@include attr(border-color, get($item, link, bullet, dot, bg-color, here));
 					}
 				}
 
 				&.menu-bullet-line {
 					> span {
-						@include attr(background-color, get($item, link, bullet, line, bg-color, here));
+						@include attr(border-color, get($item, link, bullet, line, bg-color, here));
 					}
 				}
 			}
@@ -277,13 +288,13 @@
 			.menu-bullet {
 				&.menu-bullet-dot {
 					> span {
-						@include attr(background-color, get($item, link, bullet, dot, bg-color, active));
+						@include attr(border-color, get($item, link, bullet, dot, bg-color, active));
 					}
 				}
 
 				&.menu-bullet-line {
 					> span {
-						@include attr(background-color, get($item, link, bullet, line, bg-color, active));
+						@include attr(border-color, get($item, link, bullet, line, bg-color, active));
 					}
 				}
 			}
@@ -323,13 +334,13 @@
 			.menu-bullet {
 				&.menu-bullet-dot {
 					> span {
-						@include attr(background-color, get($item, link, bullet, dot, bg-color, hover));
+						@include attr(border-color, get($item, link, bullet, dot, bg-color, hover));
 					}
 				}
 
 				&.menu-bullet-line {
 					> span {
-						@include attr(background-color, get($item, link, bullet, line, bg-color, hover));
+						@include attr(border-color, get($item, link, bullet, line, bg-color, hover));
 					}
 				}
 			}
