@@ -8,11 +8,12 @@ $root-font-size-lg:                             	12px; // Root font size for tab
 $root-font-size-md:                             	12px; // Root font size for mobile mode
 
 // Page Background Color
-$page-bg:	 										#F3F6F9 !default;
+$page-bg:	 										#fbfbfb !default;
 
 // Page Paddings
 $page-padding: (
-	desktop: 25px, // Padding for desktop mode
+	//desktop: 25px, // Padding for desktop mode
+	desktop: 12.5px, // Padding for desktop mode
 	tablet-and-mobile: 15px // Padding for tablet and mobile modes
 ) !default;
 
@@ -38,8 +39,8 @@ $header-config: (
 $aside-config: (
 	// Aside
 	base: (
-		primary-width: 100px, // Aside's primary panel's width for desktop mode(see "aside-primary" class)
-		secondary-width: 325px,  // AsideAside's primary panel's width for desktop mode(see "aside-secondary" class)
+		primary-width: 56px, // Aside's primary panel's width for desktop mode(see "aside-primary" class)
+		secondary-width: 298px,  // AsideAside's primary panel's width for desktop mode(see "aside-secondary" class)
 		primary-width-tablet-and-mobile: 70px, // Aside's primary panel's width for mobile mode(see "aside-primary" class)
 		secondary-width-tablet-and-mobile: 225px, // Aside's primary panel's width for mobile mode(see "aside-secondary" class)
 		transition: all 0.3s ease, // General transition
@@ -92,7 +93,7 @@ $aside-menu-config: (
 						// Link
 						self: (
 							height: 44px,
-							padding: 9px 25px,
+							padding: 9px 12px,
 							border-radius: $border-radius
 						),
 

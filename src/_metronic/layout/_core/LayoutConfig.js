@@ -88,13 +88,13 @@ export function getInitLayoutConfig() {
         display: true,
       },
       layout: "subheader-v6",
-      fixed: false,
-      width: "fixed", // fixed/fluid,
+      fixed: true,
+      width: "fluid", // fixed/fluid,
       clear: false,
-      style: "transparent", // solid/transparent
+      style: "solid", // solid/transparent
     },
     content: {
-      width: "fixed", // fluid|fixed
+      width: "fluid", // fluid|fixed
     },
     aside: {
       self: {
@@ -118,7 +118,7 @@ export function getInitLayoutConfig() {
       },
     },
     footer: {
-      width: "fixed", // fixed|fluid
+      width: "fluid", // fixed|fluid
       fixed: false
     },
     extras: {

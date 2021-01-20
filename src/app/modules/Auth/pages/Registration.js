@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { FormattedMessage, injectIntl } from "react-intl";
 import * as auth from "../_redux/authRedux";
 import { register } from "../_redux/authCrud";
-
+import HorizontalLabelPositionBelowStepper from "./Registration-steps/Registration-steps"
 const initialValues = {
   fullname: "",
   email: "",
@@ -116,19 +116,84 @@ function Registration(props) {
   });
 
   return (
-    <div className="login-form login-signin" style={{ display: "block" }}>
-      <div className="text-center mb-10 mb-lg-20">
-        <h3 className="font-size-h1">
+    <div className="d-flex justify-content-center w-100 shadow ">
+
+          <div className="d-flex w-100 loginMaincontent">
+            {/*begin::Aside*/}
+            <div
+              className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat p-10 p-lg-10 col-4 order-0 rounded-left"
+              style={{
+                backgroundColor: `#5382FC`,
+              }}
+            >
+              {/*
+              style={{
+                backgroundImage: `url(${toAbsoluteUrl("/media/bg/bg-4.jpg")})`,
+              }}
+              */}
+              {/*begin: Aside Container*/}
+              <div className="d-flex flex-row-fluid flex-column justify-content-between">
+
+                {/* start:: Aside content */}
+                <div className="flex-column-fluid d-flex flex-column justify-content-center">
+                  <div className="mx-auto loginRightimg d-flex flex-column-reverse">
+                    <div className="text-center d-flex mx-12">
+                      <img src="/media/auth-screen/Registration.svg" className="m-auto mw-100" alt="Login screen" />
+                    </div>
+                    <div className="mb-7 flex-column-fluid d-flex flex-column text-center">
+                      <h3 className="font-size-h1 mb-5 text-white">
+                        Welcome to HMIS!
+                      </h3>
+                      <p className="font-size-18 font-weight-lighter text-white opacity-90">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                {/* end:: Aside content */}
+
+                {/* start:: Aside footer for desktop d-lg-flex */}
+                <div className="d-none flex-column-auto  justify-content-between mt-10">
+                  <div className="opacity-70 font-weight-bold	text-dark">
+                    &copy; 2020 Metronic
+                  </div>
+                  <div className="d-flex">
+                    <Link to="/terms" className="text-dark font-size-14">
+                      Privacy
+                    </Link>
+                    <Link to="/terms" className="text-dark font-size-14 ml-10">
+                      Legal
+                    </Link>
+                    <Link to="/terms" className="text-dark font-size-14 ml-10">
+                      Contact
+                    </Link>
+                  </div>
+                </div>
+                {/* end:: Aside footer for desktop */}
+              </div>
+              {/*end: Aside Container*/}
+            </div>
+            {/*begin::Aside*/}
+
+        {/*begin::Login*/}
+        <div className="d-flex flex-column flex-1 position-relative p-7 col order-1 rounded-right"
+              style={{
+                backgroundColor: `#fff`,
+              }}
+            >
+    <div className="registration-form login-signin mx-auto col-lg-10" style={{ display: "block" }}>
+      <div className="text-left mb-6 d-none">
+        <h1 className="font-size-30 color_01234B font-weight-600 mb-5">
           <FormattedMessage id="AUTH.REGISTER.TITLE" />
-        </h3>
-        <p className="text-muted font-weight-bold">
+        </h1>
+        <p className="font-size-14 text-muted font-weight-normal">
           Enter your details to create your account
         </p>
       </div>
-
+      <HorizontalLabelPositionBelowStepper />
       <form
         id="kt_login_signin_form"
-        className="form fv-plugins-bootstrap fv-plugins-framework animated animate__animated animate__backInUp"
+        className="d-none form fv-plugins-bootstrap fv-plugins-framework animated animate__animated animate__backInUp"
         onSubmit={formik.handleSubmit}
       >
         {/* begin: Alert */}
@@ -141,100 +206,107 @@ function Registration(props) {
 
         {/* begin: Fullname */}
         <div className="form-group fv-plugins-icon-container">
-          <input
-            placeholder="Full name"
-            type="text"
-            className={`form-control form-control-solid h-auto py-5 px-6 ${getInputClasses(
-              "fullname"
-            )}`}
-            name="fullname"
-            {...formik.getFieldProps("fullname")}
-          />
-          {formik.touched.fullname && formik.errors.fullname ? (
-            <div className="fv-plugins-message-container">
-              <div className="fv-help-block">{formik.errors.fullname}</div>
-            </div>
-          ) : null}
+          <label class="form-label" for="exampleForm.ControlInput1">Full name</label>
+            <input
+              placeholder="Full name"
+              type="text"
+              className={`form-control py-5 px-6 ${getInputClasses(
+                "fullname"
+              )}`}
+              name="fullname"
+              {...formik.getFieldProps("fullname")}
+            />
+            {formik.touched.fullname && formik.errors.fullname ? (
+              <div className="fv-plugins-message-container">
+                <div className="fv-help-block">{formik.errors.fullname}</div>
+              </div>
+            ) : null}
         </div>
         {/* end: Fullname */}
 
         {/* begin: Email */}
         <div className="form-group fv-plugins-icon-container">
-          <input
-            placeholder="Email"
-            type="email"
-            className={`form-control form-control-solid h-auto py-5 px-6 ${getInputClasses(
-              "email"
-            )}`}
-            name="email"
-            {...formik.getFieldProps("email")}
-          />
-          {formik.touched.email && formik.errors.email ? (
-            <div className="fv-plugins-message-container">
-              <div className="fv-help-block">{formik.errors.email}</div>
-            </div>
-          ) : null}
+          <label class="form-label" for="exampleForm.ControlInput1">Email address</label>
+            <input
+              placeholder="Email"
+              type="email"
+              className={`form-control py-5 px-6 ${getInputClasses(
+                "email"
+              )}`}
+              name="email"
+              {...formik.getFieldProps("email")}
+            />
+            {formik.touched.email && formik.errors.email ? (
+              <div className="fv-plugins-message-container">
+                <div className="fv-help-block">{formik.errors.email}</div>
+              </div>
+            ) : null}
         </div>
         {/* end: Email */}
 
         {/* begin: Username */}
         <div className="form-group fv-plugins-icon-container">
-          <input
-            placeholder="User name"
-            type="text"
-            className={`form-control form-control-solid h-auto py-5 px-6 ${getInputClasses(
-              "username"
-            )}`}
-            name="username"
-            {...formik.getFieldProps("username")}
-          />
-          {formik.touched.username && formik.errors.username ? (
-            <div className="fv-plugins-message-container">
-              <div className="fv-help-block">{formik.errors.username}</div>
-            </div>
-          ) : null}
+          <label class="form-label" for="exampleForm.ControlInput1">User name</label>
+            <input
+              placeholder="User name"
+              type="text"
+              className={`form-control py-5 px-6 ${getInputClasses(
+                "username"
+              )}`}
+              name="username"
+              {...formik.getFieldProps("username")}
+            />
+            {formik.touched.username && formik.errors.username ? (
+              <div className="fv-plugins-message-container">
+                <div className="fv-help-block">{formik.errors.username}</div>
+              </div>
+            ) : null}
         </div>
         {/* end: Username */}
 
-        {/* begin: Password */}
-        <div className="form-group fv-plugins-icon-container">
-          <input
-            placeholder="Password"
-            type="password"
-            className={`form-control form-control-solid h-auto py-5 px-6 ${getInputClasses(
-              "password"
-            )}`}
-            name="password"
-            {...formik.getFieldProps("password")}
-          />
-          {formik.touched.password && formik.errors.password ? (
-            <div className="fv-plugins-message-container">
-              <div className="fv-help-block">{formik.errors.password}</div>
-            </div>
-          ) : null}
+        <div className="form-row fv-plugins-icon-container">
+          {/* begin: Password */}
+          <div className="form-group col-12 col-md">
+            <label class="form-label" for="exampleForm.ControlInput1">Password</label>
+              <input
+                placeholder="Password"
+                type="password"
+                className={`form-control py-5 px-6 ${getInputClasses(
+                  "password"
+                )}`}
+                name="password"
+                {...formik.getFieldProps("password")}
+              />
+              {formik.touched.password && formik.errors.password ? (
+                <div className="fv-plugins-message-container">
+                  <div className="fv-help-block">{formik.errors.password}</div>
+                </div>
+              ) : null}
+          </div>
+          {/* end: Password */}
+          <div className="form-group d-none d-lg-block">&nbsp;</div>
+          {/* begin: Confirm Password */}
+          <div className="form-group col-12 col-md">
+            <label class="form-label" for="exampleForm.ControlInput1">Confirm Password</label>
+              <input
+                placeholder="Confirm Password"
+                type="password"
+                className={`form-control py-5 px-6 ${getInputClasses(
+                  "changepassword"
+                )}`}
+                name="changepassword"
+                {...formik.getFieldProps("changepassword")}
+              />
+              {formik.touched.changepassword && formik.errors.changepassword ? (
+                <div className="fv-plugins-message-container">
+                  <div className="fv-help-block">
+                    {formik.errors.changepassword}
+                  </div>
+                </div>
+              ) : null}
+          </div>
+          {/* end: Confirm Password */}
         </div>
-        {/* end: Password */}
-
-        {/* begin: Confirm Password */}
-        <div className="form-group fv-plugins-icon-container">
-          <input
-            placeholder="Confirm Password"
-            type="password"
-            className={`form-control form-control-solid h-auto py-5 px-6 ${getInputClasses(
-              "changepassword"
-            )}`}
-            name="changepassword"
-            {...formik.getFieldProps("changepassword")}
-          />
-          {formik.touched.changepassword && formik.errors.changepassword ? (
-            <div className="fv-plugins-message-container">
-              <div className="fv-help-block">
-                {formik.errors.changepassword}
-              </div>
-            </div>
-          ) : null}
-        </div>
-        {/* end: Confirm Password */}
 
         {/* begin: Terms and Conditions */}
         <div className="form-group">
@@ -270,7 +342,7 @@ function Registration(props) {
               !formik.isValid ||
               !formik.values.acceptTerms
             }
-            className="btn btn-primary font-weight-bold px-9 py-4 my-3 mx-4"
+            className="btn btn-primary h-77 font-weight-bold px-9 py-4 my-3 mx-4"
           >
             <span>Submit</span>
             {loading && <span className="ml-3 spinner spinner-white"></span>}
@@ -279,14 +351,21 @@ function Registration(props) {
           <Link to="/auth/login">
             <button
               type="button"
-              className="btn btn-light-primary font-weight-bold px-9 py-4 my-3 mx-4"
+              className="btn btn-light-primary h-77 font-weight-bold px-9 py-4 my-3 mx-4"
             >
               Cancel
             </button>
           </Link>
         </div>
       </form>
+    
     </div>
+    </div>
+   
+    </div>
+
+    </div>
+ 
   );
 }
 

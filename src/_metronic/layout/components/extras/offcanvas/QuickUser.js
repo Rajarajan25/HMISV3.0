@@ -19,7 +19,8 @@ export function QuickUser() {
   };
 
   return (
-    <div id="kt_quick_user" className="offcanvas offcanvas-left offcanvas p-10">
+    <div>
+    <div id="kt_quick_user1" className="offcanvas offcanvas-left userProfilecanvas offcanvas p-10">
       <div className="offcanvas-header d-flex align-items-center justify-content-between pb-5">
         <h3 className="font-weight-bold m-0">
           User Profile
@@ -28,7 +29,7 @@ export function QuickUser() {
         <a
           href="#"
           className="btn btn-xs btn-icon btn-light btn-hover-primary"
-          id="kt_quick_user_close"
+          id="kt_quick_user_close1"
         >
           <i className="ki ki-close icon-xs text-muted" />
         </a>
@@ -272,6 +273,86 @@ export function QuickUser() {
           </div>
         </div>
       </div>
+    </div>
+ 
+    <div id="kt_quick_user" className="offcanvas offcanvas-left userProfilecanvas d-flex flex-column offcanvas">
+      <div className="d-flex h-100 w-100">
+        <div className="offcanvas-close mt-n1" style={{position: "absolute", top: "15px", right: "10px", zIndex: "9" }}>
+          <a
+            href="#"
+            className="btn btn-xs btn-icon btn-light btn-hover-primary"
+            id="kt_quick_user_close"
+          >
+            <i className="ki ki-close icon-xs text-muted"></i>
+          </a>
+        </div>
+        <div className="usermodalIconcontainer py-2 d-flex flex-column border-right">
+          <span className="userIcon bg-primary active">S</span>
+          <span className="userIcon bg-success">A</span>
+          <span className="userIcon bg-info">C</span>
+          <span className="userIcon bg-primary-light">K</span>
+          <span className="userIcon bg-danger">D</span>
+          <span className="userIcon bg-success">M</span>
+          <span className="userIcon bg-success font-size-h6 addNewevents">+</span>
+        </div>
+        <div className="d-flex w-100 userModalcontent">
+          <div className="d-flex col h-100">
+            <div className="d-inline-block w-100 h-100">
+              <div className="d-flex">
+                <div className="modaluserIcon w-100 mb-3">
+                  <span className="userIcon">SK</span>
+                  <span className="userName">Sivakumar</span>
+                </div>
+              </div>
+              <ul className="list-inline">
+                <li><a href="">Settings</a></li>
+                <li><a href="">Import/Export</a></li>
+                <li><a href="">People</a></li>
+                <li><a href="">People</a></li>
+              </ul>
+            </div>
+          </div>        
+          <div className="d-flex col">
+            <div className="d-inline-block w-100">
+              <div className="d-flex">
+                <div className="modaluserIcon w-100 mb-3">
+                  <span className="userIcon">SK</span>
+                  <span className="userName">Sivakumar</span>
+                </div>
+              </div>
+              <ul className="list-inline">
+                <li><a href="">Settings</a></li>
+                <li><a href="">Import/Export</a></li>
+                <li><a href="">People</a></li>
+                <li><a href="">People</a></li>
+              </ul>
+            </div>
+          </div>        
+        </div>
+      </div>
+      <div className="modalFootersection p-3 border-top bg-grey ">
+        <div className="leftmenuModalfooter w-100">
+          <ul className="list-inline w-100 d-flex m-0">
+            <li><a>Download Apps:</a></li>
+            <li>
+              <a href="#"><i className="fab fa-apple"></i></a>
+            </li>
+            <li>
+              <a href="#"><i className="fab fa-android"></i></a>
+            </li>
+            <li>
+              <a href="#"><i className="fas fa-desktop"></i></a>
+            </li>
+            <li>
+              <a href="#"><i className="fas fa-phone"></i></a>
+            </li>
+            <li>
+              <a href="#"><i className="fab fa-chrome"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
     </div>
   );
 }
