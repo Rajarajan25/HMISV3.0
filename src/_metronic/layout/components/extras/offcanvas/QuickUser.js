@@ -331,8 +331,8 @@ export function QuickUser() {
         </div>
       </div>
       <div className="modalFootersection p-3 border-top bg-grey ">
-        <div className="leftmenuModalfooter w-100">
-          <ul className="list-inline w-100 d-flex m-0">
+        <div className="leftmenuModalfooter w-100 d-flex">
+          <ul className="list-inline d-flex my-auto">
             <li><a>Download Apps:</a></li>
             <li>
               <a href="#"><i className="fab fa-apple"></i></a>
@@ -350,6 +350,12 @@ export function QuickUser() {
               <a href="#"><i className="fab fa-chrome"></i></a>
             </li>
           </ul>
+          <Link
+            to="/logout"
+            className="btn btn-light-primary btn-sm font-weight-bold ml-auto"
+          >
+            Sign Out
+          </Link>
         </div>
       </div>
     </div>
