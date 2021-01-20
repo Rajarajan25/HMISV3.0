@@ -170,6 +170,36 @@
         .helpText{
             color: #707070;
         }
+        .subCategory{
+            border: 1px solid #C6DBF4;
+            color: #3F4772;
+            display: inline-flex;
+            height: 60px;
+            border-radius: 30px;
+            align-items: center;
+            padding: 0 12px;
+            font-size: 20px;
+            font-weight: $font-weight-bold;
+            font-family: $font-family-base;
+            margin: 0.5rem;
+            .catIcon{
+                width: 36px;
+                height: 36px;
+                background-color:#D5D5D5;                
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                align-self: center;
+                color: $white;
+            }
+            &.active{
+                background: #1C6AFC;
+                color: #fff;
+                .catIcon{
+                    background-color: rgba(255,255,255, 0.4);
+                }
+            }
+        }
     }
     .customButton{
         font-size: 18px;
@@ -186,14 +216,38 @@
         }
     }
     .categoryList{
+        max-height: 450px;
+        overflow: auto;
         .btn{
             background:transparent;
             border: 1px solid #C6DBF4;
+            min-height: 100px;
+            font-size: 12px;
+            
+            img{
+                max-width: 80%;
+            }
         }
-        .btn:active{
-            background:transparent;
-            border: 1px solid #1C6AFC
+        .btn.btn-light:hover:not(.btn-text):not(:disabled):not(.disabled), .btn.btn-light:focus:not(.btn-text), .btn.btn-light.focus:not(.btn-text),.active{
+            background:transparent !important;
+            border-color: #1C6AFC  !important;
+            box-shadow: 0 0 10px 0px #1C6AFC !important;
         }
+        & > div{
+            width: 20%;
+            padding: 1rem;
+        }
+    }
+    .nextButton{
+        padding:0 15px;
+        height:40px;
+        border-radius: 20px;
+        background:#1C6AFC !important;
+        color: $white;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-base;
+        font-family: $font-family-base;
+        min-width: 120px;
     }
 }
 .leftPanel {
