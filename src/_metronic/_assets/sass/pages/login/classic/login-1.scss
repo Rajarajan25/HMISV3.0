@@ -159,7 +159,7 @@
     input.form-control{
         padding-left: 0px !important;
         border: 0px;
-        border-bottom: 1px solid;
+        border-bottom: 1px solid #707070;
         height: 46px !important;
         color: $dark_85;
     }
@@ -254,5 +254,36 @@
             width: 100%;
             max-width: 100%;
         }
+    }
+}
+
+.business_info {
+    .info_img {
+        margin: 35px 5px 0 0;
+        min-width: 35px;
+        text-align: right;
+    }
+    .makeStyles-formControl-149 {
+        margin: 0;
+        min-width: 100%;
+    }
+    .terms_c {
+        font-size: 16px;
+        color: #343434;
+        margin-left: 8px;
+    }
+    .ch-bx .checkbox {
+        margin-top: 10px;
+    }
+   .ch-bx .checkbox > span {
+        border-radius: 0;
+        width: 24px;
+        height: 24px;
+    }
+    .MuiInput-underline:before {
+        border-bottom: 1px solid #707070;
+    }
+    input.form-control {
+        font-size: 16px;
     }
 }
