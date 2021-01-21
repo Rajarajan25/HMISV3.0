@@ -253,8 +253,8 @@ function Login(props) {
             
               
               {/* begin::Mobile footer */}
-              <div className="d-flex flex-column-auto flex-column flex-sm-row justify-content-between align-items-center mt-5 p-5">
-                <div className="text-dark-50 font-weight-bold order-2 order-sm-1 my-2">
+              <div className="d-flex flex-column-auto flex-column flex-sm-row justify-content-center align-items-center mt-5 p-5">
+                <div className="text-dark-50 font-weight-bold order-2 order-sm-1 my-2 mr-15">
                   &copy; 2020 HMIS
                 </div>
                 <div className="d-flex order-1 order-sm-2 my-2">
@@ -282,7 +282,8 @@ function Login(props) {
             <div
               className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat p-10 p-lg-10 col"
               style={{
-                backgroundColor: `#5382FC`,
+                backgroundColor: `#E0F4FF`,
+                boxShadow: '0px 3px 6px #00000029',
               }}
             >
               {/*
@@ -295,17 +296,13 @@ function Login(props) {
 
                 {/* start:: Aside content */}
                 <div className="flex-column-fluid d-flex flex-column justify-content-center">
-                  <div className="m-auto loginRightimg d-flex flex-column-reverse">
+                  <div className="m-auto loginRightimg d-flex flex-column">
                     <div className="text-center d-flex mx-7">
                       <img src="/media/auth-screen/login-right.png" className="m-auto mw-100" alt="Login screen" />
                     </div>
-                    <div className="mb-7 flex-column-fluid d-flex flex-column text-center">
-                      <h3 className="font-size-h1 mb-5 text-white">
-                        Welcome to HMIS!
-                      </h3>
-                      <p className="font-size-18 font-weight-lighter text-white opacity-90">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                      </p>
+                    <div className="mt-15 flex-column-fluid d-flex flex-column text-center">                                    
+                      <h1 className="font-size-30 color_01234B font-weight-600 mb-5">Welcome to HMIS!</h1>      
+                      <p className="font-size-14 text-muted font-weight-normal">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
                     </div>
                   </div>
                 </div>

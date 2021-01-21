@@ -7,12 +7,10 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import Step1 from './step1';
-import Step2 from './step2';
-import Step3 from './step3';
-import Step4 from './step4';
-import Step5 from './step5';
-import Step6 from './step6';
+import BStep1 from './B-step1';
+import BStep2 from './B-step2';
+import BStep3 from './B-step3';
+import BStep4 from './B-step4';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -34,17 +32,13 @@ function getSteps() {
 function getStepContent(stepIndex) {
   switch (stepIndex) {
     case 0:
-      return <Step1 />;
+      return <BStep1 />;
     case 1:
-      return <Step2 />;
+      return <BStep1 />;
     case 2:
-      return <Step3 />;
+      return <BStep3 />;
     case 3:
-      return <Step4 />;
-    case 4:
-      return <Step5 />;
-    case 4:
-      return <Step6 />;
+      return <BStep4 />;
     default:
       return 'Uknown stepIndex';
   }
