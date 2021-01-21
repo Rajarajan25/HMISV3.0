@@ -12,6 +12,11 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Input from '@material-ui/core/Input';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormLabel from '@material-ui/core/FormLabel';
+
 const initialValues = {
   fullname: "",
   email: "",
@@ -34,6 +39,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(2),
   },
 }));
+
 
 function Registration(props) {
   const { intl } = props;
@@ -261,16 +267,9 @@ function Registration(props) {
        
             </div>
 
-            <div className="d-flex fv-plugins-icon-container">
+            <div className="form-group fv-plugins-icon-container">
        
-              <div className="form-group col-5 pl-0 coun_cde">
-                <label class="form-label d-block" for="exampleForm.ControlInput1">Gender</label>
-                
-              </div>
-              
-              <div className="form-group col-7 pr-0">
-
-              </div>
+              <GenderGroup />
        
             </div>
 
@@ -383,7 +382,7 @@ function CountryCode() {
 
   return (
       <FormControl className={classes.formControl}>
- 
+        
         <Select
           value={values.age}
           onChange={handleChange}
@@ -400,5 +399,50 @@ function CountryCode() {
           <MenuItem value={30}>India (91)</MenuItem>
         </Select>
       </FormControl>
+  );
+}
+
+
+
+function GenderGroup() {
+
+  const useStyles = makeStyles(theme => ({
+    root: {
+      display: 'flex',
+    },
+    formControl: {
+      margin: theme.spacing(3),
+    },
+    group: {
+      margin: theme.spacing(1, 0),
+    },
+  }));
+
+  const classes = useStyles();
+  const [value, setValue] = React.useState('female');
+
+  function handleChange(event) {
+    setValue(event.target.value);
+  }
+
+  return (
+    <div className={classes.root}>
+      <FormControl component="fieldset" className={classes.formControl}>
+        <FormLabel component="legend">Gender</FormLabel>
+        <RadioGroup
+          aria-label="Gender"
+          name="gender1"
+          className={classes.group}
+          value={value}
+          onChange={handleChange}
+        >
+          <FormControlLabel value="male" control={<Radio />} label="Male" />
+          <FormControlLabel value="female" control={<Radio />} label="Female" />
+          
+  
+        </RadioGroup>
+      </FormControl>
+      
+    </div>
   );
 }

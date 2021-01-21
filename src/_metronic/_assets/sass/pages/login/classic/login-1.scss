@@ -195,6 +195,7 @@
             &.active{
                 background: #1C6AFC;
                 color: #fff;
+                box-shadow: 0 10px 20px #1C6AFC33;
                 .catIcon{
                     background-color: rgba(255,255,255, 0.4);
                 }
@@ -240,14 +241,27 @@
     }
     .nextButton{
         padding:0 15px;
-        height:40px;
-        border-radius: 20px;
+        height:60px;
+        border-radius: 30px;
         background:#1C6AFC !important;
         color: $white;
         font-weight: $font-weight-bold;
-        font-size: $font-size-base;
-        font-family: $font-family-base;
-        min-width: 120px;
+        font-size: 18px;
+        min-width: 190px;
+        box-shadow: none;
+        text-transform: capitalize;
+    }
+    .MuiButton-root.backbtn {
+        position: absolute;
+        top: 0px;
+        left:-70%;
+        z-index: 100;
+        color: #fff;
+        font-size: 20px;
+        text-transform: capitalize;
+    }
+    .MuiButton-root.backbtn:hover {
+        background-color: transparent;
     }
     .terms_c {
         font-size: 16px;
@@ -302,6 +316,24 @@
     }
     .MuiSelect-selectMenu {
         font-size: 18px;
+    }
+    .MuiFormControl-root {
+        margin: 0;
+    }
+    .MuiFormGroup-root {
+        flex-direction: initial;
+        margin-bottom:  0;
+    }
+    .form-group label {
+        margin-bottom: 0;
+    }
+    .MuiTypography-body1 {
+        font-size: 18px;
+        color: #3F4772;
+    }
+    .MuiFormLabel-root {
+        font-size: 14px;
+        color: #9FAFC2;
     }
 }
 .leftPanel {

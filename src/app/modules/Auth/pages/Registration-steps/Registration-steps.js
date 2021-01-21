@@ -88,11 +88,11 @@ export default function HorizontalLabelPositionBelowStepper() {
               <Button
                 disabled={activeStep === 0}
                 onClick={handleBack}
-                className={classes.backButton}
+                className={'backbtn'+' '+classes.backButton}
               >
                 Back
               </Button>
-              <Button variant="contained" className="nextButton" color="primary" onClick={handleNext}>
+              <Button variant="contained" className="nextButton ml-auto" color="primary" onClick={handleNext}>
                 {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
               </Button>
             </div>
