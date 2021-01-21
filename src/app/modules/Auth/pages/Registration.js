@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import { connect } from "react-redux";
+import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import { FormattedMessage, injectIntl } from "react-intl";
@@ -116,9 +117,17 @@ function Registration(props) {
   });
 
   return (
-    <div className="d-flex justify-content-center w-100 shadow ">
-
-          <div className="d-flex w-100 loginMaincontent">
+    <div className="d-flex justify-content-center flex-column w-100 col-lg-10 p-0">
+      
+              {/* start:: Aside header */}
+              <Link to="/" className="flex-column-auto pb-lg-0 pb-10 mr-auto">
+                <img
+                  alt="Logo"
+                  src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
+                />
+              </Link>
+              {/* end:: Aside header */}
+          <div className="d-flex w-100 loginMaincontent shadow" >
             {/*begin::Aside*/}
             <div
               className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat p-10 p-lg-10 col-4 order-0 rounded-left"
@@ -363,7 +372,33 @@ function Registration(props) {
     </div>
    
     </div>
-
+          
+          
+              {/* begin::Mobile footer */}
+              <div className="d-flex flex-column-auto flex-column flex-sm-row justify-content-between align-items-center mt-5 p-5">
+                <div className="text-dark-50 font-weight-bold order-2 order-sm-1 my-2">
+                  &copy; 2020 HMIS
+                </div>
+                <div className="d-flex order-1 order-sm-2 my-2">
+                  <Link to="/terms" className="text-dark-75 text-hover-primary">
+                    Privacy
+                  </Link>
+                  <Link
+                    to="/terms"
+                    className="text-dark-75 text-hover-primary ml-4"
+                  >
+                    Legal
+                  </Link>
+                  <Link
+                    to="/terms"
+                    className="text-dark-75 text-hover-primary ml-4"
+                  >
+                    Contact
+                  </Link>
+                </div>
+              </div>
+              {/* end::Mobile footer */}
+              
     </div>
  
   );
