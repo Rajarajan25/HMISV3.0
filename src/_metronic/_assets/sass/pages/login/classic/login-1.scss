@@ -159,8 +159,8 @@
     input.form-control{
         padding-left: 0px !important;
         border: 0px;
-        border-bottom: 1px solid #707070;
-        height: 46px !important;
+        border-bottom: 1px solid #C6DBF4;
+        height: 44px !important;
         color: $dark_85;
     }
     .rightPanel {
@@ -195,6 +195,7 @@
             &.active{
                 background: #1C6AFC;
                 color: #fff;
+                box-shadow: 0 10px 20px #1C6AFC33;
                 .catIcon{
                     background-color: rgba(255,255,255, 0.4);
                 }
@@ -240,14 +241,99 @@
     }
     .nextButton{
         padding:0 15px;
-        height:40px;
-        border-radius: 20px;
+        height:60px;
+        border-radius: 30px;
         background:#1C6AFC !important;
         color: $white;
         font-weight: $font-weight-bold;
-        font-size: $font-size-base;
-        font-family: $font-family-base;
-        min-width: 120px;
+        font-size: 18px;
+        min-width: 190px;
+        box-shadow: none;
+        text-transform: capitalize;
+    }
+    .MuiButton-root.backbtn {
+        position: absolute;
+        top: 0px;
+        left:-70%;
+        z-index: 100;
+        color: #fff;
+        font-size: 20px;
+        text-transform: capitalize;
+    }
+    .MuiButton-root.backbtn:hover {
+        background-color: transparent;
+    }
+    .terms_c {
+        font-size: 16px;
+        color: #343434;
+        margin-left: 8px;
+    }
+    .ch-bx .checkbox {
+        padding-top: 10px;
+    }
+   .ch-bx .checkbox > span {
+        border-radius: 0;
+        width: 24px;
+        height: 24px;
+    }
+    .MuiInput-underline:before {
+        border-bottom: 1px solid #C6DBF4;
+    }
+    input.form-control {
+        font-size: 18px;
+        color: #3F4772;
+        padding: 5px 0 !important;
+    }
+    .MuiSelect-select:focus {
+        background-color: transparent;
+    }
+    .coun_cde .MuiFormControl-root {
+        margin: 0;
+        min-width: 100%;
+    }
+    input.form-control::placeholder {
+        color: #3F4772;
+        opacity: 1; /* Firefox */
+    } 
+    input.form-control::-ms-input-placeholder {
+       color:  #3F4772;
+    } 
+    input.form-control::-ms-input-placeholder {
+        color:  #3F4772;
+    }
+    input.form-control::-moz-input-placeholder {
+        color: #3F4772;
+        opacity: 1; /* Firefox */
+    }
+    input.form-control::-webkit-input-placeholder {
+        color:  #3F4772;
+    } 
+    .MuiInput-root {
+        margin-top: 10px;
+    }
+    .MuiInput-underline:after {
+        border-bottom: 1px solid #C6DBF4;
+    }
+    .MuiSelect-selectMenu {
+        font-size: 18px;
+    }
+    .MuiFormControl-root {
+        margin: 0;
+    }
+    .MuiFormGroup-root {
+        flex-direction: initial;
+        margin-bottom:  0;
+    }
+    .form-group label {
+        margin-bottom: 0;
+    }
+    .MuiTypography-body1 {
+        font-size: 18px;
+        color: #3F4772;
+    }
+    .MuiFormLabel-root {
+        font-size: 14px;
+        color: #9FAFC2;
     }
 }
 .leftPanel {
@@ -310,34 +396,16 @@
         }
     }
 }
-
+.login.login-1 {
+    .registration-form.login-signin .form-label {
+        font-size: 14px !important;
+        color: #9FAFC2 !important;
+    }
+} 
 .business_info {
     .info_img {
         margin: 35px 5px 0 0;
         min-width: 35px;
         text-align: right;
-    }
-    .makeStyles-formControl-149 {
-        margin: 0;
-        min-width: 100%;
-    }
-    .terms_c {
-        font-size: 16px;
-        color: #343434;
-        margin-left: 8px;
-    }
-    .ch-bx .checkbox {
-        margin-top: 10px;
-    }
-   .ch-bx .checkbox > span {
-        border-radius: 0;
-        width: 24px;
-        height: 24px;
-    }
-    .MuiInput-underline:before {
-        border-bottom: 1px solid #707070;
-    }
-    input.form-control {
-        font-size: 16px;
     }
 }

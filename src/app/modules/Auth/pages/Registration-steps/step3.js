@@ -224,7 +224,7 @@ function Registration(props) {
             {/* end: Fullname */}
 
             <div className="d-flex fv-plugins-icon-container">
-            <div className="form-group col-5 p-0 d-flex">
+            <div className="form-group col-5 p-0 d-flex coun_cde">
               <div className="info_img">
                 <img src="/media/auth-screen/feedback_icon.svg" className="m-auto mw-100" alt="" />
               </div>
@@ -233,7 +233,7 @@ function Registration(props) {
                   <BusinessSize />
                   </div>
               </div>
-              <div className="form-group col-7 d-flex">
+              <div className="form-group col-7 d-flex coun_cde">
                 <div className="info_img">
                   <img src="/media/auth-screen/branch_icon.svg" className="m-auto mw-100" alt="" />
                 </div>
@@ -247,7 +247,7 @@ function Registration(props) {
             </div>
             
             <div className="d-flex fv-plugins-icon-container">
-              <div className="form-group col-5 p-0 d-flex">
+              <div className="form-group col-5 p-0 d-flex coun_cde">
                 <div className="info_img">
                   <img src="/media/auth-screen/phone_icon.svg" className="m-auto mw-100" alt="" />
                 </div>
@@ -305,7 +305,7 @@ function Registration(props) {
               ) : null}
             </div>
             {/* end: Terms and Conditions */}
-            <div className="form-group d-flex flex-wrap flex-center">
+            <div className="form-group d-none flex-wrap flex-center">
               <button
                 type="submit"
                 disabled={
