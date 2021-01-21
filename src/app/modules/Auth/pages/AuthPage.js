@@ -19,16 +19,8 @@ export function AuthPage() {
         >
           <div className="d-flex justify-content-center w-100 loginMaincontent">
             {/*begin::Content*/}
-            <div className="d-flex flex-column flex-1 position-relative p-7 col order-1  col-lg-10 col">
+            <div className="d-flex flex-column flex-1 position-relative p-0 col order-1  col-12 col">
               
-              {/* start:: Aside header */}
-              <Link to="/" className="flex-column-auto pb-lg-0 pb-10 mr-auto">
-                <img
-                  alt="Logo"
-                  src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
-                />
-              </Link>
-              {/* end:: Aside header */}
               {/* begin::Content body */}
               <div className="d-flex flex-column-fluid flex-center mt-30 mt-lg-0">
                 <Switch>
@@ -47,30 +39,6 @@ export function AuthPage() {
               </div>
               {/*end::Content body*/}
 
-              {/* begin::Mobile footer */}
-              <div className="d-flex flex-column-auto flex-column flex-sm-row justify-content-between align-items-center mt-5 p-5">
-                <div className="text-dark-50 font-weight-bold order-2 order-sm-1 my-2">
-                  &copy; 2020 HMIS
-                </div>
-                <div className="d-flex order-1 order-sm-2 my-2">
-                  <Link to="/terms" className="text-dark-75 text-hover-primary">
-                    Privacy
-                  </Link>
-                  <Link
-                    to="/terms"
-                    className="text-dark-75 text-hover-primary ml-4"
-                  >
-                    Legal
-                  </Link>
-                  <Link
-                    to="/terms"
-                    className="text-dark-75 text-hover-primary ml-4"
-                  >
-                    Contact
-                  </Link>
-                </div>
-              </div>
-              {/* end::Mobile footer */}
             </div>
             {/*end::Content*/}
 
