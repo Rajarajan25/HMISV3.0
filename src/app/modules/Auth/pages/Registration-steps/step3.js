@@ -156,7 +156,7 @@ function Registration(props) {
         ))}
       </Stepper>
     <div className="text-left mb-6">
-        <h1 className="font-size-30 color_01234B font-weight-600 mb-5">Business Info:</h1>      
+        <h1 className="font-size-28 color_01234B font-weight-600 mb-10">Business Info:</h1>      
       </div>
       <div className="business_info">
           <form

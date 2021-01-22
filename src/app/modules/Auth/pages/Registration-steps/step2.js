@@ -144,7 +144,7 @@ function Registration(props) {
     <>
     
       <div className="text-left mb-6">
-        <h1 className="font-size-30 color_01234B font-weight-600 mb-5">Fill your Personal details:</h1>      
+        <h1 className="font-size-28 color_01234B font-weight-600 mb-10">Fill your Personal details:</h1>      
      
       </div>
           <form
@@ -159,10 +159,16 @@ function Registration(props) {
               </div>
             )}
             {/* end: Alert */}
+            
+           
 
-            {/* begin: Firstname */}
-            <div className="form-group fv-plugins-icon-container">
-              <label class="form-label" for="exampleForm.ControlInput1">First Name</label>
+            <div className="d-flex fv-plugins-icon-container">
+              <div className="form-group col-6 p-0 d-flex coun_cde">
+                <div className="info_img">
+                  <img src="/media/auth-screen/name.svg" className="m-auto mw-100" alt="" />
+                </div>
+                <div className="col">
+                <label class="form-label" for="exampleForm.ControlInput1">First Name</label>
                 <input
                   placeholder="First Name"
                   type="text"
@@ -177,11 +183,9 @@ function Registration(props) {
                     <div className="fv-help-block">{formik.errors.fullname}</div>
                   </div>
                 ) : null}
-            </div>
-            {/* end: Firstname */}
-
-          {/* begin: Lastname */}
-          <div className="form-group fv-plugins-icon-container">
+                </div>
+              </div>
+              <div className="form-group col-6">
               <label class="form-label" for="exampleForm.ControlInput1">Last Name</label>
                 <input
                   placeholder="Last Name"
@@ -197,11 +201,15 @@ function Registration(props) {
                     <div className="fv-help-block">{formik.errors.fullname}</div>
                   </div>
                 ) : null}
-            </div>
-            {/* end: Lastname */}
+              </div>
 
-            {/* begin: Email */}
-            <div className="form-group fv-plugins-icon-container">
+            </div>
+
+            <div className="form-group fv-plugins-icon-container d-flex">
+              <div className="info_img">
+                <img src="/media/auth-screen/mail.svg" className="m-auto mw-100" alt="" />
+              </div>
+              <div className="col">
               <label class="form-label" for="exampleForm.ControlInput1">Email Id</label>
                 <input
                   placeholder="Email Id"
@@ -217,12 +225,15 @@ function Registration(props) {
                     <div className="fv-help-block">{formik.errors.email}</div>
                   </div>
                 ) : null}
+                </div>
             </div>
-            {/* end: Email */}
 
-            {/* begin: Username */}
-            <div className="form-group fv-plugins-icon-container">
-            <label class="form-label" for="exampleForm.ControlInput1">Password</label>
+            <div className="form-group fv-plugins-icon-container d-flex">
+              <div className="info_img">
+                <img src="/media/auth-screen/password.svg" className="m-auto mw-100" alt="" />
+              </div>
+              <div className="col">
+              <label class="form-label" for="exampleForm.ControlInput1">Password</label>
                   <input
                     placeholder="Password"
                     type="password"
@@ -237,103 +248,57 @@ function Registration(props) {
                       <div className="fv-help-block">{formik.errors.password}</div>
                     </div>
                   ) : null}
+                </div>
             </div>
-            {/* end: Username */}
+
+
 
             <div className="d-flex fv-plugins-icon-container">
-       
-              <div className="form-group col-5 pl-0 coun_cde">
-              <label class="form-label d-block" for="exampleForm.ControlInput1">Country code</label>
+              <div className="form-group col-5 p-0 d-flex coun_cde">
+                <div className="info_img">
+                  <img src="/media/auth-screen/phone_icon.svg" className="m-auto mw-100" alt="" />
+                </div>
+                <div className="col">
+                    <label class="form-label d-block" for="exampleForm.ControlInput1">Country code</label>
                     <CountryCode />
+                </div>
               </div>
+              <div className="form-group col-7">
+                  <label class="form-label d-block" for="exampleForm.ControlInput1">Phone Number</label>
+                  <input
+                    placeholder="Phone"
+                    type="text"
+                    className={`form-control py-5 px-6 ${getInputClasses(
+                      "username"
+                    )}`}
+                    name="username"
+                    {...formik.getFieldProps("username")}
+                  />
+                {formik.touched.username && formik.errors.username ? (
+                  <div className="fv-plugins-message-container">
+                    <div className="fv-help-block">{formik.errors.username}</div>
+                </div>
+                ) : null}
+              </div>
+
+          
+            </div>
+
+
+            <div className="form-group d-flex  fv-plugins-icon-container">
+            <div className="info_img">
+                  <img src="/media/auth-screen/sex.svg" className="m-auto mw-100" alt="" />
+                </div>
+                <div className="col">
+                    <GenderGroup />
+                </div>
               
-              <div className="form-group col-7 pr-0">
-                <label class="form-label d-block" for="exampleForm.ControlInput1">Phone Number</label>
-                  <input
-                    placeholder="Phone Number"
-                    type="text"
-                    className={`form-control py-5 px-6 ${getInputClasses(
-                      "username"
-                    )}`}
-                    name="username"
-                    {...formik.getFieldProps("username")}
-                  />
-                {formik.touched.username && formik.errors.username ? (
-                  <div className="fv-plugins-message-container">
-                    <div className="fv-help-block">{formik.errors.username}</div>
-                </div>
-                ) : null}
-              </div>
        
             </div>
 
-            <div className="form-group fv-plugins-icon-container">
-       
-              <GenderGroup />
-       
-            </div>
+      
 
-            <div className="form-group fv-plugins-icon-container">
-            <label class="form-label d-block" for="exampleForm.ControlInput1">Address</label>
-                  <input
-                    placeholder="Address1"
-                    type="text"
-                    className={`form-control py-5 px-6 ${getInputClasses(
-                      "username"
-                    )}`}
-                    name="username"
-                    {...formik.getFieldProps("username")}
-                  />
-                {formik.touched.username && formik.errors.username ? (
-                  <div className="fv-plugins-message-container">
-                    <div className="fv-help-block">{formik.errors.username}</div>
-                </div>
-                ) : null}
-            </div>
-            <div className="form-group fv-plugins-icon-container">
-              <input
-                    placeholder="Address2"
-                    type="text"
-                    className={`form-control py-5 px-6 ${getInputClasses(
-                      "username"
-                    )}`}
-                    name="username"
-                    {...formik.getFieldProps("username")}
-                  />
-                {formik.touched.username && formik.errors.username ? (
-                  <div className="fv-plugins-message-container">
-                    <div className="fv-help-block">{formik.errors.username}</div>
-                </div>
-                ) : null}
-            </div>
-
-            {/* begin: Terms and Conditions */}
-            <div className="form-group ch-bx">
-              <label className="checkbox">
-                <input
-                  type="checkbox"
-                  name="acceptTerms"
-                  className="m-1"
-                  {...formik.getFieldProps("acceptTerms")}
-                />
-                <span />
-                <Link
-                  to="/terms"
-                  target="_blank"
-                  className="mr-1 terms_c"
-                  rel="noopener noreferrer"
-                >
-                  I agree the Terms & Conditions
-                </Link>
-                
-              </label>
-              {formik.touched.acceptTerms && formik.errors.acceptTerms ? (
-                <div className="fv-plugins-message-container">
-                  <div className="fv-help-block">{formik.errors.acceptTerms}</div>
-                </div>
-              ) : null}
-            </div>
-            {/* end: Terms and Conditions */}
+          
             <div className="form-group d-none flex-wrap flex-center">
               <button
                 type="submit"
