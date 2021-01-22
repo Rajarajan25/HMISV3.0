@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route,Link } from 'react-router-dom';
 
 export function ListActivity01() {  
 
@@ -8,16 +9,18 @@ export function ListActivity01() {
             <div className="contentArea">
               <div className="topHeadercontent d-flex">
                 <div className="toggleLefticon">
-                  <a href="javascript:void(0);" data-toggle="collapse" data-target="#availabledoctors" className="borderColor11 textColor11">
+                  <Link  to="javascript:void(0)" data-toggle="collapse" data-target="#availabledoctors" className="borderColor11 textColor11">
                     <i className="fa fa-angle-down"></i>
-                  </a>                    
+                  </Link >                    
                 </div>
                 <ul className="list-inline w-100">
                   <li>
                     <span className="headingHighlight customProfileBG11 text-white">Healthy 
-                      <a href="javascript:void(0);" className="ml-3"><i className="fa fa-pen"></i></a>
-                      <a href="javascript:void(0);"><i className="fa fa-check-square"></i></a>
-                      <a href="javascript:void(0);"><i className="fa fa-ellipsis-h"></i></a>
+                      <Router>
+                        <Link  to="javascript:void(0)" className="ml-3"><i className="fa fa-pen"></i></Link >
+                        <Link  to="javascript:void(0)"><i className="fa fa-check-square"></i></Link >
+                        <Link  to="javascript:void(0)"><i className="fa fa-ellipsis-h"></i></Link >
+                      </Router>
                     </span>
                     <span className="tasklistCount">5 Doctors</span>
                   </li>
@@ -41,7 +44,7 @@ export function ListActivity01() {
                   <div className="col-lg-12 ">
                     <div className="topMiddlecontent">
                       <ul>
-                        <li><a href="javascript:void(0);" className="userLogoicon"><span className="listprofileIcon customProfileBG1">AK</span> <span>Anand Kumar</span></a></li>
+                        <li><Link  to="javascript:void(0)" className="userLogoicon"><span className="listprofileIcon customProfileBG1">AK</span> <span>Anand Kumar</span></Link ></li>
                         <li><span className="rounddashedCircle"><i className="fa fa-user fa-sm"></i></span></li>
                         <li className="activeStatuscontent customProfileBG4">May 2020</li>
                         <li className="d-none">Date created</li>
@@ -52,8 +55,8 @@ export function ListActivity01() {
                         </li>
                         <li>Yes</li>
                         <li>
-                          <a href="javascript:void(0);" className="specialInfo bg-danger text-white" data-toggle="modal" data-target="#medicalDetails">PRINIVIL</a>
-                          <a href="javascript:void(0);" className="specialInfo bg-primary text-white" data-toggle="modal" data-target="#medicalDetails">PRINIVIL</a>
+                          <Link  to="javascript:void(0)" className="specialInfo bg-danger text-white" data-toggle="modal" data-target="#medicalDetails">PRINIVIL</Link>
+                          <Link  to="javascript:void(0)" className="specialInfo bg-primary text-white" data-toggle="modal" data-target="#medicalDetails">PRINIVIL</Link>
                         </li>
                         <li className="d-none">Physician</li>
                         <li className="d-none">Insurance</li>
@@ -62,11 +65,11 @@ export function ListActivity01() {
                         <li><span className="rounddashedCircle"><i className="fa fa-flag text-danger fa-sm"></i></span></li>
                         <li className="d-none">Conditions</li>
                         <li>
-                          <a href="javascript:void(0);" className="rounddashedCircle" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-comments fa-sm"></i></a>
+                          <Link  to="javascript:void(0)" className="rounddashedCircle" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-comments fa-sm"></i></Link>
                         </li>
                       </ul>
                       <ul>
-                        <li><a href="javascript:void(0);" className="userLogoicon" data-toggle="modal" data-target="#commonModalright"><span className="listprofileIcon customProfileBG2">SK</span> <span>Siva Kumar</span></a></li>
+                        <li><Link  to="javascript:void(0)" className="userLogoicon" data-toggle="modal" data-target="#commonModalright"><span className="listprofileIcon customProfileBG2">SK</span> <span>Siva Kumar</span></Link></li>
                         <li><span className="rounddashedCircle"><i className="fa fa-user fa-sm"></i></span></li>
                         <li className="activeStatuscontent customProfileBG7">Sep 2020</li>
                         <li className="d-none">Date created</li>
@@ -77,7 +80,7 @@ export function ListActivity01() {
                         </li>
                         <li>Yes</li>
                         <li>
-                          <a href="javascript:void(0);" className="specialInfo bg-warning text-white" data-toggle="modal" data-target="#medicalDetails">Advil</a>
+                          <Link  to="javascript:void(0)" className="specialInfo bg-warning text-white" data-toggle="modal" data-target="#medicalDetails">Advil</Link>
                         </li>
                         <li className="d-none">Physician</li>
                         <li className="d-none">Insurance</li>
@@ -86,11 +89,11 @@ export function ListActivity01() {
                         <li><i className="fa fa-flag text-danger fa-sm"></i></li>
                         <li className="d-none">Conditions</li>
                         <li>
-                          <a href="javascript:void(0);" className="rounddashedCircle" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-comments fa-sm"></i></a>
+                          <Link  to="javascript:void(0)" className="rounddashedCircle" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-comments fa-sm"></i></Link>
                         </li>
                       </ul>
                       <ul className="d-none">
-                        <li><a href="javascript:void(0);" className="userLogoicon"><span className="listprofileIcon customProfileBG3">SB</span> <span>Sureshbabu</span></a></li>
+                        <li><Link  to="javascript:void(0)" className="userLogoicon"><span className="listprofileIcon customProfileBG3">SB</span> <span>Sureshbabu</span></Link></li>
                         <li><span className="rounddashedCircle"><i className="fa fa-user fa-sm"></i></span></li>
                         <li>Aug 2020</li>
                         <li className="d-none">Date created</li>
@@ -101,7 +104,7 @@ export function ListActivity01() {
                         </li>
                         <li>No</li>
                         <li>
-                          <a href="javascript:void(0);" className="rounddashedCircle" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></a>
+                          <Link  to="javascript:void(0)" className="rounddashedCircle" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></Link>
                         </li>
                         <li className="d-none">Physician</li>
                         <li className="d-none">Insurance</li>
@@ -110,11 +113,11 @@ export function ListActivity01() {
                         <li><i className="fa fa-flag text-danger fa-sm"></i></li>
                         <li className="d-none">Conditions</li>
                         <li>
-                          <a href="javascript:void(0);" className="rounddashedCircle" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-comments fa-sm"></i></a>
+                          <Link  to="javascript:void(0)" className="rounddashedCircle" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-comments fa-sm"></i></Link>
                         </li>
                       </ul>
                       <ul className="d-none">
-                        <li><a href="javascript:void(0);" className="userLogoicon"><span className="listprofileIcon customProfileBG4">PB</span> <span>Prabaker</span></a></li>
+                        <li><Link  to="javascript:void(0)" className="userLogoicon"><span className="listprofileIcon customProfileBG4">PB</span> <span>Prabaker</span></Link></li>
                         <li><span className="rounddashedCircle"><i className="fa fa-user fa-sm"></i></span></li>
                         <li>July 2020</li>
                         <li className="d-none">Date created</li>
@@ -125,7 +128,7 @@ export function ListActivity01() {
                         </li>
                         <li>No</li>
                         <li>
-                          <a href="javascript:void(0);" className="rounddashedCircle" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></a>
+                          <Link  to="javascript:void(0)" className="rounddashedCircle" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></Link>
                         </li>
                         <li className="d-none">Physician</li>
                         <li className="d-none">Insurance</li>
@@ -134,34 +137,34 @@ export function ListActivity01() {
                         <li><i className="fa fa-flag text-danger fa-sm"></i></li>
                         <li className="d-none">Conditions</li>
                         <li>
-                          <a href="javascript:void(0);" className="rounddashedCircle" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-comments fa-sm"></i></a>
+                          <Link  to="javascript:void(0)" className="rounddashedCircle" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-comments fa-sm"></i></Link>
                         </li>
                       </ul>
 
                       <ul className="newTask_1">
                         <li>
-                          <a className="userLogoicon">
+                          <Link to="javascript:void(0)" className="userLogoicon">
                             <span className="listprofileIcon customProfileBG4">
                               <i className="fe fe-user-plus"></i> 
                             </span> 
                             <button type="button" className="removeNewtask">X</button>
                             <input type="text" className="newTaskinput" name="" id="" placeholder="Doctor name" />  
-                          </a>                            
+                          </Link>                            
                         </li>              
                         <li className="text-right">
                           <span className="ctrlSpan">ctrl + enter to open </span>
-                          <a href="javascript:void(0);" className="rounddashedCircle mx-1 text-center" data-toggle="modal" data-target="#medicalDetails">
+                          <Link  to="javascript:void(0)" className="rounddashedCircle mx-1 text-center" data-toggle="modal" data-target="#medicalDetails">
                             <i className="fas fa-edit fa-sm"></i>
-                          </a>
-                          <a href="javascript:void(0);" className="rounddashedCircle mx-1 text-center" data-toggle="modal" data-target="#medicalDetails">
+                          </Link>
+                          <Link  to="javascript:void(0)" className="rounddashedCircle mx-1 text-center" data-toggle="modal" data-target="#medicalDetails">
                             <i className="fa fa-tags fa-sm"></i>
-                          </a>
+                          </Link>
                           <button type="button" className="btn btn-primary btn-sm font-sm mx-1 saveNewtask">SAVE</button>
                         </li>
                       </ul>
 
                     </div>
-                    <button type="button" class="customNewtaskBTN">+ New Doctor</button>
+                    <button type="button" className="customNewtaskBTN">+ New Doctor</button>
                   </div>    
                 </div>                 
               </div>
@@ -178,16 +181,16 @@ export function ListActivity02() {
             <div className="contentArea">
               <div className="topHeadercontent d-flex">
                 <div className="toggleLefticon">
-                  <a href="javascript:void(0);" data-toggle="collapse" data-target="#onFielddoctors" className="borderColor2 textColor2">
+                  <Link  to="javascript:void(0)" data-toggle="collapse" data-target="#onFielddoctors" className="borderColor2 textColor2">
                     <i className="fa fa-angle-down"></i> 
-                  </a>                           
+                  </Link>                           
                 </div>
                 <ul className="list-inline w-100">
                   <li>
                     <span className="headingHighlight customProfileBG2 text-white">On-Field Doctors 
-                      <a href="javascript:void(0);" className="ml-3"><i className="fa fa-pen"></i></a>
-                      <a href="javascript:void(0);"><i className="fa fa-check-square"></i></a>
-                      <a href="javascript:void(0);"><i className="fa fa-ellipsis-h"></i></a>
+                      <Link  to="javascript:void(0)" className="ml-3"><i className="fa fa-pen"></i></Link>
+                      <Link  to="javascript:void(0)"><i className="fa fa-check-square"></i></Link>
+                      <Link  to="javascript:void(0)"><i className="fa fa-ellipsis-h"></i></Link>
                     </span>
                     <span className="tasklistCount">5 Doctors</span>
                   </li>
@@ -198,13 +201,13 @@ export function ListActivity02() {
                   <div className="col-lg-12 ">
                     <div className="topMiddlecontent">
                       <ul>
-                        <li><a href="javascript:void(0);" className="userLogoicon"><span className="listprofileIcon customProfileBG1">AK</span> <span>Anandkumar</span></a></li>
+                        <li><Link  to="javascript:void(0)" className="userLogoicon"><span className="listprofileIcon customProfileBG1">AK</span> <span>Anandkumar</span></Link></li>
                         <li><span className="rounddashedCircle"><i className="fa fa-user fa-sm"></i></span></li>
                         <li>May 2020</li>
                         <li className="d-none">Date created</li>
                         <li>Yes</li>
                         <li>
-                          <a href="javascript:void(0);" className="rounddashedCircle" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></a>
+                          <Link  to="javascript:void(0)" className="rounddashedCircle" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></Link>
                         </li>
                         <li className="d-none">Physician</li>
                         <li className="d-none">Insurance</li>
@@ -213,17 +216,17 @@ export function ListActivity02() {
                         <li><span className="rounddashedCircle"><i className="fa fa-flag text-danger fa-sm"></i></span></li>
                         <li className="d-none">Conditions</li>
                         <li>
-                          <a href="javascript:void(0);" className="rounddashedCircle" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-comments fa-sm"></i></a>
+                          <Link  to="javascript:void(0)" className="rounddashedCircle" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-comments fa-sm"></i></Link>
                         </li>
                       </ul>
                       <ul>
-                        <li><a href="javascript:void(0);" className="userLogoicon" data-toggle="modal" data-target="#commonModalright"><span className="listprofileIcon customProfileBG2">SK</span> <span>Sivakumar</span></a></li>
+                        <li><Link  to="javascript:void(0)" className="userLogoicon" data-toggle="modal" data-target="#commonModalright"><span className="listprofileIcon customProfileBG2">SK</span> <span>Sivakumar</span></Link></li>
                         <li><span className="rounddashedCircle"><i className="fa fa-user fa-sm"></i></span></li>
                         <li>Sep 2020</li>
                         <li className="d-none">Date created</li>
                         <li>Yes</li>
                         <li>
-                          <a href="javascript:void(0);" className="m-auto rounded-circle " data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></a>
+                          <Link  to="javascript:void(0)" className="m-auto rounded-circle " data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></Link>
                         </li>
                         <li className="d-none">Physician</li>
                         <li className="d-none">Insurance</li>
@@ -234,13 +237,13 @@ export function ListActivity02() {
                         <li><i className="far fa-comments fa-sm"></i></li>
                       </ul>
                       <ul>
-                        <li><a href="javascript:void(0);" className="userLogoicon"><span className="listprofileIcon customProfileBG3">SB</span> <span>Sureshbabu</span></a></li>
+                        <li><Link  to="javascript:void(0)" className="userLogoicon"><span className="listprofileIcon customProfileBG3">SB</span> <span>Sureshbabu</span></Link></li>
                         <li><span className="rounddashedCircle"><i className="fa fa-user fa-sm"></i></span></li>
                         <li>Aug 2020</li>
                         <li className="d-none">Date created</li>
                         <li>No</li>
                         <li>
-                          <a href="javascript:void(0);" className="m-auto" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></a>
+                          <Link  to="javascript:void(0)" className="m-auto" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></Link>
                         </li>
                         <li className="d-none">Physician</li>
                         <li className="d-none">Insurance</li>
@@ -251,13 +254,13 @@ export function ListActivity02() {
                         <li><i className="far fa-comments fa-sm"></i></li>
                       </ul>
                       <ul>
-                        <li><a className="userLogoicon"><span className="listprofileIcon customProfileBG4">PB</span> <span>Prabaker</span></a></li>
+                        <li><Link to="javascript:void(0)" className="userLogoicon"><span className="listprofileIcon customProfileBG4">PB</span> <span>Prabaker</span></Link></li>
                         <li><span className="rounddashedCircle"><i className="fa fa-user fa-sm"></i></span></li>
                         <li>July 2020</li>
                         <li className="d-none">Date created</li>
                         <li>No</li>
                         <li>
-                          <a href="javascript:void(0);" className="m-auto" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></a>
+                          <Link  to="javascript:void(0)" className="m-auto" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></Link>
                         </li>
                         <li className="d-none">Physician</li>
                         <li className="d-none">Insurance</li>
@@ -284,16 +287,16 @@ export function ListActivity03() {
           <div className="contentArea">
             <div className="topHeadercontent d-flex">
               <div className="toggleLefticon">
-                <a href="javascript:void(0);" data-toggle="collapse" data-target="#labAssitentcontent" className="borderColor3 textColor3">
+                <Link  to="javascript:void(0)" data-toggle="collapse" data-target="#labAssitentcontent" className="borderColor3 textColor3">
                   <i className="fa fa-angle-down"></i> 
-                </a>                    
+                </Link>                    
               </div>
               <ul className="list-inline w-100">
                 <li>
                   <span className="headingHighlight customProfileBG3 text-white">Lab Assistant 
-                    <a href="javascript:void(0);" className="ml-3"><i className="fa fa-pen"></i></a>
-                    <a href="javascript:void(0);"><i className="fa fa-check-square"></i></a>
-                    <a href="javascript:void(0);"><i className="fa fa-ellipsis-h"></i></a>
+                    <Link  to="javascript:void(0)" className="ml-3"><i className="fa fa-pen"></i></Link>
+                    <Link  to="javascript:void(0)"><i className="fa fa-check-square"></i></Link>
+                    <Link  to="javascript:void(0)"><i className="fa fa-ellipsis-h"></i></Link>
                   </span>
                   <span className="tasklistCount">3 Lab Assistant</span>
                 </li>
@@ -304,13 +307,13 @@ export function ListActivity03() {
                 <div className="col-lg-12 ">
                   <div className="topMiddlecontent">
                     <ul>
-                      <li><a href="javascript:void(0);" className="userLogoicon"><span className="listprofileIcon customProfileBG1">AK</span> <span>Anandkumar</span></a></li>
+                      <li><Link  to="javascript:void(0)" className="userLogoicon"><span className="listprofileIcon customProfileBG1">AK</span> <span>Anandkumar</span></Link></li>
                       <li><span className="rounddashedCircle"><i className="fa fa-user fa-sm"></i></span></li>
                       <li>May 2020</li>
                       <li className="d-none">Date created</li>
                       <li>Yes</li>
                       <li>
-                        <a href="javascript:void(0);" className="rounddashedCircle" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></a>
+                        <Link  to="javascript:void(0)" className="rounddashedCircle" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></Link>
                       </li>
                       <li className="d-none">Physician</li>
                       <li className="d-none">Insurance</li>
@@ -319,17 +322,17 @@ export function ListActivity03() {
                       <li><span className="rounddashedCircle"><i className="fa fa-flag text-danger fa-sm"></i></span></li>
                       <li className="d-none">Conditions</li>
                       <li>
-                        <a href="javascript:void(0);" className="rounddashedCircle" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-comments fa-sm"></i></a>
+                        <Link  to="javascript:void(0)" className="rounddashedCircle" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-comments fa-sm"></i></Link>
                       </li>
                     </ul>
                     <ul>
-                      <li><a href="javascript:void(0);" className="userLogoicon" data-toggle="modal" data-target="#commonModalright"><span className="listprofileIcon customProfileBG2">SK</span> <span>Sivakumar</span></a></li>
+                      <li><Link  to="javascript:void(0)" className="userLogoicon" data-toggle="modal" data-target="#commonModalright"><span className="listprofileIcon customProfileBG2">SK</span> <span>Sivakumar</span></Link></li>
                       <li><span className="rounddashedCircle"><i className="fa fa-user fa-sm"></i></span></li>
                       <li>Sep 2020</li>
                       <li className="d-none">Date created</li>
                       <li>Yes</li>
                       <li>
-                        <a href="javascript:void(0);" className="m-auto" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></a>
+                        <Link  to="javascript:void(0)" className="m-auto" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></Link>
                       </li>
                       <li className="d-none">Physician</li>
                       <li className="d-none">Insurance</li>
@@ -340,13 +343,13 @@ export function ListActivity03() {
                       <li><i className="far fa-comments fa-sm"></i></li>
                     </ul>
                     <ul>
-                      <li><a href="javascript:void(0);" className="userLogoicon"><span className="listprofileIcon customProfileBG3">SB</span> <span>Sureshbabu</span></a></li>
+                      <li><Link  to="javascript:void(0)" className="userLogoicon"><span className="listprofileIcon customProfileBG3">SB</span> <span>Sureshbabu</span></Link></li>
                       <li><span className="rounddashedCircle"><i className="fa fa-user fa-sm"></i></span></li>
                       <li>Aug 2020</li>
                       <li className="d-none">Date created</li>
                       <li>No</li>
                       <li>
-                        <a href="javascript:void(0);" className="m-auto" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></a>
+                        <Link  to="javascript:void(0)" className="m-auto" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></Link>
                       </li>
                       <li className="d-none">Physician</li>
                       <li className="d-none">Insurance</li>
@@ -357,13 +360,13 @@ export function ListActivity03() {
                       <li><i className="far fa-comments fa-sm"></i></li>
                     </ul>
                     <ul>
-                      <li><a href="javascript:void(0);" className="userLogoicon"><span className="listprofileIcon customProfileBG4">PB</span> <span>Prabaker</span></a></li>
+                      <li><Link  to="javascript:void(0)" className="userLogoicon"><span className="listprofileIcon customProfileBG4">PB</span> <span>Prabaker</span></Link></li>
                       <li><span className="rounddashedCircle"><i className="fa fa-user fa-sm"></i></span></li>
                       <li>July 2020</li>
                       <li className="d-none">Date created</li>
                       <li>No</li>
                       <li>
-                        <a href="javascript:void(0);" className="m-auto" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></a>
+                        <Link  to="javascript:void(0)" className="m-auto" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></Link>
                       </li>
                       <li className="d-none">Physician</li>
                       <li className="d-none">Insurance</li>
@@ -391,16 +394,16 @@ export function ListActivity04() {
       <div className="contentArea">
         <div className="topHeadercontent d-flex">
           <div className="toggleLefticon">
-            <a href="javascript:void(0);" data-toggle="collapse" data-target="#emergencyDepartment" className="borderColor9 textColor9">
+            <Link  to="javascript:void(0)" data-toggle="collapse" data-target="#emergencyDepartment" className="borderColor9 textColor9">
               <i className="fa fa-angle-down"></i> 
-            </a>                    
+            </Link>                    
           </div>
           <ul className="list-inline w-100">
             <li>
               <span className="headingHighlight customProfileBG9 text-white">Emergency Department 
-                <a href="javascript:void(0);" className="ml-3"><i className="fa fa-pen"></i></a>
-                <a href="javascript:void(0);"><i className="fa fa-check-square"></i></a>
-                <a href="javascript:void(0);"><i className="fa fa-ellipsis-h"></i></a>
+                <Link  to="javascript:void(0)" className="ml-3"><i className="fa fa-pen"></i></Link>
+                <Link  to="javascript:void(0)"><i className="fa fa-check-square"></i></Link>
+                <Link  to="javascript:void(0)"><i className="fa fa-ellipsis-h"></i></Link>
               </span>
               <span className="tasklistCount">12 Emergency</span>
             </li>
@@ -411,13 +414,13 @@ export function ListActivity04() {
             <div className="col-lg-12 ">
               <div className="topMiddlecontent">
                 <ul>
-                  <li><a href="javascript:void(0);" className="userLogoicon"><span className="listprofileIcon customProfileBG1">AK</span> <span>Anandkumar</span></a></li>
+                  <li><Link  to="javascript:void(0)" className="userLogoicon"><span className="listprofileIcon customProfileBG1">AK</span> <span>Anandkumar</span></Link></li>
                   <li><span className="rounddashedCircle"><i className="fa fa-user fa-sm"></i></span></li>
                   <li>May 2020</li>
                   <li className="d-none">Date created</li>
                   <li>Yes</li>
                   <li>
-                    <a href="javascript:void(0);" className="rounddashedCircle" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></a>
+                    <Link  to="javascript:void(0)" className="rounddashedCircle" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></Link>
                   </li>
                   <li className="d-none">Physician</li>
                   <li className="d-none">Insurance</li>
@@ -426,17 +429,17 @@ export function ListActivity04() {
                   <li><span className="rounddashedCircle"><i className="fa fa-flag text-danger fa-sm"></i></span></li>
                   <li className="d-none">Conditions</li>
                   <li>
-                    <a href="javascript:void(0);" className="rounddashedCircle" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-comments fa-sm"></i></a>
+                    <Link  to="javascript:void(0)" className="rounddashedCircle" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-comments fa-sm"></i></Link>
                   </li>
                 </ul>
                 <ul>
-                  <li><a href="javascript:void(0);" className="userLogoicon" data-toggle="modal" data-target="#commonModalright"><span className="listprofileIcon customProfileBG2">SK</span> <span>Sivakumar</span></a></li>
+                  <li><Link  to="javascript:void(0)" className="userLogoicon" data-toggle="modal" data-target="#commonModalright"><span className="listprofileIcon customProfileBG2">SK</span> <span>Sivakumar</span></Link></li>
                   <li><span className="rounddashedCircle"><i className="fa fa-user fa-sm"></i></span></li>
                   <li>Sep 2020</li>
                   <li className="d-none">Date created</li>
                   <li>Yes</li>
                   <li>
-                    <a href="javascript:void(0);" className="m-auto" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></a>
+                    <Link  to="javascript:void(0)" className="m-auto" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></Link>
                   </li>
                   <li className="d-none">Physician</li>
                   <li className="d-none">Insurance</li>
@@ -447,13 +450,13 @@ export function ListActivity04() {
                   <li><i className="far fa-comments fa-sm"></i></li>
                 </ul>
                 <ul>
-                  <li><a href="javascript:void(0);" className="userLogoicon"><span className="listprofileIcon customProfileBG3">SB</span> <span>Sureshbabu</span></a></li>
+                  <li><Link  to="javascript:void(0)" className="userLogoicon"><span className="listprofileIcon customProfileBG3">SB</span> <span>Sureshbabu</span></Link></li>
                   <li><span className="rounddashedCircle"><i className="fa fa-user fa-sm"></i></span></li>
                   <li>Aug 2020</li>
                   <li className="d-none">Date created</li>
                   <li>No</li>
                   <li>
-                    <a href="javascript:void(0);" className="m-auto" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></a>
+                    <Link  to="javascript:void(0)" className="m-auto" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></Link>
                   </li>
                   <li className="d-none">Physician</li>
                   <li className="d-none">Insurance</li>
@@ -464,13 +467,13 @@ export function ListActivity04() {
                   <li><i className="far fa-comments fa-sm"></i></li>
                 </ul>
                 <ul>
-                  <li><a href="javascript:void(0);" className="userLogoicon"><span className="listprofileIcon customProfileBG4">PB</span> <span>Prabaker</span></a></li>
+                  <li><Link  to="javascript:void(0)" className="userLogoicon"><span className="listprofileIcon customProfileBG4">PB</span> <span>Prabaker</span></Link></li>
                   <li><span className="rounddashedCircle"><i className="fa fa-user fa-sm"></i></span></li>
                   <li>July 2020</li>
                   <li className="d-none">Date created</li>
                   <li>No</li>
                   <li>
-                    <a href="javascript:void(0);" className="m-auto" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></a>
+                    <Link  to="javascript:void(0)" className="m-auto" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></Link>
                   </li>
                   <li className="d-none">Physician</li>
                   <li className="d-none">Insurance</li>
