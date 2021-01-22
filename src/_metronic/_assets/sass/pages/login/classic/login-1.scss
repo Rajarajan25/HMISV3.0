@@ -145,6 +145,8 @@
 }
 .login-form input.form-control{
     font-size: 14px;
+    transition: $transition-input;
+    font-family: $font-Registration-family-base;
 }
 .login-form input.form-control{
     padding-left: 50px !important;
@@ -162,6 +164,7 @@
         border-bottom: 1px solid #C6DBF4;
         height: 44px !important;
         color: $dark_85;
+        transition: $transition-input;
     }
     .rightPanel {
         .h1{

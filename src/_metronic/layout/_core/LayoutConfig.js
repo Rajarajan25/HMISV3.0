@@ -59,7 +59,7 @@ export function getInitLayoutConfig() {
           gray900: "#212121",
         },
       },
-      fontFamily: "Source Sans Pro",
+      fontFamily: "Poppins",
     },
     // Base Settins
     self: {
