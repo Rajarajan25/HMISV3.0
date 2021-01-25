@@ -79,6 +79,9 @@
 .font-size-18{
     font-size: 18px !important;
 }
+.font-size-24{
+    font-size: 24px !important;
+}
 .font-size-28{
     font-size: 28px !important;
 }
@@ -246,7 +249,7 @@
         .btn{
             background:transparent;
             border: 1px solid #C6DBF4;
-            min-height: 100px;
+            min-height: 136px;
             font-size: 12px;
             
             img{
@@ -254,9 +257,9 @@
             }
         }
         .btn.btn-light:hover:not(.btn-text):not(:disabled):not(.disabled), .btn.btn-light:focus:not(.btn-text), .btn.btn-light.focus:not(.btn-text),.active{
-            background:transparent !important;
-            border-color: #1C6AFC  !important;
-            box-shadow: 0 0 10px 0px #1C6AFC !important;
+            background: transparent linear-gradient(180deg, #FBFCFF 0%, #EEF5FF 80%, #EDF3FF 100%) 0% 0% no-repeat padding-box !important;
+            border-color: #1C6AFC !important;
+            box-shadow: -1px 10px 19px #C6DBF4 !important;
         }
         & > div{
             width: 20%;
@@ -269,10 +272,10 @@
         border-radius: 30px;
         background:#1C6AFC !important;
         color: $white;
-        font-weight: $font-weight-bold;
-        font-size: 18px;
+        font-weight: $font-weight-medium;
+        font-size: 16px;
         min-width: 190px;
-        box-shadow: none;
+        box-shadow: -3px 3px 6px #1C6AFC4D;
         text-transform: capitalize;
     }
     .MuiButton-root.backbtn {
@@ -407,6 +410,20 @@
         color: #FFFFFF;
         background-color: #5382FC;
         border-color: #5382FC;
+    }
+    .plus_sym {
+        cursor: pointer;
+    }
+    .sign-btn {
+        padding: 0 15px;
+        height: 60px;
+        border-radius: 30px;
+        background: #1D6AFF !important;
+        color: #ffffff;
+        font-size: 16px;
+        min-width: 190px;
+        box-shadow: none;
+        text-transform: capitalize;
     }
 }
 .leftPanel {
@@ -577,4 +594,14 @@
 }
 ._2FwA input[type=checkbox]:checked+label.subCategory {
     color: #fff;
+}
+.busi_reg::after {
+    content: url(/media/auth-screen/your-welcome.svg);
+    position: absolute;
+    right: -14%;
+}
+.wl_txt {
+    color: #3F4772;
+    text-transform: capitalize;
+    line-height: 44px;
 }

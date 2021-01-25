@@ -299,25 +299,18 @@ function Registration(props) {
       
 
           
-            <div className="form-group d-none flex-wrap flex-center">
+            <div className="form-group flex-wrap flex-center">
               <button
                 type="submit"
-                disabled={
-                  formik.isSubmitting ||
-                  !formik.isValid ||
-                  !formik.values.acceptTerms
-                }
-                className="btn btn-primary h-77 font-weight-bold px-9 py-4 my-3 mx-4"
+    
+                className="btn btn-primary sign-btn h-77 font-weight-500 mt-6"
               >
-                <span>Submit</span>
+                <span>Sign Up</span>
                 {loading && <span className="ml-3 spinner spinner-white"></span>}
               </button>
 
-              <Link to="/auth/login">
-                <button
-                  type="button"
-                  className="btn btn-light-primary h-77 font-weight-bold px-9 py-4 my-3 mx-4"
-                >
+              <Link to="/auth/login" className="d-none">
+                <button type="button" className="btn btn-light-primary h-77 font-weight-bold px-9 py-4 my-3 mx-4">
                   Cancel
                 </button>
               </Link>

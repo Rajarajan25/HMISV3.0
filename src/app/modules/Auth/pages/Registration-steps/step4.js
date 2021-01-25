@@ -47,7 +47,14 @@ export default function step4() {
               <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Fitness</span>
             </a>
           </div>
-
+          <div className="m-0">
+            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
+              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
+                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/counselors.svg")} />
+              </span>
+              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Counselors</span>
+            </a>
+          </div>
           <div className="m-0">
             <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
               <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
@@ -78,9 +85,9 @@ export default function step4() {
           <div className="m-0">
             <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
               <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
-                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/homeservice.svg")} />
+                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/chiropractic.svg")} />
               </span>
-              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Home Services</span>
+              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Chiropractic</span>
             </a>
           </div>
 
@@ -96,9 +103,45 @@ export default function step4() {
           <div className="m-0">
             <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
               <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
-                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/homeservice.svg")} />
+                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/acupuncture.svg")} />
               </span>
-              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Home Services</span>
+              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Acupuncture</span>
+            </a>
+          </div>
+          
+          <div className="m-0">
+            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
+              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
+                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/education.svg")} />
+              </span>
+              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Education</span>
+            </a>
+          </div>
+          
+          <div className="m-0">
+            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
+              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
+                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/film.svg")} />
+              </span>
+              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Film</span>
+            </a>
+          </div>
+          
+          <div className="m-0">
+            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
+              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
+                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/auto.svg")} />
+              </span>
+              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Auto</span>
+            </a>
+          </div>
+          
+          <div className="m-0">
+            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
+              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
+                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/cleaners.svg")} />
+              </span>
+              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Cleaners</span>
             </a>
           </div>
           
@@ -137,52 +180,7 @@ export default function step4() {
               <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Home Services</span>
             </a>
           </div>
-          
-          <div className="m-0">
-            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
-              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
-                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/homeservice.svg")} />
-              </span>
-              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Home Services</span>
-            </a>
-          </div>
-          
-          <div className="m-0">
-            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
-              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
-                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/homeservice.svg")} />
-              </span>
-              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Home Services</span>
-            </a>
-          </div>
-          
-          <div className="m-0">
-            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
-              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
-                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/homeservice.svg")} />
-              </span>
-              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Home Services</span>
-            </a>
-          </div>
-          
-          <div className="m-0">
-            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
-              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
-                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/homeservice.svg")} />
-              </span>
-              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Home Services</span>
-            </a>
-          </div>
-          
-          <div className="m-0">
-            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
-              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
-                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/homeservice.svg")} />
-              </span>
-              <span className="d-block font-weight-500 text-truncate mt-4 mb-2">Home Services</span>
-            </a>
-          </div>
-          
+    
           <div className="m-0">
             <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
               <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
