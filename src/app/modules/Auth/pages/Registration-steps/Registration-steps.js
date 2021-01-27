@@ -13,6 +13,7 @@ import Step3 from './step3';
 import Step4 from './step4';
 import Step5 from './step5';
 import Step6 from './step6';
+import BusinessConfirmatoin from './business-confirmation';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -45,6 +46,8 @@ function getStepContent(stepIndex) {
       return <Step5 />;
     case 4:
       return <Step6 />;
+      case 5:
+        return <BusinessConfirmatoin />;
     default:
       return 'Uknown stepIndex';
   }
