@@ -244,6 +244,13 @@ function Login(props) {
                         >
                           Create a new account
                         </Link>
+                        <Link
+                          to="/auth/sign-up"
+                          className="font-weight-bold ml-2 createAccountlink"
+                          id="kt_login_signup"
+                        >
+                          Create a new account
+                        </Link>
                       </div>
                       {/*end::Content header*/}
                     </div>
