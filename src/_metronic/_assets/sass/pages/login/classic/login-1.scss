@@ -595,6 +595,15 @@
 ._2FwA input[type=checkbox]:checked+label.subCategory {
     color: #fff;
 }
+.reg_con {
+    margin-top:  100px;
+}
+.reg_con::after {
+    content: url(/media/auth-screen/your-welcome.svg);
+    position: absolute;
+    right: -12%;
+    bottom: -24%;
+}
 .busi_reg::after {
     content: url(/media/auth-screen/your-welcome.svg);
     position: absolute;
@@ -604,4 +613,125 @@
     color: #3F4772;
     text-transform: capitalize;
     line-height: 44px;
+}
+.busi_con {
+    position: relative;
+    margin-top: 200px;
+    z-index: 11;
+}
+.busi_con::after {
+    content: url(/media/auth-screen/mic_man.svg);
+    position: absolute;
+    right: -15%;
+    top: 105%;
+}
+.busi_col::before {
+    content: "";
+    background: #FAD249;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 0 6px 6px 0;
+    z-index: 9;
+}
+.busi_col::after {
+    content: "";
+    background: #fff;
+    position: absolute;
+    width: 93%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 0 500px 500px 0;
+    z-index: 10;
+}
+.date_bx {
+    width: 55px;
+    height: 55px;
+    line-height:  55px;
+    font-size: 15px;
+    color: #fff;
+    background-color: #1D6AFF;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 1px solid #E9E9E9;
+    font-weight: $font-weight-normal;
+    border-radius: 50%;
+    margin-right: 35px;
+    text-align: center;
+}
+.sun_d {
+    background-color: #734CBC;
+}
+.mon_d {
+    background-color: #EF5AB3;
+}
+.tue_d {
+    background-color: #1FBBFA;
+}
+.wed_d {
+    background-color: #150D85;
+}
+.thu_d {
+    background-color: #0D716A;
+}
+.fri_d {
+    background-color: #CB3A27;
+}
+.sat_d {
+    background-color: #FCC32D;
+}
+.dt_area {
+    background: rgba(239, 90, 179, 0.1);
+    border-radius: 15px;
+    padding: 2px 10px 2px 2px;
+    .date_bx {
+        width: 28px;
+        height: 28px;
+        line-height: 28px;
+        margin-right: 6px;
+        font-size: 12px;
+    }
+    .date_od {
+        font-size: 11.5px;
+        line-height: 28px;
+    }
+}
+.sun_bg {
+    background: rgba(115, 76, 188, 0.1);
+}
+.mon_bg {
+    background: rgba(239, 90, 179, 0.1);
+}
+.tue_bg {
+    background: rgba(31, 187, 250, 0.1);
+}
+.wed_bg {
+    background: rgba(21, 13, 133, 0.1);
+}
+.thu_bg {
+    background: rgba(13, 113, 106, 0.1);
+}
+.fri_bg {
+    background: rgba(203, 58, 39, 0.1);
+}
+.sat_bg {
+    background: rgba(252, 195, 45, 0.1);
+}
+.tm_area {
+    .st_tm, .end_tm {
+        min-width: 165px;
+        font-size: 15px;
+        display: inline-block;
+        text-align: center;
+        color: #303030;
+    }
+    .se_to {
+        min-width: 40px;
+        font-size: 15px;
+        display: inline-block;
+        text-align: center;
+        color: #D6D6D6;
+    }
 }
