@@ -51,7 +51,7 @@ function getStepContent(stepIndex) {
       return <RegisterConfirmation />;
     case 7:
       return <BusinessConfirmation />;
-      default:
+    default:
       return 'Uknown stepIndex';
   }
 }

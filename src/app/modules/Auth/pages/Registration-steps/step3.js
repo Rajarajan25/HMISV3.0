@@ -156,7 +156,7 @@ function Registration(props) {
         ))}
       </Stepper>
     <div className="text-left mb-6">
-        <h1 className="font-size-30 color_01234B font-weight-600 mb-5">Business Info:</h1>      
+        <h1 className="font-size-28 color_01234B font-weight-600 mb-10">Business Info:</h1>      
       </div>
       <div className="business_info">
           <form
@@ -279,8 +279,8 @@ function Registration(props) {
      
 
             {/* begin: Terms and Conditions */}
-            <div className="form-group ch-bx">
-              <label className="checkbox">
+            <div className="form-group d-flex ch-bx">
+              <label className="checkbox mr-auto">
                 <input
                   type="checkbox"
                   name="acceptTerms"
@@ -289,7 +289,7 @@ function Registration(props) {
                 />
                 <span />
                 <Link
-                  to="/terms"
+                  to="javascript:void(0);"
                   target="_blank"
                   className="mr-1 terms_c"
                   rel="noopener noreferrer"
@@ -303,6 +303,11 @@ function Registration(props) {
                   <div className="fv-help-block">{formik.errors.acceptTerms}</div>
                 </div>
               ) : null}
+
+                <div className="plus_sym">
+                  <img src="/media/auth-screen/plus_sym.svg" className="m-auto mw-100" alt="" />
+                </div> 
+
             </div>
             {/* end: Terms and Conditions */}
             <div className="form-group d-none flex-wrap flex-center">

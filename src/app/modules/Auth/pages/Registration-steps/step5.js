@@ -9,32 +9,26 @@ export default function step5() {
     <>
       <div className="my-auto mh-100 mx-5 p-5 text-center rightPanel">
         <div className="text-left mb-6">
-          <h1 className="font-size-30 color_01234B font-weight-600 mb-5">Choose your Category types:</h1>      
-          <p className="font-size-14 text-muted font-weight-normal">Enter your details to create your account</p>
+          <h1 className="font-size-28 color_01234B font-weight-600 mb-10">Choose your Salon types:</h1>      
         </div>
-        <div className="d-flex flex-column">
+        <div className="d-flex">
+            <div className="d-flex _2FwA">
+                <input type="checkbox" id="hair" name="salon" className="checkbx" />
+                <label className="subCategory" for="hair">
+                    <i className="catIcon rounded-circle mr-4">S</i>
+                    <span className="chk_txt">spa</span>
+                </label>
+            </div>
+            <div className="d-flex _2FwA">
+                <input type="checkbox" id="nail" name="salon" className="checkbx" />
+                <label className="subCategory" for="nail">
+                    <i className="catIcon rounded-circle mr-4">S</i>
+                    <span className="chk_txt">spa</span>
+                </label>
+            </div>
+            
           <div>
-          <Link
-              to="#"
-              className="subCategory"
-            >
-              <span className="catIcon rounded-circle mr-4">S</span>
-              <span>Spa</span>
-            </Link>
-            <Link
-              to="#"
-              className="subCategory active"
-            >
-              <span className="catIcon rounded-circle mr-4">S</span>
-              <span>Spa</span>
-            </Link>
-            <Link
-              to="#"
-              className="subCategory"
-            >
-              <span className="catIcon rounded-circle mr-4">S</span>
-              <span>Spa</span>
-            </Link>
+
           </div>
         </div>
       </div>

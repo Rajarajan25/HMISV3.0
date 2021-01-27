@@ -604,6 +604,11 @@
     right: -12%;
     bottom: -24%;
 }
+.busi_reg::after {
+    content: url(/media/auth-screen/your-welcome.svg);
+    position: absolute;
+    right: -14%;
+}
 .wl_txt {
     color: #3F4772;
     text-transform: capitalize;
