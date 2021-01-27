@@ -384,6 +384,15 @@ function Registration(props) {
               </Link>
             </div>
           </form>
+          
+          <Link
+            to="/auth/registration-confirmation"
+            className="font-weight-bold ml-2 createAccountlink"
+            id="kt_login_signup"
+          >
+            Registration Confirmation
+          </Link>
+
         </div>
       </div>
     </div>

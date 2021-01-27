@@ -6,6 +6,7 @@ import { ContentRoute } from "../../../../_metronic/layout";
 import Login from "./Login";
 import Registration from "./Registration";
 import Personalinfo from "./personalinfo";
+import RegistrationConfirmation from "./registration-confirmation";
 import Signup from "./sign-up";
 import ForgotPassword from "./ForgotPassword";
 import "../../../../_metronic/_assets/sass/pages/login/classic/login-1.scss";
@@ -42,6 +43,10 @@ export function AuthPage() {
                   <ContentRoute
                     path="/auth/personalinfo"
                     component={Personalinfo}
+                  />
+                  <ContentRoute
+                    path="/auth/registration-confirmation"
+                    component={RegistrationConfirmation}
                   />
                   <Redirect from="/auth" exact={true} to="/auth/login" />
                   <Redirect to="/auth/login" />
