@@ -735,3 +735,26 @@
         color: #D6D6D6;
     }
 }
+.wal_clk {
+    color: #707070;
+    img {
+        border: 1px solid #e9e9e9;
+        padding: 9px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+}
+.tim_zne {
+    .MuiInput-root {
+        margin-top: 0px;
+    }
+    .MuiSelect-selectMenu {
+        font-size: 16px;
+        font-weight: $font-weight-medium !important;
+        color: #1C6AFC;
+        padding: 9px 5px 2px;
+    }
+    .MuiInput-underline:before {
+        border-bottom: 0;
+    }
+}

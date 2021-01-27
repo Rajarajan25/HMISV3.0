@@ -1,7 +1,25 @@
 
 import React from 'react';
 import { toAbsoluteUrl } from "../../../../../_metronic/_helpers";
+import { makeStyles } from '@material-ui/core/styles';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import Input from '@material-ui/core/Input';
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+  },
+}));
 
 export default function step5() {
   return (
@@ -9,9 +27,17 @@ export default function step5() {
         <div className="my-auto mh-100 mx-5 p-5 text-center rightPanel">
           <div className="text-left mb-6">
             <h1 className="font-size-28 color_01234B font-weight-600 mb-10">Choose your business hours:</h1>     
-            <p className="tim_zne font-size-16 pb-8 border-bottom">Time Zone: <span>(GMT +05:00) Kolkata, India</span></p> 
+            <p className=" "> <span></span></p> 
           </div>
-          <div className="d-flex">
+          <div className="d-flex font-size-16 font-weight-500 pb-8 border-bottom">
+            <div className="wal_clk">
+            <img src="/media/auth-screen/wall_clock.svg" alt="thumbs-up" /> <span>Time Zone:</span>
+            </div>
+            <div className="tim_zne">
+            <TimeZone />
+            </div>
+          </div>
+          <div className="d-flex mt-10">
             <div className="date_bx sun_d">S</div>
             <div className="date_bx mon_d">M</div>
             <div className="date_bx tue_d">T</div>
@@ -103,5 +129,43 @@ export default function step5() {
           </div>
       </div>
     </>
+  );
+}
+
+
+function TimeZone() {
+  
+  const classes = useStyles();
+  const [values, setValues] = React.useState({
+    age: '',
+    name: 'hai',
+  });
+
+  function handleChange(event) {
+    setValues(oldValues => ({
+      ...oldValues,
+      [event.target.name]: event.target.value,
+    }));
+  }
+
+  return (
+      <FormControl className={classes.formControl}>
+        
+        <Select
+          value={values.age}
+          onChange={handleChange}
+          input={<Input name="age"/>}
+          displayEmpty
+          name="age"
+          className={classes.selectEmpty}
+        >
+          <MenuItem value="">
+          (GMT +05:00) Kolkata, India
+          </MenuItem>
+          <MenuItem value={10}>(GMT +05:00) Kolkata, India</MenuItem>
+          <MenuItem value={20}>(GMT +05:00) Kolkata, India</MenuItem>
+          <MenuItem value={30}>(GMT +05:00) Kolkata, India</MenuItem>
+        </Select>
+      </FormControl>
   );
 }
