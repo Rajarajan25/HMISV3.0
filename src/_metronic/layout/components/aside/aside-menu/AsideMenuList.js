@@ -1662,6 +1662,7 @@ export function AsideMenuList({ layoutProps }) {
             <span className="menu-text">User Profile</span>
           </NavLink>
         </li>
+        <button>edit</button>
         {/*end::1 Level*/}
 
         {/* Custom */}
