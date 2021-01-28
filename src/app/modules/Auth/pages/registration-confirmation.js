@@ -73,7 +73,7 @@ export default function RegistrationConfirmatoin() {
           {/*end: Aside Container*/}
         </div>
         {/*begin::Aside*/}
-        <div className=" d-flex registration-form login-signin mx-auto col">
+        <div className=" d-flex rounded-right bg_white registration-form login-signin mx-auto col">
           <div className="my-auto mh-100 p-5 mx-auto">
             <div class="busi_reg mt-30">
               <div className="text-left mb-6">

@@ -17,8 +17,7 @@ export default function step1() {
     {/* end:: Aside header */}
 <div className="d-flex w-100 loginMaincontent shadow" >
     {/*begin::Aside*/}
-    <div
-              className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat p-10 p-lg-10 col-7 order-0 rounded-left"
+    <div className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat p-10 p-lg-10 col-7 order-0 rounded-left"
               style={{
                 backgroundColor: `#5382FC`,
               }}
@@ -39,10 +38,10 @@ export default function step1() {
                     </div>
                     <div className="mb-7 flex-column-fluid d-flex flex-column text-center">
                       <h3 className="font-size-h1 mb-5 text-white">
-                        Welcome to HMIS!
+                      Create account
                       </h3>
                       <p className="font-size-18 font-weight-lighter text-white opacity-90">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                       </p>
                     </div>
                   </div>
@@ -71,12 +70,12 @@ export default function step1() {
               {/*end: Aside Container*/}
             </div>
             {/*begin::Aside*/}
-      <div className=" d-flex registration-form login-signin mx-auto col-lg-5">
+      <div className=" d-flex rounded-right bg_white registration-form login-signin mx-auto col-lg-5">
         <div className="my-auto mh-100 p-5 mx-auto">
           <div className="text-left mb-6">
-            <h1 className="font-size-40 color_01234B font-weight-600 mb-5">Sign up to HMIS.</h1>      
+            <h1 className="font-size-40 color_01234B font-weight-600 mb-5">Sign up to Hmis.</h1>      
             <p className="font-size-20 text-muted font-weight-normal">
-              <span>You have an account?</span> 
+              <span>Already a member?</span> 
               <Link
                 to="/auth/login"
                 className="ml-2"
@@ -108,13 +107,13 @@ export default function step1() {
                   className={`btn btn-primary btn-block font-size-16 font-weight-500`}
                 >Create an account</button>
               </div>
-              <div className="form-group or_bor d-flex flex-wrap justify-content-between align-items-center my-5">
+              <div className="form-group font-size-18 or_bor d-flex flex-wrap justify-content-between align-items-center my-5">
                 <span className="m-auto or_txt">Or</span>
                 <span className="border-bottom"></span>
               </div>
               <div className="form-group fv-plugins-icon-container mt-5">
                 {/*begin::Content header*/}
-                <div className="text-center mb-15 mb-lg-0 flex-column-auto justify-content-center py-5 px-10">
+                <div className="text-center font-size-18 mb-15 mb-lg-0 flex-column-auto justify-content-center py-5 px-10">
                   <span className="font-weight-500">
                   Signup with
                   </span>
