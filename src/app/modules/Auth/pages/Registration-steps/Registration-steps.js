@@ -13,6 +13,7 @@ import Step3 from './step3';
 import Step4 from './step4';
 import BusinessConfirmation from './business-confirmation';
 import Stepper1 from './stepper/stepper1';
+import Stepper2 from './stepper/stepper2';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -28,7 +29,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function getSteps() {
-  return [<Stepper1 />, 'Create an ad group', 'Create an ad', 'test', 'test', 'test', 'test', 'test', 'test'];
+  return [<Stepper1 />, <Stepper2 />, 'Create an ad', 'Work Timer', 'test'];
 }
 
 function getStepContent(stepIndex) {

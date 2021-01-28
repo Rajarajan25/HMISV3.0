@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default function Stepper1() {
+export default function Stepper2() {
   return (
     <>
     <div class="col">
-      Stepper 1
+      Business
     </div>
     </>
   );
