@@ -113,12 +113,12 @@ function  SubHeader(){
       data-target="#kt_chat_modal"
       className="btn btn-primary btn-icon font-weight-bolds   ">EDIT    </button>
     )}
-   
+    background-color="#fefefe"
     position="bottom center"
     closeOnDocumentClick
   >
      {close => (  
-<span  className="svg-icon svg-icon-lg">
+<span  background-color="#fefefe"  className="svg-icon svg-icon-lg">
 <div className="modal-header justify-content-center">
   <div className="d-inline-block">
     <div className="d-flex">
