@@ -101,7 +101,11 @@ function  SubHeader(){
         {/* Toolbar */}
         <div className="d-flex align-items-center flex-wrap">
        
-        
+        <div className="innerContent collapse show" id="onFielddoctors">
+       
+                   
+                      <div  id="kt_subheader_quick_actions"
+    className={`btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2`}>
         <Popup
     trigger={open => (
       <button 
@@ -109,9 +113,11 @@ function  SubHeader(){
       data-target="#kt_chat_modal"
       className="btn btn-primary btn-icon font-weight-bolds   ">EDIT    </button>
     )}
+   
     position="bottom center"
     closeOnDocumentClick
   >
+     {close => (  
 <span  className="svg-icon svg-icon-lg">
 <div className="modal-header justify-content-center">
   <div className="d-inline-block">
@@ -261,7 +267,10 @@ function  SubHeader(){
       <span className="bg-blue m-0">+</span>
     </div>
   </div>
-  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+  <button type="button" className="close" data-dismiss="modal" onClick={() => {
+              console.log("modal closed ");
+              close();}}
+               aria-label="Close">
     <span aria-hidden="true">×</span>
   </button>
 </div>
@@ -501,7 +510,9 @@ function  SubHeader(){
   </div>
 </div>
 </span>
+     )}
 </Popup>
+</div></div>
   {/* Button */}
           <button
             type="button"
@@ -516,7 +527,7 @@ function  SubHeader(){
             </span>
             {` `}New Member
           </button>
-
+         
           <QuickActions />
 
           {/* Button */}
