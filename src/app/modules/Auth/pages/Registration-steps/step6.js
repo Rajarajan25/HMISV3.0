@@ -125,7 +125,16 @@ export default function step5() {
                 <span className="st_tm">9:00 am - 12:00 pm</span> <span className="se_to">to</span> <span className="end_tm">12:00 pm - 6:00 pm</span>
               </div>
             </div>
-
+          </div>
+          <div className="form-group d-flex mt-15 ml-5 font-size-15">
+            <div class="form-check">
+              <input type="checkbox" id="formHorizontalCheck" class="form-check-input mt-2" />
+              <label title="" for="formHorizontalCheck" class="form-check-label font-size-14 ml-3 mr-20">Apply to this week</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" id="formHorizontalCheck1" class="form-check-input mt-2" />
+              <label title="" for="formHorizontalCheck1" class="form-check-label font-size-14 ml-3">Apply to this month</label>
+            </div>
           </div>
       </div>
     </>
