@@ -12,6 +12,7 @@ import Step2 from './step2';
 import Step3 from './step3';
 import Step4 from './step4';
 import BusinessConfirmation from './business-confirmation';
+import Stepper1 from './stepper/stepper1';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -27,7 +28,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function getSteps() {
-  return ['Select master blaster campaign settings', 'Create an ad group', 'Create an ad', 'test', 'test', 'test', 'test', 'test', 'test'];
+  return [<Stepper1 />, 'Create an ad group', 'Create an ad', 'test', 'test', 'test', 'test', 'test', 'test'];
 }
 
 function getStepContent(stepIndex) {
