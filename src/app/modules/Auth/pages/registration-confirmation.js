@@ -20,7 +20,7 @@ export default function RegistrationConfirmatoin() {
       <div className="d-flex w-100 loginMaincontent shadow" >
         {/*begin::Aside*/}
         <div
-          className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat p-10 p-lg-10 col-4 order-0 rounded-left"
+          className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat p-10 p-lg-10 col-5 order-0 rounded-left"
           style={{
             backgroundColor: `#5382FC`,
           }}
@@ -37,15 +37,13 @@ export default function RegistrationConfirmatoin() {
             <div className="flex-column-fluid d-flex flex-column justify-content-center">
               <div className="mx-auto loginRightimg d-flex flex-column-reverse">
                 <div className="text-center d-flex mx-12">
-                  <img src="/media/auth-screen/Registration.svg" className="m-auto mw-100" alt="Login screen" />
+                  <img src="/media/auth-screen/reg_con_banner.svg" className="m-auto mw-100" alt="Login screen" />
                 </div>
                 <div className="mb-7 flex-column-fluid d-flex flex-column text-center">
                   <h3 className="font-size-h1 mb-5 text-white">
-                    Welcome to HMIS!
+                  Welcome to our Business!!
                   </h3>
-                  <p className="font-size-18 font-weight-lighter text-white opacity-90">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                  </p>
+
                 </div>
               </div>
             </div>

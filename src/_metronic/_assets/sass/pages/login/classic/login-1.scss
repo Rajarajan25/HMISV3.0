@@ -100,11 +100,16 @@
 .font-size-40{
     font-size: 40px !important;
 }
-
+.line-height32 {
+    line-height: 32px;
+}
 .color_01234B{
     color: #01234B;
 }
 .loginRightimg{
+    max-width: 660px;
+}
+.loginRightimg1 {
     max-width: 550px;
 }
 .passwordIcon,.emailIcon{
