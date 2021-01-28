@@ -1,406 +1,196 @@
-import React, { useState } from "react";
-import { useFormik } from "formik";
-import { connect } from "react-redux";
-import * as Yup from "yup";
-import { Link } from "react-router-dom";
-import { injectIntl } from "react-intl";
-import * as auth from "../../_redux/authRedux";
-import { register } from "../../_redux/authCrud";
-import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import Input from '@material-ui/core/Input';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormLabel from '@material-ui/core/FormLabel';
 
-const initialValues = {
-  fullname: "",
-  email: "",
-  username: "",
-  password: "",
-  changepassword: "",
-  acceptTerms: false,
-};
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-  },
-  selectEmpty: {
-    marginTop: theme.spacing(2),
-  },
-}));
+import React from 'react';
+import { toAbsoluteUrl } from "../../../../../_metronic/_helpers";
 
 
-function Registration(props) {
-  const { intl } = props;
-  const [loading, setLoading] = useState(false);
-  const RegistrationSchema = Yup.object().shape({
-    fullname: Yup.string()
-      .min(3, "Minimum 3 symbols")
-      .max(50, "Maximum 50 symbols")
-      .required(
-        intl.formatMessage({
-          id: "AUTH.VALIDATION.REQUIRED_FIELD",
-        })
-      ),
-    email: Yup.string()
-      .email("Wrong email format")
-      .min(3, "Minimum 3 symbols")
-      .max(50, "Maximum 50 symbols")
-      .required(
-        intl.formatMessage({
-          id: "AUTH.VALIDATION.REQUIRED_FIELD",
-        })
-      ),
-    username: Yup.string()
-      .min(3, "Minimum 3 symbols")
-      .max(50, "Maximum 50 symbols")
-      .required(
-        intl.formatMessage({
-          id: "AUTH.VALIDATION.REQUIRED_FIELD",
-        })
-      ),
-    password: Yup.string()
-      .min(3, "Minimum 3 symbols")
-      .max(50, "Maximum 50 symbols")
-      .required(
-        intl.formatMessage({
-          id: "AUTH.VALIDATION.REQUIRED_FIELD",
-        })
-      ),
-    changepassword: Yup.string()
-      .required(
-        intl.formatMessage({
-          id: "AUTH.VALIDATION.REQUIRED_FIELD",
-        })
-      )
-      .when("password", {
-        is: (val) => (val && val.length > 0 ? true : false),
-        then: Yup.string().oneOf(
-          [Yup.ref("password")],
-          "Password and Confirm Password didn't match"
-        ),
-      }),
-    acceptTerms: Yup.bool().required(
-      "You must accept the terms and conditions"
-    ),
-  });
-
-  const enableLoading = () => {
-    setLoading(true);
-  };
-
-  const disableLoading = () => {
-    setLoading(false);
-  };
-
-  const getInputClasses = (fieldname) => {
-    if (formik.touched[fieldname] && formik.errors[fieldname]) {
-      return "is-invalid";
-    }
-
-    if (formik.touched[fieldname] && !formik.errors[fieldname]) {
-      return "is-valid";
-    }
-
-    return "";
-  };
-
-  const formik = useFormik({
-    initialValues,
-    validationSchema: RegistrationSchema,
-    onSubmit: (values, { setStatus, setSubmitting }) => {
-      setSubmitting(true);
-      enableLoading();
-      register(values.email, values.fullname, values.username, values.password)
-        .then(({ data: { accessToken } }) => {
-          props.register(accessToken);
-          disableLoading();
-          setSubmitting(false);
-        })
-        .catch(() => {
-          setSubmitting(false);
-          setStatus(
-            intl.formatMessage({
-              id: "AUTH.VALIDATION.INVALID_LOGIN",
-            })
-          );
-          disableLoading();
-        });
-    },
-  });
-
+export default function step4() {
   return (
     <>
-    
+    <div className="my-auto mh-100 text-center rightPanel">
       <div className="text-left mb-6">
-        <h1 className="font-size-28 color_01234B font-weight-600 mb-10">Fill your Personal details:</h1>      
-     
+        <h1 className="font-size-28 color_01234B font-weight-600 mb-10">Choose Your Business Below</h1>      
+        <p className="font-size-14 d-none text-muted font-weight-normal">Enter your details to create your account</p>
       </div>
-          <form
-            id="kt_login_signin_form"
-            className="form fv-plugins-bootstrap fv-plugins-framework animated animate__animated animate__backInUp"
-            onSubmit={formik.handleSubmit}
-          >
-            {/* begin: Alert */}
-            {formik.status && (
-              <div className="mb-10 alert alert-custom alert-light-danger alert-dismissible">
-                <div className="alert-text font-weight-bold">{formik.status}</div>
-              </div>
-            )}
-            {/* end: Alert */}
-            
-           
+        <div className="row categoryList  scroll scroll-pull">
+          <div className="m-0">
+            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
+              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
+                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/hospital.svg")} />
+              </span>
+              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Hospital</span>
+            </a>
+          </div>
 
-            <div className="d-flex fv-plugins-icon-container">
-              <div className="form-group col-6 p-0 d-flex coun_cde">
-                <div className="info_img">
-                  <img src="/media/auth-screen/name.svg" className="m-auto mw-100" alt="" />
-                </div>
-                <div className="col">
-                <label class="form-label" for="exampleForm.ControlInput1">First Name</label>
-                <input
-                  placeholder="First Name"
-                  type="text"
-                  className={`form-control py-5 px-6 ${getInputClasses(
-                    "fullname"
-                  )}`}
-                  name="fullname"
-                  {...formik.getFieldProps("fullname")}
-                />
-                {formik.touched.fullname && formik.errors.fullname ? (
-                  <div className="fv-plugins-message-container">
-                    <div className="fv-help-block">{formik.errors.fullname}</div>
-                  </div>
-                ) : null}
-                </div>
-              </div>
-              <div className="form-group col-6">
-              <label class="form-label" for="exampleForm.ControlInput1">Last Name</label>
-                <input
-                  placeholder="Last Name"
-                  type="text"
-                  className={`form-control py-5 px-6 ${getInputClasses(
-                    "fullname"
-                  )}`}
-                  name="fullname"
-                  {...formik.getFieldProps("fullname")}
-                />
-                {formik.touched.fullname && formik.errors.fullname ? (
-                  <div className="fv-plugins-message-container">
-                    <div className="fv-help-block">{formik.errors.fullname}</div>
-                  </div>
-                ) : null}
-              </div>
-
-            </div>
-
-            <div className="form-group fv-plugins-icon-container d-flex">
-              <div className="info_img">
-                <img src="/media/auth-screen/mail.svg" className="m-auto mw-100" alt="" />
-              </div>
-              <div className="col">
-              <label class="form-label" for="exampleForm.ControlInput1">Email Id</label>
-                <input
-                  placeholder="Email Id"
-                  type="email"
-                  className={`form-control py-5 px-6 ${getInputClasses(
-                    "email"
-                  )}`}
-                  name="email"
-                  {...formik.getFieldProps("email")}
-                />
-                {formik.touched.email && formik.errors.email ? (
-                  <div className="fv-plugins-message-container">
-                    <div className="fv-help-block">{formik.errors.email}</div>
-                  </div>
-                ) : null}
-                </div>
-            </div>
-
-            <div className="form-group fv-plugins-icon-container d-flex">
-              <div className="info_img">
-                <img src="/media/auth-screen/password.svg" className="m-auto mw-100" alt="" />
-              </div>
-              <div className="col">
-              <label class="form-label" for="exampleForm.ControlInput1">Password</label>
-                  <input
-                    placeholder="Password"
-                    type="password"
-                    className={`form-control py-5 px-6 ${getInputClasses(
-                      "password"
-                    )}`}
-                    name="password"
-                    {...formik.getFieldProps("password")}
-                  />
-                  {formik.touched.password && formik.errors.password ? (
-                    <div className="fv-plugins-message-container">
-                      <div className="fv-help-block">{formik.errors.password}</div>
-                    </div>
-                  ) : null}
-                </div>
-            </div>
-
-
-
-            <div className="d-flex fv-plugins-icon-container">
-              <div className="form-group col-5 p-0 d-flex coun_cde">
-                <div className="info_img">
-                  <img src="/media/auth-screen/phone_icon.svg" className="m-auto mw-100" alt="" />
-                </div>
-                <div className="col">
-                    <label class="form-label d-block" for="exampleForm.ControlInput1">Country code</label>
-                    <CountryCode />
-                </div>
-              </div>
-              <div className="form-group col-7">
-                  <label class="form-label d-block" for="exampleForm.ControlInput1">Phone Number</label>
-                  <input
-                    placeholder="Phone"
-                    type="text"
-                    className={`form-control py-5 px-6 ${getInputClasses(
-                      "username"
-                    )}`}
-                    name="username"
-                    {...formik.getFieldProps("username")}
-                  />
-                {formik.touched.username && formik.errors.username ? (
-                  <div className="fv-plugins-message-container">
-                    <div className="fv-help-block">{formik.errors.username}</div>
-                </div>
-                ) : null}
-              </div>
-
+          <div className="m-0">
+            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column active">
+              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
+                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/petservice.svg")} />
+              </span>
+              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Pet Services</span>
+            </a>
+          </div>
           
-            </div>
+          <div className="m-0">
+            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
+              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
+                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/accounts.svg")} />
+              </span>
+              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Accounts</span>
+            </a>
+          </div>
 
+          <div className="m-0">
+            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
+              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
+                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/fitness.svg")} />
+              </span>
+              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Fitness</span>
+            </a>
+          </div>
+          <div className="m-0">
+            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
+              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
+                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/counselors.svg")} />
+              </span>
+              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Counselors</span>
+            </a>
+          </div>
+          <div className="m-0">
+            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
+              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
+                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/realestate.svg")} />
+              </span>
+              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Real Estate</span>
+            </a>
+          </div>
 
-            <div className="form-group d-flex  fv-plugins-icon-container">
-            <div className="info_img">
-                  <img src="/media/auth-screen/sex.svg" className="m-auto mw-100" alt="" />
-                </div>
-                <div className="col">
-                    <GenderGroup />
-                </div>
-              
-       
-            </div>
+          <div className="m-0">
+            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
+              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
+                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/mechanicservice.svg")} />
+              </span>
+              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Mechanic Services</span>
+            </a>
+          </div>
 
-      
+          <div className="m-0">
+            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
+              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
+                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/salon.svg")} />
+              </span>
+              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Salon</span>
+            </a>
+          </div>
 
+          <div className="m-0">
+            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
+              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
+                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/chiropractic.svg")} />
+              </span>
+              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Chiropractic</span>
+            </a>
+          </div>
+
+          <div className="m-0">
+            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
+              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
+                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/homeservice.svg")} />
+              </span>
+              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Home Services</span>
+            </a>
+          </div>
+
+          <div className="m-0">
+            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
+              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
+                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/acupuncture.svg")} />
+              </span>
+              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Acupuncture</span>
+            </a>
+          </div>
           
-            <div className="form-group flex-wrap flex-center">
-              <button
-                type="submit"
+          <div className="m-0">
+            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
+              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
+                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/education.svg")} />
+              </span>
+              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Education</span>
+            </a>
+          </div>
+          
+          <div className="m-0">
+            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
+              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
+                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/film.svg")} />
+              </span>
+              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Film</span>
+            </a>
+          </div>
+          
+          <div className="m-0">
+            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
+              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
+                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/auto.svg")} />
+              </span>
+              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Auto</span>
+            </a>
+          </div>
+          
+          <div className="m-0">
+            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
+              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
+                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/cleaners.svg")} />
+              </span>
+              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Cleaners</span>
+            </a>
+          </div>
+          
+          <div className="m-0">
+            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
+              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
+                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/homeservice.svg")} />
+              </span>
+              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Home Services</span>
+            </a>
+          </div>
+          
+          <div className="m-0">
+            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
+              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
+                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/homeservice.svg")} />
+              </span>
+              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Home Services</span>
+            </a>
+          </div>
+          
+          <div className="m-0">
+            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
+              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
+                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/homeservice.svg")} />
+              </span>
+              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Home Services</span>
+            </a>
+          </div>
+          
+          <div className="m-0">
+            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
+              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
+                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/homeservice.svg")} />
+              </span>
+              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Home Services</span>
+            </a>
+          </div>
     
-                className="btn btn-primary sign-btn h-77 font-weight-500 mt-6"
-              >
-                <span>Sign Up</span>
-                {loading && <span className="ml-3 spinner spinner-white"></span>}
-              </button>
-
-              <Link to="/auth/login" className="d-none">
-                <button type="button" className="btn btn-light-primary h-77 font-weight-bold px-9 py-4 my-3 mx-4">
-                  Cancel
-                </button>
-              </Link>
-            </div>
-          </form>
-       
+          <div className="m-0">
+            <a href="#" className="btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column">
+              <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
+                <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/homeservice.svg")} />
+              </span>
+              <span className="d-block font-weight-500 text-truncate mt-4 mb-2">Home Services</span>
+            </a>
+          </div>
+        </div>
+      </div>
     </>
-  );
-}
-
-export default injectIntl(connect(null, auth.actions)(Registration));
-
-function CountryCode() {
-  
-  const classes = useStyles();
-  const [values, setValues] = React.useState({
-    age: '',
-    name: 'hai',
-  });
-
-  function handleChange(event) {
-    setValues(oldValues => ({
-      ...oldValues,
-      [event.target.name]: event.target.value,
-    }));
-  }
-
-  return (
-      <FormControl className={classes.formControl}>
-        
-        <Select
-          value={values.age}
-          onChange={handleChange}
-          input={<Input name="age" id="age-label-placeholder" />}
-          displayEmpty
-          name="age"
-          className={classes.selectEmpty}
-        >
-          <MenuItem value="">
-          India (91)
-          </MenuItem>
-          <MenuItem value={10}>India (91)</MenuItem>
-          <MenuItem value={20}>India (91)</MenuItem>
-          <MenuItem value={30}>India (91)</MenuItem>
-        </Select>
-      </FormControl>
-  );
-}
-
-
-
-function GenderGroup() {
-
-  const useStyles = makeStyles(theme => ({
-    root: {
-      display: 'flex',
-    },
-    formControl: {
-      margin: theme.spacing(3),
-    },
-    group: {
-      margin: theme.spacing(1, 0),
-    },
-  }));
-
-  const classes = useStyles();
-  const [value, setValue] = React.useState('female');
-
-  function handleChange(event) {
-    setValue(event.target.value);
-  }
-
-  return (
-    <div className={classes.root}>
-      <FormControl component="fieldset" className={classes.formControl}>
-        <FormLabel component="legend">Gender</FormLabel>
-        <RadioGroup
-          aria-label="Gender"
-          name="gender1"
-          className={classes.group}
-          value={value}
-          onChange={handleChange}
-        >
-          <FormControlLabel value="male" control={<Radio />} label="Male" />
-          <FormControlLabel value="female" control={<Radio />} label="Female" />
-          
-  
-        </RadioGroup>
-      </FormControl>
-      
-    </div>
   );
 }
