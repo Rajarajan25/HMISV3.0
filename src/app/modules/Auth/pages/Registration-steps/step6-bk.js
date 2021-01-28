@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function step5() {
+export default function stee6() {
   return (
     <>
         <div className="my-auto mh-100 mx-5 p-5 text-center rightPanel">

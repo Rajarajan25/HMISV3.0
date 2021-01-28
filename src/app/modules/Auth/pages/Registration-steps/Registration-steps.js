@@ -11,9 +11,6 @@ import Step1 from './step1';
 import Step2 from './step2';
 import Step3 from './step3';
 import Step4 from './step4';
-import Step5 from './step5';
-import Step6 from './step6';
-import RegisterConfirmation from './register-confirmation';
 import BusinessConfirmation from './business-confirmation';
 
 const useStyles = makeStyles(theme => ({
@@ -44,12 +41,6 @@ function getStepContent(stepIndex) {
     case 3:
       return <Step4 />;
     case 4:
-      return <Step5 />;
-    case 5:
-      return <Step6 />;
-    case 6:
-      return <RegisterConfirmation />;
-    case 7:
       return <BusinessConfirmation />;
     default:
       return 'Uknown stepIndex';
@@ -74,7 +65,7 @@ export default function HorizontalLabelPositionBelowStepper() {
   }
   return (
     <div className={classes.root}>
-      <Stepper className="d-none" activeStep={activeStep} alternativeLabel>
+      <Stepper activeStep={activeStep} alternativeLabel>
         {steps.map(label => (
           <Step key={label}>
             <StepLabel>{label}</StepLabel>
