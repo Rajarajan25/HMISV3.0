@@ -70,7 +70,7 @@ export default function HorizontalLabelPositionBelowStepper() {
   }
   return (
     <div className={classes.root}>
-      <Stepper className="businessSteps" activeStep={activeStep} alternativeLabel>
+      <Stepper className="businessSteps mx-auto rounded" activeStep={activeStep} alternativeLabel>
         {steps.map(label => (
           <Step key={label}>
             <StepLabel>{label}</StepLabel>
