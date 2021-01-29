@@ -190,7 +190,7 @@
 }
 .registration-form{
     .businessSteps{
-        max-width:90%;
+        max-width:84%;
         border: 1px solid #EDEDED;
         padding: 10px;
         margin-bottom: 2.5rem;
@@ -733,6 +733,7 @@
     position: relative;
     margin-top: 150px;
     z-index: 11;
+    margin-bottom: 260px;
 }
 .reg_con::after {
     content: url(/media/auth-screen/your-welcome.svg);
@@ -748,8 +749,14 @@
 .busi_con::after {
     content: url(/media/auth-screen/mic_man.svg);
     position: absolute;
-    right: -15%;
-    top: 105%;
+    right: -10%;
+    top: 140%;
+}
+.busi_con::before {
+    content: url(/media/auth-screen/link_bg.png);
+    position: absolute;
+    right: -109px;
+    top: -274px;
 }
 /*.busi_col::before {
     content: "";
