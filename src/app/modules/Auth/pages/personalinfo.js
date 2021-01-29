@@ -187,7 +187,7 @@ function Registration(props) {
                       <img src="/media/auth-screen/personalinfo_banner.svg" className="m-auto mw-100" alt="banner" />
                     </div>
                   </div>
-                </div>
+          </div>
 
           
           {/* end:: Aside content */}
