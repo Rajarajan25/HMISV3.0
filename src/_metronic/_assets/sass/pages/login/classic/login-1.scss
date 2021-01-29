@@ -186,6 +186,74 @@
     color: $dark_85;
 }
 .registration-form{
+    .businessSteps{
+        .MuiStepLabel-iconContainer,.MuiStepConnector-alternativeLabel,
+        .MuiStepLabel-completed .stepperRight,.MuiStepLabel-completed .stepperIcon img.active{
+            display: none !important;
+        }
+        .MuiStepLabel-completed {
+            .defaultIcon{
+                display: none !important;
+            }
+            
+            .stepperContnet{
+                display: flex !important;
+            }
+            .stepperIcon::after{
+                content: url(/media/auth-screen/check.svg);
+                position:absolute;
+                right: 5px;
+                top:-5px;
+                
+            }
+        }
+        .MuiStepLabel-active {
+            .stepperWidth{
+                min-width:225px;
+                .defaultIcon{
+                    display: none !important;
+                }
+                .stepperContnet{
+                    display: flex !important;
+                }
+                .stepperIcon{
+                    background-color: #1D6AFF !important;
+
+                    img.stepCompleted{
+                        display: none !important;
+                    }
+                }
+            }
+        }
+        .stepperWidth{
+            min-height:60px;
+            .stepperIcon{
+                min-width:60px;
+                min-height: 60px;
+                background-color: #E5ECFD;
+                position: relative;
+            }
+            
+            .stepperRight{
+                .stepperSMtext{
+                    font-size: 16px;
+                    color: #5382FC;
+                    font-weight: $font-weight-semibold;
+
+                    text{
+                        color:#3F4772;
+                    }
+                }
+                .stepperName{
+                    font-size: 18px;
+                    color: #3F4772;
+                    font-weight: $font-weight-semibold;
+                }
+            }
+                
+        }
+    }
+    
     .form-label{
         margin-bottom: 0 !important;
     }
