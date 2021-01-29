@@ -6,12 +6,12 @@ export default function Stepper3() {
   return (
     <div className="d-flex stepperWidth justify-content-center">
       <span className="defaultIcon d-flex justify-content-center m-auto">
-        <Image className="h-auto d-flex default" src={toAbsoluteUrl("/media/auth-screen/working_hours_default.svg")} alt="" />
+        <Image className="h-auto d-flex default" src={toAbsoluteUrl("/media/auth-screen/theme_color_default.svg")} alt="" />
       </span>
       <div className="d-none stepperContnet">
         <span className="stepperIcon d-flex rounded-circle justify-content-center mr-3">
-          <Image className="h-auto d-flex active" src={toAbsoluteUrl("/media/auth-screen/working_hours.svg")} alt="" />
-          <Image className="h-auto d-flex stepCompleted" src={toAbsoluteUrl("/media/auth-screen/working_hours_completed.svg")} alt="" />
+          <Image className="h-auto d-flex active" src={toAbsoluteUrl("/media/auth-screen/theme_color.svg")} alt="" />
+          <Image className="h-auto d-flex stepCompleted" src={toAbsoluteUrl("/media/auth-screen/theme_color_completed.svg")} alt="" />
         </span>
         <div className="d-flex flex-column text-left stepperRight my-auto">
           <span className="stepperSMtext">
