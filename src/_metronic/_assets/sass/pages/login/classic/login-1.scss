@@ -731,7 +731,7 @@
 }
 .busi_con {
     position: relative;
-    margin-top: 200px;
+    margin-top: 150px;
     z-index: 11;
 }
 .reg_con::after {
@@ -745,7 +745,7 @@
     text-transform: capitalize;
     line-height: 44px;
 }
-.busi_reg::after {
+.busi_con::after {
     content: url(/media/auth-screen/mic_man.svg);
     position: absolute;
     right: -15%;
