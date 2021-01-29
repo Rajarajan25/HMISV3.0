@@ -17,7 +17,7 @@ export default function step1() {
     {/* end:: Aside header */}
 <div className="d-flex w-100 loginMaincontent shadow" >
     {/*begin::Aside*/}
-    <div className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat p-10 p-lg-10 col-7 order-0 rounded-left"
+    <div className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat  col-7 order-0 rounded-left"
               style={{
                 backgroundColor: `#5382FC`,
               }}
@@ -32,17 +32,18 @@ export default function step1() {
 
                 {/* start:: Aside content */}
                 <div className="flex-column-fluid d-flex flex-column justify-content-center">
-                  <div className="mx-auto loginRightimg d-flex flex-column-reverse">
-                    <div className="text-center d-flex mx-12">
-                      <img src="/media/auth-screen/Registration.svg" className="m-auto mw-100" alt="Login screen" />
-                    </div>
-                    <div className="mb-7 flex-column-fluid d-flex flex-column text-center">
-                      <h3 className="font-size-h1 mb-5 text-white">
+                  <div className="mx-auto">
+                    
+                    <div className="mt-16 mb-16 mb-7 mx-auto loginRightimg flex-column-fluid text-center">
+                      <h3 className="font-size-40 text-capitalize font-weight-bold mb-10 text-white">
                       Create account
                       </h3>
-                      <p className="font-size-18 font-weight-lighter text-white opacity-90">
+                      <p className="font-size-18  font-weight-normal text-white opacity-90 line-height32">
                       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                       </p>
+                    </div>
+                    <div className="text-center mx-12">
+                      <img src="/media/auth-screen/sign_up_banner.svg" className="m-auto mw-100" alt="Login screen" />
                     </div>
                   </div>
                 </div>
@@ -70,11 +71,11 @@ export default function step1() {
               {/*end: Aside Container*/}
             </div>
             {/*begin::Aside*/}
-      <div className=" d-flex rounded-right bg_white registration-form login-signin mx-auto col-lg-5">
-        <div className="my-auto mh-100 p-5 mx-auto">
+      <div className=" d-flex rounded-right bg-white registration-form login-signin mx-auto col-lg-5">
+        <div className="mh-100 mt-15 mx-auto">
           <div className="text-left mb-6">
-            <h1 className="font-size-40 color_01234B font-weight-600 mb-5">Sign up to Hmis.</h1>      
-            <p className="font-size-20 text-muted font-weight-normal">
+            <h1 className="font-size-40 color_3F4772 font-weight-600 mb-7">Sign up to Hmis.</h1>      
+            <p className="font-size-20 text-muted font-weight-normal mb-15">
               <span>Already a member?</span> 
               <Link
                 to="/auth/login"
@@ -96,7 +97,7 @@ export default function step1() {
               </div>
               <div className="form-group fv-plugins-icon-container">
                 <label class="d-block font-size-18 mb-3 font-weight-500">Password</label>
-                <div className="">
+                <div className="sign_pass">
                   <input  placeholder="Enter your password" className="form-control py-5 px-6 font-size-16" name="password" />
                 </div>
               </div>
@@ -119,7 +120,7 @@ export default function step1() {
                   </span>
                   <Link
                     to="/auth/personalinfo"
-                    className="font-weight-bold ml-2 createAccountlink"
+                    className="font-weight-500 ml-2 createAccountlink"
                     id="kt_login_signup"
                   >
                     User Personal Information

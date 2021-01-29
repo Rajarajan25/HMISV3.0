@@ -156,7 +156,7 @@ function Registration(props) {
     <div className="d-flex w-100 loginMaincontent shadow" >
       {/*begin::Aside*/}
       <div
-        className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat p-10 p-lg-10 col-4 order-0 rounded-left"
+        className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat p-10 p-lg-10 col-5 order-0 rounded-left"
         style={{
           backgroundColor: `#5382FC`,
         }}
@@ -171,20 +171,25 @@ function Registration(props) {
 
           {/* start:: Aside content */}
           <div className="flex-column-fluid d-flex flex-column justify-content-center">
-            <div className="mx-auto loginRightimg d-flex flex-column-reverse">
-              <div className="text-center d-flex mx-12">
-                <img src="/media/auth-screen/Registration.svg" className="m-auto mw-100" alt="Login screen" />
-              </div>
-              <div className="mb-7 flex-column-fluid d-flex flex-column text-center">
-                <h3 className="font-size-h1 mb-5 text-white">
-                  Welcome to HMIS!
-                </h3>
-                <p className="font-size-18 font-weight-lighter text-white opacity-90">
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                </p>
-              </div>
-            </div>
-          </div>
+                  <div className="">
+                    <div className="bk_aw text-white font-weight-500 font-size-18">
+                    <img src="/media/auth-screen/back_arrow.svg" className="mr-3" alt="arrow" /> <span>Back</span>
+                    </div>
+                    <div className="mt-12 mb-16 mb-7 mx-auto loginRightimg1  flex-column-fluid text-center">
+                      <h3 className="font-size-40 text-uppercase font-weight-bold mb-10 text-white">
+                      Profile info
+                      </h3>
+                      <p className="font-size-18  font-weight-normal text-white opacity-90 line-height32">
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                      </p>
+                    </div>
+                    <div className="text-center mx-12">
+                      <img src="/media/auth-screen/personalinfo_banner.svg" className="m-auto mw-100" alt="banner" />
+                    </div>
+                  </div>
+                </div>
+
+          
           {/* end:: Aside content */}
 
           {/* start:: Aside footer for desktop d-lg-flex */}
@@ -209,10 +214,10 @@ function Registration(props) {
         {/*end: Aside Container*/}
       </div>
       {/*begin::Aside*/}
-      <div className=" d-flex rounded-right bg_white registration-form login-signin mx-auto col">
-        <div className="my-auto mh-100 p-5 mx-auto">
+      <div className=" d-flex rounded-right bg-white registration-form login-signin mx-auto col right_banner">
+        <div className="mh-100 mt-22 ml-7 p-5">
           <div className="text-left mb-6">
-            <h1 className="font-size-28 color_01234B font-weight-600 mb-10">Fill your Personal details:</h1>      
+            <h1 className="font-size-28 ml-15 text-capitalize color_3F4772 font-weight-600 mb-10">Fill your Personal details:</h1>      
         
           </div>
           <form
@@ -371,7 +376,7 @@ function Registration(props) {
               <button
                 type="submit"
     
-                className="btn btn-primary sign-btn h-77 font-weight-500 mt-6"
+                className="btn btn-primary sign-btn ml-15 h-77 font-weight-500 mt-6"
               >
                 <span>Sign Up</span>
                 {loading && <span className="ml-3 spinner spinner-white"></span>}
