@@ -14,6 +14,9 @@ import Step4 from './step4';
 import BusinessConfirmation from './business-confirmation';
 import Stepper1 from './stepper/stepper1';
 import Stepper2 from './stepper/stepper2';
+import Stepper3 from './stepper/stepper3';
+import Stepper4 from './stepper/stepper4';
+import Stepper5 from './stepper/stepper5';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -29,7 +32,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function getSteps() {
-  return [<Stepper1 />, <Stepper2 />, 'Create an ad', 'Work Timer', 'test'];
+  return [<Stepper1 />, <Stepper2 />, <Stepper3 />, <Stepper4 />, <Stepper5 /> ];
 }
 
 function getStepContent(stepIndex) {
@@ -67,7 +70,7 @@ export default function HorizontalLabelPositionBelowStepper() {
   }
   return (
     <div className={classes.root}>
-      <Stepper activeStep={activeStep} alternativeLabel>
+      <Stepper className="businessSteps" activeStep={activeStep} alternativeLabel>
         {steps.map(label => (
           <Step key={label}>
             <StepLabel>{label}</StepLabel>
