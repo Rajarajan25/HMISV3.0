@@ -148,9 +148,7 @@ function Registration(props) {
 
                 <div className="flex-column-fluid d-flex flex-column justify-content-center">
                   <div className="">
-                    <div className="bk_aw text-white font-weight-500 font-size-18">
-                    <img src="/media/auth-screen/back_arrow.svg" className="mr-3" alt="arrow" /> <span>Back</span>
-                    </div>
+           
                     <div className="mt-34 mb-20 mb-7 mx-auto loginRightimg3  flex-column-fluid text-center">
                       <h3 className="font-size-40 text-uppercase font-weight-bold mb-10 text-white">
                       Business Info

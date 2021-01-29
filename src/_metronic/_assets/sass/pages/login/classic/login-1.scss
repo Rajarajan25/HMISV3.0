@@ -190,12 +190,14 @@
 }
 .registration-form{
     .businessSteps{
-        max-width:80%;
+        max-width:90%;
         border: 1px solid #EDEDED;
-        padding: 11px;
+        padding: 10px;
         margin-bottom: 2.5rem;
         margin-top: 1.5rem;
-
+        &.rounded {
+            border-radius: 20px !important;
+        }
         .MuiStepLabel-label.MuiStepLabel-alternativeLabel{
             margin:0px !important;
         }
@@ -382,15 +384,26 @@
         min-width: 190px;
         box-shadow: -3px 3px 6px #1C6AFC4D;
         text-transform: capitalize;
+        margin-bottom: 20px;
+        margin-right: -60px;
     }
     .MuiButton-root.backbtn {
         position: absolute;
-        top: 0px;
-        left:-70%;
+        top: 8px;
+        left: -99%;
         z-index: 100;
         color: #fff;
-        font-size: 20px;
+        font-size: 18px;
         text-transform: capitalize;
+        padding: 0;
+        &::before {
+            content: url(/media/auth-screen/back_arrow.svg);
+            margin-right: 15px;
+        }
+        .MuiButton-label {
+            outline: 0 !important;
+            background: transparent !important;
+        }
     }
     .MuiButton-root.backbtn:hover {
         background-color: transparent;
@@ -470,6 +483,7 @@
     .MuiTypography-body1 {
         font-size: 18px;
         color: #3F4772;
+        margin-bottom: 5rem;
     }
     .MuiFormLabel-root {
         font-size: 14px;
@@ -726,7 +740,7 @@
     right: -15%;
     top: 105%;
 }
-.busi_col::before {
+/*.busi_col::before {
     content: "";
     background: #FAD249;
     position: absolute;
@@ -747,7 +761,7 @@
     top: 0;
     border-radius: 0 500px 500px 0;
     z-index: 10;
-}
+}*/
 .date_bx {
     width: 55px;
     height: 55px;
