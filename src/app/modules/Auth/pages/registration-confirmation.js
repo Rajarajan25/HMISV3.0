@@ -20,7 +20,7 @@ export default function RegistrationConfirmatoin() {
       <div className="d-flex w-100 loginMaincontent shadow" >
         {/*begin::Aside*/}
         <div
-          className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat p-10 p-lg-10 col-5 order-0 rounded-left"
+          className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat  col-5 order-0 rounded-left"
           style={{
             backgroundColor: `#5382FC`,
           }}
@@ -31,22 +31,25 @@ export default function RegistrationConfirmatoin() {
           }}
           */}
           {/*begin: Aside Container*/}
+
+          
           <div className="d-flex flex-row-fluid flex-column justify-content-between">
 
             {/* start:: Aside content */}
-            <div className="flex-column-fluid d-flex flex-column justify-content-center">
-              <div className="mx-auto loginRightimg d-flex flex-column-reverse">
-                <div className="text-center d-flex mx-12">
-                  <img src="/media/auth-screen/reg_con_banner.svg" className="m-auto mw-100" alt="Login screen" />
-                </div>
-                <div className="mb-7 flex-column-fluid d-flex flex-column text-center">
-                  <h3 className="font-size-h1 mb-5 text-white">
-                  Welcome to our Business!!
-                  </h3>
-
-                </div>
-              </div>
-            </div>
+            
+            <div className="mt-10">
+                    <div className="bk_aw text-white font-weight-500 font-size-18 ml-6">
+                    <img src="/media/auth-screen/back_arrow.svg" className="mr-3" alt="arrow" /> <span>Back</span>
+                    </div>
+                    <div className="mt-40 mb-24 mx-auto loginRightimg2  flex-column-fluid text-center">
+                      <h3 className="font-size-40 text-uppercase font-weight-bold mb-10 text-white">
+                      Welcome to our Business!!
+                      </h3>
+                    </div>
+                    <div className="text-center mx-12">
+                      <img src="/media/auth-screen/reg_con_banner.svg" className="m-auto mw-100" alt="banner" />
+                    </div>
+                  </div>
             {/* end:: Aside content */}
 
             {/* start:: Aside footer for desktop d-lg-flex */}
@@ -71,9 +74,9 @@ export default function RegistrationConfirmatoin() {
           {/*end: Aside Container*/}
         </div>
         {/*begin::Aside*/}
-        <div className=" d-flex rounded-right bg_white registration-form login-signin mx-auto col">
-          <div className="my-auto mh-100 p-5 mx-auto">
-            <div class="busi_reg mt-30">
+        <div className=" d-flex rounded-right bg-white registration-form login-signin mx-auto reg_con col">
+          <div className="mh-100 ml-22 mt-40">
+            <div class="loginRightimg mt-36">
               <div className="text-left mb-6">
                 <h1 className="font-size-28 color_01234B font-weight-600 mb-10">Welcome, Saga <img src="/media/auth-screen/clapping.svg" alt="clap" className="ml-3" /> <img src="/media/auth-screen/clapping.svg" alt="clap" className="ml-3" /></h1>      
                 <p className="font-size-24 wl_txt">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>

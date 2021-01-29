@@ -112,6 +112,12 @@
 .loginRightimg1 {
     max-width: 550px;
 }
+.loginRightimg2 {
+    max-width: 350px;
+    h3 {
+        line-height: 56px;
+    }
+}
 .passwordIcon,.emailIcon{
     position: relative;
 }
@@ -233,7 +239,7 @@
     .reg_sec {
         input.form-control {
             color: #AEAEAE;
-            padding: 10px 40px !important;
+            padding: 10px 55px 10px 40px !important;
             border-radius: 40px;
             border: 1px solid #E9E9E9;
             height: 60px !important;
@@ -318,7 +324,7 @@
         border-bottom: 1px solid #C6DBF4;
     }
     input.form-control {
-        font-size: 18px;
+        font-size: 19px;
         color: #3F4772;
         padding: 5px 0 !important;
         font-weight: $font-weight-medium !important;
@@ -517,8 +523,8 @@
     }
 }
 .login.login-1 {
-    .registration-form.login-signin .form-label {
-        font-size: 14px !important;
+   .login-signin.right_banner .form-label {
+        font-size: 16px !important;
         color: #9FAFC2 !important;
     }
 } 
@@ -606,31 +612,23 @@
 ._2FwA input[type=checkbox]:checked+label.subCategory {
     color: #fff;
 }
-.reg_con {
-    margin-top:  100px;
+.busi_con {
+    position: relative;
+    margin-top: 200px;
+    z-index: 11;
 }
 .reg_con::after {
     content: url(/media/auth-screen/your-welcome.svg);
     position: absolute;
-    right: -12%;
-    bottom: -24%;
-}
-.busi_reg::after {
-    content: url(/media/auth-screen/your-welcome.svg);
-    position: absolute;
-    right: -14%;
+    right: 0;
+    bottom: 0;
 }
 .wl_txt {
     color: #3F4772;
     text-transform: capitalize;
     line-height: 44px;
 }
-.busi_con {
-    position: relative;
-    margin-top: 200px;
-    z-index: 11;
-}
-.busi_con::after {
+.busi_reg::after {
     content: url(/media/auth-screen/mic_man.svg);
     position: absolute;
     right: -15%;
@@ -782,6 +780,36 @@
         top: calc(50% - 7px);
     }
 }
-.bg_white {
-    background-color:  #fff;
+.sign_pass {
+    position: relative;
+    &:after{
+        content: url(/media/auth-screen/eye_hide.svg);
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    } 
+}
+.color_3F4772 {
+    color: $color-blk;
+}
+.right_banner {
+    position: relative;
+    &:after{
+        content: url(/media/auth-screen/personal_img.svg);
+        position: absolute;
+        top: 190px;
+        right: 0;
+    } 
+}
+
+.loginMaincontent {
+    border-radius:  20px !important;
+    .rounded-left {
+        border-top-left-radius: 20px !important;
+        border-bottom-left-radius: 20px !important;
+    }
+    .rounded-right {
+        border-top-right-radius: 20px !important;
+        border-bottom-right-radius: 20px !important;
+    }
 }
