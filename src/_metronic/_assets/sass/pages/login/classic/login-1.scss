@@ -200,12 +200,22 @@
         }
         .MuiStepLabel-label.MuiStepLabel-alternativeLabel{
             margin:0px !important;
+            position: relative;
         }
-        .MuiStep-alternativeLabel{
-            border-right: 1px solid #EDEDED;
+        .MuiStep-completed{
+            padding:0 12px;
         }
-        .MuiStep-alternativeLabel:last-child{
-            border-right:0px;
+        .MuiStep-alternativeLabel::after{
+            content:'';
+            position:absolute;
+            right: -1px;
+            top: 10px;
+            bottom: 10px;
+            width: 2px;
+            background-color: #EDEDED;
+        }
+        .MuiStep-alternativeLabel:last-child::after{
+            content:none !important;
         }
         .MuiStepLabel-iconContainer,.MuiStepConnector-alternativeLabel,
         .MuiStepLabel-completed .stepperRight,.MuiStepLabel-completed .stepperIcon img.active{
@@ -356,7 +366,7 @@
         .btn{
             background:transparent;
             border: 1px solid #C6DBF4;
-            min-height: 136px;
+            min-height: 120px;
             font-size: 12px;
             
             img{

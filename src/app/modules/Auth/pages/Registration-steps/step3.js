@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export default function step3() {
   return (
     <>
-      <div className="my-auto mh-100 mx-5 p-5 text-center rightPanel">
+      <div className="w-100 mh-100 text-center rightPanel">
         <div className="text-left mb-6">
           <h1 className="font-size-28 color_01234B font-weight-600 mb-10">Choose your Salon types:</h1>      
         </div>
