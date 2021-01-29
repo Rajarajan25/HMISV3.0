@@ -8,7 +8,7 @@ export default function step4() {
     <>
     <div className="my-auto mh-100 text-center rightPanel">
       <div className="text-left mb-6">
-        <h1 className="font-size-28 color_01234B font-weight-600 mb-10">Choose Your Business Below</h1>      
+        <h1 className="font-size-28 color_3F4772 text-capitalize font-weight-600 mb-10">Choose Your Business Below</h1>      
         <p className="font-size-14 d-none text-muted font-weight-normal">Enter your details to create your account</p>
       </div>
         <div className="row categoryList  scroll scroll-pull">

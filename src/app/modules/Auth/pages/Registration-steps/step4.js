@@ -26,7 +26,7 @@ export default function stee4() {
     <>
         <div className="w-100 mh-100 text-center rightPanel">
           <div className="text-left mb-6">
-            <h1 className="font-size-28 color_01234B font-weight-600 mb-10">Choose your business hours:</h1>     
+            <h1 className="font-size-28 color_3F4772 text-capitalize font-weight-600 mb-10">Choose your business hours:</h1>     
             <p className=" "> <span></span></p> 
           </div>
           <div className="d-flex font-size-16 font-weight-500 pb-8 border-bottom">
