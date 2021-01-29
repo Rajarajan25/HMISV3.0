@@ -18,7 +18,7 @@ export default function Stepper4() {
           Step: <text>4</text>/5 
           </span>
           <span className="stepperName">
-            Profile and Color
+            Business Hours
           </span>
         </div>
       </div>        
