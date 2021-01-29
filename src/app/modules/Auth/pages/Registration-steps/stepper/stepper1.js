@@ -14,7 +14,7 @@ export default function Stepper1() {
         Step: <text>1</text>/5 
         </span>
         <span className="stepperName">
-          Business Profile
+          Business Info
         </span>
       </div>        
     </div>
