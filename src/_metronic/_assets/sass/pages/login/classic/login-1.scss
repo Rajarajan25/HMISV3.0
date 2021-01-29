@@ -176,6 +176,21 @@
 }
 .registration-form{
     .businessSteps{
+        max-width:80%;
+        border: 1px solid #EDEDED;
+        padding: 11px;
+        margin-bottom: 2.5rem;
+        margin-top: 1.5rem;
+
+        .MuiStepLabel-label.MuiStepLabel-alternativeLabel{
+            margin:0px !important;
+        }
+        .MuiStep-alternativeLabel{
+            border-right: 1px solid #EDEDED;
+        }
+        .MuiStep-alternativeLabel:last-child{
+            border-right:0px;
+        }
         .MuiStepLabel-iconContainer,.MuiStepConnector-alternativeLabel,
         .MuiStepLabel-completed .stepperRight,.MuiStepLabel-completed .stepperIcon img.active{
             display: none !important;
@@ -184,7 +199,9 @@
             .defaultIcon{
                 display: none !important;
             }
-            
+            .stepperIcon{
+                margin-right:0px !important
+            }
             .stepperContnet{
                 display: flex !important;
             }
