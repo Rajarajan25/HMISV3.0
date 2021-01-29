@@ -1,9 +1,18 @@
 
-import React from 'react';
+import React, {useState} from 'react';
 import { BrowserRouter as Router, Switch, Route,Link } from 'react-router-dom';
+import {
+  Button,
+  Modal,
+  ButtonToolbar,
+  Col,
+  Container,
+  Row
+} from "react-bootstrap";
 
 export function ListActivity01() {  
 
+  
   return (
     <div className="contentAreaouter">
             <div className="contentArea">
@@ -176,6 +185,7 @@ export function ListActivity01() {
 
 export function ListActivity02() {  
 
+  const [modalShow, setModalShow] = useState(false);
   return (
     <div className="contentAreaouter">                  
             <div className="contentArea">
@@ -201,7 +211,11 @@ export function ListActivity02() {
                   <div className="col-lg-12 ">
                     <div className="topMiddlecontent">
                       <ul>
-                        <li><Link  to="javascript:void(0)" className="userLogoicon"><span className="listprofileIcon customProfileBG1">AK</span> <span>Anandkumar</span></Link></li>
+                        <li><Link  to="javascript:void(0)" className="userLogoicon"><span className="listprofileIcon customProfileBG1">AK</span> <span>Anandkumar1
+                        <Button variant="primary" onClick={()=>setModalShow(true)}>
+                        Launch modal
+                        </Button>
+                        </span></Link></li>
                         <li><span className="rounddashedCircle"><i className="fa fa-user fa-sm"></i></span></li>
                         <li>May 2020</li>
                         <li className="d-none">Date created</li>
@@ -275,6 +289,20 @@ export function ListActivity02() {
                 </div>                 
               </div>
             </div>
+            <Modal show={modalShow} onHide={()=>setModalShow(false)}>
+          <Modal.Header closeButton>
+            <Modal.Title>Modal heading</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={()=>setModalShow(false)}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={()=>setModalShow(false)}>
+              Save Changes
+            </Button>
+          </Modal.Footer>
+        </Modal>
           </div>
   );
 }
