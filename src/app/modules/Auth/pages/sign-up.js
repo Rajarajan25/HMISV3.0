@@ -32,7 +32,7 @@ export default function step1() {
 
                 {/* start:: Aside content */}
                 <div className="flex-column-fluid d-flex flex-column justify-content-center">
-                  <div className="mx-auto">
+                  <div className="h-100 d-flex flex-column ">
                     
                     <div className="mt-16 mb-16 mb-7 mx-auto loginRightimg flex-column-fluid text-center">
                       <h3 className="font-size-40 text-capitalize font-weight-bold mb-10 text-white">
@@ -42,7 +42,7 @@ export default function step1() {
                       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                       </p>
                     </div>
-                    <div className="text-center mx-12">
+                    <div className="text-center mx-12 d-flex align-items-end">
                       <img src="/media/auth-screen/sign_up_banner.svg" className="m-auto mw-100" alt="Login screen" />
                     </div>
                   </div>
