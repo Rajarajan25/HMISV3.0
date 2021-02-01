@@ -378,7 +378,7 @@ function Registration(props) {
           
           
               {/* begin::Mobile footer */}
-              <div className="d-flex flex-column-auto flex-column flex-sm-row justify-content-between align-items-center mt-5 p-5">
+              <div className="d-none flex-column-auto flex-column flex-sm-row justify-content-between align-items-center mt-5 p-5">
                 <div className="text-dark-50 font-weight-bold order-2 order-sm-1 my-2">
                   &copy; 2020 HMIS
                 </div>
