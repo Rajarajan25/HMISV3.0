@@ -34,11 +34,11 @@ export default function step1() {
                 <div className="flex-column-fluid d-flex flex-column justify-content-center">
                   <div className="h-100 d-flex flex-column ">
                     
-                    <div className="mt-16 mb-16 mb-7 mx-auto loginRightimg flex-column-fluid text-center">
-                      <h3 className="font-size-40 text-uppercase font-weight-bold mb-10 text-white">
+                    <div className="mt-16 mb-16 mb-7 mx-auto loginRightimg1 flex-column-fluid text-center">
+                      <h3 className="font-size-34 text-uppercase font-weight-bold mb-10 text-white">
                       Create account
                       </h3>
-                      <p className="font-size-18  font-weight-normal text-white opacity-90 line-height32">
+                      <p className="font-size-16  font-weight-400 text-white line-height32">
                       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                       </p>
                     </div>
@@ -74,8 +74,8 @@ export default function step1() {
       <div className=" d-flex rounded-right bg-white registration-form login-signin width_650">
         <div className="mh-100 mt-15 mx-auto width_420">
           <div className="text-left mb-6">
-            <h1 className="font-size-40 color_3F4772 font-weight-600 tit_letter mb-7">Sign up to Hmis.</h1>      
-            <p className="font-size-19 text-muted font-weight-normal mb-15">
+            <h1 className="font-size-34 color_3F4772 font-weight-600 tit_letter mb-7">Sign up to Hmis.</h1>      
+            <p className="font-size-16 text-muted font-weight-normal mb-15">
               <span class="alre_letter">Already a member?</span> 
               <Link
                 to="/auth/login"
@@ -90,13 +90,13 @@ export default function step1() {
           <div className="login-signin reg_sec">
             <form className="form fv-plugins-bootstrap fv-plugins-framework">
               <div className="form-group fv-plugins-icon-container">
-                <label class="d-block font-size-19 mb-3 font-weight-500">Email / Mobile Number</label>
+                <label class="d-block font-size-15 mb-3 font-weight-500">Email / Mobile Number</label>
                 <div className="">
                   <input placeholder="9876543210" type="email" className="form-control py-5 px-6 font-size-16" name="email" />
                 </div>
               </div>
               <div className="form-group fv-plugins-icon-container">
-                <label class="d-block font-size-19 mb-3 font-weight-500">Password</label>
+                <label class="d-block font-size-15 mb-3 font-weight-500">Password</label>
                 <div className="sign_pass">
                   <input  placeholder="Minimum 6 characters" className="form-control py-5 px-6 font-size-16" name="password" />
                 </div>
@@ -108,13 +108,13 @@ export default function step1() {
                   className={`btn btn-primary btn-block font-size-16 font-weight-500`}
                 >Create an account</button>
               </div>
-              <div className="form-group font-size-16 or_bor d-flex flex-wrap justify-content-between align-items-center my-5">
+              <div className="form-group font-size-15 or_bor d-flex flex-wrap justify-content-between align-items-center my-5">
                 <span className="m-auto or_txt">Or</span>
                 <span className="border-bottom"></span>
               </div>
               <div className="form-group fv-plugins-icon-container mt-5">
                 {/*begin::Content header*/}
-                <div className="text-center font-size-19 mb-15 mb-lg-0 flex-column-auto justify-content-center py-5">
+                <div className="text-center font-size-16 mb-15 mb-lg-0 flex-column-auto justify-content-center py-5">
                   <span className="font-weight-500">
                   Signup with
                   </span>
