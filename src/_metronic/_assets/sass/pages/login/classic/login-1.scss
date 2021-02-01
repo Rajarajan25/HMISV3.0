@@ -494,7 +494,6 @@
     .MuiTypography-body1 {
         font-size: 18px;
         color: #3F4772;
-        margin-bottom: 5rem;
     }
     .gend {
         .MuiTypography-body1 {
@@ -560,11 +559,16 @@
         box-shadow: none;
         text-transform: capitalize;
     }
+    .fv-plugins-message-container {
+        .fv-help-block {
+            font-size: 1rem;
+            color: #f64e60;
+        }
+    }
 }
 .leftPanel {
 	background:#5382FC;
 }
-
 .borderRadius-10{
     border-radius: 10px !important;
 }
