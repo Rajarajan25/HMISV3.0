@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 
 export default function step1() {
   return (
-    <div className="d-flex justify-content-center flex-column w-100 col-lg-10 p-0">
+    <div className="d-flex justify-content-center flex-column w-100 p-0 width_100">
       
     {/* start:: Aside header */}
-    <Link to="/" className="flex-column-auto pb-lg-0 pb-10 mr-auto">
+    <Link to="/" className="flex-column-auto logo-tb mr-auto">
       <img
         alt="Logo"
         src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
@@ -17,7 +17,7 @@ export default function step1() {
     {/* end:: Aside header */}
 <div className="d-flex w-100 loginMaincontent shadow" >
     {/*begin::Aside*/}
-    <div className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat  col-7 order-0 rounded-left"
+    <div className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat width_945 order-0 rounded-left"
               style={{
                 backgroundColor: `#5382FC`,
               }}
@@ -71,8 +71,8 @@ export default function step1() {
               {/*end: Aside Container*/}
             </div>
             {/*begin::Aside*/}
-      <div className=" d-flex rounded-right bg-white registration-form login-signin mx-auto col-lg-5">
-        <div className="mh-100 mt-15 mx-auto">
+      <div className=" d-flex rounded-right bg-white registration-form login-signin width_650">
+        <div className="mh-100 mt-15 mx-auto width_420">
           <div className="text-left mb-6">
             <h1 className="font-size-40 color_3F4772 font-weight-600 mb-7">Sign up to Hmis.</h1>      
             <p className="font-size-20 text-muted font-weight-normal mb-15">

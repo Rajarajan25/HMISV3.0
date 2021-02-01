@@ -17,12 +17,12 @@ export function AuthPage() {
       <div className="d-flex flex-column flex-root">
         {/*begin::Login*/}
         <div
-          className="login login-1 login-signin-on d-flex flex-column flex-lg-row flex-column-fluid bg-white"
+          className="login login-1 login-signin-on d-flex flex-column flex-lg-row flex-column-fluid bg_gry"
           id="kt_login"
         >
           <div className="d-flex justify-content-center w-100 loginMaincontent">
             {/*begin::Content*/}
-            <div className="d-flex flex-column flex-1 position-relative p-0 col order-1  col-12 col">
+            <div className="position-relative p-0 col order-1  col-12 col">
               
               {/* begin::Content body */}
               <div className="d-flex flex-column-fluid flex-center mt-30 mt-lg-0">

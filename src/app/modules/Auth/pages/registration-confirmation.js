@@ -9,7 +9,7 @@ export default function RegistrationConfirmatoin() {
     <div className="d-flex justify-content-center flex-column w-100 col-lg-10 p-0">
       
       {/* start:: Aside header */}
-      <Link to="/" className="flex-column-auto pb-lg-0 pb-10 mr-auto">
+      <Link to="/" className="flex-column-auto logo-tb mr-auto">
         <img
           alt="Logo"
           src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}

@@ -449,25 +449,25 @@
         min-width: 100%;
     }
     input.form-control::placeholder {
-        color: #AEAEAE;
+        color:#3F4772;
         opacity: 1; /* Firefox */
         font-weight: $font-weight-medium !important;
     } 
     input.form-control::-ms-input-placeholder {
-       color:  #AEAEAE;
+       color:  #3F4772;
        font-weight: $font-weight-medium !important;
     } 
     input.form-control::-ms-input-placeholder {
-        color:  #AEAEAE;
+        color:  #3F4772;
         font-weight: $font-weight-medium !important;
     }
     input.form-control::-moz-input-placeholder {
-        color: #AEAEAE;
+        color:#3F4772;
         opacity: 1; /* Firefox */
         font-weight: $font-weight-medium !important;
     }
     input.form-control::-webkit-input-placeholder {
-        color: #AEAEAE;
+        color: #3F4772;
         font-weight: $font-weight-medium !important;
     } 
     .MuiInput-root {
@@ -945,4 +945,28 @@
         border-top-right-radius: 20px !important;
         border-bottom-right-radius: 20px !important;
     }
+}
+.bg_gry {
+    background-color: #EFF5F3 !important;
+}
+.logo-tb {
+	padding: 12px 0 12px;
+}
+.width_650 {
+    max-width: 650px;
+    width: 100%;
+}
+.width_945 {
+    max-width: 945px;
+    width: 100%;
+}
+.width_100 {
+    max-width: 1595px;
+    margin: 0px auto;
+    width: 100%;
+    padding: 0 15px;
+}
+.width_420 {
+    max-width: 420px;
+    width: 100%;
 }
