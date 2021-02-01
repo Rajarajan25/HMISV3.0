@@ -82,6 +82,9 @@
 .font-size-18{
     font-size: 18px !important;
 }
+.font-size-19{
+    font-size: 19px !important;
+}
 .font-size-20{
     font-size: 20px !important;
 }
@@ -344,6 +347,7 @@
             border-radius: 40px;
             border: 1px solid #E9E9E9;
             height: 60px !important;
+            letter-spacing: -0.22px;
         }
     }
 
@@ -470,6 +474,28 @@
         color: #3F4772;
         font-weight: $font-weight-medium !important;
     } 
+    .reg_sec input.form-control::placeholder {
+        color:#AEAEAE;
+        opacity: 1; /* Firefox */
+        font-weight: $font-weight-medium !important;
+    } 
+    .reg_sec input.form-control::-ms-input-placeholder {
+       color:  #AEAEAE;
+       font-weight: $font-weight-medium !important;
+    } 
+    .reg_sec input.form-control::-ms-input-placeholder {
+        color:  #AEAEAE;
+        font-weight: $font-weight-medium !important;
+    }
+    .reg_sec input.form-control::-moz-input-placeholder {
+        color:#AEAEAE;
+        opacity: 1; /* Firefox */
+        font-weight: $font-weight-medium !important;
+    }
+    .reg_sec input.form-control::-webkit-input-placeholder {
+        color: #AEAEAE;
+        font-weight: $font-weight-medium !important;
+    } 
     .MuiInput-root {
         margin-top: 10px;
     }
@@ -525,7 +551,7 @@
             background: #fff;
             position: relative;
             z-index: 10;
-            padding: 10px 50px;
+            padding: 10px 35px;
             color: #AEAEAE;
         }
         .border-bottom {
@@ -542,8 +568,8 @@
     }
     .btn.btn-primary, .btn.btn-primary:hover:not(.btn-text):not(:disabled):not(.disabled) {
         color: #FFFFFF;
-        background-color: #5382FC;
-        border-color: #5382FC;
+        background-color: #1D6AFF;
+        border-color: #1D6AFF;
     }
     .plus_sym {
         cursor: pointer;
@@ -969,4 +995,14 @@
 .width_420 {
     max-width: 420px;
     width: 100%;
+}
+.tit_letter {
+    letter-spacing: 0.92px;
+}
+.alre_letter {
+    letter-spacing: -0.31px;
+}
+.log_letter {
+    color: #5382FC;
+    letter-spacing: -0.11px;
 }
