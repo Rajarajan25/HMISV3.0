@@ -362,7 +362,7 @@ function Registration(props) {
             <div className="info_img">
                   <img src="/media/auth-screen/sex.svg" className="m-auto mw-100" alt="" />
                 </div>
-                <div className="col">
+                <div className="col gend">
                     <GenderGroup />
                 </div>
               
