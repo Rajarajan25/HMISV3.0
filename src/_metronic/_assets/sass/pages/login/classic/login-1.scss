@@ -349,7 +349,7 @@
     .reg_sec {
         input.form-control {
             color: #AEAEAE;
-            padding: 10px 55px 10px 40px !important;
+            padding: 10px 60px 10px 40px !important;
             border-radius: 40px;
             border: 1px solid #E9E9E9;
             height: 60px !important;
@@ -951,7 +951,7 @@
         content: url(/media/auth-screen/eye_hide.svg);
         position: absolute;
         top: 20px;
-        right: 20px;
+        right: 35px;
     } 
 }
 .color_3F4772 {
@@ -1015,5 +1015,8 @@
 .loginMaincontent {
     &.min-heis {
         min-height: 780px;
+    }
+    .max-width-15985{
+        max-width: 82.5%;
     }
 }
