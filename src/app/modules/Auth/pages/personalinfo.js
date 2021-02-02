@@ -142,7 +142,7 @@ function Registration(props) {
   });
 
   return (
-  <div className="d-flex justify-content-center flex-column w-100 col-lg-10 p-0 width_100">
+  <div className="d-flex justify-content-center flex-column w-100 p-0 width_100">
       
     {/* start:: Aside header */}
     <Link to="/" className="flex-column-auto logo-tb mr-auto">
@@ -156,7 +156,7 @@ function Registration(props) {
     <div className="d-flex w-100 loginMaincontent shadow min-heis" >
       {/*begin::Aside*/}
       <div
-        className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat width_945 order-0 rounded-left"
+        className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat width_650 order-0 rounded-left"
         style={{
           backgroundColor: `#5382FC`,
         }}
@@ -214,7 +214,7 @@ function Registration(props) {
         {/*end: Aside Container*/}
       </div>
       {/*begin::Aside*/}
-      <div className="d-flex rounded-right bg-white registration-form login-signin width_650 right_banner">
+      <div className="d-flex rounded-right bg-white registration-form login-signin width_945 right_banner">
         <div className="mh-100 mt-22 ml-7 p-5">
           <div className="text-left mb-6">
             <h1 className="font-size-28 ml-15 text-capitalize color_3F4772 font-weight-600 mb-10">Fill your Personal details:</h1>      

@@ -446,7 +446,7 @@
         border-bottom: 1px solid #C6DBF4;
     }
     input.form-control {
-        font-size: 19px;
+        font-size: 17px;
         color: #3F4772;
         padding: 5px 0 !important;
         font-weight: $font-weight-medium !important;
@@ -509,7 +509,7 @@
         border-bottom: 1px solid #C6DBF4;
     }
     .MuiSelect-selectMenu {
-        font-size: 18px;
+        font-size: 17px;
         font-weight: $font-weight-medium !important;
         color: #3F4772;
     }
@@ -524,7 +524,7 @@
         margin-bottom: 0;
     }
     .MuiTypography-body1 {
-        font-size: 18px;
+        font-size: 17px;
         color: #3F4772;
     }
     .gend {
@@ -682,7 +682,7 @@
         color: #9FAFC2 !important;
     }
     .registration-form.login-signin .form-label  {
-        font-size: 16px !important;
+        font-size: 15px !important;
         color: #9FAFC2 !important;
     }
 } 
@@ -1013,5 +1013,7 @@
     letter-spacing: -0.11px;
 }
 .loginMaincontent {
-    min-height: 800px;
+    &.min-heis {
+        min-height: 800px;
+    }
 }
