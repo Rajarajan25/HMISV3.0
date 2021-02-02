@@ -92,20 +92,20 @@ export default function step1() {
               <div className="form-group fv-plugins-icon-container">
                 <label class="d-block font-size-15 mb-3 font-weight-500">Email / Mobile Number</label>
                 <div className="">
-                  <input placeholder="9876543210" type="email" className="form-control py-5 px-6 font-size-16" name="email" />
+                  <input placeholder="9876543210" type="email" className="form-control py-5 px-6 font-size-17" name="email" />
                 </div>
               </div>
               <div className="form-group fv-plugins-icon-container">
                 <label class="d-block font-size-15 mb-3 font-weight-500">Password</label>
                 <div className="sign_pass">
-                  <input  placeholder="Minimum 6 characters" className="form-control py-5 px-6 font-size-16" name="password" />
+                  <input  placeholder="Minimum 6 characters" className="form-control py-5 px-6 font-size-17" name="password" />
                 </div>
               </div>
               <div className="form-group d-flex cr_ac flex-wrap justify-content-between align-items-center">
                 <button
                   id="kt_login_signin_submit"
                   type="submit"
-                  className={`btn btn-primary btn-block font-size-16 font-weight-500`}
+                  className={`btn btn-primary btn-block font-size-17 font-weight-500`}
                 >Create an account</button>
               </div>
               <div className="form-group font-size-15 or_bor d-flex flex-wrap justify-content-between align-items-center my-5">

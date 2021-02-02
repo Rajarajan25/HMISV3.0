@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export default function RegistrationConfirmatoin() {
   return (
-    <div className="d-flex justify-content-center flex-column w-100 col-lg-10 p-0">
+    <div className="d-flex justify-content-center flex-column w-100 width_100 p-0">
       
       {/* start:: Aside header */}
       <Link to="/" className="flex-column-auto logo-tb mr-auto">
@@ -17,10 +17,10 @@ export default function RegistrationConfirmatoin() {
       </Link>
       {/* end:: Aside header */}
 
-      <div className="d-flex w-100 loginMaincontent shadow" >
+      <div className="d-flex w-100 loginMaincontent shadow min-heis position-relative" >
         {/*begin::Aside*/}
         <div
-          className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat  col-5 order-0 rounded-left"
+          className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat  width_650 order-0 rounded-left"
           style={{
             backgroundColor: `#5382FC`,
           }}
@@ -74,7 +74,7 @@ export default function RegistrationConfirmatoin() {
           {/*end: Aside Container*/}
         </div>
         {/*begin::Aside*/}
-        <div className=" d-flex rounded-right bg-white registration-form login-signin mx-auto reg_con col">
+        <div className=" d-flex rounded-right bg-white registration-form login-signin mx-auto reg_con width_945">
           <div className="mh-100 ml-22 mt-40">
             <div class="loginRightimg mt-36">
               <div className="text-left mb-6">
