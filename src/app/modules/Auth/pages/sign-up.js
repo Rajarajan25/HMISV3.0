@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function step1() {
   return (
-    <div className="d-flex justify-content-center flex-column w-100 p-0 width_100">
+    <div className="d-flex justify-content-center flex-column w-100  col-lg-10 p-0 width_100">
       
     {/* start:: Aside header */}
     <Link to="/" className="flex-column-auto logo-tb mr-auto">
@@ -34,7 +34,7 @@ export default function step1() {
                 <div className="flex-column-fluid d-flex flex-column justify-content-center">
                   <div className="h-100 d-flex flex-column ">
                     
-                    <div className="mt-16 mb-16 mb-7 mx-auto loginRightimg1 flex-column-fluid text-center">
+                    <div className="mt-16 mb-6 mx-auto loginRightimg1 flex-column-fluid text-center">
                       <h3 className="font-size-34 text-uppercase font-weight-bold mb-10 text-white">
                       Create account
                       </h3>
@@ -42,8 +42,8 @@ export default function step1() {
                       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                       </p>
                     </div>
-                    <div className="text-center mx-12 d-flex align-items-end">
-                      <img src="/media/auth-screen/sign_up_banner.svg" className="m-auto col-lg-10" alt="Login screen" />
+                    <div className="text-center mx-auto d-flex align-items-end">
+                      <img src="/media/auth-screen/sign_up_banner.svg" className="m-auto col-lg-11" alt="Login screen" />
                     </div>
                   </div>
                 </div>
