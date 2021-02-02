@@ -183,7 +183,7 @@ function Registration(props) {
                       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                       </p>
                     </div>
-                    <div className="text-center mx-12">
+                    <div className="text-center mx-auto col-8">
                       <img src="/media/auth-screen/personalinfo_banner.svg" className="m-auto mw-100" alt="banner" />
                     </div>
                   </div>
