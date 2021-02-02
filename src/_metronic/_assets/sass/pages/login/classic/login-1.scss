@@ -1027,7 +1027,26 @@
         .login-aside {
             width: 100%;
             .loginRightimg1 {
-                margin-top:10px !important;
+                margin-top: 35px !important;
+            }
+        }
+    }
+    .logo-tb {
+        padding: 5px 0;
+    }
+    .loginMaincontent {
+        &.min-heis {
+            min-height: inherit;
+        }
+    }
+    .width_420 {
+        max-width: 360px;
+    }
+    .min-heis {
+        .form-group {
+            margin-bottom: 1rem !important;
+            &.cr_ac {
+                margin-top: 1rem !important;
             }
         }
     }
