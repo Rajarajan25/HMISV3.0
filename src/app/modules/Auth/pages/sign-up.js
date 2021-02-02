@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function step1() {
   return (
-    <div className="d-flex justify-content-center flex-column col-lg-10 col">
+    <div className="d-flex justify-content-center flex-column col-lg-10 col transScale">
     {/* start:: Aside header */}
     <Link to="/" className="flex-column-auto logo-tb mr-auto">
       <img
@@ -33,7 +33,7 @@ export default function step1() {
                 <div className="flex-column-fluid d-flex flex-column justify-content-center">
                   <div className="h-100 d-flex flex-column ">
                     
-                    <div className="mt-33 mb-6 mx-auto loginRightimg1 flex-column-fluid text-center">
+                    <div className="mt-30 mb-6 mx-auto loginRightimg1 flex-column-fluid text-center">
                       <h3 className="font-size-34 text-uppercase font-weight-600 mb-10 text-white">
                       Create account
                       </h3>
@@ -119,7 +119,7 @@ export default function step1() {
                   </span>
                   <Link
                     to="/auth/personalinfo"
-                    className="font-weight-500 ml-2 createAccountlink"
+                    className="font-weight-500 ml-2 createAccountlink d-none"
                     id="kt_login_signup"
                   >
                     User Personal Information
