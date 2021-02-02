@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function step1() {
   return (
-    <div className="d-flex justify-content-center flex-column w-100 p-0 col-lg-10">
+    <div className="d-flex justify-content-center flex-column w-100 col-lg-10">
       
     {/* start:: Aside header */}
     <Link to="/" className="flex-column-auto logo-tb mr-auto">
