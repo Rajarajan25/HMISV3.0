@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 
 export default function step1() {
   return (
-    <div className="d-flex justify-content-center flex-column w-100 p-0 col-lg-10">
+    <div className="d-flex justify-content-center flex-column w-100 p-0 width_100">
+      
     {/* start:: Aside header */}
     <Link to="/" className="flex-column-auto logo-tb mr-auto">
       <img
@@ -16,7 +17,7 @@ export default function step1() {
     {/* end:: Aside header */}
 <div className="d-flex w-100 loginMaincontent shadow min-heis" >
     {/*begin::Aside*/}
-    <div className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat col-7 order-0 rounded-left"
+    <div className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat width_945 order-0 rounded-left"
               style={{
                 backgroundColor: `#5382FC`,
               }}
@@ -33,7 +34,7 @@ export default function step1() {
                 <div className="flex-column-fluid d-flex flex-column justify-content-center">
                   <div className="h-100 d-flex flex-column ">
                     
-                    <div className="mt-16 mb-6 mx-auto loginRightimg1 flex-column-fluid text-center">
+                    <div className="mt-16 mb-16 mb-7 mx-auto loginRightimg1 flex-column-fluid text-center">
                       <h3 className="font-size-34 text-uppercase font-weight-bold mb-10 text-white">
                       Create account
                       </h3>
@@ -41,8 +42,8 @@ export default function step1() {
                       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                       </p>
                     </div>
-                    <div className="text-center mx-auto d-flex align-items-end">
-                      <img src="/media/auth-screen/sign_up_banner.svg" className="m-auto col-lg-11" alt="Login screen" />
+                    <div className="text-center mx-12 d-flex align-items-end">
+                      <img src="/media/auth-screen/sign_up_banner.svg" className="m-auto col-lg-10" alt="Login screen" />
                     </div>
                   </div>
                 </div>
@@ -70,7 +71,7 @@ export default function step1() {
               {/*end: Aside Container*/}
             </div>
             {/*begin::Aside*/}
-      <div className=" d-flex rounded-right bg-white registration-form login-signin col-5">
+      <div className=" d-flex rounded-right bg-white registration-form login-signin width_650">
         <div className="mh-100 mt-15 mx-auto width_420">
           <div className="text-left mb-6">
             <h1 className="font-size-34 color_3F4772 font-weight-600 tit_letter mb-7">Sign up to Hmis.</h1>      
