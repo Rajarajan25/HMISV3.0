@@ -38,7 +38,7 @@ export default function RegistrationConfirmatoin() {
             {/* start:: Aside content */}
             
             <div className="mt-10">
-                    <div className="bk_aw text-white font-weight-500 font-size-18 ml-6">
+                    <div className="bk_aw text-white font-weight-500 font-size-18">
                     <img src="/media/auth-screen/back_arrow.svg" className="mr-3" alt="arrow" /> <span>Back</span>
                     </div>
                     <div className="mt-40 mb-24 mx-auto loginRightimg2  flex-column-fluid text-center">

@@ -779,8 +779,8 @@
 .reg_con::after {
     content: url(/media/auth-screen/your-welcome.svg);
     position: absolute;
-    right: 0;
-    bottom: 0;
+    right: 10px;
+    bottom: 5px;
 }
 .wl_txt {
     color: #4393FF;
@@ -1014,6 +1014,6 @@
 }
 .loginMaincontent {
     &.min-heis {
-        min-height: 800px;
+        min-height: 780px;
     }
 }
