@@ -15,7 +15,7 @@ export default function step1() {
       />
     </Link>
     {/* end:: Aside header */}
-<div className="d-flex w-100 loginMaincontent shadow" >
+<div className="d-flex w-100 loginMaincontent shadow min-heis" >
     {/*begin::Aside*/}
     <div className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat width_945 order-0 rounded-left"
               style={{
@@ -43,7 +43,7 @@ export default function step1() {
                       </p>
                     </div>
                     <div className="text-center mx-12 d-flex align-items-end">
-                      <img src="/media/auth-screen/sign_up_banner.svg" className="m-auto mw-100" alt="Login screen" />
+                      <img src="/media/auth-screen/sign_up_banner.svg" className="m-auto col-lg-10" alt="Login screen" />
                     </div>
                   </div>
                 </div>
