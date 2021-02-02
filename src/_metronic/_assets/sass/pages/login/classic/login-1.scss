@@ -8,6 +8,8 @@
 @import "../../../init";
 
 .login.login-1 {
+    
+    font-family: $font-Registration-family-base;
     // Form modes
     .login-signin,
     .login-signup,
@@ -1014,11 +1016,14 @@
 }
 .loginMaincontent {
     &.min-heis {
-        min-height: 780px;
+        //min-height: 780px;
     }
     .maxWidth-regContainer{
         max-width: 82.5%;
     }
+}
+.transScale{
+    transform: scale(0.8);
 }
 
 // Desktop and Mobile mode

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export default function RegistrationConfirmatoin() {
   return (
-    <div className="d-flex justify-content-center flex-column w-100 width_100 p-0">
+    <div className="d-flex justify-content-center flex-column col-lg-10 col transScale">
       
       {/* start:: Aside header */}
       <Link to="/" className="flex-column-auto logo-tb mr-auto">
@@ -37,12 +37,12 @@ export default function RegistrationConfirmatoin() {
 
             {/* start:: Aside content */}
             
-            <div className="mt-10">
-                    <div className="bk_aw text-white font-weight-500 font-size-18">
+            <div className="d-flex flex-column h-100">
+                    <div className="bk_aw text-white font-weight-500 font-size-18 position-absolute ml-5 mt-7">
                     <img src="/media/auth-screen/back_arrow.svg" className="mr-3" alt="arrow" /> <span>Back</span>
                     </div>
-                    <div className="mt-40 mb-24 mx-auto loginRightimg2  flex-column-fluid text-center">
-                      <h3 className="font-size-40 text-uppercase font-weight-bold mb-10 text-white">
+                    <div className="mt-30 mb-24 mx-auto loginRightimg1  flex-column-fluid text-center">
+                      <h3 className="font-size-34 text-uppercase font-weight-600 mb-10 text-white col-lg-8 col mx-auto">
                       Welcome to our Business!!
                       </h3>
                     </div>

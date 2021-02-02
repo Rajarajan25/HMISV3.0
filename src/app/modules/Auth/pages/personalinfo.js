@@ -142,7 +142,7 @@ function Registration(props) {
   });
 
   return (
-  <div className="d-flex justify-content-center flex-column w-100 p-0 width_100">
+  <div className="d-flex justify-content-center flex-column col-lg-8 col">
       
     {/* start:: Aside header */}
     <Link to="/" className="flex-column-auto logo-tb mr-auto">
@@ -171,15 +171,15 @@ function Registration(props) {
 
           {/* start:: Aside content */}
           <div className="flex-column-fluid d-flex flex-column justify-content-center">
-                  <div className="">
-                    <div className="bk_aw text-white font-weight-500 font-size-18">
+                  <div className="d-flex flex-column h-100">
+                    <div className="bk_aw text-white font-weight-500 font-size-18 position-absolute ml-5 mt-7">
                     <img src="/media/auth-screen/back_arrow.svg" className="mr-3" alt="arrow" /> <span>Back</span>
                     </div>
-                    <div className="mt-12 mb-16 mb-7 mx-auto loginRightimg1  flex-column-fluid text-center">
-                      <h3 className="font-size-40 text-uppercase font-weight-bold mb-10 text-white">
+                    <div className="mt-20 mb-10 mx-auto loginRightimg1  flex-column-fluid text-center">
+                      <h3 className="font-size-34 text-uppercase font-weight-600 mb-10 text-white">
                       Profile info
                       </h3>
-                      <p className="font-size-18  font-weight-normal text-white opacity-90 line-height32">
+                      <p className="font-size-15  font-weight-300 text-white line-height32">
                       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                       </p>
                     </div>
@@ -215,7 +215,7 @@ function Registration(props) {
       </div>
       {/*begin::Aside*/}
       <div className="d-flex rounded-right bg-white registration-form login-signin width_945 right_banner">
-        <div className="mh-100 mt-22 ml-7 p-5">
+        <div className="mh-100 ml-7 p-5">
           <div className="text-left mb-6">
             <h1 className="font-size-28 ml-15 text-capitalize color_3F4772 font-weight-600 mb-10">Fill your Personal details:</h1>      
         
@@ -392,7 +392,7 @@ function Registration(props) {
           
           <Link
             to="/auth/registration-confirmation"
-            className="font-weight-bold ml-2 createAccountlink"
+            className="font-weight-bold ml-2 createAccountlink d-none"
             id="kt_login_signup"
           >
             Registration Confirmation
