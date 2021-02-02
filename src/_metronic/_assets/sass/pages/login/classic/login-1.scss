@@ -1021,8 +1021,8 @@
     }
 }
 
-// Tablet and Mobile mode
-@include media-breakpoint-between(xl, xxxl) {
+// Desktop and Mobile mode
+@media (min-width: 1200px) and (max-width: 1600px){
     .login.login-1 {
         .login-aside {
             width: 100%;
