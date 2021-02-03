@@ -20,7 +20,7 @@ export default function RegistrationConfirmatoin() {
       <div className="d-flex w-100 loginMaincontent shadow min-heis position-relative" >
         {/*begin::Aside*/}
         <div
-          className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat col-5 order-0 rounded-left"
+          className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat col-7 order-0 rounded-left"
           style={{
             backgroundColor: `#5382FC`,
           }}

@@ -102,7 +102,7 @@ function Login(props) {
                 backgroundColor: `#fff`,
               }}
             >
-              <div className="d-flex flex-column m-auto col-lg-10 col-xl-7 col-12">
+              <div className="d-flex flex-column flex-column-fluid mx-auto col-lg-10 col-xl-7 col-12 mh-100">
                 {/* start:: Aside header */}
                 <Link to="/" className="flex-column-auto pb-lg-0 pb-10 mb-10">
                   <img
@@ -112,7 +112,7 @@ function Login(props) {
                 </Link>
                 {/* end:: Aside header */}
 
-                <div className="login-form login-signin mx-auto" id="kt_login_signin_form">
+                <div className="login-form login-signin my-auto" id="kt_login_signin_form">
                   
                   {/* begin::Head */}
                   <div className="text-left mb-7">
@@ -190,7 +190,7 @@ function Login(props) {
 
                       <Link
                         to="/auth/forgot-password"
-                        className="text-hover-primary my-3 mr-2 font-weight-600 text-primary"
+                        className="text-hover-primary my-3 mr-2 font-size-14 text-primary"
                         id="kt_login_forgot"
                       >
                         <FormattedMessage id="AUTH.GENERAL.FORGOT_BUTTON" />
@@ -239,14 +239,7 @@ function Login(props) {
                 <div className="text-center font-size-18 mb-15 mb-lg-0 flex-column-auto justify-content-center py-5">
                   <span className="font-weight-500">
                   Login with
-                  </span>
-                  <Link
-                    to="/auth/personalinfo"
-                    className="font-weight-500 ml-2 createAccountlink"
-                    id="kt_login_signup"
-                  >
-                    User Personal Information
-                  </Link>
+                  </span>                  
                 </div>
                 {/*end::Content header*/}
               </div>
@@ -294,10 +287,10 @@ function Login(props) {
                           </Link>
                           <Link
                             to="/auth/sign-up"
-                            className="font-weight-bold ml-2 createAccountlink d-none"
+                            className="font-weight-bold ml-2 createAccountlink"
                             id="kt_login_signup"
                           >
-                            Create a new account
+                            Registration
                           </Link>
                         </div>
                         {/*end::Content header*/}
@@ -308,11 +301,11 @@ function Login(props) {
               
                 
                 {/* begin::Mobile footer */}
-                <div className="d-flex flex-column-auto flex-column flex-sm-row justify-content-center align-items-center mt-5 p-5">
+                <div className="d-flex flex-column-auto flex-column flex-sm-row  mt-5 px-5">
                   <div className="text-dark-50 font-weight-bold order-2 order-sm-1 my-2 mr-15">
                     &copy; 2020 HMIS
                   </div>
-                  <div className="d-flex order-1 order-sm-2 my-2">
+                  <div className="d-flex order-1 order-sm-2 my-2 ml-auto">
                     <Link to="/terms" className="text-dark-75 text-hover-primary">
                       Privacy
                     </Link>
