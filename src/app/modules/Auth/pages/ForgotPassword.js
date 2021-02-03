@@ -72,7 +72,7 @@ function ForgotPassword(props) {
                 backgroundColor: `#fff`,
               }}
             >
-            <div className="d-flex flex-column m-auto col-lg-10 col-xl-7 col-12">
+            <div className="d-flex flex-column flex-column-fluid mx-auto h-100 col-lg-10 col-xl-7 col-12">
               {/* start:: Aside header */}
               <Link to="/" className="flex-column-auto pb-lg-0 pb-10 mb-10">
                 <img
@@ -82,7 +82,7 @@ function ForgotPassword(props) {
               </Link>
               {/* end:: Aside header */}
 
-              <div className="login-form login-forgot" style={{ display: "block" }}>
+              <div className="login-form login-forgot my-auto" style={{ display: "block" }}>
                 
                 {/* begin::Head */}
                 <div className="text-left mb-7 d-none">
@@ -130,11 +130,11 @@ function ForgotPassword(props) {
                           ) : null}
                         </div>
                     </div>
-                    <div className="form-group d-flex flex-wrap flex-center">
+                    <div className="form-group d-flex flex-wrap flex-center lg-ac">
                       <button
                         id="kt_login_forgot_submit"
                         type="submit"
-                        className="btn btn-primary font-weight-bold px-9 py-4 my-3 mx-4"
+                        className="btn btn-primary font-size-h5 font-weight-400 px-9 py-4 my-3 mx-4"
                         disabled={formik.isSubmitting}
                       >
                         Submit
@@ -143,7 +143,7 @@ function ForgotPassword(props) {
                         <button
                           type="button"
                           id="kt_login_forgot_cancel"
-                          className="btn btn-light-primary font-weight-bold px-9 py-4 my-3 mx-4"
+                          className="btn btn-light-primary font-size-h5 font-weight-400 px-9 py-4 my-3 mx-4"
                         >
                           Cancel
                         </button>
@@ -151,7 +151,33 @@ function ForgotPassword(props) {
                     </div>
                   </form>
                 </div>
-              </div>
+              
+              
+                {/* begin::Mobile footer */}
+                <div className="d-flex flex-column-auto flex-column flex-sm-row  mt-5 px-5">
+                  <div className="text-dark-50 font-weight-bold order-2 order-sm-1 my-2 mr-15">
+                    &copy; 2020 HMIS
+                  </div>
+                  <div className="d-flex order-1 order-sm-2 my-2 ml-auto">
+                    <Link to="/terms" className="text-dark-75 text-hover-primary">
+                      Privacy
+                    </Link>
+                    <Link
+                      to="/terms"
+                      className="text-dark-75 text-hover-primary ml-4"
+                    >
+                      Legal
+                    </Link>
+                    <Link
+                      to="/terms"
+                      className="text-dark-75 text-hover-primary ml-4"
+                    >
+                      Contact
+                    </Link>
+                  </div>
+                </div>
+                {/* end::Mobile footer */}
+            </div>
             </div>
           
             {/*begin::Aside*/}

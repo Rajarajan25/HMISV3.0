@@ -88,11 +88,12 @@
     }
     button.soci {
         display: inline-flex;
-        border: 1px solid #e9e9e9;
+        border: 0px solid #01234b45;
         background: transparent;
         border-radius: 50%;
         padding: 20px;
         margin: 0 15px;
+        box-shadow: inset 0 0 13px 0px #01234b45;
     }
     .btn.btn-primary, .btn.btn-primary:hover:not(.btn-text):not(:disabled):not(.disabled) {
         color: #FFFFFF;
@@ -584,7 +585,7 @@
     }
     .reg_icon button.soci {
         display: inline-flex;
-        border: 1px solid #e9e9e9;
+        border: 0px solid #e9e9e9;
         background: transparent;
         border-radius: 50%;
         padding: 15px;
