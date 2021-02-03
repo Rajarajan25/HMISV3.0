@@ -25,11 +25,10 @@ export default function stee4() {
   return (
     <>
         <div className="w-100 mh-100 text-center rightPanel">
-          <div className="text-left mb-6">
-            <h1 className="font-size-28 color_3F4772 text-capitalize font-weight-600 mb-10">Choose your business hours:</h1>     
-            <p className=" "> <span></span></p> 
+          <div className="text-left mb-5">
+            <h1 className="h2 mb-3 color_3F4772 text-capitalize font-weight-600">Choose your business hours:</h1>     
           </div>
-          <div className="d-flex font-size-16 font-weight-500 pb-8 border-bottom">
+          <div className="d-flex font-weight-500 pb-2 border-bottom">
             <div className="wal_clk">
             <img src="/media/auth-screen/wall_clock.svg" alt="thumbs-up" /> <span>Time Zone:</span>
             </div>
@@ -37,7 +36,7 @@ export default function stee4() {
             <TimeZone />
             </div>
           </div>
-          <div className="d-flex mt-10">
+          <div className="d-flex mt-3">
             <div className="date_bx sun_d">S</div>
             <div className="date_bx mon_d">M</div>
             <div className="date_bx tue_d">T</div>
@@ -47,7 +46,7 @@ export default function stee4() {
             <div className="date_bx sat_d">S</div>
           </div>
           <div className="date_sec text-left">
-            <div className="d-flex row mt-7">
+            <div className="d-flex row mt-3">
               <div className="col-3">
                 <div className="dt_area mon_bg d-inline-flex">
                   <div className="date_bx mon_d">M</div>
@@ -58,7 +57,7 @@ export default function stee4() {
                 <span className="st_tm">9:00 am - 12:00 pm</span> <span className="se_to">to</span> <span className="end_tm">12:00 pm - 6:00 pm</span>
               </div>
             </div>
-            <div className="d-flex row mt-7">
+            <div className="d-flex row mt-3">
               <div className="col-3">
                 <div className="dt_area tue_bg d-inline-flex">
                   <div className="date_bx tue_d">T</div>
@@ -69,7 +68,7 @@ export default function stee4() {
                 <span className="st_tm">9:00 am - 12:00 pm</span> <span className="se_to">to</span> <span className="end_tm">12:00 pm - 6:00 pm</span>
               </div>
             </div>
-            <div className="d-flex row mt-7">
+            <div className="d-flex row mt-3">
               <div className="col-3">
                 <div className="dt_area wed_bg d-inline-flex">
                   <div className="date_bx wed_d">W</div>
@@ -81,7 +80,7 @@ export default function stee4() {
                 <span className="st_tm">9:00 am - 12:00 pm</span> <span className="se_to">to</span> <span className="end_tm">12:00 pm - 6:00 pm</span>
               </div>
             </div>
-            <div className="d-flex row mt-7">
+            <div className="d-flex row mt-3">
               <div className="col-3">
                 <div className="dt_area thu_bg d-inline-flex">
                   <div className="date_bx thu_d">T</div>
@@ -92,7 +91,7 @@ export default function stee4() {
                 <span className="st_tm">9:00 am - 12:00 pm</span> <span className="se_to">to</span> <span className="end_tm">12:00 pm - 6:00 pm</span>
               </div>
             </div>
-            <div className="d-flex row mt-7">
+            <div className="d-flex row mt-3">
               <div className="col-3">
                 <div className="dt_area fri_bg d-inline-flex">
                   <div className="date_bx fri_d">F</div>
@@ -103,7 +102,7 @@ export default function stee4() {
                 <span className="st_tm">9:00 am - 12:00 pm</span> <span className="se_to">to</span> <span className="end_tm">12:00 pm - 6:00 pm</span>
               </div>
             </div>
-            <div className="d-flex row mt-7">
+            <div className="d-flex row mt-3">
               <div className="col-3">
                 <div className="dt_area sat_bg d-inline-flex">
                   <div className="date_bx sat_d">S</div>
@@ -114,7 +113,7 @@ export default function stee4() {
                 <span className="st_tm">9:00 am - 12:00 pm</span> <span className="se_to">to</span> <span className="end_tm">12:00 pm - 6:00 pm</span>
               </div>
             </div>
-            <div className="d-flex row mt-7">
+            <div className="d-flex row mt-3">
               <div className="col-3">
                 <div className="dt_area sun_bg d-inline-flex">
                   <div className="date_bx sun_d">S</div>
@@ -126,7 +125,7 @@ export default function stee4() {
               </div>
             </div>
           </div>
-          <div className="form-group d-flex mt-10 ml-5 font-size-15">
+          <div className="form-group d-flex mt-3 ml-5 font-size-15">
             <div class="form-check">
               <input type="checkbox" id="formHorizontalCheck" class="form-check-input mt-2" />
               <label title="" for="formHorizontalCheck" class="form-check-label font-size-14 ml-3 mr-20">Apply to this week</label>

@@ -247,7 +247,7 @@
 }
 .registration-form{
     .businessSteps{
-        max-width:84%;
+        max-width: 100%;
         border: 1px solid #EDEDED;
         padding: 10px;
         margin-bottom: 1.5rem;
@@ -297,7 +297,7 @@
         }
         .MuiStepLabel-active {
             .stepperWidth{
-                min-width:240px;
+                min-width:200px;
 
                 .defaultIcon{
                     display: none !important;
@@ -315,17 +315,17 @@
             }
         }
         .stepperWidth{
-            min-height:60px;
+            min-height:50px;
             .stepperIcon{
-                min-width:60px;
-                min-height: 60px;
+                min-width:50px;
+                min-height: 50px;
                 background-color: #E5ECFD;
                 position: relative;
             }
             
             .stepperRight{
                 .stepperSMtext{
-                    font-size: 16px;
+                    font-size: 1.1em;
                     color: #5382FC;
                     font-weight: $font-weight-semibold;
 
@@ -334,7 +334,7 @@
                     }
                 }
                 .stepperName{
-                    font-size: 18px;
+                    font-size: 1.2em;
                     color: #3F4772;
                     font-weight: $font-weight-semibold;
                 }
@@ -368,7 +368,7 @@
             border-radius: 30px;
             align-items: center;
             padding: 10px 12px;
-            font-size: 17px;
+            font-size: 1.2em;
             font-weight: $font-weight-semibold;
             margin: 0.5rem;
             .catIcon{
@@ -419,12 +419,12 @@
         }
     }
     .categoryList{
-        max-height: 450px;
+        max-height: 370px;
         overflow: auto;
         .btn{
             background:transparent;
             border: 1px solid #C6DBF4;
-            min-height: 120px;
+            min-height: 110px;
             font-size: 12px;
             
             img{
@@ -438,22 +438,26 @@
         }
         & > div{
             width: 20%;
-            padding: 1rem;
+            padding: 0.5rem;
         }
     }
     .nextButton{
-        padding:0 15px;
-        height:60px;
+        padding: 0 15px;
+        height: 50px;
         border-radius: 30px;
-        background:#1C6AFC !important;
-        color: $white;
-        font-weight: $font-weight-medium;
-        font-size: 16px;
-        min-width: 190px;
-        box-shadow: -3px 3px 6px #1C6AFC4D;
+        background: #1C6AFC !important;
+        color: #ffffff;
+        font-weight: 500;
+        font-size: 1.1em;
+        min-width: 180px;
+        box-shadow: -3px 3px 6px #1c6afc4d;
         text-transform: capitalize;
         margin-bottom: 20px;
-        margin-right: -60px;
+        margin-right: 0;
+        margin-top: 10px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
     }
     .MuiButton-root.backbtn {
         position: absolute;
@@ -477,7 +481,7 @@
         background-color: transparent;
     }
     .terms_c {
-        font-size: 16px;
+        font-size: 1.1em;
         color: #343434;
         margin-left: 8px;
     }
@@ -486,8 +490,8 @@
     }
    .ch-bx .checkbox > span {
         border-radius: 0;
-        width: 24px;
-        height: 24px;
+        width: 20px;
+        height: 20px;
     }
     .MuiInput-underline:before {
         border-bottom: 1px solid #C6DBF4;
@@ -825,9 +829,8 @@
 }
 .busi_con {
     position: relative;
-    margin-top: 150px;
+    margin-top: 100px;
     z-index: 11;
-    margin-bottom: 260px;
 }
 .reg_con::after {
     content: url(/media/auth-screen/your-welcome.svg);
@@ -875,17 +878,17 @@
     z-index: 10;
 }*/
 .date_bx {
-    width: 55px;
-    height: 55px;
-    line-height:  55px;
-    font-size: 15px;
+    width: 40px;
+    height: 40px;
+    line-height:  40px;
+    font-size: 1em;
     color: #fff;
     background-color: #1D6AFF;
     box-shadow: 0px 3px 6px #00000029;
     border: 1px solid #E9E9E9;
     font-weight: $font-weight-normal;
     border-radius: 50%;
-    margin-right: 35px;
+    margin-right: 30px;
     text-align: center;
     position: relative;
     &::before {
@@ -959,14 +962,14 @@
 .tm_area {
     .st_tm, .end_tm {
         min-width: 165px;
-        font-size: 15px;
+        font-size: 1em;
         display: inline-block;
         text-align: center;
         color: #303030;
     }
     .se_to {
         min-width: 40px;
-        font-size: 15px;
+        font-size: 1em;
         display: inline-block;
         text-align: center;
         color: #D6D6D6;
