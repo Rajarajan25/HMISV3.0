@@ -147,6 +147,9 @@
 }
 .loginMaincontent{
     z-index: 2;
+    .form-group {
+        margin-bottom: 1.25rem;
+    }
 }
 .login:before{
    /* content: url(/media/auth-screen/bottomLeft.svg);
