@@ -215,11 +215,8 @@ function Registration(props) {
       </div>
       {/*begin::Aside*/}
       <div className="d-flex rounded-right bg-white registration-form login-signin width_945 right_banner">
-        <div className="mh-100 ml-7 p-5">
-          <div className="text-left mb-6">
-            <h1 className="font-size-h3 ml-15 text-capitalize color_3F4772 font-weight-600 mb-10">Fill your Personal details:</h1>      
-        
-          </div>
+        <div className="mh-100 ml-5 mt-7 p-5">
+            <h1 className="font-size-h3 ml-15 text-capitalize color_3F4772 font-weight-600 mb-6">Fill your Personal details:</h1>      
           <form
             id="kt_login_signin_form"
             className="form fv-plugins-bootstrap fv-plugins-framework animated animate__animated animate__backInUp"
@@ -376,7 +373,7 @@ function Registration(props) {
               <button
                 type="submit"
     
-                className="btn btn-primary sign-btn ml-15 h-77 font-weight-500 mt-6"
+                className="btn btn-primary sign-btn ml-15 h-77 font-weight-500 mt-3"
               >
                 <span>Sign Up</span>
                 {loading && <span className="ml-3 spinner spinner-white"></span>}
