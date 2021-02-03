@@ -156,7 +156,7 @@ function Registration(props) {
     <div className="d-flex w-100 loginMaincontent shadow min-heis" >
       {/*begin::Aside*/}
       <div
-        className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat width_650 order-0 rounded-left"
+        className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat col-5 order-0 rounded-left"
         style={{
           backgroundColor: `#5382FC`,
         }}
@@ -172,19 +172,19 @@ function Registration(props) {
           {/* start:: Aside content */}
           <div className="flex-column-fluid d-flex flex-column justify-content-center">
                   <div className="d-flex flex-column h-100">
-                    <div className="bk_aw text-white font-weight-500 font-size-18 position-absolute ml-5 mt-7">
-                    <img src="/media/auth-screen/back_arrow.svg" className="mr-3" alt="arrow" /> <span>Back</span>
+                    <div className="bk_aw text-white font-weight-500 font-size-15 position-absolute ml-5 mt-7">
+                    <img src="/media/auth-screen/back_arrow.svg" className="mr-2" alt="arrow" /> <span>Back</span>
                     </div>
-                    <div className="mt-20 mb-10 mx-auto loginRightimg1  flex-column-fluid text-center">
-                      <h3 className="font-size-h1 text-uppercase font-weight-600 mb-10 text-white">
+                    <div className="mt-20 mb-10 mx-auto loginRightimg1 col-lg-11 col-11 flex-column-fluid text-center">
+                      <h3 className="font-size-h1 text-uppercase font-weight-600 mb-5 text-white">
                       Profile info
                       </h3>
-                      <p className="font-size-15  font-weight-300 text-white line-height32">
+                      <p className="font-size-14  font-weight-300 text-white line-height2">
                       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                       </p>
                     </div>
-                    <div className="text-center mx-auto col-8">
-                      <img src="/media/auth-screen/personalinfo_banner.svg" className="m-auto mw-100" alt="banner" />
+                    <div className="text-center mx-auto d-flex align-items-end">
+                      <img src="/media/auth-screen/personalinfo_banner.svg" className="m-auto col-lg-10" alt="banner" />
                     </div>
                   </div>
           </div>
@@ -214,7 +214,7 @@ function Registration(props) {
         {/*end: Aside Container*/}
       </div>
       {/*begin::Aside*/}
-      <div className="d-flex rounded-right bg-white registration-form login-signin width_945 right_banner">
+      <div className="d-flex rounded-right bg-white registration-form login-signin col right_banner">
         <div className="mh-100 ml-7 p-5">
           <div className="text-left mb-6">
             <h1 className="font-size-h3 ml-15 text-capitalize color_3F4772 font-weight-600 mb-10">Fill your Personal details:</h1>      
