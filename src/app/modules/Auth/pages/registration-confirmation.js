@@ -79,10 +79,10 @@ export default function RegistrationConfirmatoin() {
         {/*begin::Aside*/}
         <div className=" d-flex rounded-right bg-white registration-form login-signin mx-auto reg_con col">
           <div className="d-flex m-auto">
-            <div class="loginRightimg">
+            <div class="loginRightimg col-lg-10 col-xl-9 col-12 ml-18">
               <div className="text-left mb-6">
-                <h1 className="font-size-28 color_01234B font-weight-600 mb-10">Welcome, Saga <img src="/media/auth-screen/clapping.svg" alt="clap" className="ml-3" /> <img src="/media/auth-screen/clapping.svg" alt="clap" className="ml-3" /></h1>      
-                <p className="font-size-24 wl_txt">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <h1 className="h1 color_3F4772 font-weight-600 d-flex my-auto"><span className="my-auto">Welcome, Saga</span> <img src="/media/auth-screen/clapping.svg" alt="clap" className="ml-3" /> <img src="/media/auth-screen/clapping.svg" alt="clap" className="ml-3" /></h1>      
+                <p className="font-size-18 wl_txt mt-10">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
               </div>
               <div className="form-group flex-wrap flex-center">
                 <button type="submit" className="btn btn-primary sign-btn h-77 font-weight-500 mt-6">
