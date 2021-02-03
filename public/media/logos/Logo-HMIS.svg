@@ -1,7 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="70" height="76" viewBox="0 0 70 76">
-  <g id="Group_5201" data-name="Group 5201" transform="translate(-185 -297)">
-    <text id="H" transform="translate(201 350)" fill="#01234b" font-size="50" font-family="STIXGeneral-Bold, STIXGeneral" font-weight="700"><tspan x="0" y="0">H</tspan></text>
-    <circle id="Ellipse_146" data-name="Ellipse 146" cx="5" cy="5" r="5" transform="translate(245 330)" fill="#c40f12"/>
-    <circle id="Ellipse_147" data-name="Ellipse 147" cx="5" cy="5" r="5" transform="translate(185 330)" fill="#1c6afc"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="71" height="34" viewBox="0 0 71 34">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_1784" data-name="Rectangle 1784" width="71" height="34" transform="translate(-1729.5 -14196.9)" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_56" data-name="Mask Group 56" transform="translate(1729.5 14196.9)" clip-path="url(#clip-path)">
+    <g id="Group_5383" data-name="Group 5383" transform="translate(-1914 -14513)">
+      <text id="H" transform="translate(201 350)" fill="#01234b" font-size="50" font-family="STIXGeneral-Bold, STIXGeneral" font-weight="700"><tspan x="0" y="0">H</tspan></text>
+      <circle id="Ellipse_146" data-name="Ellipse 146" cx="5" cy="5" r="5" transform="translate(245 330)" fill="#c40f12"/>
+      <circle id="Ellipse_147" data-name="Ellipse 147" cx="5" cy="5" r="5" transform="translate(185 330)" fill="#1c6afc"/>
+    </g>
   </g>
 </svg>

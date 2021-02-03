@@ -145,7 +145,7 @@ function Registration(props) {
   <div className="d-flex justify-content-center flex-column col-lg-8 col">
       
     {/* start:: Aside header */}
-    <Link to="/" className="flex-column-auto logo-tb mr-auto">
+    <Link to="/" className="flex-column-auto logo-tb mr-auto mb-5">
       <img
         alt="Logo"
         src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
@@ -175,7 +175,7 @@ function Registration(props) {
               <div className="bk_aw text-white font-weight-500 font-size-15 position-absolute ml-5 mt-7">
               <img src="/media/auth-screen/back_arrow.svg" className="mr-2" alt="arrow" /> <span>Back</span>
               </div>
-              <div className="mt-20 mb-10 mx-auto loginRightimg1 col-lg-11 col-11 flex-column-fluid text-center">
+              <div className="mt-25 mb-10 mx-auto loginRightimg1 col-lg-11 col-11 flex-column-fluid text-center">
                 <h3 className="font-size-h1 text-uppercase font-weight-600 mb-5 text-white">
                 Profile info
                 </h3>
