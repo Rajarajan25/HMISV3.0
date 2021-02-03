@@ -142,7 +142,7 @@ function Registration(props) {
   return (
     <>
     <div className="text-left mb-6">
-        <h1 className="font-size-28 color_3F4772 text-capitalize font-weight-600 mb-10">Business Info:</h1>      
+        <h1 className="h2 mb-3 color_3F4772 text-capitalize font-weight-600">Business Info:</h1>      
       </div>
       <div className="business_info">
           <form

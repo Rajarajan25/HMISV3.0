@@ -4,7 +4,7 @@ import { toAbsoluteUrl } from "../../../../../../_metronic/_helpers";
 
 export default function Stepper2() {
   return (
-    <div className="d-flex stepperWidth justify-content-center">
+    <div className="d-flex stepperWidth justify-content-start">
       <span className="defaultIcon d-flex justify-content-center m-auto">
         <Image className="h-auto d-flex default" src={toAbsoluteUrl("/media/auth-screen/customer_link_default.svg")} alt="" />
       </span>

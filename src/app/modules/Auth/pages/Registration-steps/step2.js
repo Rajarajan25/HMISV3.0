@@ -8,8 +8,7 @@ export default function step4() {
     <>
     <div className="my-auto mh-100 text-center rightPanel">
       <div className="text-left mb-6">
-        <h1 className="font-size-28 color_3F4772 text-capitalize font-weight-600 mb-10">Choose Your Business Below</h1>      
-        <p className="font-size-14 d-none text-muted font-weight-normal">Enter your details to create your account</p>
+        <h1 className="h2 mb-3 color_3F4772 text-capitalize font-weight-600">Choose Your Business Below</h1>      
       </div>
         <div className="row categoryList  scroll scroll-pull">
           <div className="m-0">
@@ -17,7 +16,7 @@ export default function step4() {
               <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
                 <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/hospital.svg")} />
               </span>
-              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Hospital</span>
+              <span className="d-block font-weight-500 text-truncate mt-3 mb-2">Hospital</span>
             </a>
           </div>
 
@@ -26,7 +25,7 @@ export default function step4() {
               <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
                 <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/petservice.svg")} />
               </span>
-              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Pet Services</span>
+              <span className="d-block font-weight-500 text-truncate  mt-3 mb-2">Pet Services</span>
             </a>
           </div>
           
@@ -35,7 +34,7 @@ export default function step4() {
               <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
                 <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/accounts.svg")} />
               </span>
-              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Accounts</span>
+              <span className="d-block font-weight-500 text-truncate  mt-3 mb-2">Accounts</span>
             </a>
           </div>
 
@@ -44,7 +43,7 @@ export default function step4() {
               <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
                 <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/fitness.svg")} />
               </span>
-              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Fitness</span>
+              <span className="d-block font-weight-500 text-truncate mt-3 mb-2">Fitness</span>
             </a>
           </div>
           <div className="m-0">
@@ -52,7 +51,7 @@ export default function step4() {
               <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
                 <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/counselors.svg")} />
               </span>
-              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Counselors</span>
+              <span className="d-block font-weight-500 text-truncate mt-3 mb-2">Counselors</span>
             </a>
           </div>
           <div className="m-0">
@@ -60,7 +59,7 @@ export default function step4() {
               <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
                 <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/realestate.svg")} />
               </span>
-              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Real Estate</span>
+              <span className="d-block font-weight-500 text-truncate mt-3 mb-2">Real Estate</span>
             </a>
           </div>
 
@@ -69,7 +68,7 @@ export default function step4() {
               <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
                 <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/mechanicservice.svg")} />
               </span>
-              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Mechanic Services</span>
+              <span className="d-block font-weight-500 text-truncate mt-3 mb-2">Mechanic Services</span>
             </a>
           </div>
 
@@ -78,7 +77,7 @@ export default function step4() {
               <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
                 <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/salon.svg")} />
               </span>
-              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Salon</span>
+              <span className="d-block font-weight-500 text-truncate  mt-3 mb-2">Salon</span>
             </a>
           </div>
 
@@ -87,7 +86,7 @@ export default function step4() {
               <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
                 <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/chiropractic.svg")} />
               </span>
-              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Chiropractic</span>
+              <span className="d-block font-weight-500 text-truncate  mt-3 mb-2">Chiropractic</span>
             </a>
           </div>
 
@@ -96,7 +95,7 @@ export default function step4() {
               <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
                 <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/homeservice.svg")} />
               </span>
-              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Home Services</span>
+              <span className="d-block font-weight-500 text-truncate mt-3 mb-2">Home Services</span>
             </a>
           </div>
 
@@ -105,7 +104,7 @@ export default function step4() {
               <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
                 <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/acupuncture.svg")} />
               </span>
-              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Acupuncture</span>
+              <span className="d-block font-weight-500 text-truncate mt-3 mb-2">Acupuncture</span>
             </a>
           </div>
           
@@ -114,7 +113,7 @@ export default function step4() {
               <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
                 <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/education.svg")} />
               </span>
-              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Education</span>
+              <span className="d-block font-weight-500 text-truncate  mt-3 mb-2">Education</span>
             </a>
           </div>
           
@@ -123,7 +122,7 @@ export default function step4() {
               <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
                 <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/film.svg")} />
               </span>
-              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Film</span>
+              <span className="d-block font-weight-500 text-truncate  mt-3 mb-2">Film</span>
             </a>
           </div>
           
@@ -132,7 +131,7 @@ export default function step4() {
               <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
                 <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/auto.svg")} />
               </span>
-              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Auto</span>
+              <span className="d-block font-weight-500 text-truncate  mt-3 mb-2">Auto</span>
             </a>
           </div>
           
@@ -141,7 +140,7 @@ export default function step4() {
               <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
                 <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/cleaners.svg")} />
               </span>
-              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Cleaners</span>
+              <span className="d-block font-weight-500 text-truncate  mt-3 mb-2">Cleaners</span>
             </a>
           </div>
           
@@ -150,7 +149,7 @@ export default function step4() {
               <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
                 <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/homeservice.svg")} />
               </span>
-              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Home Services</span>
+              <span className="d-block font-weight-500 text-truncate  mt-3 mb-2">Home Services</span>
             </a>
           </div>
           
@@ -159,7 +158,7 @@ export default function step4() {
               <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
                 <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/homeservice.svg")} />
               </span>
-              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Home Services</span>
+              <span className="d-block font-weight-500 text-truncate  mt-3 mb-2">Home Services</span>
             </a>
           </div>
           
@@ -168,7 +167,7 @@ export default function step4() {
               <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
                 <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/homeservice.svg")} />
               </span>
-              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Home Services</span>
+              <span className="d-block font-weight-500 text-truncate mt-3 mb-2">Home Services</span>
             </a>
           </div>
           
@@ -177,7 +176,7 @@ export default function step4() {
               <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
                 <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/homeservice.svg")} />
               </span>
-              <span className="d-block font-weight-500 text-truncate  mt-4 mb-2">Home Services</span>
+              <span className="d-block font-weight-500 text-truncate  mt-3 mb-2">Home Services</span>
             </a>
           </div>
     
@@ -186,7 +185,7 @@ export default function step4() {
               <span className="svg-icon svg-icon-3x svg-icon-primary m-auto ">
                 <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/homeservice.svg")} />
               </span>
-              <span className="d-block font-weight-500 text-truncate mt-4 mb-2">Home Services</span>
+              <span className="d-block font-weight-500 text-truncate mt-3 mb-2">Home Services</span>
             </a>
           </div>
         </div>
