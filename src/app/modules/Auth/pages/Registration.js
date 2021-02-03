@@ -147,7 +147,7 @@ function Registration(props) {
 
                 <div className="flex-column-fluid d-flex flex-column justify-content-center">
                   <div className="d-flex flex-column h-100">
-                    <div className="bk_aw text-white font-weight-500 font-size-15 position-absolute ml-5 mt-7">
+                    <div className="bk_aw d-none text-white font-weight-500 font-size-15 position-absolute ml-5 mt-7">
                     <img src="/media/auth-screen/back_arrow.svg" className="mr-2" alt="arrow" /> <span>Back</span>
                     </div>
                     <div className="mt-25 mb-10 mx-auto loginRightimg1 col-lg-11 col-11 flex-column-fluid text-center">
@@ -190,20 +190,9 @@ function Registration(props) {
             {/*begin::Aside*/}
 
         {/*begin::Login*/}
-        <div className="d-flex flex-column flex-1 position-relative p-7 col order-1 rounded-right"
-              style={{
-                backgroundColor: `#fff`,
-              }}
-            >
-    <div className="registration-form login-signin mx-auto col-lg-10" style={{ display: "block" }}>
-      <div className="text-left mb-6 d-none">
-        <h1 className="font-size-30 color_01234B font-weight-600 mb-5">
-          <FormattedMessage id="AUTH.REGISTER.TITLE" />
-        </h1>
-        <p className="font-size-14 text-muted font-weight-normal">
-          Enter your details to create your account
-        </p>
-      </div>
+        <div className="d-flex position-relative bg-white registration-form login-signin rounded-right col">
+    <div className="mx-auto mt-7  col-lg-11">
+
       <HorizontalLabelPositionBelowStepper />
       <form
         id="kt_login_signin_form"
