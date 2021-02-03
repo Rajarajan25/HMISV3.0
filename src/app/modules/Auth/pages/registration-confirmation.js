@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export default function RegistrationConfirmatoin() {
   return (
-    <div className="d-flex justify-content-center flex-column col-lg-10 col transScale">
+    <div className="d-flex justify-content-center flex-column col-lg-8 col">
       
       {/* start:: Aside header */}
       <Link to="/" className="flex-column-auto logo-tb mr-auto">
@@ -34,22 +34,22 @@ export default function RegistrationConfirmatoin() {
 
           
           <div className="d-flex flex-row-fluid flex-column justify-content-between">
-
             {/* start:: Aside content */}
-            
-            <div className="d-flex flex-column h-100">
-                    <div className="bk_aw text-white font-weight-500 font-size-18 position-absolute ml-5 mt-7">
-                    <img src="/media/auth-screen/back_arrow.svg" className="mr-3" alt="arrow" /> <span>Back</span>
-                    </div>
-                    <div className="mt-30 mb-24 mx-auto loginRightimg1  flex-column-fluid text-center">
-                      <h3 className="font-size-34 text-uppercase font-weight-600 mb-10 text-white col-lg-8 col mx-auto">
-                      Welcome to our Business!!
-                      </h3>
-                    </div>
-                    <div className="text-center mx-12">
-                      <img src="/media/auth-screen/reg_con_banner.svg" className="m-auto mw-100" alt="banner" />
-                    </div>
-                  </div>
+            <div className="flex-column-fluid d-flex flex-column justify-content-center">
+              <div className="d-flex flex-column h-100">
+                <div className="bk_aw text-white font-weight-500 font-size-15 position-absolute ml-5 mt-7">
+                <img src="/media/auth-screen/back_arrow.svg" className="mr-2" alt="arrow" /> <span>Back</span>
+                </div>
+                <div className="mt-20 mb-10 mx-auto loginRightimg1 col-lg-11 col-11 flex-column-fluid text-center">
+                  <h3 className="font-size-h1 text-uppercase font-weight-600 mb-5 text-white">
+                    Welcome to our Business!!
+                  </h3>
+                </div>
+                <div className="text-center mx-auto d-flex align-items-end">
+                  <img src="/media/auth-screen/reg_con_banner.svg" className="m-auto col-lg-10" alt="banner" />
+                </div>
+              </div>
+            </div>
             {/* end:: Aside content */}
 
             {/* start:: Aside footer for desktop d-lg-flex */}

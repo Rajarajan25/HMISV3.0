@@ -171,22 +171,22 @@ function Registration(props) {
 
           {/* start:: Aside content */}
           <div className="flex-column-fluid d-flex flex-column justify-content-center">
-                  <div className="d-flex flex-column h-100">
-                    <div className="bk_aw text-white font-weight-500 font-size-15 position-absolute ml-5 mt-7">
-                    <img src="/media/auth-screen/back_arrow.svg" className="mr-2" alt="arrow" /> <span>Back</span>
-                    </div>
-                    <div className="mt-20 mb-10 mx-auto loginRightimg1 col-lg-11 col-11 flex-column-fluid text-center">
-                      <h3 className="font-size-h1 text-uppercase font-weight-600 mb-5 text-white">
-                      Profile info
-                      </h3>
-                      <p className="font-size-14  font-weight-300 text-white line-height2">
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                      </p>
-                    </div>
-                    <div className="text-center mx-auto d-flex align-items-end">
-                      <img src="/media/auth-screen/personalinfo_banner.svg" className="m-auto col-lg-10" alt="banner" />
-                    </div>
-                  </div>
+            <div className="d-flex flex-column h-100">
+              <div className="bk_aw text-white font-weight-500 font-size-15 position-absolute ml-5 mt-7">
+              <img src="/media/auth-screen/back_arrow.svg" className="mr-2" alt="arrow" /> <span>Back</span>
+              </div>
+              <div className="mt-20 mb-10 mx-auto loginRightimg1 col-lg-11 col-11 flex-column-fluid text-center">
+                <h3 className="font-size-h1 text-uppercase font-weight-600 mb-5 text-white">
+                Profile info
+                </h3>
+                <p className="font-size-14  font-weight-300 text-white line-height2">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                </p>
+              </div>
+              <div className="text-center mx-auto d-flex align-items-end">
+                <img src="/media/auth-screen/personalinfo_banner.svg" className="m-auto col-lg-10" alt="banner" />
+              </div>
+            </div>
           </div>
 
           
@@ -216,7 +216,9 @@ function Registration(props) {
       {/*begin::Aside*/}
       <div className="d-flex rounded-right bg-white registration-form login-signin col right_banner">
         <div className="mh-100 ml-5 mt-7 p-5">
-          <h1 className="font-size-h3 ml-15 text-capitalize color_3F4772 font-weight-600 mb-6">Fill your Personal details:</h1>  
+          <div className="text-left mb-8 ml-15">
+            <h1 className="h2 mb-3 text-capitalize color_3F4772 font-weight-600">Fill Your Personal details:</h1>  
+          </div>
           <form
             id="kt_login_signin_form"
             className="form fv-plugins-bootstrap fv-plugins-framework animated animate__animated animate__backInUp"
