@@ -75,7 +75,7 @@ export default function step1() {
               {/*end: Aside Container*/}
             </div>
             {/*begin::Aside*/}
-      <div className=" d-flex rounded-right bg-white registration-form login-signin col-5">
+      <div className="d-flex rounded-right bg-white registration-form login-signin col-5">
         <div className="mh-100 mt-7 p-5 mx-auto width_420">
           <div className="text-left mb-6">
             <h1 className="font-size-h1 color_3F4772 font-weight-600 tit_letter mb-4">Sign up to Hmis.</h1>      
