@@ -117,10 +117,10 @@ function Registration(props) {
   });
 
   return (
-    <div className="d-flex justify-content-center flex-column w-100 col-lg-10 p-0 width_100">
+    <div className="d-flex justify-content-center flex-column col-lg-8 col">
       
               {/* start:: Aside header */}
-              <Link to="/" className="flex-column-auto logo-tb mr-auto">
+              <Link to="/" className="flex-column-auto logo-tb mr-auto mb-5">
                 <img
                   alt="Logo"
                   src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
@@ -130,7 +130,7 @@ function Registration(props) {
           <div className="d-flex w-100 loginMaincontent shadow" >
             {/*begin::Aside*/}
             <div
-              className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat p-10 p-lg-10 col-5 order-0 rounded-left"
+              className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat col-5 order-0 rounded-left"
               style={{
                 backgroundColor: `#5382FC`,
               }}
@@ -145,23 +145,25 @@ function Registration(props) {
 
                 {/* start:: Aside content */}
 
-
                 <div className="flex-column-fluid d-flex flex-column justify-content-center">
-                  <div className="">
-           
-                    <div className="mt-34 mb-20 mb-7 mx-auto loginRightimg3  flex-column-fluid text-center">
-                      <h3 className="font-size-40 text-uppercase font-weight-bold mb-10 text-white">
+                  <div className="d-flex flex-column h-100">
+                    <div className="bk_aw text-white font-weight-500 font-size-15 position-absolute ml-5 mt-7">
+                    <img src="/media/auth-screen/back_arrow.svg" className="mr-2" alt="arrow" /> <span>Back</span>
+                    </div>
+                    <div className="mt-25 mb-10 mx-auto loginRightimg1 col-lg-11 col-11 flex-column-fluid text-center">
+                      <h3 className="font-size-h1 text-uppercase font-weight-600 mb-5 text-white">
                       Business Info
                       </h3>
-                      <p className="font-size-18  font-weight-normal text-white opacity-90 line-height32">
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy of the printing and typesetting industry.
+                      <p className="font-size-14  font-weight-300 text-white line-height2">
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                       </p>
                     </div>
-                    <div className="text-center mx-12">
-                      <img src="/media/auth-screen/business_info_banner.svg" className="m-auto mw-100" alt="banner" />
+                    <div className="text-center mx-auto d-flex align-items-end">
+                      <img src="/media/auth-screen/business_info_banner.svg" className="m-auto col-lg-10" alt="banner" />
                     </div>
                   </div>
                 </div>
+
                 {/* end:: Aside content */}
 
                 {/* start:: Aside footer for desktop d-lg-flex */}
