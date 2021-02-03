@@ -149,7 +149,7 @@ function Login(props) {
                         <input
                           placeholder="Email"
                           type="email"
-                          className={`form-control py-5 px-6 ${getInputClasses(
+                          className={`form-control py-5 px-8 pl-15 ${getInputClasses(
                             "email"
                           )}`}
                           name="email"
@@ -168,7 +168,7 @@ function Login(props) {
                         <input
                           placeholder="Enter your password"
                           type="password"
-                          className={`form-control py-5 px-6 ${getInputClasses(
+                          className={`form-control py-5 px-8 pl-15 ${getInputClasses(
                             "password"
                           )}`}
                           name="password"

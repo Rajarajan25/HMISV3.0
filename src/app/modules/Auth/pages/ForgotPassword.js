@@ -93,10 +93,11 @@ function ForgotPassword(props) {
                   </p>
                 </div>
                 
-                <div className="text-left mb-10 mb-lg-15">
-                  <h1 className="font-size-h1 font-size-30 color_01234B font-weight-600 mb-5">Forgotten Password ?</h1>
+                <div className="text-left mb-10">
+                  <h1 className="font-size-h1 font-size-30 color_01234B font-weight-600 mb-2">Forgotten Password ?</h1>
+                  <h1 className="font-size-h1 font-size-30 color_01234B font-weight-600 mb-5">Don't   worry,  we got you.</h1>
                   <p className="font-size-14 text-muted font-weight-normal">
-                    Enter your email to reset your password
+                    Enter the email address associated with your account
                   </p>
                 </div>
                 {/* end::Head */}
@@ -112,38 +113,38 @@ function ForgotPassword(props) {
                       </div>
                     )}
                     <div className="form-group fv-plugins-icon-container">
-                      <label class="form-label" for="exampleForm.ControlInput1">Email address</label>
-                      <div className="emailIcon">
-                          <input
-                            placeholder="Email"
-                            type="email"
-                            className={`form-control py-5 px-6 ${getInputClasses(
-                              "email"
-                            )}`}
-                            name="email"
-                            {...formik.getFieldProps("email")}
-                          />
-                          {formik.touched.email && formik.errors.email ? (
-                            <div className="fv-plugins-message-container  invalid-feedback">
-                              <div className="fv-help-block">{formik.errors.email}</div>
-                            </div>
-                          ) : null}
-                        </div>
+                      <label class="form-label d-none" for="exampleForm.ControlInput1">Email address</label>
+                      <div className="emailIcon1">
+                        <input
+                          placeholder="Email"
+                          type="email"
+                          className={`form-control py-5 pr-8 pl-0 rounded-0 border-top-0 border-left-0 border-right-0 ${getInputClasses(
+                            "email"
+                          )}`}
+                          name="email"
+                          {...formik.getFieldProps("email")}
+                        />
+                        {formik.touched.email && formik.errors.email ? (
+                          <div className="fv-plugins-message-container  invalid-feedback">
+                            <div className="fv-help-block">{formik.errors.email}</div>
+                          </div>
+                        ) : null}
+                      </div>
                     </div>
-                    <div className="form-group d-flex flex-wrap flex-center lg-ac">
+                    <div className="form-group d-flex flex-wrap lg-ac">
                       <button
                         id="kt_login_forgot_submit"
                         type="submit"
-                        className="btn btn-primary font-size-h5 font-weight-400 px-9 py-4 my-3 mx-4"
+                        className="btn btn-primary font-size-h5 font-weight-400 px-9 py-4 my-3"
                         disabled={formik.isSubmitting}
                       >
-                        Submit
+                        Reset password
                       </button>
-                      <Link to="/auth">
+                      <Link to="/auth" className=" ml-auto">
                         <button
                           type="button"
                           id="kt_login_forgot_cancel"
-                          className="btn btn-light-primary font-size-h5 font-weight-400 px-9 py-4 my-3 mx-4"
+                          className="btn btn-light-primary font-size-h5 font-weight-400 px-9 py-4 my-3"
                         >
                           Cancel
                         </button>
@@ -155,8 +156,8 @@ function ForgotPassword(props) {
               
                 {/* begin::Mobile footer */}
                 <div className="d-flex flex-column-auto flex-column flex-sm-row  mt-5 px-5">
-                  <div className="text-dark-50 font-weight-bold order-2 order-sm-1 my-2 mr-15">
-                    &copy; 2020 HMIS
+                  <div className="text-dark-50 font-weight-400 order-2 order-sm-1 my-2 mr-15">
+                    &copy; 2020 HMIS. All rights reserved.
                   </div>
                   <div className="d-flex order-1 order-sm-2 my-2 ml-auto">
                     <Link to="/terms" className="text-dark-75 text-hover-primary">
