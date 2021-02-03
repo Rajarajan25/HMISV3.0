@@ -176,7 +176,7 @@ function Registration(props) {
                     <img src="/media/auth-screen/back_arrow.svg" className="mr-3" alt="arrow" /> <span>Back</span>
                     </div>
                     <div className="mt-20 mb-10 mx-auto loginRightimg1  flex-column-fluid text-center">
-                      <h3 className="font-size-34 text-uppercase font-weight-600 mb-10 text-white">
+                      <h3 className="font-size-h1 text-uppercase font-weight-600 mb-10 text-white">
                       Profile info
                       </h3>
                       <p className="font-size-15  font-weight-300 text-white line-height32">
@@ -217,7 +217,7 @@ function Registration(props) {
       <div className="d-flex rounded-right bg-white registration-form login-signin width_945 right_banner">
         <div className="mh-100 ml-7 p-5">
           <div className="text-left mb-6">
-            <h1 className="font-size-28 ml-15 text-capitalize color_3F4772 font-weight-600 mb-10">Fill your Personal details:</h1>      
+            <h1 className="font-size-h3 ml-15 text-capitalize color_3F4772 font-weight-600 mb-10">Fill your Personal details:</h1>      
         
           </div>
           <form
