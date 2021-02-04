@@ -108,19 +108,14 @@
     }
 }
 
-#login_otp {
-    padding: 0 13px !important;
-    letter-spacing: 42px;
-    border: 0;
-    //background-image: linear-gradient(to left, black 58%, rgba(255, 255, 255, 0) 0%);
-    background-position: bottom;
-    background-size: 60px 1px !important;
-    background-repeat: repeat-x;
-    background-position-x: 99px;
-    width: 220px;
+.loginOTP {
     font-size: 2rem;
-    line-height: 100%;
-    background-color: #999b9b3d;
+    margin: 1rem;
+    input{
+        width:50px !important;
+        border-radius: 5px;
+        border: 1px solid #e7e8e5;
+    }
   }
 .or-spacer {
   position:relative; 

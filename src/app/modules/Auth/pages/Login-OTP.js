@@ -1,68 +1,18 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 import { Helmet } from 'react-helmet'
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
-import { useFormik } from "formik";
-import { connect } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
-import * as Yup from "yup";
-import { injectIntl } from "react-intl";
-import * as auth from "../_redux/authRedux";
-import { requestPassword } from "../_redux/authCrud";
+import { Link } from "react-router-dom";
+import OtpInput from 'react-otp-input';
 
-const initialValues = {
-  email: "",
-};
+export default class LoginOTP extends Component{
 
-function LoginOTP(props) {
-  const { intl } = props;
-  const [isRequested, setIsRequested] = useState(false);
-  const ForgotPasswordSchema = Yup.object().shape({
-    email: Yup.string()
-      .email("Wrong email format")
-      .min(3, "Minimum 3 symbols")
-      .max(50, "Maximum 50 symbols")
-      .required(
-        intl.formatMessage({
-          id: "AUTH.VALIDATION.REQUIRED_FIELD",
-        })
-      ),
-  });
+  state = { otp: '' }; 
+  
+  handleChange = otp => this.setState({ otp });
 
-  const getInputClasses = (fieldname) => {
-    if (formik.touched[fieldname] && formik.errors[fieldname]) {
-      return "is-invalid";
-    }
-
-    if (formik.touched[fieldname] && !formik.errors[fieldname]) {
-      return "is-valid";
-    }
-
-    return "";
-  };
-
-  const formik = useFormik({
-    initialValues,
-    validationSchema: ForgotPasswordSchema,
-    onSubmit: (values, { setStatus, setSubmitting }) => {
-      requestPassword(values.email)
-        .then(() => setIsRequested(true))
-        .catch(() => {
-          setIsRequested(false);
-          setSubmitting(false);
-          setStatus(
-            intl.formatMessage(
-              { id: "AUTH.VALIDATION.NOT_FOUND" },
-              { name: values.email }
-            )
-          );
-        });
-    },
-  });
-
-  return (
+  render() {
+    return (
     <>
-      {isRequested && <Redirect to="/auth" />}
-      {!isRequested && (
         <div className="d-flex flex-column justify-content-center w-100 h-100">
           <Helmet  titleTemplate="HMIS | %s" title="Login Page" />           
           <div className="d-flex flex-row-reverse w-100 loginMaincontent h-100">
@@ -94,34 +44,17 @@ function LoginOTP(props) {
                 </div>
                 {/* end::Head */}
                   <form
-                    onSubmit={formik.handleSubmit}
                     className="form fv-plugins-bootstrap fv-plugins-framework animated animate__animated animate__backInUp"
                   >
-                    {formik.status && (
-                      <div className="mb-10 alert alert-custom alert-light-danger alert-dismissible">
-                        <div className="alert-text font-weight-bold">
-                          {formik.status}
-                        </div>
-                      </div>
-                    )}
                     <div className="form-group fv-plugins-icon-container">
                       <div className="emailIcon1 d-flex mx-auto justify-content-center">
-                        <input
-                          placeholder=""
-                          type="text"
-                          id="login_otp"
-                          className={`form-control py-5 px-8  ${getInputClasses(
-                            "OTP"
-                          )}`}
-                          name="OTP"
-                          maxLength="4"
-                          {...formik.getFieldProps("OTP")}
-                        />
-                        {formik.touched.email && formik.errors.email ? (
-                          <div className="fv-plugins-message-container  invalid-feedback">
-                            <div className="fv-help-block">{formik.errors.email}</div>
-                          </div>
-                        ) : null}
+                        <OtpInput
+                          value={this.state.otp}
+                          onChange={this.handleChange}
+                          className="loginOTP"
+                          numInputs={4}
+                          //separator={<span>-</span>}
+                        />                        
                       </div>
                     </div>
                     <div className="form-group d-flex flex-wrap justify-content-between align-items-center">
@@ -136,7 +69,6 @@ function LoginOTP(props) {
                         id="kt_login_forgot_submit"
                         type="submit"
                         className="btn btn-primary font-size-h5 font-weight-400 px-9 py-4 my-3 mx-auto"
-                        disabled={formik.isSubmitting}
                       >
                         continue to Login
                       </button>
@@ -234,9 +166,8 @@ function LoginOTP(props) {
             {/*begin::Aside*/}
           </div>
         </div>
-      )}
+     
     </>
   );
 }
-
-export default injectIntl(connect(null, auth.actions)(LoginOTP));
+}
