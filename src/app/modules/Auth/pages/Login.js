@@ -95,7 +95,7 @@ function Login(props) {
     <div className="d-flex flex-column justify-content-center w-100 h-100">
         <Helmet  titleTemplate="HMIS | %s" title="Login Page" />
            
-          <div className="d-flex w-100 loginMaincontent h-100">
+          <div className="d-flex flex-row-reverse w-100 loginMaincontent h-100">
             {/*begin::Login*/}
             <div className="d-flex flex-column flex-1 position-relative p-7 col"
               style={{
@@ -104,7 +104,7 @@ function Login(props) {
             >
               <div className="d-flex flex-column flex-column-fluid mx-auto col-lg-10 col-xl-7 col-12 mh-100">
                 {/* start:: Aside header */}
-                <Link to="/" className="flex-column-auto pb-lg-0 pb-10 mb-10">
+                <Link to="/" className="flex-column-auto pb-lg-0 pb-10 mb-10 d-none">
                   <img
                     alt="Logo"
                     src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
@@ -115,11 +115,11 @@ function Login(props) {
                 <div className="login-form login-signin my-auto" id="kt_login_signin_form">
                   
                   {/* begin::Head */}
-                  <div className="text-left mb-7">
+                  <div className="text-left mb-12">
                     <h1 className="font-size-30 color_01234B font-weight-600 mb-5">
                       <FormattedMessage id="AUTH.LOGIN.TITLE" />
                     </h1>
-                    <p className="font-size-14 text-muted font-weight-normal">
+                    <p className="font-size-14 text-muted font-weight-normal line-height2">
                       Log in mow to access the latest insights Experience for your social media performance.
                     </p>
                   </div>
@@ -149,7 +149,7 @@ function Login(props) {
                         <input
                           placeholder="Email"
                           type="email"
-                          className={`form-control py-5 px-6 ${getInputClasses(
+                          className={`form-control py-5 px-8 pl-15 ${getInputClasses(
                             "email"
                           )}`}
                           name="email"
@@ -168,7 +168,7 @@ function Login(props) {
                         <input
                           placeholder="Enter your password"
                           type="password"
-                          className={`form-control py-5 px-6 ${getInputClasses(
+                          className={`form-control py-5 px-8 pl-15 ${getInputClasses(
                             "password"
                           )}`}
                           name="password"
@@ -230,9 +230,13 @@ function Login(props) {
                         {loading && <span className="ml-3 spinner spinner-white"></span>}
                       </button>
                     </div>
-                    <div className="form-group font-size-16 or_bor d-flex flex-wrap justify-content-between align-items-center mt-5 mb-0">
+                    <div className="form-group font-size-16 or_bor d-none flex-wrap justify-content-between align-items-center mt-10 mb-0">
                 <span className="m-auto or_txt">Or</span>
                 <span className="border-bottom"></span>
+              </div>
+              <div class="or-spacer w-100 mt-15 mb-5">
+                <div class="mask"></div>
+                <span><i>or</i></span>
               </div>
               <div className="form-group fv-plugins-icon-container mt-0">
                 {/*begin::Content header*/}
@@ -331,7 +335,7 @@ function Login(props) {
             <div
               className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat p-10 p-lg-10 col"
               style={{
-                backgroundColor: `#E0F4FF`,
+                backgroundColor: `#FAFAFA`,
                 boxShadow: '0px 3px 6px #00000029',
               }}
             >
@@ -342,14 +346,21 @@ function Login(props) {
               */}
               {/*begin: Aside Container*/}
               <div className="d-flex flex-row-fluid flex-column justify-content-between">
-
+                {/* start:: Aside header */}
+              <Link to="/" className="flex-column-auto pb-lg-0 pb-10 mb-10 col-9 mx-auto">
+                <img
+                  alt="Logo"
+                  src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
+                />
+              </Link>
+              {/* end:: Aside header */}
                 {/* start:: Aside content */}
                 <div className="flex-column-fluid d-flex flex-column justify-content-center">
                   <div className="m-auto loginRightimg d-flex flex-column">
                     <div className="text-center d-flex mx-7">
-                      <img src="/media/auth-screen/login-right.png" className="m-auto mw-100" alt="Login screen" />
+                      <img src="/media/auth-screen/Login.SVG" className="m-auto col-10" alt="Login screen" />
                     </div>
-                    <div className="mt-15 flex-column-fluid d-flex flex-column text-center">                                    
+                    <div className="mt-30 flex-column-fluid d-flex flex-column text-center">                                    
                       <h1 className="font-size-30 color_01234B font-weight-600 mb-5">Welcome to HMIS!</h1>      
                       <p className="font-size-14 text-muted font-weight-normal">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
                     </div>

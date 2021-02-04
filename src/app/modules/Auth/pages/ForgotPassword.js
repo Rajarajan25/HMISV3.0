@@ -65,7 +65,7 @@ function ForgotPassword(props) {
       {!isRequested && (
         <div className="d-flex flex-column justify-content-center w-100 h-100">
           <Helmet  titleTemplate="HMIS | %s" title="Login Page" />           
-          <div className="d-flex w-100 loginMaincontent h-100">
+          <div className="d-flex flex-row-reverse w-100 loginMaincontent h-100">
             {/*begin::Login*/}
             <div className="d-flex flex-column flex-1 position-relative p-7 col"
               style={{
@@ -73,14 +73,7 @@ function ForgotPassword(props) {
               }}
             >
             <div className="d-flex flex-column flex-column-fluid mx-auto h-100 col-lg-10 col-xl-7 col-12">
-              {/* start:: Aside header */}
-              <Link to="/" className="flex-column-auto pb-lg-0 pb-10 mb-10">
-                <img
-                  alt="Logo"
-                  src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
-                />
-              </Link>
-              {/* end:: Aside header */}
+              
 
               <div className="login-form login-forgot my-auto" style={{ display: "block" }}>
                 
@@ -93,10 +86,11 @@ function ForgotPassword(props) {
                   </p>
                 </div>
                 
-                <div className="text-left mb-10 mb-lg-15">
-                  <h1 className="font-size-h1 font-size-30 color_01234B font-weight-600 mb-5">Forgotten Password ?</h1>
+                <div className="text-left mb-10">
+                  <h1 className="font-size-h1 font-size-30 color_01234B font-weight-600 mb-2">Forgotten Password ?</h1>
+                  <h1 className="font-size-h1 font-size-30 color_01234B font-weight-600 mb-5">Don't   worry,  we got you.</h1>
                   <p className="font-size-14 text-muted font-weight-normal">
-                    Enter your email to reset your password
+                    Enter the email address associated with your account
                   </p>
                 </div>
                 {/* end::Head */}
@@ -112,38 +106,38 @@ function ForgotPassword(props) {
                       </div>
                     )}
                     <div className="form-group fv-plugins-icon-container">
-                      <label class="form-label" for="exampleForm.ControlInput1">Email address</label>
-                      <div className="emailIcon">
-                          <input
-                            placeholder="Email"
-                            type="email"
-                            className={`form-control py-5 px-6 ${getInputClasses(
-                              "email"
-                            )}`}
-                            name="email"
-                            {...formik.getFieldProps("email")}
-                          />
-                          {formik.touched.email && formik.errors.email ? (
-                            <div className="fv-plugins-message-container  invalid-feedback">
-                              <div className="fv-help-block">{formik.errors.email}</div>
-                            </div>
-                          ) : null}
-                        </div>
+                      <label class="form-label d-none" for="exampleForm.ControlInput1">Email address</label>
+                      <div className="emailIcon1">
+                        <input
+                          placeholder="Email"
+                          type="email"
+                          className={`form-control py-5 pr-8 pl-0 rounded-0 border-top-0 border-left-0 border-right-0 ${getInputClasses(
+                            "email"
+                          )}`}
+                          name="email"
+                          {...formik.getFieldProps("email")}
+                        />
+                        {formik.touched.email && formik.errors.email ? (
+                          <div className="fv-plugins-message-container  invalid-feedback">
+                            <div className="fv-help-block">{formik.errors.email}</div>
+                          </div>
+                        ) : null}
+                      </div>
                     </div>
-                    <div className="form-group d-flex flex-wrap flex-center lg-ac">
+                    <div className="form-group d-flex flex-wrap lg-ac">
                       <button
                         id="kt_login_forgot_submit"
                         type="submit"
-                        className="btn btn-primary font-size-h5 font-weight-400 px-9 py-4 my-3 mx-4"
+                        className="btn btn-primary font-size-h5 font-weight-400 px-9 py-4 my-3"
                         disabled={formik.isSubmitting}
                       >
-                        Submit
+                        Reset password
                       </button>
-                      <Link to="/auth">
+                      <Link to="/auth" className=" ml-auto">
                         <button
                           type="button"
                           id="kt_login_forgot_cancel"
-                          className="btn btn-light-primary font-size-h5 font-weight-400 px-9 py-4 my-3 mx-4"
+                          className="btn btn-light-primary font-size-h5 font-weight-400 px-9 py-4 my-3"
                         >
                           Cancel
                         </button>
@@ -155,8 +149,8 @@ function ForgotPassword(props) {
               
                 {/* begin::Mobile footer */}
                 <div className="d-flex flex-column-auto flex-column flex-sm-row  mt-5 px-5">
-                  <div className="text-dark-50 font-weight-bold order-2 order-sm-1 my-2 mr-15">
-                    &copy; 2020 HMIS
+                  <div className="text-dark-50 font-weight-400 order-2 order-sm-1 my-2 mr-15">
+                    &copy; 2020 HMIS. All rights reserved.
                   </div>
                   <div className="d-flex order-1 order-sm-2 my-2 ml-auto">
                     <Link to="/terms" className="text-dark-75 text-hover-primary">
@@ -184,7 +178,7 @@ function ForgotPassword(props) {
             <div
                 className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat p-10 p-lg-10 col"
                 style={{
-                  backgroundColor: `#E0F4FF`,
+                  backgroundColor: `#fff`,
                   boxShadow: '0px 3px 6px #00000029',
                 }}
               >
@@ -195,14 +189,22 @@ function ForgotPassword(props) {
                 */}
                 {/*begin: Aside Container*/}
                 <div className="d-flex flex-row-fluid flex-column justify-content-between">
+                  {/* start:: Aside header */}
+                  <Link to="/" className="flex-column-auto pb-lg-0 pb-10 mb-10 col-9 mx-auto">
+                    <img
+                      alt="Logo"
+                      src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
+                    />
+                  </Link>
+                  {/* end:: Aside header */}
 
                   {/* start:: Aside content */}
                   <div className="flex-column-fluid d-flex flex-column justify-content-center">
                     <div className="m-auto loginRightimg d-flex flex-column">
                       <div className="text-center d-flex mx-7">
-                        <img src="/media/auth-screen/login-right.png" className="m-auto mw-100" alt="Login screen" />
+                        <img src="/media/auth-screen/Login.svg" className="m-auto col-10" alt="Login screen" />
                       </div>
-                      <div className="mt-15 flex-column-fluid d-flex flex-column text-center">                                    
+                      <div className="mt-30 flex-column-fluid d-flex flex-column text-center">                                    
                         <h1 className="font-size-30 color_01234B font-weight-600 mb-5">Welcome to HMIS!</h1>      
                         <p className="font-size-14 text-muted font-weight-normal">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
                       </div>
