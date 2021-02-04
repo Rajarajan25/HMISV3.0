@@ -37,11 +37,11 @@ export default function step1() {
                     <div className="bk_aw text-white font-weight-500 font-size-15 position-absolute ml-5 mt-7">
                     <img src="/media/auth-screen/back_arrow.svg" className="mr-2" alt="arrow" /> <span>Back</span>
                     </div>
-                    <div className="mt-25 mb-10 mx-auto loginRightimg1 col-lg-11 col-11 flex-column-fluid text-center">
+                    <div className="mt-25 mb-10 mx-auto col-lg-11 col-11 flex-column-fluid text-center">
                       <h3 className="font-size-h1 text-uppercase font-weight-600 mb-5 text-white">
                       Create account
                       </h3>
-                      <p className="font-size-14  font-weight-300 text-white line-height2">
+                      <p className="font-size-14 mx-auto loginRightimg1 font-weight-300 text-white line-height2">
                       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                       </p>
                     </div>
