@@ -65,7 +65,7 @@ function ForgotPassword(props) {
       {!isRequested && (
         <div className="d-flex flex-column justify-content-center w-100 h-100">
           <Helmet  titleTemplate="HMIS | %s" title="Login Page" />           
-          <div className="d-flex w-100 loginMaincontent h-100">
+          <div className="d-flex flex-row-reverse w-100 loginMaincontent h-100">
             {/*begin::Login*/}
             <div className="d-flex flex-column flex-1 position-relative p-7 col"
               style={{
@@ -73,14 +73,7 @@ function ForgotPassword(props) {
               }}
             >
             <div className="d-flex flex-column flex-column-fluid mx-auto h-100 col-lg-10 col-xl-7 col-12">
-              {/* start:: Aside header */}
-              <Link to="/" className="flex-column-auto pb-lg-0 pb-10 mb-10">
-                <img
-                  alt="Logo"
-                  src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
-                />
-              </Link>
-              {/* end:: Aside header */}
+              
 
               <div className="login-form login-forgot my-auto" style={{ display: "block" }}>
                 
@@ -185,7 +178,7 @@ function ForgotPassword(props) {
             <div
                 className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat p-10 p-lg-10 col"
                 style={{
-                  backgroundColor: `#E0F4FF`,
+                  backgroundColor: `#fff`,
                   boxShadow: '0px 3px 6px #00000029',
                 }}
               >
@@ -196,12 +189,20 @@ function ForgotPassword(props) {
                 */}
                 {/*begin: Aside Container*/}
                 <div className="d-flex flex-row-fluid flex-column justify-content-between">
+                  {/* start:: Aside header */}
+                  <Link to="/" className="flex-column-auto pb-lg-0 pb-10 col-9 mx-auto">
+                    <img
+                      alt="Logo"
+                      src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
+                    />
+                  </Link>
+                  {/* end:: Aside header */}
 
                   {/* start:: Aside content */}
                   <div className="flex-column-fluid d-flex flex-column justify-content-center">
                     <div className="m-auto loginRightimg d-flex flex-column">
                       <div className="text-center d-flex mx-7">
-                        <img src="/media/auth-screen/login-right.png" className="m-auto mw-100" alt="Login screen" />
+                        <img src="/media/auth-screen/Login.svg" className="m-auto col-10" alt="Login screen" />
                       </div>
                       <div className="mt-15 flex-column-fluid d-flex flex-column text-center">                                    
                         <h1 className="font-size-30 color_01234B font-weight-600 mb-5">Welcome to HMIS!</h1>      
