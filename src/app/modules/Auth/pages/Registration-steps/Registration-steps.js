@@ -52,6 +52,7 @@ function getStepContent(stepIndex) {
   }
 }
 
+
 export default function HorizontalLabelPositionBelowStepper() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);

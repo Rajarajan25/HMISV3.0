@@ -28,7 +28,7 @@ export default function stee4() {
           <div className="text-left mb-5">
             <h1 className="h2 mb-3 color_3F4772 text-capitalize font-weight-600">Choose your business hours:</h1>     
           </div>
-          <div className="d-flex font-weight-500 pb-2 border-bottom">
+          <div className="d-flex font-weight-500 pb-3 border-bottom">
             <div className="wal_clk">
             <img src="/media/auth-screen/wall_clock.svg" alt="thumbs-up" /> <span>Time Zone:</span>
             </div>
@@ -36,7 +36,7 @@ export default function stee4() {
             <TimeZone />
             </div>
           </div>
-          <div className="d-flex mt-3">
+          <div className="d-flex mt-5 mb-7">
             <div className="date_bx sun_d">S</div>
             <div className="date_bx mon_d">M</div>
             <div className="date_bx tue_d">T</div>
@@ -46,7 +46,7 @@ export default function stee4() {
             <div className="date_bx sat_d">S</div>
           </div>
           <div className="date_sec text-left">
-            <div className="d-flex row mt-3">
+            <div className="d-flex row mt-4">
               <div className="col-3">
                 <div className="dt_area mon_bg d-inline-flex">
                   <div className="date_bx mon_d">M</div>
@@ -125,14 +125,14 @@ export default function stee4() {
               </div>
             </div>
           </div>
-          <div className="form-group d-flex mt-3 ml-5 font-size-15">
+          <div className="form-group d-flex mt-5 ml-3">
             <div class="form-check">
               <input type="checkbox" id="formHorizontalCheck" class="form-check-input mt-2" />
-              <label title="" for="formHorizontalCheck" class="form-check-label font-size-14 ml-3 mr-20">Apply to this week</label>
+              <label title="" for="formHorizontalCheck" class="form-check-label ml-3 mr-20">Apply to this week</label>
             </div>
             <div class="form-check">
               <input type="checkbox" id="formHorizontalCheck1" class="form-check-input mt-2" />
-              <label title="" for="formHorizontalCheck1" class="form-check-label font-size-14 ml-3">Apply to this month</label>
+              <label title="" for="formHorizontalCheck1" class="form-check-label ml-3">Apply to this month</label>
             </div>
           </div>
       </div>

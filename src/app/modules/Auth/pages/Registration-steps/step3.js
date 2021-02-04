@@ -9,24 +9,51 @@ export default function step3() {
     <>
       <div className="w-100 mh-100 text-center rightPanel">
         <div className="text-left mb-6">
-          <h1 className="h2 mb-3 color_3F4772 text-capitalize font-weight-600">Choose your Salon types:</h1>      
+            <h1 className="h2 mb-3 color_3F4772 text-capitalize font-weight-600">Choose your Salon types:</h1>      
         </div>
         <div className="d-flex">
             <div className="d-flex _2FwA">
                 <input type="checkbox" id="hair" name="salon" className="checkbx" />
                 <label className="subCategory" for="hair">
                     <i className="catIcon rounded-circle mr-4">S</i>
-                    <span className="chk_txt">spa</span>
+                    <span className="chk_txt">Hair Salon</span>
                 </label>
             </div>
             <div className="d-flex _2FwA">
                 <input type="checkbox" id="nail" name="salon" className="checkbx" />
                 <label className="subCategory" for="nail">
                     <i className="catIcon rounded-circle mr-4">S</i>
-                    <span className="chk_txt">spa</span>
+                    <span className="chk_txt">Nail Salon</span>
                 </label>
             </div>
-            
+            <div className="d-flex _2FwA">
+                <input type="checkbox" id="barber" name="salon" className="checkbx" />
+                <label className="subCategory" for="barber">
+                    <i className="catIcon rounded-circle mr-4">S</i>
+                    <span className="chk_txt">Barbershop</span>
+                </label>
+            </div>
+            <div className="d-flex _2FwA">
+                <input type="checkbox" id="eyebrows" name="salon" className="checkbx" />
+                <label className="subCategory" for="eyebrows">
+                    <i className="catIcon rounded-circle mr-4">S</i>
+                    <span className="chk_txt">Eyebrows & Lashes</span>
+                </label>
+            </div>
+            <div className="d-flex _2FwA">
+                <input type="checkbox" id="tattoo" name="salon" className="checkbx" />
+                <label className="subCategory" for="tattoo">
+                    <i className="catIcon rounded-circle mr-4">S</i>
+                    <span className="chk_txt">Tattoo & Piercing</span>
+                </label>
+            </div>
+            <div className="d-flex _2FwA">
+                <input type="checkbox" id="beauty" name="salon" className="checkbx" />
+                <label className="subCategory" for="beauty">
+                    <i className="catIcon rounded-circle mr-4">S</i>
+                    <span className="chk_txt">Beauty Salon</span>
+                </label>
+            </div>
           <div>
 
           </div>
