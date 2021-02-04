@@ -700,6 +700,9 @@
             color: #f64e60;
         }
     }
+    .MuiFormLabel-root.Mui-focused {
+        color: #9FAFC2;
+    }
 }
 .leftPanel {
 	background:#5382FC;
@@ -898,15 +901,19 @@
 .busi_con::after {
     content: url(/media/auth-screen/mic_man.svg);
     position: absolute;
-    right: -10%;
-    top: 140%;
+    right: -25%;
+    top: 116%;
 }
 .busi_con::before {
     content: "";
     background: url(/media/auth-screen/link_bg.png);
     position: absolute;
-    right: -109px;
-    top: -274px;
+    right: -448px;
+    top: -195px;
+    height: 650px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: auto 650px;
 }
 /*.busi_col::before {
     content: "";

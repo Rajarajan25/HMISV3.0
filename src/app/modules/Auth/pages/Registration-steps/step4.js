@@ -28,7 +28,7 @@ export default function stee4() {
           <div className="text-left mb-5">
             <h1 className="h2 mb-3 color_3F4772 text-capitalize font-weight-600">Choose your business hours:</h1>     
           </div>
-          <div className="d-flex font-weight-500 pb-3 border-bottom">
+          <div className="d-flex font-weight-500 pb-3">
             <div className="wal_clk">
             <img src="/media/auth-screen/wall_clock.svg" alt="thumbs-up" /> <span>Time Zone:</span>
             </div>
@@ -36,7 +36,7 @@ export default function stee4() {
             <TimeZone />
             </div>
           </div>
-          <div className="d-flex mt-5 mb-7">
+          <div className="d-flex mt-5 mb-9">
             <div className="date_bx sun_d">S</div>
             <div className="date_bx mon_d">M</div>
             <div className="date_bx tue_d">T</div>
