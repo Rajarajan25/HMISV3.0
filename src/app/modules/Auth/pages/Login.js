@@ -197,11 +197,18 @@ function Login(props) {
                       </Link>
                     </div>
                     <div className="form-group d-flex flex-wrap justify-content-between align-items-center lg_ac">
+                      <Link
+                        to="/auth/Login-OTP"
+                        className="btn btn-light-primary borderRadius-10 h-77 font-size-h5 font-weight-400"
+                        id="kt_login_with_otp"
+                        >
+                        Login with OTP
+                      </Link>
                       <button
                         id="kt_login_signin_submit"
                         type="submit"
                         disabled={formik.isSubmitting}
-                        className={`btn btn-primary btn-block borderRadius-10 h-77 font-size-h5 font-weight-400`}
+                        className={`btn btn-primary borderRadius-10 h-77 font-size-h5 font-weight-400`}
                       >
                         Sign In
                         {loading && <span className="ml-3 spinner spinner-white"></span>}
