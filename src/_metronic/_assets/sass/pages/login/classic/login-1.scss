@@ -108,7 +108,20 @@
     }
 }
 
-
+#login_otp {
+    padding: 0 13px !important;
+    letter-spacing: 42px;
+    border: 0;
+    //background-image: linear-gradient(to left, black 58%, rgba(255, 255, 255, 0) 0%);
+    background-position: bottom;
+    background-size: 60px 1px !important;
+    background-repeat: repeat-x;
+    background-position-x: 99px;
+    width: 220px;
+    font-size: 2rem;
+    line-height: 100%;
+    background-color: #999b9b3d;
+  }
 .or-spacer {
   position:relative; 
   
