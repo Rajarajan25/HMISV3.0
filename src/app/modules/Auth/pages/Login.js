@@ -230,9 +230,13 @@ function Login(props) {
                         {loading && <span className="ml-3 spinner spinner-white"></span>}
                       </button>
                     </div>
-                    <div className="form-group font-size-16 or_bor d-flex flex-wrap justify-content-between align-items-center mt-5 mb-0">
+                    <div className="form-group font-size-16 or_bor d-none flex-wrap justify-content-between align-items-center mt-10 mb-0">
                 <span className="m-auto or_txt">Or</span>
                 <span className="border-bottom"></span>
+              </div>
+              <div class="or-spacer w-100 mt-15 mb-5">
+                <div class="mask"></div>
+                <span><i>or</i></span>
               </div>
               <div className="form-group fv-plugins-icon-container mt-0">
                 {/*begin::Content header*/}
@@ -331,7 +335,7 @@ function Login(props) {
             <div
               className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat p-10 p-lg-10 col"
               style={{
-                backgroundColor: `#fff`,
+                backgroundColor: `#FAFAFA`,
                 boxShadow: '0px 3px 6px #00000029',
               }}
             >

@@ -190,7 +190,7 @@ function ForgotPassword(props) {
                 {/*begin: Aside Container*/}
                 <div className="d-flex flex-row-fluid flex-column justify-content-between">
                   {/* start:: Aside header */}
-                  <Link to="/" className="flex-column-auto pb-lg-0 pb-10 col-9 mx-auto">
+                  <Link to="/" className="flex-column-auto pb-lg-0 pb-10 mb-10 col-9 mx-auto">
                     <img
                       alt="Logo"
                       src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
@@ -204,7 +204,7 @@ function ForgotPassword(props) {
                       <div className="text-center d-flex mx-7">
                         <img src="/media/auth-screen/Login.svg" className="m-auto col-10" alt="Login screen" />
                       </div>
-                      <div className="mt-15 flex-column-fluid d-flex flex-column text-center">                                    
+                      <div className="mt-30 flex-column-fluid d-flex flex-column text-center">                                    
                         <h1 className="font-size-30 color_01234B font-weight-600 mb-5">Welcome to HMIS!</h1>      
                         <p className="font-size-14 text-muted font-weight-normal">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
                       </div>
