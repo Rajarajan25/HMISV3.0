@@ -36,7 +36,7 @@ export default function stee4() {
             <TimeZone />
             </div>
           </div>
-          <div className="d-flex mt-5 mb-9">
+          <div className="d-flex mt-5 mb-8">
             <div className="date_bx sun_d">S</div>
             <div className="date_bx mon_d">M</div>
             <div className="date_bx tue_d">T</div>
