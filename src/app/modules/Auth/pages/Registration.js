@@ -191,7 +191,7 @@ function Registration(props) {
 
         {/*begin::Login*/}
         <div className="d-flex position-relative bg-white registration-form login-signin rounded-right col">
-    <div className="mx-auto mt-7 p-0 col-lg-11">
+    <div className="mx-auto mt-7 p-0 col-lg-11 pb-75">
 
       <HorizontalLabelPositionBelowStepper />
       <form
