@@ -124,10 +124,10 @@ export default function step1() {
                   </span>
                   <Link
                     to="/auth/personalinfo"
-                    className="font-weight-500 ml-2 createAccountlink d-none"
+                    className="font-weight-500 ml-2 createAccountlink"
                     id="kt_login_signup"
                   >
-                    User Personal Information
+                    Personal Information
                   </Link>
                 </div>
                 {/*end::Content header*/}

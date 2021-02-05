@@ -283,7 +283,7 @@ function Login(props) {
               </div>  
 
                     {/*begin::Content*/}
-                    <div className="form-group fv-plugins-icon-container mt-5">
+                    <div className="form-group fv-plugins-icon-container mt-5 mb-0">
                         {/*begin::Content header*/}
                         <div className="text-center mb-15 mb-lg-0 flex-column-auto justify-content-center py-5 px-10">
                           <span className="font-weight-bold text-dark-50">
@@ -294,14 +294,20 @@ function Login(props) {
                             className="font-weight-bold ml-2 createAccountlink"
                             id="kt_login_signup"
                           >
-                            Create a new account
+                            Create a business account
                           </Link>
+                        </div>
+                        {/*end::Content header*/}
+                      </div>
+                    <div className="form-group fv-plugins-icon-container mt-0">
+                        {/*begin::Content header*/}
+                        <div className="text-center mb-15 mb-lg-0 flex-column-auto justify-content-center py-5 px-10">
                           <Link
                             to="/auth/sign-up"
                             className="font-weight-bold ml-2 createAccountlink"
                             id="kt_login_signup"
                           >
-                            Registration
+                            Personal Registration
                           </Link>
                         </div>
                         {/*end::Content header*/}

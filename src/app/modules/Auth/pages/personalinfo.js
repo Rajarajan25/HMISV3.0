@@ -391,7 +391,7 @@ function Registration(props) {
           
           <Link
             to="/auth/registration-confirmation"
-            className="font-weight-bold ml-2 createAccountlink d-none"
+            className="font-weight-bold ml-2 createAccountlink"
             id="kt_login_signup"
           >
             Registration Confirmation
