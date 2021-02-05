@@ -73,6 +73,16 @@ export default class LoginOTP extends Component{
                         continue to Login
                       </button>
                     </div>
+                    <div className="form-group lg-ac font-size-14 my-3 text-center"> 
+                      Don't have an account?                
+                      <Link
+                        to="/auth/sign-up"
+                        className="text-hover-primary ml-2 text-primary"
+                        id="kt_login_forgot"
+                      >
+                        Sign up
+                      </Link>
+                    </div>
                   </form>
                 </div>
               

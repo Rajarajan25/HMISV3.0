@@ -86,11 +86,21 @@ function ForgotPassword(props) {
                   </p>
                 </div>
                 
-                <div className="text-left mb-10">
+                <div className="text-left mb-8">
                   <h1 className="font-size-h1 font-size-30 color_01234B font-weight-600 mb-2">Forgotten Password ?</h1>
                   <h1 className="font-size-h1 font-size-30 color_01234B font-weight-600 mb-5">Don't   worry,  we got you.</h1>
                   <p className="font-size-14 text-muted font-weight-normal">
                     Enter the email address associated with your account
+                  </p>
+                  <p className="text-muted font-weight-400">
+                    <span class="alre_letter">Already a member?</span> 
+                    <Link
+                      to="/auth/login"
+                      className="ml-3 font-weight-500 log_letter"
+                      id="kt_login_signup"
+                    >
+                      Log in
+                    </Link>
                   </p>
                 </div>
                 {/* end::Head */}
@@ -132,15 +142,16 @@ function ForgotPassword(props) {
                         disabled={formik.isSubmitting}
                       >
                         Reset password
-                      </button>
-                      <Link to="/auth" className=" ml-auto">
-                        <button
-                          type="button"
-                          id="kt_login_forgot_cancel"
-                          className="btn btn-light-primary font-size-h5 font-weight-400 px-9 py-4 my-3"
-                        >
-                          Cancel
-                        </button>
+                      </button>                      
+                    </div>
+                    <div className="form-group d-flex flex-wrap lg-ac font-size-14 my-3"> 
+                      Don't have an account?                
+                      <Link
+                        to="/auth/sign-up"
+                        className="text-hover-primary ml-2 text-primary"
+                        id="kt_login_forgot"
+                      >
+                        Sign up
                       </Link>
                     </div>
                   </form>
