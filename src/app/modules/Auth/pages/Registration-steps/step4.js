@@ -74,7 +74,6 @@ export default function stee4() {
                   <div className="date_bx wed_d">W</div>
                   <div className="date_od">Wednesday</div>
                 </div>
-                
               </div>
               <div className="tm_area text-left col">
                 <span className="st_tm">9:00 am</span> <span className="se_to">to</span> <span className="end_tm">12:00 pm</span>

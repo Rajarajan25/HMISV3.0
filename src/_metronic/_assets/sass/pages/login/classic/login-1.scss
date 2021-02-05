@@ -104,7 +104,13 @@
         border-radius: 40px;
         padding: 12px 15px;
         //height: 65px;
-        font-size: 20px;
+        font-size: 1.2em !important;
+        min-width: 175px;
+        &.lo_otp {
+            background: transparent !important;
+            border: 1px solid #1d6aff !important;
+            color: #1d6aff;
+        }
     }
 }
 
@@ -447,7 +453,6 @@
     }
     .reg_sec {
         input.form-control {
-            color: #AEAEAE;
             padding: 8px 55px 8px 40px !important;
             border-radius: 30px;
             border: 1px solid #E9E9E9;
@@ -585,25 +590,25 @@
         font-weight: $font-weight-medium !important;
     } 
     .reg_sec input.form-control::placeholder {
-        color:#AEAEAE;
+        color:#3F4772;
         opacity: 1; /* Firefox */
         font-weight: $font-weight-medium !important;
     } 
     .reg_sec input.form-control::-ms-input-placeholder {
-       color:  #AEAEAE;
+       color:  #3F4772;
        font-weight: $font-weight-medium !important;
     } 
     .reg_sec input.form-control::-ms-input-placeholder {
-        color:  #AEAEAE;
+        color:  #3F4772;
         font-weight: $font-weight-medium !important;
     }
     .reg_sec input.form-control::-moz-input-placeholder {
-        color:#AEAEAE;
+        color:#3F4772;
         opacity: 1; /* Firefox */
         font-weight: $font-weight-medium !important;
     }
     .reg_sec input.form-control::-webkit-input-placeholder {
-        color: #AEAEAE;
+        color: #3F4772;
         font-weight: $font-weight-medium !important;
     } 
     .MuiInput-root {
@@ -626,6 +631,7 @@
     }
     .form-group label {
         margin-bottom: 0;
+        color: #9FAFC2;
     }
     .MuiTypography-body1 {
         font-size: 1.1em;
