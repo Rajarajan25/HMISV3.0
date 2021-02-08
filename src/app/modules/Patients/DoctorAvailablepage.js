@@ -8,7 +8,7 @@ import PersonaInformation from "./PersonaInformation";
 import EmailSettings from "./EmailSettings";
 import { ProfileCard } from "./components/ProfileCard";
 
-export default function DoctorAvailablepage() {
+export default function PatientListpage() {
   const suhbeader = useSubheader();
   suhbeader.setTitle("User profile");
 
@@ -23,28 +23,28 @@ export default function DoctorAvailablepage() {
         <div className="flex-row-fluid ml-lg-8">
           <Switch>
             <Redirect
-              from="/available-doctors"
+              from="/manage/available-doctors"
               exact={true}
-              to="/available-doctors/profile-overview"
+              to="/manage/available-doctors/profile-overview"
             />
             <Route
-              path="/available-doctors/profile-overview"
+              path="/manage/available-doctors/profile-overview"
               component={ProfileOverview}
             />
             <Route
-              path="/available-doctors/account-information"
+              path="/manage/available-doctors/account-information"
               component={AccountInformation}
             />
             <Route
-              path="/available-doctors/change-password"
+              path="/manage/available-doctors/change-password"
               component={ChangePassword}
             />
             <Route
-              path="/available-doctors/email-settings"
+              path="/manage/available-doctors/email-settings"
               component={EmailSettings}
             />
             <Route
-              path="/available-doctors/personal-information"
+              path="/manage/available-doctors/personal-information"
               component={PersonaInformation}
             />
           </Switch>
