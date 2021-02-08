@@ -11,10 +11,12 @@ import Step1 from './step1';
 import Step2 from './step2';
 import Step3 from './step3';
 import Step4 from './step4';
-import Step5 from './step5';
-import Step6 from './step6';
-import RegisterConfirmation from './register-confirmation';
 import BusinessConfirmation from './business-confirmation';
+import Stepper1 from './stepper/stepper1';
+import Stepper2 from './stepper/stepper2';
+import Stepper3 from './stepper/stepper3';
+import Stepper4 from './stepper/stepper4';
+import Stepper5 from './stepper/stepper5';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -30,7 +32,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function getSteps() {
-  return ['Select master blaster campaign settings', 'Create an ad group', 'Create an ad', 'test', 'test', 'test', 'test', 'test', 'test'];
+  return [<Stepper1 />, <Stepper2 />, <Stepper3 />, <Stepper4 />, <Stepper5 /> ];
 }
 
 function getStepContent(stepIndex) {
@@ -44,17 +46,12 @@ function getStepContent(stepIndex) {
     case 3:
       return <Step4 />;
     case 4:
-      return <Step5 />;
-    case 5:
-      return <Step6 />;
-    case 6:
-      return <RegisterConfirmation />;
-    case 7:
       return <BusinessConfirmation />;
     default:
       return 'Uknown stepIndex';
   }
 }
+
 
 export default function HorizontalLabelPositionBelowStepper() {
   const classes = useStyles();
@@ -74,7 +71,7 @@ export default function HorizontalLabelPositionBelowStepper() {
   }
   return (
     <div className={classes.root}>
-      <Stepper className="d-none" activeStep={activeStep} alternativeLabel>
+      <Stepper className="businessSteps rounded" activeStep={activeStep} alternativeLabel>
         {steps.map(label => (
           <Step key={label}>
             <StepLabel>{label}</StepLabel>
@@ -96,9 +93,12 @@ export default function HorizontalLabelPositionBelowStepper() {
                 onClick={handleBack}
                 className={'backbtn'+' '+classes.backButton}
               >
-                Back
+                <img src="/media/auth-screen/back_arrow.svg" className="mr-2" alt="arrow" /> <span>Back</span>
               </Button>
-              <Button variant="contained" className="nextButton ml-auto" color="primary" onClick={handleNext}>
+              <Button variant="contained" 
+              className={"nextButton ml-auto " + (activeStep === steps.length - 1 ? 'd-none' : 'show')} 
+              color="primary" 
+              onClick={handleNext}>
                 {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
               </Button>
             </div>

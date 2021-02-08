@@ -51,33 +51,34 @@ export default function DoctorAvailablepage() {
           <ListActivity04></ListActivity04>
         </div>
       </div>
+      
       <div className="d-none flex-row">
         <ProfileCard></ProfileCard>
         <div className="flex-row-fluid ml-lg-8">
           <Switch>
             <Redirect
-              from="/available-doctors"
+              from="/manage/available-doctors"
               exact={true}
-              to="/available-doctors/profile-overview"
+              to="/manage/available-doctors"
             />
             <Route
-              path="/available-doctors/profile-overview"
+              path="/manage/available-doctors"
               component={ProfileOverview}
             />
             <Route
-              path="/available-doctors/account-information"
+              path="/manage/available-doctors/account-information"
               component={AccountInformation}
             />
             <Route
-              path="/available-doctors/change-password"
+              path="/manage/available-doctors/change-password"
               component={ChangePassword}
             />
             <Route
-              path="/available-doctors/email-settings"
+              path="/manage/available-doctors/email-settings"
               component={EmailSettings}
             />
             <Route
-              path="/available-doctors/personal-information"
+              path="/manage/available-doctors/personal-information"
               component={PersonaInformation}
             />
           </Switch>

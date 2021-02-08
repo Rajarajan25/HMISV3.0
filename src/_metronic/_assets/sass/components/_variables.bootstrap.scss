@@ -346,7 +346,8 @@ $grid-breakpoints: (
   md: 768px,
   lg: 992px,
   xl: 1200px,
-  xxl: 1400px // custom breakpoint
+  xxl: 1400px, // custom breakpoint
+  xxxl: 1600px // custom breakpoint
 ) !default;
 
 
@@ -380,7 +381,7 @@ $body-color:                						$dark-75 !default;
 // Font, line-height, and color for body text, headings, and more.
 
 // Font family
-$font-family-base:            						"Poppins","Gotham Pro","Proxima Nova", Helvetica, "sans-serif" !default;
+$font-family-base:            						"Gotham Pro","Proxima Nova", "sans-serif" !default;
 $font-Registration-family-base:            			"Poppins", Helvetica, "sans-serif" !default;
 $font-family-secondary:            					"Proxima Nova", Helvetica, "sans-serif" !default;
 
@@ -488,7 +489,7 @@ $input-btn-line-height-lg:                          $line-height-lg !default;
 
 $input-btn-border-width:                            $border-width !default;
 
-
+$color-blk: #3F4772 !default;
 // Buttons
 //
 // For each of Bootstrap's buttons, define text, background, and border color.

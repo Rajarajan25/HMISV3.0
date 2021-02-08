@@ -6,8 +6,10 @@ import { ContentRoute } from "../../../../_metronic/layout";
 import Login from "./Login";
 import Registration from "./Registration";
 import Personalinfo from "./personalinfo";
+import RegistrationConfirmation from "./registration-confirmation";
 import Signup from "./sign-up";
 import ForgotPassword from "./ForgotPassword";
+import LoginOTP from "./Login-OTP";
 import "../../../../_metronic/_assets/sass/pages/login/classic/login-1.scss";
 
 export function AuthPage() {
@@ -16,15 +18,15 @@ export function AuthPage() {
       <div className="d-flex flex-column flex-root">
         {/*begin::Login*/}
         <div
-          className="login login-1 login-signin-on d-flex flex-column flex-lg-row flex-column-fluid bg-white"
+          className="login login-1 login-signin-on d-flex flex-column flex-lg-row flex-column-fluid bg_gry"
           id="kt_login"
         >
           <div className="d-flex justify-content-center w-100 loginMaincontent">
             {/*begin::Content*/}
-            <div className="d-flex flex-column flex-1 position-relative p-0 col order-1  col-12 col">
+            <div className="position-relative p-0 col order-1  col-12 col">
               
               {/* begin::Content body */}
-              <div className="d-flex flex-column-fluid flex-center mt-30 mt-lg-0">
+              <div className="d-flex flex-column-fluid flex-center mt-30 mt-lg-0 h-100">
                 <Switch>
                   <ContentRoute path="/auth/login" component={Login} />
                   <ContentRoute
@@ -36,12 +38,20 @@ export function AuthPage() {
                     component={ForgotPassword}
                   />
                   <ContentRoute
+                    path="/auth/Login-OTP"
+                    component={LoginOTP}
+                  />
+                  <ContentRoute
                     path="/auth/sign-up"
                     component={Signup}
                   />
                   <ContentRoute
                     path="/auth/personalinfo"
                     component={Personalinfo}
+                  />
+                  <ContentRoute
+                    path="/auth/registration-confirmation"
+                    component={RegistrationConfirmation}
                   />
                   <Redirect from="/auth" exact={true} to="/auth/login" />
                   <Redirect to="/auth/login" />

@@ -12,10 +12,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Input from '@material-ui/core/Input';
-
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormLabel from '@material-ui/core/FormLabel';
 
 const initialValues = {
   fullname: "",
@@ -39,9 +39,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(2),
   },
 }));
-function getSteps() {
-  return ['Select master blaster campaign settings', 'Create an ad group', 'Create an ad', 'test', 'test', 'test'];
-}
+
 
 function Registration(props) {
   const { intl } = props;
@@ -141,24 +139,14 @@ function Registration(props) {
         });
     },
   });
-  
-  const [activeStep, setActiveStep] = React.useState(0);
-  const steps = getSteps();
-
 
   return (
     <>
-      <Stepper activeStep={activeStep} alternativeLabel>
-        {steps.map(label => (
-          <Step key={label}>
-            <StepLabel>{label}</StepLabel>
-          </Step>
-        ))}
-      </Stepper>
-    <div className="text-left mb-6">
-        <h1 className="font-size-30 color_01234B font-weight-600 mb-5">Business Info:</h1>      
+    
+      <div className="text-left mb-6">
+        <h1 className="font-size-28 color_01234B font-weight-600 mb-10">Fill your Personal details:</h1>      
+     
       </div>
-      <div className="business_info">
           <form
             id="kt_login_signin_form"
             className="form fv-plugins-bootstrap fv-plugins-framework animated animate__animated animate__backInUp"
@@ -171,83 +159,102 @@ function Registration(props) {
               </div>
             )}
             {/* end: Alert */}
-
-            {/* begin: Fullname */}
-            <div className="form-group fv-plugins-icon-container d-flex">
-              <div className="info_img">
-                <img src="/media/auth-screen/identity_icon.svg" className="m-auto mw-100" alt="" />
-              </div>
-              <div className="col">
-                <label className="form-label d-block" for="exampleForm.ControlInput1">Business Name</label>
-                <input
-                    placeholder="Business Name"
-                    type="text"
-                    className={`form-control py-5 px-6 ${getInputClasses(
-                      "fullname"
-                    )}`}
-                    name="fullname"
-                    {...formik.getFieldProps("fullname")}
-                />
-                  {formik.touched.fullname && formik.errors.fullname ? (
-                    <div className="fv-plugins-message-container">
-                      <div className="fv-help-block">{formik.errors.fullname}</div>
-                    </div>
-                  ) : null}
-                </div>
-            </div>
-            {/* end: Fullname */}
-
             
-            {/* begin: Fullname */}
-            <div className="form-group fv-plugins-icon-container d-flex">
-              <div className="info_img">
-                <img src="/media/auth-screen/location_icon.svg" className="m-auto mw-100" alt="" />
-              </div>
-              <div className="col">
-                <label class="form-label  d-block" for="exampleForm.ControlInput1">Your Business Address</label>
-                  <input
-                    placeholder="Your Business Address"
-                    type="text"
-                    className={`form-control py-5 px-6 ${getInputClasses(
-                      "fullname"
-                    )}`}
-                    name="fullname"
-                    {...formik.getFieldProps("fullname")}
-                  />
-                  {formik.touched.fullname && formik.errors.fullname ? (
-                    <div className="fv-plugins-message-container">
-                      <div className="fv-help-block">{formik.errors.fullname}</div>
-                    </div>
-                  ) : null}
-                </div>
-            </div>
-            {/* end: Fullname */}
+           
 
             <div className="d-flex fv-plugins-icon-container">
-            <div className="form-group col-5 p-0 d-flex">
-              <div className="info_img">
-                <img src="/media/auth-screen/feedback_icon.svg" className="m-auto mw-100" alt="" />
-              </div>
-                  <div className="col">
-                  <label class="form-label d-block" for="exampleForm.ControlInput1">Business size</label>
-                  <BusinessSize />
-                  </div>
-              </div>
-              <div className="form-group col-7 d-flex">
+              <div className="form-group col-6 p-0 d-flex coun_cde">
                 <div className="info_img">
-                  <img src="/media/auth-screen/branch_icon.svg" className="m-auto mw-100" alt="" />
+                  <img src="/media/auth-screen/name.svg" className="m-auto mw-100" alt="" />
                 </div>
-                <div className="col pr-0">
-                  <label class="form-label d-block" for="exampleForm.ControlInput1">Type</label>
-                  <BusinessType />
+                <div className="col">
+                <label class="form-label" for="exampleForm.ControlInput1">First Name</label>
+                <input
+                  placeholder="First Name"
+                  type="text"
+                  className={`form-control py-5 px-6 ${getInputClasses(
+                    "fullname"
+                  )}`}
+                  name="fullname"
+                  {...formik.getFieldProps("fullname")}
+                />
+                {formik.touched.fullname && formik.errors.fullname ? (
+                  <div className="fv-plugins-message-container">
+                    <div className="fv-help-block">{formik.errors.fullname}</div>
+                  </div>
+                ) : null}
                 </div>
               </div>
+              <div className="form-group col-6">
+              <label class="form-label" for="exampleForm.ControlInput1">Last Name</label>
+                <input
+                  placeholder="Last Name"
+                  type="text"
+                  className={`form-control py-5 px-6 ${getInputClasses(
+                    "fullname"
+                  )}`}
+                  name="fullname"
+                  {...formik.getFieldProps("fullname")}
+                />
+                {formik.touched.fullname && formik.errors.fullname ? (
+                  <div className="fv-plugins-message-container">
+                    <div className="fv-help-block">{formik.errors.fullname}</div>
+                  </div>
+                ) : null}
+              </div>
 
-          
             </div>
-            
+
+            <div className="form-group fv-plugins-icon-container d-flex">
+              <div className="info_img">
+                <img src="/media/auth-screen/mail.svg" className="m-auto mw-100" alt="" />
+              </div>
+              <div className="col">
+              <label class="form-label" for="exampleForm.ControlInput1">Email Id</label>
+                <input
+                  placeholder="Email Id"
+                  type="email"
+                  className={`form-control py-5 px-6 ${getInputClasses(
+                    "email"
+                  )}`}
+                  name="email"
+                  {...formik.getFieldProps("email")}
+                />
+                {formik.touched.email && formik.errors.email ? (
+                  <div className="fv-plugins-message-container">
+                    <div className="fv-help-block">{formik.errors.email}</div>
+                  </div>
+                ) : null}
+                </div>
+            </div>
+
+            <div className="form-group fv-plugins-icon-container d-flex">
+              <div className="info_img">
+                <img src="/media/auth-screen/password.svg" className="m-auto mw-100" alt="" />
+              </div>
+              <div className="col">
+              <label class="form-label" for="exampleForm.ControlInput1">Password</label>
+                  <input
+                    placeholder="Password"
+                    type="password"
+                    className={`form-control py-5 px-6 ${getInputClasses(
+                      "password"
+                    )}`}
+                    name="password"
+                    {...formik.getFieldProps("password")}
+                  />
+                  {formik.touched.password && formik.errors.password ? (
+                    <div className="fv-plugins-message-container">
+                      <div className="fv-help-block">{formik.errors.password}</div>
+                    </div>
+                  ) : null}
+                </div>
+            </div>
+
+
+
             <div className="d-flex fv-plugins-icon-container">
-              <div className="form-group col-5 p-0 d-flex">
+              <div className="form-group col-5 p-0 d-flex coun_cde">
                 <div className="info_img">
                   <img src="/media/auth-screen/phone_icon.svg" className="m-auto mw-100" alt="" />
                 </div>
@@ -257,7 +264,7 @@ function Registration(props) {
                 </div>
               </div>
               <div className="form-group col-7">
-                  <label class="form-label d-block" for="exampleForm.ControlInput1">Phone No</label>
+                  <label class="form-label d-block" for="exampleForm.ControlInput1">Phone Number</label>
                   <input
                     placeholder="Phone"
                     type="text"
@@ -276,60 +283,39 @@ function Registration(props) {
 
           
             </div>
-     
 
-            {/* begin: Terms and Conditions */}
-            <div className="form-group ch-bx">
-              <label className="checkbox">
-                <input
-                  type="checkbox"
-                  name="acceptTerms"
-                  className="m-1"
-                  {...formik.getFieldProps("acceptTerms")}
-                />
-                <span />
-                <Link
-                  to="/terms"
-                  target="_blank"
-                  className="mr-1 terms_c"
-                  rel="noopener noreferrer"
-                >
-                  Show my phone number & address to my clients
-                </Link>
-                
-              </label>
-              {formik.touched.acceptTerms && formik.errors.acceptTerms ? (
-                <div className="fv-plugins-message-container">
-                  <div className="fv-help-block">{formik.errors.acceptTerms}</div>
+
+            <div className="form-group d-flex  fv-plugins-icon-container">
+            <div className="info_img">
+                  <img src="/media/auth-screen/sex.svg" className="m-auto mw-100" alt="" />
                 </div>
-              ) : null}
+                <div className="col">
+                    <GenderGroup />
+                </div>
+              
+       
             </div>
-            {/* end: Terms and Conditions */}
-            <div className="form-group d-flex flex-wrap flex-center">
+
+      
+
+          
+            <div className="form-group flex-wrap flex-center">
               <button
                 type="submit"
-                disabled={
-                  formik.isSubmitting ||
-                  !formik.isValid ||
-                  !formik.values.acceptTerms
-                }
-                className="btn btn-primary h-77 font-weight-bold px-9 py-4 my-3 mx-4"
+    
+                className="btn btn-primary sign-btn h-77 font-weight-500 mt-6"
               >
-                <span>Submit</span>
+                <span>Sign Up</span>
                 {loading && <span className="ml-3 spinner spinner-white"></span>}
               </button>
 
-              <Link to="/auth/login">
-                <button
-                  type="button"
-                  className="btn btn-light-primary h-77 font-weight-bold px-9 py-4 my-3 mx-4"
-                >
+              <Link to="/auth/login" className="d-none">
+                <button type="button" className="btn btn-light-primary h-77 font-weight-bold px-9 py-4 my-3 mx-4">
                   Cancel
                 </button>
               </Link>
             </div>
           </form>
-          </div>
        
     </>
   );
@@ -337,78 +323,6 @@ function Registration(props) {
 
 export default injectIntl(connect(null, auth.actions)(Registration));
 
-function BusinessSize() {
-  
-  const classes = useStyles();
-  const [values, setValues] = React.useState({
-    age: '',
-    name: 'hai',
-  });
-
-  function handleChange(event) {
-    setValues(oldValues => ({
-      ...oldValues,
-      [event.target.name]: event.target.value,
-    }));
-  }
-
-  return (
-      <FormControl className={classes.formControl}>
-
-        <Select
-          value={values.age}
-          onChange={handleChange}
-          input={<Input name="age" id="age-label-placeholder" />}
-          displayEmpty
-          name="age"
-          className={classes.selectEmpty}
-        >
-          <MenuItem value="">
-          100 Person
-          </MenuItem>
-          <MenuItem value={10}>01</MenuItem>
-          <MenuItem value={20}>02</MenuItem>
-          <MenuItem value={30}>03</MenuItem>
-        </Select>
-      </FormControl>
-  );
-}
-function BusinessType() {
-  
-  const classes = useStyles();
-  const [values, setValues] = React.useState({
-    age: '',
-    name: 'hai',
-  });
-
-  function handleChange(event) {
-    setValues(oldValues => ({
-      ...oldValues,
-      [event.target.name]: event.target.value,
-    }));
-  }
-
-  return (
-      <FormControl className={classes.formControl}>
-
-        <Select
-          value={values.age}
-          onChange={handleChange}
-          input={<Input name="age" id="age-label-placeholder" />}
-          displayEmpty
-          name="age"
-          className={classes.selectEmpty}
-        >
-          <MenuItem value="">
-            Type
-          </MenuItem>
-          <MenuItem value={10}>01</MenuItem>
-          <MenuItem value={20}>02</MenuItem>
-          <MenuItem value={30}>03</MenuItem>
-        </Select>
-      </FormControl>
-  );
-}
 function CountryCode() {
   
   const classes = useStyles();
@@ -426,7 +340,7 @@ function CountryCode() {
 
   return (
       <FormControl className={classes.formControl}>
- 
+        
         <Select
           value={values.age}
           onChange={handleChange}
@@ -443,5 +357,50 @@ function CountryCode() {
           <MenuItem value={30}>India (91)</MenuItem>
         </Select>
       </FormControl>
+  );
+}
+
+
+
+function GenderGroup() {
+
+  const useStyles = makeStyles(theme => ({
+    root: {
+      display: 'flex',
+    },
+    formControl: {
+      margin: theme.spacing(3),
+    },
+    group: {
+      margin: theme.spacing(1, 0),
+    },
+  }));
+
+  const classes = useStyles();
+  const [value, setValue] = React.useState('female');
+
+  function handleChange(event) {
+    setValue(event.target.value);
+  }
+
+  return (
+    <div className={classes.root}>
+      <FormControl component="fieldset" className={classes.formControl}>
+        <FormLabel component="legend">Gender</FormLabel>
+        <RadioGroup
+          aria-label="Gender"
+          name="gender1"
+          className={classes.group}
+          value={value}
+          onChange={handleChange}
+        >
+          <FormControlLabel value="male" control={<Radio />} label="Male" />
+          <FormControlLabel value="female" control={<Radio />} label="Female" />
+          
+  
+        </RadioGroup>
+      </FormControl>
+      
+    </div>
   );
 }

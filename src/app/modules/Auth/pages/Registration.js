@@ -117,10 +117,10 @@ function Registration(props) {
   });
 
   return (
-    <div className="d-flex justify-content-center flex-column w-100 col-lg-10 p-0">
+    <div className="d-flex justify-content-center flex-column col-lg-8 col">
       
               {/* start:: Aside header */}
-              <Link to="/" className="flex-column-auto pb-lg-0 pb-10 mr-auto">
+              <Link to="/" className="flex-column-auto logo-tb mr-auto mb-5">
                 <img
                   alt="Logo"
                   src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
@@ -130,7 +130,7 @@ function Registration(props) {
           <div className="d-flex w-100 loginMaincontent shadow" >
             {/*begin::Aside*/}
             <div
-              className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat p-10 p-lg-10 col-4 order-0 rounded-left"
+              className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat col-5 order-0 rounded-left"
               style={{
                 backgroundColor: `#5382FC`,
               }}
@@ -144,21 +144,26 @@ function Registration(props) {
               <div className="d-flex flex-row-fluid flex-column justify-content-between">
 
                 {/* start:: Aside content */}
+
                 <div className="flex-column-fluid d-flex flex-column justify-content-center">
-                  <div className="mx-auto loginRightimg d-flex flex-column-reverse">
-                    <div className="text-center d-flex mx-12">
-                      <img src="/media/auth-screen/Registration.svg" className="m-auto mw-100" alt="Login screen" />
+                  <div className="d-flex flex-column h-100">
+                    <div className="bk_aw d-none text-white font-weight-500 font-size-15 position-absolute ml-5 mt-7">
+                    <img src="/media/auth-screen/back_arrow.svg" className="mr-2" alt="arrow" /> <span>Back</span>
                     </div>
-                    <div className="mb-7 flex-column-fluid d-flex flex-column text-center">
-                      <h3 className="font-size-h1 mb-5 text-white">
-                        Welcome to HMIS!
+                    <div className="mt-25 mb-10 mx-auto loginRightimg1 col-lg-11 col-11 flex-column-fluid text-center">
+                      <h3 className="font-size-h1 text-uppercase font-weight-600 mb-5 text-white">
+                      Business Info
                       </h3>
-                      <p className="font-size-18 font-weight-lighter text-white opacity-90">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                      <p className="font-size-14  font-weight-300 text-white line-height2">
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                       </p>
+                    </div>
+                    <div className="text-center mx-auto d-flex align-items-end">
+                      <img src="/media/auth-screen/business_info_banner.svg" className="m-auto col-lg-10" alt="banner" />
                     </div>
                   </div>
                 </div>
+
                 {/* end:: Aside content */}
 
                 {/* start:: Aside footer for desktop d-lg-flex */}
@@ -185,20 +190,9 @@ function Registration(props) {
             {/*begin::Aside*/}
 
         {/*begin::Login*/}
-        <div className="d-flex flex-column flex-1 position-relative p-7 col order-1 rounded-right"
-              style={{
-                backgroundColor: `#fff`,
-              }}
-            >
-    <div className="registration-form login-signin mx-auto col-lg-10" style={{ display: "block" }}>
-      <div className="text-left mb-6 d-none">
-        <h1 className="font-size-30 color_01234B font-weight-600 mb-5">
-          <FormattedMessage id="AUTH.REGISTER.TITLE" />
-        </h1>
-        <p className="font-size-14 text-muted font-weight-normal">
-          Enter your details to create your account
-        </p>
-      </div>
+        <div className="d-flex position-relative bg-white registration-form login-signin rounded-right col">
+    <div className="mx-auto mt-7 p-0 col-lg-11 pb-75">
+
       <HorizontalLabelPositionBelowStepper />
       <form
         id="kt_login_signin_form"
@@ -375,7 +369,7 @@ function Registration(props) {
           
           
               {/* begin::Mobile footer */}
-              <div className="d-flex flex-column-auto flex-column flex-sm-row justify-content-between align-items-center mt-5 p-5">
+              <div className="d-none flex-column-auto flex-column flex-sm-row justify-content-between align-items-center mt-5 p-5">
                 <div className="text-dark-50 font-weight-bold order-2 order-sm-1 my-2">
                   &copy; 2020 HMIS
                 </div>
