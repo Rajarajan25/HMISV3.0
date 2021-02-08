@@ -1187,4 +1187,13 @@
             }
         }
     }
+    .loginMaincontent {
+        .col-lg-8.wid {
+            flex: 0 0 83.33333%;
+            max-width: 83.33333%;
+        }
+    }
+    .busi_con::before {
+        right: -383px;
+    }
 }
