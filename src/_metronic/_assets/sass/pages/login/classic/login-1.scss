@@ -1147,9 +1147,6 @@
     font-size: 1.1em;
 }
 .loginMaincontent {
-    &.min-heis {
-        //min-height: 780px;
-    }
     .maxWidth-regContainer{
         max-width: 82.5%;
     }
@@ -1163,9 +1160,6 @@
     .login.login-1 {
         .login-aside {
             width: 100%;
-            .loginRightimg1 {
-                //margin-top: 35px !important;
-            }
         }
     }
     .logo-tb {
