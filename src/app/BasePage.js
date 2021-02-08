@@ -21,7 +21,7 @@ const DoctorAvailablepage = lazy(() =>
   import("./modules/Doctors/DoctorAvailablepage")
 );
 const PatientListpage = lazy(() =>
-  import("./modules/Patients-list/DoctorAvailablepage")
+  import("./modules/Patients-list/Patient-list")
 );
 
 export default function BasePage() {
