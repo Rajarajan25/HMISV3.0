@@ -156,7 +156,7 @@ function Registration(props) {
     <div className="d-flex w-100 loginMaincontent shadow min-heis" >
       {/*begin::Aside*/}
       <div
-        className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat col-7 order-0 rounded-left"
+        className="login-aside d-none d-xl-flex d-lg-flex flex-2 bgi-size-cover bgi-no-repeat col-7 order-0 rounded-left"
         style={{
           backgroundColor: `#5382FC`,
         }}
@@ -214,8 +214,8 @@ function Registration(props) {
         {/*end: Aside Container*/}
       </div>
       {/*begin::Aside*/}
-      <div className="d-flex rounded-right bg-white registration-form login-signin col right_banner">
-        <div className="mh-100 ml-5 mt-7 p-5">
+      <div className="d-flex rounded-right bg-white registration-form login-signin col-xl-5 col-lg-5 col-12 right_banner">
+        <div className="mh-100 ml-lg-5 ml-xl-5 ml-md-5 ml-0 mt-7 p-lg-5 p-xl-5 p-md-5 p-0 sets">
           <div className="text-left mb-8 ml-15">
             <h1 className="h2 mb-3 text-capitalize color_3F4772 font-weight-600">Fill Your Personal details:</h1>  
           </div>
@@ -326,7 +326,7 @@ function Registration(props) {
 
 
             <div className="d-flex fv-plugins-icon-container">
-              <div className="form-group col-5 p-0 d-flex coun_cde">
+              <div className="form-group col-6 p-0 d-flex coun_cde">
                 <div className="info_img">
                   <img src="/media/auth-screen/phone_icon.svg" className="m-auto mw-100" alt="" />
                 </div>
@@ -335,7 +335,7 @@ function Registration(props) {
                     <CountryCode />
                 </div>
               </div>
-              <div className="form-group col-7">
+              <div className="form-group col-6">
                   <label class="form-label d-block" for="exampleForm.ControlInput1">Phone Number</label>
                   <input
                     placeholder="Phone"

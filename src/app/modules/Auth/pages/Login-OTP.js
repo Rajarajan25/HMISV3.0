@@ -116,7 +116,7 @@ export default class LoginOTP extends Component{
           
             {/*begin::Aside*/}
             <div
-                className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat p-10 p-lg-10 col"
+                className="login-aside d-none d-xl-flex d-lg-flex flex-2 bgi-size-cover bgi-no-repeat p-10 p-lg-10 col"
                 style={{
                   backgroundColor: `#fff`,
                   boxShadow: '0px 3px 6px #00000029',

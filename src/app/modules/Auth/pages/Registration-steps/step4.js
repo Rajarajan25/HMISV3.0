@@ -127,7 +127,7 @@ export default function stee4() {
           <div className="form-group d-flex mt-7 ml-3">
             <div class="form-check">
               <input type="checkbox" id="formHorizontalCheck" class="form-check-input mt-2" />
-              <label title="" for="formHorizontalCheck" class="form-check-label ml-3 mr-17">Apply to this week</label>
+              <label title="" for="formHorizontalCheck" class="form-check-label ml-3 mr-lg-17 mr-md-17 mr-3">Apply to this week</label>
             </div>
             <div class="form-check">
               <input type="checkbox" id="formHorizontalCheck1" class="form-check-input mt-2" />

@@ -20,7 +20,7 @@ export default function RegistrationConfirmatoin() {
       <div className="d-flex w-100 loginMaincontent shadow min-heis position-relative" >
         {/*begin::Aside*/}
         <div
-          className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat col-7 order-0 rounded-left"
+          className="login-aside d-none d-xl-flex d-lg-flex flex-2 bgi-size-cover bgi-no-repeat col-7 order-0 rounded-left"
           style={{
             backgroundColor: `#5382FC`,
           }}
@@ -77,9 +77,9 @@ export default function RegistrationConfirmatoin() {
           {/*end: Aside Container*/}
         </div>
         {/*begin::Aside*/}
-        <div className=" d-flex rounded-right bg-white registration-form login-signin mx-auto reg_con col">
+        <div className=" d-flex rounded-right bg-white registration-form login-signin mx-auto reg_con col-xl-5 col-lg-5 col-12">
           <div className="d-flex m-auto">
-            <div class="loginRightimg col-lg-10 col-xl-9 col-12 ml-18">
+            <div class="loginRightimg col-lg-10 col-xl-9 ml-18">
               <div className="text-left mb-6">
                 <h1 className="h1 color_3F4772 font-weight-600 d-flex my-auto"><span className="my-auto">Welcome, Saga</span> <img src="/media/auth-screen/clapping.svg" alt="clap" className="ml-3" /> <img src="/media/auth-screen/clapping.svg" alt="clap" className="ml-3" /></h1>      
                 <p className="font-size-18 wl_txt mt-10">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>

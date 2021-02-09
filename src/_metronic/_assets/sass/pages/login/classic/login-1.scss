@@ -105,7 +105,7 @@
         padding: 12px 15px;
         //height: 65px;
         font-size: 1.2em !important;
-        min-width: 175px;
+        min-width: 165px;
         &.lo_otp {
             background: transparent !important;
             border: 1px solid #1d6aff !important;
@@ -645,7 +645,7 @@
         }
     }
     .MuiFormLabel-root {
-        font-size: 14px;
+ 
         color: #9FAFC2;
     }
     .reg_icon button.soci {
@@ -1156,6 +1156,31 @@
 .transScale{
     transform: scale(0.8);
 }
+.col.wid_360 {
+    max-width: 360px;
+}
+.card_bg {
+    box-shadow: 0 3px 6px 0 #1043a71a;
+    border: 0;
+    background-color: #fff;
+    background-clip: border-box;
+    padding: 12px 11px;
+    border-radius: 10px;    
+    margin-bottom: 13px;
+    .card_txt {
+        min-width: 150px;
+        margin-right: 10px;
+    }
+    .symbol.symbol-50 .symbol-label {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+    .min_20 {
+        max-width:  20px;
+    }
+}
 
 // Desktop and Mobile mode
 @media (min-width: 1200px) and (max-width: 1600px){
@@ -1192,29 +1217,165 @@
     .busi_con::before {
         right: -383px;
     }
+    .right_banner {
+        .sets {
+            z-index: 2; 
+            position: relative;
+        }
+        &:after {
+            z-index: 1;
+        }
+    }
 }
-.col.wid_360 {
-    max-width: 360px;
-}
-.card_bg {
-    box-shadow: 0 3px 6px 0 #1043a71a;
-    border: 0;
-    background-color: #fff;
-    background-clip: border-box;
-    padding: 12px 11px;
-    border-radius: 10px;    
-    margin-bottom: 13px;
-    .card_txt {
-        min-width: 150px;
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+    .loginMaincontent {
+        .rounded-right {
+            border-radius: 20px !important;
+            min-height: 650px;
+        }
+    } 
+  }
+  @media screen and (max-width: 575px)  {
+    .loginMaincontent {
+        .rounded-right {
+            border-radius: 20px !important;
+            min-height: 525px;
+        }
+    } 
+    .right_banner {
+        &:after {
+        display: none;
+        }
+    }
+    .reg_con {
+        &:after {
+        display: none;
+        }
+    }
+    .busi_con {
+        &:after {
+        display: none;
+        }
+    }
+    .busi_con {
+        &:before {
+        display: none;
+        }
+    }
+    .date_bx {
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
         margin-right: 10px;
     }
-    .symbol.symbol-50 .symbol-label {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        margin-right: 10px;
+    .tm_area {
+        .st_tm, .end_tm {
+            min-width: 98px;
+        }
+        .se_to {
+            min-width: 20px;
+        }
     }
-    .min_20 {
-        max-width:  20px;
+    .dt_area {
+        padding: 2px 6px 2px 2px;
+        .date_bx {
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            margin-right: 3px;
+        }
     }
-}
+    .wal_clk {
+        img {
+            padding: 3px;
+            margin-right: 0px;
+        }
+    }
+    .registration-form {
+        .info_img {
+                min-width: 25px;
+                margin: 27px 0px 0 0;
+        }
+        input.form-control{
+            height: 40px !important;
+        }
+        .sign-btn {
+            height: 45px;
+            min-width: 100%;
+            margin-left: 0 !important;
+            margin-top: 0 !important;
+        }
+        .categoryList > div {
+            width: 33.33%;
+        }
+        .rightPanel {
+            .subCategory {
+                padding: 8px 6px;
+                .catIcon{
+                    width: 25px;
+                    height: 25px;
+                    margin-right: 5px;
+                }
+            }
+        }
+        .MuiButton-root.backbtn {
+            margin: 0;
+            padding: 0 15px;
+            height: 40px;
+            border-radius: 30px;
+            background: #1C6AFC !important;
+            color: #ffffff;
+            font-weight: 500;
+            font-size: 1.1em;
+            min-width: 120px;
+            box-shadow: none !important;
+            text-transform: capitalize;
+            margin-bottom: 15px;
+            margin-right: 0;
+            margin-top: 10px;
+            bottom: 0;
+            left: 0;
+            top: inherit;
+        }
+        .nextButton {
+            height: 40px;
+            min-width: 120px;
+        }
+        .businessSteps {
+            max-width: 100%;
+            padding: 5px;
+            .stepperWidth {
+                .stepperIcon {
+                    margin: auto 0;
+                    min-width: 35px;
+                    max-width: 35px;
+                    min-height: 35px;
+                    max-height: 35px;
+                    img {
+                        height: 20px !important;
+                        display: block !important;
+                        margin: 6px auto;
+                    }
+                }
+                .stepperRight {
+                    .stepperName {
+                        display: none;
+                    }
+                }
+            }
+            .MuiStepLabel-active {
+                .stepperWidth {
+                    min-width: inherit;
+                }
+            }
+            .MuiStep-completed {
+                padding: 0 9px;
+                .stepperIcon {
+                    &:after {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+  }

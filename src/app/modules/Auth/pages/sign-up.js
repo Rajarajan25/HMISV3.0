@@ -18,7 +18,7 @@ export default function step1() {
     {/* end:: Aside header */}
 <div className="d-flex w-100 loginMaincontent shadow min-heis" >
     {/*begin::Aside*/}
-    <div className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat col-7 order-0 rounded-left"
+    <div className="login-aside d-none d-xl-flex d-lg-flex flex-2 bgi-size-cover bgi-no-repeat col-7 order-0 rounded-left"
               style={{
                 backgroundColor: `#5382FC`,
               }}
@@ -75,7 +75,7 @@ export default function step1() {
               {/*end: Aside Container*/}
             </div>
             {/*begin::Aside*/}
-      <div className="d-flex rounded-right bg-white registration-form login-signin col-5">
+      <div className="d-flex rounded-right bg-white registration-form login-signin col-xl-5 col-lg-5 col-12">
         <div className="mh-100 mt-7 p-5 mx-auto width_420">
           <div className="text-left mb-6">
             <h1 className="font-size-h1 color_3F4772 font-weight-600 tit_letter mb-4">Sign up to Hmis.</h1>      
