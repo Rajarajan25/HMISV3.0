@@ -17,7 +17,9 @@ import Stepper2 from './stepper/stepper2';
 import Stepper3 from './stepper/stepper3';
 import Stepper4 from './stepper/stepper4';
 import Stepper5 from './stepper/stepper5';
-
+import { Formik, Form } from "formik";
+import checkoutFormModel from "./Models/FormModel/checkoutFormModel";
+import formInitialValues from "./Models/FormModel//formInitialValues";
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
@@ -35,24 +37,11 @@ function getSteps() {
   return [<Stepper1 />, <Stepper2 />, <Stepper3 />, <Stepper4 />, <Stepper5 /> ];
 }
 
-function getStepContent(stepIndex) {
-  switch (stepIndex) {
-    case 0:
-      return <Step1 />;
-    case 1:
-      return <Step2 />;
-    case 2:
-      return <Step3 />;
-    case 3:
-      return <Step4 />;
-    case 4:
-      return <BusinessConfirmation />;
-    default:
-      return 'Uknown stepIndex';
-  }
-}
+
 
 export default function HorizontalLabelPositionBelowStepper() {
+  const { formId, formField } = checkoutFormModel;
+  console.log("formFieldddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"+JSON.stringify(formField,null,2))
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
@@ -64,9 +53,45 @@ export default function HorizontalLabelPositionBelowStepper() {
   function handleBack() {
     setActiveStep(prevActiveStep => prevActiveStep - 1);
   }
-
+  function getStepContent(stepIndex) {
+    switch (stepIndex) {
+      case 0:
+        return <Step1 formField={formField}/>;
+      case 1:
+        return <Step2 formField={formField}/>;
+      case 2:
+        return <Step3 formField={formField}/>;
+      case 3:
+        return <Step4 formField={formField}/>;
+      case 4:
+        return <BusinessConfirmation />;
+      default:
+        return 'Uknown stepIndex';
+    }
+  }
   function handleReset() {
     setActiveStep(0);
+  }
+  function _handleSubmit(values, actions) {
+    if (activeStep === steps.length - 1) {
+      _submitForm(values, actions);
+    
+    } else {
+      setActiveStep(activeStep + 1);
+      actions.setTouched({});
+      actions.setSubmitting(false);
+    }
+  }
+  async function _submitForm(values, actions) {
+    await _sleep(1000);
+    values.business=localStorage.getItem("business")
+    values.spa_type=localStorage.getItem("selectedvalue") +" spa"
+    alert(JSON.stringify(values, null, 2));
+    actions.setSubmitting(false);
+    setActiveStep(activeStep + 1);
+  }
+  function _sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
   }
   return (
     <div className={classes.root}>
@@ -84,6 +109,10 @@ export default function HorizontalLabelPositionBelowStepper() {
             <Button onClick={handleReset}>Reset</Button>
           </div>
         ) : (
+          <Formik initialValues={formInitialValues} onSubmit={_handleSubmit}>
+          {({ isSubmitting }) => (
+            <Form id={formId}>
+              
           <div>
             <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
             <div className="d-flex">
@@ -102,6 +131,9 @@ export default function HorizontalLabelPositionBelowStepper() {
               </Button>
             </div>
           </div>
+          </Form>
+            )}
+          </Formik>
         )}
       </div>
     </div>

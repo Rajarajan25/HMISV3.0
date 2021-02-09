@@ -6,7 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Input from '@material-ui/core/Input';
-
+import { InputField, CheckboxField, SelectField } from './FormFields';
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
@@ -21,7 +21,14 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function stee4() {
+export default function step4(props) {
+  const {
+    formField: {
+      applyWeek,
+      applyMonth,
+      timezone
+    }
+  } = props;
   return (
     <>
         <div className="w-100 mh-100 text-center rightPanel">
@@ -34,7 +41,7 @@ export default function stee4() {
             <img src="/media/auth-screen/wall_clock.svg" alt="thumbs-up" /> <span>Time Zone:</span>
             </div>
             <div className="tim_zne">
-            <TimeZone />
+            <TimeZone initialValues={props.formField}/>
             </div>
           </div>
           <div className="d-flex mt-10">
@@ -128,11 +135,12 @@ export default function stee4() {
           </div>
           <div className="form-group d-flex mt-10 ml-5 font-size-15">
             <div class="form-check">
-              <input type="checkbox" id="formHorizontalCheck" class="form-check-input mt-2" />
+
+              <CheckboxField className="form-check-input mt-2" name={applyWeek.name}/>
               <label title="" for="formHorizontalCheck" class="form-check-label font-size-14 ml-3 mr-20">Apply to this week</label>
             </div>
             <div class="form-check">
-              <input type="checkbox" id="formHorizontalCheck1" class="form-check-input mt-2" />
+            <CheckboxField className="form-check-input mt-2" name={applyMonth.name}/>
               <label title="" for="formHorizontalCheck1" class="form-check-label font-size-14 ml-3">Apply to this month</label>
             </div>
           </div>
@@ -142,8 +150,8 @@ export default function stee4() {
 }
 
 
-function TimeZone() {
-  
+function TimeZone(props) {
+  const initialValues= props.initialValues;
   const classes = useStyles();
   const [values, setValues] = React.useState({
     age: '',
@@ -156,25 +164,29 @@ function TimeZone() {
       [event.target.name]: event.target.value,
     }));
   }
-
+  const age = [
+    
+    {
+      value: "(GMT +05:00) Kolkata, India",
+      label: "(GMT +05:00) Kolkata, India"
+    },
+    {
+      value: "(GMT +05:00) Kolkata, India",
+      label: "(GMT +05:00) Kolkata, India"
+    },
+    {
+      value: "(GMT +05:00) Kolkata, India",
+      label: "(GMT +05:00) Kolkata, India"
+    }
+  ];
   return (
       <FormControl className={classes.formControl}>
         
-        <Select
-          value={values.age}
-          onChange={handleChange}
-          input={<Input name="age"/>}
-          displayEmpty
-          name="age"
-          className={classes.selectEmpty}
-        >
-          <MenuItem value="">
-          (GMT +05:00) Kolkata, India
-          </MenuItem>
-          <MenuItem value={10}>(GMT +05:00) Kolkata, India</MenuItem>
-          <MenuItem value={20}>(GMT +05:00) Kolkata, India</MenuItem>
-          <MenuItem value={30}>(GMT +05:00) Kolkata, India</MenuItem>
-        </Select>
+        <SelectField
+            name={initialValues.timezone.name}
+            data={age}
+            fullWidth
+          />
       </FormControl>
   );
 }

@@ -19,12 +19,13 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormLabel from '@material-ui/core/FormLabel';
 
 const initialValues = {
-  fullname: "",
+  firstname: "",
+  lastname:"",
   email: "",
   username: "",
   password: "",
-  changepassword: "",
-  acceptTerms: false,
+  countrycode:"",
+  gender:"",
 };
 
 const useStyles = makeStyles(theme => ({
@@ -39,6 +40,9 @@ const useStyles = makeStyles(theme => ({
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
+  group: {
+    margin: theme.spacing(1, 0),
+  },
 }));
 
 
@@ -46,7 +50,15 @@ function Registration(props) {
   const { intl } = props;
   const [loading, setLoading] = useState(false);
   const RegistrationSchema = Yup.object().shape({
-    fullname: Yup.string()
+    firstname: Yup.string()
+    .min(3, "Minimum 3 symbols")
+    .max(50, "Maximum 50 symbols")
+    .required(
+      intl.formatMessage({
+        id: "AUTH.VALIDATION.REQUIRED_FIELD",
+      })
+    ),
+    lastname: Yup.string()
       .min(3, "Minimum 3 symbols")
       .max(50, "Maximum 50 symbols")
       .required(
@@ -96,7 +108,7 @@ function Registration(props) {
       "You must accept the terms and conditions"
     ),
   });
-
+  const classes = useStyles();
   const enableLoading = () => {
     setLoading(true);
   };
@@ -119,25 +131,26 @@ function Registration(props) {
 
   const formik = useFormik({
     initialValues,
-    validationSchema: RegistrationSchema,
+    RegistrationSchema,
     onSubmit: (values, { setStatus, setSubmitting }) => {
       setSubmitting(true);
       enableLoading();
-      register(values.email, values.fullname, values.username, values.password)
-        .then(({ data: { accessToken } }) => {
-          props.register(accessToken);
-          disableLoading();
-          setSubmitting(false);
-        })
-        .catch(() => {
-          setSubmitting(false);
-          setStatus(
-            intl.formatMessage({
-              id: "AUTH.VALIDATION.INVALID_LOGIN",
-            })
-          );
-          disableLoading();
-        });
+      // register(values.email, values.lastname, values.username, values.password)
+      //   .then(({ data: { accessToken } }) => {
+      //     props.register(accessToken);
+      //     disableLoading();
+      //     setSubmitting(false);
+      //   })
+      //   .catch(() => {
+      //     setSubmitting(false);
+      //     setStatus(
+      //       intl.formatMessage({
+      //         id: "AUTH.VALIDATION.INVALID_LOGIN",
+      //       })
+      //     );
+      //     disableLoading();
+      //   });
+      alert(JSON.stringify(values,null,2))
     },
   });
 
@@ -246,14 +259,14 @@ function Registration(props) {
                   placeholder="First Name"
                   type="text"
                   className={`form-control py-5 px-6 ${getInputClasses(
-                    "fullname"
+                    "firstname"
                   )}`}
-                  name="fullname"
-                  {...formik.getFieldProps("fullname")}
+                  name="firstname"
+                  {...formik.getFieldProps("firstname")}
                 />
-                {formik.touched.fullname && formik.errors.fullname ? (
+                {formik.touched.firstname && formik.errors.firstname ? (
                   <div className="fv-plugins-message-container">
-                    <div className="fv-help-block">{formik.errors.fullname}</div>
+                    <div className="fv-help-block">{formik.errors.firstname}</div>
                   </div>
                 ) : null}
                 </div>
@@ -264,14 +277,14 @@ function Registration(props) {
                   placeholder="Last Name"
                   type="text"
                   className={`form-control py-5 px-6 ${getInputClasses(
-                    "fullname"
+                    "lastname"
                   )}`}
-                  name="fullname"
-                  {...formik.getFieldProps("fullname")}
+                  name="lastname"
+                  {...formik.getFieldProps("lastname")}
                 />
-                {formik.touched.fullname && formik.errors.fullname ? (
+                {formik.touched.lastname && formik.errors.lastname ? (
                   <div className="fv-plugins-message-container">
-                    <div className="fv-help-block">{formik.errors.fullname}</div>
+                    <div className="fv-help-block">{formik.errors.lastname}</div>
                   </div>
                 ) : null}
               </div>
@@ -333,7 +346,22 @@ function Registration(props) {
                 </div>
                 <div className="col">
                     <label class="form-label d-block" for="exampleForm.ControlInput1">Country code</label>
-                    <CountryCode />
+                    <Select
+          
+          
+          input={<Input name="age" id="age-label-placeholder" />}
+          displayEmpty
+          name="age"
+          className={classes.selectEmpty}
+          {...formik.getFieldProps("countrycode")}
+        >
+          <MenuItem value="">
+          India (91)
+          </MenuItem>
+          <MenuItem value="India (91)">India (91)</MenuItem>
+          <MenuItem value="India (91)">India (91)</MenuItem>
+          <MenuItem value="India (91)">India (91)</MenuItem>
+        </Select>
                 </div>
               </div>
               <div className="form-group col-7">
@@ -363,7 +391,21 @@ function Registration(props) {
                   <img src="/media/auth-screen/sex.svg" className="m-auto mw-100" alt="" />
                 </div>
                 <div className="col">
-                    <GenderGroup />
+                <FormControl component="fieldset" className={classes.formControl}>
+        <FormLabel component="legend">Gender</FormLabel>
+        <RadioGroup
+          aria-label="Gender"
+          name="gender1"
+          className={classes.group}
+          {...formik.getFieldProps("gender")}
+          
+        >
+          <FormControlLabel value="male" control={<Radio />} label="Male" />
+          <FormControlLabel value="female" control={<Radio />} label="Female" />
+          
+  
+        </RadioGroup>
+      </FormControl>
                 </div>
               
        
@@ -407,84 +449,4 @@ function Registration(props) {
 
 export default injectIntl(connect(null, auth.actions)(Registration));
 
-function CountryCode() {
-  
-  const classes = useStyles();
-  const [values, setValues] = React.useState({
-    age: '',
-    name: 'hai',
-  });
 
-  function handleChange(event) {
-    setValues(oldValues => ({
-      ...oldValues,
-      [event.target.name]: event.target.value,
-    }));
-  }
-
-  return (
-      <FormControl className={classes.formControl}>
-        
-        <Select
-          value={values.age}
-          onChange={handleChange}
-          input={<Input name="age" id="age-label-placeholder" />}
-          displayEmpty
-          name="age"
-          className={classes.selectEmpty}
-        >
-          <MenuItem value="">
-          India (91)
-          </MenuItem>
-          <MenuItem value={10}>India (91)</MenuItem>
-          <MenuItem value={20}>India (91)</MenuItem>
-          <MenuItem value={30}>India (91)</MenuItem>
-        </Select>
-      </FormControl>
-  );
-}
-
-
-
-function GenderGroup() {
-
-  const useStyles = makeStyles(theme => ({
-    root: {
-      display: 'flex',
-    },
-    formControl: {
-      margin: theme.spacing(3),
-    },
-    group: {
-      margin: theme.spacing(1, 0),
-    },
-  }));
-
-  const classes = useStyles();
-  const [value, setValue] = React.useState('female');
-
-  function handleChange(event) {
-    setValue(event.target.value);
-  }
-
-  return (
-    <div className={classes.root}>
-      <FormControl component="fieldset" className={classes.formControl}>
-        <FormLabel component="legend">Gender</FormLabel>
-        <RadioGroup
-          aria-label="Gender"
-          name="gender1"
-          className={classes.group}
-          value={value}
-          onChange={handleChange}
-        >
-          <FormControlLabel value="male" control={<Radio />} label="Male" />
-          <FormControlLabel value="female" control={<Radio />} label="Female" />
-          
-  
-        </RadioGroup>
-      </FormControl>
-      
-    </div>
-  );
-}

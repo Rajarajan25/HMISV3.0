@@ -12,19 +12,12 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Input from '@material-ui/core/Input';
-
+import { InputField, CheckboxField, SelectField } from './FormFields';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 
-const initialValues = {
-  fullname: "",
-  email: "",
-  username: "",
-  password: "",
-  changepassword: "",
-  acceptTerms: false,
-};
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -43,58 +36,22 @@ const useStyles = makeStyles(theme => ({
 
 function Registration(props) {
   const { intl } = props;
+  const {
+    formField: {
+      business_name,
+      business_address,
+      business_size,
+      business_type,
+      country_code,
+      phone_number,
+      business,
+      spa_type,
+      acceptTerms
+    }
+  } = props;
+  let initialValues=props.formField
   const [loading, setLoading] = useState(false);
-  const RegistrationSchema = Yup.object().shape({
-    fullname: Yup.string()
-      .min(3, "Minimum 3 symbols")
-      .max(50, "Maximum 50 symbols")
-      .required(
-        intl.formatMessage({
-          id: "AUTH.VALIDATION.REQUIRED_FIELD",
-        })
-      ),
-    email: Yup.string()
-      .email("Wrong email format")
-      .min(3, "Minimum 3 symbols")
-      .max(50, "Maximum 50 symbols")
-      .required(
-        intl.formatMessage({
-          id: "AUTH.VALIDATION.REQUIRED_FIELD",
-        })
-      ),
-    username: Yup.string()
-      .min(3, "Minimum 3 symbols")
-      .max(50, "Maximum 50 symbols")
-      .required(
-        intl.formatMessage({
-          id: "AUTH.VALIDATION.REQUIRED_FIELD",
-        })
-      ),
-    password: Yup.string()
-      .min(3, "Minimum 3 symbols")
-      .max(50, "Maximum 50 symbols")
-      .required(
-        intl.formatMessage({
-          id: "AUTH.VALIDATION.REQUIRED_FIELD",
-        })
-      ),
-    changepassword: Yup.string()
-      .required(
-        intl.formatMessage({
-          id: "AUTH.VALIDATION.REQUIRED_FIELD",
-        })
-      )
-      .when("password", {
-        is: (val) => (val && val.length > 0 ? true : false),
-        then: Yup.string().oneOf(
-          [Yup.ref("password")],
-          "Password and Confirm Password didn't match"
-        ),
-      }),
-    acceptTerms: Yup.bool().required(
-      "You must accept the terms and conditions"
-    ),
-  });
+  
 
   const enableLoading = () => {
     setLoading(true);
@@ -118,25 +75,25 @@ function Registration(props) {
 
   const formik = useFormik({
     initialValues,
-    validationSchema: RegistrationSchema,
+    
     onSubmit: (values, { setStatus, setSubmitting }) => {
       setSubmitting(true);
       enableLoading();
-      register(values.email, values.fullname, values.username, values.password)
-        .then(({ data: { accessToken } }) => {
-          props.register(accessToken);
-          disableLoading();
-          setSubmitting(false);
-        })
-        .catch(() => {
-          setSubmitting(false);
-          setStatus(
-            intl.formatMessage({
-              id: "AUTH.VALIDATION.INVALID_LOGIN",
-            })
-          );
-          disableLoading();
-        });
+      // register(values.email, values.fullname, values.username, values.password)
+      //   .then(({ data: { accessToken } }) => {
+      //     props.register(accessToken);
+      //     disableLoading();
+      //     setSubmitting(false);
+      //   })
+      //   .catch(() => {
+      //     setSubmitting(false);
+      //     setStatus(
+      //       intl.formatMessage({
+      //         id: "AUTH.VALIDATION.INVALID_LOGIN",
+      //       })
+      //     );
+      //     disableLoading();
+      //   });
     },
   });
   return (
@@ -145,18 +102,9 @@ function Registration(props) {
         <h1 className="font-size-28 color_3F4772 text-capitalize font-weight-600 mb-10">Business Info:</h1>      
       </div>
       <div className="business_info">
-          <form
-            id="kt_login_signin_form"
-            className="form fv-plugins-bootstrap fv-plugins-framework animated animate__animated animate__backInUp"
-            onSubmit={formik.handleSubmit}
-          >
-            {/* begin: Alert */}
-            {formik.status && (
-              <div className="mb-10 alert alert-custom alert-light-danger alert-dismissible">
-                <div className="alert-text font-weight-bold">{formik.status}</div>
-              </div>
-            )}
-            {/* end: Alert */}
+         
+            
+            
 
             {/* begin: Fullname */}
             <div className="form-group fv-plugins-icon-container d-flex">
@@ -165,46 +113,19 @@ function Registration(props) {
               </div>
               <div className="col">
                 <label className="form-label d-block" for="exampleForm.ControlInput1">Business Name</label>
-                <input
-                    placeholder="Business Name"
-                    type="text"
-                    className={`form-control py-5 px-6 ${getInputClasses(
-                      "fullname"
-                    )}`}
-                    name="fullname"
-                    {...formik.getFieldProps("fullname")}
-                />
-                  {formik.touched.fullname && formik.errors.fullname ? (
-                    <div className="fv-plugins-message-container">
-                      <div className="fv-help-block">{formik.errors.fullname}</div>
-                    </div>
-                  ) : null}
+                <InputField name={business_name.name} label={business_name.label}  className={`form-control py-5 px-6 ${getInputClasses(  "fullname")}`} placeholder="Your Business Name"/>
+                 
                 </div>
             </div>
-            {/* end: Fullname */}
-
-            
-            {/* begin: Fullname */}
+           
             <div className="form-group fv-plugins-icon-container d-flex">
               <div className="info_img">
                 <img src="/media/auth-screen/location_icon.svg" className="m-auto mw-100" alt="" />
               </div>
               <div className="col">
                 <label class="form-label  d-block" for="exampleForm.ControlInput1">Your Business Address</label>
-                  <input
-                    placeholder="Your Business Address"
-                    type="text"
-                    className={`form-control py-5 px-6 ${getInputClasses(
-                      "fullname"
-                    )}`}
-                    name="fullname"
-                    {...formik.getFieldProps("fullname")}
-                  />
-                  {formik.touched.fullname && formik.errors.fullname ? (
-                    <div className="fv-plugins-message-container">
-                      <div className="fv-help-block">{formik.errors.fullname}</div>
-                    </div>
-                  ) : null}
+                <InputField name={business_address.name} label={business_address.label}  className={`form-control py-5 px-6 ${getInputClasses(  "fullname")}`} placeholder="Your Business Address"/>
+                  
                 </div>
             </div>
             {/* end: Fullname */}
@@ -216,7 +137,7 @@ function Registration(props) {
               </div>
                   <div className="col">
                   <label class="form-label d-block" for="exampleForm.ControlInput1">Business size</label>
-                  <BusinessSize />
+                  <BusinessSize initialValues={props.formField}/>
                   </div>
               </div>
               <div className="form-group col-7 d-flex coun_cde">
@@ -225,7 +146,7 @@ function Registration(props) {
                 </div>
                 <div className="col pr-0">
                   <label class="form-label d-block" for="exampleForm.ControlInput1">Type</label>
-                  <BusinessType />
+                  <BusinessType initialValues={props.formField}/>
                 </div>
               </div>
 
@@ -239,25 +160,13 @@ function Registration(props) {
                 </div>
                 <div className="col">
                     <label class="form-label d-block" for="exampleForm.ControlInput1">Country code</label>
-                    <CountryCode />
+                    <CountryCode initialValues={props.formField}/>
                 </div>
               </div>
               <div className="form-group col-7">
                   <label class="form-label d-block" for="exampleForm.ControlInput1">Phone No</label>
-                  <input
-                    placeholder="Phone"
-                    type="text"
-                    className={`form-control py-5 px-6 ${getInputClasses(
-                      "username"
-                    )}`}
-                    name="username"
-                    {...formik.getFieldProps("username")}
-                  />
-                {formik.touched.username && formik.errors.username ? (
-                  <div className="fv-plugins-message-container">
-                    <div className="fv-help-block">{formik.errors.username}</div>
-                </div>
-                ) : null}
+                  <InputField name={phone_number.name} label={phone_number.label}  className={`form-control py-5 px-6 ${getInputClasses(  "username")}`} placeholder="Phone"/>
+                  
               </div>
 
           
@@ -267,12 +176,8 @@ function Registration(props) {
             {/* begin: Terms and Conditions */}
             <div className="form-group d-flex ch-bx">
               <label className="checkbox mr-auto">
-                <input
-                  type="checkbox"
-                  name="acceptTerms"
-                  className="m-1"
-                  {...formik.getFieldProps("acceptTerms")}
-                />
+               
+                <CheckboxField className="m-1" name={acceptTerms.name}/>
                 <span />
                 <Link
                   to="javascript:void(0);"
@@ -319,7 +224,7 @@ function Registration(props) {
                 </button>
               </Link>
             </div>
-          </form>
+         
           </div>
        
     </>
@@ -328,8 +233,64 @@ function Registration(props) {
 
 export default injectIntl(connect(null, auth.actions)(Registration));
 
-function BusinessSize() {
+function BusinessSize(props) {
+  const initialValues= props.initialValues;
+  const classes = useStyles();
+  const [values, setValues] = React.useState({
+    age: '',
+    name: 'hai',
+  });
+
+  function handleChange(event) {
+    setValues(oldValues => ({
+      ...oldValues,
+      [event.target.name]: event.target.value,
+    }));
+  }
+  const age = [
+    
+    {
+      value: "1",
+      label: "01"
+    },
+    {
+      value: "2",
+      label: "02"
+    },
+    {
+      value: "3",
+      label: "03"
+    }
+  ];
   
+  return (
+      <FormControl className={classes.formControl}>
+
+<SelectField
+            name={initialValues.business_size.name}
+            data={age}
+            fullWidth
+          />
+      </FormControl>
+  );
+}
+function BusinessType(props) {
+  const initialValues= props.initialValues
+  const age = [
+    
+    {
+      value: "1",
+      label: "01"
+    },
+    {
+      value: "2",
+      label: "02"
+    },
+    {
+      value: "3",
+      label: "03"
+    }
+  ];
   const classes = useStyles();
   const [values, setValues] = React.useState({
     age: '',
@@ -346,25 +307,16 @@ function BusinessSize() {
   return (
       <FormControl className={classes.formControl}>
 
-        <Select
-          value={values.age}
-          onChange={handleChange}
-          input={<Input name="age" id="age-label-placeholder" />}
-          displayEmpty
-          name="age"
-          className={classes.selectEmpty}
-        >
-          <MenuItem value="">
-          100 Person
-          </MenuItem>
-          <MenuItem value={10}>01</MenuItem>
-          <MenuItem value={20}>02</MenuItem>
-          <MenuItem value={30}>03</MenuItem>
-        </Select>
+<SelectField
+            name={initialValues.business_type.name}
+            data={age}
+            fullWidth
+            
+          />
       </FormControl>
   );
 }
-function BusinessType() {
+function CountryCode(props) {
   
   const classes = useStyles();
   const [values, setValues] = React.useState({
@@ -378,61 +330,31 @@ function BusinessType() {
       [event.target.name]: event.target.value,
     }));
   }
-
-  return (
-      <FormControl className={classes.formControl}>
-
-        <Select
-          value={values.age}
-          onChange={handleChange}
-          input={<Input name="age" id="age-label-placeholder" />}
-          displayEmpty
-          name="age"
-          className={classes.selectEmpty}
-        >
-          <MenuItem value="">
-            Type
-          </MenuItem>
-          <MenuItem value={10}>01</MenuItem>
-          <MenuItem value={20}>02</MenuItem>
-          <MenuItem value={30}>03</MenuItem>
-        </Select>
-      </FormControl>
-  );
-}
-function CountryCode() {
-  
-  const classes = useStyles();
-  const [values, setValues] = React.useState({
-    age: '',
-    name: 'hai',
-  });
-
-  function handleChange(event) {
-    setValues(oldValues => ({
-      ...oldValues,
-      [event.target.name]: event.target.value,
-    }));
-  }
-
+  const initialValues= props.initialValues
+  const age = [
+    
+    {
+      value: "1",
+      label: "India 91"
+    },
+    {
+      value: "2",
+      label: "India 91"
+    },
+    {
+      value: "3",
+      label: "India 91"
+    }
+  ];
   return (
       <FormControl className={classes.formControl}>
  
-        <Select
-          value={values.age}
-          onChange={handleChange}
-          input={<Input name="age" id="age-label-placeholder" />}
-          displayEmpty
-          name="age"
-          className={classes.selectEmpty}
-        >
-          <MenuItem value="">
-          India (91)
-          </MenuItem>
-          <MenuItem value={10}>India (91)</MenuItem>
-          <MenuItem value={20}>India (91)</MenuItem>
-          <MenuItem value={30}>India (91)</MenuItem>
-        </Select>
+ <SelectField
+            name={initialValues.country_code.name}
+            data={age}
+            fullWidth
+            
+          />
       </FormControl>
   );
 }
