@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
@@ -8,7 +8,9 @@ import { connect } from "react-redux";
 import { FormattedMessage, injectIntl } from "react-intl";
 import * as auth from "../_redux/authRedux";
 import { login } from "../_redux/authCrud";
-
+import ApiCalendar from 'react-google-calendar-api';
+import { gapi } from 'gapi-script'
+import googleApiKey from '../config/apiGoogleconfig.json';
 /*
   INTL (i18n) docs:
   https://github.com/formatjs/react-intl/blob/master/docs/Components.md#formattedmessage
@@ -91,6 +93,26 @@ function Login(props) {
     },
   });
 
+  const [signin, setsignin] = useState(true);
+  useEffect(() => {
+  });
+  let sign = ApiCalendar.sign;
+  const setupdatesignin = (signin) => {
+    setsignin(!sign);
+  }
+  const handleAuthClick = () => {
+    gapi.auth2.getAuthInstance().signIn();
+  }
+  const handleSignoutClick = () => {
+    gapi.auth2.getAuthInstance().signOut();
+  }
+  const handleItemClick = (event, name) => {
+    if (name === 'sign-in') {
+      ApiCalendar.handleAuthClick();
+    } else if (name === 'sign-out') {
+      ApiCalendar.handleSignoutClick();
+    }
+  }
   return (
     <div className="d-flex flex-column justify-content-center w-100 h-100">
         <Helmet  titleTemplate="HMIS | %s" title="Login Page" />
@@ -220,7 +242,7 @@ function Login(props) {
                     <div className="form-group d-none flex-wrap justify-content-between align-items-center">
                       <button
                         id="social_google_signin_submit"
-                        type="submit"
+                        type="button"
                         className={`btn btn-default borderRadius-10 h-77 text-dark border`}
                       >
                         <img src="/media/auth-screen/google.svg" alt="Goolge Icon" className="mr-3 socialIcon" />
@@ -229,7 +251,7 @@ function Login(props) {
                       </button>
                       <button
                         id="social_facebook_signin_submit"
-                        type="submit"
+                        type="button"
                         className={`btn btn-default borderRadius-10 h-77 text-dark border`}
                       >
                         <img src="/media/auth-screen/facebook.svg" alt="facebook Icon" className="mr-3 socialIcon" />
@@ -256,17 +278,15 @@ function Login(props) {
               </div>
 
               <div className="form-group reg_icon text-center align-items-center">
-                <button
-                  id="social_google_signin_submit"
-                  type="submit"
-                  className="soci"
-                >
-                  <img src="/media/auth-screen/google.svg" alt="Goolge Icon" className="socialIcon" />
-
-                </button>
+              <button id="social_google_signin_submit"
+                  type="button"
+                  className="soci" onClick={(event) =>
+                            handleItemClick(event, "sign-in")}
+                          >  <img src="/media/auth-screen/google.svg" alt="Goolge Icon" className="socialIcon" />  </button>
+             
                 <button
                   id="social_facebook_signin_submit"
-                  type="submit"
+                  type="button"
                   className="soci"
                 >
                   <img src="/media/auth-screen/facebook.svg" alt="facebook Icon" className="socialIcon" />

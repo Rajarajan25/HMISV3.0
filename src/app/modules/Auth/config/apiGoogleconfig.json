@@ -1,0 +1,7 @@
+{
+    "clientId": "206134211850-dkt6kchknhkhvhjln3aojhjfbkkmfabf.apps.googleusercontent.com",
+    "apiKey": "AIzaSyBAHRVhu0dZnsT7L0_WAMgFmtkLd-CXUXM",
+    "calendarId":"jenijo0919@gmail.com",
+    "scope": "https://www.googleapis.com/auth/calendar",
+    "discoveryDocs": ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"]
+  }
