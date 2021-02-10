@@ -382,6 +382,8 @@
                 min-height: 50px;
                 background-color: #E5ECFD;
                 position: relative;
+                max-width: 50px;
+                max-height: 50px;
             }
             
             .stepperRight{
@@ -1226,20 +1228,109 @@
             z-index: 1;
         }
     }
+    .registration-form{
+        .businessSteps{
+            .MuiStepLabel-active {
+                        .stepperWidth{
+                            min-width:180px;
+                        }
+                }
+        }
+        .businessSteps {
+            max-width: 95%;
+        }
+    }
+    .col-xl-8.col-lg-11.wid {
+        flex: 0 0 83.33333%;
+        max-width: 83.33333%;
+    }
 }
-@media screen and (max-width: 1024px) and (min-width: 768px) {
+@media screen and (max-width: 1024px) and (min-width: 992px) {
+    .loginMaincontent {
+        .rounded-right {
+            min-height: 650px;
+        }
+    } 
+    .right_banner {
+        .sets {
+            z-index: 2; 
+            position: relative;
+            margin-left: 0 !important;
+        }
+        &:after {
+            z-index: 1;
+        }
+    }
+    .registration-form{
+        .businessSteps{
+            .MuiStepLabel-active {
+                        .stepperWidth{
+                            min-width:150px;
+                        }
+                }
+        }
+        .businessSteps {
+            max-width: 100%;
+        }
+    }
+    .busi_con {
+        &:after {
+        display: none;
+        }
+    }
+    .busi_con {
+        &:before {
+        display: none;
+        }
+    }
+  }
+  @media (min-width: 768px) and (max-width: 991px) {
     .loginMaincontent {
         .rounded-right {
             border-radius: 20px !important;
             min-height: 650px;
         }
     } 
+    .registration-form {
+        .MuiButton-root.backbtn {
+            padding: 0 15px;
+            height: 50px;
+            border-radius: 30px;
+            background: #1C6AFC !important;
+            color: #ffffff;
+            font-weight: 500;
+            font-size: 1.1em;
+            min-width: 180px;
+            box-shadow: none !important;
+            text-transform: capitalize;
+            margin-bottom: 15px;
+            bottom: 0;
+            left: 0;
+            top: inherit;
+        }
+    }
+    .busi_con {
+        &:after {
+        display: none;
+        }
+    }
+    .busi_con {
+        &:before {
+        display: none;
+        }
+    }
+    .login:after {
+        right: -295px;
+    }
+    .login:before {
+        left: -340px;
+        height: 230px;
+    }
   }
   @media screen and (max-width: 575px)  {
     .loginMaincontent {
         .rounded-right {
-            border-radius: 20px !important;
-            min-height: 525px;
+            border-radius: 20px 20px 0 0 !important;
         }
     } 
     .right_banner {
@@ -1290,6 +1381,54 @@
             padding: 3px;
             margin-right: 0px;
         }
+    }
+    .wl_txt {
+        font-size: 1.1em !important;
+    }
+    .sets {
+        width: 100%;
+    }
+    .width_420 {
+        max-width: 100%;
+    }
+    .login:before {
+        bottom: -80px;
+        left: -80px;
+        height: 160px;
+        background-size: 160px;
+    }
+    .login:after {
+        top: -20px;
+        right: 0px;
+        background-image: url(/media/auth-screen/topRight_mobile.svg);
+        background-size: 100%;
+    }
+    .login.login-1 {
+        &.bg_gry {
+            background-color: #ffffff !important;
+        }
+    }
+    .loginMaincontent  {
+        &.shadow {
+            box-shadow: none !important;
+            margin-top: -5px;
+        }
+    }
+    .logo-tb {
+        background: #fff;
+        padding: 5px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        line-height: 40px;
+        margin-left: 10px;
+        margin-top: -10px;
+        img {
+            width: 40px;
+        }
+    }
+    .col-xl-8.col-lg-11.wid {
+        padding: 0;
     }
     .registration-form {
         .info_img {

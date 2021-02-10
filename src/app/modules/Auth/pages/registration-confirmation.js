@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export default function RegistrationConfirmatoin() {
   return (
-    <div className="d-flex justify-content-center flex-column col-lg-8 wid col">
+    <div className="d-flex justify-content-center flex-column col-xl-8 col-lg-11 wid col">
       
       {/* start:: Aside header */}
       <Link to="/" className="flex-column-auto logo-tb mr-auto mb-5">
@@ -79,7 +79,7 @@ export default function RegistrationConfirmatoin() {
         {/*begin::Aside*/}
         <div className=" d-flex rounded-right bg-white registration-form login-signin mx-auto reg_con col-xl-5 col-lg-5 col-12">
           <div className="d-flex m-auto">
-            <div class="loginRightimg col-lg-10 col-xl-9 ml-18">
+            <div class="loginRightimg col-lg-10 col-xl-9 ml-xl-18 ml-lg-10 ml-0">
               <div className="text-left mb-6">
                 <h1 className="h1 color_3F4772 font-weight-600 d-flex my-auto"><span className="my-auto">Welcome, Saga</span> <img src="/media/auth-screen/clapping.svg" alt="clap" className="ml-3" /> <img src="/media/auth-screen/clapping.svg" alt="clap" className="ml-3" /></h1>      
                 <p className="font-size-18 wl_txt mt-10">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
