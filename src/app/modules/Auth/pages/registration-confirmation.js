@@ -80,6 +80,7 @@ export default function RegistrationConfirmatoin() {
         <div className=" d-flex rounded-right bg-white registration-form login-signin mx-auto reg_con col-xl-5 col-lg-5 col-12">
           <div className="d-flex m-auto">
             <div class="loginRightimg col-lg-10 col-xl-9 ml-xl-18 ml-lg-10 ml-0">
+            <img src="/media/auth-screen/welcome_img.svg" className="d-block d-xl-none d-lg-none d-md-none wlcme mw-100" alt="" />
               <div className="text-left mb-6">
                 <h1 className="h1 color_3F4772 font-weight-600 d-flex my-auto"><span className="my-auto">Welcome, Saga</span> <img src="/media/auth-screen/clapping.svg" alt="clap" className="ml-3" /> <img src="/media/auth-screen/clapping.svg" alt="clap" className="ml-3" /></h1>      
                 <p className="font-size-18 wl_txt mt-10">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
