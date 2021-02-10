@@ -11,6 +11,12 @@ import { login } from "../_redux/authCrud";
 import ApiCalendar from 'react-google-calendar-api';
 import { gapi } from 'gapi-script'
 import googleApiKey from '../config/apiGoogleconfig.json';
+import TwitterLogin from "react-twitter-login";
+import FacebookLogin from 'react-facebook-login';
+import FacebookLogin1 from 'react-facebook-login/dist/facebook-login-render-props'
+
+//import TiSocialFacebookCircular from '/media/auth-screen/facebook.svg';
+
 /*
   INTL (i18n) docs:
   https://github.com/formatjs/react-intl/blob/master/docs/Components.md#formattedmessage
@@ -92,10 +98,19 @@ function Login(props) {
       }, 1000);
     },
   });
+  const authHandler = (err, data) => {
+    console.log(err, data);
+  };
+   
 
   const [signin, setsignin] = useState(true);
   useEffect(() => {
   });
+  const responseFacebook = (response) => {
+    console.log(response);
+    alert("Login sucessfully to "+ response.email)
+  }
+   
   let sign = ApiCalendar.sign;
   const setupdatesignin = (signin) => {
     setsignin(!sign);
@@ -283,15 +298,33 @@ function Login(props) {
                   className="soci" onClick={(event) =>
                             handleItemClick(event, "sign-in")}
                           >  <img src="/media/auth-screen/google.svg" alt="Goolge Icon" className="socialIcon" />  </button>
-             
-                <button
-                  id="social_facebook_signin_submit"
-                  type="button"
-                  className="soci"
-                >
-                  <img src="/media/auth-screen/facebook.svg" alt="facebook Icon" className="socialIcon" />
+            
+                
+               <FacebookLogin1
+    appId="2842748732635735"
+    fields="name,email,picture"
+    callback={responseFacebook}
+    
+    render={renderProps => (
+      <button
+      id="social_facebook_signin_submit"
+      type="button"
+      className="soci"
+      onClick={renderProps.onClick}
+    >
+      <img src="/media/auth-screen/facebook.svg" alt="facebook Icon" className="socialIcon" />
 
-                </button>
+    </button>
+    
+    )}
+   
+    
+  >  
+ 
+  </FacebookLogin1>
+ 
+  
+
                 <button
                   id="social_facebook_signin_submit"
                   type="submit"
@@ -300,6 +333,11 @@ function Login(props) {
                   <img src="/media/auth-screen/twitter.svg" alt="facebook Icon" className="socialIcon" />
 
                 </button>
+                <TwitterLogin
+  loginUrl="http://localhost:4000/api/v1/auth/twitter"
+  
+  requestTokenUrl="http://localhost:4000/api/v1/auth/twitter/reverse"
+/>
               </div>  
 
                     {/*begin::Content*/}
