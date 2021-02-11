@@ -18,11 +18,11 @@ export function PatientList() {
         <div className="d-flex mb-1">
           <Link 
             to="#" 
-            className="font-weight-500 font-size-15 userName"
+            className="font-weight-500 font-size-14 userName"
             >
               Andrea Jemmiah
           </Link>
-          <span className="my-auto ml-auto">Nov 4, 2020</span>
+          <span className="my-auto ml-auto font-size-12">Nov 4, 2020</span>
         </div>
         <div className="d-flex font-size-12">
           <span className="status pl-3 online">Active</span>

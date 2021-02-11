@@ -868,7 +868,7 @@
     max-width: 360px;
 }
 
-.patientsList{
+.patientsList, .patientDetailsoverview{
 
 	&.card_bg{
     box-shadow: 0 3px 6px 0 #1043a71a;
@@ -894,6 +894,12 @@
 	.online{
 		color: #28A829;
 	}
+	.offline{
+		color: #E27D5F;
+	}
+	.recentVisit{
+		color: #FEB92B;
+	}
 	.status{
 		position: relative;
 		&::before{
@@ -909,7 +915,10 @@
 			background-color:#28A829 ;
 		}
 		&.offline::before{
-			background-color:#f00 ;
+			background-color:#E27D5F ;
+		}
+		&.recentVisit::before{
+			background-color:#FEB92B ;
 		}
 
 	}
@@ -918,8 +927,41 @@
 		& ,a, i{
 			color:$text-white;
 		}
+		span{
+			color: $text-white;
+		}
 		.online{
 			color: $text-white;
+		}
+		.status{
+			&::before{
+				background-color:#fff ;
+			}
+		}
+	}
+}
+.patientDetailsoverview{
+	.patientProfileimg{
+		img{
+			width: 100px;
+			height: 100px;
+		}
+	}
+	.patientPersoanlinfo{
+		label{
+			color:#292D34;
+			font-size: 1rem;
+			font-weight: 500;
+		}
+	}
+	.testReports{
+		color:#292D34;
+		font-size: 1rem;
+		box-shadow: 0px 3px 6px #00000029;
+		border-radius: 5px;
+
+		img{
+			max-width: 40px;
 		}
 	}
 }
