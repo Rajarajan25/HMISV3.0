@@ -14,14 +14,16 @@ export default class LoginOTP extends Component{
     return (
     <>
         <div className="d-flex flex-column justify-content-center w-100 h-100">
+        <div class="d-lg-none d-xl-none d-md-none d-block w-100 text-center">
+              <Link to="/" className="flex-column-auto logo-tb m--2 mr-auto">
+                <img alt="Logo" src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")} />
+              </Link>
+              <span className="mob_title">One Time Password</span>
+          </div>
           <Helmet  titleTemplate="HMIS | %s" title="Login Page" />           
           <div className="d-flex flex-row-reverse w-100 loginMaincontent h-100">
             {/*begin::Login*/}
-            <div className="d-flex flex-column flex-1 position-relative p-7 col"
-              style={{
-                backgroundColor: `#fff`,
-              }}
-            >
+            <div className="d-flex flex-column flex-1 position-relative p-7 bg-white col bg-white bor-20">
             <div className="d-flex flex-column flex-column-fluid mx-auto h-100 col-lg-10 col-xl-7 col-12">
               
 
@@ -88,7 +90,7 @@ export default class LoginOTP extends Component{
               
               
                 {/* begin::Mobile footer */}
-                <div className="d-flex flex-column-auto flex-column flex-sm-row  mt-5 px-5">
+                <div className="d-none d-xl-flex d-lg-flex d-md-flex flex-column-auto flex-column flex-sm-row  mt-5 px-5">
                   <div className="text-dark-50 font-weight-400 order-2 order-sm-1 my-2 mr-15">
                     &copy; 2020 HMIS. All rights reserved.
                   </div>

@@ -9,12 +9,15 @@ export default function RegistrationConfirmatoin() {
     <div className="d-flex justify-content-center flex-column col-xl-8 col-lg-11 wid col">
       
       {/* start:: Aside header */}
-      <Link to="/" className="flex-column-auto logo-tb mr-auto mb-5">
+      <div class="d-lg-flex d-xl-flex d-md-flex d-block w-100 text-center">
+      <Link to="/" className="flex-column-auto logo-tb mb-5">
         <img
           alt="Logo"
           src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
         />
       </Link>
+      <span className="mob_title d-lg-none d-xl-none d-md-none d-inline-block mt-0">Welcome to our Business!!</span>
+    </div>
       {/* end:: Aside header */}
 
       <div className="d-flex w-100 loginMaincontent shadow min-heis position-relative" >
@@ -22,7 +25,7 @@ export default function RegistrationConfirmatoin() {
         <div
           className="login-aside d-none d-xl-flex d-lg-flex flex-2 bgi-size-cover bgi-no-repeat col-7 order-0 rounded-left"
           style={{
-            backgroundColor: `#5382FC`,
+            backgroundColor: `#1D6AFF`,
           }}
         >
           {/*

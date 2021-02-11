@@ -7,6 +7,18 @@
 // Initialization of global variables, mixins and functions
 @import "../../../init";
 
+.login.login-1 .loginMaincontent .login-signin {
+    a {
+        color: #1D6AFF;
+        text-decoration: none !important;
+        &.text-primary {
+            color: #1D6AFF !important;
+        }
+    }
+}
+.was-validated .form-control:valid {
+    border-color: #1d6aff !important;
+}
 .login.login-1 {
     
     font-family: $font-Registration-family-base;
@@ -285,13 +297,13 @@
 .emailIcon:before{
     content: url(/media/auth-screen/emailIcon.svg);
     position: absolute;
-    top: 24px;
+    top: 20px;
     left: 20px;
 }
 .passwordIcon:before{
     content: url(/media/auth-screen/passwordIcon.svg);
     position: absolute;
-    top: 22px;
+    top: 19px;
     left: 20px;
 }
 .login-form input.form-control{
@@ -302,7 +314,7 @@
 .login-form input.form-control{
     //padding-left: 50px !important;
     border-radius: 10px;
-    height: 65px !important;
+    height: 55px !important;
     color: $dark_85;
 }
 .registration-form{
@@ -389,7 +401,7 @@
             .stepperRight{
                 .stepperSMtext{
                     font-size: 1.1em;
-                    color: #5382FC;
+                    color: #1D6AFF;
                     font-weight: $font-weight-semibold;
 
                     text{
@@ -446,7 +458,7 @@
                 font-style: normal;
             }
             &.active,&:hover{
-                background: #1C6AFC;
+                background: #1D6AFF;
                 color: #fff;
                 box-shadow: 0 10px 20px #1C6AFC33;
                 .catIcon{
@@ -494,7 +506,7 @@
         }
         .btn.btn-light:hover:not(.btn-text):not(:disabled):not(.disabled), .btn.btn-light:focus:not(.btn-text), .btn.btn-light.focus:not(.btn-text),.active{
             background: transparent linear-gradient(180deg, #FBFCFF 0%, #EEF5FF 80%, #EDF3FF 100%) 0% 0% no-repeat padding-box !important;
-            border-color: #1C6AFC !important;
+            border-color: #1D6AFF !important;
             box-shadow: -1px 10px 19px #C6DBF4 !important;
         }
         & > div{
@@ -506,13 +518,13 @@
         padding: 0 15px;
         height: 50px;
         border-radius: 30px;
-        background: #1C6AFC !important;
+        background: #1D6AFF !important;
         color: #ffffff;
         font-weight: 500;
         font-size: 1.1em;
         min-width: 180px;
         box-shadow: none !important;
-        /*box-shadow: -3px 3px 6px #1c6afc4d;*/
+        /*box-shadow: -3px 3px 6px #1D6AFF4d;*/
         text-transform: capitalize;
         margin-bottom: 15px;
         margin-right: 0;
@@ -544,7 +556,7 @@
     }
     .terms_c {
         font-size: 1.1em;
-        color: #343434;
+        color: #343434 !important;
         margin-left: 8px;
     }
     .ch-bx .checkbox {
@@ -722,7 +734,7 @@
     }
 }
 .leftPanel {
-	background:#5382FC;
+	background:#1D6AFF;
 }
 .borderRadius-10{
     border-radius: 10px !important;
@@ -874,8 +886,8 @@
  transition-duration:0s
 }
 ._2FwA input[type=checkbox]:checked + label {
-    background: #1C6AFC;
-    border: 1px solid #1C6AFC;
+    background: #1D6AFF;
+    border: 1px solid #1D6AFF;
     box-shadow: 0 10px 20px #1C6AFC33;
 }
 ._2FwA input[type=checkbox]:checked+label:before {
@@ -1071,7 +1083,7 @@
     .MuiSelect-selectMenu {
         font-size: 1em;
         font-weight: $font-weight-medium !important;
-        color: #1C6AFC;
+        color: #1D6AFF;
         padding: 6px 5px 2px;
     }
     .MuiInput-underline:before {
@@ -1146,7 +1158,7 @@
     font-size: 1.1em;
 }
 .log_letter {
-    color: #5382FC;
+    color: #1D6AFF;
     letter-spacing: -0.11px;
     font-size: 1.1em;
 }
@@ -1296,7 +1308,7 @@
             padding: 0 15px;
             height: 50px;
             border-radius: 30px;
-            background: #1C6AFC !important;
+            background: #1D6AFF !important;
             color: #ffffff;
             font-weight: 500;
             font-size: 1.1em;
@@ -1423,8 +1435,13 @@
         line-height: 40px;
         margin-left: 10px;
         margin-top: -10px;
+        display: inline-block;
+        float: left;
         img {
             width: 40px;
+        }
+        &.m--2 {
+            margin-top: -2px;
         }
     }
     .col-xl-8.col-lg-11.wid {
@@ -1442,6 +1459,38 @@
     h1.font-size-h1 {
         font-size: calc(1.325rem + 0.9vw) !important;
     }
+    .bor-20 {
+        border-radius: 20px 20px 0 0;
+        margin-top: 10px;
+    }
+    .mob_title {
+        font-size: 18px;
+        color: #fff;
+        display: inline-block;
+        font-weight: 600;
+        line-height: inherit;
+        margin-left: -50px;
+        margin-top: 8px;
+    }
+    .login-form {
+        input.form-control {
+                height: 50px !important;
+        }
+    }
+    .emailIcon:before {
+        top: 18px;
+    }
+    .passwordIcon:before {
+        top: 15px;
+    }
+    .login.login-1 {
+        button.soci {
+            padding: 15px;
+        }
+        .lg_ac .btn {
+            min-width: 150px;
+        }
+    }
     .registration-form {
         .info_img {
                 min-width: 25px;
@@ -1456,6 +1505,14 @@
             margin-left: 0 !important;
             margin-top: 0 !important;
         }
+        .categoryList {
+            .btn { 
+                min-height: 100px;
+                img {
+                    max-width: 65%;
+                }
+            }
+        } 
         .categoryList > div {
             width: 33.33%;
         }
@@ -1474,7 +1531,7 @@
             padding: 0 15px;
             height: 40px;
             border-radius: 30px;
-            background: #1C6AFC !important;
+            background: #1D6AFF !important;
             color: #ffffff;
             font-weight: 500;
             font-size: 1.1em;

@@ -93,16 +93,18 @@ function Login(props) {
 
   return (
     <div className="d-flex flex-column justify-content-center w-100 h-100">
+           <div class="d-lg-none d-xl-none d-md-none d-block w-100 text-center">
+              <Link to="/" className="flex-column-auto logo-tb m--2">
+                <img alt="Logo" src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")} />
+              </Link>
+              <span className="mob_title">Login Your Account</span>
+            </div>
         <Helmet  titleTemplate="HMIS | %s" title="Login Page" />
            
           <div className="d-flex flex-row-reverse w-100 loginMaincontent h-100">
             {/*begin::Login*/}
-            <div className="d-flex flex-column flex-1 position-relative p-7 col"
-              style={{
-                backgroundColor: `#fff`,
-              }}
-            >
-              <div className="d-flex flex-column flex-column-fluid mx-auto col-lg-10 col-xl-7 col-12 mh-100">
+            <div className="d-flex flex-column flex-1 position-relative bg-white p-7 col bor-20">
+              <div className="d-flex flex-column flex-column-fluid mx-auto col-lg-10 col-xl-7 col-12 mh-100 p-0">
                 {/* start:: Aside header */}
                 <Link to="/" className="flex-column-auto pb-lg-0 pb-10 mb-10 d-none">
                   <img
@@ -115,7 +117,7 @@ function Login(props) {
                 <div className="login-form login-signin my-auto" id="kt_login_signin_form">
                   
                   {/* begin::Head */}
-                  <div className="text-left mb-12">
+                  <div className="text-left mb-12 d-none d-xl-block d-lg-block d-md-block">
                     <h1 className="font-size-30 color_01234B font-weight-600 mb-5">
                       <FormattedMessage id="AUTH.LOGIN.TITLE" />
                     </h1>
@@ -247,7 +249,7 @@ function Login(props) {
               </div>
               <div className="form-group fv-plugins-icon-container mt-0">
                 {/*begin::Content header*/}
-                <div className="text-center font-size-18 mb-15 mb-lg-0 flex-column-auto justify-content-center py-5">
+                <div className="text-center font-size-15 mb-5 mb-xl-5 mb-lg-5 mb-md-15 flex-column-auto justify-content-center py-5">
                   <span className="font-weight-500">
                   Login with
                   </span>                  
@@ -285,7 +287,7 @@ function Login(props) {
                     {/*begin::Content*/}
                     <div className="form-group fv-plugins-icon-container mt-5 mb-0">
                         {/*begin::Content header*/}
-                        <div className="text-center mb-15 mb-lg-0 flex-column-auto justify-content-center py-5 px-10">
+                        <div className="text-center mb-0 mb-xl-5 mb-lg-5 mb-md-15 flex-column-auto justify-content-center py-5">
                           <span className="font-weight-bold text-dark-50">
                             Not registered yet? 
                           </span>
@@ -301,7 +303,7 @@ function Login(props) {
                       </div>
                     <div className="form-group fv-plugins-icon-container mt-0">
                         {/*begin::Content header*/}
-                        <div className="text-center mb-15 mb-lg-0 flex-column-auto justify-content-center py-5 px-10">
+                        <div className="text-center mb-0 mb-xl-5 mb-lg-5 mb-md-15 flex-column-auto justify-content-center py-5">
                           <Link
                             to="/auth/sign-up"
                             className="font-weight-bold ml-2 createAccountlink"
@@ -318,7 +320,7 @@ function Login(props) {
               
                 
                 {/* begin::Mobile footer */}
-                <div className="d-flex flex-column-auto flex-column flex-sm-row  mt-5 px-5">
+                <div className="d-none d-xl-flex d-lg-flex d-md-flex flex-column-auto flex-column flex-sm-row  mt-5 px-5">
                   <div className="text-dark-50 font-weight-bold order-2 order-sm-1 my-2 mr-15">
                     &copy; 2020 HMIS
                   </div>
