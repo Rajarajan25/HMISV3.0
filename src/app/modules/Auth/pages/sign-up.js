@@ -6,21 +6,24 @@ import { Link } from "react-router-dom";
 export default function step1() {
   return (
 
-    <div className="d-flex justify-content-center flex-column col-lg-8 wid col">
+    <div className="d-flex justify-content-center flex-column col-xl-8 col-lg-11 wid col">
 
     {/* start:: Aside header */}
-    <Link to="/" className="flex-column-auto logo-tb mr-auto mb-5">
-      <img
-        alt="Logo"
-        src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
-      />
-    </Link>
+    <div class="d-lg-flex d-xl-flex d-md-flex d-block w-100 text-center">
+      <Link to="/" className="flex-column-auto logo-tb mb-5">
+        <img
+          alt="Logo"
+          src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
+        />
+      </Link>
+      <span className="mob_title d-lg-none d-xl-none d-md-none d-inline-block mt-0">Create account</span>
+    </div>
     {/* end:: Aside header */}
 <div className="d-flex w-100 loginMaincontent shadow min-heis" >
     {/*begin::Aside*/}
-    <div className="login-aside d-flex flex-2 bgi-size-cover bgi-no-repeat col-7 order-0 rounded-left"
+    <div className="login-aside d-none d-xl-flex d-lg-flex flex-2 bgi-size-cover bgi-no-repeat col-7 order-0 rounded-left"
               style={{
-                backgroundColor: `#5382FC`,
+                backgroundColor: `#1D6AFF`,
               }}
             >
               {/*
@@ -75,7 +78,7 @@ export default function step1() {
               {/*end: Aside Container*/}
             </div>
             {/*begin::Aside*/}
-      <div className="d-flex rounded-right bg-white registration-form login-signin col-5">
+      <div className="d-flex rounded-right bg-white registration-form login-signin col-xl-5 col-lg-5 col-12">
         <div className="mh-100 mt-7 p-5 mx-auto width_420">
           <div className="text-left mb-6">
             <h1 className="font-size-h1 color_3F4772 font-weight-600 tit_letter mb-4">Sign up to Hmis.</h1>      

@@ -7,6 +7,18 @@
 // Initialization of global variables, mixins and functions
 @import "../../../init";
 
+.login.login-1 .loginMaincontent .login-signin {
+    a {
+        color: #1D6AFF;
+        text-decoration: none !important;
+        &.text-primary {
+            color: #1D6AFF !important;
+        }
+    }
+}
+.was-validated .form-control:valid {
+    border-color: #1d6aff !important;
+}
 .login.login-1 {
     
     font-family: $font-Registration-family-base;
@@ -105,7 +117,7 @@
         padding: 12px 15px;
         //height: 65px;
         font-size: 1.2em !important;
-        min-width: 175px;
+        min-width: 165px;
         &.lo_otp {
             background: transparent !important;
             border: 1px solid #1d6aff !important;
@@ -285,13 +297,13 @@
 .emailIcon:before{
     content: url(/media/auth-screen/emailIcon.svg);
     position: absolute;
-    top: 24px;
+    top: 20px;
     left: 20px;
 }
 .passwordIcon:before{
     content: url(/media/auth-screen/passwordIcon.svg);
     position: absolute;
-    top: 22px;
+    top: 19px;
     left: 20px;
 }
 .login-form input.form-control{
@@ -302,7 +314,7 @@
 .login-form input.form-control{
     //padding-left: 50px !important;
     border-radius: 10px;
-    height: 65px !important;
+    height: 55px !important;
     color: $dark_85;
 }
 .registration-form{
@@ -382,12 +394,14 @@
                 min-height: 50px;
                 background-color: #E5ECFD;
                 position: relative;
+                max-width: 50px;
+                max-height: 50px;
             }
             
             .stepperRight{
                 .stepperSMtext{
                     font-size: 1.1em;
-                    color: #5382FC;
+                    color: #1D6AFF;
                     font-weight: $font-weight-semibold;
 
                     text{
@@ -444,7 +458,7 @@
                 font-style: normal;
             }
             &.active,&:hover{
-                background: #1C6AFC;
+                background: #1D6AFF;
                 color: #fff;
                 box-shadow: 0 10px 20px #1C6AFC33;
                 .catIcon{
@@ -492,7 +506,7 @@
         }
         .btn.btn-light:hover:not(.btn-text):not(:disabled):not(.disabled), .btn.btn-light:focus:not(.btn-text), .btn.btn-light.focus:not(.btn-text),.active{
             background: transparent linear-gradient(180deg, #FBFCFF 0%, #EEF5FF 80%, #EDF3FF 100%) 0% 0% no-repeat padding-box !important;
-            border-color: #1C6AFC !important;
+            border-color: #1D6AFF !important;
             box-shadow: -1px 10px 19px #C6DBF4 !important;
         }
         & > div{
@@ -504,13 +518,13 @@
         padding: 0 15px;
         height: 50px;
         border-radius: 30px;
-        background: #1C6AFC !important;
+        background: #1D6AFF !important;
         color: #ffffff;
         font-weight: 500;
         font-size: 1.1em;
         min-width: 180px;
         box-shadow: none !important;
-        /*box-shadow: -3px 3px 6px #1c6afc4d;*/
+        /*box-shadow: -3px 3px 6px #1D6AFF4d;*/
         text-transform: capitalize;
         margin-bottom: 15px;
         margin-right: 0;
@@ -542,7 +556,7 @@
     }
     .terms_c {
         font-size: 1.1em;
-        color: #343434;
+        color: #343434 !important;
         margin-left: 8px;
     }
     .ch-bx .checkbox {
@@ -645,7 +659,7 @@
         }
     }
     .MuiFormLabel-root {
-        font-size: 14px;
+ 
         color: #9FAFC2;
     }
     .reg_icon button.soci {
@@ -720,7 +734,7 @@
     }
 }
 .leftPanel {
-	background:#5382FC;
+	background:#1D6AFF;
 }
 .borderRadius-10{
     border-radius: 10px !important;
@@ -872,8 +886,8 @@
  transition-duration:0s
 }
 ._2FwA input[type=checkbox]:checked + label {
-    background: #1C6AFC;
-    border: 1px solid #1C6AFC;
+    background: #1D6AFF;
+    border: 1px solid #1D6AFF;
     box-shadow: 0 10px 20px #1C6AFC33;
 }
 ._2FwA input[type=checkbox]:checked+label:before {
@@ -1069,7 +1083,7 @@
     .MuiSelect-selectMenu {
         font-size: 1em;
         font-weight: $font-weight-medium !important;
-        color: #1C6AFC;
+        color: #1D6AFF;
         padding: 6px 5px 2px;
     }
     .MuiInput-underline:before {
@@ -1144,7 +1158,7 @@
     font-size: 1.1em;
 }
 .log_letter {
-    color: #5382FC;
+    color: #1D6AFF;
     letter-spacing: -0.11px;
     font-size: 1.1em;
 }
@@ -1155,6 +1169,31 @@
 }
 .transScale{
     transform: scale(0.8);
+}
+.col.wid_360 {
+    max-width: 360px;
+}
+.card_bg {
+    box-shadow: 0 3px 6px 0 #1043a71a;
+    border: 0;
+    background-color: #fff;
+    background-clip: border-box;
+    padding: 12px 11px;
+    border-radius: 10px;    
+    margin-bottom: 13px;
+    .card_txt {
+        min-width: 150px;
+        margin-right: 10px;
+    }
+    .symbol.symbol-50 .symbol-label {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+    .min_20 {
+        max-width:  20px;
+    }
 }
 
 // Desktop and Mobile mode
@@ -1192,5 +1231,362 @@
     .busi_con::before {
         right: -383px;
     }
+    .right_banner {
+        .sets {
+            z-index: 2; 
+            position: relative;
+        }
+        &:after {
+            z-index: 1;
+        }
+    }
+    .registration-form{
+        .businessSteps{
+            .MuiStepLabel-active {
+                        .stepperWidth{
+                            min-width:180px;
+                        }
+                }
+        }
+        .businessSteps {
+            max-width: 95%;
+        }
+    }
+    .col-xl-8.col-lg-11.wid {
+        flex: 0 0 83.33333%;
+        max-width: 83.33333%;
+    }
 }
 
+@media screen and (max-width: 1024px) and (min-width: 992px) {
+    .loginMaincontent {
+        .rounded-right {
+            min-height: 650px;
+        }
+    } 
+    .right_banner {
+        .sets {
+            z-index: 2; 
+            position: relative;
+            margin-left: 0 !important;
+        }
+        &:after {
+            z-index: 1;
+        }
+    }
+    .registration-form{
+        .businessSteps{
+            .MuiStepLabel-active {
+                        .stepperWidth{
+                            min-width:150px;
+                        }
+                }
+        }
+        .businessSteps {
+            max-width: 100%;
+        }
+    }
+    .busi_con {
+        &:after {
+        display: none;
+        }
+    }
+    .busi_con {
+        &:before {
+        display: none;
+        }
+    }
+  }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .loginMaincontent {
+        .rounded-right {
+            border-radius: 20px !important;
+            min-height: 650px;
+        }
+    } 
+    .registration-form {
+        .MuiButton-root.backbtn {
+            padding: 0 15px;
+            height: 50px;
+            border-radius: 30px;
+            background: #1D6AFF !important;
+            color: #ffffff;
+            font-weight: 500;
+            font-size: 1.1em;
+            min-width: 180px;
+            box-shadow: none !important;
+            text-transform: capitalize;
+            margin-bottom: 15px;
+            bottom: 0;
+            left: 0;
+            top: inherit;
+        }
+    }
+    .busi_con {
+        &:after {
+        display: none;
+        }
+    }
+    .busi_con {
+        &:before {
+        display: none;
+        }
+    }
+    .login:after {
+        right: -295px;
+    }
+    .login:before {
+        left: -340px;
+        height: 230px;
+    }
+  }
+  @media screen and (max-width: 575px)  {
+    .loginMaincontent {
+        .rounded-right {
+            border-radius: 20px 20px 0 0 !important;
+        }
+    } 
+    .right_banner {
+        &:after {
+        display: none;
+        }
+    }
+    .reg_con {
+        &:after {
+        display: none;
+        }
+    }
+    .busi_con {
+        &:after {
+        display: none;
+        }
+    }
+    .busi_con {
+        &:before {
+        display: none;
+        }
+    }
+    .date_bx {
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        margin-right: 10px;
+    }
+    .tm_area {
+        .st_tm, .end_tm {
+            min-width: 98px;
+        }
+        .se_to {
+            min-width: 20px;
+        }
+    }
+    .dt_area {
+        padding: 2px 6px 2px 2px;
+        .date_bx {
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            margin-right: 3px;
+        }
+    }
+    .wal_clk {
+        img {
+            padding: 3px;
+            margin-right: 0px;
+        }
+    }
+    .wl_txt {
+        font-size: 1.1em !important;
+    }
+    .sets {
+        width: 100%;
+    }
+    .width_420 {
+        max-width: 100%;
+    }
+    .login:before {
+        bottom: -80px;
+        left: -80px;
+        height: 160px;
+        background-size: 160px;
+    }
+    .login:after {
+        top: -20px;
+        right: 0px;
+        background-image: url(/media/auth-screen/topRight_mobile.svg);
+        background-size: 100%;
+    }
+    .login.login-1 {
+        &.bg_gry {
+            background-color: #ffffff !important;
+        }
+    }
+    .loginMaincontent  {
+        &.shadow {
+            box-shadow: none !important;
+            margin-top: -5px;
+        }
+    }
+    .logo-tb {
+        background: #fff;
+        padding: 5px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        line-height: 40px;
+        margin-left: 10px;
+        margin-top: -10px;
+        display: inline-block;
+        float: left;
+        img {
+            width: 40px;
+        }
+        &.m--2 {
+            margin-top: -2px;
+        }
+    }
+    .col-xl-8.col-lg-11.wid {
+        padding: 0;
+    }
+    .busi_con {
+        margin-top: 30px;
+    }
+    .wlcme {
+        margin: 75px auto 50px;
+    }
+    .busicme {
+        margin: 25px auto 30px;
+    }
+    h1.font-size-h1 {
+        font-size: calc(1.325rem + 0.9vw) !important;
+    }
+    .bor-20 {
+        border-radius: 20px 20px 0 0;
+        margin-top: 10px;
+    }
+    .mob_title {
+        font-size: 18px;
+        color: #fff;
+        display: inline-block;
+        font-weight: 600;
+        line-height: inherit;
+        margin-left: -50px;
+        margin-top: 8px;
+    }
+    .login-form {
+        input.form-control {
+                height: 50px !important;
+        }
+    }
+    .emailIcon:before {
+        top: 18px;
+    }
+    .passwordIcon:before {
+        top: 15px;
+    }
+    .login.login-1 {
+        button.soci {
+            padding: 15px;
+        }
+        .lg_ac .btn {
+            min-width: 150px;
+        }
+    }
+    .registration-form {
+        .info_img {
+                min-width: 25px;
+                margin: 27px 0px 0 0;
+        }
+        input.form-control{
+            height: 40px !important;
+        }
+        .sign-btn {
+            height: 45px;
+            min-width: 100%;
+            margin-left: 0 !important;
+            margin-top: 0 !important;
+        }
+        .categoryList {
+            max-height: 350px;
+            .btn { 
+                min-height: 100px;
+                img {
+                    max-width: 65%;
+                }
+            }
+        } 
+        .categoryList > div {
+            width: 33.33%;
+        }
+        .rightPanel {
+            .subCategory {
+                padding: 8px 6px;
+                .catIcon{
+                    width: 25px;
+                    height: 25px;
+                    margin-right: 5px;
+                }
+            }
+        }
+        .MuiButton-root.backbtn {
+            margin: 0;
+            padding: 0 15px;
+            height: 40px;
+            border-radius: 30px;
+            background: #1D6AFF !important;
+            color: #ffffff;
+            font-weight: 500;
+            font-size: 1.1em;
+            min-width: 120px;
+            box-shadow: none !important;
+            text-transform: capitalize;
+            margin-bottom: 15px;
+            margin-right: 0;
+            margin-top: 10px;
+            bottom: 0;
+            left: 0;
+            top: inherit;
+        }
+        .nextButton {
+            height: 40px;
+            min-width: 120px;
+        }
+        .businessSteps {
+            max-width: 100%;
+            padding: 5px;
+            .stepperWidth {
+                .stepperIcon {
+                    margin: auto 0;
+                    min-width: 35px;
+                    max-width: 35px;
+                    min-height: 35px;
+                    max-height: 35px;
+                    img {
+                        height: 20px !important;
+                        display: block !important;
+                        margin: 6px auto;
+                    }
+                }
+                .stepperRight {
+                    .stepperName {
+                        display: none;
+                    }
+                }
+            }
+            .MuiStepLabel-active {
+                .stepperWidth {
+                    min-width: inherit;
+                }
+            }
+            .MuiStep-completed {
+                padding: 0 9px;
+                .stepperIcon {
+                    &:after {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+  }
+>>>>>>> efa8821c3688d166b2c1d3a2bb1cda4ab3873d3f

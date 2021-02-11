@@ -210,7 +210,7 @@ function Registration(props) {
             {/* end: Fullname */}
 
             <div className="d-flex fv-plugins-icon-container">
-            <div className="form-group col-5 p-0 d-flex coun_cde">
+            <div className="form-group col-6 p-0 d-flex coun_cde">
               <div className="info_img">
                 <img src="/media/auth-screen/feedback_icon.svg" className="m-auto mw-100" alt="" />
               </div>
@@ -219,7 +219,7 @@ function Registration(props) {
                   <BusinessSize />
                   </div>
               </div>
-              <div className="form-group col-7 d-flex coun_cde">
+              <div className="form-group col-6 d-flex coun_cde">
                 <div className="info_img">
                   <img src="/media/auth-screen/branch_icon.svg" className="m-auto mw-100" alt="" />
                 </div>
@@ -233,7 +233,7 @@ function Registration(props) {
             </div>
             
             <div className="d-flex fv-plugins-icon-container">
-              <div className="form-group col-5 p-0 d-flex coun_cde">
+              <div className="form-group col-6 p-0 d-flex coun_cde">
                 <div className="info_img">
                   <img src="/media/auth-screen/phone_icon.svg" className="m-auto mw-100" alt="" />
                 </div>
@@ -242,7 +242,7 @@ function Registration(props) {
                     <CountryCode />
                 </div>
               </div>
-              <div className="form-group col-7">
+              <div className="form-group col-6">
                   <label class="form-label d-block" for="exampleForm.ControlInput1">Phone No</label>
                   <input
                     placeholder="Phone"

@@ -26,7 +26,7 @@ export function AuthPage() {
             <div className="position-relative p-0 col order-1  col-12 col">
               
               {/* begin::Content body */}
-              <div className="d-flex flex-column-fluid flex-center mt-30 mt-lg-0 h-100">
+              <div className="d-flex flex-column-fluid flex-center mt-5 mt-lg-0 h-100">
                 <Switch>
                   <ContentRoute path="/auth/login" component={Login} />
                   <ContentRoute
