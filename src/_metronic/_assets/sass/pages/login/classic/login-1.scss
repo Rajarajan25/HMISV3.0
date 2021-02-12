@@ -803,7 +803,7 @@
     .login.login-1 {
         .login-form {
             width: 100%;
-            max-width: 350px;
+            //max-width: 350px;
         }
     }
 }
@@ -1304,6 +1304,17 @@
             min-height: 650px;
         }
     } 
+    .logo-log {
+        padding: 13px 10px 25px 13px;
+    }
+    .bor-20 {
+        box-shadow: 0 0.5rem 1.5rem 0.5rem rgba(0, 0, 0, 0.075) !important;
+        margin: 0px 12.5px;
+        border-radius: 20px;
+    }
+    .width_420 {
+        max-width: 100%;
+    }
     .registration-form {
         .MuiButton-root.backbtn {
             padding: 0 15px;
@@ -1340,10 +1351,11 @@
         height: 230px;
     }
   }
-  @media screen and (max-width: 575px)  {
+  @media screen and (max-width: 767px)  {
     .loginMaincontent {
         .rounded-right {
             border-radius: 20px 20px 0 0 !important;
+            min-height: 570px;
         }
     } 
     .right_banner {
@@ -1354,6 +1366,13 @@
     .reg_con {
         &:after {
         display: none;
+        }
+    }
+    .busi_con {
+        h1.h1 {
+            img {
+                width: 40px;
+            }
         }
     }
     .busi_con {
@@ -1448,7 +1467,8 @@
         padding: 0;
     }
     .busi_con {
-        margin-top: 30px;
+        margin-top: 20px;
+        padding: 0 !important;
     }
     .wlcme {
         margin: 75px auto 50px;
@@ -1519,7 +1539,7 @@
         }
         .rightPanel {
             .subCategory {
-                padding: 8px 6px;
+                padding: 6px 6px;
                 .catIcon{
                     width: 25px;
                     height: 25px;

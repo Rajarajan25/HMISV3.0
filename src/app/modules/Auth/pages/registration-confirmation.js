@@ -16,7 +16,7 @@ export default function RegistrationConfirmatoin() {
           src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
         />
       </Link>
-      <span className="mob_title d-lg-none d-xl-none d-md-none d-inline-block mt-0">Welcome to our Business!!</span>
+      <span className="mob_title d-lg-none d-xl-none d-md-none d-inline-block mt-0">Welcome to our Business!</span>
     </div>
       {/* end:: Aside header */}
 
