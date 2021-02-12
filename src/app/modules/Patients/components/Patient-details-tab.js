@@ -16,7 +16,7 @@ export  class PatientDetailsTab extends React.Component {
       <Tab.Container id="left-tabs-example" defaultActiveKey="first">
         <Row>
           <Col sm={12} className="bg-white">
-            <Nav variant="tabs" className="">
+            <Nav variant="tabs" className="custompatientTab">
               <Nav.Item>
                 <Nav.Link eventKey="first">Overview</Nav.Link>
               </Nav.Item>
@@ -37,17 +37,14 @@ export  class PatientDetailsTab extends React.Component {
           <Col sm={12}>
             <Tab.Content className="p-5">
               <Tab.Pane eventKey="first">
-                <TabContent />
+                <PatientBasicDetails/>
               </Tab.Pane>
               <Tab.Pane eventKey="second">
-                Thy gift, thy tables, are within my brain Full
-                character'd with lasting memory, Which shall above that
-                idle rank remain, Beyond all date; even to eternity: Or,
-                at the least, so long as brain and heart Have faculty by
-                nature to subsist; Till each to raz'd oblivion yield his
-                part Of thee, thy record never can be miss'd. That poor
-                retention could not so much hold, Nor need I tallies thy
-                dear love to score;
+                <div className="d-flex">
+                <PatientFileList />
+                <PatientFileList />
+                <PatientFileList />
+                </div>
               </Tab.Pane>
               <Tab.Pane eventKey="three">
                 asdf
@@ -62,7 +59,7 @@ export  class PatientDetailsTab extends React.Component {
 
 export default PatientDetailsTab;
 
-export function TabContent(){
+export function PatientBasicDetails(){
   return(
     <div className="d-flex flex-column patientDetailsoverview">
       <div className="d-flex flex-row patientPersoanlinfo">
@@ -74,12 +71,12 @@ export function TabContent(){
             <div className="d-flex mb-1">
               <Link 
                 to="#" 
-                className="font-weight-500 font-size-14 userName"
+                className="font-weight-500 font-size-18 userName"
                 >
                   Andrea Jemmiah
               </Link>
             </div>
-            <div className="d-flex font-size-12">
+            <div className="d-flex font-size-14 font-weight-500">
               <span className="status pl-3 online">Active</span>
             </div>
           </div>
@@ -128,7 +125,7 @@ export function TabContent(){
         </div>
       </div>
       <div className="d-flex w-100 flex-column mt-15">
-        <div className="d-flex font-size-h4 mb-3 font-weight-500">
+        <div className="d-flex font-size-16 mb-3 font-weight-500">
           <span>Patient Summary</span>       
         </div>
         <div className="d-flex w-100 flex-column font-size-14">
@@ -136,7 +133,7 @@ export function TabContent(){
         </div>
       </div>
       <div className="d-flex w-100 flex-column mt-5">
-        <div className="d-flex font-size-h4 mb-3 font-weight-500">          
+        <div className="d-flex font-size-16 mb-3 font-weight-500">          
           <span>Test Report</span>
           <span className="ml-auto">3 Tests</span>       
         </div>
@@ -153,6 +150,34 @@ export function TabContent(){
             <img src={toAbsoluteUrl("/media/patients/heart_beat.svg")} alt="" className="mx-auto" />
             <span className="mt-5 font-size-12 font-weight-500 text-wrap">Test Report</span>
           </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+export function PatientFileList() {
+  return (
+    <div className="d-flex w-100 patientFiles mx-2">
+      <div className="symbol symbol-50 symbol-light mr-3">
+        <span className="symbol-label">
+          <img
+            alt="patient image" 
+            className="mh-100 rounded align-self-center"
+            src={toAbsoluteUrl("/media/users/300_20.jpg")}
+          />
+        </span>
+      </div>
+      <div className="d-flex flex-column w-100">
+        <div className="d-flex my-auto">
+          <Link 
+            to="#" 
+            className="font-weight-500 font-size-14 userName"
+            >
+              Check up result.pdf
+          </Link>
+          <span className="my-auto ml-auto font-size-12">12kb</span>
         </div>
       </div>
     </div>
