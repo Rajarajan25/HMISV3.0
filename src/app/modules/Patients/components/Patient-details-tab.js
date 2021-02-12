@@ -40,7 +40,12 @@ export  class PatientDetailsTab extends React.Component {
                 <PatientBasicDetails/>
               </Tab.Pane>
               <Tab.Pane eventKey="second">
-                <div className="d-flex">
+                <div className="d-flex flex-wrap">
+                <PatientFileList />
+                <PatientFileList />
+                <PatientFileList />
+                <PatientFileList />
+                <PatientFileList />
                 <PatientFileList />
                 <PatientFileList />
                 <PatientFileList />
