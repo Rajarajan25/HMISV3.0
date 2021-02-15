@@ -2,6 +2,7 @@ import React from "react";
 import {Tab, Tabs, Nav, Col, Row} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
+import { PatientHistory } from "./Patient-history";
 
 export  class PatientDetailsTab extends React.Component {
   constructor(props, context) {
@@ -52,7 +53,7 @@ export  class PatientDetailsTab extends React.Component {
                 </div>
               </Tab.Pane>
               <Tab.Pane eventKey="three">
-                asdf
+                <PatientHistory />
               </Tab.Pane>
             </Tab.Content>
           </Col>
