@@ -3,6 +3,7 @@ import {Tab, Tabs, Nav, Col, Row} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { PatientHistory } from "./Patient-history";
+import { PatientApponiment } from "./Patient-appoinment";
 
 export  class PatientDetailsTab extends React.Component {
   constructor(props, context) {
@@ -54,6 +55,12 @@ export  class PatientDetailsTab extends React.Component {
               </Tab.Pane>
               <Tab.Pane eventKey="three">
                 <PatientHistory />
+              </Tab.Pane>
+              <Tab.Pane eventKey="four">
+                <PatientHistory />
+              </Tab.Pane>
+              <Tab.Pane eventKey="five">
+                <PatientApponiment />
               </Tab.Pane>
             </Tab.Content>
           </Col>
@@ -130,7 +137,7 @@ export function PatientBasicDetails(){
           </Row>
         </div>
       </div>
-      <div className="d-flex w-100 flex-column mt-15">
+      <div className="d-flex w-100 flex-column mt-10">
         <div className="d-flex font-size-16 mb-3 font-weight-500">
           <span>Patient Summary</span>       
         </div>
