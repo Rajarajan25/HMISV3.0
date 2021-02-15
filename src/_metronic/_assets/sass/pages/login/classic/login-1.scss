@@ -19,6 +19,9 @@
 .was-validated .form-control:valid {
     border-color: #1d6aff !important;
 }
+.was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
+    color: #1d6aff !important;
+}
 .login.login-1 {
     
     font-family: $font-Registration-family-base;

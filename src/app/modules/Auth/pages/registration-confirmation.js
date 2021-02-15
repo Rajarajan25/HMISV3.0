@@ -4,7 +4,7 @@ import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { Link } from "react-router-dom";
 
 
-export default function RegistrationConfirmatoin() {
+export default function RegistrationConfirmation() {
   return (
     <div className="d-flex justify-content-center flex-column col-xl-8 col-lg-11 wid col">
       
