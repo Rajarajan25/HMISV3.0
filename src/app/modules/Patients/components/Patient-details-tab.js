@@ -35,7 +35,7 @@ export  class PatientDetailsTab extends React.Component {
               </Nav.Item>
             </Nav>
           </Col>
-          <Col sm={12}>
+          <Col sm={12} className="p-0">
             <Tab.Content className="p-5">
               <Tab.Pane eventKey="first">
                 <PatientBasicDetails/>
