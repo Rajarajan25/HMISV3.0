@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { PatientHistory } from "./Patient-history";
 import { PatientApponiment } from "./Patient-appoinment";
+import { PatientInvoice } from "./Patient-invoice";
 
 export  class PatientDetailsTab extends React.Component {
   constructor(props, context) {
@@ -57,10 +58,10 @@ export  class PatientDetailsTab extends React.Component {
                 <PatientHistory />
               </Tab.Pane>
               <Tab.Pane eventKey="four">
-                <PatientHistory />
+                <PatientInvoice />
               </Tab.Pane>
               <Tab.Pane eventKey="five">
-                <PatientApponiment />
+                <PatientApponiment />                
               </Tab.Pane>
             </Tab.Content>
           </Col>
