@@ -280,23 +280,24 @@ function Registration(props) {
       
       setSubmitting(true);
       enableLoading();
-      AddUser(values);
+      // AddUser(values);
 
-      // register(values.email, values.lastname, values.username, values.password)
-      //   .then(({ data: { accessToken } }) => {
-      //     props.register(accessToken);
-      //     disableLoading();
-      //     setSubmitting(false);
-      //   })
-      //   .catch(() => {
-      //     setSubmitting(false);
-      //     setStatus(
-      //       intl.formatMessage({
-      //         id: "AUTH.VALIDATION.INVALID_LOGIN",
-      //       })
-      //     );
-      //     disableLoading();
-      //   });
+      register(values.email, values.lastname, values.username, values.password)
+        .then(({ data: { accessToken } }) => {
+          props.register(accessToken);
+          disableLoading();
+          AddUser(values);
+          setSubmitting(false);
+        })
+        .catch(() => {
+          setSubmitting(false);
+          setStatus(
+            intl.formatMessage({
+              id: "AUTH.VALIDATION.INVALID_LOGIN",
+            })
+          );
+          disableLoading();
+        });
       alert(JSON.stringify(values,null,2))
     },
   });
