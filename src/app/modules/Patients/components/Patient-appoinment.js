@@ -5,12 +5,11 @@ import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 
 export function PatientApponiment() {
   return (
-    <div className="d-flex w-100">      
-      <Table className="w-100" striped  size="sm">
+    <div className="d-flex w-100 patientAppoinment">      
+      <Table className="w-100 text-center" striped  size="sm" cellSpacing="10">
         <thead>
           <tr>
-            <th>#</th>
-            <th>Appoinment Services</th>
+            <th colSpan="2" className="text-left">Appoinment Services</th>
             <th>Date</th>
             <th>Paid</th>
             <th>Rate</th>
@@ -21,23 +20,183 @@ export function PatientApponiment() {
         <tbody>
           <tr>
             <td>
-              <Image 
-                className="appoinmentIcon rounded-circle"
-                src={toAbsoluteUrl("/media/users/300_20.jpg")}
-                alt="service type" 
-              />
+              <span className="appoinmentIcon rounded-circle">
+                <Image 
+                 
+                  src={toAbsoluteUrl("/media/patients/acupunture.svg")}
+                  alt="service type" 
+                />
+              </span>              
             </td>
-            <td>
+            <td className="text-left">
               <div className="d-flex flex-column">
                 <strong>Acupunture</strong>
-                <span>ID: 12345</span>
+                <span className="font-size-12">ID: 12345</span>
               </div>
             </td>
             <td>Nov 5, 2020</td>
-            <td><span className="paymentStatus">x</span></td>
+            <td>
+              <span className="paymentStatus paid rounded-circle">
+                <Image                  
+                 src={toAbsoluteUrl("/media/patients/paid.svg")}
+                 alt="service type" 
+                />
+              </span>
+            </td>
             <td>Rs 500</td>
-            <td><span className="paymentStatus">x</span></td>
-            <td>10Am</td>
+            <td>              
+              <span className="paymentStatus paid rounded-circle">
+                <Image                  
+                 src={toAbsoluteUrl("/media/patients/paid.svg")}
+                 alt="service type" 
+                />
+              </span>
+            </td>
+            <td>10 Am</td>
+          </tr>
+          <tr>
+            <td>
+              <span className="appoinmentIcon rounded-circle">
+                <Image 
+                 
+                  src={toAbsoluteUrl("/media/patients/dental.svg")}
+                  alt="service type" 
+                />
+              </span>
+            </td>
+            <td className="text-left">
+              <div className="d-flex flex-column">
+                <strong>Acupunture</strong>
+                <span className="font-size-12">ID: 12345</span>
+              </div>
+            </td>
+            <td>Nov 5, 2020</td>
+            <td>              
+              <span className="paymentStatus unpaid rounded-circle">
+                <Image                  
+                 src={toAbsoluteUrl("/media/patients/unpaid.svg")}
+                 alt="service type" 
+                />
+              </span>
+            </td>
+            <td>Rs 500</td>
+            <td>              
+              <span className="paymentStatus paid rounded-circle">
+                <Image                  
+                 src={toAbsoluteUrl("/media/patients/paid.svg")}
+                 alt="service type" 
+                />
+              </span>
+            </td>
+            <td>10 Am</td>
+          </tr>
+          <tr>
+            <td>
+              <span className="appoinmentIcon rounded-circle">
+                <Image 
+                 
+                  src={toAbsoluteUrl("/media/patients/hospital.svg")}
+                  alt="service type" 
+                />
+              </span>
+            </td>
+            <td className="text-left">
+              <div className="d-flex flex-column">
+                <strong>Acupunture</strong>
+                <span className="font-size-12">ID: 12345</span>
+              </div>
+            </td>
+            <td>Nov 5, 2020</td>
+            <td>              
+              <span className="paymentStatus paid rounded-circle">
+                <Image                  
+                 src={toAbsoluteUrl("/media/patients/paid.svg")}
+                 alt="service type" 
+                />
+              </span>
+            </td>
+            <td>Rs 500</td>
+            <td>              
+              <span className="paymentStatus paid rounded-circle">
+                <Image                  
+                 src={toAbsoluteUrl("/media/patients/paid.svg")}
+                 alt="service type" 
+                />
+              </span>
+            </td>
+            <td>10 Am</td>
+          </tr>
+          <tr>
+            <td>
+              <span className="appoinmentIcon rounded-circle">
+                <Image 
+                 
+                  src={toAbsoluteUrl("/media/patients/general-checkup.svg")}
+                  alt="service type" 
+                />
+              </span>
+            </td>
+            <td className="text-left">
+              <div className="d-flex flex-column">
+                <strong>Acupunture</strong>
+                <span className="font-size-12">ID: 12345</span>
+              </div>
+            </td>
+            <td>Nov 5, 2020</td>
+            <td>              
+              <span className="paymentStatus paid rounded-circle">
+                <Image                  
+                 src={toAbsoluteUrl("/media/patients/paid.svg")}
+                 alt="service type" 
+                />
+              </span>
+            </td>
+            <td>Rs 500</td>
+            <td>              
+              <span className="paymentStatus paid rounded-circle">
+                <Image                  
+                 src={toAbsoluteUrl("/media/patients/paid.svg")}
+                 alt="service type" 
+                />
+              </span>
+            </td>
+            <td>10 Am</td>
+          </tr>
+          <tr>
+            <td>
+              <span className="appoinmentIcon rounded-circle">
+              <Image 
+               
+                src={toAbsoluteUrl("/media/patients/medician.svg")}
+                alt="service type" 
+              />
+              </span>
+            </td>
+            <td className="text-left">
+              <div className="d-flex flex-column">
+                <strong>Acupunture</strong>
+                <span className="font-size-12">ID: 12345</span>
+              </div>
+            </td>
+            <td>Nov 5, 2020</td>
+            <td>              
+              <span className="paymentStatus paid rounded-circle">
+                <Image                  
+                 src={toAbsoluteUrl("/media/patients/paid.svg")}
+                 alt="service type" 
+                />
+              </span>
+            </td>
+            <td>Rs 500</td>
+            <td>              
+              <span className="paymentStatus paid rounded-circle">
+                <Image                  
+                 src={toAbsoluteUrl("/media/patients/paid.svg")}
+                 alt="service type" 
+                />
+              </span>
+            </td>
+            <td>10 Am</td>
           </tr>
         </tbody>
       </Table>

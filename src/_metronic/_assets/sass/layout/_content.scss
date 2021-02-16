@@ -862,11 +862,54 @@
   }
 
 /* Middle content section start */
+.patientAppoinment {
+	strong{
+		font-weight: 500;
+	}
+	.table tr{
+		box-shadow: 0 3px 6px 0 #1043a71a;
+		border-radius: 5px;
+	}
+	.table th, .table td{
+		vertical-align: middle;
+	}
+	.table td:first-child{
+		width: 70px;
+	}
+	.table-striped tbody tr:nth-of-type(odd){
+		background-color: transparent;
+	}
+	.appoinmentIcon{
+		width: 40px;
+		height: 40px;
+		display: flex;
+		margin: 10px auto;
+		background: #fff;
+		text-align: center;
+		vertical-align: middle;
+		box-shadow: 0 3px 6px 0 #1043a71a;
 
+		img{
+			margin: auto;
+		}
+	}
+	.paymentStatus{
+		width: 30px;
+		height: 30px;
+		display: flex;
+		margin: auto;
+		background: #fff;
+		align-items: center;
+		justify-content: center;
+		box-shadow: 0 3px 6px 0 #1043a71a;
 
-.appoinmentIcon{
-	width: 40px;
-	height: 40px;
+		&.paid{
+			background: #DCF6D2;
+		}
+		&.unpaid{
+			background: #FF9C8B;
+		}
+	}
 }
 .col.wid_360 {
     max-width: 360px;
