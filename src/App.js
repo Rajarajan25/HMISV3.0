@@ -1,7 +1,7 @@
 import "./styles.css";
 import * as React from "react";
 
-import {  useMutation,useQuery,useState} from "@apollo/client";
+import {  useMutation,useQuery,useState, useLazyQuery } from "@apollo/client";
 import { ADD_USER,ADD_MANY_USER,UPDATE_USER,UPDATE_ALL_USER,GET_USER,DELETE_USER,DELETE_MANY_USER,GET_ALL_USER,REPLACE_ONE_USER} from "./graphql-operations";
 export default function App(props) {
  // const [searchText, setSearchText] = React.useState("The Matrix Reloaded");
@@ -13,9 +13,8 @@ export default function App(props) {
   const [updateAllUser] = useMutation(UPDATE_ALL_USER);
   const [replaceOneUser] = useMutation(REPLACE_ONE_USER);
 
-  
 
-
+ 
  
   const [firstname, setfirstname] = React.useState("");
   const [lastname,setlastname] =React.useState("");
@@ -33,22 +32,10 @@ export default function App(props) {
     }
     });
   };
-
-  const {getAllUser } = useQuery(GET_ALL_USER, {
-    variables: { query: { first_name: "1J" },limit:100,sortBy:"FIRST_NAME_ASC"}
-  });
-  console.log(getAllUser)
-  const GetAllUser = async () => {
-    console.log(getAllUser)
-  };
-
-  const {getUser } = useQuery(GET_USER, {
-    variables: { query: { first_name: "Jenifer" } }
-  });
-  console.log(getUser)
-  const GetUser = async () => {
-    console.log(getUser)
-  };
+  const [GetUser, { loading, data }] = useLazyQuery(GET_USER);
+  console.log(GetUser)
+  const [GetAllUser, {loading1, data1 }] = useLazyQuery(GET_ALL_USER);
+  console.log(GetAllUser)
   const UpdateUser = async () => {
     updateUser({
       variables: {
@@ -226,15 +213,15 @@ export default function App(props) {
               >
                 Delete Many User
               </button>
+            
+              
+      <button   className="fancy-button"onClick={() => GetUser({ variables:  { query: { first_name: "Jenifer" } }})}>
+      GetUser
+      </button>
+      
               <button
                 className="fancy-button"
-                onClick={() => GetUser()}
-              >
-                GetUser
-              </button>
-              <button
-                className="fancy-button"
-                onClick={() => GetAllUser()}
+                onClick={() => GetAllUser( {variables: { query: { first_name: "Jenifer" },limit:100,sortBy:"FIRST_NAME_ASC"}})}
               >
                 Get ALL User
               </button>
