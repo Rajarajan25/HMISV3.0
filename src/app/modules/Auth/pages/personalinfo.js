@@ -79,8 +79,8 @@ function Registration(props) {
      }
      });
    };
-   const [getUser, { loading1, data}] = useLazyQuery(GET_USER);
-   const [getAllUser, { loading2, data1 }] = useLazyQuery(GET_ALL_USER);
+   const [getUser, { loading1, data1}] = useLazyQuery(GET_USER);
+   const [getAllUser, { loading2, data2 }] = useLazyQuery(GET_ALL_USER);
   //  console.log("GetUserlo: " +loading)
   //  console.log("GetUserda: " +JSON.stringify(data))
   //  console.log("GetUserer: " +error)
@@ -601,7 +601,7 @@ function Registration(props) {
       <button   className="fancy-button"onClick={() => GetUser()}>
       GetUser
       </button>
-      {data}
+      
       
               <button
                 className="fancy-button"
