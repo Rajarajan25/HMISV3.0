@@ -17,9 +17,12 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormLabel from '@material-ui/core/FormLabel';
-import { useQuery, useMutation } from "@apollo/client";
-import { FIND_MOVIE, UPDATE_MOVIE } from "./query/register";
 
+
+
+import {  useMutation,useQuery, useLazyQuery } from "@apollo/client";
+import { ADD_USER,ADD_MANY_USER,UPDATE_USER,UPDATE_ALL_USER,GET_USER,DELETE_USER,DELETE_MANY_USER,GET_ALL_USER,REPLACE_ONE_USER} from "./query/graphql";
+import { User } from "realm-web";
 const initialValues = {
   firstname: "",
   lastname:"",
@@ -49,7 +52,145 @@ const useStyles = makeStyles(theme => ({
 
 
 function Registration(props) {
-  const { load, data } = useQuery(FIND_MOVIE);
+  const [deleteManyUser] = useMutation(DELETE_MANY_USER);
+  const [deleteUser] = useMutation(DELETE_USER);
+   const [addUser] = useMutation(ADD_USER);
+   const [addManyUser] = useMutation(ADD_MANY_USER);
+   const [updateUser] = useMutation(UPDATE_USER);
+   const [updateAllUser] = useMutation(UPDATE_ALL_USER);
+   const [replaceOneUser] = useMutation(REPLACE_ONE_USER);
+ 
+ 
+  
+  
+   const [firstname, setfirstname] = React.useState("");
+   const [lastname,setlastname] =React.useState("");
+   const AddUser = async () => {
+     addUser({
+       variables: {
+         data: {
+           "first_name":"Jenifer21",
+           "last_name":"Monica",
+           "ShippingAddress":"saligramam",
+           "deleted": false,
+           "BillingAddress":"saligramam",
+           "affiliate_id": "1234567"
+       }
+     }
+     });
+   };
+   const [getUser, { loading1, data,error }] = useLazyQuery(GET_USER);
+   const [getAllUser, {  data1,error1 }] = useLazyQuery(GET_USER);
+   console.log("GetUserlo: " +loading)
+   console.log("GetUserda: " +JSON.stringify(data))
+   console.log("GetUserer: " +error)
+  
+ const GetUser=async () => {
+   getUser({
+      variables:  { query: { first_name: "Jenifer" } }
+     });
+ };
+ const GetAllUser=async () => {
+   getAllUser({
+      variables:  { query: { first_name: "Jenifer" } }
+     });
+ };
+ 
+   const UpdateUser = async () => {
+     updateUser({
+       variables: {
+         query: { "_id":"602a14c44162849887187efe"},
+         set: { "first_name": "Jenifer5" }
+       }
+   });
+   };
+   const DeleteOneUser = async () => {
+     deleteUser({
+       variables: {
+         query: { "_id":"602a2835dab8340a3cf385d7"},
+         
+       }
+   });
+   };
+   const DeleteManyUser = async () => {
+     deleteManyUser({
+       variables: {
+         query: { "first_name":"Jenifer12"},
+         
+       }
+   });
+   };
+   const UpdateAllUser = async () => {
+     updateAllUser({
+       variables: {
+         query: {"first_name":"Jenifer1"},
+         set: { "first_name": "Jenifer54321" }
+       }
+   });
+   };
+   const ReplaceOneUser = async () => {
+     replaceOneUser({
+       variables: {
+         query: {"first_name":"Jenifer1"},
+         data: { "first_name": "Jenifer54321" }
+       }
+   });
+   };
+   const AddManyUser = async () => {
+     addManyUser({
+       variables: {
+         data: [{
+           "first_name":"1Jenifer",
+           "last_name":"Monica",
+           "ShippingAddress":"saligramam",
+           "deleted": false,
+           "BillingAddress":"saligramam",
+           "affiliate_id": "1234567"
+         },
+ 
+      {
+         "first_name":"1Joel",
+         "last_name":"Mathew",
+         "ShippingAddress":"saligramam",
+         "deleted": false,
+         "BillingAddress":"saligramam",
+         "affiliate_id": "1234567"
+     },
+     {
+       "first_name":"1Jenifer1",
+       "last_name":"Mathew",
+       "ShippingAddress":"saligramam",
+       "deleted": false,
+       "BillingAddress":"saligramam",
+       "affiliate_id": "1234567"
+   },
+   {
+     "first_name":"1Jenifer12",
+     "last_name":"Mathew",
+     "ShippingAddress":"saligramam",
+     "deleted": false,
+     "BillingAddress":"saligramam",
+     "affiliate_id": "1234567"
+ },
+ {
+   "first_name":"1Jenifer13",
+   "last_name":"Mathew",
+   "ShippingAddress":"saligramam",
+   "deleted": false,
+   "BillingAddress":"saligramam",
+   "affiliate_id": "1234567"
+ },
+ {
+   "first_name":"1Jenifer23",
+   "last_name":"Mathew",
+   "ShippingAddress":"saligramam",
+   "deleted": false,
+   "BillingAddress":"saligramam",
+   "affiliate_id": "1234567"
+ }]
+     }
+     });
+   };
   const { intl } = props;
   const [loading, setLoading] = useState(false);
   const RegistrationSchema = Yup.object().shape({
@@ -418,6 +559,62 @@ function Registration(props) {
 
           
             <div className="form-group flex-wrap flex-center">
+            <button
+                className="fancy-button"
+                onClick={() => AddUser()}
+              >
+                Add User
+              </button>
+               <button
+                className="fancy-button"
+                onClick={() => AddManyUser()}
+              >
+                AddManyUser
+              </button>
+              <button
+                className="fancy-button"
+                onClick={() => UpdateUser()}
+              >
+                UpdateUser
+              </button>
+              <button
+                className="fancy-button"
+                onClick={() => UpdateAllUser()}
+              >
+                Update  ALL User
+              </button>
+              <button
+                className="fancy-button"
+                onClick={() => DeleteOneUser()}
+              >
+                Delete User
+              </button>
+              <button
+                className="fancy-button"
+                onClick={() => DeleteManyUser()}
+              >
+                Delete Many User
+              </button>
+            
+              
+      <button   className="fancy-button"onClick={() => GetUser()}>
+      GetUser
+      </button>
+      {data}
+      
+              <button
+                className="fancy-button"
+                onClick={() => GetAllUser( {variables: { query: { first_name: "Jenifer" },limit:100,sortBy:"FIRST_NAME_ASC"}})}
+              >
+                Get ALL User
+              </button>
+              <button
+                className="fancy-button"
+                onClick={() => ReplaceOneUser()}
+              >
+                Replace One User
+              </button>
+
               <button
                 type="submit"
     
