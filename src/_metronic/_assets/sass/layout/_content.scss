@@ -1009,26 +1009,25 @@
         width: 80px;
         height: 80px;
         display: flex;
-        overflow: hidden;
         position: relative;
-        font-size: 1.25rem;
         align-items: center;
         flex-shrink: 0;
         line-height: 1;
         user-select: none;
         border-radius: 50%;
         justify-content: center;
-        margin: 30px auto 15px;
+        margin: 15px auto;
         border: 6px solid #F4F5F8;
         img {
             width: 100%;
+			border-radius: 50%;
         }
     }
     .card {
         box-shadow: 0px 3px 6px #00000029;
         border-radius: 5px;
         border: 0;
-        margin: 15px;
+        margin: 15px 10px;
     }
 	.card-tit {
 		font-size: 10px;
@@ -1049,7 +1048,7 @@
 		font-size: 8px;
 		font-weight: 500;
 		color: #c0c0c0;
-		margin: 5px 0 40px;
+		margin: 0px 0 0px;
 		img {
 			height: 8px;
 			margin: 0px 5px;
@@ -1060,6 +1059,24 @@
 	}
 	.border-left {
 		border-left: 1px solid #E9E9E9 !important;
+	}
+	.img_mve {
+		left: -22px;
+		top: 22px;
+		.star_icon {
+			border-radius: 0;
+			width: 10px;
+			margin-bottom: 7px;
+			display: block;
+		}
+		.man_icon {
+			border-radius: 0;
+			width: 8px;
+			margin-bottom: 7px;
+		}
+	}
+	.mh_70 {
+		min-height: 70px;
 	}
   }
   
