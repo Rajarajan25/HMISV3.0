@@ -79,11 +79,11 @@ function Registration(props) {
      }
      });
    };
-   const [getUser, { loading1, data,error }] = useLazyQuery(GET_USER);
-   const [getAllUser, {  data1,error1 }] = useLazyQuery(GET_USER);
-   console.log("GetUserlo: " +loading)
-   console.log("GetUserda: " +JSON.stringify(data))
-   console.log("GetUserer: " +error)
+   const [getUser, { loading1, data}] = useLazyQuery(GET_USER);
+   const [getAllUser, { loading2, data1 }] = useLazyQuery(GET_ALL_USER);
+  //  console.log("GetUserlo: " +loading)
+  //  console.log("GetUserda: " +JSON.stringify(data))
+  //  console.log("GetUserer: " +error)
   
  const GetUser=async () => {
    getUser({
@@ -92,8 +92,9 @@ function Registration(props) {
  };
  const GetAllUser=async () => {
    getAllUser({
-      variables:  { query: { first_name: "Jenifer" } }
-     });
+    variables: {   query: { },limit:100,sortBy:"FIRST_NAME_ASC"}
+  }
+     );
  };
  
    const UpdateUser = async () => {
@@ -604,7 +605,7 @@ function Registration(props) {
       
               <button
                 className="fancy-button"
-                onClick={() => GetAllUser( {variables: { query: { first_name: "Jenifer" },limit:100,sortBy:"FIRST_NAME_ASC"}})}
+                onClick={() => GetAllUser( )}
               >
                 Get ALL User
               </button>
