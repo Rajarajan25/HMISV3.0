@@ -41,10 +41,11 @@ export const ADD_USER = gql`
       insertOneUser(data: $data) {
         first_name
         last_name
-        ShippingAddress
-        deleted
-        BillingAddress
-        affiliate_id
+        email
+        sex
+        password
+        mobile_number
+        country_name
         _id
       }
     }
