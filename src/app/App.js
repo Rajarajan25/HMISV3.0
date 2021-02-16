@@ -9,10 +9,12 @@ import { PersistGate } from "redux-persist/integration/react";
 import { Routes } from "../app/Routes";
 import { I18nProvider } from "../_metronic/i18n";
 import { LayoutSplashScreen, MaterialThemeProvider } from "../_metronic/layout";
+import { ApolloProvider } from "@apollo/client";
 
-export default function App({ store, persistor, basename }) {
+export default function App({ store, client, persistor, basename }) {
   return (
-    /* Provide Redux store */
+     /* Provide Redux store */
+    <ApolloProvider client={client}>
     <Provider store={store}>
       {/* Asynchronously persist redux stores and show `SplashScreen` while it's loading. */}
       <PersistGate persistor={persistor} loading={<LayoutSplashScreen />}>
@@ -32,5 +34,6 @@ export default function App({ store, persistor, basename }) {
         </React.Suspense>
       </PersistGate>
     </Provider>
+    </ApolloProvider>
   );
 }

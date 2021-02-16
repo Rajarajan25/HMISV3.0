@@ -17,6 +17,8 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormLabel from '@material-ui/core/FormLabel';
+import { useQuery, useMutation } from "@apollo/client";
+import { FIND_MOVIE, UPDATE_MOVIE } from "./query/register";
 
 const initialValues = {
   firstname: "",
@@ -47,6 +49,7 @@ const useStyles = makeStyles(theme => ({
 
 
 function Registration(props) {
+  const { load, data } = useQuery(FIND_MOVIE);
   const { intl } = props;
   const [loading, setLoading] = useState(false);
   const RegistrationSchema = Yup.object().shape({

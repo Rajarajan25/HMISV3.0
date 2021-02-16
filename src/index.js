@@ -1,10 +1,14 @@
-/**
- * Create React App entry point. This and `public/index.html` files can not be
- * changed or moved.
- */
+
+import React from "react";
+import { render } from "react-dom";
+import {
+  ApolloProvider,
+  ApolloClient,
+  HttpLink,
+  InMemoryCache,
+} from "@apollo/client";
 import "react-app-polyfill/ie11";
 import "react-app-polyfill/stable";
-import React from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
 import * as _redux from "./redux";
@@ -25,6 +29,7 @@ import {
   MetronicSubheaderProvider
 } from "./_metronic/layout";
 import {MetronicI18nProvider} from "./_metronic/i18n";
+import * as Realm from "realm-web";
 
 /**
  * Base URL of the website.
@@ -48,12 +53,41 @@ const { PUBLIC_URL } = process.env;
  */
 _redux.setupAxios(axios, store);
 
+export const APP_ID = "application-0-qrsog";
+
+const graphql_url = `https://realm.mongodb.com/api/client/v2.0/app/${APP_ID}/graphql`;
+
+const app = new Realm.App(APP_ID);
+
+async function getValidAccessToken() {
+  if (!app.currentUser) {
+    await app.logIn(Realm.Credentials.anonymous());
+  } else {
+    await app.currentUser.refreshCustomData();
+  }
+ 
+  const { accessToken } = app.currentUser;
+  return accessToken
+}
+
+const client = new ApolloClient({
+  link: new HttpLink({
+    uri: graphql_url,
+    fetch: async (uri, options) => {
+      const accessToken = await getValidAccessToken();
+      options.headers.Authorization = `Bearer ${accessToken}`;
+      return fetch(uri, options);
+    },
+  }),
+  cache: new InMemoryCache()
+});
+
 ReactDOM.render(
   <MetronicI18nProvider>
     <MetronicLayoutProvider>
       <MetronicSubheaderProvider>
         <MetronicSplashScreenProvider>
-          <App store={store} persistor={persistor} basename={PUBLIC_URL} />
+          <App store={store} client={client} persistor={persistor} basename={PUBLIC_URL} />
         </MetronicSplashScreenProvider>
       </MetronicSubheaderProvider>
     </MetronicLayoutProvider>
