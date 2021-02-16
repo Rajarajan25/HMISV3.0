@@ -59,22 +59,20 @@ function Registration(props) {
    const [updateUser] = useMutation(UPDATE_USER);
    const [updateAllUser] = useMutation(UPDATE_ALL_USER);
    const [replaceOneUser] = useMutation(REPLACE_ONE_USER);
- 
- 
-  
-  
    const [firstname, setfirstname] = React.useState("");
    const [lastname,setlastname] =React.useState("");
-   const AddUser = async () => {
+   const AddUser = async (values) => {
      addUser({
        variables: {
          data: {
-           "first_name":"Jenifer21",
-           "last_name":"Monica",
-           "ShippingAddress":"saligramam",
-           "deleted": false,
-           "BillingAddress":"saligramam",
-           "affiliate_id": "1234567"
+           "first_name":values.firstname,
+           "last_name":values.lastname,
+          "email":values.email,
+          "sex":values.gender,
+          "password":values.password,
+"mobile_number":values.username,
+"country_name":values.countrycode
+         
        }
      }
      });
@@ -275,11 +273,15 @@ function Registration(props) {
   };
 
   const formik = useFormik({
+    
     initialValues,
     RegistrationSchema,
     onSubmit: (values, { setStatus, setSubmitting }) => {
+      
       setSubmitting(true);
       enableLoading();
+      AddUser(values);
+
       // register(values.email, values.lastname, values.username, values.password)
       //   .then(({ data: { accessToken } }) => {
       //     props.register(accessToken);
