@@ -1,62 +1,68 @@
-/**
- * Create React App entry point. This and `public/index.html` files can not be
- * changed or moved.
- */
-import "react-app-polyfill/ie11";
-import "react-app-polyfill/stable";
+// React
 import React from "react";
-import ReactDOM from "react-dom";
-import axios from "axios";
-import * as _redux from "./redux";
-import store, { persistor } from "./redux/store";
-import App from "./app/App";
-import "./index.scss"; // Standard version
-// import "./sass/style.react.rtl.css"; // RTL version
-import "./_metronic/_assets/plugins/keenthemes-icons/font/ki.css";
-import "socicon/css/socicon.css";
-import "@fortawesome/fontawesome-free/css/all.min.css";
-import "./_metronic/_assets/plugins/flaticon/flaticon.css";
-import "./_metronic/_assets/plugins/flaticon2/flaticon.css";
-// Datepicker
-import "react-datepicker/dist/react-datepicker.css";
+import { render } from "react-dom";
+// Apollo
 import {
-  MetronicLayoutProvider,
-  MetronicSplashScreenProvider,
-  MetronicSubheaderProvider
-} from "./_metronic/layout";
-import {MetronicI18nProvider} from "./_metronic/i18n";
+  ApolloProvider,
+  ApolloClient,
+  HttpLink,
+  InMemoryCache,
+} from "@apollo/client";
+// Realm
+import * as Realm from "realm-web";
+// Check out app.js for examples of how to run GraphQL operations
+import App from "./App";
 
-/**
- * Base URL of the website.
- *
- * @see https://facebook.github.io/create-react-app/docs/using-the-public-folder
- */
-const { PUBLIC_URL } = process.env;
+// To set up your app:
+//
+// 1. Link a cluster that includes the MongoDB Atlas sample data sets
+// 2. Configure permissions for the ``sample_mflix.movies`` collection. For this
+//    demo, you can assign full read/write permissions to the default role.
+// 3. Generate a collection schema for the ``sample_mflix.movies`` collection.
+// 4. Enable anonymous authentication
+// 5. Deploy your changes
+//
+// Once your app is set up, replace the value of APP_ID with your App ID
+export const APP_ID = "application-0-qrsog";
 
-/**
- * Creates `axios-mock-adapter` instance for provided `axios` instance, add
- * basic Metronic mocks and returns it.
- *
- * @see https://github.com/ctimmerm/axios-mock-adapter
- */
-/* const mock = */ _redux.mockAxios(axios);
+const graphql_url = `https://realm.mongodb.com/api/client/v2.0/app/${APP_ID}/graphql`;
 
-/**
- * Inject metronic interceptors for axios.
- *
- * @see https://github.com/axios/axios#interceptors
- */
-_redux.setupAxios(axios, store);
+const app = new Realm.App(APP_ID);
 
-ReactDOM.render(
-  <MetronicI18nProvider>
-    <MetronicLayoutProvider>
-      <MetronicSubheaderProvider>
-        <MetronicSplashScreenProvider>
-          <App store={store} persistor={persistor} basename={PUBLIC_URL} />
-        </MetronicSplashScreenProvider>
-      </MetronicSubheaderProvider>
-    </MetronicLayoutProvider>
-  </MetronicI18nProvider>,
+// Get a valid Realm user access token to authenticate requests
+async function getValidAccessToken() {
+  if (!app.currentUser) {
+    // If no user is logged in, log in an anonymous user
+    await app.logIn(Realm.Credentials.anonymous());
+  } else {
+    // The logged in user's access token might be stale.
+    // Refreshing custom data also refreshes the access token.
+    await app.currentUser.refreshCustomData();
+  }
+  // Get a valid access token for the current user
+  const { accessToken } = app.currentUser;
+  return accessToken
+}
+
+const client = new ApolloClient({
+  link: new HttpLink({
+    uri: graphql_url,
+    // We define a custom fetch handler for the Apollo client that lets us authenticate GraphQL requests.
+    // The function intercepts every Apollo HTTP request and adds an Authorization header with a valid
+    // access token before sending the request.
+    fetch: async (uri, options) => {
+      const accessToken = await getValidAccessToken();
+      options.headers.Authorization = `Bearer ${accessToken}`;
+      return fetch(uri, options);
+    },
+  }),
+  cache: new InMemoryCache()
+});
+
+// Wrap your app with an ApolloProvider
+render(
+  <ApolloProvider client={client}>
+    <App />
+  </ApolloProvider>,
   document.getElementById("root")
 );

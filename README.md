@@ -1,116 +1,57 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# MongoDB Realm GraphQL - Apollo (React)
 
-## Available Scripts
+This code demonstrates how to connect to your MongoDB Realm app's [GraphQL
+API](https://docs.mongodb.com/realm/graphql) from a React application using [Apollo Client
+3](https://www.apollographql.com/docs/react/). For a detailed walkthrough, check out [Use GraphQL
+with Apollo Client (React)](https://docs.mongodb.com/realm/web/graphql-apollo-react) in the MongoDB
+Realm documentation.
 
-In the project directory, you can run:
+## Set Up
 
-### `npm start` / `yarn start`
+1. Clone the Repository
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test` / `yarn test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build` / `yarn build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run serve` / `yarn serve`
-
-**Note: You have to `build` app before serving it.**
-
-Runs built app on `http://localhost:5000` and `http://{your.network.ip}:5000`
-
-In order to change public url you have to update:
-
-1. `package.json`
-
-   ```diff
-   -  "homepage": "https://keenthemes.com/metronic/preview/react",
-   +  "homepage": "https://my.domain/my/app",
-       "scripts": {
-   -     "serve": "cp-cli build _site/metronic/preview/react && serve",
-   +     "serve": "cp-cli build _site/my/app && serve",
+   ```shell
+   git clone https://github.com/mongodb-university/realm-graphql-apollo-react
+   cd realm-graphql-apollo-react
    ```
 
-2. `serve.json`
+2. Install the dependencies
 
-   ```diff
-      "public": "_site",
-      "redirects": [
-        {
-          "source": "/",
-   -      "destination": "/metronic/preview/react"
-   +      "destination": "/my/app"
-        }
-      ],
-      "rewrites": [
-        {
-   -      "source": "/metronic/preview/react/**",
-   +      "source": "/my/app/**",
-   -      "destination": "/metronic/preview/react/index.html"
-   +      "destination": "/my/app/index.html"
-        }
+   Install the project dependencies with `npm`:
+   
+   ```shell
+   npm install
    ```
 
-For more details check official [create-react-app deployment](https://facebook.github.io/create-react-app/docs/deployment#building-for-relative-paths) and [serve-handler options](https://github.com/zeit/serve-handler#options).
+3. Load the Sample Data
 
-### `npm run lint` / `yarn lint`
+   In MongoDB Atlas, [load the sample datasets into your
+   cluster](https://docs.atlas.mongodb.com/sample-data/).
 
-Runs eslint on `src` directory.
+4. Create a MongoDB Realm App
 
-### `npm run format` / `yarn format`
+   In the same project, [create a new MongoDB Realm
+   app](https://docs.mongodb.com/realm/procedures/create-realm-app/). Make sure that the app is
+   linked to the cluster that has the sample data.
 
-Runs prettier on `src` directory.
+5. Generate a Schema
 
-### `npm run eject` / `yarn eject`
+   Navigate to the `sample_mflix.movies` collection in the Realm UI and generate a schema based on
+   the sample data. When you save the schema, Realm automatically generates corresponding GraphQL
+   types.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+6. Enable Anonymous Authentication
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   This sample app automatically logs in as an anonymous user, so make sure that you enable the
+   Anonymous provider.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+7. Add Your App ID
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+   [Find your App ID](https://docs.mongodb.com/realm/get-started/find-your-app-id/) and paste it
+   into ``src/index.js``.
 
-## Learn More
+8. Run the App
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+   ```shell
+   npm run start
+   ```
