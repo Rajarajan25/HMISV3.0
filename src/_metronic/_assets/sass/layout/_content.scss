@@ -1126,4 +1126,42 @@
 		min-height: 70px;
 	}
   }
-  
+  	.font_weight_bold {
+		font-weight: bold;
+  	}
+  	.font_weight_medium {
+		font-weight: 500;
+	}
+	.color_707070 {
+		color: #707070;
+	}
+	.color_292D34 {
+		color: #292D34;
+	}
+	.mw_130 {
+		min-width: 130px;
+	}
+	.invoice_card {
+		font-size: 14px;
+		color: #292D34;
+		.btn-primary {
+			background: #1D6AFF;
+			border-color: #1D6AFF;
+			border-radius: 20px;
+			min-width: 150px;
+			min-height: 40px;
+			font-size: 14px;
+			font-weight: 500;
+			margin: 0 20px;
+			&:hover {
+				background: #1D6AFF;
+				border-color: #1D6AFF;	
+			}
+		} 
+		.table thead th {
+			font-weight: bold;
+		}
+		.table td {
+			font-weight: 500;
+		}
+  	}
