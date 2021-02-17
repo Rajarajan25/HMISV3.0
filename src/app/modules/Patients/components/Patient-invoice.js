@@ -44,7 +44,7 @@ export function PatientInvoice() {
       <Table className="table border-top color_292D34 font_weight_medium font-size-14">
         <thead>
         <tr>
-            <th colSpan="6" className="font-size-16 py-3">Invoice Details</th>
+            <th colSpan="6" className="font-size-16 py-5">Invoice Details</th>
           </tr>
           <tr>
             <th>#</th>
@@ -61,16 +61,16 @@ export function PatientInvoice() {
             <td>General Checkup</td>
             <td>2</td>
             <td>15 Mins</td>
-            <td>&#2352; 20</td>
-            <td>200</td>
+            <td><span>&#2352;</span> 20</td>
+            <td><span>&#2352;</span> 200</td>
           </tr>
           <tr>
             <td>2</td>
             <td>Medicine</td>
             <td>4</td>
             <td>30 Mins</td>
-            <td>10</td>
-            <td>100</td>
+            <td><span>&#2352;</span> 10</td>
+            <td><span>&#2352;</span> 100</td>
           </tr>
           <tr>
             <td></td>
@@ -78,7 +78,7 @@ export function PatientInvoice() {
             <td></td>
             <td></td>
             <td className="color_707070">Total Cost:</td>
-            <td>100</td>
+            <td className="font_weight_bold"><span>&#2352;</span> 500</td>
           </tr>
           <tr>
             <td></td>
@@ -86,7 +86,15 @@ export function PatientInvoice() {
             <td></td>
             <td></td>
             <td className="color_707070">Total Tax:</td>
-            <td>100</td>
+            <td className="font_weight_bold"><span>&#2352;</span> 50</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td className="color_707070">Grand Total:</td>
+            <td className="font_weight_bold"><span>&#2352;</span> 550</td>
           </tr>
         </tbody>
       </Table>

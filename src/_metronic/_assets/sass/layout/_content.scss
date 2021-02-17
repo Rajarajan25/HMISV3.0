@@ -133,7 +133,6 @@
 	cursor: pointer;
 }
 .userName{
-	font-family: $font-family-base;
 	font-weight: 500;
     font-size: 11px;
     line-height: 1;
@@ -142,6 +141,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
     color: #292d34;
+	&:hover {
+		color: #292d34;
+	}
 }
 .addNewevents,.addNewevents:hover{
 	background-color: transparent !important;
@@ -863,12 +865,37 @@
 
 /* Middle content section start */
 .patientAppoinment {
-	strong{
-		font-weight: 500;
+	.table thead tr{
+		th {
+			color: #9598AE;
+			font-weight: bold;
+			font-size: 12px;
+		}
 	}
-	.table tr{
+	.table tbody tr{
 		box-shadow: 0 3px 6px 0 #1043a71a;
 		border-radius: 5px;
+		td {
+			border-top: 0;
+			font-size: 12px;
+			font-weight: bold;
+			color: #7C828D;
+			strong{
+				font-weight: bold;
+				font-size: 13px;
+				color: #303030;
+			}
+			span {
+				font-weight: 500;
+			}
+		}
+		&.no_shadow {
+			box-shadow: none;
+			border-radius: 0;
+			td {
+				height: 15px;
+			}
+		}
 	}
 	.table th, .table td{
 		vertical-align: middle;
@@ -951,11 +978,11 @@
 		position: relative;
 		&::before{
 			content: '';
-			width:5px;
-			height: 5px;
+			width:8px;
+			height: 8px;
 			border-radius: 50%;			
 			position: absolute;
-			top:calc(50% - 2.5px);
+			top:calc(50% - 4.5px);
 			left: 0px;
 		}
 		&.online::before{
@@ -1004,6 +1031,9 @@
 			font-size: 1rem;
 			font-weight: 500;
 		}
+		.border-bottom {
+			border-bottom: 1px solid #E9E9E9 !important;
+		}
 	}
 	.testReports{
 		color:#292D34;
@@ -1017,27 +1047,32 @@
 	}
 }
 .patientFiles{
-	box-shadow: 0 3px 6px 0 #1043a71a;
-    border: 0;
-    background-color: #fff;
-    background-clip: border-box;
-    padding: 12px 11px;
-    border-radius: 10px;
-    margin-bottom: 13px;
-	max-width: 31.3%;
+    margin-bottom: 15px;
+	max-width: 33.33%;
+	.patientFiles_inner {
+		box-shadow: 0 3px 6px 0 #00000029;
+		border: 0;
+		background-color: #fff;
+		background-clip: border-box;
+		padding: 20px 25px;
+		border-radius: 3px;
+		margin: 0 10px;
+	}
 }
-
 .custompatientTab{
+	&.nav-tabs {
+		padding: 0 15px;
+		border-bottom: 0;
+	}
 	&.nav .nav-link{
 		text-transform: uppercase;
-    	font-weight: 500;
-		font-size: 0.875rem;
+		font-weight: bold;
+		font-size: 12px;
 		position: relative;
 		border: 0px;
-		padding: 1.5rem 0;
-		margin-right: 1.5rem;
+		padding: 2rem 0;
+		margin-right: 2rem;
 		background: transparent;
-
 		&.active::after{
 			content:'';
 			width:30px;
@@ -1127,16 +1162,16 @@
 	}
   }
   	.font_weight_bold {
-		font-weight: bold;
+		font-weight: bold !important;
   	}
   	.font_weight_medium {
-		font-weight: 500;
+		font-weight: 500 !important;
 	}
 	.color_707070 {
-		color: #707070;
+		color: #707070 !important;
 	}
 	.color_292D34 {
-		color: #292D34;
+		color: #292D34 !important;
 	}
 	.mw_130 {
 		min-width: 130px;
@@ -1152,10 +1187,10 @@
 			min-height: 40px;
 			font-size: 14px;
 			font-weight: 500;
-			margin: 0 20px;
+			margin: 0 15px;
 			&:hover {
-				background: #1D6AFF;
-				border-color: #1D6AFF;	
+				background: #1D6AFF !important;
+				border-color: #1D6AFF !important;	
 			}
 		} 
 		.table thead th {
@@ -1165,3 +1200,39 @@
 			font-weight: 500;
 		}
   	}
+	.tab_col {
+		width: 35px;
+		height: 35px;
+		line-height: 32px;
+		border-radius: 50%;
+		background-color: #f4f5f9;
+		text-align: center;
+		margin: 17px 7px;
+		&.no-bg {
+			background-color: transparent;
+			img {
+				height: 13px;
+			}
+			&:hover {
+				background-color: transparent;
+				img {
+					filter: none;
+					-webkit-filter: none;
+				}
+			}
+		}
+		&:hover {
+			background-color: #1D6AFF;
+			cursor: pointer;
+			img {
+				filter: brightness(0) invert(1);
+				-webkit-filter: brightness(0) invert(1);
+			}
+		}
+		img {
+			height: 16px;
+			&.mai {
+				height: 12px;
+			}
+		}
+	}

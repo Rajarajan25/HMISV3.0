@@ -18,24 +18,46 @@ export  class PatientDetailsTab extends React.Component {
     return (
       <Tab.Container id="left-tabs-example" defaultActiveKey="first">
         <Row>
-          <Col sm={12} className="bg-white">
-            <Nav variant="tabs" className="custompatientTab">
-              <Nav.Item>
-                <Nav.Link eventKey="first">Overview</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="second">Files</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="three">History</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="four">Invoice</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="five">Appoinment</Nav.Link>
-              </Nav.Item>
-            </Nav>
+          <Col sm={12} className="bg-white d-flex p-0 border-bottom">
+            <div className="flex-fill">
+              <Nav variant="tabs" className="custompatientTab">
+                <Nav.Item>
+                  <Nav.Link eventKey="first">Overview</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="second">Files</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="three">History</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="four">Invoice</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="five">Appoinment</Nav.Link>
+                </Nav.Item>
+              </Nav>
+            </div>
+            <div className="d-flex justify-content-end flex-fill">
+              <div className="tab_col">
+                <img src={toAbsoluteUrl("/media/patients/edit_icon.svg")} alt="edit" />
+              </div>
+              <div className="tab_col">
+                <img src={toAbsoluteUrl("/media/patients/email_icon.svg")} alt="msg" className="mai" />
+              </div>
+              <div className="tab_col">
+                <img src={toAbsoluteUrl("/media/patients/attch_icon.svg")} alt="attach" />
+              </div>
+              <div className="tab_col">
+                <img src={toAbsoluteUrl("/media/patients/print_icon.svg")} alt="print" />
+              </div>
+              <div className="tab_col">
+                <img src={toAbsoluteUrl("/media/patients/share_icon.svg")} alt="share" />
+              </div>
+              <div className="tab_col no-bg">
+                <img src={toAbsoluteUrl("/media/patients/close_icon.svg")} alt="close" />
+              </div>
+            </div>
           </Col>
           <Col sm={12} className="p-0">
             <Tab.Content className="p-5">
@@ -77,16 +99,13 @@ export function PatientBasicDetails(){
   return(
     <div className="d-flex flex-column patientDetailsoverview">
       <div className="d-flex flex-row patientPersoanlinfo">
-        <div className="d-flex flex-column align-items-start col-3">
+        <div className="d-flex flex-column align-items-start col-4">
           <div className="bg-light-primary rounded-circle overflow-hidden mb-5 p-0 mh-100 patientProfileimg">
             <img src={toAbsoluteUrl("/media/users/300_21.jpg")} alt="" className="mh-100" />
           </div>
           <div className="d-flex flex-column w-100">
             <div className="d-flex mb-1">
-              <Link 
-                to="#" 
-                className="font-weight-500 font-size-18 userName"
-                >
+              <Link to="#" className="font-weight-500 font-size-18 userName">
                   Andrea Jemmiah
               </Link>
             </div>
@@ -98,48 +117,48 @@ export function PatientBasicDetails(){
         <div className="d-flex w-100 flex-column patientPersoanlinfo">
           <Row>
             <Col md={4}>
-              <div className="form-group">
-                <label className="form-lable">Gender</label>
-                <p className="form-control-static">Male</p>
+              <div className="form-group border-bottom">
+                <label className="form-lable font_weight_bold">Gender</label>
+                <p className="form-control-static font_weight_medium color_707070">Male</p>
               </div>
             </Col>
             <Col md={4}>
-              <div className="form-group">
-                <label className="form-lable">Date Of Birth</label>
-                <p className="form-control-static">Feb 24th 2021</p>
+              <div className="form-group border-bottom">
+                <label className="form-lable font_weight_bold">Date Of Birth</label>
+                <p className="form-control-static font_weight_medium color_707070">Feb 24th 2021</p>
               </div>
             </Col>
             <Col md={4}>
-              <div className="form-group">
-                <label className="form-lable">Phone Number</label>
-                <p className="form-control-static">998855224455</p>
+              <div className="form-group border-bottom">
+                <label className="form-lable font_weight_bold">Phone Number</label>
+                <p className="form-control-static font_weight_medium color_707070">998855224455</p>
               </div>
             </Col>
           </Row>
           <Row>
             <Col md={4}>
-              <div className="form-group">
-                <label className="form-lable">City</label>
-                <p className="form-control-static">Chennai</p>
+              <div className="form-group border-bottom">
+                <label className="form-lable font_weight_bold">City</label>
+                <p className="form-control-static font_weight_medium color_707070">Chennai</p>
               </div>
             </Col>
             <Col md={4}>
-              <div className="form-group">
-                <label className="form-lable">Zip Code</label>
-                <p className="form-control-static">600042</p>
+              <div className="form-group border-bottom">
+                <label className="form-lable font_weight_bold">Zip Code</label>
+                <p className="form-control-static font_weight_medium color_707070">600042</p>
               </div>
             </Col>
             <Col md={4}>
-              <div className="form-group">
-                <label className="form-lable">Registred Date</label>
-                <p className="form-control-static">Nov 20th 2020</p>
+              <div className="form-group border-bottom">
+                <label className="form-lable font_weight_bold">Registred Date</label>
+                <p className="form-control-static font_weight_medium color_707070">Nov 20th 2020</p>
               </div>
             </Col>
           </Row>
         </div>
       </div>
       <div className="d-flex w-100 flex-column mt-10">
-        <div className="d-flex font-size-16 mb-3 font-weight-500">
+        <div className="d-flex font-size-16 mb-3 font_weight_bold">
           <span>Patient Summary</span>       
         </div>
         <div className="d-flex w-100 flex-column font-size-14">
@@ -147,22 +166,22 @@ export function PatientBasicDetails(){
         </div>
       </div>
       <div className="d-flex w-100 flex-column mt-5">
-        <div className="d-flex font-size-16 mb-3 font-weight-500">          
+        <div className="d-flex font-size-16 mb-3 font_weight_bold">          
           <span>Test Report</span>
           <span className="ml-auto">3 Tests</span>       
         </div>
         <div className="d-flex w-100">
           <div className="d-flex flex-column testReports p-5 text-center m-3">
             <img src={toAbsoluteUrl("/media/patients/lab_test.svg")} alt="" className="mx-auto" />
-            <span className="mt-5 font-size-12 font-weight-500">Test Report</span>
+            <span className="mt-5 font-size-12 font-weight-500">Vitamin B12</span>
           </div>
           <div className="d-flex flex-column testReports p-5 text-center m-3">
             <img src={toAbsoluteUrl("/media/patients/virus_issues.svg")} alt="" className="mx-auto" />
-            <span className="mt-5 font-size-12 font-weight-500">Test Report</span>
+            <span className="mt-5 font-size-12 font-weight-500">Corona Test</span>
           </div>
           <div className="d-flex flex-column testReports p-5 text-center m-3">
             <img src={toAbsoluteUrl("/media/patients/heart_beat.svg")} alt="" className="mx-auto" />
-            <span className="mt-5 font-size-12 font-weight-500 text-wrap">Test Report</span>
+            <span className="mt-5 font-size-12 font-weight-500 text-wrap">Heart Beat</span>
           </div>
         </div>
       </div>
@@ -173,21 +192,14 @@ export function PatientBasicDetails(){
 
 export function PatientFileList() {
   return (
-    <div className="d-flex w-100 patientFiles mx-2">
-      <div className="d-flex w-100">
-        <img
-            alt="patient image" 
-            className="mh-100 rounded align-self-center mr-3"
-            src={toAbsoluteUrl("/media/patients/patient_files.svg")}
-          />
+    <div className="d-flex w-100 patientFiles">
+      <div className="d-flex w-100 patientFiles_inner">
+        <img alt="patient image" className="mh-100 rounded align-self-center mr-5" src={toAbsoluteUrl("/media/patients/patient_files.svg")} />
         <div className="d-flex my-auto w-100">
-          <Link 
-            to="#" 
-            className="font-weight-500 font-size-14 userName"
-            >
+          <Link to="#" className="font-weight-500 font-size-14 userName">
               Check up result.pdf
           </Link>
-          <span className="my-auto ml-auto font-size-12">12 kb</span>
+          <span className="my-auto ml-auto font-size-12">12 kb <img alt="image" className="mh-100 rounded align-self-center ml-2" src={toAbsoluteUrl("/media/patients/delete_icon.svg")} /> <img alt="image" className="mh-100 rounded align-self-center ml-2" src={toAbsoluteUrl("/media/patients/down_icon.svg")} /></span>
         </div>
       </div>
     </div>
