@@ -174,24 +174,20 @@ export function PatientBasicDetails(){
 export function PatientFileList() {
   return (
     <div className="d-flex w-100 patientFiles mx-2">
-      <div className="symbol symbol-50 symbol-light mr-3">
-        <span className="symbol-label">
-          <img
+      <div className="d-flex w-100">
+        <img
             alt="patient image" 
-            className="mh-100 rounded align-self-center"
-            src={toAbsoluteUrl("/media/users/300_20.jpg")}
+            className="mh-100 rounded align-self-center mr-3"
+            src={toAbsoluteUrl("/media/patients/patient_files.svg")}
           />
-        </span>
-      </div>
-      <div className="d-flex flex-column w-100">
-        <div className="d-flex my-auto">
+        <div className="d-flex my-auto w-100">
           <Link 
             to="#" 
             className="font-weight-500 font-size-14 userName"
             >
               Check up result.pdf
           </Link>
-          <span className="my-auto ml-auto font-size-12">12kb</span>
+          <span className="my-auto ml-auto font-size-12">12 kb</span>
         </div>
       </div>
     </div>
