@@ -17,12 +17,10 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormLabel from '@material-ui/core/FormLabel';
-
-
-
 import {  useMutation,useQuery, useLazyQuery } from "@apollo/client";
-import { ADD_USER,ADD_MANY_USER,UPDATE_USER,UPDATE_ALL_USER,GET_USER,DELETE_USER,DELETE_MANY_USER,GET_ALL_USER,REPLACE_ONE_USER} from "./query/graphql";
+import { ADD_USER,UPDATE_USER,DELETE_USER} from "./query/graphql";
 import { User } from "realm-web";
+
 const initialValues = {
   firstname: "",
   lastname:"",
@@ -31,6 +29,7 @@ const initialValues = {
   password: "",
   countrycode:"",
   gender:"",
+  submitBttn: ''
 };
 
 const useStyles = makeStyles(theme => ({
@@ -52,15 +51,13 @@ const useStyles = makeStyles(theme => ({
 
 
 function Registration(props) {
-  const [deleteManyUser] = useMutation(DELETE_MANY_USER);
+  //const [formType, setFormType] = useState(DEFAULT_FORM_TYPE);
   const [deleteUser] = useMutation(DELETE_USER);
    const [addUser] = useMutation(ADD_USER);
-   const [addManyUser] = useMutation(ADD_MANY_USER);
    const [updateUser] = useMutation(UPDATE_USER);
-   const [updateAllUser] = useMutation(UPDATE_ALL_USER);
-   const [replaceOneUser] = useMutation(REPLACE_ONE_USER);
-   const [firstname, setfirstname] = React.useState("");
-   const [lastname,setlastname] =React.useState("");
+  //  const submitFormType = (formTypeSubmited, handleSumitType) => () => {
+  //   setFormType(formTypeSubmited, () => handlerSubmit());
+  // };
    const AddUser = async (values) => {
      addUser({
        variables: {
@@ -70,126 +67,30 @@ function Registration(props) {
           "email":values.email,
           "sex":values.gender,
           "password":values.password,
-"mobile_number":values.username,
-"country_name":values.countrycode
-         
+          "mobile_number":values.username,
+          "country_name":values.countrycode 
        }
      }
      });
    };
-   const [getUser, { loading1, data1}] = useLazyQuery(GET_USER);
-   const [getAllUser, { loading2, data2 }] = useLazyQuery(GET_ALL_USER);
-  //  console.log("GetUserlo: " +loading)
-  //  console.log("GetUserda: " +JSON.stringify(data))
-  //  console.log("GetUserer: " +error)
-  
- const GetUser=async () => {
-   getUser({
-      variables:  { query: { first_name: "Jenifer" } }
-     });
- };
- const GetAllUser=async () => {
-   getAllUser({
-    variables: {   query: { },limit:100,sortBy:"FIRST_NAME_ASC"}
-  }
-     );
- };
- 
-   const UpdateUser = async () => {
+   const UpdateUser = async (values) => {
      updateUser({
        variables: {
-         query: { "_id":"602a14c44162849887187efe"},
+         query: { "first_name":values.firstname},
          set: { "first_name": "Jenifer5" }
        }
    });
    };
-   const DeleteOneUser = async () => {
+   const DeleteOneUser = async (values) => {
+    alert("Sucessfuly updated :"+JSON.stringify(values,null,2))
      deleteUser({
        variables: {
-         query: { "_id":"602a2835dab8340a3cf385d7"},
+         query: { "first_name":values.firstname},
          
        }
    });
    };
-   const DeleteManyUser = async () => {
-     deleteManyUser({
-       variables: {
-         query: { "first_name":"Jenifer12"},
-         
-       }
-   });
-   };
-   const UpdateAllUser = async () => {
-     updateAllUser({
-       variables: {
-         query: {"first_name":"Jenifer1"},
-         set: { "first_name": "Jenifer54321" }
-       }
-   });
-   };
-   const ReplaceOneUser = async () => {
-     replaceOneUser({
-       variables: {
-         query: {"first_name":"Jenifer1"},
-         data: { "first_name": "Jenifer54321" }
-       }
-   });
-   };
-   const AddManyUser = async () => {
-     addManyUser({
-       variables: {
-         data: [{
-           "first_name":"1Jenifer",
-           "last_name":"Monica",
-           "ShippingAddress":"saligramam",
-           "deleted": false,
-           "BillingAddress":"saligramam",
-           "affiliate_id": "1234567"
-         },
- 
-      {
-         "first_name":"1Joel",
-         "last_name":"Mathew",
-         "ShippingAddress":"saligramam",
-         "deleted": false,
-         "BillingAddress":"saligramam",
-         "affiliate_id": "1234567"
-     },
-     {
-       "first_name":"1Jenifer1",
-       "last_name":"Mathew",
-       "ShippingAddress":"saligramam",
-       "deleted": false,
-       "BillingAddress":"saligramam",
-       "affiliate_id": "1234567"
-   },
-   {
-     "first_name":"1Jenifer12",
-     "last_name":"Mathew",
-     "ShippingAddress":"saligramam",
-     "deleted": false,
-     "BillingAddress":"saligramam",
-     "affiliate_id": "1234567"
- },
- {
-   "first_name":"1Jenifer13",
-   "last_name":"Mathew",
-   "ShippingAddress":"saligramam",
-   "deleted": false,
-   "BillingAddress":"saligramam",
-   "affiliate_id": "1234567"
- },
- {
-   "first_name":"1Jenifer23",
-   "last_name":"Mathew",
-   "ShippingAddress":"saligramam",
-   "deleted": false,
-   "BillingAddress":"saligramam",
-   "affiliate_id": "1234567"
- }]
-     }
-     });
-   };
+  
   const { intl } = props;
   const [loading, setLoading] = useState(false);
   const RegistrationSchema = Yup.object().shape({
@@ -273,35 +174,55 @@ function Registration(props) {
   };
 
   const formik = useFormik({
-    
+   
     initialValues,
     RegistrationSchema,
     onSubmit: (values, { setStatus, setSubmitting }) => {
-      
+      console.log("Values"+JSON.stringify(values))
       setSubmitting(true);
-      enableLoading();
-      // AddUser(values);
-
-      register(values.email, values.lastname, values.username, values.password)
-        .then(({ data: { accessToken } }) => {
-          props.register(accessToken);
-          disableLoading();
-          AddUser(values);
-          setSubmitting(false);
-        })
-        .catch(() => {
-          setSubmitting(false);
-          setStatus(
-            intl.formatMessage({
-              id: "AUTH.VALIDATION.INVALID_LOGIN",
-            })
-          );
-          disableLoading();
-        });
-      alert(JSON.stringify(values,null,2))
-    },
+      enableLoading();  
+if(values.submitBttn=='submit')
+{
+  console.log("Valuessubmitted"+JSON.stringify(values))
+  register(values.email, values.lastname, values.username, values.password)
+  .then(({ data: { accessToken } }) => {
+    props.register(accessToken);
+    disableLoading();
+    AddUser(values);
+    setSubmitting(false);
+  })
+  .catch(() => {
+    setSubmitting(false);
+    setStatus(
+      intl.formatMessage({
+        id: "AUTH.VALIDATION.INVALID_LOGIN",
+      })
+    );
+    disableLoading();
   });
+alert("Valuessubmitted"+JSON.stringify(values,null,2))
+}
 
+if(values.submitBttn=='delete')
+{
+  console.log("Valuesdeleted"+JSON.stringify(values))
+  disableLoading();
+    DeleteOneUser(values);
+alert("Valuesdeleted"+JSON.stringify(values,null,2))
+}
+if(values.submitBttn=='update')
+{
+  console.log("ValuesUpdated"+JSON.stringify(values))
+  disableLoading();
+    UpdateUser(values);
+  
+alert("ValuesUpdated"+JSON.stringify(values,null,2))
+}
+}   
+     
+    
+  });
+console.log("FORMIK"+ JSON.stringify(formik))
   return (
   <div className="d-flex justify-content-center flex-column w-100 col-lg-10 p-0">
       
@@ -569,67 +490,40 @@ function Registration(props) {
               >
                 Add User
               </button>
-               <button
-                className="fancy-button"
-                onClick={() => AddManyUser()}
-              >
-                AddManyUser
-              </button>
+               
               <button
-                className="fancy-button"
-                onClick={() => UpdateUser()}
+               type="submit"
+               className="btn btn-primary sign-btn ml-15 h-77 font-weight-500 mt-6"
+               onClick={() => {
+                formik.setFieldValue('submitBttn', 'update')
+             }}
               >
                 UpdateUser
               </button>
+             
               <button
-                className="fancy-button"
-                onClick={() => UpdateAllUser()}
-              >
-                Update  ALL User
-              </button>
-              <button
-                className="fancy-button"
-                onClick={() => DeleteOneUser()}
+              type="submit"
+               className="btn btn-primary sign-btn ml-15 h-77 font-weight-500 mt-6"
+               onClick={() => {
+                formik.setFieldValue('submitBttn', 'delete')
+             }}
               >
                 Delete User
               </button>
-              <button
-                className="fancy-button"
-                onClick={() => DeleteManyUser()}
-              >
-                Delete Many User
-              </button>
-            
-              
-      <button   className="fancy-button"onClick={() => GetUser()}>
-      GetUser
-      </button>
-      
-      
-              <button
-                className="fancy-button"
-                onClick={() => GetAllUser( )}
-              >
-                Get ALL User
-              </button>
-              <button
-                className="fancy-button"
-                onClick={() => ReplaceOneUser()}
-              >
-                Replace One User
-              </button>
-
+             
               <button
                 type="submit"
     
-                className="btn btn-primary sign-btn ml-15 h-77 font-weight-500 mt-6"
+                className="btn btn-primary sign-btn ml-15 h-77 font-weight-500 mt-6"   onClick={() => {
+                  formik.setFieldValue('submitBttn', 'submit')
+               }}
               >
                 <span>Sign Up</span>
                 {loading && <span className="ml-3 spinner spinner-white"></span>}
               </button>
 
               <Link to="/auth/login" className="d-none">
-                <button type="button" className="btn btn-light-primary h-77 font-weight-bold px-9 py-4 my-3 mx-4">
+                <button type="button" className="btn btn-light-primary h-77 font-weight-bold px-9 py-4 my-3 mx-4" value="submitbutton"  >
                   Cancel
                 </button>
               </Link>
