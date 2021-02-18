@@ -1,7 +1,6 @@
 import gql from "graphql-tag";
 
 
-
 export const GET_USER = gql`
 query GetUser($query:UserQueryInput) {
 user(query:$query)
@@ -12,6 +11,7 @@ user(query:$query)
 }
 }
 `;
+
 export const GET_ALL_USER = gql`
 query GetUser($query:UserQueryInput,$limit:Int,$sortBy:UserSortByInput) {
 users(query:$query,limit:$limit,sortBy:$sortBy)
@@ -40,13 +40,11 @@ export const ADD_USER = gql`
     mutation AddUser($data: UserInsertInput!) {
       insertOneUser(data: $data) {
         first_name
-        last_name
+        last_name,
         email
-        sex
         password
-        mobile_number
         country_name
-        _id
+        
       }
     }
 `;

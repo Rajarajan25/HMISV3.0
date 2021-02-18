@@ -17,12 +17,9 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormLabel from '@material-ui/core/FormLabel';
+import {  useMutation,useQuery } from "@apollo/client";
+import { ADD_USER,GET_USER,UPDATE_USER} from "./query/graphql";
 
-
-
-import {  useMutation,useQuery, useLazyQuery } from "@apollo/client";
-import { ADD_USER,ADD_MANY_USER,UPDATE_USER,UPDATE_ALL_USER,GET_USER,DELETE_USER,DELETE_MANY_USER,GET_ALL_USER,REPLACE_ONE_USER} from "./query/graphql";
-import { User } from "realm-web";
 const initialValues = {
   firstname: "",
   lastname:"",
@@ -52,204 +49,57 @@ const useStyles = makeStyles(theme => ({
 
 
 function Registration(props) {
-  const [deleteManyUser] = useMutation(DELETE_MANY_USER);
-  const [deleteUser] = useMutation(DELETE_USER);
+ 
    const [addUser] = useMutation(ADD_USER);
-   const [addManyUser] = useMutation(ADD_MANY_USER);
    const [updateUser] = useMutation(UPDATE_USER);
-   const [updateAllUser] = useMutation(UPDATE_ALL_USER);
-   const [replaceOneUser] = useMutation(REPLACE_ONE_USER);
-   const [firstname, setfirstname] = React.useState("");
-   const [lastname,setlastname] =React.useState("");
    const AddUser = async (values) => {
      addUser({
        variables: {
          data: {
            "first_name":values.firstname,
            "last_name":values.lastname,
-          "email":values.email,
-          "sex":values.gender,
-          "password":values.password,
-"mobile_number":values.username,
-"country_name":values.countrycode
-         
+           "email":values.email,
+           "user_name" :values.username,
+           "password":values.password,
+           "country_name":values.countrycode,
+           "sex":values.gender
        }
      }
      });
+     
    };
-   const [getUser, { loading1, data1}] = useLazyQuery(GET_USER);
-   const [getAllUser, { loading2, data2 }] = useLazyQuery(GET_ALL_USER);
-  //  console.log("GetUserlo: " +loading)
-  //  console.log("GetUserda: " +JSON.stringify(data))
-  //  console.log("GetUserer: " +error)
+   const UpdateUser = async (values) => {
+    updateUser({
+      variables: {
+        query: { "first_name":values.firstname},
+        set: { "first_name": "Jenifer5" }
+      }
+  });
+  };
   
- const GetUser=async () => {
-   getUser({
-      variables:  { query: { first_name: "Jenifer" } }
-     });
- };
- const GetAllUser=async () => {
-   getAllUser({
-    variables: {   query: { },limit:100,sortBy:"FIRST_NAME_ASC"}
-  }
-     );
- };
- 
-   const UpdateUser = async () => {
-     updateUser({
-       variables: {
-         query: { "_id":"602a14c44162849887187efe"},
-         set: { "first_name": "Jenifer5" }
-       }
-   });
-   };
-   const DeleteOneUser = async () => {
-     deleteUser({
-       variables: {
-         query: { "_id":"602a2835dab8340a3cf385d7"},
-         
-       }
-   });
-   };
-   const DeleteManyUser = async () => {
-     deleteManyUser({
-       variables: {
-         query: { "first_name":"Jenifer12"},
-         
-       }
-   });
-   };
-   const UpdateAllUser = async () => {
-     updateAllUser({
-       variables: {
-         query: {"first_name":"Jenifer1"},
-         set: { "first_name": "Jenifer54321" }
-       }
-   });
-   };
-   const ReplaceOneUser = async () => {
-     replaceOneUser({
-       variables: {
-         query: {"first_name":"Jenifer1"},
-         data: { "first_name": "Jenifer54321" }
-       }
-   });
-   };
-   const AddManyUser = async () => {
-     addManyUser({
-       variables: {
-         data: [{
-           "first_name":"1Jenifer",
-           "last_name":"Monica",
-           "ShippingAddress":"saligramam",
-           "deleted": false,
-           "BillingAddress":"saligramam",
-           "affiliate_id": "1234567"
-         },
- 
-      {
-         "first_name":"1Joel",
-         "last_name":"Mathew",
-         "ShippingAddress":"saligramam",
-         "deleted": false,
-         "BillingAddress":"saligramam",
-         "affiliate_id": "1234567"
-     },
-     {
-       "first_name":"1Jenifer1",
-       "last_name":"Mathew",
-       "ShippingAddress":"saligramam",
-       "deleted": false,
-       "BillingAddress":"saligramam",
-       "affiliate_id": "1234567"
-   },
-   {
-     "first_name":"1Jenifer12",
-     "last_name":"Mathew",
-     "ShippingAddress":"saligramam",
-     "deleted": false,
-     "BillingAddress":"saligramam",
-     "affiliate_id": "1234567"
- },
- {
-   "first_name":"1Jenifer13",
-   "last_name":"Mathew",
-   "ShippingAddress":"saligramam",
-   "deleted": false,
-   "BillingAddress":"saligramam",
-   "affiliate_id": "1234567"
- },
- {
-   "first_name":"1Jenifer23",
-   "last_name":"Mathew",
-   "ShippingAddress":"saligramam",
-   "deleted": false,
-   "BillingAddress":"saligramam",
-   "affiliate_id": "1234567"
- }]
-     }
-     });
-   };
   const { intl } = props;
   const [loading, setLoading] = useState(false);
-  const RegistrationSchema = Yup.object().shape({
+  const {data } = useQuery(GET_USER, {
+    variables: { query: { last_name:"Sujaludeen"}}
+  });
+  const RegistrationSchema =Yup.object({
     firstname: Yup.string()
+      .max(15, 'Must be 15 characters or less')
+      .required('Required'),
+    lastname: Yup.string()
+      .max(20, 'Must be 3 characters or less')
+      .required('Required'),
+    email: Yup.string()
+      .email('Invalid email address')
+      .required('Required'),
+    password: Yup.string()
     .min(3, "Minimum 3 symbols")
     .max(50, "Maximum 50 symbols")
-    .required(
-      intl.formatMessage({
-        id: "AUTH.VALIDATION.REQUIRED_FIELD",
-      })
-    ),
-    lastname: Yup.string()
-      .min(3, "Minimum 3 symbols")
-      .max(50, "Maximum 50 symbols")
-      .required(
-        intl.formatMessage({
-          id: "AUTH.VALIDATION.REQUIRED_FIELD",
-        })
-      ),
-    email: Yup.string()
-      .email("Wrong email format")
-      .min(3, "Minimum 3 symbols")
-      .max(50, "Maximum 50 symbols")
-      .required(
-        intl.formatMessage({
-          id: "AUTH.VALIDATION.REQUIRED_FIELD",
-        })
-      ),
-    username: Yup.string()
-      .min(3, "Minimum 3 symbols")
-      .max(50, "Maximum 50 symbols")
-      .required(
-        intl.formatMessage({
-          id: "AUTH.VALIDATION.REQUIRED_FIELD",
-        })
-      ),
-    password: Yup.string()
-      .min(3, "Minimum 3 symbols")
-      .max(50, "Maximum 50 symbols")
-      .required(
-        intl.formatMessage({
-          id: "AUTH.VALIDATION.REQUIRED_FIELD",
-        })
-      ),
-    changepassword: Yup.string()
-      .required(
-        intl.formatMessage({
-          id: "AUTH.VALIDATION.REQUIRED_FIELD",
-        })
-      )
-      .when("password", {
-        is: (val) => (val && val.length > 0 ? true : false),
-        then: Yup.string().oneOf(
-          [Yup.ref("password")],
-          "Password and Confirm Password didn't match"
-        ),
-      }),
-    acceptTerms: Yup.bool().required(
-      "You must accept the terms and conditions"
-    ),
+    .required('Required'),
+    countrycode: Yup.string()
+      .required('Required'),
+      gender: Yup.string()
+      .required('Required'),  
   });
   const classes = useStyles();
   const enableLoading = () => {
@@ -275,32 +125,38 @@ function Registration(props) {
   const formik = useFormik({
     
     initialValues,
-    RegistrationSchema,
+    validationSchema:RegistrationSchema,
     onSubmit: (values, { setStatus, setSubmitting }) => {
       
       setSubmitting(true);
       enableLoading();
-      // AddUser(values);
-
-      register(values.email, values.lastname, values.username, values.password)
-        .then(({ data: { accessToken } }) => {
-          props.register(accessToken);
-          disableLoading();
-          AddUser(values);
-          setSubmitting(false);
-        })
-        .catch(() => {
-          setSubmitting(false);
-          setStatus(
-            intl.formatMessage({
-              id: "AUTH.VALIDATION.INVALID_LOGIN",
-            })
-          );
-          disableLoading();
-        });
+      AddUser(values);
+      
+      // register(values.email, values.lastname, values.username, values.password)
+      //   .then(({ data: { accessToken } }) => {
+      //     props.register(accessToken);
+      //     disableLoading();
+      //     AddUser(values);
+      //     setSubmitting(false);
+      //   })
+      //   .catch(() => {
+      //     setSubmitting(false);
+      //     setStatus(
+      //       intl.formatMessage({
+      //         id: "AUTH.VALIDATION.INVALID_LOGIN",
+      //       })
+      //     );
+      //     disableLoading();
+      //   });
       alert(JSON.stringify(values,null,2))
     },
-  });
+    onReset:(values)=>{
+      UpdateUser(values);
+    },
+   
+
+  })
+  
 
   return (
   <div className="d-flex justify-content-center flex-column w-100 col-lg-10 p-0">
@@ -384,7 +240,7 @@ function Registration(props) {
           <form
             id="kt_login_signin_form"
             className="form fv-plugins-bootstrap fv-plugins-framework animated animate__animated animate__backInUp"
-            onSubmit={formik.handleSubmit}
+            onSubmit={formik.handleSubmit} onReset={formik.handleReset} onChange={formik.handleChange}
           >
             {/* begin: Alert */}
             {formik.status && (
@@ -563,61 +419,7 @@ function Registration(props) {
 
           
             <div className="form-group flex-wrap flex-center">
-            <button
-                className="fancy-button"
-                onClick={() => AddUser()}
-              >
-                Add User
-              </button>
-               <button
-                className="fancy-button"
-                onClick={() => AddManyUser()}
-              >
-                AddManyUser
-              </button>
-              <button
-                className="fancy-button"
-                onClick={() => UpdateUser()}
-              >
-                UpdateUser
-              </button>
-              <button
-                className="fancy-button"
-                onClick={() => UpdateAllUser()}
-              >
-                Update  ALL User
-              </button>
-              <button
-                className="fancy-button"
-                onClick={() => DeleteOneUser()}
-              >
-                Delete User
-              </button>
-              <button
-                className="fancy-button"
-                onClick={() => DeleteManyUser()}
-              >
-                Delete Many User
-              </button>
-            
-              
-      <button   className="fancy-button"onClick={() => GetUser()}>
-      GetUser
-      </button>
-      
-      
-              <button
-                className="fancy-button"
-                onClick={() => GetAllUser( )}
-              >
-                Get ALL User
-              </button>
-              <button
-                className="fancy-button"
-                onClick={() => ReplaceOneUser()}
-              >
-                Replace One User
-              </button>
+         
 
               <button
                 type="submit"
@@ -628,11 +430,12 @@ function Registration(props) {
                 {loading && <span className="ml-3 spinner spinner-white"></span>}
               </button>
 
-              <Link to="/auth/login" className="d-none">
-                <button type="button" className="btn btn-light-primary h-77 font-weight-bold px-9 py-4 my-3 mx-4">
-                  Cancel
+              {/* <Link to="/auth/login" > */}
+                <button type="reset" className="btn btn-primary sign-btn ml-15 h-77 font-weight-500 mt-6">
+                  Update
                 </button>
-              </Link>
+                
+              {/* </Link> */}
             </div>
           </form>
           
