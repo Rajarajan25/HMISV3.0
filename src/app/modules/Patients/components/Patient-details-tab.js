@@ -6,19 +6,6 @@ import { PatientHistory } from "./Patient-history";
 import { PatientApponiment } from "./Patient-appoinment";
 import { PatientInvoice } from "./Patient-invoice";
 
-
-import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
-
-
 export  class PatientDetailsTab extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -108,63 +95,7 @@ export  class PatientDetailsTab extends React.Component {
 
 export default PatientDetailsTab;
 
-
-const useStyles = makeStyles({
-  list: {
-    width: 650,
-  },
-  fullList: {
-    width: 'auto',
-  },
-});
-
-
 export function PatientBasicDetails(){
-
-  const classes = useStyles();
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  });
-
-  const toggleDrawer = (side, open) => event => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
-
-    setState({ ...state, [side]: open });
-  };
-
-  const sideList = side => (
-    <div
-      className={classes.list}
-      role="presentation"
-      onClick={toggleDrawer(side, false)}
-      onKeyDown={toggleDrawer(side, false)}
-    >
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-    </div>
-  );
-
-
   return(
     <div className="d-flex flex-column patientDetailsoverview">
       <div className="d-flex flex-row patientPersoanlinfo">
@@ -230,7 +161,7 @@ export function PatientBasicDetails(){
         <div className="d-flex font-size-16 mb-3 font_weight_bold">
           <span>Patient Summary</span>       
         </div>
-        <div className="d-flex w-100 flex-column font_weight_medium font-size-14">
+        <div className="d-flex w-100 flex-column  font-size-14">
           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
         </div>
       </div>
@@ -253,12 +184,6 @@ export function PatientBasicDetails(){
             <span className="mt-5 font-size-12 font-weight-500 text-wrap">Heart Beat</span>
           </div>
         </div>
-      </div>
-      <div className="d-flex w-100 flex-column mt-10">
-        <Button onClick={toggleDrawer('right', true)}>Open Right</Button>
-        <Drawer className="patientProfileinfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
-          <PatientInvoice />
-        </Drawer>
       </div>
     </div>
   );
