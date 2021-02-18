@@ -161,7 +161,7 @@ export function PatientBasicDetails(){
         <div className="d-flex font-size-16 mb-3 font_weight_bold">
           <span>Patient Summary</span>       
         </div>
-        <div className="d-flex w-100 flex-column font-size-14">
+        <div className="d-flex w-100 flex-column font_weight_medium font-size-14">
           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
         </div>
       </div>
@@ -199,7 +199,13 @@ export function PatientFileList() {
           <Link to="#" className="font-weight-500 font-size-14 userName">
               Check up result.pdf
           </Link>
-          <span className="my-auto ml-auto font-size-12">12 kb <img alt="image" className="mh-100 rounded align-self-center ml-2" src={toAbsoluteUrl("/media/patients/delete_icon.svg")} /> <img alt="image" className="mh-100 rounded align-self-center ml-2" src={toAbsoluteUrl("/media/patients/down_icon.svg")} /></span>
+          <span className="my-auto ml-auto font-size-12 file_hover">
+            <div className="file_size">12 kb </div>
+            <div className="file_icon">
+              <img alt="image" className="mh-100 rounded align-self-center ml-2" src={toAbsoluteUrl("/media/patients/delete_icon.svg")} /> 
+              <img alt="image" className="mh-100 rounded align-self-center ml-2" src={toAbsoluteUrl("/media/patients/down_icon.svg")} />
+            </div>
+          </span>
         </div>
       </div>
     </div>

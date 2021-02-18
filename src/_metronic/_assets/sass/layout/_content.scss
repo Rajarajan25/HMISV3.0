@@ -1054,9 +1054,24 @@
 		border: 0;
 		background-color: #fff;
 		background-clip: border-box;
-		padding: 20px 25px;
+		padding: 20px 75px 20px 15px;
 		border-radius: 3px;
 		margin: 0 10px;
+		position: relative;
+		.file_hover {
+			position: absolute;
+			right: 20px;
+			top: 28px;
+		}
+		.file_icon{
+			display: none;
+		}
+		&:hover .file_size{
+			display: none;
+		}
+		&:hover .file_icon{
+			display: block;
+		}
 	}
 }
 .custompatientTab{
@@ -1161,10 +1176,10 @@
 		min-height: 70px;
 	}
   }
-  	.font_weight_bold {
+	.font_weight_bold {
 		font-weight: bold !important;
-  	}
-  	.font_weight_medium {
+	}
+	.font_weight_medium {
 		font-weight: 500 !important;
 	}
 	.color_707070 {

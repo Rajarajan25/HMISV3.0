@@ -15,8 +15,8 @@ export function PatientHistory() {
             <div className="MuiAvatar-root position-relative">
               <img src={toAbsoluteUrl("/media/users/300_21.jpg")} alt="" className="" />
               <div className="position-absolute img_mve">
-                <img src={toAbsoluteUrl("/media/users/star.svg")} alt="" className="star_icon" />
-                <img src={toAbsoluteUrl("/media/users/man.svg")} alt="" className="man_icon" />
+              <Link to="#"><img src={toAbsoluteUrl("/media/users/star.svg")} alt="" className="star_icon" /></Link>
+              <Link to="#"><img src={toAbsoluteUrl("/media/users/man.svg")} alt="" className="man_icon" /></Link>
               </div>
             </div>
             <div className="mh_70">
