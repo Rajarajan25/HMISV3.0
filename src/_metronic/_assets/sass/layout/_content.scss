@@ -941,7 +941,14 @@
 .col.wid_360 {
     max-width: 360px;
 }
-
+.patientProfileinfo{
+	.MuiDrawer-paper{
+		top: 5%;
+		bottom: 5%;
+		height: auto;
+		border-radius: 10px 0 0 10px; 
+	}
+}
 .patientsList, .patientDetailsoverview{
 
 	&.card_bg{
