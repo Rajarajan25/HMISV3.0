@@ -257,6 +257,7 @@ export function PatientBasicDetails(){
       <div className="d-flex w-100 flex-column mt-10">
         <Button onClick={toggleDrawer('right', true)}>Open Right</Button>
         <Drawer className="patientProfileinfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
+          {/* sideList('right') */}
           <PatientInvoice />
         </Drawer>
       </div>
