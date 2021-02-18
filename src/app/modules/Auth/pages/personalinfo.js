@@ -153,7 +153,7 @@ function Registration(props) {
     onReset:(values)=>{
       UpdateUser(values);
     },
-   
+    
 
   })
   
@@ -240,7 +240,7 @@ function Registration(props) {
           <form
             id="kt_login_signin_form"
             className="form fv-plugins-bootstrap fv-plugins-framework animated animate__animated animate__backInUp"
-            onSubmit={formik.handleSubmit} onReset={formik.handleReset} onChange={formik.handleChange}
+            onSubmit={formik.handleSubmit} onReset={formik.handleReset} 
           >
             {/* begin: Alert */}
             {formik.status && (

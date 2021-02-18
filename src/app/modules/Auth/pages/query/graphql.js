@@ -53,10 +53,11 @@ export const DELETE_USER = gql`
       deleteOneUser(query: $query) {
         first_name
         last_name
-        ShippingAddress
-        deleted
-        BillingAddress
-        affiliate_id
+        email
+        sex
+        password
+        mobile_number
+        country_name
         _id
       }
     }
@@ -92,9 +93,14 @@ export const UPDATE_ALL_USER = gql`
 export const UPDATE_USER = gql`
     mutation UpdateUser($query: UserQueryInput, $set: UserUpdateInput!){
       updateOneUser(query:$query, set: $set){
-        _id
         first_name
         last_name
+        email
+        sex
+        password
+        mobile_number
+        country_name
+        _id
     }
   }
 
