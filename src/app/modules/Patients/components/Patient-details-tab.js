@@ -6,6 +6,18 @@ import { PatientHistory } from "./Patient-history";
 import { PatientApponiment } from "./Patient-appoinment";
 import { PatientInvoice } from "./Patient-invoice";
 
+import { makeStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+
+const useStyles = makeStyles({
+  list: {
+    width: 650,
+  },
+  fullList: {
+    width: 'auto',
+  },
+});
+
 export  class PatientDetailsTab extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -96,6 +108,22 @@ export  class PatientDetailsTab extends React.Component {
 export default PatientDetailsTab;
 
 export function PatientBasicDetails(){
+  const classes = useStyles();
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
+
+  const toggleDrawer = (side, open) => event => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+
+    setState({ ...state, [side]: open });
+  };
+
   return(
     <div className="d-flex flex-column patientDetailsoverview">
       <div className="d-flex flex-row patientPersoanlinfo">
@@ -185,6 +213,15 @@ export function PatientBasicDetails(){
           </div>
         </div>
       </div>
+
+      <div className="d-flex w-100 flex-column mt-10">
+        <div onClick={toggleDrawer('right', true)}>Open Right</div>
+        <Drawer className="patientProfileinfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
+          {/* sideList('right') */}
+          <PatientInvoice />
+        </Drawer>
+      </div>
+
     </div>
   );
 }

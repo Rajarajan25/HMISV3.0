@@ -946,7 +946,11 @@
 		top: 5%;
 		bottom: 5%;
 		height: auto;
-		border-radius: 10px 0 0 10px; 
+		box-shadow: -10px 0px 30px #1C6AFC33;
+		border: 1px solid #E9E9E9;
+		border-radius: 10px 0px 0px 10px;
+		max-width: 650px;
+		width: 100%;
 	}
 }
 .patientsList, .patientDetailsoverview{
@@ -1192,6 +1196,9 @@
 	.color_707070 {
 		color: #707070 !important;
 	}
+	.color_303030 {
+		color: #303030 !important;
+	}
 	.color_292D34 {
 		color: #292D34 !important;
 	}
@@ -1255,6 +1262,44 @@
 			height: 16px;
 			&.mai {
 				height: 12px;
+			}
+		}
+	}
+	.hist_detail {
+		padding: 15px 40px 10px;
+		img.w130 {
+			width: 130px;
+			height: 130px;
+		}
+		.btn-primary {
+			background: #1D6AFF;
+			border-color: #1D6AFF;
+			border-radius: 20px;
+			min-width: 160px;
+			min-height: 40px;
+			font-size: 13px;
+			font-weight: 500;
+			margin: 0 15px;
+			&:hover {
+				background: #1D6AFF !important;
+				border-color: #1D6AFF !important;	
+			}
+		}
+		.rep_check {
+			span {
+				width: 50%;
+				margin-bottom: 20px;
+				position: relative;
+				padding-left: 25px;
+				&:before {
+					content: "";
+					background:url(/media/patients/rep_check.svg);
+					position: absolute;
+					width: 16px;
+					height:  16px;
+					left: 0;
+					top: 2px;
+				}
 			}
 		}
 	}

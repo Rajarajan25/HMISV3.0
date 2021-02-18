@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import Table from '@material-ui/core/Table';
 
 export function PatientInvoice() {
