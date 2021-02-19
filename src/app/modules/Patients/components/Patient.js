@@ -1,10 +1,13 @@
 import React from "react";
+import { Helmet } from 'react-helmet'
 import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 
 export function PatientList() {
   return (
     <div className="d-flex w-100">
+      
+      <Helmet  titleTemplate="HMIS | %s" title="Patient Details" />
       <div className="symbol symbol-50 symbol-light">
         <span className="symbol-label">
           <img

@@ -26,7 +26,11 @@ export function PatientHistory() {
     bottom: false,
     right: false,
   });
-
+  const styles = {
+    BackdropProps: {
+      background: 'transparent'
+    }
+  };
   const toggleDrawer = (side, open) => event => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
@@ -36,6 +40,7 @@ export function PatientHistory() {
   };
 
   return (
+    
     <div className="history_card w-100">
       <div className="row">
         <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
@@ -231,13 +236,14 @@ export function PatientHistory() {
           </div>
         </div>
       </div>
+      {["left", "right", "top", "bottom"].map((anchor) => (
       <Drawer className="patientProfileinfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
         <div className="py-5 px-12 overflow-auto">
           <Link className="closeDrawer" onClose={toggleDrawer('right', false)}><span className="my-auto font-weight-500">X</span></Link>
           <HistoryDetail />
         </div>
       </Drawer>
-
+      ))}
     </div>
   );
 }

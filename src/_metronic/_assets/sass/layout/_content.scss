@@ -1336,3 +1336,88 @@
 			}
 		}
 	}
+	.book_type {
+		span {
+			width: 50%;
+			margin: 18px 0;
+			position: relative;
+			padding-left: 50px;
+			&:before {
+				content: "";
+				position: absolute;
+				width: 34px;
+				height:  34px;
+				left: 0;
+				top: -5px;
+				border-radius: 50%;
+				background-repeat: no-repeat;
+				background-position: center;
+			}
+			&.book_chat {
+				&::before {
+					background-color: #1D6AFF;
+					background-image:url(/media/patients/book_chat.svg);
+				}
+			}
+			&.book_vid {
+				&::before {
+					background-color: #F9DA31;
+					background-image:url(/media/patients/book_video.svg);
+				}
+			}
+			&.book_ph {
+				&::before {
+					background-color: #FD7822;
+					background-image:url(/media/patients/book_phone.svg);
+				}
+			}
+			&.book_person {
+				&::before {
+					background-color: #1CAAF4;
+					background-image:url(/media/patients/book_visit.svg);
+				}
+			}
+		}
+	}
+	.gen {
+		font-size: 14px;
+		color: #707070;
+		text-align: center;
+		input[type=radio] {
+			border: 0;
+			clip: rect(0 0 0 0);
+			height: 1px;
+			margin: -1px;
+			overflow: hidden;
+			padding: 0;
+			position: absolute;
+			width: 1px;
+		}
+		input[type=radio]+label  {
+			position:relative;
+			vertical-align:middle;
+			-webkit-user-select:none;
+			-moz-user-select:none;
+			-ms-user-select:none;
+			user-select:none;
+			cursor:pointer;
+			border: 1px solid #C0C0C0;
+			border-radius: 28px;
+			padding: 7px;
+			min-width: 120px;
+			margin-right: 20px;
+			font-weight: 500;
+		}
+		input[type=radio]:checked+label, input[type=radio]+label:hover {
+			background: #36A4FD;
+			color: #fff;
+			border: 1px solid #36A4FD;
+		}
+		&.fem {
+			input[type=radio]:checked+label, input[type=radio]+label:hover {
+				background: #F06292;
+				color: #fff;
+				border: 1px solid #F06292;
+			}	
+		}
+	}
