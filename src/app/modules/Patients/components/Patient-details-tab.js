@@ -230,7 +230,7 @@ export function PatientBasicDetails(){
         <div className="d-flex font-size-16 mb-3 font_weight_bold">
           <span>Patient Summary</span>       
         </div>
-        <div className="d-flex w-100 flex-column font_weight_medium font-size-14">
+        <div className="d-flex w-100 flex-column font-size-14">
           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
         </div>
       </div>
@@ -304,45 +304,78 @@ export function BookDetail() {
         </div>
       </div>
       <div className="d-flex w-100 flex-column patientPersoanlinfo">
-          <Row>
-            <Col md={6}>
-              <div className="form-group border-bottom">
-                <label className="form-lable font_weight_bold color_303030">Name</label>
-                <p className="form-control-static font_weight_medium color_707070">Male</p>
+        <Row>
+          <Col md={12}>
+            <div className="form-group">
+              <label className="form-lable font_weight_bold color_303030 mt-3">Booking for</label>
+              <div className="w-100 mt-6">
+                <div className="d-inline-flex gen">
+                  <input type="radio" id="self" name="salon" className="checkbx" />
+                  <label className="subCategory" for="self">
+                      <span className="chk_txt">Self</span>
+                  </label>
+                </div>
+                <div className="d-inline-flex gen">
+                  <input type="radio" id="other" name="salon" className="checkbx" />
+                  <label className="subCategory" for="other">
+                      <span className="chk_txt">Other</span>
+                  </label>
+                </div>
               </div>
-            </Col>
-            <Col md={6}>
-              <div className="form-group border-bottom">
-                <label className="form-lable font_weight_bold color_303030">Date Of Birth</label>
-                <p className="form-control-static font_weight_medium color_707070">Feb 24th 2021</p>
+            </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={6}>
+            <div className="form-group border-bottom">
+              <label className="form-lable font_weight_bold color_303030">Name</label>
+              <p className="form-control-static font_weight_medium color_707070">Enter name</p>
+            </div>
+          </Col>
+          <Col md={6}>
+            <div className="form-group border-bottom">
+              <label className="form-lable font_weight_bold color_303030">Date & Time</label>
+              <p className="form-control-static font_weight_medium color_707070">26/11/2020 02:00 Pm</p>
+            </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={12}>
+            <div className="form-group">
+              <label className="form-lable font_weight_bold color_303030 mt-2">Gender</label>
+              <div className="w-100 mt-6">
+                <div className="d-inline-flex gen">
+                  <input type="radio" id="male" name="salon" className="checkbx" />
+                  <label className="subCategory" for="male">
+                      <span className="chk_txt">Male</span>
+                  </label>
+                </div>
+                <div className="d-inline-flex gen fem">
+                  <input type="radio" id="female" name="salon" className="checkbx" />
+                  <label className="subCategory" for="female">
+                      <span className="chk_txt">Female</span>
+                  </label>
+                </div>
               </div>
-            </Col>
-          </Row>
-          <Row>
-            <Col md={6}>
-              <div className="form-group border-bottom">
-                <label className="form-lable font_weight_bold color_303030">City</label>
-                <p className="form-control-static font_weight_medium color_707070">Chennai</p>
-              </div>
-            </Col>
-            <Col md={6}>
-              <div className="form-group border-bottom">
-                <label className="form-lable font_weight_bold color_303030">Zip Code</label>
-                <p className="form-control-static font_weight_medium color_707070">600042</p>
-              </div>
-            </Col>
-          </Row>
-        </div>
+            </div>
+          </Col>
+        </Row>
+      </div>
 
-      <div className="d-flex w-100 flex-column mt-8">
+      <div className="d-flex w-100 flex-column mt-3">
         <div className="d-flex color_303030 font-size-14 mb-4 font_weight_bold">
           <span>Booking Type</span>       
         </div>
-        <div className="d-flex flex-wrap w-100 font-size-13 color_707070 font_weight_medium rep_check">
-          <span>Complete Haemogram</span>
-          <span>Thyroid</span>
-          <span>Glucose - Fasting Blood</span>
-          <span>Urine Routine</span>
+        <div className="d-flex flex-wrap w-100 font-size-13 color_303030 font_weight_medium book_type">
+          <span className="book_chat">Chat Consultation</span>
+          <span className="book_vid">Video Consultation</span>
+          <span className="book_ph">Phone Consultation</span>
+          <span className="book_person">In-Person</span>
+        </div>
+      </div>
+      <div className="d-flex w-100 flex-column mt-8">
+        <div className="d-flex color_303030 font-size-14 mb-4 font_weight_bold">
+          <span>Terms and Conditions</span>       
         </div>
       </div>
     </div>
