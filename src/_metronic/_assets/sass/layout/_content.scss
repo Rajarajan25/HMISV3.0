@@ -1300,7 +1300,6 @@
 		}
 	}
 	.hist_detail {
-		padding: 15px 40px 10px;
 		img.w130 {
 			width: 130px;
 			height: 130px;
@@ -1334,6 +1333,22 @@
 					left: 0;
 					top: 2px;
 				}
+			}
+		}
+	}
+	.patientButton {
+		.btn-primary {
+			background: #1D6AFF;
+			border-color: #1D6AFF;
+			border-radius: 20px;
+			min-width: 220px;
+			min-height: 40px;
+			font-size: 13px;
+			font-weight: 500;
+			margin: 0 15px;
+			&:hover, &:active {
+				background: #1D6AFF !important;
+				border-color: #1D6AFF !important;	
 			}
 		}
 	}
