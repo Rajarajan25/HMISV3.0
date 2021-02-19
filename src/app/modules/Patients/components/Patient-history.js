@@ -232,8 +232,10 @@ export function PatientHistory() {
         </div>
       </div>
       <Drawer className="patientProfileinfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
-        {/* sideList('right') */}
-        <HistoryDetail />
+        <div className="p-10 overflow-auto">
+          <Link className="closeDrawer" onClose={toggleDrawer('right', false)}><span className="my-auto font-weight-500">X</span></Link>
+          <HistoryDetail />
+        </div>
       </Drawer>
 
     </div>
