@@ -17,8 +17,9 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormLabel from '@material-ui/core/FormLabel';
-import {  useMutation,useQuery } from "@apollo/client";
-import { ADD_USER,GET_USER,UPDATE_USER} from "./query/graphql";
+import {  useMutation,useQuery, useLazyQuery } from "@apollo/client";
+import { ADD_USER,UPDATE_USER,DELETE_USER} from "./query/graphql";
+import { User } from "realm-web";
 
 const initialValues = {
   firstname: "",
@@ -28,6 +29,7 @@ const initialValues = {
   password: "",
   countrycode:"",
   gender:"",
+  submitBttn: ''
 };
 
 const useStyles = makeStyles(theme => ({
@@ -49,7 +51,8 @@ const useStyles = makeStyles(theme => ({
 
 
 function Registration(props) {
- 
+
+  const [deleteUser] = useMutation(DELETE_USER);
    const [addUser] = useMutation(ADD_USER);
    const [updateUser] = useMutation(UPDATE_USER);
    const AddUser = async (values) => {
@@ -58,48 +61,92 @@ function Registration(props) {
          data: {
            "first_name":values.firstname,
            "last_name":values.lastname,
-           "email":values.email,
-           "user_name" :values.username,
-           "password":values.password,
-           "country_name":values.countrycode,
-           "sex":values.gender
+          "email":values.email,
+          "sex":values.gender,
+          "password":values.password,
+          "mobile_number":values.username,
+          "country_name":values.countrycode 
        }
      }
      });
-     
    };
    const UpdateUser = async (values) => {
-    updateUser({
-      variables: {
-        query: { "first_name":values.firstname},
-        set: { "first_name": "Jenifer5" }
-      }
-  });
-  };
+     updateUser({
+       variables: {
+         query: { "first_name":values.firstname},
+         set: { "first_name": "Jenifer5" }
+       }
+   });
+   };
+   const DeleteOneUser = async (values) => {
+     deleteUser({
+       variables: {
+         query: { "first_name":values.firstname},
+         
+       }
+   });
+   };
   
   const { intl } = props;
   const [loading, setLoading] = useState(false);
-  const {data } = useQuery(GET_USER, {
-    variables: { query: { last_name:"Sujaludeen"}}
-  });
-  const RegistrationSchema =Yup.object({
+  const RegistrationSchema = Yup.object().shape({
     firstname: Yup.string()
-      .max(15, 'Must be 15 characters or less')
-      .required('Required'),
-    lastname: Yup.string()
-      .max(20, 'Must be 3 characters or less')
-      .required('Required'),
-    email: Yup.string()
-      .email('Invalid email address')
-      .required('Required'),
-    password: Yup.string()
     .min(3, "Minimum 3 symbols")
     .max(50, "Maximum 50 symbols")
-    .required('Required'),
-    countrycode: Yup.string()
-      .required('Required'),
-      gender: Yup.string()
-      .required('Required'),  
+    .required(
+      intl.formatMessage({
+        id: "AUTH.VALIDATION.REQUIRED_FIELD",
+      })
+    ),
+    lastname: Yup.string()
+      .min(3, "Minimum 3 symbols")
+      .max(50, "Maximum 50 symbols")
+      .required(
+        intl.formatMessage({
+          id: "AUTH.VALIDATION.REQUIRED_FIELD",
+        })
+      ),
+    email: Yup.string()
+      .email("Wrong email format")
+      .min(3, "Minimum 3 symbols")
+      .max(50, "Maximum 50 symbols")
+      .required(
+        intl.formatMessage({
+          id: "AUTH.VALIDATION.REQUIRED_FIELD",
+        })
+      ),
+    username: Yup.string()
+      .min(3, "Minimum 3 symbols")
+      .max(50, "Maximum 50 symbols")
+      .required(
+        intl.formatMessage({
+          id: "AUTH.VALIDATION.REQUIRED_FIELD",
+        })
+      ),
+    password: Yup.string()
+      .min(3, "Minimum 3 symbols")
+      .max(50, "Maximum 50 symbols")
+      .required(
+        intl.formatMessage({
+          id: "AUTH.VALIDATION.REQUIRED_FIELD",
+        })
+      ),
+    changepassword: Yup.string()
+      .required(
+        intl.formatMessage({
+          id: "AUTH.VALIDATION.REQUIRED_FIELD",
+        })
+      )
+      .when("password", {
+        is: (val) => (val && val.length > 0 ? true : false),
+        then: Yup.string().oneOf(
+          [Yup.ref("password")],
+          "Password and Confirm Password didn't match"
+        ),
+      }),
+    acceptTerms: Yup.bool().required(
+      "You must accept the terms and conditions"
+    ),
   });
   const classes = useStyles();
   const enableLoading = () => {
@@ -123,41 +170,55 @@ function Registration(props) {
   };
 
   const formik = useFormik({
-    
+   
     initialValues,
-    validationSchema:RegistrationSchema,
+    RegistrationSchema,
     onSubmit: (values, { setStatus, setSubmitting }) => {
-      
+      console.log("Values"+JSON.stringify(values))
       setSubmitting(true);
-      enableLoading();
-      AddUser(values);
-      
-      // register(values.email, values.lastname, values.username, values.password)
-      //   .then(({ data: { accessToken } }) => {
-      //     props.register(accessToken);
-      //     disableLoading();
-      //     AddUser(values);
-      //     setSubmitting(false);
-      //   })
-      //   .catch(() => {
-      //     setSubmitting(false);
-      //     setStatus(
-      //       intl.formatMessage({
-      //         id: "AUTH.VALIDATION.INVALID_LOGIN",
-      //       })
-      //     );
-      //     disableLoading();
-      //   });
-      alert(JSON.stringify(values,null,2))
-    },
-    onReset:(values)=>{
-      UpdateUser(values);
-    },
-    
-
+      enableLoading();  
+if(values.submitBttn=='submit')
+{
+  console.log("Valuessubmitted"+JSON.stringify(values))
+  register(values.email, values.lastname, values.username, values.password)
+  .then(({ data: { accessToken } }) => {
+    props.register(accessToken);
+    disableLoading();
+    AddUser(values);
+    setSubmitting(false);
   })
-  
+  .catch(() => {
+    setSubmitting(false);
+    setStatus(
+      intl.formatMessage({
+        id: "AUTH.VALIDATION.INVALID_LOGIN",
+      })
+    );
+    disableLoading();
+  });
+alert("Valuessubmitted"+JSON.stringify(values,null,2))
+}
 
+if(values.submitBttn=='delete')
+{
+  console.log("Valuesdeleted"+JSON.stringify(values))
+  disableLoading();
+    DeleteOneUser(values);
+alert("Valuesdeleted"+JSON.stringify(values,null,2))
+}
+if(values.submitBttn=='update')
+{
+  console.log("ValuesUpdated"+JSON.stringify(values))
+  disableLoading();
+    UpdateUser(values);
+  
+alert("ValuesUpdated"+JSON.stringify(values,null,2))
+}
+}   
+     
+    
+  });
+console.log("FORMIK"+ JSON.stringify(formik))
   return (
   <div className="d-flex justify-content-center flex-column w-100 col-lg-10 p-0">
       
@@ -240,7 +301,7 @@ function Registration(props) {
           <form
             id="kt_login_signin_form"
             className="form fv-plugins-bootstrap fv-plugins-framework animated animate__animated animate__backInUp"
-            onSubmit={formik.handleSubmit} onReset={formik.handleReset} 
+            onSubmit={formik.handleSubmit}
           >
             {/* begin: Alert */}
             {formik.status && (
@@ -419,23 +480,43 @@ function Registration(props) {
 
           
             <div className="form-group flex-wrap flex-center">
-         
-
+            
+              <button
+               type="submit"
+               className="btn btn-primary sign-btn ml-15 h-77 font-weight-500 mt-6"
+               onClick={() => {
+                formik.setFieldValue('submitBttn', 'update')
+             }}
+              >
+                UpdateUser
+              </button>
+             
+              <button
+              type="submit"
+               className="btn btn-primary sign-btn ml-15 h-77 font-weight-500 mt-6"
+               onClick={() => {
+                formik.setFieldValue('submitBttn', 'delete')
+             }}
+              >
+                Delete User
+              </button>
+             
               <button
                 type="submit"
     
-                className="btn btn-primary sign-btn ml-15 h-77 font-weight-500 mt-6"
+                className="btn btn-primary sign-btn ml-15 h-77 font-weight-500 mt-6"   onClick={() => {
+                  formik.setFieldValue('submitBttn', 'submit')
+               }}
               >
                 <span>Sign Up</span>
                 {loading && <span className="ml-3 spinner spinner-white"></span>}
               </button>
 
-              {/* <Link to="/auth/login" > */}
-                <button type="reset" className="btn btn-primary sign-btn ml-15 h-77 font-weight-500 mt-6">
-                  Update
+              <Link to="/auth/login" className="d-none">
+                <button type="button" className="btn btn-light-primary h-77 font-weight-bold px-9 py-4 my-3 mx-4" value="submitbutton"  >
+                  Cancel
                 </button>
-                
-              {/* </Link> */}
+              </Link>
             </div>
           </form>
           
