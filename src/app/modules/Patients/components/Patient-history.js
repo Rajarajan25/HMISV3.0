@@ -232,7 +232,7 @@ export function PatientHistory() {
         </div>
       </div>
       <Drawer className="patientProfileinfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
-        <div className="p-10 overflow-auto">
+        <div className="py-5 px-12 overflow-auto">
           <Link className="closeDrawer" onClose={toggleDrawer('right', false)}><span className="my-auto font-weight-500">X</span></Link>
           <HistoryDetail />
         </div>
@@ -274,7 +274,15 @@ export function HistoryDetail() {
           <p>Dentists remove tooth decay, fill cavities, and repair fractured teeth. Dentists diagnose and treat problems with patients’ teeth, gums, and related parts of the mouth. They provide advice and instruction on taking care of the teeth and gums and on diet choices that affect oral health. While a dental check-up every 6 months is recommended by medical experts, you might need to book an appointment</p>
         </div>
         <div className="d-flex color_303030 font-size-14 mb-4 font_weight_bold text-uppercase">
-          <span>Reports Checked:</span>       
+          <span className="mt-1">Reports Checked:</span> 
+          <div className="d-flex justify-content-end flex-fill">
+            <div className="tab_col my-0">
+              <img src={toAbsoluteUrl("/media/patients/email_icon.svg")} alt="msg" className="mai" />
+            </div>
+            <div className="tab_col my-0">
+              <img src={toAbsoluteUrl("/media/patients/print_icon.svg")} alt="print" />
+            </div>
+          </div>      
         </div>
         <div className="d-flex flex-wrap w-100 font-size-13 color_707070 font_weight_medium rep_check">
           <span>Complete Haemogram</span>
