@@ -89,64 +89,24 @@ function Registration(props) {
   
   const { intl } = props;
   const [loading, setLoading] = useState(false);
-  const RegistrationSchema = Yup.object().shape({
+  const RegistrationSchema =Yup.object({
     firstname: Yup.string()
+      .max(15, 'Must be 15 characters or less')
+      .required('Required'),
+    lastname: Yup.string()
+      .max(20, 'Must be 3 characters or less')
+      .required('Required'),
+    email: Yup.string()
+      .email('Invalid email address')
+      .required('Required'),
+    password: Yup.string()
     .min(3, "Minimum 3 symbols")
     .max(50, "Maximum 50 symbols")
-    .required(
-      intl.formatMessage({
-        id: "AUTH.VALIDATION.REQUIRED_FIELD",
-      })
-    ),
-    lastname: Yup.string()
-      .min(3, "Minimum 3 symbols")
-      .max(50, "Maximum 50 symbols")
-      .required(
-        intl.formatMessage({
-          id: "AUTH.VALIDATION.REQUIRED_FIELD",
-        })
-      ),
-    email: Yup.string()
-      .email("Wrong email format")
-      .min(3, "Minimum 3 symbols")
-      .max(50, "Maximum 50 symbols")
-      .required(
-        intl.formatMessage({
-          id: "AUTH.VALIDATION.REQUIRED_FIELD",
-        })
-      ),
-    username: Yup.string()
-      .min(3, "Minimum 3 symbols")
-      .max(50, "Maximum 50 symbols")
-      .required(
-        intl.formatMessage({
-          id: "AUTH.VALIDATION.REQUIRED_FIELD",
-        })
-      ),
-    password: Yup.string()
-      .min(3, "Minimum 3 symbols")
-      .max(50, "Maximum 50 symbols")
-      .required(
-        intl.formatMessage({
-          id: "AUTH.VALIDATION.REQUIRED_FIELD",
-        })
-      ),
-    changepassword: Yup.string()
-      .required(
-        intl.formatMessage({
-          id: "AUTH.VALIDATION.REQUIRED_FIELD",
-        })
-      )
-      .when("password", {
-        is: (val) => (val && val.length > 0 ? true : false),
-        then: Yup.string().oneOf(
-          [Yup.ref("password")],
-          "Password and Confirm Password didn't match"
-        ),
-      }),
-    acceptTerms: Yup.bool().required(
-      "You must accept the terms and conditions"
-    ),
+    .required('Required'),
+    countrycode: Yup.string()
+      .required('Required'),
+      gender: Yup.string()
+      .required('Required'),  
   });
   const classes = useStyles();
   const enableLoading = () => {
@@ -172,7 +132,7 @@ function Registration(props) {
   const formik = useFormik({
    
     initialValues,
-    RegistrationSchema,
+    validationSchema:RegistrationSchema,
     onSubmit: (values, { setStatus, setSubmitting }) => {
       console.log("Values"+JSON.stringify(values))
       setSubmitting(true);
