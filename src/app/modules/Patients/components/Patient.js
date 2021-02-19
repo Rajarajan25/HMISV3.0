@@ -6,7 +6,6 @@ import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 export function PatientList() {
   return (
     <div className="d-flex w-100">
-      
       <Helmet  titleTemplate="HMIS | %s" title="Patient Details" />
       <div className="symbol symbol-50 symbol-light">
         <span className="symbol-label">
@@ -33,7 +32,7 @@ export function PatientList() {
         </div>
       </div>
       <div className="d-flex flex-column text-right">
-        <a class="my-auto ml-2"><i class="ki ki-bold-more-ver font-size-18"></i></a>
+        <Link to="#" className="my-auto ml-2"><i className="ki ki-bold-more-ver font-size-18"></i></Link>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import { Redirect, BrowserRouter as  Router, Switch, Route, Link } from "react-router-dom";
 import { Filter } from "./components/Filter";
+import { AsideSearch } from "./components/Patient-list-search";
 import { PatientList } from "./components/Patient";
 import { PatientDetailsTab } from "./components/Patient-details-tab";
 import PropTypes from 'prop-types';
@@ -17,9 +18,13 @@ export default function PatientDetails() {
       <div className="d-flex flex-row">        
         <Filter></Filter>
       </div>
+      
       <div className="d-block mt-15">
         <div className="d-flex">        
-            <div className="col wid_360">
+            <div className="col wid_360">              
+              <div className="d-flex flex-row">     
+                <AsideSearch />
+              </div>
               <div className="d-flex align-items-center flex-wrap patientsList card_bg selectedUser">
                 <PatientList />
               </div>

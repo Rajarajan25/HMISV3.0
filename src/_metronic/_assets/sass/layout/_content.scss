@@ -972,7 +972,23 @@
     }
 }
 .patientsList, .patientDetailsoverview{
+	transition: all 5s ease-in-out;
+	.patientSearch{
+		position: absolute;
+		left: 0;
+		width: calc(100% - 0px);
+		transition: all 5s ease-in-out;
 
+		input{
+			padding-right: 40px;
+			padding-left: 5px;
+		}
+	}
+	.searchIcon{
+		width: 30px;
+    	text-align: center;
+		z-index: 9;
+	}
 	&.card_bg{
     box-shadow: 0 3px 6px 0 #1043a71a;
     border: 0;

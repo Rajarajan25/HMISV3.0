@@ -49,7 +49,7 @@ export function PatientHistory() {
               <img src={toAbsoluteUrl("/media/users/tick_icon.svg")} alt="" className="" />
             </div>
             <div className="MuiAvatar-root position-relative">
-              <Link  onClick={toggleDrawer('right', true)}><img src={toAbsoluteUrl("/media/users/300_21.jpg")} alt="" className="" /></Link>
+              <Link to="#" onClick={toggleDrawer('right', true)}><img src={toAbsoluteUrl("/media/users/300_21.jpg")} alt="" className="" /></Link>
               <div className="position-absolute img_mve">
                 <Link to="#"><img src={toAbsoluteUrl("/media/users/star.svg")} alt="" className="star_icon" /></Link>
                 <Link to="#"><img src={toAbsoluteUrl("/media/users/man.svg")} alt="" className="man_icon" /></Link>
@@ -217,7 +217,7 @@ export function PatientHistory() {
               <img src={toAbsoluteUrl("/media/users/tick_icon.svg")} alt="" className="" />
             </div>
             <div className="MuiAvatar-root position-relative">
-              <Link  onClick={toggleDrawer('right', true)}><img src={toAbsoluteUrl("/media/users/300_21.jpg")} alt="" className="" /></Link>
+              <Link to="#"  onClick={toggleDrawer('right', true)}><img src={toAbsoluteUrl("/media/users/300_21.jpg")} alt="" className="" /></Link>
               <div className="position-absolute img_mve">
                 <img src={toAbsoluteUrl("/media/users/star.svg")} alt="" className="star_icon" />
                 <img src={toAbsoluteUrl("/media/users/man.svg")} alt="" className="man_icon" />
@@ -236,14 +236,12 @@ export function PatientHistory() {
           </div>
         </div>
       </div>
-      {["left", "right", "top", "bottom"].map((anchor) => (
       <Drawer className="patientProfileinfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
         <div className="p-10 overflow-auto">
-          <Link className="closeDrawer" onClose={toggleDrawer('right', false)}><span className="my-auto font-weight-500">X</span></Link>
+          <Link to="/#" className="closeDrawer" onClose={toggleDrawer('right', false)}><span className="my-auto font-weight-500">X</span></Link>
           <HistoryDetail />
         </div>
       </Drawer>
-      ))}
     </div>
   );
 }
