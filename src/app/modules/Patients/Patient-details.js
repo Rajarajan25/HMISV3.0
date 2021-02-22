@@ -20,7 +20,7 @@ export default function PatientDetails() {
       </div>
       
       <div className="d-block mt-15">
-        <div className="d-flex">        
+        <div className="d-flex flex-column flex-lg-row">        
             <div className="col wid_360">              
               <div className="d-flex flex-row">     
                 <AsideSearch />

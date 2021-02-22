@@ -17,8 +17,6 @@ const useStyles = makeStyles({
 });
 
 export function PatientHistory() {
-
-  
   const classes = useStyles();
   const [state, setState] = React.useState({
     top: false,
@@ -35,12 +33,14 @@ export function PatientHistory() {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
     }
-
     setState({ ...state, [side]: open });
   };
 
-  return (
-    
+  const toggleDrawerClose = () => {
+    setState(false);
+  };
+  
+  return (  
     <div className="history_card w-100">
       <div className="row">
         <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
@@ -58,12 +58,21 @@ export function PatientHistory() {
             <div className="mh_70">
               <p className="card-tit text-uppercase">Robert Y.Social</p>
               <div className="card-sss-tit">
-              <img src={toAbsoluteUrl("/media/users/location.svg")} alt="" width="5" className="" /><span>12 km</span><img src={toAbsoluteUrl("/media/users/ages.svg")} alt="" width="5" className="" /><span>40y old</span>
+                <img src={toAbsoluteUrl("/media/users/location.svg")} alt="" width="5" className="" />
+                <span>12 km</span>
+                <img src={toAbsoluteUrl("/media/users/ages.svg")} alt="" width="5" className="" />
+                <span>40y old</span>
               </div>
             </div>
             <div className="d-flex border-top">
-              <div className="flex-fill py-4 card-sub-tit text-uppercase"><img src={toAbsoluteUrl("/media/users/location.svg")} alt="" height="11" className="" /><span>Shown on Map</span></div>
-              <div className="flex-fill border-left py-4 card-sub-tit text-uppercase"><img src={toAbsoluteUrl("/media/users/location.svg")} alt="" height="11" className="" /><span>Send Message</span></div>
+              <div className="flex-fill py-4 card-sub-tit text-uppercase">
+                <img src={toAbsoluteUrl("/media/users/location.svg")} alt="" height="11" className="" />
+                <span>Shown on Map</span>
+              </div>
+              <div className="flex-fill border-left py-4 card-sub-tit text-uppercase">
+                <img src={toAbsoluteUrl("/media/users/location.svg")} alt="" height="11" className="" />
+                <span>Send Message</span>
+              </div>
             </div>
           </div>
         </div>
@@ -237,8 +246,8 @@ export function PatientHistory() {
         </div>
       </div>
       <Drawer className="patientProfileinfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
-        <div className="py-5 px-12 overflow-auto">
-          <Link to="#" className="closeDrawer" onClose={toggleDrawer('right', false)}><span className="my-auto font-weight-500">X</span></Link>
+        <div className="py-5 px-10 overflow-auto">
+          <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}><span className="my-auto font-weight-500">X</span></Link>
           <HistoryDetail />
         </div>
       </Drawer>

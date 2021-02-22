@@ -25,7 +25,7 @@ render() {
       {/* begin::Form */}
       <form className="p-0 w-100">
         <div className="d-flex w-100 position-relative">          
-          <Dropdown drop="down" alignRight>
+          <Dropdown drop="down" alignRight className="mr-auto">
             <Dropdown.Toggle
               as={DropdownItemToggler}
               id="kt_quick_actions_search_toggle"
@@ -36,14 +36,10 @@ render() {
                   <Tooltip id="quick-search-tooltip">Quick search</Tooltip>
                 }
               >
-                <a
-                  href="#"
-                  className="btn btn-icon btn-default btn-hover-primary ml-2 h-40px w-40px flex-shrink-0"
-                >
-                  <span className="svg-icon svg-icon-xl">
-                    <SVG
-                      src={toAbsoluteUrl("/media/svg/icons/Code/Compiling.svg")}
-                    />
+                <a href="#" className="d-flex pt-3 pl-2">
+                  <span className="svg-icon svg-icon-xl font-weight-bold font-size-14 color_292D34">
+                    All Categories
+                    <SVG className="d-none" src={toAbsoluteUrl("/media/svg/icons/Code/Compiling.svg")} />
                   </span>
                 </a>
               </OverlayTrigger>
@@ -54,7 +50,7 @@ render() {
             </Dropdown.Menu>
           </Dropdown>
         
-          <div className="d-flex h-40px w-100">
+          <div className="d-flex h-40px">
             {
               this.state.show?
               <div className="patientSearch">

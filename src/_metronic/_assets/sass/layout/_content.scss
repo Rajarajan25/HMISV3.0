@@ -949,7 +949,7 @@
 		box-shadow: -10px 0px 20px 0px #1c6afc1a;
 		border: 1px solid #E9E9E9;
 		border-radius: 10px 0px 0px 10px;
-		max-width: 650px;
+		max-width: 550px;
 		width: 100%;
 		overflow: visible;
 	}
@@ -1108,7 +1108,7 @@
 			right: 20px;
 			top: 28px;
 		}
-		.file_icon{
+		.file_icon {
 			display: none;
 		}
 		&:hover .file_size{
@@ -1236,6 +1236,12 @@
 	.color_292D34 {
 		color: #292D34 !important;
 	}
+	.color_c0c0c0 {
+		color: #c0c0c0 !important;
+	}
+	.color_1D6AFF{
+		color: #1D6AFF !important;
+	}
 	.mw_130 {
 		min-width: 130px;
 	}
@@ -1301,8 +1307,8 @@
 	}
 	.hist_detail {
 		img.w130 {
-			width: 130px;
-			height: 130px;
+			width: 110px;
+			height: 110px;
 		}
 		.btn-primary {
 			background: #1D6AFF;
@@ -1321,7 +1327,7 @@
 		.rep_check {
 			span {
 				width: 50%;
-				margin-bottom: 20px;
+				margin-bottom: 18px;
 				position: relative;
 				padding-left: 25px;
 				&:before {
@@ -1346,7 +1352,7 @@
 			font-size: 13px;
 			font-weight: 500;
 			margin: 0 15px;
-			&:hover, &:active {
+			&:hover, &:active, &:focus {
 				background: #1D6AFF !important;
 				border-color: #1D6AFF !important;	
 			}

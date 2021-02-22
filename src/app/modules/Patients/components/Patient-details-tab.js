@@ -31,7 +31,7 @@ export  class PatientDetailsTab extends React.Component {
     return (
       <Tab.Container id="left-tabs-example" defaultActiveKey="first">
         <Row>
-          <Col sm={12} className="bg-white d-flex p-0 border-bottom">
+          <Col sm={12} className="bg-white d-flex flex-column flex-md-row p-0 border-bottom">
             <div className="flex-fill">
               <Nav variant="tabs" className="custompatientTab">
                 <Nav.Item>
@@ -137,6 +137,12 @@ export function PatientBasicDetails(){
     setState({ ...state, [side]: open });
   };
 
+  const toggleDrawerClose = () => {
+    setState(false);
+  };
+
+  
+  
   const sideList = side => (
     <div
       className={classes.list}
@@ -257,8 +263,8 @@ export function PatientBasicDetails(){
       <div className="d-flex mt-10 mb-8 justify-content-start patientButton">
         <button type="button" className="btn btn-primary" onClick={toggleDrawer('right', true)}>Book Appointment</button>
         <Drawer className="patientProfileinfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
-          <div className="py-5 px-12 overflow-auto">
-            <Link to="#" className="closeDrawer" onClose={toggleDrawer('right', false)}><span className="my-auto font-weight-500">X</span></Link>
+          <div className="py-5 px-10 overflow-auto">
+            <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}><span className="my-auto font-weight-500">X</span></Link>
             <BookDetail />
           </div>
         </Drawer>
@@ -277,7 +283,13 @@ export function PatientFileList() {
           <Link to="#" className="font-weight-500 font-size-14 userName">
               Check up result.pdf
           </Link>
-          <span className="my-auto ml-auto font-size-12">12 kb <img alt="image" className="mh-100 rounded align-self-center ml-2" src={toAbsoluteUrl("/media/patients/delete_icon.svg")} /> <img alt="image" className="mh-100 rounded align-self-center ml-2" src={toAbsoluteUrl("/media/patients/down_icon.svg")} /></span>
+          <span className="my-auto ml-auto font-size-12 file_hover"> 
+            <span class="file_size">12 kb</span> 
+            <span class="file_icon">
+              <img alt="image" className="mh-100 rounded align-self-center ml-2" src={toAbsoluteUrl("/media/patients/delete_icon.svg")} /> 
+              <img alt="image" className="mh-100 rounded align-self-center ml-2" src={toAbsoluteUrl("/media/patients/down_icon.svg")} />
+            </span>
+          </span>
         </div>
       </div>
     </div>
@@ -289,7 +301,7 @@ export function BookDetail() {
   return (
     <div className="book_detail">
       <div className="d-flex flex-column">
-        <div className="d-flex flex-column w-100">
+        <div className="d-flex flex-column w-100 mt-5">
           <div className="d-flex mb-2">
             <p className="font_weight_bold font-size-18 m-0 mt-1">Appointment Details</p>
             <div className="d-flex justify-content-end flex-fill">
@@ -329,13 +341,13 @@ export function BookDetail() {
           <Col md={6}>
             <div className="form-group border-bottom">
               <label className="form-lable font_weight_bold color_303030">Name</label>
-              <p className="form-control-static font_weight_medium color_707070">Enter name</p>
+              <input placeholder="Enter name" type="text" className="form-control font_weight_medium color_707070 pl-0 border-0" name="" />
             </div>
           </Col>
           <Col md={6}>
             <div className="form-group border-bottom">
               <label className="form-lable font_weight_bold color_303030">Date & Time</label>
-              <p className="form-control-static font_weight_medium color_707070">26/11/2020 02:00 Pm</p>
+              <input placeholder="26/11/2020 02:00 PM" type="text" className="form-control font_weight_medium color_707070 pl-0 border-0" name="" />
             </div>
           </Col>
         </Row>
@@ -373,9 +385,20 @@ export function BookDetail() {
           <span className="book_person">In-Person</span>
         </div>
       </div>
-      <div className="d-flex w-100 flex-column mt-8">
+      <div className="d-flex w-100 flex-column mt-10">
         <div className="d-flex color_303030 font-size-14 mb-4 font_weight_bold">
           <span>Terms and Conditions</span>       
+        </div>
+        <div className="w-100">
+        <label className="d-flex color_707070 font-size-13"> 
+          <input type="checkbox" name="acceptTerms" className="m-1"/>  <span className="ml-2">It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passage.</span>
+        </label>
+        </div>
+      </div>
+      <div className="w-100 mt-15">
+        <div className="d-flex justify-content-end color_c0c0c0">
+          <button type="button" className="btn font-size-16 font_weight_medium color_c0c0c0 text-uppercase">Cancel</button>
+          <button type="button" className="btn font-size-16 font_weight_medium color_1D6AFF text-uppercase">Save</button>
         </div>
       </div>
     </div>
