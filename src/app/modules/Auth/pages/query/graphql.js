@@ -39,11 +39,16 @@ export const REPLACE_ONE_USER = gql`
 export const ADD_USER = gql`
     mutation AddUser($data: UserInsertInput!) {
       insertOneUser(data: $data) {
+        title
+        user_name
         first_name
-        last_name,
+        last_name
         email
         password
         country_name
+        sex
+        mobile_number
+        ShippingAddress
         
       }
     }
