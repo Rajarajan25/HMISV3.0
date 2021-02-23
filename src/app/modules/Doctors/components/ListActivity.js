@@ -5,16 +5,38 @@ import { BrowserRouter as Router, Switch, Route,Link } from 'react-router-dom';
 import {  useMutation,useQuery, useLazyQuery } from "@apollo/client";
 import { ADD_USER,UPDATE_USER,DELETE_USER} from "../../../modules/Auth/pages/query/graphql";
 import { User } from "realm-web";
+import Popup from 'reactjs-popup';
+
 import * as Yup from "yup";
+
+
+import { makeStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import MailIcon from '@material-ui/icons/Mail';
 import {
   Button,
   Modal,
   ButtonToolbar,
   Col,
   Container,
-  Row
+  Row,
+  Tab, Tabs, Nav,
 } from "react-bootstrap";
-
+const useStyles = makeStyles({
+  list: {
+    width: 650,
+  },
+  fullList: {
+    width: 'auto',
+  },
+});
 
 const initialValues = {
   title:"",
@@ -199,7 +221,79 @@ export function ListActivity01() {
   );
 }
 
-export  default function ListActivity02() {  
+
+export function PatientBasicDetails(){
+
+  const classes = useStyles();
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
+
+  const toggleDrawer = (side, open) => event => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+
+    setState({ ...state, [side]: open });
+  };
+
+  const toggleDrawerClose = () => {
+    setState(false);
+  };
+
+  
+  
+  const sideList = side => (
+    <div
+      className={classes.list}
+      role="presentation"
+      onClick={toggleDrawer(side, false)}
+      onKeyDown={toggleDrawer(side, false)}
+    >
+      <List>
+        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+    </div>
+  );
+
+
+  return(
+    <div className="d-flex flex-column patientDetailsoverview">
+     
+     
+      
+      <div className="d-flex mt-10 mb-8 justify-content-start patientButton">
+     
+        <Button type="button" className="customNewtaskBTN" onClick={toggleDrawer('right', true)}>Edit</Button>
+        <Drawer className="patientProfileinfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
+          <div className="py-5 px-10 overflow-auto">
+            <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}><span className="my-auto font-weight-500">X</span></Link>
+            <BookDetail />
+          </div>
+        </Drawer>
+      </div>
+    </div>
+  );
+}
+
+export function BookDetail() {
   const [addUser] = useMutation(ADD_USER);
   
   const [modalShow, setModalShow] = useState(false);
@@ -272,8 +366,359 @@ alert("ValuesAdded"+JSON.stringify(values,null,2))
     
   });
 console.log("FORMIK"+ JSON.stringify(formik))
+ 
   return (
-    <div className="contentAreaouter">                  
+    <form
+    id="kt_login_signin_form"
+    className="form fv-plugins-bootstrap fv-plugins-framework animated animate__animated animate__backInUp"
+    onSubmit={formik.handleSubmit}
+  >
+
+
+    
+ 
+
+<div className="d-flex justify-content-center">
+<div className="d-flex py-4 px-0 col-10 ">
+<div className="w-100" >
+<div className="form-row">
+  <div className="form-group col">
+    <label htmlFor="userName">Name</label>
+    <div className="input-group">
+      <div className="input-group-prepend">
+      <select
+name="title"
+className="custom-select"
+aria-label="usertype"
+id="usertype"
+value={formik.values.title}
+onChange={formik.handleChange}
+onBlur={formik.handleBlur}
+style={{ display: 'block' }}
+>
+<option  value="" label="Select" />
+<option  value="Dr" label="Dr" />
+<option value="St" label="St" />
+<option value="Mr" label="Mr" />
+<option value="Miss" label="Miss" />
+<option value="Mrs" label="Mrs" />
+</select>
+       
+      </div>
+     
+      <input
+          placeholder="User Name"
+          type="text"
+          className={`form-control py-5 px-6 ${getInputClasses(
+            "username"
+          )}`}
+          name="username"
+          {...formik.getFieldProps("username")}
+        />
+       
+      <input
+        type="text"
+        aria-label="Degree"
+        className="form-control"
+        placeholder="Degree"
+        id="degree"
+      />
+    </div>
+    {formik.touched.title && formik.errors.title ? (
+          <div className="fv-plugins-message-container">
+            <div  style={{ color: 'red' }} className="fv-help-block">{formik.errors.title}</div>
+          </div>
+        ) : null}
+    {formik.touched.username && formik.errors.username ? (
+          <div className="fv-plugins-message-container">
+            <div  style={{ color: 'red' }} className="fv-help-block">{formik.errors.username}</div>
+          </div>
+        ) : null}
+  </div>
+ 
+</div>
+<div className="form-row">
+  <div className="form-group col-md-6">
+    <label htmlFor="inputEmail4">Official Email</label>
+    <input
+          placeholder="Official Email"
+          type="email"
+          className={`form-control py-5 px-6 ${getInputClasses(
+            "email"
+          )}`}
+          name="email"
+          {...formik.getFieldProps("email")}
+        />
+  </div>
+  <div className="form-group col-md-6">
+    <label htmlFor="inputEmail4">Personal Email</label>
+    <input
+    placeholder="Personal Email"
+      type="email"
+      className={`form-control py-5 px-6 ${getInputClasses(
+        "email"
+      )}`}
+      name="email"
+      {...formik.getFieldProps("email")}
+    />
+  </div>
+  {formik.touched.email && formik.errors.email ? (
+          <div className="fv-plugins-message-container">
+            <div style={{ color: 'red' }} className="fv-help-block">{formik.errors.email}</div>
+          </div>
+        ) : null}
+</div>
+<div className="form-row">
+   <div className="form-group col-md-6">
+    <label htmlFor="mobilenumber">Mobile</label>
+
+    <input
+          placeholder="Enter your number"
+          type="text"
+          className={`form-control py-5 px-6 ${getInputClasses(
+            "mobilenumber"
+          )}`}
+          name="mobilenumber"
+          {...formik.getFieldProps("mobilenumber")}
+        />
+ 
+  </div> 
+   <div className="form-group col-md-6">
+    <label htmlFor="mobilenumber">Alternative number</label>
+    <input
+          placeholder="Enter your number"
+          type="tel"
+          className={`form-control py-5 px-6 ${getInputClasses(
+            "mobilenumber"
+          )}`}
+          name="mobilenumber"
+          {...formik.getFieldProps("mobilenumber")}
+        />
+ 
+  </div> 
+  {formik.touched.mobilenumber && formik.errors.mobilenumber ? (
+          <div className="fv-plugins-message-container">
+            <div  style={{ color: 'red' }} className="fv-help-block">{formik.errors.mobilenumber}</div>
+          </div>
+        ) : null}
+ 
+</div>
+<div className="form-row">
+  <div className="form-group col-md-6">
+    <label htmlFor="dob">Date of birth</label>
+    <div
+      className="input-group date"
+      id="datepicker-only-init"
+      data-target-input="nearest"
+    >
+      <input
+        type="text"
+        className="form-control datetimepicker-input"
+        data-target="#datepicker-only-init"
+      />
+      <div
+        className="input-group-append"
+        data-target="#datepicker-only-init"
+        data-toggle="datetimepicker"
+      >
+        <div className="input-group-text rounded-0">
+          <i className="fa fa-calendar" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div className="form-group col-md-3">
+    <label htmlFor="sex">Sex</label>
+
+    <select
+name="sex"
+className="custom-select"
+aria-label="usertype"
+id="usertype"
+value={formik.values.sex}
+onChange={formik.handleChange}
+onBlur={formik.handleBlur}
+style={{ display: 'block' }}
+>
+<option  value="" label="Select" />
+<option  value="Male" label="Male" />
+<option value="Female" label="Female" />
+
+</select>
+
+
+{formik.touched.sex && formik.errors.sex ? (
+          <div className="fv-plugins-message-container">
+            <div style={{ color: 'red' }} className="fv-help-block">{formik.errors.sex}</div>
+          </div>
+        ) : null}
+    
+  </div>
+  <div className="form-group col-md-3">
+    <label htmlFor="dob">Blood Group</label>
+    <input
+      type="text"
+      className="form-control"
+      placeholder="Blood group"
+      id="bloodGroup"
+      name="bloodGroup"
+     
+    />
+  </div>
+</div>
+<div className="form-row">
+  <div className="form-group col-md-6">
+    <label htmlFor="email">Location</label>
+
+
+    <select
+name="location"
+className="custom-select"
+aria-label="usertype"
+id="usertype"
+value={formik.values.location}
+onChange={formik.handleChange}
+onBlur={formik.handleBlur}
+style={{ display: 'block' }}
+>
+<option  value="" label="Select" />
+<option  value="KK Nagar" label="KK Nagar, Chennai" />
+<option value="Adayar" label="Adayar, Chennai" />
+<option value="Velachery" label="Velachery, Chennai" />
+<option value="Vadapalani" label="Vadapalani, Chennai" />
+</select>
+
+{formik.touched.location && formik.errors.location ? (
+          <div className="fv-plugins-message-container">
+            <div style={{ color: 'red' }} className="fv-help-block">{formik.errors.location}</div>
+          </div>
+        ) : null} 
+  </div>
+  <div className="form-group col-md-6">
+    <label htmlFor="email">Speciality</label>
+    <select className="form-control" >
+      <option>General Medicine</option>
+      <option>General Surgery</option>
+      <option>Cardiologist</option>
+      <option>Neuro Specialist</option>
+      <option>Skin Specialist</option>
+      <option>Diabetologist</option>
+      <option>ENT Specialist</option>
+    </select>
+  </div>
+</div>
+<div className="form-row">
+  <div className="form-group col-md-6">
+    <label htmlFor="inputAddress">Address</label>
+    <input
+          placeholder="Enter your Address"
+          type="tel"
+          className={`form-control py-5 px-6 ${getInputClasses(
+            "address"
+          )}`}
+          name="address"
+          {...formik.getFieldProps("address")}
+        />
+  
+  </div>
+  <div className="form-group col-md-6">
+    <label htmlFor="inputAddress2">Address 2</label>
+    <input
+          placeholder="Enter your Address"
+          type="tel"
+          className={`form-control py-5 px-6 ${getInputClasses(
+            "address"
+          )}`}
+          name="address"
+          {...formik.getFieldProps("address")}
+        />
+  </div>
+  {formik.touched.address && formik.errors.address ? (
+          <div className="fv-plugins-message-container">
+            <div style={{ color: 'red' }} className="fv-help-block">{formik.errors.address}</div>
+          </div>
+        ) : null} 
+</div>
+<div className="form-row">
+  <div className="form-group col-md-6">
+    <label htmlFor="inputCity">City</label>
+    <input type="text" className="form-control" id="inputCity" />
+  </div>
+  <div className="form-group col-md-4">
+    <label htmlFor="inputState">State</label>
+    <select id="inputState" className="form-control">
+      <option selected>Choose...</option>
+      <option>...</option>
+    </select>
+  </div>
+  <div className="form-group col-md-2">
+    <label htmlFor="inputZip">Zipcode</label>
+    <input
+      type="text"
+      className="form-control"
+      id="inputZip"
+      placeholder="Zipcode"
+    />
+  </div>
+</div>
+<div className="row">
+  <div className="col">
+    <div className="form-group">
+      <label htmlFor="userName">Comments</label>
+      <textarea
+        className="form-control"
+        id="exampleFormControlTextarea1"
+        rows={3}
+       
+        defaultValue={''}
+      />
+      <div className="valid-feedback">Valid.</div>
+      <div className="invalid-feedback">Please fill out this field.</div>
+    </div>
+  </div>
+</div>
+<div className="row">
+  <div className="col">
+    <div className="form-group form-check">
+      <label className="form-check-label">
+        <input className="form-check-input" type="checkbox" /> I accept the
+    terms and Conditions.
+  </label>
+    </div>
+  </div>
+</div>
+<div className="row">
+
+    <Button variant="secondary" onClick={()=>setModalShow(false)}>
+      Close
+    </Button>
+    <Button
+        type="submit"
+
+        className="btn btn-primary sign-btn ml-15 h-77 font-weight-500 mt-6"   onClick={() => {
+         formik.handleSubmit()
+          formik.setFieldValue('submitBttn', 'submit')
+       }}
+      >
+      Save
+  </Button>
+ 
+ 
+</div>
+
+</div>
+</div>
+</div>
+</form>
+  );
+}
+
+
+export  default function ListActivity02() {   
+  const [modalShow, setModalShow] = useState(false);
+  return (
+    <div className="contentAreaouter">   
+                   
             <div className="contentArea">
               <div className="topHeadercontent d-flex">
                 <div className="toggleLefticon">
@@ -298,14 +743,20 @@ console.log("FORMIK"+ JSON.stringify(formik))
                     <div className="topMiddlecontent">
                       <ul>
                         <li><Link  to="javascript:void(0)" className="userLogoicon"><span className="listprofileIcon customProfileBG1">AK</span>  <span>Anandkumar1 </span> 
-                        <li><Button type="button" className="customNewtaskBTN" onClick={()=>setModalShow(true)}>
-                        Edit
-                        </Button> </li>
+                        <li>
+                        
+                <PatientBasicDetails/>
+              
+                        </li>
                        </Link></li>
-                        <li><span className="rounddashedCircle"><i className="fa fa-user fa-sm"></i></span></li>
-                        <li>May 2020</li>
+                        <li>
+                               <span className="rounddashedCircle"><i className="fa fa-user fa-sm"></i></span></li>
+                        <li>
+                        May 2020
+  
+                   </li>
                         <li className="d-none">Date created</li>
-                        <li>Yes</li>
+                        <li> Yes </li>
                         <li>
                           <Link  to="javascript:void(0)" className="rounddashedCircle" data-toggle="modal" data-target="#medicalDetails"><i className="far fa-file-alt fa-sm"></i></Link>
                         </li>
@@ -375,372 +826,8 @@ console.log("FORMIK"+ JSON.stringify(formik))
                 </div>                 
               </div>
             </div>
-            <form
-            id="kt_login_signin_form"
-            className="form fv-plugins-bootstrap fv-plugins-framework animated animate__animated animate__backInUp"
-            onSubmit={formik.handleSubmit}
-          >
-            <Modal show={modalShow} onHide={()=>setModalShow(false)}>
-          <Modal.Header closeButton>
-            <Modal.Title>Edit Form</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-         
-          <div className="modal-body p-0">
-  <div className="d-flex justify-content-center">
-    <div className="d-flex py-4 px-0 col-10 ">
-    <div className="w-100" >
-        <div className="form-row">
-          <div className="form-group col">
-            <label htmlFor="userName">Name</label>
-            <div className="input-group">
-              <div className="input-group-prepend">
-
-              <select
-        name="title"
-        className="custom-select"
-        aria-label="usertype"
-        id="usertype"
-        value={formik.values.title}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        style={{ display: 'block' }}
-      >
-        <option  value="" label="Select" />
-        <option  value="Dr" label="Dr" />
-        <option value="St" label="St" />
-        <option value="Mr" label="Mr" />
-        <option value="Miss" label="Miss" />
-        <option value="Mrs" label="Mrs" />
-      </select>
-               
-              </div>
-             
-              <input
-                  placeholder="User Name"
-                  type="text"
-                  className={`form-control py-5 px-6 ${getInputClasses(
-                    "username"
-                  )}`}
-                  name="username"
-                  {...formik.getFieldProps("username")}
-                />
-               
-              <input
-                type="text"
-                aria-label="Degree"
-                className="form-control"
-                placeholder="Degree"
-                id="degree"
-              />
-            </div>
-            {formik.touched.title && formik.errors.title ? (
-                  <div className="fv-plugins-message-container">
-                    <div className="fv-help-block">{formik.errors.title}</div>
-                  </div>
-                ) : null}
-            {formik.touched.username && formik.errors.username ? (
-                  <div className="fv-plugins-message-container">
-                    <div className="fv-help-block">{formik.errors.username}</div>
-                  </div>
-                ) : null}
-          </div>
-         
-        </div>
-        <div className="form-row">
-          <div className="form-group col-md-6">
-            <label htmlFor="inputEmail4">Official Email</label>
-            <input
-                  placeholder="Official Email"
-                  type="email"
-                  className={`form-control py-5 px-6 ${getInputClasses(
-                    "email"
-                  )}`}
-                  name="email"
-                  {...formik.getFieldProps("email")}
-                />
-          </div>
-          <div className="form-group col-md-6">
-            <label htmlFor="inputEmail4">Personal Email</label>
-            <input
-            placeholder="Personal Email"
-              type="email"
-              className={`form-control py-5 px-6 ${getInputClasses(
-                "email"
-              )}`}
-              name="email"
-              {...formik.getFieldProps("email")}
-            />
-          </div>
-          {formik.touched.email && formik.errors.email ? (
-                  <div className="fv-plugins-message-container">
-                    <div className="fv-help-block">{formik.errors.email}</div>
-                  </div>
-                ) : null}
-        </div>
-        <div className="form-row">
-           <div className="form-group col-md-6">
-            <label htmlFor="mobilenumber">Mobile</label>
-
-            <input
-                  placeholder="Enter your number"
-                  type="text"
-                  className={`form-control py-5 px-6 ${getInputClasses(
-                    "mobilenumber"
-                  )}`}
-                  name="mobilenumber"
-                  {...formik.getFieldProps("mobilenumber")}
-                />
-         
-          </div> 
-           <div className="form-group col-md-6">
-            <label htmlFor="mobilenumber">Alternative number</label>
-            <input
-                  placeholder="Enter your number"
-                  type="tel"
-                  className={`form-control py-5 px-6 ${getInputClasses(
-                    "mobilenumber"
-                  )}`}
-                  name="mobilenumber"
-                  {...formik.getFieldProps("mobilenumber")}
-                />
-         
-          </div> 
-          {formik.touched.mobilenumber && formik.errors.mobilenumber ? (
-                  <div className="fv-plugins-message-container">
-                    <div className="fv-help-block">{formik.errors.mobilenumber}</div>
-                  </div>
-                ) : null}
-          {formik.touched.mobilenumber && formik.errors.mobilenumber ? (
-                  <div className="fv-plugins-message-container">
-                    <div className="fv-help-block">{formik.errors.mobilenumber}</div>
-                  </div>
-                ) : null}
-        </div>
-        <div className="form-row">
-          <div className="form-group col-md-6">
-            <label htmlFor="dob">Date of birth</label>
-            <div
-              className="input-group date"
-              id="datepicker-only-init"
-              data-target-input="nearest"
-            >
-              <input
-                type="text"
-                className="form-control datetimepicker-input"
-                data-target="#datepicker-only-init"
-              />
-              <div
-                className="input-group-append"
-                data-target="#datepicker-only-init"
-                data-toggle="datetimepicker"
-              >
-                <div className="input-group-text rounded-0">
-                  <i className="fa fa-calendar" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="form-group col-md-3">
-            <label htmlFor="sex">Sex</label>
-
-            <select
-        name="sex"
-        className="custom-select"
-        aria-label="usertype"
-        id="usertype"
-        value={formik.values.sex}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        style={{ display: 'block' }}
-      >
-        <option  value="" label="Select" />
-        <option  value="Male" label="Male" />
-        <option value="Female" label="Female" />
-       
-      </select>
-
-
-      {formik.touched.sex && formik.errors.sex ? (
-                  <div className="fv-plugins-message-container">
-                    <div className="fv-help-block">{formik.errors.sex}</div>
-                  </div>
-                ) : null}
-            
-          </div>
-          <div className="form-group col-md-3">
-            <label htmlFor="dob">Blood Group</label>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Blood group"
-              id="bloodGroup"
-              name="bloodGroup"
-             
-            />
-          </div>
-        </div>
-        <div className="form-row">
-          <div className="form-group col-md-6">
-            <label htmlFor="email">Location</label>
-
-
-            <select
-        name="location"
-        className="custom-select"
-        aria-label="usertype"
-        id="usertype"
-        value={formik.values.location}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        style={{ display: 'block' }}
-      >
-        <option  value="" label="Select" />
-        <option  value="KK Nagar" label="KK Nagar, Chennai" />
-        <option value="Adayar" label="Adayar, Chennai" />
-        <option value="Velachery" label="Velachery, Chennai" />
-        <option value="Vadapalani" label="Vadapalani, Chennai" />
-      </select>
-
-      {formik.touched.location && formik.errors.location ? (
-                  <div className="fv-plugins-message-container">
-                    <div className="fv-help-block">{formik.errors.location}</div>
-                  </div>
-                ) : null} 
-          </div>
-          <div className="form-group col-md-6">
-            <label htmlFor="email">Speciality</label>
-            <select className="form-control" >
-              <option>General Medicine</option>
-              <option>General Surgery</option>
-              <option>Cardiologist</option>
-              <option>Neuro Specialist</option>
-              <option>Skin Specialist</option>
-              <option>Diabetologist</option>
-              <option>ENT Specialist</option>
-            </select>
-          </div>
-        </div>
-        <div className="form-row">
-          <div className="form-group col-md-6">
-            <label htmlFor="inputAddress">Address</label>
-            <input
-                  placeholder="Enter your Address"
-                  type="tel"
-                  className={`form-control py-5 px-6 ${getInputClasses(
-                    "address"
-                  )}`}
-                  name="address"
-                  {...formik.getFieldProps("address")}
-                />
-          
-          </div>
-          <div className="form-group col-md-6">
-            <label htmlFor="inputAddress2">Address 2</label>
-            <input
-                  placeholder="Enter your Address"
-                  type="tel"
-                  className={`form-control py-5 px-6 ${getInputClasses(
-                    "address"
-                  )}`}
-                  name="address"
-                  {...formik.getFieldProps("address")}
-                />
-          </div>
-          {formik.touched.address && formik.errors.address ? (
-                  <div className="fv-plugins-message-container">
-                    <div className="fv-help-block">{formik.errors.address}</div>
-                  </div>
-                ) : null} 
-        </div>
-        <div className="form-row">
-          <div className="form-group col-md-6">
-            <label htmlFor="inputCity">City</label>
-            <input type="text" className="form-control" id="inputCity" />
-          </div>
-          <div className="form-group col-md-4">
-            <label htmlFor="inputState">State</label>
-            <select id="inputState" className="form-control">
-              <option selected>Choose...</option>
-              <option>...</option>
-            </select>
-          </div>
-          <div className="form-group col-md-2">
-            <label htmlFor="inputZip">Zipcode</label>
-            <input
-              type="text"
-              className="form-control"
-              id="inputZip"
-              placeholder="Zipcode"
-            />
-          </div>
-        </div>
-        <div className="row">
-          <div className="col">
-            <div className="form-group">
-              <label htmlFor="userName">Comments</label>
-              <textarea
-                className="form-control"
-                id="exampleFormControlTextarea1"
-                rows={3}
-               
-                defaultValue={''}
-              />
-              <div className="valid-feedback">Valid.</div>
-              <div className="invalid-feedback">Please fill out this field.</div>
-            </div>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col">
-            <div className="form-group form-check">
-              <label className="form-check-label">
-                <input className="form-check-input" type="checkbox" /> I accept the
-            terms and Conditions.
-          </label>
-            </div>
-          </div>
-        </div>
-        <div className="row">
-      
-            <Button variant="secondary" onClick={()=>setModalShow(false)}>
-              Close
-            </Button>
-            <Button
-                type="submit"
-    
-                className="btn btn-primary sign-btn ml-15 h-77 font-weight-500 mt-6"   onClick={() => {
-                 formik.handleSubmit()
-                  formik.setFieldValue('submitBttn', 'submit')
-               }}
-              >
-              Save
-          </Button>
-         
-         
-        </div>
-     
-    </div>
-  </div>
-</div>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-               
-
-          </Modal.Body>
-         
-        </Modal>
-        </form>
+ 
+           
           </div>
          
   );
