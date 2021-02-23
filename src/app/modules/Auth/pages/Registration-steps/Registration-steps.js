@@ -17,9 +17,8 @@ import Stepper2 from './stepper/stepper2';
 import Stepper3 from './stepper/stepper3';
 import Stepper4 from './stepper/stepper4';
 import Stepper5 from './stepper/stepper5';
-import { Formik, Form } from "formik";
-import checkoutFormModel from "./Models/FormModel/checkoutFormModel";
-import formInitialValues from "./Models/FormModel//formInitialValues";
+import {  useMutation,useQuery, useLazyQuery } from "@apollo/client";
+import { ADD_USER,GET_USER} from "../query/graphql";
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
@@ -39,60 +38,47 @@ function getSteps() {
 
 
 
+
+
 export default function HorizontalLabelPositionBelowStepper() {
-  const { formId, formField } = checkoutFormModel;
-  console.log("formFieldddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"+JSON.stringify(formField,null,2))
+  
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
-
+  let backFlag="N"
+  
   function handleNext() {
+    
     setActiveStep(prevActiveStep => prevActiveStep + 1);
   }
 
   function handleBack() {
+    localStorage.setItem("BackFlag","Y")
     setActiveStep(prevActiveStep => prevActiveStep - 1);
   }
-  function getStepContent(stepIndex) {
-    switch (stepIndex) {
-      case 0:
-        return <Step1 formField={formField}/>;
-      case 1:
-        return <Step2 formField={formField}/>;
-      case 2:
-        return <Step3 formField={formField}/>;
-      case 3:
-        return <Step4 formField={formField}/>;
-      case 4:
-        return <BusinessConfirmation />;
-      default:
-        return 'Uknown stepIndex';
-    }
-  }
+
   function handleReset() {
     setActiveStep(0);
   }
-  function _handleSubmit(values, actions) {
-    if (activeStep === steps.length - 1) {
-      _submitForm(values, actions);
-    
-    } else {
-      setActiveStep(activeStep + 1);
-      actions.setTouched({});
-      actions.setSubmitting(false);
-    }
+  React.useEffect(() => {
+    localStorage.setItem("BackFlag","N")
+  }, []);
+function getStepContent(stepIndex) {
+  switch (stepIndex) {
+    case 0:
+      return <Step1 activeStep={activeStep}  handleBack={handleBack} handleNext={handleNext} steps={getSteps}/>;
+    case 1:
+      return <Step2 activeStep={activeStep}  handleBack={handleBack} handleNext={handleNext} steps={getSteps}/>;
+    case 2:
+      return <Step3 activeStep={activeStep}  handleBack={handleBack} handleNext={handleNext} steps={getSteps}/>;
+    case 3:
+      return <Step4 activeStep={activeStep}  handleBack={handleBack} handleNext={handleNext} steps={getSteps}/>;
+    case 4:
+      return <BusinessConfirmation />;
+    default:
+      return 'Uknown stepIndex';
   }
-  async function _submitForm(values, actions) {
-    await _sleep(1000);
-    values.business=localStorage.getItem("business")
-    values.spa_type=localStorage.getItem("selectedvalue") +" spa"
-    alert(JSON.stringify(values, null, 2));
-    actions.setSubmitting(false);
-    setActiveStep(activeStep + 1);
-  }
-  function _sleep(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  }
+}
   return (
     <div className={classes.root}>
       <Stepper className="businessSteps rounded" activeStep={activeStep} alternativeLabel>
@@ -109,10 +95,6 @@ export default function HorizontalLabelPositionBelowStepper() {
             <Button onClick={handleReset}>Reset</Button>
           </div>
         ) : (
-          <Formik initialValues={formInitialValues} onSubmit={_handleSubmit}>
-          {({ isSubmitting }) => (
-            <Form id={formId}>
-              
           <div>
             <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
             <div className="d-flex">
@@ -124,16 +106,13 @@ export default function HorizontalLabelPositionBelowStepper() {
                 Back
               </Button>
               <Button variant="contained" 
-              className={"nextButton ml-auto " + (activeStep === steps.length - 1 ? 'd-none' : 'show')} 
+              className={"nextButton ml-auto d-none"} 
               color="primary" 
               onClick={handleNext}>
                 {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
               </Button>
             </div>
           </div>
-          </Form>
-            )}
-          </Formik>
         )}
       </div>
     </div>

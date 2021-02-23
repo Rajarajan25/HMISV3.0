@@ -1,16 +1,19 @@
 
 import React from 'react';
 import { toAbsoluteUrl } from "../../../../../_metronic/_helpers";
-
+import Button from '@material-ui/core/Button';
+import { Formik, Field, Form } from 'formik';
+import Stepper from '@material-ui/core/Stepper';
+import Step from '@material-ui/core/Step';
+import StepLabel from '@material-ui/core/StepLabel';
+import {  useMutation,useQuery, useLazyQuery } from "@apollo/client";
+import { ADD_USER,GET_USER} from "../query/graphql";
+const initialValues = {
+  business: "",
+};
 export default function Step2(props){
-
-  const {
-    formField: {
-      
-      business,
-      
-    }
-  } = props;
+  const { values, field1, field2, activeStep, isLastStep, handleBack, handleNext,steps } = props;
+  
   const [fieldValue,setFieldValue] =React.useState("");
   const handleClick =(e)=>{
     let idaval = e.currentTarget.getAttribute("id");
@@ -19,12 +22,41 @@ export default function Step2(props){
     
     
   }
-  localStorage.setItem("business",fieldValue)
+  
+  const {data } = useQuery(GET_USER, {
+    variables: { query: { business_id: localStorage.getItem("BusinessName")}}
+  });
+  const AddUser = async (values) => {
+    
+    addUser({
+      variables: {
+        data: {
+          "title": values.business,
+         
+         
+      }
+    }
+    });
+  };
+  
   //business.name=fieldValue;
   console.log(fieldValue);
+  const [addUser] = useMutation(ADD_USER);
   return (
     <>
-    
+    <Formik
+      initialValues={initialValues}
+      onSubmit={
+        fields => {
+         fields.business=fieldValue;
+         alert(JSON.stringify(fields,null,2))
+         AddUser(fields);
+         handleNext()
+      
+        }}
+    >
+      {({ values, errors, touched, handleSubmit, onChange }) => (
+        <Form onSubmit={handleSubmit}  >
     <div className="my-auto mh-100 text-center rightPanel">
       <div className="text-left mb-6">
         <h1 className="font-size-28 color_3F4772 text-capitalize font-weight-600 mb-10">Choose Your Business Below</h1>      
@@ -211,9 +243,15 @@ export default function Step2(props){
           </div>
           
         </div>
-       
+        <div className="form-group  flex-wrap flex-center">
+        <button type="submit" className="btn btn-primary sign-btn h-77 font-weight-500 mt-6" >
+          <span>Next</span>
+        </button>
+            </div>
       </div>
-     
+      </Form>
+      )}
+    </Formik>
     </>
   );
 }

@@ -5,9 +5,23 @@ export const GET_USER = gql`
 query GetUser($query:UserQueryInput) {
 user(query:$query)
 {
-  _id
-  first_name
-  last_name
+  BillingAddress
+        _id
+        active
+        business_id
+        country_name 
+        email
+        first_name
+        last_name
+        mobile_number
+        password      
+        sex       
+        time_Zone
+        title       
+        user_name
+        user_type    
+        display_name
+        ShippingAddress
 }
 }
 `;
@@ -16,9 +30,23 @@ export const GET_ALL_USER = gql`
 query GetUser($query:UserQueryInput,$limit:Int,$sortBy:UserSortByInput) {
 users(query:$query,limit:$limit,sortBy:$sortBy)
 {
-  _id
-  first_name
-  last_name
+  BillingAddress
+        _id
+        active
+        business_id
+        country_name 
+        email
+        first_name
+        last_name
+        mobile_number
+        password      
+        sex       
+        time_Zone
+        title       
+        user_name
+        user_type    
+        display_name
+        ShippingAddress
 }
 }
 `;
@@ -39,15 +67,22 @@ export const REPLACE_ONE_USER = gql`
 export const ADD_USER = gql`
     mutation AddUser($data: UserInsertInput!) {
       insertOneUser(data: $data) {
-        title
-        user_name
+        BillingAddress
+        _id
+        active
+        business_id
+        country_name 
+        email
         first_name
         last_name
-        email
-        password
-        country_name
-        sex
         mobile_number
+        password      
+        sex       
+        time_Zone
+        title       
+        user_name
+        user_type    
+        display_name
         ShippingAddress
         
       }
@@ -56,14 +91,23 @@ export const ADD_USER = gql`
 export const DELETE_USER = gql`
     mutation DeleteUser($query: UserQueryInput!) {
       deleteOneUser(query: $query) {
+        BillingAddress
+        _id
+        active
+        business_id
+        country_name 
+        email
         first_name
         last_name
-        email
-        sex
-        password
         mobile_number
-        country_name
-        _id
+        password      
+        sex       
+        time_Zone
+        title       
+        user_name
+        user_type    
+        display_name
+        ShippingAddress
       }
     }
 `;

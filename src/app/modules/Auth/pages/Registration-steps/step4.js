@@ -6,7 +6,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Input from '@material-ui/core/Input';
-import { InputField, CheckboxField, SelectField } from './FormFields';
+import { Formik, Field, Form } from 'formik';
+import {  useMutation,useQuery, useLazyQuery } from "@apollo/client";
+import { ADD_USER,GET_USER} from "../query/graphql";
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
@@ -21,16 +23,43 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function step4(props) {
-  const {
-    formField: {
-      applyWeek,
-      applyMonth,
-      timezone
+export default function Step4(props) {
+  const classes = useStyles();
+  const { values, field1, field2, activeStep, isLastStep, handleBack, handleNext,steps } = props;
+  const initialValues = {
+    "timezone":"",
+    "applyWeek" :false,
+    "applyMonth" :false
+  };
+  const [addUser] = useMutation(ADD_USER);
+  const AddUser = async (values) => {
+    
+    addUser({
+      variables: {
+        data: {
+          "user_type": values.type,
+         
+         
+      }
     }
-  } = props;
+    });
+  };
   return (
     <>
+      
+    <Formik
+      initialValues={initialValues}
+      onSubmit={
+        fields => {
+         
+         alert(JSON.stringify(fields,null,2))
+         AddUser(fields);
+         handleNext()
+      
+        }}
+    >
+      {({ values, errors, touched, handleSubmit, onChange }) => (
+        <Form onSubmit={handleSubmit}  >
         <div className="w-100 mh-100 text-center rightPanel">
           <div className="text-left mb-6">
             <h1 className="font-size-28 color_3F4772 text-capitalize font-weight-600 mb-10">Choose your business hours:</h1>     
@@ -41,7 +70,21 @@ export default function step4(props) {
             <img src="/media/auth-screen/wall_clock.svg" alt="thumbs-up" /> <span>Time Zone:</span>
             </div>
             <div className="tim_zne">
-            <TimeZone initialValues={props.formField}/>
+            <FormControl className={classes.formControl}>
+        
+        <Field name="timezone" as="select"
+          
+          
+          className={classes.selectEmpty}
+        >
+          <option value="">
+          (GMT +05:00) Kolkata, India
+          </option>
+          <option value={10}>(GMT +05:00) Kolkata, India</option>
+          <option value={20}>(GMT +05:00) Kolkata, India</option>
+          <option value={30}>(GMT +05:00) Kolkata, India</option>
+        </Field>
+      </FormControl>
             </div>
           </div>
           <div className="d-flex mt-10">
@@ -135,23 +178,30 @@ export default function step4(props) {
           </div>
           <div className="form-group d-flex mt-10 ml-5 font-size-15">
             <div class="form-check">
-
-              <CheckboxField className="form-check-input mt-2" name={applyWeek.name}/>
+              <Field name="applyWeek" type="checkbox" id="formHorizontalCheck" class="form-check-input mt-2" />
               <label title="" for="formHorizontalCheck" class="form-check-label font-size-14 ml-3 mr-20">Apply to this week</label>
             </div>
             <div class="form-check">
-            <CheckboxField className="form-check-input mt-2" name={applyMonth.name}/>
+            <Field name="applyMonth" type="checkbox" id="formHorizontalCheck1" class="form-check-input mt-2" />
               <label title="" for="formHorizontalCheck1" class="form-check-label font-size-14 ml-3">Apply to this month</label>
             </div>
           </div>
       </div>
+      <div className="form-group flex-wrap flex-center">
+        <button type="submit" className="btn btn-primary sign-btn h-77 font-weight-500 mt-6">
+          <span>Next</span>
+        </button>
+      </div>
+      </Form>
+       )}
+     </Formik>
     </>
   );
 }
 
 
-function TimeZone(props) {
-  const initialValues= props.initialValues;
+function TimeZone() {
+  
   const classes = useStyles();
   const [values, setValues] = React.useState({
     age: '',
@@ -164,29 +214,25 @@ function TimeZone(props) {
       [event.target.name]: event.target.value,
     }));
   }
-  const age = [
-    
-    {
-      value: "(GMT +05:00) Kolkata, India",
-      label: "(GMT +05:00) Kolkata, India"
-    },
-    {
-      value: "(GMT +05:00) Kolkata, India",
-      label: "(GMT +05:00) Kolkata, India"
-    },
-    {
-      value: "(GMT +05:00) Kolkata, India",
-      label: "(GMT +05:00) Kolkata, India"
-    }
-  ];
+
   return (
       <FormControl className={classes.formControl}>
         
-        <SelectField
-            name={initialValues.timezone.name}
-            data={age}
-            fullWidth
-          />
+        <Select
+          value={values.age}
+          onChange={handleChange}
+          input={<Input name="age"/>}
+          displayEmpty
+          name="age"
+          className={classes.selectEmpty}
+        >
+          <MenuItem value="">
+          (GMT +05:00) Kolkata, India
+          </MenuItem>
+          <MenuItem value={10}>(GMT +05:00) Kolkata, India</MenuItem>
+          <MenuItem value={20}>(GMT +05:00) Kolkata, India</MenuItem>
+          <MenuItem value={30}>(GMT +05:00) Kolkata, India</MenuItem>
+        </Select>
       </FormControl>
   );
 }
