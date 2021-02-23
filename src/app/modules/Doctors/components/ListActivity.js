@@ -1,7 +1,8 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route,Link } from 'react-router-dom';
-
+import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
 export function ListActivity01() {  
 
   return (
@@ -44,7 +45,20 @@ export function ListActivity01() {
                   <div className="col-lg-12 ">
                     <div className="topMiddlecontent">
                       <ul>
-                        <li><Link  to="javascript:void(0)" className="userLogoicon"><span className="listprofileIcon customProfileBG1">AK</span> <span>Anand Kumar</span></Link ></li>
+                        <li>
+                          <div className="userLogoicon">
+                            <Link to="#" className="d-flex"><span className="listprofileIcon customProfileBG1">AK</span> <span>Anand Kumar</span></Link >
+                            <Link to="#" className="ml-1 edit_staff">
+                              <OverlayTrigger 
+                                placement="top"
+                                overlay={
+                                <Tooltip id="quick-search-tooltip">Rename</Tooltip>
+                                }>
+                                  <img src={toAbsoluteUrl("/media/patients/edit_staff.svg")} alt="" className="" />
+                              </OverlayTrigger>
+                            </Link >
+                          </div>
+                        </li>
                         <li><span className="rounddashedCircle"><i className="fa fa-user fa-sm"></i></span></li>
                         <li className="activeStatuscontent customProfileBG4">May 2020</li>
                         <li className="d-none">Date created</li>

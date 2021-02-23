@@ -43,7 +43,7 @@ export function PatientHistory() {
   return (  
     <div className="history_card w-100">
       <div className="row">
-        <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+        <div className="col-xxl-3 col-xl-4 col-lg-4 col-md-4 col-sm-12">
           <div className="card text-center">
             <div className="d-flex flex-row-reverse p-2">
               <img src={toAbsoluteUrl("/media/users/tick_icon.svg")} alt="" className="" />
@@ -76,7 +76,7 @@ export function PatientHistory() {
             </div>
           </div>
         </div>
-        <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+        <div className="col-xxl-3 col-xl-4 col-lg-4 col-md-4 col-sm-12">
           <div className="card text-center">
             <div className="d-flex flex-row-reverse p-2">
               <img src={toAbsoluteUrl("/media/users/tick_icon.svg")} alt="" className="" />
@@ -100,7 +100,7 @@ export function PatientHistory() {
             </div>
           </div>
         </div>
-        <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+        <div className="col-xxl-3 col-xl-4 col-lg-4 col-md-4 col-sm-12">
           <div className="card text-center">
             <div className="d-flex flex-row-reverse p-2">
               <img src={toAbsoluteUrl("/media/users/tick_icon.svg")} alt="" className="" />
@@ -124,7 +124,7 @@ export function PatientHistory() {
             </div>
           </div>
         </div>
-        <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+        <div className="col-xxl-3 col-xl-4 col-lg-4 col-md-4 col-sm-12">
           <div className="card text-center">
             <div className="d-flex flex-row-reverse p-2">
               <img src={toAbsoluteUrl("/media/users/tick_icon.svg")} alt="" className="" />
@@ -148,7 +148,7 @@ export function PatientHistory() {
             </div>
           </div>
         </div>
-        <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+        <div className="col-xxl-3 col-xl-4 col-lg-4 col-md-4 col-sm-12">
           <div className="card text-center">
             <div className="d-flex flex-row-reverse p-2">
               <img src={toAbsoluteUrl("/media/users/tick_icon.svg")} alt="" className="" />
@@ -172,7 +172,7 @@ export function PatientHistory() {
             </div>
           </div>
         </div>
-        <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+        <div className="col-xxl-3 col-xl-4 col-lg-4 col-md-4 col-sm-12">
           <div className="card text-center">
             <div className="d-flex flex-row-reverse p-2">
               <img src={toAbsoluteUrl("/media/users/tick_icon.svg")} alt="" className="" />
@@ -196,7 +196,7 @@ export function PatientHistory() {
             </div>
           </div>
         </div>
-        <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+        <div className="col-xxl-3 col-xl-4 col-lg-4 col-md-4 col-sm-12">
           <div className="card text-center">
             <div className="d-flex flex-row-reverse p-2">
               <img src={toAbsoluteUrl("/media/users/tick_icon.svg")} alt="" className="" />
@@ -220,7 +220,7 @@ export function PatientHistory() {
             </div>
           </div>
         </div>
-        <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+        <div className="col-xxl-3 col-xl-4 col-lg-4 col-md-4 col-sm-12">
           <div className="card text-center">
             <div className="d-flex flex-row-reverse p-2">
               <img src={toAbsoluteUrl("/media/users/tick_icon.svg")} alt="" className="" />

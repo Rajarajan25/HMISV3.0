@@ -453,9 +453,8 @@
 	font-weight: 500;
 	color: #fff;
   }
-  .topMiddlecontent li a.userLogoicon{
+  .topMiddlecontent li .userLogoicon{
 	display: flex;
-	cursor: pointer;
 	position: relative;
   }
   
@@ -465,6 +464,9 @@
 	font-size: 14px;
 	font-family: var(--kit-font-family);
 	color: #707070;
+  }
+  .topMiddlecontent ul:hover li {
+	background: #fafbfc;
   }
   span.listprofileIcon{
 	width: 10px;
@@ -1441,5 +1443,72 @@
 				color: #fff;
 				border: 1px solid #F06292;
 			}	
+		}
+	}
+	.edit_staff {
+		display:  none;
+		img {
+			width: 20px;
+			height: 20px;
+			padding: 3px;
+			display: inline-block;
+			border-radius: 4px;
+			background: #fff;
+			border: 1px solid #e9ebf0;
+			fill: #7c828d;
+		}
+	}
+	.topMiddlecontent ul:hover li {
+		.edit_staff {
+			display:  block;
+		}
+	}
+	@media (max-width: 1400px) {
+		.aside-fixed.aside-secondary-enabled.subheader-fixed .subheader {
+			left: 275px;
+		}
+		.aside-secondary-enabled.aside-fixed .wrapper {
+			padding-left: 275px;
+		}
+		.aside-secondary-enabled .aside {
+			width: 275px;
+		}
+		.aside .aside-secondary .aside-workspace {
+			width: 225px;
+		}
+		.filterFixedheader {
+			font-size: 12px;
+			width: calc(100% - 310px - 0.5rem);
+			right: 1rem;
+		}
+		.col.wid_360 {
+			max-width: 310px;
+		}
+		.patientsList.card_bg, .patientDetailsoverview.card_bg {
+			padding: 10px 6px;
+			margin-bottom: 10px;
+		}
+		.patientsList .userName {
+			width: 120px;
+		}
+		.custompatientTab.nav .nav-link {
+			margin-right: 1.2rem;
+		}
+		.patientFiles {
+			max-width: 50%;
+		}
+		.history_card .card {
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+	@media (max-width: 1024px) {
+		.col.wid_360 {
+			max-width: 100%;
+		}
+	}
+	@media (max-width: 768px) {
+		.aside-secondary-enabled.aside-fixed .wrapper {
+			padding-left: 0;
 		}
 	}

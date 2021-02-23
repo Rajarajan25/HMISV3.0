@@ -19,8 +19,8 @@ export default function PatientDetails() {
         <Filter></Filter>
       </div>
       
-      <div className="d-block mt-15">
-        <div className="d-flex flex-column flex-lg-row">        
+      <div className="d-block mt-lg-15">
+        <div className="d-flex flex-column flex-xl-row">        
             <div className="col wid_360">              
               <div className="d-flex flex-row">     
                 <AsideSearch />
