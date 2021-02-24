@@ -45,7 +45,7 @@ export function PatientInvoice() {
         <h2 className="font-size-24 font_weight_bold my-4">Hmis</h2>
         <p className="font-size-16 color_707070 font_weight_bold mb-8">info@hmisservice.com, 9876543210</p>
       </div>
-      <div className="row m-0 pb-10">
+      <div className="row m-0 pb-10  border-bottom">
         <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6">
           <p className="font-size-18 font_weight_bold mb-6">Doctor Treatment Invoice</p>
           <div className="d-flex mb-3">
@@ -91,8 +91,8 @@ export function PatientInvoice() {
 
 export function InvoiceHistory(){
   return(
-    <>
-      <Table className="table border-top color_292D34 font_weight_medium font-size-14">
+    <div className="table-responsive text-nowrap">
+      <Table className="table color_292D34 font_weight_medium font-size-12">
         <thead>
         <tr>
             <th colSpan="6" className="font-size-16 py-5">Invoice Details</th>
@@ -103,7 +103,7 @@ export function InvoiceHistory(){
             <th>Qty</th>
             <th>Hours</th>
             <th>Tax INR</th>
-            <th>Total Cost INR</th>
+            <th className="text-right">Total Cost INR</th>
           </tr>
         </thead>
         <tbody>
@@ -113,7 +113,7 @@ export function InvoiceHistory(){
             <td>2</td>
             <td>15 Mins</td>
             <td><span>&#2352;</span> 20</td>
-            <td><span>&#2352;</span> 200</td>
+            <td className="text-right"><span>&#2352;</span> 200</td>
           </tr>
           <tr>
             <td>2</td>
@@ -121,34 +121,34 @@ export function InvoiceHistory(){
             <td>4</td>
             <td>30 Mins</td>
             <td><span>&#2352;</span> 10</td>
-            <td><span>&#2352;</span> 100</td>
+            <td className="text-right"><span>&#2352;</span> 100</td>
           </tr>
           <tr>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
-            <td className="color_707070">Total Cost:</td>
-            <td className="font_weight_bold"><span>&#2352;</span> 500</td>
+            <td className="color_707070 text-right">Total Cost:</td>
+            <td className="font_weight_bold text-right"><span>&#2352;</span> 500</td>
           </tr>
           <tr>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
-            <td className="color_707070">Total Tax:</td>
-            <td className="font_weight_bold"><span>&#2352;</span> 50</td>
+            <td className="color_707070 text-right">Total Tax:</td>
+            <td className="font_weight_bold text-right"><span>&#2352;</span> 50</td>
           </tr>
           <tr>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
-            <td className="color_707070">Grand Total:</td>
-            <td className="font_weight_bold"><span>&#2352;</span> 550</td>
+            <td className="color_707070 text-right">Grand Total:</td>
+            <td className="font_weight_bold text-right"><span>&#2352;</span> 550</td>
           </tr>
         </tbody>
       </Table>
-    </>
+    </div>
   );
 }
