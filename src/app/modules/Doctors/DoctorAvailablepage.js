@@ -10,12 +10,13 @@ import { ProfileCard } from "./components/ProfileCard";
 import { Filter } from "./components/Filter";
 import { ListActivity01, ListActivity03, ListActivity04 } from "./components/ListActivity";
 import ListActivity02 from "./components/ListActivity";
+import {DoctorProvider} from './DoctorContext';
 export default function DoctorAvailablepage() {
   const suhbeader = useSubheader();
   suhbeader.setTitle("User profile");
 
   return (
-
+   
     <div className="d-block">
       <div className="d-flex flex-row">        
         <Filter></Filter>
@@ -45,8 +46,9 @@ export default function DoctorAvailablepage() {
           </div>
         </div>
         <div className="contentSection collapse show w-100" id="holepageToggle">
-          <ListActivity01></ListActivity01>
-          <ListActivity02></ListActivity02>
+        <DoctorProvider> <ListActivity01></ListActivity01>
+          
+          <ListActivity02></ListActivity02></DoctorProvider>
           <ListActivity03></ListActivity03>
           <ListActivity04></ListActivity04>
         </div>
@@ -84,5 +86,6 @@ export default function DoctorAvailablepage() {
         </div>
       </div>
     </div>
+    
   );
 }
