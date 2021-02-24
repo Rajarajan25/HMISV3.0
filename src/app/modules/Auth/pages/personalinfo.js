@@ -18,7 +18,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormLabel from '@material-ui/core/FormLabel';
 import {  useMutation,useQuery, useLazyQuery } from "@apollo/client";
-import { ADD_USER,UPDATE_USER,DELETE_USER} from "./query/graphql";
+import { ADD_USER,UPDATE_USER,DELETE_MANY_USER} from "./query/graphql";
 import { User } from "realm-web";
 
 const initialValues = {
@@ -52,7 +52,7 @@ const useStyles = makeStyles(theme => ({
 
 function Registration(props) {
 
-  const [deleteUser] = useMutation(DELETE_USER);
+  const [deleteManyUsers] = useMutation(DELETE_MANY_USER);
    const [addUser] = useMutation(ADD_USER);
    const [updateUser] = useMutation(UPDATE_USER);
    const AddUser = async (values) => {
@@ -79,9 +79,9 @@ function Registration(props) {
    });
    };
    const DeleteOneUser = async (values) => {
-     deleteUser({
+    deleteManyUsers({
        variables: {
-         query: { "first_name":values.firstname},
+         query: { "first_name":null},
          
        }
    });

@@ -20,6 +20,9 @@ const UserProfilepage = lazy(() =>
 const DoctorAvailablepage = lazy(() =>
   import("./modules/Doctors/DoctorAvailablepage")
 );
+const PatientDetailspage = lazy(() =>
+  import("./modules/Patients/Patient-details")
+);
 
 export default function BasePage() {
   // useEffect(() => {
@@ -42,6 +45,7 @@ export default function BasePage() {
         <Route path="/e-commerce" component={ECommercePage} />
         <Route path="/user-profile" component={UserProfilepage} />
         <Route path="/available-doctors" component={DoctorAvailablepage} />
+        <Route path="/manage/patients-details" component={PatientDetailspage} />
         <Redirect to="error/error-v1" />
       </Switch>
     </Suspense>

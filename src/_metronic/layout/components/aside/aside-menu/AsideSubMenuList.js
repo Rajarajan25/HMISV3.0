@@ -175,13 +175,14 @@ export function AsideSubMenuList({ layoutProps }) {
               {/*begin::2 Level*/}
               <li
                 className={`menu-item ${getMenuItemActive(
-                  "/available-patients/profile-overview"
+                  "/manage/patients-details"
                 )}`}
                 aria-haspopup="true"
+                data-menu-toggle="hover"
               >
                 <NavLink
                   className="menu-link"
-                  to="/available-patients/profile-overview"
+                  to="/manage/patients-details"
                 >
                   <i className="menu-bullet menu-bullet-dot">
                     <span />
@@ -299,7 +300,7 @@ export function AsideSubMenuList({ layoutProps }) {
               >
                 <NavLink
                   className="menu-link"
-                  to="/available-doctors/profile-overview"
+                  to="/Payments/available-doctors/profile-overview"
                 >
                   <i className="menu-bullet menu-bullet-dot">
                     <span />
