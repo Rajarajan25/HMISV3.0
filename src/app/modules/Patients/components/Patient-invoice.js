@@ -2,7 +2,43 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Table from '@material-ui/core/Table';
 
+import { makeStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+
+const useStyles = makeStyles({
+  list: {
+    width: 650,
+  },
+  fullList: {
+    width: 'auto',
+  },
+});
+
 export function PatientInvoice() {
+  
+  const classes = useStyles();
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
+  const styles = {
+    BackdropProps: {
+      background: 'transparent'
+    }
+  };
+  const toggleDrawer = (side, open) => event => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+    setState({ ...state, [side]: open });
+  };
+
+  const toggleDrawerClose = () => {
+    setState(false);
+  };
+
   return (
     <div className="invoice_card w-100">
       <div className="text-center">
@@ -35,11 +71,27 @@ export function PatientInvoice() {
         </div>
         <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6">
           <div className="d-flex justify-content-end align-items-end h-100">
-            <button type="button" className="btn btn-primary">Preview</button>
+            <button type="button" className="btn btn-primary" onClick={toggleDrawer('right', true)}>Preview</button>
             <button type="button" className="btn btn-primary">Download</button>
           </div>
         </div>
       </div>
+      <InvoiceHistory />
+
+      <Drawer className="patientProfileinfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
+        <div className="py-5 px-10 overflow-auto">
+          <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}><span className="my-auto font-weight-500">X</span></Link>
+          <InvoiceHistory />
+        </div>
+      </Drawer>
+
+    </div>
+  );
+}
+
+export function InvoiceHistory(){
+  return(
+    <>
       <Table className="table border-top color_292D34 font_weight_medium font-size-14">
         <thead>
         <tr>
@@ -97,6 +149,6 @@ export function PatientInvoice() {
           </tr>
         </tbody>
       </Table>
-    </div>
+    </>
   );
 }
