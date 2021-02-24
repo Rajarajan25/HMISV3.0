@@ -12,7 +12,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Input from '@material-ui/core/Input';
-
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormLabel from '@material-ui/core/FormLabel';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
@@ -141,7 +144,7 @@ function Registration(props) {
   });
   return (
     <>
-    <div className="text-left mb-6">
+    <div className="text-left mb-3">
         <h1 className="h2 mb-3 color_3F4772 text-capitalize font-weight-600">Business Info:</h1>      
       </div>
       <div className="business_info">
@@ -157,7 +160,12 @@ function Registration(props) {
               </div>
             )}
             {/* end: Alert */}
-
+            <div className="form-group">
+              <h2 className="d-block font-size-16">Choose your business type?</h2>
+              <div className="per_busi">
+                    <GenderGroup />
+              </div>
+            </div>
             {/* begin: Fullname */}
             <div className="form-group fv-plugins-icon-container d-flex">
               <div className="info_img">
@@ -434,5 +442,47 @@ function CountryCode() {
           <MenuItem value={30}>India (91)</MenuItem>
         </Select>
       </FormControl>
+  );
+}
+
+function GenderGroup() {
+
+  const useStyles = makeStyles(theme => ({
+    root: {
+      display: 'flex',
+    },
+    formControl: {
+      margin: theme.spacing(3),
+    },
+    group: {
+      margin: theme.spacing(1, 0),
+    },
+  }));
+
+  const classes = useStyles();
+  const [value, setValue] = React.useState('female');
+
+  function handleChange(event) {
+    setValue(event.target.value);
+  }
+
+  return (
+    <div className={classes.root}>
+      <FormControl component="fieldset" className={classes.formControl}>
+        <RadioGroup
+          aria-label="Gender"
+          name="gender1"
+          className={classes.group}
+          value={value}
+          onChange={handleChange}
+        >
+          <FormControlLabel value="personal" control={<Radio />} label="Personal" />
+          <FormControlLabel value="business" control={<Radio />} label="Business" />
+          
+  
+        </RadioGroup>
+      </FormControl>
+      
+    </div>
   );
 }
