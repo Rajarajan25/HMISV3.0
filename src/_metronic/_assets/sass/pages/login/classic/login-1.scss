@@ -263,7 +263,10 @@
 .loginMaincontent{
     z-index: 2;
     .form-group {
-        margin-bottom: 1.25rem;
+        margin-bottom: 1.10rem;
+        &.ch-bx	{
+            margin-bottom: 0.5em;
+        }
     }
 }
 .login:before{
@@ -431,7 +434,7 @@
         padding-left: 0px !important;
         border: 0px;
         border-bottom: 1px solid #C6DBF4;
-        height: 44px !important;
+        height: 40px !important;
         color: $dark_85;
         transition: $transition-input;
     }
@@ -650,6 +653,17 @@
     .MuiFormGroup-root {
         flex-direction: initial;
         margin-bottom:  0;
+    }
+    .per_busi {
+        .MuiFormGroup-root {
+            margin:  0;
+        }
+        .MuiTypography-body1 {
+            font-size: 1.1em;
+        }
+        .MuiFormControlLabel-root {
+            margin-bottom: 0;
+        }
     }
     .form-group label {
         margin-bottom: 0;
@@ -1202,6 +1216,53 @@
     }
 }
 
+.plus_sym {
+	button {
+	    border: 0;
+		box-shadow: none;
+		background: transparent;
+		padding: 0;
+        &.MuiButton-contained:hover {
+            box-shadow: none;
+            background-color: transparent;
+        }
+	}
+}
+.pop_head {
+	.MuiPaper-elevation1 {
+		border-radius: 10px !important;
+	}
+	.form-control {
+		border: 0;
+		padding-left: 0;
+		font-size: 0.9em;
+	}
+    .btn {
+        &.btn-primary {
+            background: #1D6AFF;
+            border-color: #1D6AFF;
+            border-radius: 30px;
+            min-width: 90px;
+            min-height: 32px;
+            font-size: 13px;
+            font-weight: 400;
+            padding: 0;
+            &:hover, &:focus {
+                background: #1D6AFF !important;
+                border-color: #1D6AFF !important;	
+            }
+        }
+    }
+    .type_pop {
+        min-width: 250px;
+        .cur-poin {
+            cursor: pointer;
+            img {
+                width: 10px;
+            }
+        }
+    }
+}
 // Desktop and Mobile mode
 @media (min-width: 1200px) and (max-width: 1600px){
     .login.login-1 {

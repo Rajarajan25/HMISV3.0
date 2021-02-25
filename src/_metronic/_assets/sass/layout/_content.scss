@@ -1259,7 +1259,7 @@
 			font-size: 14px;
 			font-weight: 500;
 			margin: 0 15px;
-			&:hover {
+			&:hover, &:focus {
 				background: #1D6AFF !important;
 				border-color: #1D6AFF !important;	
 			}
