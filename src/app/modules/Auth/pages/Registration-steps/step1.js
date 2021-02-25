@@ -144,7 +144,7 @@ function Registration(props) {
   });
   return (
     <>
-    <div className="text-left mb-3">
+    <div className="text-left mb-5">
         <h1 className="h2 mb-3 color_3F4772 text-capitalize font-weight-600">Business Info:</h1>      
       </div>
       <div className="business_info">
@@ -160,8 +160,8 @@ function Registration(props) {
               </div>
             )}
             {/* end: Alert */}
-            <div className="form-group">
-              <h2 className="d-block font-size-16">Choose your business type?</h2>
+            <div className="mb-2">
+              <h2 className="d-block h4 mb-1">Choose your business type?</h2>
               <div className="per_busi">
                     <GenderGroup />
               </div>
