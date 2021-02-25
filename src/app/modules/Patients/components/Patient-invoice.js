@@ -123,31 +123,24 @@ export function InvoiceHistory(){
             <td><span>&#2352;</span> 10</td>
             <td className="text-right"><span>&#2352;</span> 100</td>
           </tr>
+        </tbody>
+        <tfoot>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td colSpan="4"></td>
             <td className="color_707070 text-right">Total Cost:</td>
             <td className="font_weight_bold text-right"><span>&#2352;</span> 500</td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td colSpan="4"></td>
             <td className="color_707070 text-right">Total Tax:</td>
             <td className="font_weight_bold text-right"><span>&#2352;</span> 50</td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td colSpan="4"></td>
             <td className="color_707070 text-right">Grand Total:</td>
             <td className="font_weight_bold text-right"><span>&#2352;</span> 550</td>
           </tr>
-        </tbody>
+        </tfoot>
       </Table>
     </div>
   );
