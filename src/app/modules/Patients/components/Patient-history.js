@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { PatientInvoice } from "./Patient-invoice";
-
-
 import { makeStyles } from '@material-ui/core/styles';
+import {PatientContext} from '../PatientContext';
+
 import Drawer from '@material-ui/core/Drawer';
 
 const useStyles = makeStyles({
@@ -39,7 +39,14 @@ export function PatientHistory() {
     setState({ ...state, [side]: open });
   };
 
-  return (
+
+  const [patient,setpatient] = React.useContext(PatientContext)
+  let currentPatient= patient.currentPatient;
+  console.log(currentPatient)
+  
+if(currentPatient)
+{
+  return(
     
     <div className="history_card w-100">
       <div className="row">
@@ -56,7 +63,7 @@ export function PatientHistory() {
               </div>
             </div>
             <div className="mh_70">
-              <p className="card-tit text-uppercase">Robert Y.Social</p>
+              <p className="card-tit text-uppercase">{currentPatient.first_name}</p>
               <div className="card-sss-tit">
               <img src={toAbsoluteUrl("/media/users/location.svg")} alt="" width="5" className="" /><span>12 km</span><img src={toAbsoluteUrl("/media/users/ages.svg")} alt="" width="5" className="" /><span>40y old</span>
               </div>
@@ -244,7 +251,13 @@ export function PatientHistory() {
       </Drawer>
     </div>
   );
-}
+  }
+  else{
+    return(
+      <><img src="https://media4.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" width="400" /></>
+    )
+  }
+  }
 
 
 export function HistoryDetail() {

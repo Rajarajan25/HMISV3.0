@@ -1,10 +1,18 @@
 import React from "react";
 import {Table, Image} from "react-bootstrap";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
-
-
+import { makeStyles } from '@material-ui/core/styles';
+import {PatientContext} from '../PatientContext';
 export function PatientApponiment() {
-  return (
+ 
+  const [patient,setpatient] = React.useContext(PatientContext)
+  let currentPatient= patient.currentPatient;
+  console.log(currentPatient)
+  
+if(currentPatient)
+{
+  return(
+ 
     <div className="d-flex w-100 patientAppoinment">      
       <Table className="w-100 text-center" striped  size="sm" cellSpacing="10">
         <thead>
@@ -33,7 +41,7 @@ export function PatientApponiment() {
             </td>
             <td className="text-left">
               <div className="d-flex flex-column">
-                <strong>Acupunture</strong>
+                <strong>{currentPatient.first_name}</strong>
                 <span className="font-size-12">ID: 12345</span>
               </div>
             </td>
@@ -334,4 +342,10 @@ export function PatientApponiment() {
       </Table>
     </div>
   );
+}
+else{
+  return(
+    <><img src="https://media4.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" width="400" /></>
+  )
+}
 }

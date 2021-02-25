@@ -279,19 +279,31 @@ else{
 
 
 export function PatientFileList() {
+  const [patient,setpatient] = React.useContext(PatientContext)
+  let currentPatient= patient.currentPatient;
+  console.log(currentPatient)
+  if(currentPatient)
+  {
   return (
     <div className="d-flex w-100 patientFiles">
       <div className="d-flex w-100 patientFiles_inner">
         <img alt="patient image" className="mh-100 rounded align-self-center mr-5" src={toAbsoluteUrl("/media/patients/patient_files.svg")} />
         <div className="d-flex my-auto w-100">
           <Link to="#" className="font-weight-500 font-size-14 userName">
-              Check up result.pdf
+             {currentPatient.first_name}
           </Link>
           <span className="my-auto ml-auto font-size-12">12 kb <img alt="image" className="mh-100 rounded align-self-center ml-2" src={toAbsoluteUrl("/media/patients/delete_icon.svg")} /> <img alt="image" className="mh-100 rounded align-self-center ml-2" src={toAbsoluteUrl("/media/patients/down_icon.svg")} /></span>
         </div>
       </div>
     </div>
   );
+}
+else{
+  return(
+    <><img src="https://media4.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" width="400" /></>
+  )
+}
+  
 }
 
 

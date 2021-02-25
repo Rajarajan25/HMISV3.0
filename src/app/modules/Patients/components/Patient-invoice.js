@@ -1,8 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Table from '@material-ui/core/Table';
-
+import { makeStyles } from '@material-ui/core/styles';
+import {PatientContext} from '../PatientContext';
 export function PatientInvoice() {
+  const [patient,setpatient] = React.useContext(PatientContext)
+  let currentPatient= patient.currentPatient;
+  console.log(currentPatient)
+  
+if(currentPatient)
+{
+  
   return (
     <div className="invoice_card w-100">
       <div className="text-center">
@@ -18,15 +26,15 @@ export function PatientInvoice() {
           </div>
           <div className="d-flex mb-3">
             <span className="font_weight_medium color_707070 mw_130">Billing To:</span>
-            <span className="font_weight_bold">Andrea Jemmiah</span>
+            <span className="font_weight_bold">{currentPatient.first_name}</span>
           </div>
           <div className="d-flex mb-3">
             <span className="font_weight_medium color_707070 mw_130">Client Address:</span>
-            <span className="font_weight_bold">12 Gandhi Nagar, Chennai - 600176</span>
+            <span className="font_weight_bold">{currentPatient.BillingAddress}</span>
           </div>
           <div className="d-flex mb-3">
             <span className="font_weight_medium color_707070 mw_130">Email:</span>
-            <span className="font_weight_bold">Andrea@gmail.com</span>
+            <span className="font_weight_bold">{currentPatient.email}</span>
           </div>
           <div className="d-flex mb-3">
             <span className="font_weight_medium color_707070 mw_130">Due Date:</span>
@@ -99,4 +107,10 @@ export function PatientInvoice() {
       </Table>
     </div>
   );
+}
+  else{
+    return(
+      <><img src="https://media4.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" width="400" /></>
+    )
+  }
 }
