@@ -112,7 +112,7 @@ export default function step3() {
                   <span className="chk_txt">Tanning Studio</span>
               </label>
           </div>
-          <div className="d-inline-flex _2FwA ml-3">
+          <div className="d-inline-flex _2FwA ml-2">
             <div className="plus_sym">
                 <SimplePopover />
             </div> 
@@ -141,7 +141,7 @@ function SimplePopover() {
     return (
       <div>
         <Button aria-describedby={id} variant="contained" onClick={handleClick}>
-        <img src="/media/auth-screen/plus_sym.svg" className="m-auto mw-100" alt="" />
+        <img src="/media/auth-screen/plus_sym.svg" className="mw-100" alt="" />
         </Button>
         <Popover
           id={id}
@@ -149,24 +149,22 @@ function SimplePopover() {
           anchorEl={anchorEl}
           onClose={handleClose}
           anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'center',
+            vertical: 'top',
+            horizontal: 'right',
           }}
           transformOrigin={{
             vertical: 'top',
-            horizontal: 'center',
+            horizontal: 'end',
           }}
           className={'pop_head'}
         >
           <Typography className={'type_pop'+' '+classes.typography}>
               <div className="w-100">
                 <div class="d-flex">
-                  <input type="text" className="form-control border-bottom col" placeholder="Create New Type?" />
+                  <input type="text" className="form-control col" placeholder="Create New Type?" />
                   <span className="col-2 mh-100 d-flex p-0 flex-wrap align-content-center justify-content-end cur-poin" onClick={handleClose}><img src="/media/auth-screen/type_close.svg" /></span>
                 </div>
-                <div class="d-flex justify-content-end mt-20">
-                  <button type="button" className="btn btn-primary">Add</button>
-                </div>
+
               </div>
           </Typography>
         </Popover>
