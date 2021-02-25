@@ -22,6 +22,8 @@ user(query:$query)
         user_type    
         display_name
         ShippingAddress
+        deleted
+        push_notifications_on
 }
 }
 `;
@@ -47,6 +49,8 @@ users(query:$query,limit:$limit,sortBy:$sortBy)
         user_type    
         display_name
         ShippingAddress
+        deleted
+        push_notifications_on
 }
 }
 `;
@@ -84,7 +88,8 @@ export const ADD_USER = gql`
         user_type    
         display_name
         ShippingAddress
-        
+        deleted
+        push_notifications_on
       }
     }
 `;
@@ -108,6 +113,8 @@ export const DELETE_USER = gql`
         user_type    
         display_name
         ShippingAddress
+        deleted
+        push_notifications_on
       }
     }
 `;
