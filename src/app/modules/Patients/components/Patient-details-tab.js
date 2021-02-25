@@ -79,14 +79,14 @@ export  class PatientDetailsTab extends React.Component {
               </Tab.Pane>
               <Tab.Pane eventKey="second">
                 <div className="d-flex flex-wrap">
-                <PatientFileList />
-                <PatientFileList />
-                <PatientFileList />
-                <PatientFileList />
-                <PatientFileList />
-                <PatientFileList />
-                <PatientFileList />
-                <PatientFileList />
+                  <PatientFileList />
+                  <PatientFileList />
+                  <PatientFileList />
+                  <PatientFileList />
+                  <PatientFileList />
+                  <PatientFileList />
+                  <PatientFileList />
+                  <PatientFileList />
                 </div>
               </Tab.Pane>
               <Tab.Pane eventKey="three">
