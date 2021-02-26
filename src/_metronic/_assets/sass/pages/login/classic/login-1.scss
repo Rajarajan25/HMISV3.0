@@ -1228,6 +1228,7 @@
 	}
 }
 .pop_head {
+    background: rgba(0,0,0, 0.1);
 	.MuiPaper-elevation1 {
 		border-radius: 35px !important;
         margin-left: 15px;
@@ -1261,8 +1262,37 @@
         min-height: 48px;
         .cur-poin {
             cursor: pointer;
-            img {
-                width: 10px;
+            &:before {
+                box-sizing: content-box;
+                content: "";
+                color: #fff;
+                position: absolute;
+                top: 4px;
+                right: -10px;
+                width: 29px;
+                height: 29px;
+                margin-top: 0;
+                border: 1px solid #1D6AFF;
+                text-align: center;
+                transition: all .4s ease;
+                border-radius: 50%;
+                background: #1D6AFF;
+            }
+            &:after {
+                background-color: transparent;
+                content: "";
+                top: 14px;
+                right: -2px;
+                width: 16px;
+                height: 8px;
+                margin-top: 0;
+                border-style: solid;
+                border-color: #fff;
+                border-width: 0px 0 2px 2px;
+                border-image: none;
+                transform-origin: 50%;
+                transform: rotate(-45deg) scale(1);
+                position: absolute;
             }
         }
     }

@@ -94,6 +94,9 @@ export default function step1() {
             </p>
           </div>
 
+
+
+
           <div className="login-signin reg_sec">
             <form className="form fv-plugins-bootstrap fv-plugins-framework">
               <div className="form-group fv-plugins-icon-container mb-8">
@@ -145,13 +148,8 @@ export default function step1() {
                   <img src="/media/auth-screen/google.svg" alt="Goolge Icon" className="socialIcon" />
 
                 </button>
-                <button
-                  id="social_facebook_signin_submit"
-                  type="submit"
-                  className="soci"
-                >
+                <button id="social_facebook_signin_submit" type="submit" className="soci">
                   <img src="/media/auth-screen/facebook.svg" alt="facebook Icon" className="socialIcon" />
-
                 </button>
                 <button
                   id="social_facebook_signin_submit"

@@ -95,6 +95,10 @@ export default function HorizontalLabelPositionBelowStepper() {
               >
                 <img src="/media/auth-screen/back_arrow.svg" className="mr-2" alt="arrow" /> <span>Back</span>
               </Button>
+              <Button className={"skipButton"} >
+                <span>Skip</span>
+              </Button>
+
               <Button variant="contained" 
               className={"nextButton ml-auto " + (activeStep === steps.length - 1 ? 'd-none' : 'show')} 
               color="primary" 

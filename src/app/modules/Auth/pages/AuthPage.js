@@ -21,7 +21,7 @@ export function AuthPage() {
           className="login login-1 login-signin-on d-flex flex-column flex-lg-row flex-column-fluid bg_gry"
           id="kt_login"
         >
-          <div className="d-flex justify-content-center w-100 loginMaincontent">
+          <div className="d-flex justify-content-center w-100 loginMaincontent h-md-100">
             {/*begin::Content*/}
             <div className="position-relative p-0 col order-1  col-12 col">
               
