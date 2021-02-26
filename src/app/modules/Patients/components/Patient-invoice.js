@@ -91,7 +91,7 @@ export function PatientInvoice() {
 
 export function InvoiceHistory(){
   return(
-    <div className="table-responsive text-nowrap">
+    <div className="table-responsive text-nowrap invoice_card">
       <Table className="table color_292D34 font_weight_medium font-size-12">
         <thead>
         <tr>
