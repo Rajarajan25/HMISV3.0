@@ -20,6 +20,14 @@ const initialState = {
         "user_name": null,
         "user_type": null,
          "_id": 1,
+         "appointment":[
+            {
+               "name":"Hospital"
+            },
+            {
+               "name":"Dental"
+            }
+         ]
       }
       ],
 
