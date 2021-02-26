@@ -162,7 +162,7 @@ function SimplePopover() {
               <div className="w-100">
                 <div class="d-flex">
                   <input type="text" className="form-control col" placeholder="Create New Type?" />
-                  <span className="col-2 mh-100 d-flex p-0 flex-wrap align-content-center justify-content-end cur-poin" onClick={handleClose}><img src="/media/auth-screen/type_close.svg" /></span>
+                  <span className="col-2 mh-100 d-flex p-0 flex-wrap align-content-center justify-content-end cur-poin" onClick={handleClose}></span>
                 </div>
 
               </div>
