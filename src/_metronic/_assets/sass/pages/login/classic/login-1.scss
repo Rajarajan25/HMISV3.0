@@ -723,9 +723,6 @@
         background-color: #1D6AFF;
         border-color: #1D6AFF;
     }
-    .plus_sym {
-        cursor: pointer;
-    }
     .sign-btn {
         padding: 0 15px;
         height: 50px;
@@ -1217,11 +1214,13 @@
 }
 
 .plus_sym {
+    cursor: pointer;
 	button {
 	    border: 0;
 		box-shadow: none;
 		background: transparent;
 		padding: 0;
+        min-width: auto;
         &.MuiButton-contained:hover {
             box-shadow: none;
             background-color: transparent;
@@ -1230,12 +1229,15 @@
 }
 .pop_head {
 	.MuiPaper-elevation1 {
-		border-radius: 10px !important;
+		border-radius: 35px !important;
+        margin-left: 15px;
+        margin-top: -3px;
+        border: 1px solid #C6DBF4;
 	}
 	.form-control {
 		border: 0;
 		padding-left: 0;
-		font-size: 0.9em;
+		font-size: 1em;
 	}
     .btn {
         &.btn-primary {
@@ -1254,7 +1256,9 @@
         }
     }
     .type_pop {
-        min-width: 250px;
+        min-width: 200px;
+        padding: 5px 18px;
+        min-height: 48px;
         .cur-poin {
             cursor: pointer;
             img {
