@@ -92,7 +92,7 @@ function Login(props) {
   });
 
   return (
-    <div className="d-flex flex-column justify-content-center w-100 h-100 h-lg-100 h-xl-100">
+    <div className="d-flex flex-column justify-content-center w-100 h-lg-100 h-xl-100">
             <div class="d-lg-none d-xl-none d-md-flex d-block w-100 text-center">
               <Link to="/" className="flex-column-auto logo-tb logo-log m--2">
                 <img alt="Logo" src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")} />
