@@ -356,7 +356,7 @@ if(currentPatient)
   }
   else{
     return(
-      <> return(
+      <>
  
         <div className="d-flex w-100 patientAppoinment">      
           <Table className="w-100 text-center" striped  size="sm" cellSpacing="10">
@@ -649,7 +649,7 @@ if(currentPatient)
             </tbody>
           </Table>
         </div>
-      );</>
+      </>
     )
   }
 }
