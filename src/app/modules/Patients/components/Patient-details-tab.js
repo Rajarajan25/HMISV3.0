@@ -128,16 +128,19 @@ export function PatientBasicDetails(){
     bottom: false,
     right: false,
   });
-  const [patient,setpatient] = React.useContext(PatientContext)
-  let currentPatient= patient.currentPatient;
-  console.log(currentPatient)
   const toggleDrawer = (side, open) => event => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
     }
-
     setState({ ...state, [side]: open });
   };
+  const toggleDrawerClose = () => {
+    setState(false);
+  };
+  const [patient,setpatient] = React.useContext(PatientContext)
+  let currentPatient= patient.currentPatient;
+  console.log(currentPatient)
+  
 
   const sideList = side => (
     <div
@@ -258,10 +261,12 @@ if(currentPatient)
         </div>
       </div>
       <div className="d-flex mt-10 mb-8 justify-content-start patientButton">
-        <button type="button" className="btn btn-primary" onClick={toggleDrawer('right', true)}>Book Appointment</button>
+      <Button
+        type="submit"
+        className="btn btn-primary sign-btn ml-15 h-77 font-weight-500 mt-6"    onClick={toggleDrawer('right', true)}>Book Appointment</Button>
         <Drawer className="patientProfileinfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
-          <div className="py-5 px-12 overflow-auto">
-            <Link to="#" className="closeDrawer" onClose={toggleDrawer('right', false)}><span className="my-auto font-weight-500">X</span></Link>
+          <div className="py-5 px-10 overflow-auto">
+            <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}><span className="my-auto font-weight-500">X</span></Link>
             <BookDetail />
           </div>
         </Drawer>
