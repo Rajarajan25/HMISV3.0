@@ -4,18 +4,18 @@ import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import {  useMutation,useQuery, useLazyQuery } from "@apollo/client";
 import { ADD_USER,GET_ALL_USER,GET_USER} from "../query/graphql";
 import {PatientContext} from '../PatientContext'
+import usestaffs from '../InfiniteList.hooksOriginal'
 export function PatientList() {
-  const {data ,loading} = useQuery(GET_ALL_USER, {
-    variables: { query: {}}
-  });
+  const { staffs, loading, loadMore, hasNextPage } = usestaffs()
+  console.log(staffs)
   React.useEffect(() => {
-    if (loading === false && data) {
+    if (loading === false && staffs) {
       setpatient({
         type: "SETSTATE_PATIENT",
-        payload: data.users,
+        payload: staffs,
       });
     }
-  }, [loading, data]);
+  }, [loading]);
   const [patient,setpatient]= React.useContext(PatientContext);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   let currentPatient= patient.currentPatient;
@@ -28,7 +28,7 @@ export function PatientList() {
       });
 
   }
-  if(data!==undefined)
+  if(staffs!==undefined)
   {
     return (
      <>
@@ -53,7 +53,7 @@ export function PatientList() {
                         to="#"
                         className="font-weight-500 font-size-14 userName"
                       >
-                        {value.first_name}
+                        {value.name}
                       </Link>
                       <span className="my-auto ml-auto font-size-12">Nov 4, 2020</span>
                     </div>

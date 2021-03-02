@@ -181,7 +181,7 @@ if(currentPatient)
           <div className="d-flex flex-column w-100">
             <div className="d-flex mb-1">
               <Link to="#" className="font-weight-500 font-size-18 userName">
-                  {currentPatient.first_name}
+                  {currentPatient.name}
               </Link>
             </div>
             <div className="d-flex font-size-14 font-weight-500">
