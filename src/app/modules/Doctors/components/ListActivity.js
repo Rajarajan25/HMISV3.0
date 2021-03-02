@@ -18,6 +18,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import usestaffs from '../InfiniteList.hooksOriginal'
 import {
   Button,
   Modal,
@@ -62,7 +63,7 @@ alert("FORMIK added"+ JSON.stringify(values[index]))
 }
 }
   });
- 
+  const { data,loading,error, loadMore, hasNextPage } = usestaffs()
   const [doctor,setdoctor]= React.useContext(DoctorContext);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   let currentDoctor= doctor.currentDoctor;
@@ -96,9 +97,7 @@ const [addUser] = useMutation(ADD_USER);
     console.log(doctor)
   }
   const [fields, setFields] = useState([{ value: null }]);
-  const { loading, data, error } = useQuery(
-    GET_ALL_USER
-  );
+  
   React.useEffect(() => {
     if (loading === false && data) {
       setdoctor({
@@ -111,12 +110,7 @@ const [addUser] = useMutation(ADD_USER);
   if (error) return <div>An error occurred</div>
   if (!data) return <div>No data!</div>;
   console.log("data"+JSON.stringify(data))  ;
-  const GetAllUser=async () => {
-    data({
-     variables: {   query: { },limit:100,sortBy:"FIRST_NAME_DESC"}
-   }
-      );
-  };
+ 
   var healthy = [];
   var onfield = [];
   var labass = [];
