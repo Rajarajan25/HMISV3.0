@@ -23,7 +23,7 @@ export default class LoginOTP extends Component{
           <Helmet  titleTemplate="HMIS | %s" title="Login Page" />           
           <div className="d-flex flex-row-reverse w-100 loginMaincontent h-100">
             {/*begin::Login*/}
-            <div className="d-flex flex-column flex-1 position-relative p-7 bg-white col bg-white bor-20">
+            <div className="d-flex flex-column flex-1 position-relative p-7 bg-white col bor-20 mh_650">
             <div className="d-flex flex-column flex-column-fluid mx-auto h-100 col-lg-10 col-xl-7 col-12">
               
 

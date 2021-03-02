@@ -39,7 +39,7 @@ render() {
                 <a href="#" className="d-flex pt-3 pl-2">
                   <span className="svg-icon svg-icon-xl font-weight-bold font-size-14 color_292D34">
                     All Categories
-                    <SVG className="d-none" src={toAbsoluteUrl("/media/svg/icons/Code/Compiling.svg")} />
+                    <img className="pl-2" src={toAbsoluteUrl("/media/patients/cat_caret.svg")} />
                   </span>
                 </a>
               </OverlayTrigger>
@@ -65,12 +65,21 @@ render() {
               : null
             }
             <div className="ml-auto my-auto searchIcon">
+              <Link to="#">
+                <span className="svg-icon svg-icon-lg mr-4">
+                  <img
+                    src={toAbsoluteUrl("/media/patients/cat_menu.svg")}
+                  />
+                </span>
+              </Link>
+            </div>
+            <div className="ml-auto my-auto searchIcon">
               <Link
                 to="#"
                onClick={()=>{this.setState({show:!this.state.show})}}>
                 <span className="svg-icon svg-icon-lg">
-                  <SVG
-                    src={toAbsoluteUrl("/media/svg/icons/General/Search.svg")}
+                  <img
+                    src={toAbsoluteUrl("/media/patients/cat_search.svg")}
                   />
                 </span>
               </Link>

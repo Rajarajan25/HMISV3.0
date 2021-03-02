@@ -542,6 +542,28 @@
         bottom: 0;
         right: 0;
     }
+    .skipButton {
+        padding: 0 15px;
+        height: 50px;
+        border-radius: 30px;
+        color: #1D6AFF;
+        font-weight: 600;
+        font-size: 1.1em;
+        min-width: 180px;
+        box-shadow: none !important;
+        text-transform: capitalize;
+        margin-bottom: 15px;
+        margin-right: 0;
+        margin-top: 10px;
+        position: absolute;
+        bottom: 0;
+        text-decoration: underline;
+        left: 0;
+        &:hover {
+            background: transparent;
+        }
+        display: none;
+    }
     .MuiButton-root.backbtn {
         position: absolute;
         top: -2px;
@@ -584,6 +606,9 @@
         color: #3F4772;
         padding: 5px 0 !important;
         font-weight: $font-weight-medium !important;
+        &.per_url {
+            color: #1B6AFC;
+        }
     }
     .MuiSelect-select:focus {
         background-color: transparent;
@@ -601,10 +626,6 @@
        color:  #3F4772;
        font-weight: $font-weight-medium !important;
     } 
-    input.form-control::-ms-input-placeholder {
-        color:  #3F4772;
-        font-weight: $font-weight-medium !important;
-    }
     input.form-control::-moz-input-placeholder {
         color:#3F4772;
         opacity: 1; /* Firefox */
@@ -613,6 +634,18 @@
     input.form-control::-webkit-input-placeholder {
         color: #3F4772;
         font-weight: $font-weight-medium !important;
+    } 
+    input.form-control.per_url::placeholder {
+        color:#1B6AFC;
+    } 
+    input.form-control.per_url::-ms-input-placeholder {
+       color:  #1B6AFC;
+    } 
+    input.form-control.per_url::-moz-input-placeholder {
+        color:#1B6AFC;
+    }
+    input.form-control.per_url::-webkit-input-placeholder {
+        color: #1B6AFC;
     } 
     .reg_sec input.form-control::placeholder {
         color:#3F4772;
@@ -714,7 +747,7 @@
         }
     }
     .info_img {
-        margin: 30px 5px 0 0;
+        margin: 27px 5px 0 0;
         min-width: 35px;
         text-align: right;
     }
@@ -1297,6 +1330,10 @@
         }
     }
 }
+.right_banner .sets {
+    z-index: 2;
+    position: relative;
+}
 // Desktop and Mobile mode
 @media (min-width: 1200px) and (max-width: 1600px){
     .login.login-1 {
@@ -1450,6 +1487,9 @@
     .login:before {
         left: -340px;
         height: 230px;
+    }
+    .mh_650 {
+        min-height: 650px;
     }
   }
   @media screen and (max-width: 767px)  {

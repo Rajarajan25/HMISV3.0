@@ -17,6 +17,7 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormLabel from '@material-ui/core/FormLabel';
+import Tooltip from '@material-ui/core/Tooltip';
 
 const initialValues = {
   fullname: "",
@@ -305,18 +306,18 @@ function Registration(props) {
 
             <div className="form-group fv-plugins-icon-container d-flex">
               <div className="info_img">
-                <img src="/media/auth-screen/password.svg" className="m-auto mw-100" alt="" />
+                <img src="/media/auth-screen/name_icon.svg" className="m-auto mw-100" alt="" />
               </div>
               <div className="col">
-              <label class="form-label" for="exampleForm.ControlInput1">Password</label>
+              <label class="form-label" for="exampleForm.ControlInput1"><span className="pr-2">Display Name</span> <ControlledTooltips/> </label>
                   <input
-                    placeholder="Password"
-                    type="password"
+                    placeholder="Gopi"
+                    type="text"
                     className={`form-control py-5 px-6 ${getInputClasses(
-                      "password"
+                      "fullname"
                     )}`}
-                    name="password"
-                    {...formik.getFieldProps("password")}
+                    name="fullname"
+                    {...formik.getFieldProps("fullname")}
                   />
                   {formik.touched.password && formik.errors.password ? (
                     <div className="fv-plugins-message-container">
@@ -357,6 +358,30 @@ function Registration(props) {
               </div>
 
           
+            </div>
+
+
+            <div className="form-group fv-plugins-icon-container d-flex">
+              <div className="info_img">
+                <img src="/media/auth-screen/url_icon.svg" className="m-auto mw-100" alt="" />
+              </div>
+              <div className="col">
+              <label class="form-label" for="exampleForm.ControlInput1"><span>Personal/Business Url</span> </label>
+                  <input
+                    placeholder="https://www.lookman.in/"
+                    type="text"
+                    className={`form-control per_url py-5 px-6 ${getInputClasses(
+                      "fullname"
+                    )}`}
+                    name="fullname"
+                    {...formik.getFieldProps("fullname")}
+                  />
+                  {formik.touched.password && formik.errors.password ? (
+                    <div className="fv-plugins-message-container">
+                      <div className="fv-help-block">{formik.errors.password}</div>
+                    </div>
+                  ) : null}
+                </div>
             </div>
 
 
@@ -488,5 +513,26 @@ function GenderGroup() {
       </FormControl>
       
     </div>
+  );
+}
+
+
+
+
+function ControlledTooltips() {
+  const [open, setOpen] = React.useState(false);
+
+  function handleTooltipClose() {
+    setOpen(false);
+  }
+
+  function handleTooltipOpen() {
+    setOpen(true);
+  }
+
+  return (
+    <Tooltip className="font-size-14" onClose={handleTooltipClose} onOpen={handleTooltipOpen} open={open} title="Display Name">
+     <img src="/media/auth-screen/tool_icon.svg" className="mw-100" alt="" />
+    </Tooltip>
   );
 }
