@@ -1,7 +1,7 @@
 /**
  * Create React App entry point. This and `public/index.html` files can not be
  * changed or moved.
- * Test Change
+ * Test Change - 1
  */
 import "react-app-polyfill/ie11";
 import "react-app-polyfill/stable";
