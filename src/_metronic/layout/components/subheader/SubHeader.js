@@ -100,10 +100,6 @@ function  SubHeader(){
 
         {/* Toolbar */}
         <div className="d-flex align-items-center flex-wrap">
-<<<<<<< HEAD
-       
-          {/* Button */}
-=======
         <div className="topMiddlecontent">
         <Popup trigger= {<button
            className="btn btn-primary btn-icon font-weight-bolds   "
@@ -502,7 +498,7 @@ function  SubHeader(){
 </div>
 </span>
 </Popup></div>
->>>>>>> e53596151349862e60fe4acdd6ed553bb7d19995
+
           <button
             type="button"
             className={`btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2`}

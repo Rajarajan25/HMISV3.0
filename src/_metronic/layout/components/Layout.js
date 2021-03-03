@@ -7,11 +7,7 @@ import { HeaderMobile } from "./header-mobile/HeaderMobile";
 import { Aside } from "./aside/Aside";
 import { Footer } from "./footer/Footer";
 import { LayoutInit } from "./LayoutInit";
-<<<<<<< HEAD
 import SubHeader from "./subheader/SubHeader";
-=======
-import  SubHeader  from "./subheader/SubHeader";
->>>>>>> e53596151349862e60fe4acdd6ed553bb7d19995
 import { QuickPanel } from "./extras/offcanvas/QuickPanel";
 import { QuickUser } from "./extras/offcanvas/QuickUser";
 import { QuickSearch } from "./extras/offcanvas/QuickSearch";
