@@ -991,13 +991,13 @@
 		z-index: 9;
 	}
 	&.card_bg{
-    box-shadow: 0 3px 6px 0 #1043a71a;
-    border: 0;
-    background-color: #fff;
-    background-clip: border-box;
-    padding: 12px 11px;
-    border-radius: 10px;    
-    margin-bottom: 13px;
+		box-shadow: 0 3px 6px 0 #1043a71a;
+		border: 0;
+		background-color: #fff;
+		background-clip: border-box;
+		padding: 12px 11px;
+		border-radius: 10px;    
+		margin-bottom: 13px;
 	}
 	.userName{
 		color: #292D34;
@@ -1476,6 +1476,25 @@
 		.edit_staff {
 			display:  block;
 		}
+	}
+	.drag_hov {
+		left: -35px;
+		top: 10px;
+	}
+	.cu-task-row-toggle__marker {
+		width: 16px;
+		height: 16px;
+		border-radius: 50%;
+		border: 1px solid #dbdbdb;
+		background: #fff;
+		display: inline-flex;
+		margin-right: 7px;
+		margin-top: 0;
+	}
+	.drag_img {
+		width: 6px;
+		height: auto;
+		display: inline-flex;
 	}
 	@media (max-width: 1400px) {
 		.aside-fixed.aside-secondary-enabled.subheader-fixed .subheader {
