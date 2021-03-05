@@ -20,7 +20,7 @@ export default function DoctorAvailablepage() {
       <div className="d-flex flex-row">        
         <Filter></Filter>
       </div>
-      <div className="d-flex flex-column mt-15 p-3 border rounded">
+      <div className="d-flex flex-column mt-15">
         <div className="pageTitlecontent">
           <div className="d-flex">
             <div className="toggleLeftHeadericon mr-2">
