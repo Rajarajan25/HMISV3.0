@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { PatientInvoice } from "./Patient-invoice";
+import { PatientTest123 } from "./Patient-test123";
 
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -221,6 +222,12 @@ export function PatientHistory() {
           </div>
         </div>
         <div className="col-xxl-3 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+
+
+
+
+
+
           <div className="card text-center">
             <div className="d-flex flex-row-reverse p-2">
               <img src={toAbsoluteUrl("/media/users/tick_icon.svg")} alt="" className="" />
@@ -244,6 +251,21 @@ export function PatientHistory() {
             </div>
           </div>
         </div>
+
+
+        <div className="col-xxl-3 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+
+        <PatientTest123 />
+          </div>
+
+          <div className="col-xxl-3 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+
+<TestNew />
+  </div>
+
+
+
+
       </div>
       <Drawer className="patientProfileinfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
         <div className="py-5 px-10 overflow-auto">
@@ -312,6 +334,15 @@ export function HistoryDetail() {
           <span>Stomach Pain</span>
         </div>
       </div>
+    </div>
+  );
+}
+
+
+export function TestNew() {
+  return (
+    <div className="">      
+      This is testing Purpose
     </div>
   );
 }

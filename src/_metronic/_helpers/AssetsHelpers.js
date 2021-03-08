@@ -8,3 +8,4 @@ export function addCSSClass(ele, cls) {
 }
 
 export const toAbsoluteUrl = pathname => process.env.PUBLIC_URL + pathname;
+

@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Table from '@material-ui/core/Table';
-
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 
@@ -76,6 +75,7 @@ export function PatientInvoice() {
           </div>
         </div>
       </div>
+      
       <InvoiceHistory />
 
       <Drawer className="patientProfileinfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>

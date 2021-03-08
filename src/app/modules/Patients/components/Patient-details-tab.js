@@ -5,7 +5,7 @@ import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { PatientHistory } from "./Patient-history";
 import { PatientApponiment } from "./Patient-appoinment";
 import { PatientInvoice } from "./Patient-invoice";
-
+import { PatientTest } from "./Patient-test";
 
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -87,6 +87,7 @@ export  class PatientDetailsTab extends React.Component {
                   <PatientFileList />
                   <PatientFileList />
                   <PatientFileList />
+                  <PatientTest />
                 </div>
               </Tab.Pane>
               <Tab.Pane eventKey="three">
