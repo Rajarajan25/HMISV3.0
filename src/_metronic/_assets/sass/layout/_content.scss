@@ -265,7 +265,7 @@
   .contentAreaouter{
 	display: flex;
 	  width: 100%;
-	margin-bottom: 2rem;
+	margin-top: 2rem;
   }
   .contentArea{
 	display: inline-block;
@@ -284,7 +284,7 @@
   .toggleLefticon{
 	position: absolute;
 	  left: -20px;
-	  top: 26px;
+	  top: 3px;
 	  width: 16px;
 	  height: 16px;
 	  display: inline-block;
@@ -317,7 +317,7 @@
 		transition: all 0.3s;
 		transition: all 0.2s ease-in-out; 
 	}
-  	.topHeadercontent{
+  	.topHeadercontent {
 	   	li:first-child{
 			padding: 0px;
 			vertical-align: bottom !important;
@@ -336,7 +336,7 @@
 				-ms-user-select: none;
 				user-select: none;
 				color: rgba(52,52,52,.5);
-				padding: 6px 0 4px;
+				padding: 6px 0 6px;
 				vertical-align: bottom;
 				display: inline-flex;
 			}
@@ -359,7 +359,8 @@
 			-ms-user-select: none;
 			user-select: none;
 			color: rgba(52,52,52,.5);
-			padding: 6px 0 4px;
+			padding: 4px 0 6px;
+    		display: block;
 		}		
 		.headingHighlight{
 			font-family: "Gotham Pro","Proxima Nova",arial,serif;
@@ -423,12 +424,12 @@
   .topHeadercontent{
 	 position: -webkit-sticky;
 	 position: sticky;
-	 top: 108px;
+	 top: 0;
 	 z-index: 1;
 	 background: $page-bg;
   }
   .topHeadercontent ul{
-	height: 45px;
+	height: auto;
   }
   .topMiddlecontent{
 	background-color: #fff;
@@ -442,15 +443,10 @@
   }
   .topMiddlecontent li.activeStatuscontent{
 	font-size: 13px;
-	font-weight: 500;
   }
   .topMiddlecontent li .userLogoicon{
 	display: flex;
 	position: relative;
-  }
-  
-  .topMiddlecontent li span{
-	
   }
   .topMiddlecontent ul:hover li {
 	background: #fafbfc;
@@ -644,7 +640,7 @@
 
   .topHeadercontent li,.topMiddlecontent li{
   display: table-cell;
-  min-width: 140px;
+  min-width: 95px;
   padding:4px 5px;
   text-align: center;
   vertical-align: middle;
@@ -653,6 +649,15 @@
   box-sizing:  border-box;
   &.mw_180 {
 	min-width: 180px;
+  }
+  &.mw_160 {
+	min-width: 160px;
+  }
+  &.mw_120 {
+	min-width: 120px;
+  }
+  &.mw_70 {
+	min-width: 70px;
   }
   }
 
@@ -663,11 +668,12 @@
 	padding-left: 0px !important;
   }
   .topHeadercontent li:first-child,.topMiddlecontent li:first-child{
-	min-width: 300px;
-  max-width: initial;
-  text-align: left;
-  //vertical-align: bottom;
-  padding-left: 15px;
+	min-width: 485px;
+	max-width: initial;
+	text-align: left;
+	//vertical-align: bottom;
+	padding-left: 15px;
+	width: 100%;
   }
   .topMiddlecontent li:first-child {
 	.userLogoicon span:last-child{
@@ -686,11 +692,11 @@
   .topHeadercontent li:last-child .addMultiplecolumn{
   position: absolute;
   right: 5px;
-  top: 13px;
+  top: 1px;
   vertical-align: middle;
-  width: 20px;
-  height: 20px;
-  line-height: 21px;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
   padding: 0;
   font-size: 12px;
   background: #BCC0C7;
@@ -1702,6 +1708,63 @@
 		.history_card .card {
 			margin-left: 0;
 			margin-right: 0;
+		}
+		.topHeadercontent li,.topMiddlecontent li {
+			min-width: 85px;
+			&.mw_180 {
+			  min-width: 165px;
+			}
+			&.mw_160 {
+			  min-width: 140px;
+			}
+			&.mw_120 {
+			  min-width: 100px;
+			}
+			&.mw_70 {
+			  min-width: 65px;
+			}
+		}
+		.topMiddlecontent li.activeStatuscontent {
+			font-size: 12px;
+		}
+		.topHeadercontent li:first-child,.topMiddlecontent li:first-child{
+			min-width: 185px;
+			width: auto;
+			padding-left: 8px;
+		}
+		.contentArea {
+			padding-left: 1.5rem;
+		}
+		.avalib {
+			.tab_col {
+				margin: 0px 1px;
+				width: 30px;
+				height: 30px;
+				line-height: 30px;
+				img {
+					height: 13px;
+					&.mai1 {
+						height: 12px;
+					}
+				}
+			}
+		}
+		.topMiddlecontent li:first-child {
+			.userLogoicon span:last-child {
+				font-size: 12px;
+				padding-right: 6px;
+			}
+		}
+		.specialInfo {
+			font-size: 11px;
+		}
+	}
+	@media (max-width: 1280px) {
+		.contentAreaouter {
+			overflow: hidden;
+			.contentArea {
+				overflow-x: scroll;
+			}
 		}
 	}
 	@media (max-width: 1024px) {
