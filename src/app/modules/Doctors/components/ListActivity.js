@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route,Link } from 'react-router-dom';
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
@@ -16,7 +15,7 @@ export function ListActivity01() {
                 </div>
                 <ul className="list-inline w-100">
                   <li>
-                    <span className="headingHighlight customProfileBG11 text-white">Service</span>
+                    <span className="headingHighlight customProfileBG11 text-white">Service Provider</span>
                     <span className="tasklistCount">1 Staff</span>
                   </li>
                   <li><span>Last seen</span></li>
