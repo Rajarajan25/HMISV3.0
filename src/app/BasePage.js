@@ -24,6 +24,11 @@ const PatientDetailspage = lazy(() =>
   import("./modules/Patients/Patient-details")
 );
 
+const ServiceProvider = lazy(() =>
+  import("./modules/Patients/Service-provider")
+);
+
+
 export default function BasePage() {
   // useEffect(() => {
   //   console.log('Base page');
@@ -46,6 +51,7 @@ export default function BasePage() {
         <Route path="/user-profile" component={UserProfilepage} />
         <Route path="/manage/available-doctors" component={DoctorAvailablepage} />
         <Route path="/manage/patients-details" component={PatientDetailspage} />
+        <Route path="/manage/service-provider" component={ServiceProvider} />
         <Redirect to="error/error-v1" />
       </Switch>
     </Suspense>
