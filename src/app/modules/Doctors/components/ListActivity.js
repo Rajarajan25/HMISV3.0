@@ -40,7 +40,8 @@ export function ListActivity01() {
                         <ul>
                           <li>
                             <div className="userLogoicon align-content-center">
-                              <Link to="#" className="d-flex"><span className="listprofileIcon customProfileBG4">AK</span> <span>Anand</span></Link >
+                              <Link to="#" className="d-flex"><span className="listprofileIcon" style={{
+                backgroundColor: `#2ecd6f`}}>AK</span> <span>Anand</span></Link >
                               <Link to="#" className="edit_staff">
                                 <OverlayTrigger 
                                   placement="top"
@@ -57,7 +58,7 @@ export function ListActivity01() {
                           <li className="mw_70">11/3/19</li>
                           <li className="mw_120">
                             <div class="d-flex mt-1 mb-1 justify-content-center">
-                              <span className="specialInfo acupunture text-white">Acupunture</span>
+                              <span className="specialInfo text-white" style={{backgroundColor: `#E6511B`}}>Acupunture</span>
                             </div>
                           </li>
                           <li className="activeStatuscontent active_clr text-white">Active</li>
@@ -180,7 +181,8 @@ export function ListActivity02() {
                     <ul>
                       <li>
                         <div className="userLogoicon align-content-center">
-                          <Link to="#" className="d-flex"><span className="listprofileIcon customProfileBG1">AK</span> <span>Sivagami</span></Link >
+                          <Link to="#" className="d-flex"><span className="listprofileIcon" style={{
+                backgroundColor: `#2ecd6f`}}>AK</span> <span>Sivagami</span></Link >
                           <Link to="#" className="edit_staff">
                             <OverlayTrigger 
                               placement="top"
@@ -197,7 +199,7 @@ export function ListActivity02() {
                       <li className="mw_70">10/16/20</li>
                       <li className="mw_120">
                         <div class="d-flex mt-1 mb-1 justify-content-center">
-                          <span className="specialInfo dental text-white">Dental</span>
+                          <span className="specialInfo text-white" style={{backgroundColor: `#FD7FAB`}}>Dental</span>
                         </div>
                       </li>
                       <li className="activeStatuscontent inactive_clr text-white">Inactive</li>
@@ -300,7 +302,8 @@ export function ListActivity03() {
                     <ul className="clearfix">
                       <li>
                         <div className="userLogoicon align-content-center">
-                          <Link to="#" className="d-flex"><span className="listprofileIcon customProfileBG1">AK</span> <span>Anand Kumar</span></Link >
+                          <Link to="#" className="d-flex"><span className="listprofileIcon" style={{
+                backgroundColor: `#2ecd6f`}}>AK</span> <span>Anand Kumar</span></Link >
                           <Link to="#" className="edit_staff">
                             <OverlayTrigger 
                               placement="top"
@@ -317,7 +320,7 @@ export function ListActivity03() {
                       <li className="mw_70">11/3/19</li>
                       <li className="mw_120">
                         <div class="d-flex mt-1 mb-1 justify-content-center">
-                          <span className="specialInfo skincare text-white">Skin Care</span>
+                          <span className="specialInfo text-white" style={{backgroundColor: `#EA80FC`}}>Skin Care</span>
                         </div>
                       </li>
                       <li className="activeStatuscontent active_clr text-white">Active</li>
@@ -379,7 +382,8 @@ export function ListActivity03() {
                     <ul className="clearfix">
                       <li>
                         <div className="userLogoicon align-content-center">
-                          <Link to="#" className="d-flex"><span className="listprofileIcon customProfileBG1">AK</span> <span>Anand Kumar</span></Link >
+                          <Link to="#" className="d-flex"><span className="listprofileIcon" style={{
+                backgroundColor: `#2ecd6f`}}>AK</span> <span>Anand Kumar</span></Link >
                           <Link to="#" className="edit_staff">
                             <OverlayTrigger 
                               placement="top"
@@ -396,7 +400,7 @@ export function ListActivity03() {
                       <li className="mw_70">11/3/19</li>
                       <li className="mw_120">
                         <div class="d-flex mt-1 mb-1 justify-content-center">
-                          <span className="specialInfo amoxicillin text-white">Amoxicillin</span>
+                          <span className="specialInfo text-white" style={{backgroundColor: `#0A31E8`}}>Amoxicillin</span>
                         </div>
                       </li>
                       <li className="activeStatuscontent active_clr text-white">Active</li>
@@ -459,7 +463,8 @@ export function ListActivity03() {
                     <ul className="clearfix">
                       <li>
                         <div className="userLogoicon align-content-center">
-                          <Link to="#" className="d-flex"><span className="listprofileIcon customProfileBG1">AK</span> <span>Anand Kumar</span></Link >
+                          <Link to="#" className="d-flex"><span className="listprofileIcon" style={{
+                backgroundColor: `#2ecd6f`}}>AK</span> <span>Anand Kumar</span></Link >
                           <Link to="#" className="edit_staff">
                             <OverlayTrigger 
                               placement="top"
@@ -476,7 +481,7 @@ export function ListActivity03() {
                       <li className="mw_70">11/3/19</li>
                       <li className="mw_120">
                         <div class="d-flex mt-1 mb-1 justify-content-center">
-                          <span className="specialInfo calcium text-white">Calcium</span>
+                          <span className="specialInfo text-white" style={{backgroundColor: `#F9D930`}}>Calcium</span>
                         </div>
                       </li>
                       <li className="activeStatuscontent inactive_clr text-white">Inactive</li>
@@ -539,7 +544,8 @@ export function ListActivity03() {
                     <ul className="clearfix">
                       <li>
                         <div className="userLogoicon align-content-center">
-                          <Link to="#" className="d-flex"><span className="listprofileIcon customProfileBG1">AK</span> <span>Anand Kumar</span></Link >
+                          <Link to="#" className="d-flex"><span className="listprofileIcon" style={{
+                backgroundColor: `#2ecd6f`}}>AK</span> <span>Anand Kumar</span></Link >
                           <Link to="#" className="edit_staff">
                             <OverlayTrigger 
                               placement="top"
@@ -556,7 +562,7 @@ export function ListActivity03() {
                       <li className="mw_70">11/3/19</li>
                       <li className="mw_120">
                         <div class="d-flex mt-1 mb-1 justify-content-center">
-                          <span className="specialInfo ambien text-white">Ambien</span>
+                          <span className="specialInfo text-white" style={{backgroundColor: `#1DBC9C`}}>Ambien</span>
                         </div>
                       </li>
                       <li className="activeStatuscontent active_clr text-white">Active</li>
@@ -661,7 +667,8 @@ export function ListActivity04() {
                     <ul>
                       <li>
                         <div className="userLogoicon align-content-center">
-                          <Link to="#" className="d-flex"><span className="listprofileIcon customProfileBG1">AK</span> <span>Anand Kumar</span></Link >
+                          <Link to="#" className="d-flex"><span className="listprofileIcon" style={{
+                backgroundColor: `#2ecd6f`}}>AK</span> <span>Anand Kumar</span></Link >
                           <Link to="#" className="edit_staff">
                             <OverlayTrigger 
                               placement="top"
@@ -678,10 +685,10 @@ export function ListActivity04() {
                       <li className="mw_70">11/3/19</li>
                       <li className="mw_120">
                         <div class="d-flex mt-1 mb-1 justify-content-center">
-                          <span className="specialInfo prinvil text-white">Prinvil</span>
+                          <span className="specialInfo text-white" style={{backgroundColor: `#FD7FAB`}}>Prinvil</span>
                         </div>
                         <div class="d-flex mt-1 mb-1 justify-content-center">
-                          <span className="specialInfo advil text-white">Advil</span>
+                          <span className="specialInfo text-white" style={{backgroundColor: `#EA80FC`}}>Advil</span>
                         </div>
                       </li>
                       <li className="activeStatuscontent active_clr text-white">Active</li>
