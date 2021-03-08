@@ -180,17 +180,37 @@ export function AsideSubMenuList({ layoutProps }) {
                 aria-haspopup="true"
                 data-menu-toggle="hover"
               >
-                <NavLink
+                 <NavLink
                   className="menu-link"
                   to="/manage/patients-details"
                 >
                   <i className="menu-bullet menu-bullet-dot">
                     <span />
                   </i>
-                  <span className="menu-text">Services</span>
+                  <span className="menu-text">Patients</span>
                 </NavLink>
               </li>
               {/*end::2 Level*/}
+
+              <li
+                className={`menu-item ${getMenuItemActive(
+                  "/manage/service-provider"
+                )}`}
+                aria-haspopup="true"
+                data-menu-toggle="hover"
+              >
+                 <NavLink
+                  className="menu-link"
+                  to="/manage/service-provider"
+                >
+                  <i className="menu-bullet menu-bullet-dot">
+                    <span />
+                  </i>
+                  <span className="menu-text">Service</span>
+                </NavLink>
+              </li>
+
+
 
               {/*begin::3 Level*/}
               <li
