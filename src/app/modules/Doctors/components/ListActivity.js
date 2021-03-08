@@ -33,7 +33,7 @@ export function ListActivity01() {
                 <div className="row">
                   <div className="col-lg-12 ">
                     <div className="topMiddlecontent">
-                      <div className="d-flex drag_sel position-relative">
+                      <div className="d-flex drag_sel drag_selected position-relative">
                         <div className="drag_hov mh-100 my-auto">
                             <span className="cu-task-row-toggle__marker"></span>
                             <img src={toAbsoluteUrl("/media/patients/drag_hover.svg")} alt="" className="drag_img" />
