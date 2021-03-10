@@ -60,7 +60,11 @@ export function ListActivity01() {
                           <li className="col-lg-1 my-auto">11/3/19</li>
                           <li className="col-lg-1 my-auto">
                             <div class="d-flex mt-1 mb-1 justify-content-center">
-                              <span className="specialInfo text-white" style={{backgroundColor: `#E6511B`}}>Acupunture</span>
+                              <span className="specialInfo text-white position-relative" style={{backgroundColor: `#E6511B`}}>Acupunture 
+                                <span className="dropdown_label_remove" style={{backgroundColor: `#E6511B`}}>
+                                  <span className="dropdown_label_remove_icon">x</span>
+                                </span>
+                              </span>
                             </div>
                           </li>
                           <li className="col-lg-1 activeStatuscontent active_clr text-white">
@@ -69,7 +73,7 @@ export function ListActivity01() {
                                   <a href="#" className="d-flex text-white h-100 align-items-center justify-content-center">Active</a>
                               </Dropdown.Toggle>
                               <Dropdown.Menu  className="dropdown-menu p-0 mt-1 w-100 drop_nav">
-                                <StatusDropdownMenu />
+                                <ServicesDropdownMenu />
                               </Dropdown.Menu>
                             </Dropdown>
                           </li>
@@ -87,7 +91,7 @@ export function ListActivity01() {
                           <Dropdown drop="down" alignCenter className="dropdown h-100">
                               <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
                                 <div className="d-flex justify-content-center flex-column avail_wid">
-                                  <div className="d-flex mt-2 mb-2">
+                                  <div className="d-flex mt-1 mb-1 p-1">
                                     <span className="avails chat_bg"><img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="" className="" /></span>
                                     <span>Chat</span>
                                   </div>
@@ -801,57 +805,24 @@ export function ListActivity04() {
 export function ServicesDropdownMenu() {
   return <>
       {/*begin::Navigation*/}
-      <ul className="navi navi-hover py-5">
+      <ul className="navi navi-hover">
           <li className="navi-item">
-              <a href="#" className="navi-link">
-                  <span className="navi-icon"><i className="flaticon2-drop"></i></span>
-                  <span className="navi-text">New Group</span>
-              </a>
+            <input type="text" placeholder="search" className="form-control" />
           </li>
           <li className="navi-item">
-              <a href="#" className="navi-link">
-                  <span className="navi-icon"><i className="flaticon2-list-3"></i></span>
-                  <span className="navi-text">Contacts</span>
-              </a>
-          </li>
-          <li className="navi-item">
-              <a href="#" className="navi-link">
-                  <span className="navi-icon"><i className="flaticon2-rocket-1"></i></span>
-                  <span className="navi-text">Groups</span>
-                  <span className="navi-link-badge">
-              <span className="label label-light-primary label-inline font-weight-bold">new</span>
-          </span>
-              </a>
-          </li>
-          <li className="navi-item">
-              <a href="#" className="navi-link">
-                  <span className="navi-icon"><i className="flaticon2-bell-2"></i></span>
-                  <span className="navi-text">Calls</span>
-              </a>
-          </li>
-          <li className="navi-item">
-              <a href="#" className="navi-link">
-                  <span className="navi-icon"><i className="flaticon2-gear"></i></span>
-                  <span className="navi-text">Settings</span>
-              </a>
-          </li>
-
-          <li className="navi-separator my-3"></li>
-
-          <li className="navi-item">
-              <a href="#" className="navi-link">
-                  <span className="navi-icon"><i className="flaticon2-magnifier-tool"></i></span>
-                  <span className="navi-text">Help</span>
-              </a>
-          </li>
-          <li className="navi-item">
-              <a href="#" className="navi-link">
-                  <span className="navi-icon"><i className="flaticon2-bell-2"></i></span>
-                  <span className="navi-text">Privacy</span>
-                  <span className="navi-link-badge">
-                      <span className="label label-light-danger label-rounded font-weight-bold">5</span>
-                  </span>
-              </a>
+            <div className="navnk">
+              <ul>
+                <li>
+                  <div class="d-flex justify-content-center">
+                    <span className="specialInfo text-white position-relative" style={{backgroundColor: `#E6511B`}}>Acupunture 
+                      <span className="dropdown_label_remove" style={{backgroundColor: `#E6511B`}}>
+                        <span className="dropdown_label_remove_icon">x</span>
+                      </span>
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </li>
       </ul>
       {/*end::Navigation*/}
@@ -910,25 +881,25 @@ export function AvailDropdownMenu() {
           <li className="navi-item">
               <a href="#" className="navi-link">
                 <span className="avails chat_bg"><img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="" className="mt-0" /></span>
-                <span>Chat</span>
+                <span className="navi-text">Chat</span>
               </a>
           </li>
           <li className="navi-item">
               <a href="#" className="navi-link">
                 <span className="avails video_bg"><img src={toAbsoluteUrl("/media/patients/avail_video.svg")} alt="" className="mt-0" /></span>
-                <span>Video</span>
+                <span className="navi-text">Video</span>
               </a>
           </li>
           <li className="navi-item">
               <a href="#" className="navi-link">
                 <span className="avails phone_bg"><img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="" className="mt-0" /></span>
-                <span>Phone</span>
+                <span className="navi-text">Phone</span>
               </a>
           </li>
           <li className="navi-item">
               <a href="#" className="navi-link">
                 <span className="avails visit_bg"><img src={toAbsoluteUrl("/media/patients/avail_visit.svg")} alt="" className="mt-0" /></span>
-                <span>Inperson</span>
+                <span className="navi-text">Inperson</span>
               </a>
           </li>
       </ul>

@@ -2548,7 +2548,7 @@
 		box-shadow: 0 1px 10px 0 rgba(0,0,0,.25);
 		border-radius: 6px;
 	}
-	.navi.navi-hover .navi-item .navi-link {
+	.navi.navi-hover .navi-item .navi-link, .navi.navi-hover .navi-item .navi-link .navi-text {
 		font-size: 11px;
 	}
 	.navi.navi-hover .navi-item:first-child, .navi.navi-hover .navi-item:first-child a {
@@ -2577,3 +2577,30 @@
 			background-color: #DB0808;
 		}
 	}
+	.dropdown_label_remove {
+		color: #fff;
+		font-size: 14px;
+		transition: transform .2s cubic-bezier(.785,.135,.15,.86) 0s;
+		display: none;
+		position: absolute;
+		right: 5px;
+		top: 1px;
+		cursor: pointer;
+		.dropdown_label_remove_icon {
+			width: 12px;
+			height: 12px;
+			padding: 2px;
+		}
+		&:hover {
+			transform: rotate(180deg);
+		}
+	}
+	.specialInfo {
+		&:hover{
+			.dropdown_label_remove {
+				display: inline-block;
+			}
+		}
+		
+	} 
+	
