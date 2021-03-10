@@ -8,8 +8,8 @@ import PersonaInformation from "./PersonaInformation";
 import EmailSettings from "./EmailSettings";
 import { ProfileCard } from "./components/ProfileCard";
 import { Filter } from "./components/Filter";
-import { ListActivity01, ListActivity02, ListActivity03, ListActivity04 } from "./components/ListActivity";
-
+import { ListActivity } from "./components/ListActivity";
+import {PatientProvider} from './PatientContext'
 export default function DoctorAvailablepage() {
   const suhbeader = useSubheader();
   suhbeader.setTitle("Staff Management");
@@ -41,10 +41,9 @@ export default function DoctorAvailablepage() {
           </div>
         </div>
         <div className="contentSection collapse show w-100" id="holepageToggle">
-          <ListActivity01></ListActivity01>
-          <ListActivity02></ListActivity02>
-          <ListActivity03></ListActivity03>
-          <ListActivity04></ListActivity04>
+          <PatientProvider>
+          <ListActivity></ListActivity>
+          </PatientProvider>
         </div>
       </div>
       
