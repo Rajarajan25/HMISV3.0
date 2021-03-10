@@ -507,11 +507,8 @@ function GenderGroup() {
         >
           <FormControlLabel value="male" control={<Radio />} label="Male" />
           <FormControlLabel value="female" control={<Radio />} label="Female" />
-          
-  
         </RadioGroup>
       </FormControl>
-      
     </div>
   );
 }

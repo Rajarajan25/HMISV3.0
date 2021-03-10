@@ -415,8 +415,8 @@
 
   .contentArea ul{
 	margin: 0px;
-	display: table;
-	width: 100%;
+	/*display: table;
+	width: 100%;*/
 	padding: 0px;
 	list-style: none;
 	border-bottom: solid 1px #e9e9e9;
@@ -437,9 +437,11 @@
   /*.topMiddlecontent{
   margin-bottom: 2rem;
   }*/
+  .topMiddlecontent ul {
+	background-color: rgba(255,255,255,0.9);
+  }
   .topMiddlecontent li{
 	text-align: center;
-	background-color: rgba(255,255,255,0.9);
   }
   .topMiddlecontent li.activeStatuscontent{
 	font-size: 13px;
@@ -448,7 +450,7 @@
 	display: flex;
 	position: relative;
   }
-  .topMiddlecontent ul:hover li {
+  .topMiddlecontent ul:hover {
 	background: #fafbfc;
   }
   span.listprofileIcon{
@@ -481,7 +483,7 @@
 	display: inline-flex;
     flex-direction: column;
     font-size: 13px;
-    padding: 5px;
+    padding: 3px 5px;
     margin: 0.1rem 0;
     min-width: 70px;
     border-radius: 3px;
@@ -639,12 +641,12 @@
   }
 
   .topHeadercontent li,.topMiddlecontent li{
-  display: table-cell;
-  min-width: 95px;
-  padding:4px 5px;
+  /*display: table-cell;
+  min-width: 95px;*/
+  padding: 3px 0px;
   text-align: center;
   vertical-align: middle;
-  color: #010101;
+  color: #343434;
   font-size: 11px;
   box-sizing:  border-box;
   &.mw_180 {
@@ -668,12 +670,11 @@
 	padding-left: 0px !important;
   }
   .topHeadercontent li:first-child,.topMiddlecontent li:first-child{
-	min-width: 485px;
-	max-width: initial;
-	text-align: left;
-	//vertical-align: bottom;
-	padding-left: 15px;
+	/*min-width: 485px;
 	width: 100%;
+	max-width: initial; */
+	padding-left: 15px;
+	text-align: left;
   }
   .topMiddlecontent li:first-child {
 	.userLogoicon span:last-child{
@@ -824,19 +825,20 @@
   }
   .newTask_1 li:last-child{
 	min-width: 280px;
-	padding-right:12px;
+	padding:8px 12px 5px 5px;
   }
   .newTaskinput,.newTaskinput:focus:active {
 	border: 0px !important;
     box-shadow: none !important;
     outline: none;
 	width:100%;  
-	height: 31px;
+	height: 30px;
 	font-family: "Gotham Pro","Proxima Nova",arial,serif;
 	font-weight: 400;
 	font-size: 14px;
 	line-height: 1.5;
 	padding-left: 20px;
+	background: transparent;
   }
 	.newTaskinput::placeholder { /* Most modern browsers support this now. */
 	color:    rgb(187, 188, 196);
@@ -1545,7 +1547,7 @@
 		display: inline-flex;
 	}
 	.avalib {
-		opacity: 0;
+		display: none;
 		.tab_col {
 			margin: 0px 2px;
 			background-color: transparent;
@@ -1577,10 +1579,13 @@
 			margin-left: -27px;
 		}
 		.edit_staff {
-			display:  block;
+			display: block;
 		}
 		.avalib {
-			opacity: 1;
+			display: block;
+		}
+		.ph_no {
+			display: none;
 		}
 	}
 	.topMiddlecontent {
@@ -1614,7 +1619,7 @@
 			background: #F9DA31;
 		}
 		img {
-			margin-top: 3px;
+			margin-top: 2px;
 		}
 	}
 	.tool_bg {
@@ -1670,6 +1675,7 @@
 		width: 80px;
 		margin-left: auto;
 		margin-right: auto;
+		cursor: pointer;
 	}
 	.Health_Box {
 		padding: 0px 10px 0px 10px;
@@ -2510,5 +2516,64 @@
 	@media (max-width: 768px) {
 		.aside-secondary-enabled.aside-fixed .wrapper {
 			padding-left: 0;
+		}
+	}
+	.contentArea .drop_nav {
+		min-width: 100%;
+		width: 100%;
+	}
+	.contentArea .drop_nav ul {
+		display: block;
+		width: 100%;
+	}
+	.topMiddlecontent li .drop_nav ul li:first-child {
+		min-width: inherit;
+		padding-left: 0px;
+		width: 100%;
+	}
+	.topMiddlecontent li .drop_nav ul li {
+		text-align: left;
+	}
+	.h-45 {
+		height: 45px;
+		line-height: 45px;
+	}
+	.topMiddlecontent .drop_div{
+		height: 100%;
+		a.text-white:hover, a.text-white:focus {
+			color: #fff !important;
+		}
+	}
+	.contentArea .topMiddlecontent ul.navi {
+		box-shadow: 0 1px 10px 0 rgba(0,0,0,.25);
+		border-radius: 6px;
+	}
+	.navi.navi-hover .navi-item .navi-link {
+		font-size: 11px;
+	}
+	.navi.navi-hover .navi-item:first-child, .navi.navi-hover .navi-item:first-child a {
+		border-radius: 6px 6px 0 0;
+	}
+	.navi.navi-hover .navi-item:last-child, .navi.navi-hover .navi-item:last-child a {
+		border-radius: 0 0 6px 6px;
+	}
+	.sx_hover .navi.navi-hover .navi-item .navi-link:hover {
+		background-color: #0A32E8;
+		.navi-text {
+			color: #fff;
+		}
+	}
+	.navi-circle {
+		width: 5px;
+		height: 5px;
+		border-radius: 50%;
+		display: inline-block;
+		margin-right: 10px;
+		background-color: #fff;
+		&.active_bg {
+			background-color: #0C9F34;
+		}
+		&.inactive_bg {
+			background-color: #DB0808;
 		}
 	}

@@ -52,8 +52,8 @@ export function DropdownMenu4() {
                     <span className="navi-icon"><i className="flaticon2-bell-2"></i></span>
                     <span className="navi-text">Privacy</span>
                     <span className="navi-link-badge">
-                <span className="label label-light-danger label-rounded font-weight-bold">5</span>
-            </span>
+                        <span className="label label-light-danger label-rounded font-weight-bold">5</span>
+                    </span>
                 </a>
             </li>
         </ul>
