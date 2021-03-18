@@ -11,7 +11,7 @@ import { ProfileCard } from "./components/ProfileCard";
 import { Filter } from "./components/Filter";
 import { ListActivity01, ListActivity02, ListActivity03, ListActivity04 } from "./components/ListActivity";
 
-export default function DoctorAvailablepage() {
+export default function StaffPage() {
   const suhbeader = useSubheader();
   suhbeader.setTitle("Staff Management");
 
@@ -38,28 +38,28 @@ export default function DoctorAvailablepage() {
         <div className="flex-row-fluid ml-lg-8">
           <Switch>
             <Redirect
-              from="/manage/available-doctors"
+              from="/manage/staff-management"
               exact={true}
-              to="/manage/available-doctors"
+              to="/manage/staff-management"
             />
             <Route
-              path="/manage/available-doctors"
+              path="/manage/staff-management"
               component={ProfileOverview}
             />
             <Route
-              path="/manage/available-doctors/account-information"
+              path="/manage/staff-management/account-information"
               component={AccountInformation}
             />
             <Route
-              path="/manage/available-doctors/change-password"
+              path="/manage/staff-management/change-password"
               component={ChangePassword}
             />
             <Route
-              path="/manage/available-doctors/email-settings"
+              path="/manage/staff-management/email-settings"
               component={EmailSettings}
             />
             <Route
-              path="/manage/available-doctors/personal-information"
+              path="/manage/staff-management/personal-information"
               component={PersonaInformation}
             />
           </Switch>

@@ -24,12 +24,10 @@ export default function ServiceProviderHeader() {
                                 </select>
                             </div>
                             <div className="GridView mt-xl-3 mr-xl-3">
-                                <Link to="#">
-                                    <img src={toAbsoluteUrl("/media/health/gridview.svg")} alt="" className="mx-auto" /></Link>
+                                <Link to="#"><img src={toAbsoluteUrl("/media/health/gridview.svg")} alt="" className="mx-auto" /></Link>
                             </div>
                             <div className="ListView pt-xl-2 pr-xl-2 pl-xl-2 pb-xl-2 mt-xl-1">
-                                <Link to="#">
-                                    <img src={toAbsoluteUrl("/media/health/listview.svg")} alt="" className="mx-auto" /></Link>
+                                <Link to="#"><img src={toAbsoluteUrl("/media/health/listview.svg")} alt="" className="mx-auto" /></Link>
                             </div>
                             <div>
                             </div>

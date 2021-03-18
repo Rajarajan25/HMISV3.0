@@ -4,14 +4,11 @@ import { Filter } from "./components/Filter";
 import { AsideSearch } from "./components/Patient-list-search";
 import { PatientList } from "./components/Patient";
 import { PatientDetailsTab } from "./components/Patient-details-tab";
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
+import { useSubheader } from "../../../_metronic/layout";
 
 export default function PatientDetails() {
+  const suhbeader = useSubheader();
+  suhbeader.setTitle("Patient Management");
   return (
   <div className="pat_list">
     <div className="d-block">

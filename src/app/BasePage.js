@@ -17,8 +17,8 @@ const ECommercePage = lazy(() =>
 const UserProfilepage = lazy(() =>
   import("./modules/UserProfile/UserProfilePage")
 );
-const DoctorAvailablepage = lazy(() =>
-  import("./modules/Doctors/DoctorAvailablepage")
+const StaffPage = lazy(() =>
+  import("./modules/Doctors/StaffPage")
 );
 const PatientDetailspage = lazy(() =>
   import("./modules/Patients/Patient-details")
@@ -49,7 +49,7 @@ export default function BasePage() {
         <Route path="/react-bootstrap" component={ReactBootstrapPage} />
         <Route path="/e-commerce" component={ECommercePage} />
         <Route path="/user-profile" component={UserProfilepage} />
-        <Route path="/manage/available-doctors" component={DoctorAvailablepage} />
+        <Route path="/manage/staff-management" component={StaffPage} />
         <Route path="/manage/patients-details" component={PatientDetailspage} />
         <Route path="/manage/service-provider" component={ServiceProvider} />
         <Redirect to="error/error-v1" />
