@@ -9,58 +9,27 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Input from '@material-ui/core/Input';
-import Drawer from '@material-ui/core/Drawer';
 
-import { StaffDetailsTab } from "./staff-details-tab";
-
-const useStyles = makeStyles({
-  list: {
-    width: 650,
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
   },
-  fullList: {
-    width: 'auto',
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
   },
-});
-
-
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+  },
+}));
 
 
 
 export function ListActivity01() {  
-  const classes = useStyles();
-const [state, setState] = React.useState({
-  top: false,
-  left: false,
-  bottom: false,
-  right: false,
-});
-const styles = {
-  BackdropProps: {
-    background: 'transparent'
-  }
-};
 
-const toggleDrawer = (side, open) => event => {
-  if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-    return;
-  }
-  setState({ ...state, [side]: open });
-};
-
-const toggleDrawerClose = () => {
-  setState(false);
-};
   return (
     <div className="contentAreaouter"> 
-        <div className="add-staff">
-          <Link to="#" onClick={toggleDrawer('right', true)}><img src={toAbsoluteUrl("/media/patients/add_staff.svg")} alt="" className="d-block rounded-circle" /></Link>
-        </div>
-      <Drawer className="patientProfileinfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
-        <div className="py-5 px-10 overflow-auto">
-          <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}><span className="my-auto font-weight-500">X</span></Link>
-          <StaffDetails />
-        </div>
-      </Drawer>
             <div className="contentArea">
               <div className="topHeadercontent d-flex">
                 <div className="toggleLefticon LefticonBG11">
@@ -106,7 +75,7 @@ const toggleDrawerClose = () => {
                                 </Dropdown.Menu>
                               </Dropdown>
                               <div className="d-flex"> 
-                                <span><Link to="#" onClick={toggleDrawer('right', true)}>Anand</Link></span>
+                                <span>Anand</span>
                               </div>
                               <Link to="#" className="edit_staff">
                                 <OverlayTrigger 
@@ -139,7 +108,7 @@ const toggleDrawerClose = () => {
                                   </div>
                                 </div>
                               </Dropdown.Toggle>
-                              <Dropdown.Menu  className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
+                              <Dropdown.Menu  className="dropdown-menu p-0 mt-2 dropdown-menu-md drop_nav">
                                 <ServicesDropdownMenu />
                               </Dropdown.Menu>
                             </Dropdown>
@@ -290,7 +259,7 @@ const toggleDrawerClose = () => {
                                   </div>
                                 </div>
                               </Dropdown.Toggle>
-                              <Dropdown.Menu  className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
+                              <Dropdown.Menu  className="dropdown-menu p-0 mt-2 dropdown-menu-md drop_nav">
                                 <ServicesDropdownMenu />
                               </Dropdown.Menu>
                             </Dropdown>
@@ -486,7 +455,7 @@ export function ListActivity02() {
                               </div>
                             </div>
                           </Dropdown.Toggle>
-                          <Dropdown.Menu  className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
+                          <Dropdown.Menu  className="dropdown-menu p-0 mt-2 dropdown-menu-md drop_nav">
                             <ServicesDropdownMenu />
                           </Dropdown.Menu>
                         </Dropdown>
@@ -691,7 +660,7 @@ export function ListActivity03() {
                               </div>
                             </div>
                           </Dropdown.Toggle>
-                          <Dropdown.Menu  className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
+                          <Dropdown.Menu  className="dropdown-menu p-0 mt-2 dropdown-menu-md drop_nav">
                             <ServicesDropdownMenu />
                           </Dropdown.Menu>
                         </Dropdown>
@@ -853,7 +822,7 @@ export function ListActivity03() {
                               </div>
                             </div>
                           </Dropdown.Toggle>
-                          <Dropdown.Menu  className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
+                          <Dropdown.Menu  className="dropdown-menu p-0 mt-2 dropdown-menu-md drop_nav">
                             <ServicesDropdownMenu />
                           </Dropdown.Menu>
                         </Dropdown>
@@ -1016,7 +985,7 @@ export function ListActivity03() {
                               </div>
                             </div>
                           </Dropdown.Toggle>
-                          <Dropdown.Menu  className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
+                          <Dropdown.Menu  className="dropdown-menu p-0 mt-2 dropdown-menu-md drop_nav">
                             <ServicesDropdownMenu />
                           </Dropdown.Menu>
                         </Dropdown>
@@ -1179,7 +1148,7 @@ export function ListActivity03() {
                               </div>
                             </div>
                           </Dropdown.Toggle>
-                          <Dropdown.Menu  className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
+                          <Dropdown.Menu  className="dropdown-menu p-0 mt-2 dropdown-menu-md drop_nav">
                             <ServicesDropdownMenu />
                           </Dropdown.Menu>
                         </Dropdown>
@@ -1393,7 +1362,7 @@ export function ListActivity04() {
                               </div>
                             </div>
                           </Dropdown.Toggle>
-                          <Dropdown.Menu  className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
+                          <Dropdown.Menu  className="dropdown-menu p-0 mt-2 dropdown-menu-md drop_nav">
                             <ServicesDropdownMenu />
                           </Dropdown.Menu>
                         </Dropdown>
@@ -1523,6 +1492,7 @@ export function ListActivity04() {
             </div>                 
           </div>
         </div>  
+
     </div>
 
   );
@@ -1729,13 +1699,35 @@ export function ColorDropdownMenu() {
 }
 
 
+export function YrDropdownMenu() {
+ 
+  return <>
+      {/*begin::Navigation*/}
+      <ul className="navi navi-hover">
+          <li className="navi-item">
+            <div className="navi-link">
+              <label className="d-block">Years</label>
+              <div className="d-block"><YearSelect/></div>
+            </div>
+          </li>
+          <li className="navi-item">
+            <div className="navi-link">
+              <label className="d-block">Months</label>
+              <div className="d-block"><MonthSelect/></div>
+            </div>
+          </li>
+      </ul>
+      {/*end::Navigation*/}
+
+  </>
+}
 
 export function ServicesDropdownMenu() {
   return <>
       {/*begin::Navigation*/}
       <ul className="navi navi-hover">
           <li className="navi-item">
-            <div className="service_select p-4">
+            <div className="service_select p-2">
               <div class="d-inline-flex justify-content-center">
                 <span className="specialInfo text-white position-relative" style={{backgroundColor: `#E6511B`}}>Acupunture 
                   <span className="dropdown_label_remove" style={{backgroundColor: `#E6511B`}}>
@@ -1873,11 +1865,49 @@ export function AvailDropdownMenu() {
   </>
 }
 
-export function StaffDetails() {
+function YearSelect() { 
+  const classes = useStyles();
+  const [values, setValues] = React.useState({
+    age: '',
+    name: 'hai',
+  });
+
+  function handleChange(event) {
+    setValues(oldValues => ({
+      ...oldValues,
+      [event.target.name]: event.target.value,
+    }));
+  }
+  return (
+    <FormControl className={classes.formControl}>
+        
+        <Select
+          value={values.age}
+          onChange={handleChange}
+          input={<Input name="age" id="age-label-placeholder" />}
+          displayEmpty
+          name="age"
+          className={classes.selectEmpty}
+        >
+          <MenuItem value="">Years</MenuItem>
+          <MenuItem value={10}>0</MenuItem>
+          <MenuItem value={20}>1</MenuItem>
+          <MenuItem value={30}>2</MenuItem>
+        </Select>
+      </FormControl>
+  );
+}
+function MonthSelect() { 
   const classes = useStyles();
   return (
-    <div className="staff_detail">
-      <StaffDetailsTab />
-    </div>
+    <FormControl className={classes.formControl}>
+        
+        <Select>
+          <MenuItem value="">Years</MenuItem>
+          <MenuItem value={10}>0</MenuItem>
+          <MenuItem value={20}>1</MenuItem>
+          <MenuItem value={30}>2</MenuItem>
+        </Select>
+      </FormControl>
   );
 }

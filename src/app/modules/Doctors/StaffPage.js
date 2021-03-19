@@ -22,9 +22,7 @@ export default function StaffPage() {
         <Filter></Filter>
       </div>
       <div className="d-flex flex-column mt-1">
-        <div className="add-staff">
-            <Link to="#"><img src={toAbsoluteUrl("/media/patients/add_staff.svg")} alt="" className="d-block rounded-circle" /></Link>
-         </div> 
+         
         <div className="contentSection collapse show w-100" id="holepageToggle">
           <ListActivity01></ListActivity01>
           <ListActivity02></ListActivity02>
