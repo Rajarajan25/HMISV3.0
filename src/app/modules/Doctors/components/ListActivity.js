@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route,Link } from 'react-router-dom';
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { Dropdown } from "react-bootstrap";
@@ -10,7 +10,11 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Input from '@material-ui/core/Input';
 import Drawer from '@material-ui/core/Drawer';
-
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { StaffDetailsTab } from "./staff-details-tab";
 
 const useStyles = makeStyles({
@@ -39,6 +43,13 @@ const styles = {
     background: 'transparent'
   }
 };
+const [toggleValueservice, setToggleValueservice] = useState(true);
+
+const toggleHandlerservice = () => {
+  setToggleValueservice(!toggleValueservice);
+};
+
+
 
 const toggleDrawer = (side, open) => event => {
   if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -51,7 +62,8 @@ const toggleDrawerClose = () => {
   setState(false);
 };
   return (
-    <div className="contentAreaouter"> 
+    <Accordion className="contentAreaouter w-100">
+    <div className="contentAreaouter w-100"> 
         <div className="add-staff">
           <Link to="#" onClick={toggleDrawer('right', true)}><img src={toAbsoluteUrl("/media/patients/add_staff.svg")} alt="" className="d-block rounded-circle" /></Link>
         </div>
@@ -61,7 +73,39 @@ const toggleDrawerClose = () => {
           <StaffDetails />
         </div>
       </Drawer>
-            <div className="contentArea">
+    
+          <AccordionSummary className=" heading w-100">
+           
+            <div
+           style={{  cursor: "pointer" }}
+          className=" w-100"
+          onClick={() => toggleHandlerservice()}
+        >
+          {toggleValueservice ? <div className="contentArea d-block">  <div className="topHeadercontent d-flex"><div className="toggleLefticon LefticonBG11">
+                <Link to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor11 customProfileBG11">
+                  <i className="fa fa-plus text-white"></i>
+                </Link>
+                </div>
+                <ul className="list-inline w-100 row">
+                  <li className="col-lg-3">
+                    <span className="headingHighlight customProfileBG11 text-white">Service Provider</span>
+                    <span className="tasklistCount">1 Staff</span>
+                  </li>
+                  <li className="col-lg-1"><span className="title_drag">Experience</span></li>
+                  <li className="col-lg-1"><span className="title_drag">Services</span></li>
+                  <li className="col-lg-1"><span className="title_drag">Status</span></li>
+                  <li className="col-lg-1"><span className="title_drag">Sex</span></li>
+                  <li className="col-lg-1"><span className="title_drag">Availability</span></li>
+                  <li className="col-lg-2"><span className="title_drag">Email</span></li>
+                  <li className="col-lg-2 position-relative">
+                    <span className="title_drag">Phone</span> 
+                    <span className="addMultiplecolumn rounded-circle bg-grey"><i className="fa fa-plus fa-sm"></i></span>
+                  </li>
+                </ul>
+                
+                
+                </div></div>: 
+                <div className="contentArea d-block">
               <div className="topHeadercontent d-flex">
                 <div className="toggleLefticon LefticonBG11">
                   <Link  to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor11 customProfileBG11">
@@ -398,18 +442,99 @@ const toggleDrawerClose = () => {
                   </div>    
                 </div>                 
               </div>
-            </div>
+            </div>}
+       
+              
+              </div>
+           
+
+          </AccordionSummary>
+        
+       
           </div>
+          </Accordion>
               
   );
 }
 
 export function ListActivity02() {  
+  const classes = useStyles();
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
+  const styles = {
+    BackdropProps: {
+      background: 'transparent'
+    }
+  };
 
+  const [toggleValuestaff, setToggleValuestaff] = useState(true);
+  
+  const toggleHandlerstaff = () => {
+    setToggleValuestaff(!toggleValuestaff);
+  };
+ 
+  
+  const toggleDrawer = (side, open) => event => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+    setState({ ...state, [side]: open });
+  };
+  
+  const toggleDrawerClose = () => {
+    setState(false);
+  };
   return (
-    <div className="contentAreaouter">                  
-      <div className="contentArea">
-          <div className="topHeadercontent d-flex">
+
+    <Accordion className="contentAreaouter w-100">
+    <div className="contentAreaouter w-100"> 
+        <div className="add-staff">
+          <Link to="#" onClick={toggleDrawer('right', true)}><img src={toAbsoluteUrl("/media/patients/add_staff.svg")} alt="" className="d-block rounded-circle" /></Link>
+        </div>
+      <Drawer className="patientProfileinfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
+        <div className="py-5 px-10 overflow-auto">
+          <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}><span className="my-auto font-weight-500">X</span></Link>
+          <StaffDetails />
+        </div>
+      </Drawer>
+    
+          <AccordionSummary className=" heading w-100">
+           
+            <div
+           style={{  cursor: "pointer" }}
+          className=" w-100"
+          onClick={() => toggleHandlerstaff()}
+        >
+          {toggleValuestaff ? <div className="contentArea d-block">  <div className="topHeadercontent d-flex"><div className="toggleLefticon LefticonBG11">
+                <Link to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor11 customProfileBG11">
+                  <i className="fa fa-plus text-white"></i>
+                </Link>
+                </div>
+                <ul className="list-inline w-100 row">
+                  <li className="col-lg-3">
+                    <span className="headingHighlight customProfileBG11 text-white">Staff</span>
+                    <span className="tasklistCount">1 Staff</span>
+                  </li>
+                  <li className="col-lg-1"><span className="title_drag">Experience</span></li>
+                  <li className="col-lg-1"><span className="title_drag">Services</span></li>
+                  <li className="col-lg-1"><span className="title_drag">Status</span></li>
+                  <li className="col-lg-1"><span className="title_drag">Sex</span></li>
+                  <li className="col-lg-1"><span className="title_drag">Availability</span></li>
+                  <li className="col-lg-2"><span className="title_drag">Email</span></li>
+                  <li className="col-lg-2 position-relative">
+                    <span className="title_drag">Phone</span> 
+                    <span className="addMultiplecolumn rounded-circle bg-grey"><i className="fa fa-plus fa-sm"></i></span>
+                  </li>
+                </ul>
+                
+                
+                </div></div>   :        
+        <div className="contentArea d-block">
+        <div className="topHeadercontent d-flex">
             <div className="toggleLefticon LefticonBG12">
               <Link  to="javascript:void(0)" data-toggle="collapse" data-target="#staffmanagement" className="borderColor12 customProfileBG12">
                 <i className="fa fa-minus text-white"></i>
@@ -603,19 +728,102 @@ export function ListActivity02() {
               </div>    
             </div>                 
           </div>
-        </div>   
-    </div>
+          </div>
+        }
+       
+              
+       </div>
+    
+
+   </AccordionSummary>
+ 
+
+   </div>
+   </Accordion>
   );
 }
 
 export function ListActivity03() {  
+  const classes = useStyles();
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
+  const styles = {
+    BackdropProps: {
+      background: 'transparent'
+    }
+  };
 
+  const [toggleValueadmin, setToggleValueadmin] = useState(true);
+  
+  const toggleHandleradmin = () => {
+    setToggleValueadmin(!toggleValueadmin);
+  };
+ 
+  
+  const toggleDrawer = (side, open) => event => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+    setState({ ...state, [side]: open });
+  };
+  
+  const toggleDrawerClose = () => {
+    setState(false);
+  };
   return (
+
+    <Accordion className="contentAreaouter w-100">
+    <div className="contentAreaouter w-100"> 
+        <div className="add-staff">
+          <Link to="#" onClick={toggleDrawer('right', true)}><img src={toAbsoluteUrl("/media/patients/add_staff.svg")} alt="" className="d-block rounded-circle" /></Link>
+        </div>
+      <Drawer className="patientProfileinfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
+        <div className="py-5 px-10 overflow-auto">
+          <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}><span className="my-auto font-weight-500">X</span></Link>
+          <StaffDetails />
+        </div>
+      </Drawer>
     
-    <div className="contentAreaouter">                  
-      <div className="contentArea">
-          <div className="topHeadercontent d-flex">
-            <div className="toggleLefticon LefticonBG13">
+          <AccordionSummary className=" heading w-100">
+           
+            <div
+           style={{  cursor: "pointer" }}
+          className=" w-100"
+          onClick={() => toggleHandleradmin()}
+        >
+          {toggleValueadmin ? <div className="contentArea d-block">  <div className="topHeadercontent d-flex"><div className="toggleLefticon LefticonBG11">
+                <Link to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor11 customProfileBG11">
+                  <i className="fa fa-plus text-white"></i>
+                </Link>
+                </div>
+                <ul className="list-inline w-100 row">
+                  <li className="col-lg-3">
+                    <span className="headingHighlight customProfileBG11 text-white">Admin</span>
+                    <span className="tasklistCount">1 Staff</span>
+                  </li>
+                  <li className="col-lg-1"><span className="title_drag">Experience</span></li>
+                  <li className="col-lg-1"><span className="title_drag">Services</span></li>
+                  <li className="col-lg-1"><span className="title_drag">Status</span></li>
+                  <li className="col-lg-1"><span className="title_drag">Sex</span></li>
+                  <li className="col-lg-1"><span className="title_drag">Availability</span></li>
+                  <li className="col-lg-2"><span className="title_drag">Email</span></li>
+                  <li className="col-lg-2 position-relative">
+                    <span className="title_drag">Phone</span> 
+                    <span className="addMultiplecolumn rounded-circle bg-grey"><i className="fa fa-plus fa-sm"></i></span>
+                  </li>
+                </ul>
+                
+                
+                </div></div>   :        
+        <div className="contentArea d-block">
+               
+    
+               <div className="topHeadercontent d-flex">
+            <div className="toggleLefticon LefticonBG12">
               <Link  to="javascript:void(0)" data-toggle="collapse" data-target="#staffmanagement" className="borderColor13 customProfileBG13">
                 <i className="fa fa-minus text-white"></i>
               </Link >                    
@@ -1298,17 +1506,101 @@ export function ListActivity03() {
             </div>                 
           </div>
         </div>   
-    </div>
+   
+ }
+       
+              
+ </div>
 
+
+</AccordionSummary>
+
+
+</div>
+</Accordion>
   );
 }
 
 
 export function ListActivity04() {  
 
+  const classes = useStyles();
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
+  const styles = {
+    BackdropProps: {
+      background: 'transparent'
+    }
+  };
+
+  const [toggleValuereceptionist, setToggleValuereceptionist] = useState(true);
+  
+  const toggleHandlerreceptionist = () => {
+    setToggleValuereceptionist(!toggleValuereceptionist);
+  };
+ 
+  
+  const toggleDrawer = (side, open) => event => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+    setState({ ...state, [side]: open });
+  };
+  
+  const toggleDrawerClose = () => {
+    setState(false);
+  };
   return (
-    <div className="contentAreaouter">                  
-      <div className="contentArea">
+
+    <Accordion className="contentAreaouter w-100">
+    <div className="contentAreaouter w-100"> 
+        <div className="add-staff">
+          <Link to="#" onClick={toggleDrawer('right', true)}><img src={toAbsoluteUrl("/media/patients/add_staff.svg")} alt="" className="d-block rounded-circle" /></Link>
+        </div>
+      <Drawer className="patientProfileinfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
+        <div className="py-5 px-10 overflow-auto">
+          <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}><span className="my-auto font-weight-500">X</span></Link>
+          <StaffDetails />
+        </div>
+      </Drawer>
+    
+          <AccordionSummary className=" heading w-100">
+           
+            <div
+           style={{  cursor: "pointer" }}
+          className=" w-100"
+          onClick={() => toggleHandlerreceptionist()}
+        >
+          {toggleValuereceptionist ? <div className="contentArea d-block">  <div className="topHeadercontent d-flex"><div className="toggleLefticon LefticonBG11">
+                <Link to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor11 customProfileBG11">
+                  <i className="fa fa-plus text-white"></i>
+                </Link>
+                </div>
+                <ul className="list-inline w-100 row">
+                  <li className="col-lg-3">
+                    <span className="headingHighlight customProfileBG11 text-white">Receptionist</span>
+                    <span className="tasklistCount">1 Staff</span>
+                  </li>
+                  <li className="col-lg-1"><span className="title_drag">Experience</span></li>
+                  <li className="col-lg-1"><span className="title_drag">Services</span></li>
+                  <li className="col-lg-1"><span className="title_drag">Status</span></li>
+                  <li className="col-lg-1"><span className="title_drag">Sex</span></li>
+                  <li className="col-lg-1"><span className="title_drag">Availability</span></li>
+                  <li className="col-lg-2"><span className="title_drag">Email</span></li>
+                  <li className="col-lg-2 position-relative">
+                    <span className="title_drag">Phone</span> 
+                    <span className="addMultiplecolumn rounded-circle bg-grey"><i className="fa fa-plus fa-sm"></i></span>
+                  </li>
+                </ul>
+                
+                
+                </div></div>   :        
+        <div className="contentArea d-block">
+        
           <div className="topHeadercontent d-flex">
             <div className="toggleLefticon LefticonBG14">
               <Link  to="javascript:void(0)" data-toggle="collapse" data-target="#staffmanagement" className="borderColor14 customProfileBG14">
@@ -1523,10 +1815,22 @@ export function ListActivity04() {
             </div>                 
           </div>
         </div>  
-    </div>
+  }
+       
+              
+  </div>
+ 
+ 
+ </AccordionSummary>
+ 
+ 
+ </div>
+ </Accordion>
+   );
+ }
 
-  );
-}
+  
+
 
 export function ColorDropdownMenu() {
   return <>
