@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useFormik } from "formik";
 import { BrowserRouter as Router, Switch, Route,Link } from 'react-router-dom';
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { Dropdown } from "react-bootstrap";
@@ -74,15 +75,15 @@ const toggleDrawerClose = () => {
         </div>
       </Drawer>
     
-          <AccordionSummary className=" heading w-100">
+          <AccordionSummary className=" heading w-100" >
            
             <div
            style={{  cursor: "pointer" }}
           className=" w-100"
-          onClick={() => toggleHandlerservice()}
+          
         >
           {toggleValueservice ? <div className="contentArea d-block">  <div className="topHeadercontent d-flex"><div className="toggleLefticon LefticonBG11">
-                <Link to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor11 customProfileBG11">
+                <Link to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor11 customProfileBG11" onClick={() => toggleHandlerservice()}>
                   <i className="fa fa-plus text-white"></i>
                 </Link>
                 </div>
@@ -108,7 +109,7 @@ const toggleDrawerClose = () => {
                 <div className="contentArea d-block">
               <div className="topHeadercontent d-flex">
                 <div className="toggleLefticon LefticonBG11">
-                  <Link  to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor11 customProfileBG11">
+                  <Link  to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor11 customProfileBG11" onClick={() => toggleHandlerservice()}>
                     <i className="fa fa-minus text-white"></i>
                   </Link>                   
                 </div>
@@ -507,10 +508,10 @@ export function ListActivity02() {
             <div
            style={{  cursor: "pointer" }}
           className=" w-100"
-          onClick={() => toggleHandlerstaff()}
+        
         >
           {toggleValuestaff ? <div className="contentArea d-block">  <div className="topHeadercontent d-flex"><div className="toggleLefticon LefticonBG11">
-                <Link to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor11 customProfileBG11">
+                <Link to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor11 customProfileBG11"   onClick={() => toggleHandlerstaff()}>
                   <i className="fa fa-plus text-white"></i>
                 </Link>
                 </div>
@@ -536,7 +537,7 @@ export function ListActivity02() {
         <div className="contentArea d-block">
         <div className="topHeadercontent d-flex">
             <div className="toggleLefticon LefticonBG12">
-              <Link  to="javascript:void(0)" data-toggle="collapse" data-target="#staffmanagement" className="borderColor12 customProfileBG12">
+              <Link  to="javascript:void(0)" data-toggle="collapse" data-target="#staffmanagement" className="borderColor12 customProfileBG12"   onClick={() => toggleHandlerstaff()}>
                 <i className="fa fa-minus text-white"></i>
               </Link >                    
             </div>
@@ -793,10 +794,10 @@ export function ListActivity03() {
             <div
            style={{  cursor: "pointer" }}
           className=" w-100"
-          onClick={() => toggleHandleradmin()}
+          
         >
           {toggleValueadmin ? <div className="contentArea d-block">  <div className="topHeadercontent d-flex"><div className="toggleLefticon LefticonBG11">
-                <Link to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor11 customProfileBG11">
+                <Link to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor11 customProfileBG11" onClick={() => toggleHandleradmin()}>
                   <i className="fa fa-plus text-white"></i>
                 </Link>
                 </div>
@@ -824,7 +825,7 @@ export function ListActivity03() {
     
                <div className="topHeadercontent d-flex">
             <div className="toggleLefticon LefticonBG12">
-              <Link  to="javascript:void(0)" data-toggle="collapse" data-target="#staffmanagement" className="borderColor13 customProfileBG13">
+              <Link  to="javascript:void(0)" data-toggle="collapse" data-target="#staffmanagement" className="borderColor13 customProfileBG13" onClick={() => toggleHandleradmin()}>
                 <i className="fa fa-minus text-white"></i>
               </Link >                    
             </div>
@@ -1573,15 +1574,16 @@ export function ListActivity04() {
             <div
            style={{  cursor: "pointer" }}
           className=" w-100"
-          onClick={() => toggleHandlerreceptionist()}
+         
         >
           {toggleValuereceptionist ? <div className="contentArea d-block">  <div className="topHeadercontent d-flex"><div className="toggleLefticon LefticonBG11">
-                <Link to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor11 customProfileBG11">
+                <Link to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor11 customProfileBG11"  onClick={() => toggleHandlerreceptionist()}>
                   <i className="fa fa-plus text-white"></i>
                 </Link>
+                
                 </div>
                 <ul className="list-inline w-100 row">
-                  <li className="col-lg-3">
+                  <li className="col-lg-3" onClick={() => toggleHandlerreceptionist()}>
                     <span className="headingHighlight customProfileBG11 text-white">Receptionist</span>
                     <span className="tasklistCount">1 Staff</span>
                   </li>
@@ -1603,12 +1605,12 @@ export function ListActivity04() {
         
           <div className="topHeadercontent d-flex">
             <div className="toggleLefticon LefticonBG14">
-              <Link  to="javascript:void(0)" data-toggle="collapse" data-target="#staffmanagement" className="borderColor14 customProfileBG14">
+              <Link  to="javascript:void(0)" data-toggle="collapse" data-target="#staffmanagement" className="borderColor14 customProfileBG14"  onClick={() => toggleHandlerreceptionist()}>
                 <i className="fa fa-minus text-white"></i>
               </Link >                    
             </div>
             <ul className="list-inline w-100 row">
-              <li className="col-lg-3">
+              <li className="col-lg-3" onClick={() => toggleHandlerreceptionist()}>
                 <span className="headingHighlight customProfileBG14 text-white">Receptionist</span>
                 <span className="tasklistCount">1 Staff</span>
               </li>
