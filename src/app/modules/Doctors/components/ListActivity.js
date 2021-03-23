@@ -44,7 +44,7 @@ const styles = {
     background: 'transparent'
   }
 };
-const [toggleValueservice, setToggleValueservice] = useState(true);
+const [toggleValueservice, setToggleValueservice] = useState(false);
 
 const toggleHandlerservice = () => {
   setToggleValueservice(!toggleValueservice);
@@ -472,7 +472,7 @@ export function ListActivity02() {
     }
   };
 
-  const [toggleValuestaff, setToggleValuestaff] = useState(true);
+  const [toggleValuestaff, setToggleValuestaff] = useState(false);
   
   const toggleHandlerstaff = () => {
     setToggleValuestaff(!toggleValuestaff);
@@ -510,14 +510,14 @@ export function ListActivity02() {
           className=" w-100"
         
         >
-          {toggleValuestaff ? <div className="contentArea d-block">  <div className="topHeadercontent d-flex"><div className="toggleLefticon LefticonBG11">
-                <Link to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor11 customProfileBG11"   onClick={() => toggleHandlerstaff()}>
+          {toggleValuestaff ? <div className="contentArea d-block">  <div className="topHeadercontent d-flex"><div className="toggleLefticon LefticonBG12">
+                <Link to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor12 customProfileBG12"   onClick={() => toggleHandlerstaff()}>
                   <i className="fa fa-plus text-white"></i>
                 </Link>
                 </div>
                 <ul className="list-inline w-100 row">
                   <li className="col-lg-3">
-                    <span className="headingHighlight customProfileBG11 text-white">Staff</span>
+                    <span className="headingHighlight customProfileBG12 text-white">Staff</span>
                     <span className="tasklistCount">1 Staff</span>
                   </li>
                   <li className="col-lg-1"><span className="title_drag">Experience</span></li>
@@ -758,7 +758,7 @@ export function ListActivity03() {
     }
   };
 
-  const [toggleValueadmin, setToggleValueadmin] = useState(true);
+  const [toggleValueadmin, setToggleValueadmin] = useState(false);
   
   const toggleHandleradmin = () => {
     setToggleValueadmin(!toggleValueadmin);
@@ -796,14 +796,14 @@ export function ListActivity03() {
           className=" w-100"
           
         >
-          {toggleValueadmin ? <div className="contentArea d-block">  <div className="topHeadercontent d-flex"><div className="toggleLefticon LefticonBG11">
-                <Link to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor11 customProfileBG11" onClick={() => toggleHandleradmin()}>
+          {toggleValueadmin ? <div className="contentArea d-block">  <div className="topHeadercontent d-flex"><div className="toggleLefticon LefticonBG13">
+                <Link to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor13 customProfileBG13" onClick={() => toggleHandleradmin()}>
                   <i className="fa fa-plus text-white"></i>
                 </Link>
                 </div>
                 <ul className="list-inline w-100 row">
                   <li className="col-lg-3">
-                    <span className="headingHighlight customProfileBG11 text-white">Admin</span>
+                    <span className="headingHighlight customProfileBG13 text-white">Admin</span>
                     <span className="tasklistCount">1 Staff</span>
                   </li>
                   <li className="col-lg-1"><span className="title_drag">Experience</span></li>
@@ -824,7 +824,7 @@ export function ListActivity03() {
                
     
                <div className="topHeadercontent d-flex">
-            <div className="toggleLefticon LefticonBG12">
+            <div className="toggleLefticon LefticonBG13">
               <Link  to="javascript:void(0)" data-toggle="collapse" data-target="#staffmanagement" className="borderColor13 customProfileBG13" onClick={() => toggleHandleradmin()}>
                 <i className="fa fa-minus text-white"></i>
               </Link >                    
@@ -1538,7 +1538,7 @@ export function ListActivity04() {
     }
   };
 
-  const [toggleValuereceptionist, setToggleValuereceptionist] = useState(true);
+  const [toggleValuereceptionist, setToggleValuereceptionist] = useState(false);
   
   const toggleHandlerreceptionist = () => {
     setToggleValuereceptionist(!toggleValuereceptionist);
@@ -1576,15 +1576,15 @@ export function ListActivity04() {
           className=" w-100"
          
         >
-          {toggleValuereceptionist ? <div className="contentArea d-block">  <div className="topHeadercontent d-flex"><div className="toggleLefticon LefticonBG11">
-                <Link to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor11 customProfileBG11"  onClick={() => toggleHandlerreceptionist()}>
+          {toggleValuereceptionist ? <div className="contentArea d-block">  <div className="topHeadercontent d-flex"><div className="toggleLefticon LefticonBG14">
+                <Link to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor14 customProfileBG14"  onClick={() => toggleHandlerreceptionist()}>
                   <i className="fa fa-plus text-white"></i>
                 </Link>
                 
                 </div>
                 <ul className="list-inline w-100 row">
                   <li className="col-lg-3" onClick={() => toggleHandlerreceptionist()}>
-                    <span className="headingHighlight customProfileBG11 text-white">Receptionist</span>
+                    <span className="headingHighlight customProfileBG14 text-white">Receptionist</span>
                     <span className="tasklistCount">1 Staff</span>
                   </li>
                   <li className="col-lg-1"><span className="title_drag">Experience</span></li>
