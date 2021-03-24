@@ -21,7 +21,23 @@ const useStyles = makeStyles({
 export function StaffSetting() {
   const classes = useStyles();
   return (
-    <div className="staff_first staff_fourth w-100">
+    <div className="staff_first staff_fourth w-100 p-4">
+      <div className="border-bottom">
+        <label className="d-block staff_title_text">Notification Settings:</label>
+      </div>
+      <div className="">
+        <div className="d-flex">
+          <div className="pr-5 mr-auto">
+            <label className="d-block staff_title_text">Email Notifications:</label>
+            <p className="setting_color">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+          </div>
+          <div className="">
+            <div className="pre_status">
+                <SwitchLabels />
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="form-group mb-0">
         <div className="d-flex justify-content-end patientButton pos_fix">
           <button type="button" className="btn btn-primary">Save</button>
@@ -48,7 +64,6 @@ export default function SwitchLabels() {
         control={
           <Switch checked={state.checkedA} onChange={handleChange('checkedA')} value="checkedA" />
         }
-        label="Active"
       />
     </FormGroup>
   );

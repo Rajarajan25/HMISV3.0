@@ -22,6 +22,46 @@ export function StaffService() {
   const classes = useStyles();
   return (
     <div className="staff_first staff_third w-100">
+      <div className="form-group border-bottom">
+        <label class="">Test Included</label>
+      </div>
+      <div className="form-group">
+        <label class="">Services</label>
+      </div>
+      <div className="form-group border-bottom">
+        <div className="d-flex">
+          <label class="">staff commission</label>
+          <div className="pre_status">
+              <SwitchLabels />
+          </div>
+        </div>
+      </div>
+      <div className="form-group">
+        <label class="d-block col-12">Set Service Commission</label>
+        <div className="d-flex">
+          <div className="col-6">
+          <label class="d-block">Amount ()</label>
+            <input placeholder="100" type="text" className={`form-control`} name=""/>
+          </div>
+          <div className="col-6">
+          <label class="d-block">Percentage (%)</label>
+            <input placeholder="10%" type="text" className={`form-control`} name=""/>
+          </div>
+        </div>
+      </div>
+      <div className="form-group">
+        <label class="d-block col-12">Set Product Commission</label>
+        <div className="d-flex">
+          <div className="col-6">
+          <label class="d-block">Amount ()</label>
+            <input placeholder="100" type="text" className={`form-control`} name=""/>
+          </div>
+          <div className="col-6">
+          <label class="d-block">Percentage (%)</label>
+            <input placeholder="10%" type="text" className={`form-control`} name=""/>
+          </div>
+        </div>
+      </div>
       <div className="form-group mb-0">
         <div className="d-flex justify-content-end patientButton pos_fix">
           <button type="button" className="btn btn-primary">Save</button>
@@ -48,7 +88,6 @@ export default function SwitchLabels() {
         control={
           <Switch checked={state.checkedA} onChange={handleChange('checkedA')} value="checkedA" />
         }
-        label="Active"
       />
     </FormGroup>
   );
