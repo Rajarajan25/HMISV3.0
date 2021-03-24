@@ -4,6 +4,7 @@ export const DropdownItemToggler = React.forwardRef((props, ref) => {
   return (
     <div
       ref={ref}
+      className="drop_div"
       data-offset="10px,0px"
       onClick={e => {
         e.preventDefault();

@@ -142,7 +142,7 @@ export function AsideSubMenuList({ layoutProps }) {
           aria-haspopup="true"
           data-menu-toggle="hover"
         >
-          <NavLink className="menu-link menu-toggle" to="/manage/available-doctors">
+          <NavLink className="menu-link menu-toggle" to="/manage/staff-management">
             <i className="fas fa-caret-right" />
             <span className="svg-icon menu-icon d-flex flex-column rounded customMenutexticon bgCustom1">
               M
@@ -156,13 +156,13 @@ export function AsideSubMenuList({ layoutProps }) {
               {/*begin::1 Level*/}
               <li
                 className={`menu-item  ${getMenuItemActive(
-                  "/manage/available-doctors/profile-overview"
+                  "/manage/staff-management/profile-overview"
                 )}`}
                 aria-haspopup="true"
               >
                 <NavLink
                   className="menu-link"
-                  to="/manage/available-doctors/profile-overview"
+                  to="/manage/staff-management/profile-overview"
                 >
                   <i className="menu-bullet menu-bullet-dot">
                     <span />
@@ -180,17 +180,37 @@ export function AsideSubMenuList({ layoutProps }) {
                 aria-haspopup="true"
                 data-menu-toggle="hover"
               >
-                <NavLink
+                 <NavLink
                   className="menu-link"
                   to="/manage/patients-details"
                 >
                   <i className="menu-bullet menu-bullet-dot">
                     <span />
                   </i>
-                  <span className="menu-text">Services</span>
+                  <span className="menu-text">Patients</span>
                 </NavLink>
               </li>
               {/*end::2 Level*/}
+
+              <li
+                className={`menu-item ${getMenuItemActive(
+                  "/manage/service-provider"
+                )}`}
+                aria-haspopup="true"
+                data-menu-toggle="hover"
+              >
+                 <NavLink
+                  className="menu-link"
+                  to="/manage/service-provider"
+                >
+                  <i className="menu-bullet menu-bullet-dot">
+                    <span />
+                  </i>
+                  <span className="menu-text">Service</span>
+                </NavLink>
+              </li>
+
+
 
               {/*begin::3 Level*/}
               <li
@@ -300,7 +320,7 @@ export function AsideSubMenuList({ layoutProps }) {
               >
                 <NavLink
                   className="menu-link"
-                  to="/Payments/available-doctors/profile-overview"
+                  to="/Payments/staff-management/profile-overview"
                 >
                   <i className="menu-bullet menu-bullet-dot">
                     <span />
@@ -342,7 +362,7 @@ export function AsideSubMenuList({ layoutProps }) {
               >
                 <NavLink
                   className="menu-link"
-                  to="/available-doctors/profile-overview"
+                  to="/staff-management/profile-overview"
                 >
                   <i className="menu-bullet menu-bullet-dot">
                     <span />
@@ -360,7 +380,7 @@ export function AsideSubMenuList({ layoutProps }) {
               >
                 <NavLink
                   className="menu-link"
-                  to="/available-doctors/profile-overview"
+                  to="/staff-management/profile-overview"
                 >
                   <i className="menu-bullet menu-bullet-dot">
                     <span />

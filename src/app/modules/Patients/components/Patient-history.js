@@ -27,6 +27,7 @@ export function PatientHistory() {
       background: 'transparent'
     }
   };
+  
   const toggleDrawer = (side, open) => event => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;

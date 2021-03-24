@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import SVG from "react-inlinesvg";
 import { Link } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
@@ -33,7 +32,7 @@ render() {
               <OverlayTrigger
                 placement="left"
                 overlay={
-                  <Tooltip id="quick-search-tooltip">Quick search</Tooltip>
+                  <Tooltip id="quick-search-tooltip" className="tool_bg">Quick search</Tooltip>
                 }
               >
                 <a href="#" className="d-flex pt-3 pl-2">

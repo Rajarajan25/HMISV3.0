@@ -3,10 +3,11 @@ import React, { useEffect } from "react";
 //import { NavLink } from "react-router-dom";
 import { shallowEqual, useSelector } from "react-redux";
 //import { Dropdown, OverlayTrigger, Tooltip } from "react-bootstrap";
-import GroupFilter from "./GroupFilterSelect";
-import GroupFilterSelectSubtask from "./GroupFilterSelectSubtask";
+//import GroupFilter from "./GroupFilterSelect";
+//import GroupFilterSelectSubtask from "./GroupFilterSelectSubtask";
 //import SVG from "react-inlinesvg";
-//import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
+import { Link } from "react-router-dom";
+import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 //import { DropdownCustomToggler,DropdownMenu4 } from "../../../../_metronic/_partials/dropdowns";
 
 export function Filter() {
@@ -19,26 +20,33 @@ export function Filter() {
   return (
     <>
       {user && (
-        <div
-        className="d-flex flex-row-auto w-100"
-          id="kt_profile_aside"
-        >
-          <div className="card filterFixedheader">
+        <div className="d-flex flex-row-auto w-100" id="kt_profile_aside">
+          <div className="filterFixedheader">
                   <div className="card-body">
                     <div className="d-flex flex-wrap flex-column align-items-center">
                       <div className="w-100 d-flex">        
                         <form autoComplete="off" className="filterForm w-100">
-                          <div className=" d-flex">
-                            <div className="d-flex">
-                              <div className="m-auto">                              
-                                <i className="fa fa-filter fa-sm mx-3 my-auto"></i>
-                              </div>
-                              <span className="m-auto"><input type="text" placeholder="Filter by task name..." className="form-control" /></span> 
-                            </div>                          
+                          <div className="d-flex">
+                            <div className="searchbar d-flex justify-items-center">
+                              <input className="search_input" type="text" name="" placeholder="Search Staff" />
+                              <a href="#" className="search_icon"><img src={toAbsoluteUrl("/media/patients/cat_search.svg")} alt="" className="" /></a>
+                            </div>                         
                           </div>
-                          <div className=" d-flex ml-auto ">                  
-                            <GroupFilter></GroupFilter>
-                            <GroupFilterSelectSubtask></GroupFilterSelectSubtask>
+                          <div className="d-flex ml-auto align-items-center">   
+                            <div className="sort-text">Sort By:</div>
+                            <div className="select-box p-3">
+                                <select class="form-control-select">
+                                    <option>Newst</option>
+                                    <option>Oldest</option>
+                                </select>
+                            </div>
+                            <div className="HoverView">
+                                <Link to="#" className="d-block p-3"><img src={toAbsoluteUrl("/media/health/gridview.svg")} alt="" className="mx-auto" /></Link>
+                            </div>
+                            <div className="HoverView">
+                                <Link to="#" className="d-block p-3 active"><img src={toAbsoluteUrl("/media/health/listview.svg")} alt="" className="mx-auto" /></Link>
+                            </div>         
+
                           </div>
                         </form>
                       </div>

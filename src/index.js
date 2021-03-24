@@ -1,16 +1,15 @@
-/**
- * Create React App entry point. This and `public/index.html` files can not be
- * changed or moved.
- * Test Change - 1
- */
+
+import React from "react";
+import { render } from "react-dom";
+import { ApolloProvider } from '@apollo/client';
 import "react-app-polyfill/ie11";
 import "react-app-polyfill/stable";
-import React from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
 import * as _redux from "./redux";
 import store, { persistor } from "./redux/store";
 import App from "./app/App";
+import client from './apolloClient.ts';
 import "./index.scss"; // Standard version
 // import "./sass/style.react.rtl.css"; // RTL version
 import "./_metronic/_assets/plugins/keenthemes-icons/font/ki.css";
@@ -26,6 +25,7 @@ import {
   MetronicSubheaderProvider
 } from "./_metronic/layout";
 import {MetronicI18nProvider} from "./_metronic/i18n";
+
 
 /**
  * Base URL of the website.
@@ -49,13 +49,43 @@ const { PUBLIC_URL } = process.env;
  */
 _redux.setupAxios(axios, store);
 
+
+
+// const app = new Realm.App(APP_ID);
+
+
+// async function getValidAccessToken() {
+//   if (!app.currentUser) {
+//     await app.logIn(Realm.Credentials.anonymous());
+//   } else {
+//     await app.currentUser.refreshCustomData();
+//   }
+ 
+//   const { accessToken } = app.currentUser;
+//   return accessToken
+// }
+
+// const client = new ApolloClient({
+//   link: new HttpLink({
+//     uri: graphql_url,
+//     fetch: async (uri, options) => {
+//       const accessToken = await getValidAccessToken();
+//       options.headers.Authorization = `Bearer ${accessToken}`;
+//       return fetch(uri, options);
+//     },
+//   }),
+//   cache: new InMemoryCache()
+// });
+
 ReactDOM.render(
   <MetronicI18nProvider>
     <MetronicLayoutProvider>
       <MetronicSubheaderProvider>
+      <ApolloProvider client={client}>
         <MetronicSplashScreenProvider>
           <App store={store} persistor={persistor} basename={PUBLIC_URL} />
         </MetronicSplashScreenProvider>
+        </ApolloProvider>
       </MetronicSubheaderProvider>
     </MetronicLayoutProvider>
   </MetronicI18nProvider>,
