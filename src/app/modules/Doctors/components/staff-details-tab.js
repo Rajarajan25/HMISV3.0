@@ -65,7 +65,7 @@ export function StaffDetailsTab() {
               </AppBar>
             </div>
           </div>
-          <div className="p-4">
+          <div className="p-0">
             {value === 0 && <TabContainer> <StaffDetail /> </TabContainer>}
             {value === 1 && <TabContainer> <StaffTiming /> </TabContainer>}
             {value === 2 && <TabContainer> <StaffService /> </TabContainer>}

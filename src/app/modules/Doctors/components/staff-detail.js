@@ -1,3 +1,4 @@
+import 'date-fns';
 import React from "react";
 import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
@@ -8,7 +9,13 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import TextField from '@material-ui/core/TextField';
-
+import Grid from '@material-ui/core/Grid';
+import DateFnsUtils from '@date-io/date-fns';
+import {
+  MuiPickersUtilsProvider,
+  KeyboardTimePicker,
+  KeyboardDatePicker,
+} from '@material-ui/pickers';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -24,7 +31,7 @@ const useStyles = makeStyles(theme => ({
 export function StaffDetail() {
   const classes = useStyles();
   return (
-    <div className="staff_first w-100">
+    <div className="staff_first w-100 p-4">
       <div className="form-group">
         <div className="col-12">
           <label class="form-label d-block">Name</label>
@@ -37,7 +44,7 @@ export function StaffDetail() {
       </div>
       <div className="form-group">
         <div className="col-12">
-          <label class="form-label d-block">Description</label>
+          <label class="form-label d-block">About</label>
         </div>
         <div className="d-flex">
           <div className="col-12">
@@ -63,28 +70,10 @@ export function StaffDetail() {
         </div>
         <div className="d-flex">
           <div className="col-6">
-            <TextField
-              id="date"
-              type="date"
-              placeholder="Start Date"
-              defaultValue=""
-              className={classes.textField}
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
+            <DatePicker />
           </div>
           <div className="col-6">
-          <TextField
-              id="date"
-              type="date"
-              placeholder="End Date"
-              defaultValue=""
-              className={classes.textField}
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
+            <DatePicker />
           </div>
         </div>
       </div>
@@ -348,5 +337,35 @@ export default function SwitchLabels() {
         label="Active"
       />
     </FormGroup>
+  );
+}
+
+
+export function DatePicker() {
+  // The first commit of Material-UI
+  const [selectedDate, setSelectedDate] = React.useState(new Date());
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
+
+  return (
+    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+      <Grid container justify="space-around">
+        <KeyboardDatePicker
+          variant="inline"
+          format="dd/MM/yyyy"
+          margin="normal"
+          id="date-picker-inline"
+          value={selectedDate}
+          disableFuture={true}
+          autoOk={true}
+          onChange={handleDateChange}
+          KeyboardButtonProps={{
+            'aria-label': 'change date',
+          }}
+        /> 
+      </Grid>
+    </MuiPickersUtilsProvider>
   );
 }

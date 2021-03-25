@@ -3159,12 +3159,6 @@ input.edit_mobile[type=text] {
 			height: 35px;
 		}
 	}
-	.MuiTypography-body1 {
-		font-family: "Gotham Pro", "Proxima Nova", "sans-serif";
-	}
-	.MuiInputBase-root {
-		font-family: "Gotham Pro", "Proxima Nova", "sans-serif";
-	}
 }
 .staff_first {
 	.form-group {
@@ -3211,6 +3205,10 @@ input.edit_mobile[type=text] {
 			color: #303030;
 		} */
 	}
+	.MuiFormControl-marginNormal {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
 	.MuiFormControl-root {
 		margin-left: 0;
 		margin-right: 0;
@@ -3224,6 +3222,7 @@ input.edit_mobile[type=text] {
 		color: #bcbcc9;
 		height: 30px;
     	border-bottom: 1px solid #EEEEEE;
+		position: relative;
 		&:focus {
 			color: #1D6AFF !important;
 			border-bottom: 1px solid #1D6AFF;
@@ -3233,6 +3232,25 @@ input.edit_mobile[type=text] {
 			color: #303030 !important;
 			border-bottom: 1px solid #EEEEEE;
 			outline: 0;
+		}
+		.MuiInputAdornment-positionEnd {
+			margin-left: 0;
+			position: absolute;
+			right: 0;
+			top: 3px;
+			height: auto;
+			background: #1d6aff;
+			padding: 4px;
+			border-radius: 50%;
+		}
+		.MuiIconButton-root {
+			padding: 0;
+		}
+		.MuiSvgIcon-root {
+			fill: #fff;
+			width: 0.8em;
+			height: 0.8em;
+			border-radius: 50%;
 		}
 	}
 	.MuiInputBase-input {
@@ -3437,11 +3455,53 @@ input.edit_mobile[type=text] {
 .mx-210 {
 	max-width: 210px;
 }
+.MuiTypography-body1 {
+	font-family: "Gotham Pro", "Proxima Nova", "sans-serif";
+}
+.MuiInputBase-root {
+	font-family: "Gotham Pro", "Proxima Nova", "sans-serif";
+}
+.MuiPopover-root {
+	.MuiPickersDay-current {
+		color: #1d6aff;
+	}
+	.MuiPickersDay-daySelected {
+		color: #fff;
+		background-color: #1d6aff;
+		&:hover {
+			background-color: #1d6aff;
+		}
+	}
+	.MuiPickersToolbar-toolbar {
+		background-color: #1d6aff;
+	}
+	.MuiPickersToolbarText-toolbarBtnSelected {
+		color: rgba(255, 255, 255, 0.87);
+	}
+	.MuiPickersToolbarText-toolbarTxt {
+		color: rgba(255, 255, 255, 0.54);
+	}
+	.MuiPickersClockNumber-clockNumberSelected {
+		color: rgba(255, 255, 255, 0.87);
+	}
+	.MuiPickersClock-pin {
+		background-color: #1d6aff;
+	}
+	.MuiPickersClockPointer-pointer {
+		background-color: #1d6aff;
+	}
+	.MuiPickersClockPointer-thumb {
+		border: 14px solid #1d6aff;
+	}
+	.MuiPickersClockPointer-noPoint {
+		background-color: #1d6aff;
+	}
+}
 label.staff_title_text {
 	font-size: 1rem;
 	color: #5C5E5F;
 	text-transform: capitalize;
-	margin: 10px 0 5px 0;
+	margin: 0 0 8px 0;
 	font-weight: 500;
 }
 p.setting_color {
@@ -3449,4 +3509,77 @@ p.setting_color {
 	letter-spacing: -0.05px;
 	color: #C5C6C9;
 	font-weight: 300;
+}
+.staff_second {
+	.day_input {
+		.sun_d, .sat_d {
+			background-color: #ffffff;
+			color: #303030;
+		}
+		input[type=checkbox] {
+			display: none;
+		}
+		.date_bx {
+			cursor: pointer;
+			margin-bottom: 0;
+			margin-right: 30px;
+			&::before {
+				content: inherit;
+			}
+		}
+		input[type=checkbox]:checked + label.date_bx {
+			&::before {
+				content: url(/media/auth-screen/date_tick.svg);
+				position: absolute;
+				top: -10px;
+				right: -5px;
+			}
+		}
+	}
+	.tm_area {
+		max-width: 190px;
+		padding-left: 12px;
+		text-align: center;
+		.st_tm, .end_tm {
+			width: 70px;
+			min-width: inherit;
+			font-size: 1em;
+		}
+		.se_to {
+			min-width: 20px;
+			font-size: 0.9em;
+			color: #303030;
+		}
+	}
+	.MuiInputBase-root {
+		height: 25px;
+		border: 1px solid #E9E9E9;
+		border-radius: 3px;
+	}
+	.MuiInputBase-input {
+		font-size: 0.9em;
+		font-weight: 400;
+		height: 25px;
+		text-align: center;
+		text-transform: lowercase;
+	}
+	.MuiInputAdornment-positionEnd {
+		display:  none;
+	}
+	.MuiFormControlLabel-root {
+		margin: 3px 0 0 3px;
+	}
+	.MuiSwitch-root {
+		width: 48px;
+		height: 16px;
+		padding: 0 6px;
+	}
+	.MuiSwitch-switchBase {
+		padding: 0 8px;
+		top: 2px;
+	}
+	.MuiSwitch-thumb {
+		width: 12px;
+		height: 12px;
+	}
 }

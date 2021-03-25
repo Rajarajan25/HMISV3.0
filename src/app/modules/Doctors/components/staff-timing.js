@@ -1,4 +1,5 @@
-import React from "react";
+import 'date-fns';
+import React , { useState } from "react";
 import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import Button from '@material-ui/core/Button';
@@ -8,6 +9,13 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
+import DateFnsUtils from '@date-io/date-fns';
+import {
+  MuiPickersUtilsProvider,
+  KeyboardTimePicker,
+  KeyboardDatePicker,
+} from '@material-ui/pickers';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -25,19 +33,43 @@ export function StaffTiming() {
   const classes = useStyles();
   return (
     <div className="staff_first staff_second w-100">
-      <div className="border-bottom p-5">
-        <label>Working Days</label>
-        <div className="d-flex mt-4 mb-1">
-          <div className="date_bx sun_d">S</div>
-          <div className="date_bx mon_d">M</div>
-          <div className="date_bx tue_d">T</div>
-          <div className="date_bx wed_d">W</div>
-          <div className="date_bx thu_d">T</div>
-          <div className="date_bx fri_d">F</div>
-          <div className="date_bx sat_d">S</div>
+      <div className="border-bottom day_select p-6">
+        <div className="d-flex">
+          <label className="staff_title_text">Working Days</label>
+          <span className="ml-auto">Oct 11 - Oct 18</span>
+        </div>
+        <div className="d-flex mt-3">
+          <div className="day_input">
+            <input type="checkbox" id="day_select01" name="" className="" />
+            <label className="date_bx sun_d" for="day_select01">S</label>
+          </div>
+          <div className="day_input">
+            <input type="checkbox" id="day_select02" name="" className="" />
+            <label className="date_bx mon_d" for="day_select02">M</label>
+          </div>
+          <div className="day_input">
+            <input type="checkbox" id="day_select03" name="" className="" />
+            <label className="date_bx tue_d" for="day_select03">T</label>
+          </div>
+          <div className="day_input">
+            <input type="checkbox" id="day_select04" name="" className="" />
+            <label className="date_bx wed_d" for="day_select04">W</label>
+          </div>
+          <div className="day_input">
+            <input type="checkbox" id="day_select05" name="" className="" />
+            <label className="date_bx thu_d" for="day_select05">T</label>
+          </div>
+          <div className="day_input">
+            <input type="checkbox" id="day_select06" name="" className="" />
+            <label className="date_bx fri_d" for="day_select06">F</label>
+          </div>
+          <div className="day_input">
+            <input type="checkbox" id="day_select07" name="" className="" />
+            <label className="date_bx sat_d" for="day_select07">S</label>
+          </div>
         </div>
       </div>
-      <div className="border-bottom p-5">
+      <div className="border-bottom p-6">
         <div className="date_sec text-left">
           <div className="row">
             <div className="col-2">
@@ -47,7 +79,7 @@ export function StaffTiming() {
             </div>
             <div className="col-4">
               <div className="tm_area text-left">
-                <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm">12:00 pm</span>
+                <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
               </div>
             </div>
             <div className="col-2">
@@ -57,30 +89,42 @@ export function StaffTiming() {
             </div>
             <div className="col-4">
               <div className="tm_area text-left">
-                <span className="st_tm">9:00 am</span> <span className="se_to">to</span> <span className="end_tm">12:00 pm</span>
+                <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="border-bottom p-5">
-        <label>Timing Schedule 1 :</label>
+      <div className="border-bottom p-6">
+        <div className="border-bottom d-flex">
+          <label className="staff_title_text">Timing Schedule 1 :</label>
+        </div>
         <div className="date_sec text-left">
           <div className="row">
-            <div className="col-3">
+            <div className="col-2">
+            </div>
+            <div className="col d-flex">
+              <div className="tm_area text-left flex-fill">
+                <label>Session 1</label>
+              </div>
+              <div className="tm_area text-left flex-fill">
+                <label>Session 2</label>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-2">
               <div className="d-inline-flex">
                 <div className="">Mon</div>
                 <div className=""><SwitchLabels /></div>
               </div>
             </div>
-            <div className="col-9">
-              <div className="row">
-                <div className="tm_area text-left col-6">
-                  <span className="st_tm">9:00 am</span> <span className="se_to">to</span> <span className="end_tm">12:00 pm</span>
-                </div>
-                <div className="tm_area text-left col-6">
-                  <span className="st_tm">9:00 am</span> <span className="se_to">to</span> <span className="end_tm">12:00 pm</span>
-                </div>
+            <div className="col d-flex">
+              <div className="tm_area text-left border-right flex-fill">
+                <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+              </div>
+              <div className="tm_area text-left border-right flex-fill">
+                <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
               </div>
             </div>
           </div>
@@ -118,21 +162,98 @@ export function SwitchLabels() {
 }
 
 export function TimePickers() {
-  const classes = useStyles();
+    // The first commit of Material-UI
+    const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
+
+    const handleDateChange = (date) => {
+      setSelectedDate(date);
+    };
+    const [isOpen, setIsOpen] = useState(false);
+  
   return (
-      <TextField
-        id="time"
-        type="time"
-        defaultValue="07:30"
-        className={classes.textField}
-        InputLabelProps={{
-          shrink: true,
+    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+    <Grid container justify="space-around">
+      <KeyboardTimePicker
+        variant="inline"
+        margin="normal"
+        id="time-picker-inline"
+        value={selectedDate}
+        autoOk={true}
+        onChange={handleDateChange}
+        KeyboardButtonProps={{
+          onFocus: e => {
+            setIsOpen(true);
+          }
         }}
-        inputProps={{
-          step: 300, // 5 min
+        PopoverProps={{
+          disableRestoreFocus: true,
+          onClose: () => {
+            setIsOpen(false);
+          }
         }}
+        InputProps={{
+          disableRestoreFocus: true,
+          onFocus: () => {
+            setIsOpen(true);
+          }
+        }}
+        open={isOpen}
       />
+    </Grid>
+  </MuiPickersUtilsProvider>
   );
 }
 
 
+
+
+export function MaterialUIPickers() {
+  // The first commit of Material-UI
+  const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
+
+  return (
+    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+      <Grid container justify="space-around">
+        <KeyboardDatePicker
+          disableToolbar
+          variant="inline"
+          format="MM/dd/yyyy"
+          margin="normal"
+          id="date-picker-inline"
+          label="Date picker inline"
+          value={selectedDate}
+          onChange={handleDateChange}
+          KeyboardButtonProps={{
+            'aria-label': 'change date',
+          }}
+        />
+        <KeyboardDatePicker
+          margin="normal"
+          id="date-picker-dialog"
+          label="Date picker dialog"
+          format="MM/dd/yyyy"
+          value={selectedDate}
+          onChange={handleDateChange}
+          KeyboardButtonProps={{
+            'aria-label': 'change date',
+          }}
+        />
+        <KeyboardTimePicker
+          variant="inline"
+          margin="normal"
+          id="time-picker-inline"
+          label="Time picker"
+          value={selectedDate}
+          onChange={handleDateChange}
+          KeyboardButtonProps={{
+            'aria-label': 'change time',
+          }}
+        />
+      </Grid>
+    </MuiPickersUtilsProvider>
+  );
+}
