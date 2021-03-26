@@ -21,43 +21,71 @@ const useStyles = makeStyles({
 export function StaffService() {
   const classes = useStyles();
   return (
-    <div className="staff_first staff_third w-100">
+    <div className="staff_first staff_third w-100 p-6">
       <div className="form-group border-bottom">
-        <label class="">Test Included</label>
+        <label className="d-block staff_title_text">Test Included</label>
+        <div className="inc_bg mb-3">
+          <div className="row">
+            <div className="col-3 px-1">
+              <div className="inc_box bg-white">
+                <img src={toAbsoluteUrl("/media/patients/scan_test.svg")} alt="" className="d-block" />
+                <span className="d-block scan_point">Scan Point</span>
+              </div>
+            </div>
+            <div className="col-3 px-1">
+              <div className="inc_box bg-white">
+                <img src={toAbsoluteUrl("/media/patients/blood-test.svg")} alt="" className="d-block" />
+                <span className="d-block blood_test">Blood Test</span>
+              </div>
+            </div>
+            <div className="col-3 px-1">
+              <div className="inc_box bg-white">
+                <img src={toAbsoluteUrl("/media/patients/blood-tube.svg")} alt="" className="d-block" />
+                <span className="d-block kidney_test">Kidney Test</span>
+              </div>
+            </div>
+            <div className="col-3 px-1">
+              <div className="inc_box bg-white">
+                <img src={toAbsoluteUrl("/media/patients/swab.svg")} alt="" className="d-block" />
+                <span className="d-block corona_test">Corona Test</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div className="form-group">
-        <label class="">Services</label>
+        <label className="d-block staff_title_text">Services</label>
       </div>
       <div className="form-group border-bottom">
         <div className="d-flex">
-          <label class="">staff commission</label>
+          <label class="staff_title_text">staff commission</label>
           <div className="pre_status">
               <SwitchLabels />
           </div>
         </div>
       </div>
       <div className="form-group">
-        <label class="d-block col-12">Set Service Commission</label>
-        <div className="d-flex">
+        <label class="d-block staff_title_text pb-2">Set Service Commission</label>
+        <div className="d-flex row">
           <div className="col-6">
-          <label class="d-block">Amount ()</label>
+          <label class="form-label d-block">Amount ()</label>
             <input placeholder="100" type="text" className={`form-control`} name=""/>
           </div>
           <div className="col-6">
-          <label class="d-block">Percentage (%)</label>
+          <label class="form-label d-block">Percentage (%)</label>
             <input placeholder="10%" type="text" className={`form-control`} name=""/>
           </div>
         </div>
       </div>
       <div className="form-group">
-        <label class="d-block col-12">Set Product Commission</label>
-        <div className="d-flex">
+        <label class="d-block staff_title_text pb-2">Set Product Commission</label>
+        <div className="d-flex row">
           <div className="col-6">
-          <label class="d-block">Amount ()</label>
+          <label class="form-label d-block">Amount ()</label>
             <input placeholder="100" type="text" className={`form-control`} name=""/>
           </div>
           <div className="col-6">
-          <label class="d-block">Percentage (%)</label>
+          <label class="form-label d-block">Percentage (%)</label>
             <input placeholder="10%" type="text" className={`form-control`} name=""/>
           </div>
         </div>

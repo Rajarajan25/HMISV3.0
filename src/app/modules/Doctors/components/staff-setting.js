@@ -21,17 +21,50 @@ const useStyles = makeStyles({
 export function StaffSetting() {
   const classes = useStyles();
   return (
-    <div className="staff_first staff_fourth w-100 p-4">
+    <div className="staff_first staff_fourth w-100 p-6">
       <div className="border-bottom">
         <label className="d-block staff_title_text">Notification Settings:</label>
       </div>
       <div className="">
-        <div className="d-flex">
+        <div className="d-flex my-5">
           <div className="pr-5 mr-auto">
-            <label className="d-block staff_title_text">Email Notifications:</label>
+            <label className="d-block staff_title_text">Email Notifications</label>
             <p className="setting_color">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
           </div>
           <div className="">
+            <div className="pre_status">
+                <SwitchLabels />
+            </div>
+          </div>
+        </div>
+        <div className="d-flex my-5">
+          <div className="pr-5 mr-auto">
+            <label className="d-block staff_title_text">SMS Notifications</label>
+            <p className="setting_color">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+          </div>
+          <div className="">
+            <div className="pre_status">
+                <SwitchLabels />
+            </div>
+          </div>
+        </div>
+        <div className="d-flex my-5">
+          <div className="pr-5 mr-auto">
+            <label className="d-block staff_title_text">Private Notifications</label>
+            <p className="setting_color">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+          </div>
+          <div className="">
+            <div className="pre_status">
+                <SwitchLabels />
+            </div>
+          </div>
+        </div>
+        <div className="d-flex my-5">
+          <div className="pr-5 mr-auto">
+            <label className="d-block staff_title_text">Alert Notifications</label>
+            <p className="setting_color">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+          </div>
+          <div className="flex-fill">
             <div className="pre_status">
                 <SwitchLabels />
             </div>

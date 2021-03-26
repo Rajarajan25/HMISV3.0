@@ -3315,7 +3315,7 @@ input.edit_mobile[type=text] {
 	}
 	.gender_col {
 		margin-right: 30px;
-		margin-top: 15px;
+		margin-top: 5px;
 		.avatar_col {
 			margin-bottom: 0;
 			font-weight: 500;
@@ -3379,7 +3379,7 @@ input.edit_mobile[type=text] {
 		height: 40px;
 		line-height: 36px;
 		text-align: center;
-		margin: 20px 40px 0 0;
+		margin: 5px 40px 0 0;
 	}
 	.patientButton {
 		&.pos_fix {
@@ -3405,7 +3405,7 @@ input.edit_mobile[type=text] {
 	}
 }
 .pre_status {
-		margin-top: 10px;
+		margin-top: 0px;
 	label {
 		margin-bottom: 0;
 	}
@@ -3426,7 +3426,7 @@ input.edit_mobile[type=text] {
 		background-color: #C5C6C9;
 	}
 	.MuiTypography-body1 {
-		font-family: "Gotham Pro", "Proxima Nova", "sans-serif";
+		font-family: "Gotham Pro", "Proxima Nova", "sans-serif" !important;
 		padding: 0 8px;
 		color: #C5C6C9;
 		font-weight: 500;
@@ -3496,10 +3496,13 @@ input.edit_mobile[type=text] {
 	.MuiPickersClockPointer-noPoint {
 		background-color: #1d6aff;
 	}
+	.MuiTypography-colorPrimary {
+		color: #1d6aff;
+	}
 }
 label.staff_title_text {
 	font-size: 1rem;
-	color: #5C5E5F;
+	color: #303030;
 	text-transform: capitalize;
 	margin: 0 0 8px 0;
 	font-weight: 500;
@@ -3509,6 +3512,7 @@ p.setting_color {
 	letter-spacing: -0.05px;
 	color: #C5C6C9;
 	font-weight: 300;
+	margin-bottom: 0;
 }
 .staff_second {
 	.day_input {
@@ -3581,5 +3585,122 @@ p.setting_color {
 	.MuiSwitch-thumb {
 		width: 12px;
 		height: 12px;
+		background-color: #C0C0C0;
 	}
+	.MuiSwitch-track {
+		opacity: 1;
+		background-color: #DDDDDD;
+	}
+	.MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+		opacity: 1;
+	}
+	.MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
+		background-color: #DDDDDD !important;
+	}
+	.MuiSwitch-colorSecondary.Mui-checked .MuiSwitch-thumb {
+		background-color: #1D6AFF;
+	}
+	.color_C0C0C0 {
+		color: #C0C0C0;
+		margin-bottom: 0;
+		font-weight: 300;
+		font-size: 12px;
+		text-transform: capitalize;
+	}
+	.col {
+		&.min_width100 {
+			min-width: 100px;
+		}
+	}
+	.session_select {
+		display: flex;
+		font-size: 12px;
+		margin-top: 3px;
+		input {
+			margin-top: 3px;
+		}
+		label {
+			margin-bottom: 0;
+			padding-left: 5px;
+			color: #3F4254;
+		}
+	}
+	.break_select   {
+		display: flex;
+		font-size: 12px;
+		margin-top: 3px;
+		input {
+			margin-top: 3px;
+		}
+		label {
+			margin-bottom: 0;
+			padding-left: 5px;
+			color: #3F4254;
+		}
+	}
+	.avail_wid {
+		&.tab_avail {
+			border: 1px solid #E9E9E9;
+			border-radius: 3px;
+			margin: 5px 0;
+			padding: 0 10px;
+		}
+	}
+	.dropdown-menu.dropdown-menu-md {
+		width: 185px;
+	}
+}
+.staff_third {
+	.inc_bg {
+		background-color: #F2F4F7;
+		padding: 12px 22px;
+		border-radius: 15px;
+	}
+	.inc_box {
+		border-radius: 10px;
+		padding: 15px 20px 10px;
+		img {
+			margin-bottom: 7px;
+		}
+		span {
+			font-size: 11px;
+			color: #9DA2AA;
+			text-transform: capitalize;
+			position: relative;
+			&:before {
+				content: "";
+				width: 8px;
+				height: 8px;
+				border-radius: 2px;
+				background-color: #1d6aff;
+				display: inline-block;
+				position: absolute;
+				top: 5px;
+				left: -12px;
+			}
+			&.scan_point {
+				&:before {
+					background-color: #21C6E4;
+				}
+			}
+			&.blood_test {
+				&:before {
+					background-color: #6BC950;
+				}
+			}
+			&.kidney_test {
+				&:before {
+					background-color: #0A31E8;
+				}
+			}
+			&.corona_test {
+				&:before {
+					background-color: #FD9E27;
+				}
+			}
+		}
+	}
+}
+.staff_fourth {
+	
 }
