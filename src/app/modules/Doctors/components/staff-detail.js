@@ -104,7 +104,7 @@ export function StaffDetail() {
           <div className="col-9 pr-0">
             <div className="color_select">
               <div class="d-inline-flex color_col p-3">
-                <input type="radio" id="color_01" name="color-code" className="" />
+                <input type="radio" id="color_01" name="color-code" className=""/>
                 <label className="" for="color_01">
                   <span style={{backgroundColor: `#41BC87`}}></span>
                 </label>
@@ -220,7 +220,7 @@ export function StaffDetail() {
           <div className="col-12">
             <div className="pre_gender d-flex">
               <div className="gender_col">
-                <input type="radio" id="gender_01" name="gender_img" className="" />
+                <input type="radio" id="gender_01" name="gender_img" className="" checked="true"  />
                 <label className="avatar_col" for="gender_01">
                   <span className="gen_img male"><img src={toAbsoluteUrl("/media/patients/male_icon.svg")} alt="" className="d-inline-flex" /></span>
                   <span className="d-flex justify-content-center">Male</span>

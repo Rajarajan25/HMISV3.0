@@ -3456,10 +3456,10 @@ input.edit_mobile[type=text] {
 	max-width: 210px;
 }
 .MuiTypography-body1 {
-	font-family: "Gotham Pro", "Proxima Nova", "sans-serif";
+	font-family: "Gotham Pro", "Proxima Nova", "sans-serif" !important;
 }
 .MuiInputBase-root {
-	font-family: "Gotham Pro", "Proxima Nova", "sans-serif";
+	font-family: "Gotham Pro", "Proxima Nova", "sans-serif" !important;
 }
 .MuiPopover-root {
 	.MuiPickersDay-current {
@@ -3502,10 +3502,10 @@ input.edit_mobile[type=text] {
 }
 label.staff_title_text {
 	font-size: 1rem;
-	color: #303030;
+	color: #5C5E5F;
 	text-transform: capitalize;
 	margin: 0 0 8px 0;
-	font-weight: 500;
+	font-weight: 700;
 }
 p.setting_color {
 	font-size: 0.9rem;
@@ -3649,6 +3649,29 @@ p.setting_color {
 	.dropdown-menu.dropdown-menu-md {
 		width: 185px;
 	}
+	.locate_avail {
+		.MuiInputBase-root {
+			height: 35px;
+			.MuiSvgIcon-root {
+				fill: none;
+				width: 1em;
+				height: 1em;
+			}
+			.MuiSelect-icon {
+				top: calc(50% - 10px);
+				color: rgba(0, 0, 0, 0.54);
+				right: 3px;
+			}
+		}
+		.MuiInputBase-input {
+			font-size: 13px;
+			height: 35px;
+			text-align: left;
+			text-transform: capitalize;
+			line-height: 35px;
+			padding-left: 10px;
+		}
+	}
 }
 .staff_third {
 	.inc_bg {
@@ -3700,7 +3723,78 @@ p.setting_color {
 			}
 		}
 	}
+	.add_on_more {
+		font-size: 11px;
+		color: #6D5CD2;
+		font-weight: 500;
+	}
+	.serve_sec {
+		.row {
+			margin: 0;
+		}
+		input[type=checkbox] {
+			display: none;
+		}
+		input[type=checkbox]:checked + label.pat_box::before {
+			content: url(/media/patients/service_check.svg);
+			position: absolute;
+			top: 2px;
+			right: 2px;
+		}
+		.pat_box {
+			box-shadow: 0px 1px 6px #0000001A;
+			border-radius: 15px;
+			padding: 17px 10px 17px;
+			margin: 7px 0;
+			cursor: pointer;
+			position: relative;
+			width: 100%;
+		}
+		.serve_act {
+			span:first-child {
+				background-color: #56D48F;
+				color: #fff;
+				border-radius: 6px;
+				font-size: 9px;
+				line-height: 10px;
+				padding: 3px 8px;
+			}
+			span:last-child {
+				font-weight: 700;
+				font-size: 10px;
+				color: #000000;
+			}
+		}
+		.service_img {
+			width: 30px;
+			height: 30px;
+			margin: 10px auto 10px;
+			border-radius: 7px;
+		}
+		.service_title {
+			p {
+				margin: 0;
+				font-weight: 700;
+				color: #000000;
+				font-size: 13px;
+			}
+			p:last-child {
+				font-weight: normal;
+				font-size: 9px;
+				margin-top: 5px;
+				span:first-child {
+					color: #B3BABA;
+					padding-right: 3px;
+				}
+				span:last-child {
+					font-weight: 500;
+				}
+			}
+		}
+	}
 }
 .staff_fourth {
-	
+	.gg {
+		color: #000;
+	}
 }

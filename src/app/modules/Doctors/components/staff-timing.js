@@ -1,14 +1,10 @@
 import 'date-fns';
 import React , { useState } from "react";
-import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
-import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
-import { OverlayTrigger, Tooltip } from "react-bootstrap";
-import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 import {
@@ -16,8 +12,11 @@ import {
   KeyboardTimePicker,
   KeyboardDatePicker,
 } from '@material-ui/pickers';
-import { Dropdown } from "react-bootstrap";
-import {DropdownItemToggler} from "../../../../_metronic/_partials/dropdowns";
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -28,7 +27,53 @@ const useStyles = makeStyles(theme => ({
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
   },
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+    maxWidth: 300,
+  },
+  chips: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  chip: {
+    margin: 2,
+  },
+  noLabel: {
+    marginTop: theme.spacing(3),
+  },
 }));
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+    },
+  },
+};
+
+const names = [
+  'Chat Consultation',
+  'Video Consultation',
+  'Phone Consultation',
+  'In-Person',
+];
+
+function getStyles(name, personName, theme) {
+  return {
+    fontWeight:
+      personName.indexOf(name) === -1
+        ? theme.typography.fontWeightRegular
+        : theme.typography.fontWeightMedium,
+  };
+}
 
 
 export function StaffTiming() {
@@ -72,38 +117,14 @@ export function StaffTiming() {
         </div>
       </div>
       <div className="border-bottom p-6">
-        <div className="row">
+        <div className="row locate_avail">
           <div className="col-4">
               <label className="d-block color_C0C0C0">Choose your location</label>
-              <Dropdown drop="down" alignCenter className="dropdown">
-                <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                  <div className="d-flex flex-wrap h-100 avail_wid tab_avail">
-                    <div className="d-flex mt-1 mb-1 p-1 avail_hover">
-                      <span className="avails chat_bg"></span>
-                      <span>Adayar</span>
-                    </div>
-                  </div>
-                </Dropdown.Toggle>
-                <Dropdown.Menu  className="dropdown-menu dropdown-menu-md p-0 mt-1 drop_nav">
-                  <LocationDropdownMenu />
-                </Dropdown.Menu>
-              </Dropdown>
+              <LocationSelect />
             </div>
             <div className="col-4">
               <label className="d-block color_C0C0C0">Availability</label>
-              <Dropdown drop="down" alignCenter className="dropdown">
-                <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                  <div className="d-flex flex-wrap h-100 avail_wid tab_avail">
-                    <div className="d-flex mt-1 mb-1 p-1 avail_hover">
-                      <span className="avails chat_bg"><img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="" className="" /></span>
-                      <span>Chat</span>
-                    </div>
-                  </div>
-                </Dropdown.Toggle>
-                <Dropdown.Menu  className="dropdown-menu dropdown-menu-md p-0 mt-1 drop_nav">
-                  <AvailDropdownMenu />
-                </Dropdown.Menu>
-              </Dropdown>
+              <AvailMultipleSelect />
             </div>
         </div>
         <div className="text-left mt-4">
@@ -257,72 +278,85 @@ export function TimePickers() {
   );
 }
 
-export function LocationDropdownMenu() {
-  return <>
-      {/*begin::Navigation*/}
-      <ul className="navi navi-hover">
-          <li className="navi-item">
-              <a href="#" className="navi-link">
-                <span className="avails chat_bg"></span>
-                <span className="navi-text">Adayar</span>
-              </a>
-          </li>
-          <li className="navi-item">
-              <a href="#" className="navi-link">
-                <span className="avails video_bg"></span>
-                <span className="navi-text">Thiruvanmiur</span>
-              </a>
-          </li>
-          <li className="navi-item">
-              <a href="#" className="navi-link">
-                <span className="avails phone_bg"></span>
-                <span className="navi-text">Perungudi</span>
-              </a>
-          </li>
-          <li className="navi-item">
-              <a href="#" className="navi-link">
-                <span className="avails visit_bg"></span>
-                <span className="navi-text">OMR</span>
-              </a>
-          </li>
-      </ul>
-      {/*end::Navigation*/}
-  </>
+
+export function LocationSelect() {
+  
+  const classes = useStyles();
+  const [values, setValues] = React.useState({
+    age: '',
+    name: 'hai',
+  });
+
+  function handleChange(event) {
+    setValues(oldValues => ({
+      ...oldValues,
+      [event.target.name]: event.target.value,
+    }));
+  }
+
+  return (
+      <FormControl className={classes.formControl}>
+        
+        <Select
+          value={values.age}
+          onChange={handleChange}
+          input={<Input name="age" id="age-label-placeholder" />}
+          displayEmpty
+          name="age"
+          className={classes.selectEmpty}
+        >
+          <MenuItem value="">
+          Adayar
+          </MenuItem>
+          <MenuItem value={10}>Thiruvanmiur</MenuItem>
+          <MenuItem value={20}>Perungudi</MenuItem>
+          <MenuItem value={30}>OMR</MenuItem>
+        </Select>
+      </FormControl>
+  );
 }
 
-export function AvailDropdownMenu() {
-  return <>
-      {/*begin::Navigation*/}
-      <ul className="navi navi-hover">
-          <li className="navi-item">
-              <a href="#" className="navi-link">
-                <span className="avails chat_bg"><img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="" className="mt-0" /></span>
-                <span className="navi-text">Chat Consultation</span>
-              </a>
-          </li>
-          <li className="navi-item">
-              <a href="#" className="navi-link">
-                <span className="avails video_bg"><img src={toAbsoluteUrl("/media/patients/avail_video.svg")} alt="" className="mt-0" /></span>
-                <span className="navi-text">Video Consultation</span>
-              </a>
-          </li>
-          <li className="navi-item">
-              <a href="#" className="navi-link">
-                <span className="avails phone_bg"><img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="" className="mt-0" /></span>
-                <span className="navi-text">Phone Consultation</span>
-              </a>
-          </li>
-          <li className="navi-item">
-              <a href="#" className="navi-link">
-                <span className="avails visit_bg"><img src={toAbsoluteUrl("/media/patients/avail_visit.svg")} alt="" className="mt-0" /></span>
-                <span className="navi-text">In-Person</span>
-              </a>
-          </li>
-      </ul>
-      {/*end::Navigation*/}
-  </>
-}
 
+export function AvailMultipleSelect() {
+  const classes = useStyles();
+  const theme = useTheme();
+  const [personName, setPersonName] = React.useState([]);
+
+  function handleChange(event) {
+    setPersonName(event.target.value);
+  }
+
+  function handleChangeMultiple(event) {
+    const { options } = event.target;
+    const value = [];
+    for (let i = 0, l = options.length; i < l; i += 1) {
+      if (options[i].selected) {
+        value.push(options[i].value);
+      }
+    }
+    setPersonName(value);
+  }
+
+  return (
+    <div className={classes.root}>
+      <FormControl className={classes.formControl}>
+        <Select
+          multiple
+          value={personName}
+          onChange={handleChange}
+          input={<Input id="select-multiple" />}
+          MenuProps={MenuProps}
+        >
+          {names.map(name => (
+            <MenuItem key={name} value={name} style={getStyles(name, personName, theme)}>
+              {name}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+    </div>
+  );
+}
 
 
 export function MaterialUIPickers() {
