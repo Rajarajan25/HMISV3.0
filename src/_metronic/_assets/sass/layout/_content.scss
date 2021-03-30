@@ -3526,7 +3526,7 @@ p.setting_color {
 		.date_bx {
 			cursor: pointer;
 			margin-bottom: 0;
-			margin-right: 30px;
+			margin-right: 20px;
 			&::before {
 				content: inherit;
 			}
@@ -3629,8 +3629,9 @@ p.setting_color {
 		display: flex;
 		font-size: 12px;
 		margin-top: 3px;
+		margin-left: 20px;
 		input {
-			margin-top: 3px;
+			margin-top: 4px;
 		}
 		label {
 			margin-bottom: 0;
@@ -3653,7 +3654,7 @@ p.setting_color {
 		.MuiInputBase-root {
 			height: 35px;
 			.MuiSvgIcon-root {
-				fill: none;
+				fill: #C0C0C0;
 				width: 1em;
 				height: 1em;
 			}
@@ -3669,8 +3670,80 @@ p.setting_color {
 			text-align: left;
 			text-transform: capitalize;
 			line-height: 35px;
-			padding-left: 10px;
+			padding-left: 0px;
+			font-weight: 500;
 		}
+		.MuiSelect-select:focus {
+			background-color: transparent;
+			color: #303030 !important;
+    		border-bottom: 0;
+		}
+		.MuiInputBase-root {
+			border: 0;
+			border-bottom: 1px solid #E9E9E9;
+		}
+	}
+	.add_setting {
+		font-size: 11px;
+		color: #1C6AFC;
+		font-weight: 500;
+	}
+	.col_sel {
+		.MuiInputBase-input {
+			padding-left: 0px;
+			padding-right: 10px;
+		}
+		.MuiChip-label {
+			padding-left: 8px;
+			padding-right: 8px;
+		}
+		.MuiChip-root {
+			color: #fff;
+			margin: 5px 2px 0;
+			height: 25px;
+			font-size: 11px;
+			font-family: inherit;
+			border-radius: 10px;
+			background-color: #1d6aff;
+			&.Chat {
+				background-color: #1C6AFC;
+			}
+			&.Call {
+				background-color: #FD7822;
+			}
+			&.Video {
+				background-color: #F9DA31;
+			}
+			&.In-Person  {
+				background-color: #1CAAF4;
+			}
+		}
+	}
+	.add_plus {
+		background: #303030;
+		color: #fff;
+		width: 20px;
+		height: 20px;
+		text-align: center;
+		border-radius: 50%;
+		font-size: 18px;
+		line-height: 21px;
+		margin-left: 10px;
+		margin-top: 3px;
+		cursor: pointer;
+	}
+	.break_line {
+		position: absolute;
+		top: -16px;
+		left: -15px;
+		height: 28px;
+		opacity: 0.7;
+	}
+	.add_session, .add_line, .add_break {
+		font-size: 11px;
+		color: #1C6AFC;
+		font-weight: 500;
+		padding: 0 4px;
 	}
 }
 .staff_third {
@@ -3790,6 +3863,40 @@ p.setting_color {
 					font-weight: 500;
 				}
 			}
+		}
+	}
+	.service_search {
+		border: 1px solid #DEDEDE;
+		border-radius: 15px;
+		height: 30px;
+		.service_search_input {
+			color: #525252;
+			border: 0;
+			outline: 0;
+			background: none;
+			width: 150px;
+			line-height: 30px;
+			transition: width 0.4s linear;
+			padding: 0 10px 0 0;
+			margin: 0;
+		}
+		.service_search_icon {
+			height: auto;
+			width: auto;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: 50%;
+			color: #ffffff;
+			text-decoration: none;
+			line-height: 30px;
+			border: 0;
+			background: transparent;
+			padding: 0 10px;
+		}
+		.service_search_icon img {
+			opacity: 0.8;
+			height: 12px;
 		}
 	}
 }

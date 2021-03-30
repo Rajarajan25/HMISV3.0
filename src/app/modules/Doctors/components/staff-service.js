@@ -57,8 +57,14 @@ export function StaffService() {
         </div>
       </div>
       <div className="form-group">
-        <div className="d-flex">
-          <label className="d-block staff_title_text">Services</label>
+        <div className="d-flex mb-3">
+          <label className="d-block staff_title_text mt-2 mr-auto">Services</label>
+          <div className="d-flex justify-items-center service_search">
+            <button type="button" className="service_search_icon">
+              <img src="/media/patients/cat_search.svg" alt="" className="" />
+            </button>
+            <input className="service_search_input" type="text" name="" placeholder="Search" />
+          </div>
         </div>
         <div className="serve_sec">
           <div className="row">

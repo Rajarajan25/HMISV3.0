@@ -1,5 +1,6 @@
 import 'date-fns';
 import React , { useState } from "react";
+import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -17,6 +18,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import Chip from '@material-ui/core/Chip';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -60,9 +62,9 @@ const MenuProps = {
 };
 
 const names = [
-  'Chat Consultation',
-  'Video Consultation',
-  'Phone Consultation',
+  'Chat',
+  'Call',
+  'Video',
   'In-Person',
 ];
 
@@ -83,7 +85,7 @@ export function StaffTiming() {
       <div className="border-bottom day_select p-6">
         <div className="d-flex">
           <label className="staff_title_text">Working Days</label>
-          <span className="ml-auto font-size-12 pr-8">Oct 11 - Oct 18 <img src={toAbsoluteUrl("/media/patients/time_calendar.svg")} alt="" className="pl-3" /></span>
+          <Link to="#" className="ml-auto add_setting pr-8">+ Additional Settings</Link>
         </div>
         <div className="d-flex mt-3">
           <div className="day_input">
@@ -118,35 +120,43 @@ export function StaffTiming() {
       </div>
       <div className="border-bottom p-6">
         <div className="row locate_avail">
-          <div className="col-4">
+          <div className="col-6">
               <label className="d-block color_C0C0C0">Choose your location</label>
               <LocationSelect />
             </div>
-            <div className="col-4">
+            <div className="col-6">
               <label className="d-block color_C0C0C0">Availability</label>
               <AvailMultipleSelect />
             </div>
         </div>
-        <div className="text-left mt-4">
-          <div className="row">
-            <div className="col pr-2 min_width100">
+        <div className="text-left  mt-3 pb-2 session_start border-bottom ">
+          <div className="session_part row mb-2">
+            <div className="col-3 pr-2 min_width100">
               <div className="session_select">
                 <input type="checkbox" id="session_01" name="" className="" />
                 <label className="" for="session_01">Session 1</label>
               </div>
             </div>
-            <div className="col-4 p-0">
+            <div className="col-4 p-0 d-flex">
               <div className="tm_area text-left pl-0">
                 <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
               </div>
             </div>
-            <div className="col pr-3">
-              <div className="break_select">
+            <div className="col-5 d-flex justify-content-center align-items-center">
+              <span className="add_session">+ Add Session</span>
+              <span className="add_line">|</span>
+              <span className="add_break">+ Add Break</span>
+            </div>
+          </div>
+          <div className="break_part row mb-2">
+            <div className="col-3 pr-3">
+              <div className="break_select position-relative">
+                <img src={toAbsoluteUrl("/media/patients/break_line.svg")} alt="" className="break_line" />
                 <input type="checkbox" id="break_01" name="" className="" />
                 <label className="" for="break_01">Break</label>
               </div>
             </div>
-            <div className="col-4 p-0">
+            <div className="col-4 p-0 d-flex">
               <div className="tm_area text-left pl-0">
                 <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
               </div>
@@ -338,13 +348,21 @@ export function AvailMultipleSelect() {
   }
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root + " " + "col_sel"}>
       <FormControl className={classes.formControl}>
         <Select
           multiple
+          className={"mr_top"}
           value={personName}
           onChange={handleChange}
-          input={<Input id="select-multiple" />}
+          input={<Input id="select-multiple-chip" />}
+          renderValue={selected => (
+            <div className={classes.chips}>
+              {selected.map(value => (
+                <Chip key={value} label={value} className={classes.chip  + " " + value} />
+              ))}
+            </div>
+          )}
           MenuProps={MenuProps}
         >
           {names.map(name => (
