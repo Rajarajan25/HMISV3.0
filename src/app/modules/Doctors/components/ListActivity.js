@@ -70,7 +70,7 @@ const toggleDrawerClose = () => {
                 </div>
                 <ul className="list-inline w-100 row">
                   <li className="col-lg-3">
-                    <span className="headingHighlight customProfileBG11 text-white">Service Provider</span>
+                    <span className="headingHighlight customProfileBG11 text-white">Service Provider<a class="ml-3"><i class="fa fa-pen"></i></a></span>
                     <span className="tasklistCount">1 Staff</span>
                   </li>
                   <li className="col-lg-1"><span className="title_drag">Experience</span></li>
@@ -417,7 +417,7 @@ export function ListActivity02() {
             </div>
             <ul className="list-inline w-100 row">
               <li className="col-lg-3">
-                <span className="headingHighlight customProfileBG12 text-white">Staff</span>
+                <span className="headingHighlight customProfileBG12 text-white">Staff <a class="ml-3"><i class="fa fa-pen"></i></a></span>
                 <span className="tasklistCount">1 Staff</span>
               </li>
               <li className="col-lg-1"><span className="title_drag">Experience</span></li>
@@ -622,7 +622,7 @@ export function ListActivity03() {
             </div>
             <ul className="list-inline w-100 row">
               <li className="col-lg-3">
-                <span className="headingHighlight customProfileBG13 text-white">Admin</span>
+                <span className="headingHighlight customProfileBG13 text-white">Admin <a class="ml-3"><i class="fa fa-pen"></i></a></span>
                 <span className="tasklistCount">1 Staff</span>
               </li>
               <li className="col-lg-1"><span className="title_drag">Experience</span></li>
@@ -1317,7 +1317,7 @@ export function ListActivity04() {
             </div>
             <ul className="list-inline w-100 row">
               <li className="col-lg-3">
-                <span className="headingHighlight customProfileBG14 text-white">Receptionist</span>
+                <span className="headingHighlight customProfileBG14 text-white">Receptionist <a class="ml-3"><i class="fa fa-pen"></i></a></span>
                 <span className="tasklistCount">1 Staff</span>
               </li>
               <li className="col-lg-1"><span className="title_drag">Experience</span></li>

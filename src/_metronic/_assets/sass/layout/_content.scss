@@ -3392,6 +3392,14 @@ input.edit_mobile[type=text] {
 			min-width: 80px;
 			font-size: 14px;
 		}
+		&.add_timing {
+			.btn-primary {
+				padding: 5px 10px;
+				min-height: 30px;
+				font-size: 12px;
+				font-weight: normal;
+			}
+		}
 	}
 	.booking_link {
 		white-space: nowrap;
@@ -3745,6 +3753,33 @@ p.setting_color {
 		font-weight: 500;
 		padding: 0 4px;
 	}
+	.accor_sec {
+		.MuiPaper-elevation1 {
+			box-shadow: none !important;
+			border: 0 !important;
+		}
+		.MuiExpansionPanelSummary-root {
+			padding: 0px 0;
+			margin-bottom: 0;
+			border-bottom: 1px solid #EBEDF3 !important;
+			min-height: inherit !important;
+			background: transparent !important;
+		}
+		.MuiIconButton-root {
+			padding: 5px 12px  !important;
+		}
+		.MuiExpansionPanelSummary-content {
+			margin: 10px 0 0px  !important;
+		}
+		.MuiExpansionPanelDetails-root {
+			padding: 5px 0 10px  !important;
+		}
+		.switchlabel {
+			.MuiIconButton-root {
+				padding: 0px 8px !important;
+			}
+		}
+	}
 }
 .staff_third {
 	.inc_bg {
@@ -3808,20 +3843,30 @@ p.setting_color {
 		input[type=checkbox] {
 			display: none;
 		}
-		input[type=checkbox]:checked + label.pat_box::before {
-			content: url(/media/patients/service_check.svg);
-			position: absolute;
-			top: 2px;
-			right: 2px;
+		input[type=checkbox]:checked + label.pat_box{
+			border: 1px solid #1C6AFC;
+			&::before {
+				content: "";
+				background:url(/media/patients/select_avatar.svg);
+				position: absolute;
+				width: 13px;
+				height: 13px;
+				bottom: -2px;
+				right: -2px;
+			}
 		}
 		.pat_box {
 			box-shadow: 0px 1px 6px #0000001A;
 			border-radius: 15px;
-			padding: 17px 10px 17px;
+			padding: 10px 10px 12px;
 			margin: 7px 0;
 			cursor: pointer;
 			position: relative;
 			width: 100%;
+			border: 1px solid #e8e8e8;
+			&:hover {
+				animation: shadow-pulse 1s infinite;
+			}
 		}
 		.serve_act {
 			span:first-child {
@@ -3836,6 +3881,12 @@ p.setting_color {
 				font-weight: 700;
 				font-size: 10px;
 				color: #000000;
+			}
+			span.privatebg {
+				background-color: #1FBBFA;
+			}
+			span.publicbg {
+				background-color: #2EB67E;
 			}
 		}
 		.service_img {
@@ -3899,9 +3950,23 @@ p.setting_color {
 			height: 12px;
 		}
 	}
+	.staff_commission {
+		.MuiFormControlLabel-root {
+			margin-left: 10px;
+			margin-right: 0;
+			margin-top: -8px;
+		}
+	}
 }
 .staff_fourth {
 	.gg {
 		color: #000;
+	}
+	.pre_status {
+		.MuiFormControlLabel-root {
+			margin-left: 0;
+			margin-right: -10px;
+			width: 65px;
+		}
 	}
 }

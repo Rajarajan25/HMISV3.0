@@ -22,7 +22,7 @@ export function StaffService() {
   const classes = useStyles();
   return (
     <div className="staff_first staff_third w-100 p-6">
-      <div className="form-group border-bottom">
+      <div className="form-group border-bottom d-none">
         <div className="d-flex">
           <label className="d-block staff_title_text">Test Included</label>
           <span className="ml-auto add_on_more">+ Add On More</span>
@@ -72,7 +72,7 @@ export function StaffService() {
               <input type="checkbox" id="pet_box_01" />
               <label className="pat_box" for="pet_box_01">
                 <div className="d-flex serve_act">
-                  <span>Active</span>
+                  <span className="privatebg">Private</span>
                   <span className="ml-auto">100</span>
                 </div>
                 <div className="d-block text-center">
@@ -90,7 +90,7 @@ export function StaffService() {
               <input type="checkbox" id="pet_box_02" />
               <label className="pat_box" for="pet_box_02">
                 <div className="d-flex serve_act">
-                  <span>Active</span>
+                  <span className="publicbg">Public</span>
                   <span className="ml-auto">100</span>
                 </div>
                 <div className="d-block text-center">
@@ -108,7 +108,7 @@ export function StaffService() {
               <input type="checkbox" id="pet_box_03" />
               <label className="pat_box" for="pet_box_03">
                 <div className="d-flex serve_act">
-                  <span>Active</span>
+                  <span className="privatebg">Private</span>
                   <span className="ml-auto">100</span>
                 </div>
                 <div className="d-block text-center">
@@ -126,7 +126,7 @@ export function StaffService() {
               <input type="checkbox" id="pet_box_04" />
               <label className="pat_box" for="pet_box_04">
                 <div className="d-flex serve_act">
-                  <span>Active</span>
+                  <span className="publicbg">Public</span>
                   <span className="ml-auto">100</span>
                 </div>
                 <div className="d-block text-center">
@@ -144,7 +144,7 @@ export function StaffService() {
               <input type="checkbox" id="pet_box_05" />
               <label className="pat_box" for="pet_box_05">
                 <div className="d-flex serve_act">
-                  <span>Active</span>
+                  <span className="privatebg">Private</span>
                   <span className="ml-auto">100</span>
                 </div>
                 <div className="d-block text-center">
@@ -162,7 +162,7 @@ export function StaffService() {
               <input type="checkbox" id="pet_box_06" />
               <label className="pat_box" for="pet_box_06">
                 <div className="d-flex serve_act">
-                  <span>Active</span>
+                  <span className="publicbg">Public</span>
                   <span className="ml-auto">100</span>
                 </div>
                 <div className="d-block text-center">
@@ -180,7 +180,7 @@ export function StaffService() {
               <input type="checkbox" id="pet_box_07" />
               <label className="pat_box" for="pet_box_07">
                 <div className="d-flex serve_act">
-                  <span>Active</span>
+                  <span className="privatebg">Private</span>
                   <span className="ml-auto">100</span>
                 </div>
                 <div className="d-block text-center">
@@ -198,7 +198,7 @@ export function StaffService() {
               <input type="checkbox" id="pet_box_08" />
               <label className="pat_box" for="pet_box_08">
                 <div className="d-flex serve_act">
-                  <span>Active</span>
+                  <span className="publicbg">Public</span>
                   <span className="ml-auto">100</span>
                 </div>
                 <div className="d-block text-center">
@@ -218,7 +218,7 @@ export function StaffService() {
       <div className="form-group border-bottom">
         <div className="d-flex">
           <label class="staff_title_text">staff commission</label>
-          <div className="pre_status">
+          <div className="pre_status staff_commission">
               <SwitchLabels />
           </div>
         </div>

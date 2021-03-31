@@ -238,13 +238,29 @@ export function StaffDetail() {
         </div>
       </div>
       <div className="form-group">
-        <div className="col-12">
-          <label class="form-label d-block">Status</label>
-        </div>
-        <div className="d-flex">
-          <div className="col-12">
-            <div className="pre_status">
-              <SwitchLabels />
+        <div className="row">
+          <div className="col-6">
+            <div className="col-12">
+              <label class="form-label d-block">Status</label>
+            </div>
+            <div className="d-flex">
+              <div className="col-12">
+                <div className="pre_status">
+                  <SwitchLabels />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-6">
+            <div className="col-12">
+              <label class="form-label d-block">Provider</label>
+            </div>
+            <div className="d-flex">
+              <div className="col-12">
+                <div className="pre_status">
+                  <ProviderLabels />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -335,6 +351,28 @@ export default function SwitchLabels() {
           <Switch checked={state.checkedA} onChange={handleChange('checkedA')} value="checkedA" />
         }
         label="Active"
+      />
+    </FormGroup>
+  );
+}
+
+export function ProviderLabels() {
+
+  const [state, setState] = React.useState({
+    checkedA: true,
+  });
+
+  const handleChange = name => event => {
+    setState({ ...state, [name]: event.target.checked });
+  };
+
+  return (
+    <FormGroup row>
+      <FormControlLabel
+        control={
+          <Switch checked={state.checkedA} onChange={handleChange('checkedA')} value="checkedA" />
+        }
+        label="Yes"
       />
     </FormGroup>
   );

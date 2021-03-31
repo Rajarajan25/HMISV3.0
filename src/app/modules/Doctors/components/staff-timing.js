@@ -19,6 +19,53 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Chip from '@material-ui/core/Chip';
+import { withStyles } from '@material-ui/core/styles';
+import MuiExpansionPanel from '@material-ui/core/ExpansionPanel';
+import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
+const ExpansionPanel = withStyles({
+  root: {
+    border: '1px solid rgba(0, 0, 0, .125)',
+    boxShadow: 'none',
+    '&:not(:last-child)': {
+      borderBottom: 0,
+    },
+    '&:before': {
+      display: 'none',
+    },
+    '&$expanded': {
+      margin: 'auto',
+    },
+  },
+  expanded: {},
+})(MuiExpansionPanel);
+
+const ExpansionPanelSummary = withStyles({
+  root: {
+    backgroundColor: 'rgba(0, 0, 0, .03)',
+    borderBottom: '1px solid rgba(0, 0, 0, .125)',
+    marginBottom: -1,
+    minHeight: 56,
+    '&$expanded': {
+      minHeight: 56,
+    },
+  },
+  content: {
+    '&$expanded': {
+      margin: '12px 0',
+    },
+  },
+  expanded: {},
+})(MuiExpansionPanelSummary);
+
+const ExpansionPanelDetails = withStyles(theme => ({
+  root: {
+    padding: theme.spacing(2),
+  },
+}))(MuiExpansionPanelDetails);
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -85,7 +132,7 @@ export function StaffTiming() {
       <div className="border-bottom day_select p-6">
         <div className="d-flex">
           <label className="staff_title_text">Working Days</label>
-          <Link to="#" className="ml-auto add_setting pr-8">+ Additional Settings</Link>
+          <Link to="#" className="ml-auto add_setting">+ Additional Settings</Link>
         </div>
         <div className="d-flex mt-3">
           <div className="day_input">
@@ -121,11 +168,11 @@ export function StaffTiming() {
       <div className="border-bottom p-6">
         <div className="row locate_avail">
           <div className="col-6">
-              <label className="d-block color_C0C0C0">Choose your location</label>
+              <label className="form-label d-block">Choose your location</label>
               <LocationSelect />
             </div>
             <div className="col-6">
-              <label className="d-block color_C0C0C0">Availability</label>
+              <label className="form-label d-block">Availability</label>
               <AvailMultipleSelect />
             </div>
         </div>
@@ -143,9 +190,9 @@ export function StaffTiming() {
               </div>
             </div>
             <div className="col-5 d-flex justify-content-center align-items-center">
-              <span className="add_session">+ Add Session</span>
+              <span className="add_session pointer">+ Add Session</span>
               <span className="add_line">|</span>
-              <span className="add_break">+ Add Break</span>
+              <span className="add_break pointer">+ Add Break</span>
             </div>
           </div>
           <div className="break_part row mb-2">
@@ -174,46 +221,15 @@ export function StaffTiming() {
             </div>
         </div>
         <div className="form-group mt-6 mb-0">
-          <div className="d-flex justify-content-end patientButton">
-            <button type="button" className="btn btn-primary">Add Time</button>
+          <div className="d-flex justify-content-end patientButton add_timing">
+            <button type="button" className="btn btn-primary m-0">+ Add Timings</button>
           </div>
         </div>
       </div>
-      <div className="border-bottom p-6">
-        <div className="border-bottom d-flex">
-          <label className="staff_title_text">Timing Schedule 1 :</label>
-        </div>
-        <div className="text-left">
-          <div className="row mt-3">
-            <div className="col-2">
-            </div>
-            <div className="col d-flex">
-              <div className="tm_area text-left flex-fill">
-                <label className="color_C0C0C0">Session 1</label>
-              </div>
-              <div className="tm_area text-left flex-fill">
-                <label className="color_C0C0C0">Session 2</label>
-              </div>
-            </div>
-          </div>
-          <div className="row mt-3">
-            <div className="col-2">
-              <div className="d-inline-flex">
-                <label className="staff_title_text">Mon</label>
-                <div className=""><SwitchLabels /></div>
-              </div>
-            </div>
-            <div className="col d-flex">
-              <div className="tm_area text-left border-right flex-fill">
-                <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-              </div>
-              <div className="tm_area text-left border-right flex-fill">
-                <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="px-6 py-3 accor_sec">
+        <TimeExpansionPanels />       
       </div>
+
       <div className="form-group mb-0">
         <div className="d-flex justify-content-end patientButton pos_fix">
           <button type="button" className="btn btn-primary">Save</button>
@@ -375,6 +391,97 @@ export function AvailMultipleSelect() {
     </div>
   );
 }
+
+
+
+
+export function TimeExpansionPanels() {
+  const [expanded, setExpanded] = React.useState('panel1');
+
+  const handleChange = panel => (event, newExpanded) => {
+    setExpanded(newExpanded ? panel : false);
+  };
+
+  return (
+    <div>
+      <ExpansionPanel square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1d-content" id="panel1d-header">
+          <Typography>
+            <label className="staff_title_text">Timing Schedule 1 :</label>
+          </Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>
+          <div className="text-left">
+            <div className="row mt-3">
+              <div className="col-2">
+              </div>
+              <div className="col d-flex">
+                <div className="tm_area text-left flex-fill">
+                  <label className="form-label d-block">Session 1</label>
+                </div>
+                <div className="tm_area text-left flex-fill">
+                  <label className="form-label d-block">Session 2</label>
+                </div>
+              </div>
+            </div>
+            <div className="row mt-3">
+              <div className="col-2">
+                <div className="d-inline-flex">
+                  <label className="staff_title_text">Mon</label>
+                  <div className="switchlabel"><SwitchLabels /></div>
+                </div>
+              </div>
+              <div className="col d-flex">
+                <div className="tm_area text-left border-right flex-fill">
+                  <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+                </div>
+                <div className="tm_area text-left border-right flex-fill">
+                  <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+      <ExpansionPanel square expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel2d-content" id="panel2d-header">
+          <Typography>
+            <label className="staff_title_text">Timing Schedule 2 :</label>
+          </Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
+            sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+      <ExpansionPanel square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel3d-content" id="panel3d-header">
+          <Typography>
+            <label className="staff_title_text">Timing Schedule 3 :</label>
+          </Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
+            sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+    </div>
+  );
+}
+
+
+
+
+
+
 
 
 export function MaterialUIPickers() {
