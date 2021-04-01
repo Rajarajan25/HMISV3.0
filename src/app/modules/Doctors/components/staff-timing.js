@@ -14,7 +14,6 @@ import {
   KeyboardDatePicker,
 } from '@material-ui/pickers';
 import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
@@ -25,6 +24,8 @@ import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
 
 const ExpansionPanel = withStyles({
   root: {
@@ -130,6 +131,9 @@ export function StaffTiming() {
   return (
     <div className="staff_first staff_second w-100">
       <div className="border-bottom day_select p-6">
+        <div className="busi_cus mt-3 mb-8 clearfix">
+          <SelectHours />
+        </div>
         <div className="d-flex">
           <label className="staff_title_text">Working Days</label>
           <Link to="#" className="ml-auto add_setting">+ Additional Settings</Link>
@@ -209,6 +213,68 @@ export function StaffTiming() {
               </div>
             </div>
           </div>
+          <div className="break_part row mb-2">
+            <div className="col-3 pr-3">
+              <div className="break_select position-relative">
+                <img src={toAbsoluteUrl("/media/patients/break_line.svg")} alt="" className="break_line" />
+                <input type="checkbox" id="break_01" name="" className="" />
+                <label className="" for="break_01">Break</label>
+              </div>
+            </div>
+            <div className="col-4 p-0 d-flex">
+              <div className="tm_area text-left pl-0">
+                <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="text-left  mt-3 pb-2 session_start border-bottom ">
+          <div className="session_part row mb-2">
+            <div className="col-3 pr-2 min_width100">
+              <div className="session_select">
+                <input type="checkbox" id="session_01" name="" className="" />
+                <label className="" for="session_01">Session 2</label>
+              </div>
+            </div>
+            <div className="col-4 p-0 d-flex">
+              <div className="tm_area text-left pl-0">
+                <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+              </div>
+            </div>
+            <div className="col-5 d-flex justify-content-center align-items-center">
+              <span className="add_session pointer">+ Add Session</span>
+              <span className="add_line">|</span>
+              <span className="add_break pointer">+ Add Break</span>
+            </div>
+          </div>
+          <div className="break_part row mb-2">
+            <div className="col-3 pr-3">
+              <div className="break_select position-relative">
+                <img src={toAbsoluteUrl("/media/patients/break_line.svg")} alt="" className="break_line" />
+                <input type="checkbox" id="break_01" name="" className="" />
+                <label className="" for="break_01">Break</label>
+              </div>
+            </div>
+            <div className="col-4 p-0 d-flex">
+              <div className="tm_area text-left pl-0">
+                <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+              </div>
+            </div>
+          </div>
+          <div className="break_part row mb-2">
+            <div className="col-3 pr-3">
+              <div className="break_select position-relative">
+                <img src={toAbsoluteUrl("/media/patients/break_line.svg")} alt="" className="break_line" />
+                <input type="checkbox" id="break_01" name="" className="" />
+                <label className="" for="break_01">Break</label>
+              </div>
+            </div>
+            <div className="col-4 p-0 d-flex">
+              <div className="tm_area text-left pl-0">
+                <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="form-group d-flex mt-5">
             <div className="d-flex">
@@ -219,6 +285,23 @@ export function StaffTiming() {
               <input type="checkbox" id="formHorizontalCheck1" className="mt-1" />
               <label title="" for="formHorizontalCheck1" className="form-check-label ml-2 font-size-12">Apply to this month</label>
             </div>
+        </div>
+        <div className="clearfix">
+        <div className="text-left">
+            <div className="row mt-3">
+              <div className="col-2">
+              </div>
+              <div className="col d-flex">
+                <div className="tm_area text-left flex-fill">
+                  <label className="form-label d-block">Session 1</label>
+                </div>
+                <div className="tm_area text-left flex-fill">
+                  <label className="form-label d-block">Session 2</label>
+                </div>
+              </div>
+            </div>
+            <SelectWeekTime />
+          </div>
         </div>
         <div className="form-group mt-6 mb-0">
           <div className="d-flex justify-content-end patientButton add_timing">
@@ -425,22 +508,7 @@ export function TimeExpansionPanels() {
                 </div>
               </div>
             </div>
-            <div className="row mt-3">
-              <div className="col-2">
-                <div className="d-inline-flex">
-                  <label className="staff_title_text">Mon</label>
-                  <div className="switchlabel"><SwitchLabels /></div>
-                </div>
-              </div>
-              <div className="col d-flex">
-                <div className="tm_area text-left border-right flex-fill">
-                  <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-                </div>
-                <div className="tm_area text-left border-right flex-fill">
-                  <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-                </div>
-              </div>
-            </div>
+            <SelectWeekTime />
           </div>
           </Typography>
         </ExpansionPanelDetails>
@@ -453,9 +521,21 @@ export function TimeExpansionPanels() {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
+            <div className="text-left">
+              <div className="row mt-3">
+                <div className="col-2">
+                </div>
+                <div className="col d-flex">
+                  <div className="tm_area text-left flex-fill">
+                    <label className="form-label d-block">Session 1</label>
+                  </div>
+                  <div className="tm_area text-left flex-fill">
+                    <label className="form-label d-block">Session 2</label>
+                  </div>
+                </div>
+              </div>
+              <SelectWeekTime />
+            </div>
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -467,9 +547,21 @@ export function TimeExpansionPanels() {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
+            <div className="text-left">
+              <div className="row mt-3">
+                <div className="col-2">
+                </div>
+                <div className="col d-flex">
+                  <div className="tm_area text-left flex-fill">
+                    <label className="form-label d-block">Session 1</label>
+                  </div>
+                  <div className="tm_area text-left flex-fill">
+                    <label className="form-label d-block">Session 2</label>
+                  </div>
+                </div>
+              </div>
+              <SelectWeekTime />
+            </div>
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -479,59 +571,157 @@ export function TimeExpansionPanels() {
 
 
 
+function SelectHours() {
 
+  const useStyles = makeStyles(theme => ({
+    root: {
+      display: 'flex',
+    },
+    formControl: {
+      margin: theme.spacing(3),
+    },
+    group: {
+      margin: theme.spacing(1, 0),
+    },
+  }));
 
+  const classes = useStyles();
+  const [value, setValue] = React.useState('female');
 
-
-
-export function MaterialUIPickers() {
-  // The first commit of Material-UI
-  const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
-
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-  };
+  function handleChange(event) {
+    setValue(event.target.value);
+  }
 
   return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <Grid container justify="space-around">
-        <KeyboardDatePicker
-          disableToolbar
-          variant="inline"
-          format="MM/dd/yyyy"
-          margin="normal"
-          id="date-picker-inline"
-          label="Date picker inline"
-          value={selectedDate}
-          onChange={handleDateChange}
-          KeyboardButtonProps={{
-            'aria-label': 'change date',
-          }}
-        />
-        <KeyboardDatePicker
-          margin="normal"
-          id="date-picker-dialog"
-          label="Date picker dialog"
-          format="MM/dd/yyyy"
-          value={selectedDate}
-          onChange={handleDateChange}
-          KeyboardButtonProps={{
-            'aria-label': 'change date',
-          }}
-        />
-        <KeyboardTimePicker
-          variant="inline"
-          margin="normal"
-          id="time-picker-inline"
-          label="Time picker"
-          value={selectedDate}
-          onChange={handleDateChange}
-          KeyboardButtonProps={{
-            'aria-label': 'change time',
-          }}
-        />
-      </Grid>
-    </MuiPickersUtilsProvider>
+    <div className={classes.root}>
+      <FormControl component="fieldset" className={classes.formControl}>
+        <RadioGroup
+          name="business"
+          className={classes.group}
+          value={value}
+          onChange={handleChange}
+        >
+          <FormControlLabel value="business" control={<Radio />} label="Business hours" />
+          <FormControlLabel value="custom" control={<Radio />} label="Custom" />
+          
+  
+        </RadioGroup>
+      </FormControl>
+      
+    </div>
   );
 }
 
+function SelectWeekTime() {
+
+  return (
+    <div className="clearfix">
+      <div className="row mt-3">
+        <div className="col-2">
+          <div className="d-inline-flex">
+            <label className="staff_title_text">Mon</label>
+            <div className="switchlabel"><SwitchLabels /></div>
+          </div>
+        </div>
+        <div className="col d-flex">
+          <div className="tm_area text-left border-right flex-fill">
+            <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+          </div>
+          <div className="tm_area text-left border-right flex-fill">
+            <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+          </div>
+        </div>
+      </div>
+      <div className="row mt-3">
+        <div className="col-2">
+          <div className="d-inline-flex">
+            <label className="staff_title_text">Tue</label>
+            <div className="switchlabel"><SwitchLabels /></div>
+          </div>
+        </div>
+        <div className="col d-flex">
+          <div className="tm_area text-left border-right flex-fill">
+            <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+          </div>
+          <div className="tm_area text-left border-right flex-fill">
+            <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+          </div>
+        </div>
+      </div>
+      <div className="row mt-3">
+        <div className="col-2">
+          <div className="d-inline-flex">
+            <label className="staff_title_text">Wed</label>
+            <div className="switchlabel"><SwitchLabels /></div>
+          </div>
+        </div>
+        <div className="col d-flex">
+          <div className="tm_area text-left border-right flex-fill">
+            <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+          </div>
+          <div className="tm_area text-left border-right flex-fill">
+            <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+          </div>
+        </div>
+      </div>
+      <div className="row mt-3">
+        <div className="col-2">
+          <div className="d-inline-flex">
+            <label className="staff_title_text">Thu</label>
+            <div className="switchlabel"><SwitchLabels /></div>
+          </div>
+        </div>
+        <div className="col d-flex">
+          <div className="tm_area text-left border-right flex-fill">
+            <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+          </div>
+          <div className="tm_area text-left border-right flex-fill">
+            <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+          </div>
+        </div>
+      </div>
+      <div className="row mt-3">
+        <div className="col-2">
+          <div className="d-inline-flex">
+            <label className="staff_title_text">Fri</label>
+            <div className="switchlabel"><SwitchLabels /></div>
+          </div>
+        </div>
+        <div className="col d-flex">
+          <div className="tm_area text-left border-right flex-fill">
+            <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+          </div>
+          <div className="tm_area text-left border-right flex-fill">
+            <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+          </div>
+        </div>
+      </div>
+      <div className="row mt-3">
+        <div className="col-2">
+          <div className="d-inline-flex">
+            <label className="staff_title_text day_off">Sat</label>
+            <div className="switchlabel"><SwitchLabels /></div>
+          </div>
+        </div>
+        <div className="col d-flex">
+          <div className="tm_area text-left">
+            <span className="day_off">Day Off</span>
+          </div>
+        </div>
+      </div>
+      <div className="row mt-3">
+        <div className="col-2">
+          <div className="d-inline-flex">
+            <label className="staff_title_text day_off">Sun</label>
+            <div className="switchlabel"><SwitchLabels /></div>
+          </div>
+        </div>
+        <div className="col d-flex">
+          <div className="tm_area text-left">
+            <span className="day_off">Day Off</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

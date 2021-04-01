@@ -5,10 +5,6 @@ import { Dropdown } from "react-bootstrap";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import {DropdownItemToggler} from "../../../../_metronic/_partials/dropdowns";
 import { makeStyles } from '@material-ui/core/styles';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import Input from '@material-ui/core/Input';
 import Drawer from '@material-ui/core/Drawer';
 
 import { StaffDetailsTab } from "./staff-details-tab";
@@ -57,7 +53,11 @@ const toggleDrawerClose = () => {
         </div>
       <Drawer className="patientProfileinfo StaffInfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
         <div className="p-0 overflow-auto">
-          <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}><span className="my-auto font-weight-500">X</span></Link>
+          <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}>
+            <span className="my-auto font-weight-500">
+              <img src={toAbsoluteUrl("/media/patients/drawer_close.svg")} alt="" className="d-block" />
+            </span>
+          </Link>
           <StaffDetails />
         </div>
       </Drawer>

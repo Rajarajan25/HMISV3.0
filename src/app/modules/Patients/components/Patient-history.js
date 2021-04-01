@@ -246,7 +246,11 @@ export function PatientHistory() {
       </div>
       <Drawer className="patientProfileinfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
         <div className="py-5 px-10 overflow-auto">
-          <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}><span className="my-auto font-weight-500">X</span></Link>
+          <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}>
+            <span className="my-auto font-weight-500">
+              <img src={toAbsoluteUrl("/media/patients/drawer_close.svg")} alt="" className="d-block" />
+            </span>  
+          </Link>
           <HistoryDetail />
         </div>
       </Drawer>

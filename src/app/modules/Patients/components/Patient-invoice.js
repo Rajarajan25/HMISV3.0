@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Table from '@material-ui/core/Table';
-
+import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 
@@ -80,7 +80,11 @@ export function PatientInvoice() {
 
       <Drawer className="patientProfileinfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
         <div className="py-5 px-10 overflow-auto">
-          <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}><span className="my-auto font-weight-500">X</span></Link>
+          <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}>
+            <span className="my-auto font-weight-500">
+              <img src={toAbsoluteUrl("/media/patients/drawer_close.svg")} alt="" className="d-block" />
+            </span>
+            </Link>
           <InvoiceHistory />
         </div>
       </Drawer>

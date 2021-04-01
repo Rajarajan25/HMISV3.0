@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
-import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -73,7 +72,7 @@ export function StaffService() {
               <label className="pat_box" for="pet_box_01">
                 <div className="d-flex serve_act">
                   <span className="privatebg">Private</span>
-                  <span className="ml-auto">100</span>
+                  <span className="ml-auto"><span>$</span> 100</span>
                 </div>
                 <div className="d-block text-center">
                   <div className="service_img d-flex" style={{backgroundColor: `rgba(28,183,148, 0.1)`}}>
@@ -91,7 +90,7 @@ export function StaffService() {
               <label className="pat_box" for="pet_box_02">
                 <div className="d-flex serve_act">
                   <span className="publicbg">Public</span>
-                  <span className="ml-auto">100</span>
+                  <span className="ml-auto"><span>$</span> 100</span>
                 </div>
                 <div className="d-block text-center">
                   <div className="service_img d-flex" style={{backgroundColor: `#FEEFF6`}}>
@@ -109,7 +108,7 @@ export function StaffService() {
               <label className="pat_box" for="pet_box_03">
                 <div className="d-flex serve_act">
                   <span className="privatebg">Private</span>
-                  <span className="ml-auto">100</span>
+                  <span className="ml-auto"><span>$</span> 100</span>
                 </div>
                 <div className="d-block text-center">
                   <div className="service_img d-flex" style={{backgroundColor: `rgba(28,88,251, 0.1)`}}>
@@ -127,7 +126,7 @@ export function StaffService() {
               <label className="pat_box" for="pet_box_04">
                 <div className="d-flex serve_act">
                   <span className="publicbg">Public</span>
-                  <span className="ml-auto">100</span>
+                  <span className="ml-auto"><span>$</span> 100</span>
                 </div>
                 <div className="d-block text-center">
                   <div className="service_img d-flex" style={{backgroundColor: `rgba(13,113,106, 0.1)`}}>
@@ -145,11 +144,11 @@ export function StaffService() {
               <label className="pat_box" for="pet_box_05">
                 <div className="d-flex serve_act">
                   <span className="privatebg">Private</span>
-                  <span className="ml-auto">100</span>
+                  <span className="ml-auto"><span>&#2352;</span> 100</span>
                 </div>
                 <div className="d-block text-center">
-                  <div className="service_img d-flex" style={{backgroundColor: `rgba(84,67,172, 0.1)`}}>
-                    <img src={toAbsoluteUrl("/media/patients/service_icon_05.svg")} alt="" className="m-auto align-items-center" />
+                  <div className="service_img d-flex" style={{backgroundColor: `rgba(84,67,172, 0.1)`, color: 'rgba(84,67,172,1)'}}>
+                    go
                   </div>
                   <div className="service_title">
                     <p>Pet Services</p>
@@ -163,11 +162,11 @@ export function StaffService() {
               <label className="pat_box" for="pet_box_06">
                 <div className="d-flex serve_act">
                   <span className="publicbg">Public</span>
-                  <span className="ml-auto">100</span>
+                  <span className="ml-auto"><span>&#2352;</span> 100</span>
                 </div>
                 <div className="d-block text-center">
-                  <div className="service_img d-flex" style={{backgroundColor: `rgba(29,168,255, 0.1)`}}>
-                    <img src={toAbsoluteUrl("/media/patients/service_icon_06.svg")} alt="" className="m-auto align-items-center" />
+                  <div className="service_img d-flex" style={{backgroundColor: `rgba(29,168,255, 0.1)`, color: 'rgba(29,168,255,1)'}}>
+                    pi
                   </div>
                   <div className="service_title">
                     <p>Pet Services</p>
@@ -181,11 +180,11 @@ export function StaffService() {
               <label className="pat_box" for="pet_box_07">
                 <div className="d-flex serve_act">
                   <span className="privatebg">Private</span>
-                  <span className="ml-auto">100</span>
+                  <span className="ml-auto"><span>&#2352;</span> 100</span>
                 </div>
                 <div className="d-block text-center">
-                  <div className="service_img d-flex" style={{backgroundColor: `rgba(215,116,29, 0.1)`}}>
-                    <img src={toAbsoluteUrl("/media/patients/service_icon_07.svg")} alt="" className="m-auto align-items-center" />
+                  <div className="service_img d-flex" style={{backgroundColor: `rgba(215,116,29, 0.1)`, color: 'rgba(215,116,29,1)'}}>
+                    ma
                   </div>
                   <div className="service_title">
                     <p>Pet Services</p>
@@ -199,11 +198,11 @@ export function StaffService() {
               <label className="pat_box" for="pet_box_08">
                 <div className="d-flex serve_act">
                   <span className="publicbg">Public</span>
-                  <span className="ml-auto">100</span>
+                  <span className="ml-auto"><span>&#2352;</span> 100</span>
                 </div>
                 <div className="d-block text-center">
-                  <div className="service_img d-flex" style={{backgroundColor: `rgba(230,46,46, 0.1)`}}>
-                    <img src={toAbsoluteUrl("/media/patients/service_icon_08.svg")} alt="" className="m-auto align-items-center" />
+                  <div className="service_img d-flex" style={{backgroundColor: `rgba(230,46,46, 0.1)`, color: 'rgba(230,46,46,1)'}}>
+                    ni
                   </div>
                   <div className="service_title">
                     <p>Pet Services</p>
@@ -227,7 +226,7 @@ export function StaffService() {
         <label class="d-block staff_title_text pb-2">Set Service Commission</label>
         <div className="d-flex row">
           <div className="col-6">
-          <label class="form-label d-block">Amount ()</label>
+          <label class="form-label d-block">Amount (&#2352;)</label>
             <input placeholder="100" type="text" className={`form-control`} name=""/>
           </div>
           <div className="col-6">
@@ -240,7 +239,7 @@ export function StaffService() {
         <label class="d-block staff_title_text pb-2">Set Product Commission</label>
         <div className="d-flex row">
           <div className="col-6">
-          <label class="form-label d-block">Amount ()</label>
+          <label class="form-label d-block">Amount (&#2352;)</label>
             <input placeholder="100" type="text" className={`form-control`} name=""/>
           </div>
           <div className="col-6">
