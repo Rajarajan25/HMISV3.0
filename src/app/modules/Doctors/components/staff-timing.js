@@ -310,6 +310,9 @@ export function StaffTiming() {
         </div>
       </div>
       <div className="px-6 py-3 accor_sec">
+        <div className="d-flex clearfix">
+          <label>Location :</label><span>Adayar</span><label>Availability :</label><span>On Call</span>
+        </div>
         <TimeExpansionPanels />       
       </div>
 
