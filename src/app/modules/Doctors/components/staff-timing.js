@@ -130,46 +130,10 @@ export function StaffTiming() {
   const classes = useStyles();
   return (
     <div className="staff_first staff_second w-100">
-      <div className="border-bottom day_select p-6">
+      <div className="border-bottom p-6">
         <div className="busi_cus mt-3 mb-8 clearfix">
           <SelectHours />
         </div>
-        <div className="d-flex">
-          <label className="staff_title_text">Working Days</label>
-          <Link to="#" className="ml-auto add_setting">+ Additional Settings</Link>
-        </div>
-        <div className="d-flex mt-3">
-          <div className="day_input">
-            <input type="checkbox" id="day_select01" name="" className="" />
-            <label className="date_bx sun_d" for="day_select01">S</label>
-          </div>
-          <div className="day_input">
-            <input type="checkbox" id="day_select02" name="" className="" />
-            <label className="date_bx mon_d" for="day_select02">M</label>
-          </div>
-          <div className="day_input">
-            <input type="checkbox" id="day_select03" name="" className="" />
-            <label className="date_bx tue_d" for="day_select03">T</label>
-          </div>
-          <div className="day_input">
-            <input type="checkbox" id="day_select04" name="" className="" />
-            <label className="date_bx wed_d" for="day_select04">W</label>
-          </div>
-          <div className="day_input">
-            <input type="checkbox" id="day_select05" name="" className="" />
-            <label className="date_bx thu_d" for="day_select05">T</label>
-          </div>
-          <div className="day_input">
-            <input type="checkbox" id="day_select06" name="" className="" />
-            <label className="date_bx fri_d" for="day_select06">F</label>
-          </div>
-          <div className="day_input">
-            <input type="checkbox" id="day_select07" name="" className="" />
-            <label className="date_bx sat_d" for="day_select07">S</label>
-          </div>
-        </div>
-      </div>
-      <div className="border-bottom p-6">
         <div className="row locate_avail">
           <div className="col-6">
               <label className="form-label d-block">Choose your location</label>
@@ -179,6 +143,42 @@ export function StaffTiming() {
               <label className="form-label d-block">Availability</label>
               <AvailMultipleSelect />
             </div>
+        </div>
+        <div className="day_select py-6">
+          <div className="d-flex">
+            <label className="staff_title_text">Working Days</label>
+            <Link to="#" className="ml-auto add_setting">+ Additional Settings</Link>
+          </div>
+          <div className="d-flex mt-3">
+            <div className="day_input">
+              <input type="checkbox" id="day_select01" name="" className="" />
+              <label className="date_bx sun_d" for="day_select01">Sun</label>
+            </div>
+            <div className="day_input">
+              <input type="checkbox" id="day_select02" name="" className="" />
+              <label className="date_bx mon_d" for="day_select02">Mon</label>
+            </div>
+            <div className="day_input">
+              <input type="checkbox" id="day_select03" name="" className="" />
+              <label className="date_bx tue_d" for="day_select03">Tue</label>
+            </div>
+            <div className="day_input">
+              <input type="checkbox" id="day_select04" name="" className="" />
+              <label className="date_bx wed_d" for="day_select04">Wed</label>
+            </div>
+            <div className="day_input">
+              <input type="checkbox" id="day_select05" name="" className="" />
+              <label className="date_bx thu_d" for="day_select05">Thu</label>
+            </div>
+            <div className="day_input">
+              <input type="checkbox" id="day_select06" name="" className="" />
+              <label className="date_bx fri_d" for="day_select06">Fri</label>
+            </div>
+            <div className="day_input">
+              <input type="checkbox" id="day_select07" name="" className="" />
+              <label className="date_bx sat_d" for="day_select07">Sat</label>
+            </div>
+          </div>
         </div>
         <div className="text-left  mt-3 pb-2 session_start border-bottom ">
           <div className="session_part row mb-2">
@@ -276,45 +276,14 @@ export function StaffTiming() {
             </div>
           </div>
         </div>
-        <div className="form-group d-flex mt-5">
-            <div className="d-flex">
-              <input type="checkbox" id="formHorizontalCheck" className="mt-1" />
-              <label title="" for="formHorizontalCheck" className="form-check-label ml-2 mr-lg-5 mr-md-5 mr-3 font-size-12">Apply to this week</label>
-            </div>
-            <div className="d-flex">
-              <input type="checkbox" id="formHorizontalCheck1" className="mt-1" />
-              <label title="" for="formHorizontalCheck1" className="form-check-label ml-2 font-size-12">Apply to this month</label>
-            </div>
-        </div>
-        <div className="clearfix">
-        <div className="text-left">
-            <div className="row mt-3">
-              <div className="col-2">
-              </div>
-              <div className="col d-flex">
-                <div className="tm_area text-left flex-fill">
-                  <label className="form-label d-block">Session 1</label>
-                </div>
-                <div className="tm_area text-left flex-fill">
-                  <label className="form-label d-block">Session 2</label>
-                </div>
-              </div>
-            </div>
-            <SelectWeekTime />
-          </div>
-        </div>
+
         <div className="form-group mt-6 mb-0">
           <div className="d-flex justify-content-end patientButton add_timing">
             <button type="button" className="btn btn-primary m-0">+ Add Timings</button>
           </div>
         </div>
       </div>
-      <div className="px-6 py-3 accor_sec">
-        <div className="d-flex clearfix">
-          <label>Location :</label><span>Adayar</span><label>Availability :</label><span>On Call</span>
-        </div>
-        <TimeExpansionPanels />       
-      </div>
+      
 
       <div className="form-group mb-0">
         <div className="d-flex justify-content-end patientButton pos_fix">

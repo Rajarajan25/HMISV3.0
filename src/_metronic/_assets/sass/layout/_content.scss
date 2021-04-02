@@ -1032,11 +1032,15 @@
         position: absolute;
         left: -50px;
         top: 10px;
+		transition: transform .2s cubic-bezier(.785,.135,.15,.86) 0s;
         span{           
             color: #292D34 !important;
         }
 		img {
 			width: 11px;
+		}
+		&:hover {
+			transform: rotate(180deg);
 		}
     }
 }
@@ -3498,6 +3502,34 @@ input.edit_mobile[type=text] {
 	.MuiTypography-colorPrimary {
 		color: #1d6aff;
 	}
+	.MuiPickersTimePickerToolbar-toolbarAmpmLeftPadding {
+		padding: 0;
+	}
+	.MuiToolbar-regular {
+		min-height: 60px;
+	}
+	.MuiPickersToolbar-toolbar {
+		height: auto;
+	}
+	.MuiTypography-h2 {
+		font-size: 2.50rem;
+		font-weight: 500;
+	}
+	.MuiPickersTimePickerToolbar-ampmLabel {
+		font-size: 15px;
+		line-height: 1.5;
+	}
+	.MuiPickersClock-container {
+		margin: 0;
+	}
+	.MuiPickersBasePicker-pickerView {
+		max-width: 300px;
+		min-width: 290px;
+		min-height: 295px;
+	}
+	.MuiTypography-h4 {
+		font-size: 1.5rem;
+	}
 }
 label.staff_title_text {
 	font-size: 1rem;
@@ -3526,18 +3558,23 @@ p.setting_color {
 		.date_bx {
 			cursor: pointer;
 			margin-bottom: 0;
-			margin-right: 30px;
+			margin-right: 25px;
+			width: 45px;
+			height: 45px;
+			line-height: 45px;
+			font-size: 0.9rem;
+			font-weight: 500;
 			transition: background-color 150ms 200ms, transform 350ms cubic-bezier(0.78, -1.22, 0.17, 1.89) !important;
 			&::before {
 				content: inherit;
 			}
 			&:hover {
-				transform: scale(1.25);
+				transform: scale(1.15);
 				box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.5);
 			}
 		}
 		input[type=checkbox]:checked + label.date_bx {
-			transform: scale(1.25);
+			transform: scale(1.15);
 			box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.5);
 			&::before {
 				content: url(/media/auth-screen/date_tick.svg);
@@ -3689,6 +3726,9 @@ p.setting_color {
 		.MuiInputBase-root {
 			border: 0;
 			border-bottom: 1px solid #E9E9E9;
+		}
+		.MuiFormControl-root {
+			margin: 0;
 		}
 	}
 	.add_setting {
