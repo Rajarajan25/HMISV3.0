@@ -44,7 +44,7 @@ export function AsideSearch({ isActive }) {
               <OverlayTrigger
                 placement="left"
                 overlay={
-                  <Tooltip id="quick-search-tooltip">Quick search</Tooltip>
+                  <Tooltip id="quick-search-tooltip" className="tool_bg">Quick search</Tooltip>
                 }
               >
                 <a

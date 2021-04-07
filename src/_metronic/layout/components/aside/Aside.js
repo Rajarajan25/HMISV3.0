@@ -99,7 +99,7 @@ export function Aside() {
                 <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="latest-project">Latest Project</Tooltip>
+                    <Tooltip id="latest-project" className="tool_bg">Latest Project</Tooltip>
                   }
                 >
                   <a
@@ -135,7 +135,7 @@ export function Aside() {
                 <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="metronic-features">Metronic Features</Tooltip>
+                    <Tooltip id="metronic-features" className="tool_bg">Metronic Features</Tooltip>
                   }
                 >
                   <a
@@ -171,7 +171,7 @@ export function Aside() {
                 <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="metronic-features">Metronic Features</Tooltip>
+                    <Tooltip id="metronic-features" className="tool_bg">Metronic Features</Tooltip>
                   }
                 >
                   <a
@@ -214,7 +214,7 @@ export function Aside() {
                 <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="latest-project">Latest Project</Tooltip>
+                    <Tooltip id="latest-project" className="tool_bg">Latest Project</Tooltip>
                   }
                 >
                   <a
@@ -250,7 +250,7 @@ export function Aside() {
                 <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="metronic-features">Metronic Features</Tooltip>
+                    <Tooltip id="metronic-features" className="tool_bg">Metronic Features</Tooltip>
                   }
                 >
                   <a
@@ -286,7 +286,7 @@ export function Aside() {
                 <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="latest-reports">Latest Reports</Tooltip>
+                    <Tooltip id="latest-reports" className="tool_bg">Latest Reports</Tooltip>
                   }
                 >
                   <a
@@ -320,7 +320,7 @@ export function Aside() {
                 <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="latest-reports">Latest Reports</Tooltip>
+                    <Tooltip id="latest-reports" className="tool_bg">Latest Reports</Tooltip>
                   }
                 >
                   <a
@@ -354,7 +354,7 @@ export function Aside() {
                 <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="project-management">
+                    <Tooltip id="project-management" className="tool_bg">
                       Project Management
                     </Tooltip>
                   }
@@ -390,7 +390,7 @@ export function Aside() {
                 <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="user-management">User Management</Tooltip>
+                    <Tooltip id="user-management" className="tool_bg">User Management</Tooltip>
                   }
                 >
                   <a
@@ -423,7 +423,7 @@ export function Aside() {
                 <>
                   <OverlayTrigger
                     placement="right"
-                    overlay={<Tooltip id="toggle-aside">Toggle Aside</Tooltip>}
+                    overlay={<Tooltip id="toggle-aside" className="tool_bg">Toggle Aside</Tooltip>}
                   >
                     <span
                       className="aside-toggle btn btn-icon btn-toggleIcon btn-hover-primary shadow-sm"
@@ -440,7 +440,7 @@ export function Aside() {
             {layoutProps.extrasSearchDisplay && (
               <OverlayTrigger
                 placement="right"
-                overlay={<Tooltip id="toggle-search">Quick Search</Tooltip>}
+                overlay={<Tooltip id="toggle-search" className="tool_bg">Quick Search</Tooltip>}
               >
                 <a
                   href="#"
@@ -462,7 +462,7 @@ export function Aside() {
               <OverlayTrigger
                 placement="right"
                 overlay={
-                  <Tooltip id="toggle-notifications">Notifications</Tooltip>
+                  <Tooltip id="toggle-notifications" className="tool_bg">Notifications</Tooltip>
                 }
               >
                 <a
@@ -488,7 +488,7 @@ export function Aside() {
               <OverlayTrigger
                 placement="right"
                 overlay={
-                  <Tooltip id="toggle-quick-actions">Quick Actions</Tooltip>
+                  <Tooltip id="toggle-quick-actions" className="tool_bg">Quick Actions</Tooltip>
                 }
               >
                 <a
@@ -512,7 +512,7 @@ export function Aside() {
               <OverlayTrigger
                 placement="right"
                 overlay={
-                  <Tooltip id="toggle-quick-actions">Quick Actions</Tooltip>
+                  <Tooltip id="toggle-quick-actions" className="tool_bg">Quick Actions</Tooltip>
                 }
               >
                 <a
@@ -536,7 +536,7 @@ export function Aside() {
               <OverlayTrigger
                 placement="right"
                 overlay={
-                  <Tooltip id="toggle-quick-actions">Quick Actions</Tooltip>
+                  <Tooltip id="toggle-quick-actions" className="tool_bg">Quick Actions</Tooltip>
                 }
               >
                 <a
@@ -560,7 +560,7 @@ export function Aside() {
             {layoutProps.extrasQuickPanelDisplay && (
               <OverlayTrigger
                 placement="right"
-                overlay={<Tooltip id="toggle-quick-panel">Quick Panel</Tooltip>}
+                overlay={<Tooltip id="toggle-quick-panel" className="tool_bg">Quick Panel</Tooltip>}
               >
                 <a
                   href="#"
