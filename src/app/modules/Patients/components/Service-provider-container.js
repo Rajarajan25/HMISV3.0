@@ -4,18 +4,55 @@ import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { Dropdown } from "react-bootstrap";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import {DropdownItemToggler} from "../../../../_metronic/_partials/dropdowns";
+import { makeStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
 
-export class ServiceProviderContainer extends React.Component {
-   constructor(props, context) {
-      super(props, context);
-      this.state = {
-         key: "home"
-      };
-   }
+import { ServiceDetailsTab } from "./service-details-tab";
+const useStyles = makeStyles({
+   list: {
+     width: 650,
+   },
+   fullList: {
+     width: 'auto',
+   },
+ });
+ 
 
-   render() {
+export function ServiceProviderContainer() { 
+   const classes = useStyles();
+   const [state, setState] = React.useState({
+     top: false,
+     left: false,
+     bottom: false,
+     right: false,
+   });
+   const styles = {
+     BackdropProps: {
+       background: 'transparent'
+     }
+   };
+   const toggleDrawer = (side, open) => event => {
+     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+       return;
+     }
+     setState({ ...state, [side]: open });
+   };
+   
+   const toggleDrawerClose = () => {
+     setState(false);
+   };
       return (
          <div className="clearfix">
+            <Drawer className="patientProfileinfo StaffInfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
+               <div className="p-0 overflow-auto">
+                  <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}>
+                     <span className="my-auto font-weight-500">
+                     <img src={toAbsoluteUrl("/media/patients/drawer_close.svg")} alt="" className="d-block" />
+                     </span>
+                  </Link>
+                  <ServiceDetails />
+               </div>
+            </Drawer>
             <div className="contentAreaouter">
                <div className="contentArea Ser_Pro">
                   <div className="topHeadercontent d-flex">
@@ -26,7 +63,7 @@ export class ServiceProviderContainer extends React.Component {
                      </div>
                      <ul className="list-inline w-100 row">
                         <li className="col-lg-5">
-                        <span className="headingHighlight customProfileBG11 text-white">Service Provider<a class="ml-3"><i class="fa fa-pen"></i></a></span>
+                        <span className="headingHighlight customProfileBG11 text-white">Ent<a class="ml-3"><i class="fa fa-pen"></i></a></span>
                         <span className="tasklistCount">1 Staff</span>
                         </li>    
                         <li className="col-lg-2"><span className="title_drag">Service Type</span></li>
@@ -46,7 +83,7 @@ export class ServiceProviderContainer extends React.Component {
                                     <div className="userLogoicon align-content-center">
                                        <Dropdown drop="down" alignCenter className="dropdown h-100">
                                           <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                                                <span className="listprofileIcon" style={{backgroundColor: `#2ecd6f`}}>AK</span>
+                                             <span className="listprofileIcon" style={{backgroundColor: `#2ecd6f`}}>AK</span>
                                           </Dropdown.Toggle>
                                           <Dropdown.Menu  className="dropdown-menu p-0 mt-2 dropdown-menu-md drop_nav">
                                              <ColorDropdownMenu />
@@ -54,7 +91,7 @@ export class ServiceProviderContainer extends React.Component {
                                        </Dropdown>
                                        <div className="">
                                           <div className="d-flex"> 
-                                             <span className="serv_title">Health</span>
+                                             <span className="serv_title"><Link to="#" onClick={toggleDrawer('right', true)}>Health</Link></span>
                                              <Link to="#" className="edit_staff">
                                                 <OverlayTrigger 
                                                    placement="top"
@@ -75,11 +112,11 @@ export class ServiceProviderContainer extends React.Component {
                                     </div>
                                  </li>
                                  <li className="col-lg-2 activeStatuscontent">
-                                    <Dropdown drop="down" alignCenter className="dropdown h-100">
+                                    <Dropdown drop="down" alignCenter className="dropdown h-100 w_130">
                                        <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                                       <span className="d-flex pointer h-100 align-items-center justify-content-center">Public</span>
+                                       <span className="d-flex pointer h-100 align-items-center justify-content-center font_weight_medium">Private</span>
                                        </Dropdown.Toggle>
-                                       <Dropdown.Menu  className="dropdown-menu p-0 mt-1 w-100 drop_nav sx_hover">
+                                       <Dropdown.Menu  className="dropdown-menu p-0 mt-1 drop_nav st_hover">
                                           <STypeDropdownMenu />
                                        </Dropdown.Menu>
                                     </Dropdown>
@@ -89,11 +126,11 @@ export class ServiceProviderContainer extends React.Component {
                                        <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
                                        <div class="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column pointer">
                                           <div class="d-flex mt-1 mb-1 justify-content-center">
-                                             <span className="specialInfo text-white position-relative" style={{backgroundColor: `#E6511B`}}>Acupunture 
-                                             <span className="dropdown_label_remove" style={{backgroundColor: `#E6511B`}}>
-                                                <span className="dropdown_label_remove_icon">x</span>
-                                             </span>
-                                             </span>
+                                             <span className="ProviderIcon" style={{backgroundColor: `#2ecd6f`}}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+                                             <span className="ProviderIcon" style={{backgroundColor: `#1D58FF`}}>GM</span>
+                                             <span className="ProviderIcon" style={{backgroundColor: `#2ecd6f`}}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+                                             <span className="ProviderIcon" style={{backgroundColor: `#2ecd6f`}}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+                                             <span className="ProviderIcon" style={{backgroundColor: `#A2A2A2`}}>+5</span>
                                           </div>
                                        </div>
                                        </Dropdown.Toggle>
@@ -104,7 +141,7 @@ export class ServiceProviderContainer extends React.Component {
                                  </li>
                                  <li className="col-lg-3 my-auto d-flex justify-content-center">
                                     <div className="d-flex border-left pl-8">
-                                       <span className="d-flex align-items-center">Price</span>
+                                       <span className="d-flex align-items-center font-size-13">Price</span>
                                        <Link to="#" className="pay_amt">Rs. 200</Link>
                                     </div>
                                     <div className="avalib">
@@ -145,18 +182,25 @@ export class ServiceProviderContainer extends React.Component {
                               <ul className="list-inline w-100 row">
                                  <li className="col-lg-5 my-auto">
                                     <div className="userLogoicon align-content-center">
-                                       <span className="listprofileIcon" style={{backgroundColor: `#f5f6fa`}}><img src={toAbsoluteUrl("/media/health/heartbeat.svg")} alt="" className="" /></span>
+                                       <Dropdown drop="down" alignCenter className="dropdown h-100">
+                                          <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
+                                             <span className="listprofileIcon" style={{backgroundColor: `#f5f6fa`}}><img src={toAbsoluteUrl("/media/health/heartbeat.svg")} alt="" className="" /></span>
+                                          </Dropdown.Toggle>
+                                          <Dropdown.Menu  className="dropdown-menu p-0 mt-2 dropdown-menu-md drop_nav">
+                                             <ColorDropdownMenu />
+                                          </Dropdown.Menu>
+                                       </Dropdown>
                                        <div className="d-flex">
                                           <input type="text" className="edit_name" name="" id="" placeholder="Anand" />  
                                        </div>
                                     </div>
                                  </li>
                                  <li className="col-lg-2 activeStatuscontent">
-                                    <Dropdown drop="down" alignCenter className="dropdown h-100">
+                                    <Dropdown drop="down" alignCenter className="dropdown h-100 w_130">
                                        <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                                          <span className="d-flex pointer h-100 align-items-center justify-content-center">Private</span>
+                                          <span className="d-flex pointer h-100 align-items-center justify-content-center font_weight_medium">Public</span>
                                        </Dropdown.Toggle>
-                                       <Dropdown.Menu  className="dropdown-menu p-0 mt-1 w-100 drop_nav sx_hover">
+                                       <Dropdown.Menu  className="dropdown-menu p-0 mt-1 w-100 drop_nav st_hover">
                                        <STypeDropdownMenu />
                                        </Dropdown.Menu>
                                     </Dropdown>
@@ -166,11 +210,11 @@ export class ServiceProviderContainer extends React.Component {
                                        <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
                                        <div class="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column pointer">
                                           <div class="d-flex mt-1 mb-1 justify-content-center">
-                                             <span className="specialInfo text-white position-relative" style={{backgroundColor: `#E6511B`}}>Acupunture 
-                                             <span className="dropdown_label_remove" style={{backgroundColor: `#E6511B`}}>
-                                                <span className="dropdown_label_remove_icon">x</span>
-                                             </span>
-                                             </span>
+                                             <span className="ProviderIcon" style={{backgroundColor: `#2ecd6f`}}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+                                             <span className="ProviderIcon" style={{backgroundColor: `#1D58FF`}}>GM</span>
+                                             <span className="ProviderIcon" style={{backgroundColor: `#2ecd6f`}}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+                                             <span className="ProviderIcon" style={{backgroundColor: `#2ecd6f`}}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+                                             <span className="ProviderIcon" style={{backgroundColor: `#A2A2A2`}}>+5</span>
                                           </div>
                                        </div>
                                        </Dropdown.Toggle>
@@ -181,7 +225,7 @@ export class ServiceProviderContainer extends React.Component {
                                  </li>
                                  <li className="col-lg-3 my-auto d-flex justify-content-center">
                                     <div className="d-flex border-left pl-8">
-                                       <span className="d-flex align-items-center">Price</span>
+                                       <span className="d-flex align-items-center font-size-13">Price</span>
                                        <Link to="#" className="pay_amt">Rs. 200</Link>
                                     </div>
                                     <div className="avalib">
@@ -225,306 +269,9 @@ export class ServiceProviderContainer extends React.Component {
                </div>
             </div>
          </div>
-         <div className="containerArea">
-                  <div className="CollapsebleIcon">
-                     <a data-toggle="collapse" data-target="#availabledoctors" class="circlebordercolor textColor11" href=""><i class="fa fa-angle-down"></i></a>
-                  </div>
-                  <div className="TittleCard d-flex">
-                     <ul>
-                        <li>
-                           <span className=" headingHighlight TittleCardColor borderradiuscard text-white">HEALTHY
-                        <a class="ml-3"><i class="fa fa-pen"></i></a>
-                              <a href=""><i class="fa fa-check-square"></i></a>
-                              <a href=""><i class="fa fa-ellipsis-h"></i></a>
-                           </span>
-                        </li>
-                     </ul>
-                  </div>
-                  <div className="card card-custom borderspace InnerOuterSpace">
-                     <div className="d-flex flex-row Health_Box">
-                        <div className="d-flex text-center p-xl-2">
-                           <span className="circleradius">
-                              <img src={toAbsoluteUrl("/media/health/heartbeat.svg")} alt="" className="mx-auto" />
-                           </span>
-                        </div>
-                        <div className="col-5 Pad-Left">
-                           <div className="pt-xl-4">
-                              <div className="d-flex">
-                                 <span className="form-lable font_weight_bold font-size-13 fontname HealthHighlight">
-                                    <label className="borderdashed mb-sm-0">Health</label>
-                                    <Link to="#">
-                                       <img src={toAbsoluteUrl("/media/health/edit.svg")} alt="" className="" /></Link>
-                                 </span>
-                                 <span className="font-size-10 DurationBg Fontcolor pad-ctrl font_weight_medium">Duration: 30 Mins</span>
-                              </div>
-                              <div className="d-flex MT-5">
-                                 <p className="form-control-static font_weight_medium color_b5b5c4 d-flex font-size-12"><img src={toAbsoluteUrl("/media/users/location.svg")} alt="" className="imght" />Perumbakkam, Chennai <span className="LabelText">10 Mins Ago</span></p>
-                              </div>
-                           </div>
-                        </div>
-                        <div className="col-1a pt-xl-2">
-                           <div className="d-flex flex-row text-center">
-                              <label className="font_weight_medium color_b5b5c4 font-size-13 m-xl-auto1">Service Type</label>
-                           </div>
-                           <div className="d-flex flex-row text-center">
-                              <span className="font_weight_medium color_3f4355 font_weight_bold font-size-13 m-xl-auto1 ">Private</span>
-                           </div>
-                        </div>
-                        <div className="col-1b pt-xl-2">
-                           <div className="d-flex flex-row">
-                              <label className="font_weight_medium color_b5b5c4 m-xl-auto1 font-size-13">Providers</label>
-                           </div>
-                           <div class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-xs-center">
-                              <div class="MuiAvatar-root MuiAvatar-circle jss1"><img alt="" src={toAbsoluteUrl("/media/health/healthicon_1.png")} class="MuiAvatar-img" /> </div>
-                              <div className="MuiAvatar-root MuiAvatar-circle jss1"><span className="circleprovideblue font-size-12 text-center pt-xl-2">AK</span></div>
-                              <div class="MuiAvatar-root MuiAvatar-circle jss1"><img alt="" src={toAbsoluteUrl("/media/health/healthicon_3.png")} class="MuiAvatar-img" /> </div>
-                              <div class="MuiAvatar-root MuiAvatar-circle jss1"><img alt="" src={toAbsoluteUrl("/media/health/healthicon_4.png")} class="MuiAvatar-img" /> </div>
-                              <span className="MuiAvatar-root1 MuiAvatar-circle jss1 circleprovideGray"><span className="labelText1  font-size-12">+ 5</span></span>
-                           </div>
-                        </div>
-                        <div className="col-1a pt-xl-2">
-                           <div className="d-flex flex-row">
-                              <label className="font_weight_medium color_b5b5c4 m-xl-auto1 font-size-13">Experience</label>
-                           </div>
-                           <div className="d-flex flex-row">
-                              <span className="font_weight_medium color_3f4355 font_weight_bold m-xl-auto1 font-size-13">10Years</span>
-                           </div>
-                        </div>
-                        <div className="col-1a m-xl-4 borderLeft">
-                           <div className="d-flex flex-row pl-xl-5 pt-xl-1">
-                              <span className="font_weight_medium color_b5b5c4 font-size-11 pt-xl-3 pl-xl-7">Price</span>
-                              <span className="font_weight_medium color_3f4355 font_weight_bold font-size-11 PriceStyle  text-center MLspace TxtcolorWhite mt-xl-2">Rs.200</span>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div className="card card-custom borderspace InnerOuterSpace">
-                     <div className="d-flex flex-row Health_Box ">
-                        <div className="d-flex text-center p-xl-2">
-                           <span className="circleradiusBlue">
-                              <label className="circle-text-white font-size-13">AK</label>
-                           </span>
-                        </div>
-                        <div className="col-5 Pad-Left">
-                           <div className="pt-xl-4">
-                              <div className="d-flex">
-                                 <span className="form-lable font_weight_bold font-size-13 fontname HealthHighlight">
-                                    <label className="borderdashed mb-sm-0">Health</label>
-                                    <Link to="#">
-                                       <img src={toAbsoluteUrl("/media/health/edit.svg")} alt="" className="" /></Link>
-                                 </span>
-                                 <span className="font-size-10 DurationBg Fontcolor pad-ctrl font_weight_medium">Duration: 30 Mins</span>
-                              </div>
-                              <div className="d-flex MT-5">
-                                 <p className="form-control-static font_weight_medium color_b5b5c4 d-flex font-size-12"><img src={toAbsoluteUrl("/media/users/location.svg")} alt="" className="imght" />Perumbakkam, Chennai <span className="LabelText">10 Mins Ago</span></p>
-                              </div>
-                           </div>
-                        </div>
-                        <div className="col-1a pt-xl-2">
-                           <div className="d-flex flex-row text-center">
-                              <label className="font_weight_medium color_b5b5c4 font-size-13 m-xl-auto1">Service Type</label>
-                           </div>
-                           <div className="d-flex flex-row text-center">
-                              <span className="font_weight_medium color_3f4355 font_weight_bold font-size-13 m-xl-auto1 ">Private</span>
-                           </div>
-                        </div>
-                        <div className="col-1b pt-xl-2">
-                           <div className="d-flex flex-row">
-                              <label className="font_weight_medium color_b5b5c4 m-xl-auto1 font-size-13">Providers</label>
-                           </div>
-                           <div class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-xs-center">
-                              <div className="MuiAvatar-root MuiAvatar-circle jss1"><span className="circleprovideGreen font-size-12 text-center pt-xl-2">S</span></div>
-                              <div class="MuiAvatar-root MuiAvatar-circle jss1"><img alt="" src={toAbsoluteUrl("/media/health/healthicon_4.png")} class="MuiAvatar-img" /> </div>
-                           </div>
-                        </div>
-                        <div className="col-1a pt-xl-2">
-                           <div className="d-flex flex-row">
-                              <label className="font_weight_medium color_b5b5c4 m-xl-auto1 font-size-13">Experience</label>
-                           </div>
-                           <div className="d-flex flex-row">
-                              <span className="font_weight_medium color_3f4355 font_weight_bold m-xl-auto1 font-size-13">10Years</span>
-                           </div>
-                        </div>
-                        <div className="col-1a m-xl-4 borderLeft">
-                           <div className="d-flex flex-row pl-xl-5 pt-xl-1">
-                              <span className="font_weight_medium color_b5b5c4 font-size-11 pt-xl-3 pl-xl-7">Price</span>
-                              <span className="font_weight_medium color_3f4355 font_weight_bold font-size-11 PriceStyle  text-center MLspace TxtcolorWhite mt-xl-2">Rs.200</span>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div className="card card-custom borderspace InnerOuterSpace">
-                     <div className="d-flex flex-row Health_Box ">
-                        <div className="d-flex text-center p-xl-2">
-                           <span className="circleradiusGreen circle-text-white">
-                              <label className="circle-text-align font-size-15 ml-xl-auto">S</label>
-                           </span>
-                        </div>
-                        <div className="col-5 Pad-Left">
-                           <div className="pt-xl-4">
-                              <div className="d-flex">
-                                 <span className="form-lable font_weight_bold font-size-13 fontname HealthHighlight">
-                                    <label className="borderdashed mb-sm-0">Health</label>
-                                    <Link to="#">
-                                       <img src={toAbsoluteUrl("/media/health/edit.svg")} alt="" className="" /></Link>
-                                 </span>
-                                 <span className="font-size-10 DurationBg Fontcolor pad-ctrl font_weight_medium">Duration: 30 Mins</span>
-                              </div>
-                              <div className="d-flex MT-5">
-                                 <p className="form-control-static font_weight_medium color_b5b5c4 d-flex font-size-12"><img src={toAbsoluteUrl("/media/users/location.svg")} alt="" className="imght" />Perumbakkam, Chennai <span className="LabelText">10 Mins Ago</span></p>
-                              </div>
-                           </div>
-                        </div>
-                        <div className="col-1a pt-xl-2">
-                           <div className="d-flex flex-row">
-                              <label className="font_weight_medium color_b5b5c4 font-size-13 m-xl-auto1">Service Type</label>
-                           </div>
-                           <div className="d-flex flex-row">
-                              <span className="font_weight_medium color_3f4355 font_weight_bold font-size-13 m-xl-auto1">Private</span>
-                           </div>
-                        </div>
-                        <div className="col-1b pt-xl-2">
-                           <div className="d-flex flex-row">
-                              <label className="font_weight_medium color_b5b5c4 m-xl-auto1 font-size-13">Providers</label>
-                           </div>
-                           <div class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-xs-center">
-                              <div class="MuiAvatar-root MuiAvatar-circle jss1"><img alt="" src={toAbsoluteUrl("/media/health/healthicon_1.png")} class="MuiAvatar-img" /> </div>
-                              <div class="MuiAvatar-root MuiAvatar-circle jss1"><img alt="" src={toAbsoluteUrl("/media/health/usericon.png")} class="MuiAvatar-img" /> </div>
-                           </div>
-                        </div>
-                        <div className="col-1a pt-xl-2">
-                           <div className="d-flex flex-row">
-                              <label className="font_weight_medium color_b5b5c4 m-xl-auto1 font-size-13">Experience</label>
-                           </div>
-                           <div className="d-flex flex-row">
-                              <span className="font_weight_medium color_3f4355 font_weight_bold m-xl-auto1 font-size-13">10Years</span>
-                           </div>
-                        </div>
-                        <div className="col-1a m-xl-4 borderLeft">
-                           <div className="d-flex flex-row pl-xl-5 pt-xl-1">
-                              <span className="font_weight_medium color_b5b5c4 font-size-11 pt-xl-3 pl-xl-7">Price</span>
-                              <span className="font_weight_medium color_3f4355 font_weight_bold font-size-11 PriceStyle  text-center MLspace TxtcolorWhite mt-xl-2">Rs.200</span>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div className="card card-custom borderspace InnerOuterSpace">
-                     <div className="d-flex flex-row Health_Box ">
-                        <div className="d-flex text-center p-xl-2">
-                           <span className="circleradiusPurple circle-text-white">
-                              <label className="circle-text-align font-size-15 ml-xl-auto">JP</label>
-                           </span>
-                        </div>
-                        <div className="col-5 Pad-Left">
-                           <div className="pt-xl-4">
-                              <div className="d-flex">
-                                 <span className="form-lable font_weight_bold font-size-13 fontname HealthHighlight">
-                                    <label className="borderdashed mb-sm-0">Health</label>
-                                    <Link to="#">
-                                       <img src={toAbsoluteUrl("/media/health/edit.svg")} alt="" className="" /></Link>
-                                 </span>
-                                 <span className="font-size-10 DurationBg Fontcolor pad-ctrl font_weight_medium">Duration: 30 Mins</span>
-                              </div>
-                              <div className="d-flex MT-5">
-                                 <p className="form-control-static font_weight_medium color_b5b5c4 d-flex font-size-12"><img src={toAbsoluteUrl("/media/users/location.svg")} alt="" className="imght" />Perumbakkam, Chennai <span className="LabelText">10 Mins Ago</span></p>
-                              </div>
-                           </div>
-                        </div>
-                        <div className="col-1a pt-xl-2">
-                           <div className="d-flex flex-row">
-                              <label className="font_weight_medium color_b5b5c4 font-size-13 m-xl-auto1">Service Type</label>
-                           </div>
-                           <div className="d-flex flex-row">
-                              <span className="font_weight_medium color_3f4355 font_weight_bold font-size-13 m-xl-auto1">Private</span>
-                           </div>
-                        </div>
-                        <div className="col-1b pt-xl-2">
-                           <div className="d-flex flex-row">
-                              <label className="font_weight_medium color_b5b5c4 m-xl-auto1 font-size-13">Providers</label>
-                           </div>
-                           <div class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-xs-center">
-                              <div class="MuiAvatar-root MuiAvatar-circle jss1"><img alt="" src={toAbsoluteUrl("/media/health/healthicon_1.png")} class="MuiAvatar-img" /> </div>
-                              <div class="MuiAvatar-root MuiAvatar-circle jss1"><img alt="" src={toAbsoluteUrl("/media/health/healthicon_3.png")} class="MuiAvatar-img" /> </div>
-                              <span className="MuiAvatar-root1 MuiAvatar-circle jss1 circleprovideGray"><span className="labelText1  font-size-12">+ 2</span></span>
-                           </div>
-                        </div>
-                        <div className="col-1a pt-xl-2">
-                           <div className="d-flex flex-row">
-                              <label className="font_weight_medium color_b5b5c4 m-xl-auto1 font-size-13">Experience</label>
-                           </div>
-                           <div className="d-flex flex-row">
-                              <span className="font_weight_medium color_3f4355 font_weight_bold m-xl-auto1 font-size-13">10Years</span>
-                           </div>
-                        </div>
-                        <div className="col-1a m-xl-4 borderLeft">
-                           <div className="d-flex flex-row pl-xl-5 pt-xl-1">
-                              <span className="font_weight_medium color_b5b5c4 font-size-11 pt-xl-3 pl-xl-7">Price</span>
-                              <span className="font_weight_medium color_3f4355 font_weight_bold font-size-11 PriceStyle  text-center MLspace TxtcolorWhite mt-xl-2">Rs.200</span>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div className="card card-custom borderspace InnerOuterSpace">
-                     <div className="d-flex flex-row Health_Box ">
-                        <div className="d-flex text-center p-xl-2">
-                           <span className="circleradius">
-                              <img src={toAbsoluteUrl("/media/health/home.svg")} alt="" className="mx-auto" />
-                           </span>
-                        </div>
-                        <div className="col-5 Pad-Left">
-                           <div className="pt-xl-4">
-                              <div className="d-flex">
-                                 <span className="form-lable font_weight_bold font-size-13 fontname HealthHighlight">
-                                    <label className="borderdashed mb-sm-0">Health</label>
-                                    <Link to="#">
-                                       <img src={toAbsoluteUrl("/media/health/edit.svg")} alt="" className="" /></Link>
-                                 </span>
-                                 <span className="font-size-10 DurationBg Fontcolor pad-ctrl font_weight_medium">Duration: 30 Mins</span>
-                              </div>
-                              <div className="d-flex MT-5">
-                                 <p className="form-control-static font_weight_medium color_b5b5c4 d-flex font-size-12"><img src={toAbsoluteUrl("/media/users/location.svg")} alt="" className="imght" />Perumbakkam, Chennai <span className="LabelText">10 Mins Ago</span></p>
-                              </div>
-                           </div>
-                        </div>
-                        <div className="col-1a pt-xl-2">
-                           <div className="d-flex flex-row">
-                              <label className="font_weight_medium color_b5b5c4 font-size-13 m-xl-auto1">Service Type</label>
-                           </div>
-                           <div className="d-flex flex-row">
-                              <span className="font_weight_medium color_3f4355 font_weight_bold font-size-13 m-xl-auto1">Private</span>
-                           </div>
-                        </div>
-                        <div className="col-1b pt-xl-2">
-                           <div className="d-flex flex-row">
-                              <label className="font_weight_medium color_b5b5c4 m-xl-auto1 font-size-13">Providers</label>
-                           </div>
-                           <div class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-xs-center">
-                              <div class="MuiAvatar-root MuiAvatar-circle jss1"><img alt="" src={toAbsoluteUrl("/media/health/healthicon_4.png")} class="MuiAvatar-img" /> </div>
-                           </div>
-                        </div>
-                        <div className="col-1a pt-xl-2">
-                           <div className="d-flex flex-row">
-                              <label className="font_weight_medium color_b5b5c4 m-xl-auto1 font-size-13">Experience</label>
-                           </div>
-                           <div className="d-flex flex-row">
-                              <span className="font_weight_medium color_3f4355 font_weight_bold m-xl-auto1 font-size-13">10Years</span>
-                           </div>
-                        </div>
-                        <div className="col-1a m-xl-4 borderLeft">
-                           <div className="d-flex flex-row pl-xl-5 pt-xl-1">
-                              <span className="font_weight_medium color_b5b5c4 font-size-11 pt-xl-3 pl-xl-7">Price</span>
-                              <span className="font_weight_medium color_3f4355 font_weight_bold font-size-11 PriceStyle  text-center MLspace TxtcolorWhite mt-xl-2">Rs.200</span>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
       </div>
       );
-   }
 }
-
-export default ServiceProviderContainer;
 
 
 export function ColorDropdownMenu() {
@@ -730,65 +477,45 @@ export function ColorDropdownMenu() {
  export function ProviderDropdownMenu() {
    return <>
        {/*begin::Navigation*/}
-       <ul className="navi navi-hover">
-           <li className="navi-item">
-             <div className="service_select p-4">
-               <div class="d-inline-flex justify-content-center">
-                 <span className="specialInfo text-white position-relative" style={{backgroundColor: `#E6511B`}}>Acupunture 
-                   <span className="dropdown_label_remove" style={{backgroundColor: `#E6511B`}}>
-                     <span className="dropdown_label_remove_icon">x</span>
-                   </span>
-                 </span>
+         <ul className="navi navi-hover">
+            <li className="navi-item">
+               <div className="service_search position-relative">
+                  <img src={toAbsoluteUrl("/media/patients/drop_search.svg")} alt="search" className="drop_search" />
+                  <input type="text" placeholder="Search" className="form-control" />
                </div>
-               <div class="d-inline-flex justify-content-center">
-                 <span className="specialInfo text-white position-relative" style={{backgroundColor: `#FD7FAB`}}>Dental 
-                   <span className="dropdown_label_remove" style={{backgroundColor: `#FD7FAB`}}>
-                     <span className="dropdown_label_remove_icon">x</span>
-                   </span>
-                 </span>
+            </li>
+            <li className="navi-item">
+               <div className="dropdown-menu-search-main">
+                  <div className="service_select">
+                     <div class="d-flex justify-content-left py-1">
+                        <span className="specialInfo text-white position-relative" style={{backgroundColor: `rgba(230, 81, 27,0.1)`}}>
+                           <span className="ProviderIcon" style={{backgroundColor: `#2ecd6f`}}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+                           <span className="ProviderName" style={{color: `rgba(230, 81, 27,1)`}}>Gopinath</span> 
+                        </span>
+                     </div>
+                     <div class="d-flex justify-content-left py-1">
+                        <span className="specialInfo text-white position-relative" style={{backgroundColor: `rgba(10, 49, 232,0.1)`}}>
+                           <span className="ProviderIcon" style={{backgroundColor: `#2ecd6f`}}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+                           <span className="ProviderName" style={{color: `rgba(10, 49, 232,1)`}}>Mani</span> 
+                        </span>
+                     </div>
+                     <div class="d-flex justify-content-left py-1">
+                        <span className="specialInfo text-white position-relative" style={{backgroundColor: `rgba(29, 188, 156,0.1)`}}>
+                           <span className="ProviderIcon" style={{backgroundColor: `#2ecd6f`}}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+                           <span className="ProviderName" style={{color: `rgba(29, 188, 156,1)`}}>Sankar</span> 
+                        </span>
+                     </div>
+                     <div class="d-flex justify-content-left py-1">
+                        <span className="specialInfo text-white position-relative" style={{backgroundColor: `rgba(234, 128, 252,0.1)`}}>
+                           <span className="ProviderIcon" style={{backgroundColor: `#2ecd6f`}}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+                           <span className="ProviderName" style={{color: `rgba(234, 128, 252,1)`}}>Kavinesh</span> 
+                        </span>
+                     </div>
+                  </div>
                </div>
-               <div class="d-inline-flex justify-content-center">
-                 <span className="specialInfo text-white position-relative" style={{backgroundColor: `#EA80FC`}}>Skin Care 
-                   <span className="dropdown_label_remove" style={{backgroundColor: `#EA80FC`}}>
-                     <span className="dropdown_label_remove_icon">x</span>
-                   </span>
-                 </span>
-               </div>
-               <div class="d-inline-flex justify-content-center">
-                 <span className="specialInfo text-white position-relative" style={{backgroundColor: `#1DBC9C`}}>Ambien 
-                   <span className="dropdown_label_remove" style={{backgroundColor: `#1DBC9C`}}>
-                     <span className="dropdown_label_remove_icon">x</span>
-                   </span>
-                 </span>
-               </div>
-             </div>
-             <div className="service_search position-relative">
-               <img src={toAbsoluteUrl("/media/patients/drop_search.svg")} alt="search" className="drop_search" />
-               <input type="text" placeholder="Search" className="form-control" />
-             </div>
-           </li>
-           <li className="navi-item">
-             <div className="dropdown-menu-search-main">
-               <div class="dropdown-menu-search-title">Relevant</div>
-               <div className="service_select">
-                 <div class="d-flex justify-content-left py-1">
-                   <span className="specialInfo text-white position-relative" style={{backgroundColor: `#E6511B`}}>Acupunture</span>
-                 </div>
-                 <div class="d-flex justify-content-left py-1">
-                   <span className="specialInfo text-white position-relative" style={{backgroundColor: `#FD7FAB`}}>Dental</span>
-                 </div>
-                 <div class="d-flex justify-content-left py-1">
-                   <span className="specialInfo text-white position-relative" style={{backgroundColor: `#EA80FC`}}>Skin Care</span>
-                 </div>
-                 <div class="d-flex justify-content-left py-1">
-                   <span className="specialInfo text-white position-relative" style={{backgroundColor: `#1DBC9C`}}>Ambien</span>
-                 </div>
-               </div>
-             </div>
-           </li>
-       </ul>
-       {/*end::Navigation*/}
- 
+            </li>
+         </ul>
+      {/*end::Navigation*/}
    </>
  }
  
@@ -812,5 +539,15 @@ export function ColorDropdownMenu() {
        {/*end::Navigation*/}
  
    </>
+ }
+
+
+ export function ServiceDetails() {
+   const classes = useStyles();
+   return (
+     <div className="staff_detail">
+       <ServiceDetailsTab />
+     </div>
+   );
  }
 
