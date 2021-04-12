@@ -1,10 +1,32 @@
-
+import {gql,useQuery} from "@apollo/client"; 
 import React from 'react';
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { Link } from "react-router-dom";
-
+const GET_USER = gql`
+{
+  getUser{
+    email
+    _id
+    first_name
+    last_name
+    user_name
+    mobile_number
+    url_referrer
+  }
+} 
+  `;
 
 export default function RegistrationConfirmation() {
+  const {data} =useQuery(GET_USER)
+  let user_id=localStorage.getItem("UserId");
+  let currentUser=[];
+  if(data!=undefined)
+  {
+    currentUser= data.getUser.find(user => user._id === user_id);
+  }
+  const handleClick=()=>{
+    window.location.href="/auth/registration";
+  }
   return (
     <div className="d-flex justify-content-center flex-column col-xl-8 col-lg-11 wid col">
       
@@ -85,11 +107,11 @@ export default function RegistrationConfirmation() {
             <div class="loginRightimg col-lg-10 col-xl-9 ml-xl-18 ml-lg-10 ml-0">
             <img src="/media/auth-screen/welcome_img.svg" className="d-block d-xl-none d-lg-none d-md-none wlcme mw-100" alt="" />
               <div className="text-left mb-6">
-                <h1 className="h1 color_3F4772 font-weight-600 d-flex my-auto"><span className="my-auto">Welcome, Saga</span> <img src="/media/auth-screen/clapping.svg" alt="clap" className="ml-3" /> <img src="/media/auth-screen/clapping.svg" alt="clap" className="ml-3" /></h1>      
+                <h1 className="h1 color_3F4772 font-weight-600 d-flex my-auto"><span className="my-auto">Welcome, {currentUser.first_name}</span> <img src="/media/auth-screen/clapping.svg" alt="clap" className="ml-3" /> <img src="/media/auth-screen/clapping.svg" alt="clap" className="ml-3" /></h1>      
                 <p className="font-size-18 wl_txt mt-10">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
               </div>
               <div className="form-group flex-wrap flex-center">
-                <button type="submit" className="btn btn-primary sign-btn h-77 font-weight-500 mt-6">
+                <button type="button" className="btn btn-primary sign-btn h-77 font-weight-500 mt-6" onClick={handleClick}>
                   <span>Let’s Start</span>
                 </button>
               </div>

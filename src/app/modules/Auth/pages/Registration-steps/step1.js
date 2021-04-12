@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { useFormik } from "formik";
 import { connect } from "react-redux";
 import * as Yup from "yup";
@@ -10,7 +10,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
 import Input from '@material-ui/core/Input';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -18,14 +17,101 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormLabel from '@material-ui/core/FormLabel';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
+import countryList from 'react-select-country-list'
+import Select from 'react-select';
 import StepLabel from '@material-ui/core/StepLabel';
-
+import { Formik, Field } from 'formik';
+import { gql, useQuery, useMutation } from "@apollo/client";
+import { BusinessContext } from '../BusinessContext';
+import {StaffContext } from '../StaffContext';
+import LocationSearchInput from './LocationSearchInput';
+const ADD_BUSINESS = gql`
+  mutation addBusiness($business: BusinessInput) {
+    addBusiness(business: $business)  {
+      sub_category_ids
+      phone_no
+    name
+    acceptTerms
+   billingAddress
+   size
+   type
+   phone_country
+   phone_no
+   _id
+    parent_category_ids
+    timezone
+    applyWeek
+    street
+    city
+    state
+    zip_code
+    applyMonth
+    timings{
+      timing{
+        start_time
+        end_time
+      }
+    }
+    }
+  }
+`;
+const GET_BUSINESS = gql`{
+  getBusiness{
+    sub_category_ids
+    phone_no
+  name
+ billingAddress
+ size
+ type
+ phone_country
+ phone_no
+ _id
+  parent_category_ids
+  timezone
+  applyWeek
+  applyMonth
+  acceptTerms
+  timings{
+    timing{
+      start_time
+      end_time
+    }
+  }
+  }
+}`;
+const UPDATE_BUSINESS = gql`
+mutation updateBusiness($businessID: ID!,$business: BusinessInput) {
+  updateBusiness(businessID:$businessID,business: $business)  {
+    sub_category_ids
+    phone_no
+  name
+ billingAddress
+ size
+ type
+ phone_country
+ phone_no
+ _id
+  parent_category_ids
+  acceptTerms
+  timezone
+  applyWeek
+  applyMonth
+  timings{
+    timing{
+      start_time
+      end_time
+    }
+  }
+  }
+}
+`;
 const initialValues = {
   fullname: "",
   email: "",
   username: "",
   password: "",
   changepassword: "",
+
   acceptTerms: false,
 };
 
@@ -41,12 +127,21 @@ const useStyles = makeStyles(theme => ({
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
+  group: {
+    margin: theme.spacing(1, 0),
+  },
 }));
 
 
 function Registration(props) {
+  const [business, setBusiness] = React.useContext(BusinessContext)
+  const classes = useStyles();
+  let business_id = localStorage.getItem("Business_id")
+
   const { intl } = props;
   const [loading, setLoading] = useState(false);
+
+
   const RegistrationSchema = Yup.object().shape({
     fullname: Yup.string()
       .min(3, "Minimum 3 symbols")
@@ -95,7 +190,7 @@ function Registration(props) {
         ),
       }),
     acceptTerms: Yup.bool().required(
-      "You must accept the terms and conditions"
+      "You must acceptTerms the terms and conditions"
     ),
   });
 
@@ -118,7 +213,76 @@ function Registration(props) {
 
     return "";
   };
+  const { handleNext } = props;
+  const [addBusiness] = useMutation(ADD_BUSINESS)
+  const [updateBusiness] = useMutation(UPDATE_BUSINESS);
+  const { data } = useQuery(GET_BUSINESS);
+  let currentBusiness = business.currentBusiness;
 
+
+  // if(data!=undefined)
+  // {
+  //   currentBusiness= data.getBusiness.find(user => user._id === business_id);
+  // }
+  const business_size_options = [
+    { value: 100, label: 100 },
+    { value: 200, label: 200 },
+    { value: 400, label: 400 },
+
+  ];
+  const business_type_options = [
+    { value: 'HO', label: 'Head Office' },
+    { value: 'Branch1', label: 'Branch1' },
+    { value: 'Branch2', label: 'Branch2' },
+
+  ];
+  const handleChange = (values) => {
+    let site_id = localStorage.getItem("site_id");
+    let addbusiness = addBusiness({
+      variables: {
+        business: {
+          type: values.type, name: values.name, site_id: site_id,
+          size: values.size, phone_no: values.phone_no, billingAddress: values.billingAddress, phone_country: values.phone_country,acceptTerms: values.acceptTerms,
+          street:values.street,state:values.state,city:values.city,zip_code:values.zip_code
+        }
+      }
+    })
+      .then(res => {
+        console.log(res.data.addBusiness);
+        let business_id = res.data.addBusiness._id
+        localStorage.setItem("Business_id", business_id)
+        setBusiness({
+          type: "SET_CURRENT_BUSINESS",
+          payload: values
+        });
+
+        // onStaffAdd(res.data.addSite);
+      })
+  }
+  const handleChangess = (values) => {
+    //let site_id=localStorage.getItem("site_id");
+    let update_Business = updateBusiness({
+      variables: {
+        businessID: business_id,
+        business: {
+          type: values.type, name: values.name,
+          size: values.size, phone_no: values.phone_no, billingAddress: values.billingAddress, phone_country: values.phone_country,acceptTerms: values.acceptTerms
+        }
+      }
+    })
+      .then(res => {
+        console.log(res.data.updateBusiness);
+        // let business_id=res.data.updateBusiness._id
+        // localStorage.setItem("Business_id",business_id)
+        setBusiness({
+          type: "SET_CURRENT_BUSINESS",
+          payload: res.data.updateBusiness
+        });
+
+        // onStaffAdd(res.data.addSite);
+      })
+  }
+  console.log(business.currentBusiness)
   const formik = useFormik({
     initialValues,
     validationSchema: RegistrationSchema,
@@ -142,202 +306,531 @@ function Registration(props) {
         });
     },
   });
-  return (
-    <>
-    <div className="text-left mb-5">
-        <h1 className="h2 mb-3 color_3F4772 text-capitalize font-weight-600">Business Info:</h1>      
-      </div>
-      <div className="business_info">
-          <form
-            id="kt_login_signin_form"
-            className="form fv-plugins-bootstrap fv-plugins-framework animated animate__animated animate__backInUp"
-            onSubmit={formik.handleSubmit}
-          >
-            {/* begin: Alert */}
-            {formik.status && (
-              <div className="mb-10 alert alert-custom alert-light-danger alert-dismissible">
-                <div className="alert-text font-weight-bold">{formik.status}</div>
-              </div>
-            )}
-            {/* end: Alert */}
-            <div className="mb-2">
-              <h2 className="d-block h4 mb-1">Choose your business type?</h2>
-              <div className="per_busi">
-                    <GenderGroup />
-              </div>
+  const options = useMemo(() => countryList().getData(), [])
+  const [value, setValue] = React.useState("business");
+  function handleChanges(event) {
+    setValue(event.target.value);
+
+  }
+  if (localStorage.getItem("BackFlag") === "Y") {
+    {
+      if (currentBusiness) {
+        return (
+          <>
+            <div className="text-left mb-5">
+              <h1 className="h2 mb-3 color_3F4772 text-capitalize font-weight-600">Business Info:</h1>
             </div>
-            {/* begin: Fullname */}
-            <div className="form-group fv-plugins-icon-container d-flex">
-              <div className="info_img">
-                <img src="/media/auth-screen/identity_icon.svg" className="m-auto mw-100" alt="" />
-              </div>
-              <div className="col">
-                <label className="form-label d-block" for="exampleForm.ControlInput1">Business Name</label>
-                <input
-                    placeholder="Business Name"
-                    type="text"
-                    className={`form-control py-5 px-6 ${getInputClasses(
-                      "fullname"
-                    )}`}
-                    name="fullname"
-                    {...formik.getFieldProps("fullname")}
-                />
-                  {formik.touched.fullname && formik.errors.fullname ? (
-                    <div className="fv-plugins-message-container">
-                      <div className="fv-help-block">{formik.errors.fullname}</div>
-                    </div>
-                  ) : null}
-                </div>
-            </div>
-            {/* end: Fullname */}
+            <div className="business_info">
+              <Formik
+                initialValues={currentBusiness}
+                enableReinitialize
+                onSubmit={(values, { setSubmitting }) => {
+                  // alert(JSON.stringify(values, null, 2))
+                  values.billingAddress=localStorage.getItem("Address")
+                  values.state=localStorage.getItem("state")
+                  values.city=localStorage.getItem("city")
+                  values.zip_code=localStorage.getItem("zipcode")
+                  values.street=localStorage.getItem("street")
+                  handleChangess(values);
 
-            
-            {/* begin: Fullname */}
-            <div className="form-group fv-plugins-icon-container d-flex">
-              <div className="info_img">
-                <img src="/media/auth-screen/location_icon.svg" className="m-auto mw-100" alt="" />
-              </div>
-              <div className="col">
-                <label class="form-label  d-block" for="exampleForm.ControlInput1">Your Business Address</label>
-                  <input
-                    placeholder="Your Business Address"
-                    type="text"
-                    className={`form-control py-5 px-6 ${getInputClasses(
-                      "fullname"
-                    )}`}
-                    name="fullname"
-                    {...formik.getFieldProps("fullname")}
-                  />
-                  {formik.touched.fullname && formik.errors.fullname ? (
-                    <div className="fv-plugins-message-container">
-                      <div className="fv-help-block">{formik.errors.fullname}</div>
-                    </div>
-                  ) : null}
-                </div>
-            </div>
-            {/* end: Fullname */}
+                  handleNext()
 
-            <div className="d-flex fv-plugins-icon-container">
-            <div className="form-group col-6 p-0 d-flex coun_cde">
-              <div className="info_img">
-                <img src="/media/auth-screen/feedback_icon.svg" className="m-auto mw-100" alt="" />
-              </div>
-                  <div className="col">
-                  <label class="form-label d-block" for="exampleForm.ControlInput1">Business size</label>
-                  <BusinessSize />
-                  </div>
-              </div>
-              <div className="form-group col-6 d-flex coun_cde">
-                <div className="info_img">
-                  <img src="/media/auth-screen/branch_icon.svg" className="m-auto mw-100" alt="" />
-                </div>
-                <div className="col pr-0">
-                  <label class="form-label d-block" for="exampleForm.ControlInput1">Type</label>
-                  <BusinessType />
-                </div>
-              </div>
-
-          
-            </div>
-            
-            <div className="d-flex fv-plugins-icon-container">
-              <div className="form-group col-6 p-0 d-flex coun_cde">
-                <div className="info_img">
-                  <img src="/media/auth-screen/phone_icon.svg" className="m-auto mw-100" alt="" />
-                </div>
-                <div className="col">
-                    <label class="form-label d-block" for="exampleForm.ControlInput1">Country code</label>
-                    <CountryCode />
-                </div>
-              </div>
-              <div className="form-group col-6">
-                  <label class="form-label d-block" for="exampleForm.ControlInput1">Phone No</label>
-                  <input
-                    placeholder="Phone"
-                    type="text"
-                    className={`form-control py-5 px-6 ${getInputClasses(
-                      "username"
-                    )}`}
-                    name="username"
-                    {...formik.getFieldProps("username")}
-                  />
-                {formik.touched.username && formik.errors.username ? (
-                  <div className="fv-plugins-message-container">
-                    <div className="fv-help-block">{formik.errors.username}</div>
-                </div>
-                ) : null}
-              </div>
-
-          
-            </div>
-     
-
-            {/* begin: Terms and Conditions */}
-            <div className="form-group d-flex ch-bx">
-              <label className="checkbox mr-auto">
-                <input
-                  type="checkbox"
-                  name="acceptTerms"
-                  className="m-1"
-                  {...formik.getFieldProps("acceptTerms")}
-                />
-                <span />
-                <Link
-                  to="javascript:void(0);"
-                  target="_blank"
-                  className="mr-1 terms_c"
-                  rel="noopener noreferrer"
-                >
-                  Show my phone number & address to my clients
-                </Link>
-                
-              </label>
-              {formik.touched.acceptTerms && formik.errors.acceptTerms ? (
-                <div className="fv-plugins-message-container">
-                  <div className="fv-help-block">{formik.errors.acceptTerms}</div>
-                </div>
-              ) : null}
-
-                <div className="plus_sym">
-                  <img src="/media/auth-screen/plus_sym.svg" className="m-auto mw-100" alt="" />
-                </div> 
-
-            </div>
-            {/* end: Terms and Conditions */}
-            <div className="form-group d-none flex-wrap flex-center">
-              <button
-                type="submit"
-                disabled={
-                  formik.isSubmitting ||
-                  !formik.isValid ||
-                  !formik.values.acceptTerms
-                }
-                className="btn btn-primary h-77 font-weight-bold px-9 py-4 my-3 mx-4"
+                }}
               >
-                <span>Submit</span>
-                {loading && <span className="ml-3 spinner spinner-white"></span>}
-              </button>
+                {({
+                  values,
+                  errors,
+                  touched,
+                  handleChange,
+                  handleBlur,
+                  handleSubmit,
+                  isSubmitting,
+                }) => (
 
-              <Link to="/auth/login">
-                <button
-                  type="button"
-                  className="btn btn-light-primary h-77 font-weight-bold px-9 py-4 my-3 mx-4"
-                >
-                  Cancel
-                </button>
-              </Link>
+                  <form className="form fv-plugins-bootstrap fv-plugins-framework" onSubmit={handleSubmit}>
+
+                    <div className="mb-2">
+                      <h2 className="d-block h4 mb-1">Choose your business type?</h2>
+                      <div className="per_busi">
+                        <FormControl component="fieldset" className={classes.formControl}>
+                          <FormLabel component="legend">Business Type</FormLabel>
+                          <RadioGroup
+                            aria-label="Gender"
+                            className={classes.group}
+                            value={value}
+                            onChange={handleChanges}
+                          >
+
+
+                            <FormControlLabel value="personal" control={<Radio />} label="Personal" />
+                            <FormControlLabel value="business" control={<Radio />} label="Business" />
+                          </RadioGroup>
+
+                        </FormControl>
+                      </div>
+                    </div>
+
+                    <div className="form-group fv-plugins-icon-container d-flex " >
+                      <div className={value === "business" ? "info_img " : "info_img d-none"}>
+                        <img src="/media/auth-screen/identity_icon.svg" className="m-auto mw-100" alt="" />
+                      </div>
+                      <div className={value === "business" ? "col " : "col d-none"}>
+
+                        <label className="form-label d-block" for="exampleForm.ControlInput1">Business Name</label>
+                        <Field
+                          placeholder="Business Name"
+                          type="text"
+                          
+                          name="name"
+
+                        />
+                        {formik.touched.fullname && formik.errors.fullname ? (
+                          <div className="fv-plugins-message-container">
+                            <div className="fv-help-block">{formik.errors.fullname}</div>
+                          </div>
+                        ) : null}
+                      </div>
+                    </div>
+                    {/* end: Fullname */}
+
+
+                    {/* begin: Fullname */}
+                    <div className="form-group fv-plugins-icon-container d-flex">
+                      <div className="info_img">
+                        <img src="/media/auth-screen/location_icon.svg" className="m-auto mw-100" alt="" />
+                      </div>
+                      <div className="col">
+
+
+
+
+
+
+
+
+                        {value === "business" ? <label class="form-label  d-block" for="exampleForm.ControlInput1">Your Business Address</label> : <label class="form-label  d-block" for="exampleForm.ControlInput1">Your Address</label>}
+                        <LocationSearchInput/>
+                        {formik.touched.fullname && formik.errors.fullname ? (
+                          <div className="fv-plugins-message-container">
+                            <div className="fv-help-block">{formik.errors.fullname}</div>
+                          </div>
+                        ) : null}
+                      </div>
+                    </div>
+                    {/* end: Fullname */}
+
+                    <div className="d-flex fv-plugins-icon-container">
+                      <div className="form-group col-6 p-0 d-flex coun_cde">
+                        <div className="info_img">
+                          <img src="/media/auth-screen/feedback_icon.svg" className="m-auto mw-100" alt="" />
+                        </div>
+
+
+
+
+
+
+
+                        <div className="col">
+                          <label class="form-label d-block" for="exampleForm.ControlInput1">Business size</label>
+
+                          <FormControl>
+
+                            <Field name="size" as="select">
+                              {
+                                business_size_options.map(value => {
+                                  return (
+                                    <option value={value.label} >{value.label}</option>
+                                  )
+
+                                })
+                              }
+
+
+
+                            </Field>
+                          </FormControl>
+
+
+                        </div>
+                      </div>
+                      <div className="form-group col-6 d-flex coun_cde">
+                        <div className="info_img">
+                          <img src="/media/auth-screen/branch_icon.svg" className="m-auto mw-100" alt="" />
+                        </div>
+                        <div className="col pr-0">
+
+
+
+
+                          <label class="form-label d-block" for="exampleForm.ControlInput1">Type</label>
+                          <FormControl>
+
+
+
+
+                            <Field name="type" as="select">
+                              {
+                                business_type_options.map(value => {
+                                  return (
+                                    <option value={value.label} >{value.label}</option>
+                                  )
+
+                                })
+                              }
+                            </Field>
+                          </FormControl>
+
+
+                        </div>
+
+
+                      </div>
+
+
+                    </div>
+
+                    <div className="d-flex fv-plugins-icon-container">
+                      <div className="form-group col-6 p-0 d-flex coun_cde">
+                        <div className="info_img">
+                          <img src="/media/auth-screen/phone_icon.svg" className="m-auto mw-100" alt="" />
+                        </div>
+                        <div className="col">
+                          <label class="form-label d-block" for="exampleForm.ControlInput1">Country code</label>
+                          <Field name="phone_country" as="select">
+                            {
+                              options.map(value => {
+                                return (
+                                  <option value={value.label} >{value.label}</option>
+                                )
+
+                              })
+                            }
+                          </Field>
+
+                        </div>
+                      </div>
+                      <div className="form-group col-6">
+                        <label class="form-label d-block" for="exampleForm.ControlInput1">Phone No</label>
+                        <Field
+                          placeholder="Phone"
+                          type="text"
+                          className={`form-control py-5 px-6 ${getInputClasses(
+                            "username"
+                          )}`}
+                          name="phone_no"
+
+
+                        />
+                        {formik.touched.username && formik.errors.username ? (
+                          <div className="fv-plugins-message-container">
+                            <div className="fv-help-block">{formik.errors.username}</div>
+
+
+                          </div>
+                        ) : null}
+
+                      </div>
+
+
+                    </div>
+
+
+                    {/* begin: Terms and Conditions */}
+                    <div className="form-group d-flex ch-bx">
+                      <label className="checkbox mr-auto">
+                        <Field
+                          type="checkbox"
+                          name="acceptTerms"
+                          className="m-1"
+
+                        />
+                        <span />
+                        <Link
+                          to="javascript:void(0);"
+                          target="_blank"
+                          className="mr-1 terms_c"
+                          rel="noopener noreferrer"
+                        >
+                          Show my phone number & address to my clients
+                  </Link>
+
+                      </label>
+                      {formik.touched.acceptTerms && formik.errors.acceptTerms ? (
+                        <div className="fv-plugins-message-container">
+                          <div className="fv-help-block">{formik.errors.acceptTerms}</div>
+                        </div>
+                      ) : null}
+
+                      <div className="plus_sym">
+                        <img src="/media/auth-screen/plus_sym.svg" className="m-auto mw-100" alt="" />
+                      </div>
+
+                    </div>
+                    {/* end: Terms and Conditions */}
+                    <div className="form-group flex-wrap flex-center">
+                      <button type="submit" className="btn btn-primary sign-btn h-77 font-weight-500 mt-6" >
+                        <span>Next</span>
+                      </button>
+                    </div>
+                  </form>
+                )}
+              </Formik>
             </div>
-          </form>
-          </div>
-       
-    </>
-  );
+
+          </>
+        );
+      }
+      else {
+        return (
+          <>
+
+
+          </>
+        );
+      }
+    }
+  }
+  else {
+    return (
+      <>
+        <div className="text-left mb-5">
+          <h1 className="h2 mb-3 color_3F4772 text-capitalize font-weight-600">Business Info:</h1>
+        </div>
+        <div className="business_info">
+          <Formik
+            initialValues={{ name: '', billingAddress: '', size: 1, type: '', phone_country: '', phone_no: '', 'acceptTerms': false }}
+
+            onSubmit={(values, { setSubmitting }) => {
+              // alert(JSON.stringify(values, null, 2))
+              values.billingAddress=localStorage.getItem("Address")
+              values.state=localStorage.getItem("state")
+              values.city=localStorage.getItem("city")
+              values.zip_code=localStorage.getItem("zipcode")
+              values.street=localStorage.getItem("street")
+              handleChange(values)
+              handleNext()
+            }}
+          >
+            {({
+              values,
+              errors,
+              touched,
+              handleChange,
+              handleBlur,
+              handleSubmit,
+              isSubmitting,
+            }) => (
+
+              <form className="form fv-plugins-bootstrap fv-plugins-framework" onSubmit={handleSubmit}>
+
+                <div className="mb-2">
+                  <h2 className="d-block h4 mb-1">Choose your business type?</h2>
+                  <div className="per_busi">
+                    <FormControl component="fieldset" className={classes.formControl}>
+                      
+                      <RadioGroup
+                        aria-label="Gender"
+                        className={classes.group}
+                        value={value}
+                        onChange={handleChanges}
+                      >
+
+
+                        <FormControlLabel value="personal" control={<Radio />} label="Personal" />
+                        <FormControlLabel value="business" control={<Radio />} label="Business" />
+                      </RadioGroup>
+
+                    </FormControl>
+                  </div>
+                </div>
+
+                <div className="form-group fv-plugins-icon-container d-flex " >
+                  <div className={value === "business" ? "info_img " : "info_img d-none"}>
+                    <img src="/media/auth-screen/identity_icon.svg" className="m-auto mw-100" alt="" />
+                  </div>
+                  <div className={value === "business" ? "col " : "col d-none"}>
+
+                    <label className="form-label d-block" for="exampleForm.ControlInput1">Business Name</label>
+                    <Field
+                      placeholder="Business Name"
+                      type="text"
+                      className={`form-control py-5 px-6 `}
+                      name="name"
+
+                    />
+                    {formik.touched.fullname && formik.errors.fullname ? (
+                      <div className="fv-plugins-message-container">
+                        <div className="fv-help-block">{formik.errors.fullname}</div>
+                      </div>
+                    ) : null}
+                  </div>
+                </div>
+                {/* end: Fullname */}
+
+
+                {/* begin: Fullname */}
+                <div className="form-group fv-plugins-icon-container d-flex">
+                  <div className="info_img">
+                    <img src="/media/auth-screen/location_icon.svg" className="m-auto mw-100" alt="" />
+                  </div>
+                  <div className="col">
+                    {value === "business" ? <label class="form-label  d-block" for="exampleForm.ControlInput1">Your Business Address</label> : <label class="form-label  d-block" for="exampleForm.ControlInput1">Your Address</label>}
+                    <LocationSearchInput/>
+                    {formik.touched.fullname && formik.errors.fullname ? (
+                      <div className="fv-plugins-message-container">
+                        <div className="fv-help-block">{formik.errors.fullname}</div>
+                      </div>
+                    ) : null}
+                  </div>
+                </div>
+                {/* end: Fullname */}
+
+                <div className="d-flex fv-plugins-icon-container">
+                  <div className="form-group col-6 p-0 d-flex coun_cde">
+                    <div className="info_img">
+                      <img src="/media/auth-screen/feedback_icon.svg" className="m-auto mw-100" alt="" />
+                    </div>
+                    <div className="col">
+                      <label class="form-label d-block" for="exampleForm.ControlInput1">Business size</label>
+                      <FormControl>
+
+                        <Field name="size" as="select">
+                          {
+                            business_size_options.map(value => {
+                              return (
+                                <option value={value.label} >{value.label}</option>
+                              )
+
+                            })
+                          }
+                        </Field>
+                      </FormControl>
+                    </div>
+                  </div>
+                  <div className="form-group col-6 d-flex coun_cde">
+                    <div className="info_img">
+                      <img src="/media/auth-screen/branch_icon.svg" className="m-auto mw-100" alt="" />
+                    </div>
+                    <div className="col pr-0">
+                      <label class="form-label d-block" for="exampleForm.ControlInput1">Type</label>
+                      <FormControl>
+
+                        <Field name="type" as="select">
+                          {
+                            business_type_options.map(value => {
+                              return (
+                                <option value={value.label} >{value.label}</option>
+                              )
+
+                            })
+                          }
+                        </Field>
+                      </FormControl>
+                    </div>
+
+                  </div>
+
+
+                </div>
+
+                <div className="d-flex fv-plugins-icon-container">
+                  <div className="form-group col-6 p-0 d-flex coun_cde">
+                    <div className="info_img">
+                      <img src="/media/auth-screen/phone_icon.svg" className="m-auto mw-100" alt="" />
+
+                    </div>
+                    <div className="col">
+                      <label class="form-label d-block" for="exampleForm.ControlInput1">Country code</label>
+                      <Field name="phone_country" as="select">
+                        {
+                          options.map(value => {
+                            return (
+                              <option value={value.label} >{value.label}</option>
+                            )
+
+                          })
+                        }
+                      </Field>
+
+                    </div>
+                  </div>
+                  <div className="form-group col-6">
+                    <label class="form-label d-block" for="exampleForm.ControlInput1">Phone No</label>
+                    <Field
+                      placeholder="Phone"
+                      type="text"
+                      className={`form-control py-5 px-6 ${getInputClasses(
+                        "username"
+                      )}`}
+                      name="phone_no"
+
+
+                    />
+                    {formik.touched.username && formik.errors.username ? (
+                      <div className="fv-plugins-message-container">
+                        <div className="fv-help-block">{formik.errors.username}</div>
+                      </div>
+                    ) : null}
+                  </div>
+
+
+                </div>
+
+
+                {/* begin: Terms and Conditions */}
+                <div className="form-group d-flex ch-bx">
+                  <label className="checkbox mr-auto">
+                    <Field
+                      type="checkbox"
+                      name="acceptTerms"
+                      className="m-1"
+
+                    />
+                    <span />
+                    <Link
+                      to="javascript:void(0);"
+                      target="_blank"
+                      className="mr-1 terms_c"
+                      rel="noopener noreferrer"
+                    >
+                      Show my phone number & address to my clients
+                </Link>
+
+                  </label>
+                  {formik.touched.acceptTerms && formik.errors.acceptTerms ? (
+                    <div className="fv-plugins-message-container">
+                      <div className="fv-help-block">{formik.errors.acceptTerms}</div>
+                    </div>
+                  ) : null}
+
+                  <div className="plus_sym">
+                    <img src="/media/auth-screen/plus_sym.svg" className="m-auto mw-100" alt="" />
+                  </div>
+
+                </div>
+                {/* end: Terms and Conditions */}
+                <div className="form-group flex-wrap flex-center">
+
+                  <button type="submit" className="btn btn-primary sign-btn h-77 font-weight-500 mt-6" >
+                    <span>Next</span>
+                  </button>
+                </div>
+
+              </form>
+            )}
+          </Formik>
+        </div>
+
+      </>
+    );
+  }
 }
 
 export default injectIntl(connect(null, auth.actions)(Registration));
 
 function BusinessSize() {
-  
+
   const classes = useStyles();
   const [values, setValues] = React.useState({
     age: '',
@@ -352,28 +845,28 @@ function BusinessSize() {
   }
 
   return (
-      <FormControl className={classes.formControl}>
+    <FormControl className={classes.formControl}>
 
-        <Select
-          value={values.age}
-          onChange={handleChange}
-          input={<Input name="age" id="age-label-placeholder" />}
-          displayEmpty
-          name="age"
-          className={classes.selectEmpty}
-        >
-          <MenuItem value="">
+      <Select
+        value={values.age}
+        onChange={handleChange}
+        input={<Input name="age" id="age-label-placeholder" />}
+        displayEmpty
+        name="age"
+        className={classes.selectEmpty}
+      >
+        <MenuItem value="">
           100 Person
           </MenuItem>
-          <MenuItem value={10}>01</MenuItem>
-          <MenuItem value={20}>02</MenuItem>
-          <MenuItem value={30}>03</MenuItem>
-        </Select>
-      </FormControl>
+        <MenuItem value={10}>01</MenuItem>
+        <MenuItem value={20}>02</MenuItem>
+        <MenuItem value={30}>03</MenuItem>
+      </Select>
+    </FormControl>
   );
 }
 function BusinessType() {
-  
+
   const classes = useStyles();
   const [values, setValues] = React.useState({
     age: '',
@@ -388,28 +881,28 @@ function BusinessType() {
   }
 
   return (
-      <FormControl className={classes.formControl}>
+    <FormControl className={classes.formControl}>
 
-        <Select
-          value={values.age}
-          onChange={handleChange}
-          input={<Input name="age" id="age-label-placeholder" />}
-          displayEmpty
-          name="age"
-          className={classes.selectEmpty}
-        >
-          <MenuItem value="">
-            Type
+      <Select
+        value={values.age}
+        onChange={handleChange}
+        input={<Input name="age" id="age-label-placeholder" />}
+        displayEmpty
+        name="age"
+        className={classes.selectEmpty}
+      >
+        <MenuItem value="">
+          Type
           </MenuItem>
-          <MenuItem value={10}>01</MenuItem>
-          <MenuItem value={20}>02</MenuItem>
-          <MenuItem value={30}>03</MenuItem>
-        </Select>
-      </FormControl>
+        <MenuItem value={10}>01</MenuItem>
+        <MenuItem value={20}>02</MenuItem>
+        <MenuItem value={30}>03</MenuItem>
+      </Select>
+    </FormControl>
   );
 }
 function CountryCode() {
-  
+
   const classes = useStyles();
   const [values, setValues] = React.useState({
     age: '',
@@ -424,24 +917,24 @@ function CountryCode() {
   }
 
   return (
-      <FormControl className={classes.formControl}>
- 
-        <Select
-          value={values.age}
-          onChange={handleChange}
-          input={<Input name="age" id="age-label-placeholder" />}
-          displayEmpty
-          name="age"
-          className={classes.selectEmpty}
-        >
-          <MenuItem value="">
+    <FormControl className={classes.formControl}>
+
+      <Select
+        value={values.age}
+        onChange={handleChange}
+        input={<Input name="age" id="age-label-placeholder" />}
+        displayEmpty
+        name="age"
+        className={classes.selectEmpty}
+      >
+        <MenuItem value="">
           India (91)
           </MenuItem>
-          <MenuItem value={10}>India (91)</MenuItem>
-          <MenuItem value={20}>India (91)</MenuItem>
-          <MenuItem value={30}>India (91)</MenuItem>
-        </Select>
-      </FormControl>
+        <MenuItem value={10}>India (91)</MenuItem>
+        <MenuItem value={20}>India (91)</MenuItem>
+        <MenuItem value={30}>India (91)</MenuItem>
+      </Select>
+    </FormControl>
   );
 }
 
@@ -478,11 +971,11 @@ function GenderGroup() {
         >
           <FormControlLabel value="personal" control={<Radio />} label="Personal" />
           <FormControlLabel value="business" control={<Radio />} label="Business" />
-          
-  
+
+
         </RadioGroup>
       </FormControl>
-      
+
     </div>
   );
 }

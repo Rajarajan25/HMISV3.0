@@ -11,10 +11,16 @@ import Signup from "./sign-up";
 import ForgotPassword from "./ForgotPassword";
 import LoginOTP from "./Login-OTP";
 import "../../../../_metronic/_assets/sass/pages/login/classic/login-1.scss";
-
+import {UserProvider} from './UserContext'
+import {BusinessProvider} from './BusinessContext';
+import {StaffProvider} from './StaffContext';
 export function AuthPage() {
+  
   return (
     <>
+    <UserProvider>
+    <BusinessProvider>
+      <StaffProvider>
       <div className="d-flex flex-column flex-root">
         {/*begin::Login*/}
         <div
@@ -29,10 +35,12 @@ export function AuthPage() {
               <div className="d-flex flex-column-fluid flex-center mt-5 mt-lg-0 h-100">
                 <Switch>
                   <ContentRoute path="/auth/login" component={Login} />
+                  
                   <ContentRoute
                     path="/auth/registration"
                     component={Registration}
                   />
+                  
                   <ContentRoute
                     path="/auth/forgot-password"
                     component={ForgotPassword}
@@ -121,6 +129,10 @@ export function AuthPage() {
         </div>
         {/*end::Login*/}
       </div>
+      </StaffProvider>
+      </BusinessProvider>
+      </UserProvider>
     </>
+    
   );
 }

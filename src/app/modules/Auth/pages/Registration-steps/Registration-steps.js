@@ -17,7 +17,7 @@ import Stepper2 from './stepper/stepper2';
 import Stepper3 from './stepper/stepper3';
 import Stepper4 from './stepper/stepper4';
 import Stepper5 from './stepper/stepper5';
-
+import { BusinessContext } from '../BusinessContext';
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
@@ -32,42 +32,48 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function getSteps() {
-  return [<Stepper1 />, <Stepper2 />, <Stepper3 />, <Stepper4 />, <Stepper5 /> ];
+  return [<Stepper1 />, <Stepper2 />, <Stepper3 />, <Stepper4 />, <Stepper5 />];
 }
 
-function getStepContent(stepIndex) {
-  switch (stepIndex) {
-    case 0:
-      return <Step1 />;
-    case 1:
-      return <Step2 />;
-    case 2:
-      return <Step3 />;
-    case 3:
-      return <Step4 />;
-    case 4:
-      return <BusinessConfirmation />;
-    default:
-      return 'Uknown stepIndex';
-  }
-}
+
 
 
 export default function HorizontalLabelPositionBelowStepper() {
+
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
 
   function handleNext() {
+    localStorage.setItem("BackFlag", "N")
     setActiveStep(prevActiveStep => prevActiveStep + 1);
   }
 
   function handleBack() {
+    localStorage.setItem("BackFlag", "Y")
     setActiveStep(prevActiveStep => prevActiveStep - 1);
   }
-
+  React.useEffect(() => {
+    localStorage.setItem("BackFlag", "N")
+  }, []);
   function handleReset() {
     setActiveStep(0);
+  }
+  function getStepContent(stepIndex) {
+    switch (stepIndex) {
+      case 0:
+        return <Step1 activeStep={activeStep} handleBack={handleBack} handleNext={handleNext} steps={getSteps} />;
+      case 1:
+        return <Step2 activeStep={activeStep} handleBack={handleBack} handleNext={handleNext} steps={getSteps} />;
+      case 2:
+        return <Step3 activeStep={activeStep} handleBack={handleBack} handleNext={handleNext} steps={getSteps} />;
+      case 3:
+        return <Step4 activeStep={activeStep} handleBack={handleBack} handleNext={handleNext} steps={getSteps} />;
+      case 4:
+        return <BusinessConfirmation />;
+      default:
+        return 'Uknown stepIndex';
+    }
   }
   return (
     <div className={classes.root}>
@@ -91,7 +97,7 @@ export default function HorizontalLabelPositionBelowStepper() {
               <Button
                 disabled={activeStep === 0}
                 onClick={handleBack}
-                className={'backbtn'+' '+classes.backButton}
+                className={'backbtn' + ' ' + classes.backButton}
               >
                 <img src="/media/auth-screen/back_arrow.svg" className="mr-2" alt="arrow" /> <span>Back</span>
               </Button>
@@ -99,12 +105,12 @@ export default function HorizontalLabelPositionBelowStepper() {
                 <span>Skip</span>
               </Button>
 
-              <Button variant="contained" 
+              {/* <Button variant="contained" 
               className={"nextButton ml-auto " + (activeStep === steps.length - 1 ? 'd-none' : 'show')} 
               color="primary" 
               onClick={handleNext}>
                 {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-              </Button>
+              </Button> */}
             </div>
           </div>
         )}
