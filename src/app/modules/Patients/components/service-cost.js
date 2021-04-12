@@ -129,162 +129,132 @@ function getStyles(name, personName, theme) {
 export function ServiceCost() {
   const classes = useStyles();
   return (
-    <div className="staff_first staff_second w-100">
-      <div className="border-bottom p-6">
-        <div className="busi_cus mt-3 mb-8 clearfix">
-          <SelectHours />
+    <div className="staff_first staff_second w-100 p-6">
+      <div className="form-group border-bottom">
+        <div className="d-flex">
+          <label class="staff_title_text">Pricing and Duration</label>
         </div>
-        <div className="row locate_avail">
+      </div>
+      <div className="form-group">
+        <div className="d-flex row">
           <div className="col-6">
-              <label className="form-label d-block">Choose your location</label>
-              <LocationSelect />
-            </div>
-            <div className="col-6">
-              <label className="form-label d-block">Availability</label>
-              <AvailMultipleSelect />
-            </div>
-        </div>
-        <div className="day_select py-6">
-          <div className="d-flex">
-            <label className="staff_title_text">Working Days</label>
-            <Link to="#" className="ml-auto add_setting">+ Additional Settings</Link>
+          <label class="form-label d-block">Duration</label>
+            <input placeholder="1 Hour 30 Mins" type="text" className={`form-control`} name=""/>
           </div>
-          <div className="d-flex mt-3">
-            <div className="day_input">
-              <input type="checkbox" id="day_select01" name="" className="" />
-              <label className="date_bx sun_d" for="day_select01">Sun</label>
-            </div>
-            <div className="day_input">
-              <input type="checkbox" id="day_select02" name="" className="" />
-              <label className="date_bx mon_d" for="day_select02">Mon</label>
-            </div>
-            <div className="day_input">
-              <input type="checkbox" id="day_select03" name="" className="" />
-              <label className="date_bx tue_d" for="day_select03">Tue</label>
-            </div>
-            <div className="day_input">
-              <input type="checkbox" id="day_select04" name="" className="" />
-              <label className="date_bx wed_d" for="day_select04">Wed</label>
-            </div>
-            <div className="day_input">
-              <input type="checkbox" id="day_select05" name="" className="" />
-              <label className="date_bx thu_d" for="day_select05">Thu</label>
-            </div>
-            <div className="day_input">
-              <input type="checkbox" id="day_select06" name="" className="" />
-              <label className="date_bx fri_d" for="day_select06">Fri</label>
-            </div>
-            <div className="day_input">
-              <input type="checkbox" id="day_select07" name="" className="" />
-              <label className="date_bx sat_d" for="day_select07">Sat</label>
-            </div>
-          </div>
-        </div>
-        <div className="text-left  mt-3 pb-2 session_start border-bottom ">
-          <div className="session_part row mb-2">
-            <div className="col-3 pr-2 min_width100">
-              <div className="session_select">
-                <input type="checkbox" id="session_01" name="" className="" />
-                <label className="" for="session_01">Session 1</label>
-              </div>
-            </div>
-            <div className="col-4 p-0 d-flex">
-              <div className="tm_area text-left pl-0">
-                <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-              </div>
-            </div>
-            <div className="col-5 d-flex justify-content-center align-items-center">
-              <span className="add_session pointer">+ Add Session</span>
-              <span className="add_line">|</span>
-              <span className="add_break pointer">+ Add Break</span>
-            </div>
-          </div>
-          <div className="break_part row mb-2">
-            <div className="col-3 pr-3">
-              <div className="break_select position-relative">
-                <img src={toAbsoluteUrl("/media/patients/break_line.svg")} alt="" className="break_line" />
-                <input type="checkbox" id="break_01" name="" className="" />
-                <label className="" for="break_01">Break</label>
-              </div>
-            </div>
-            <div className="col-4 p-0 d-flex">
-              <div className="tm_area text-left pl-0">
-                <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-              </div>
-            </div>
-          </div>
-          <div className="break_part row mb-2">
-            <div className="col-3 pr-3">
-              <div className="break_select position-relative">
-                <img src={toAbsoluteUrl("/media/patients/break_line.svg")} alt="" className="break_line" />
-                <input type="checkbox" id="break_01" name="" className="" />
-                <label className="" for="break_01">Break</label>
-              </div>
-            </div>
-            <div className="col-4 p-0 d-flex">
-              <div className="tm_area text-left pl-0">
-                <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="text-left  mt-3 pb-2 session_start border-bottom ">
-          <div className="session_part row mb-2">
-            <div className="col-3 pr-2 min_width100">
-              <div className="session_select">
-                <input type="checkbox" id="session_01" name="" className="" />
-                <label className="" for="session_01">Session 2</label>
-              </div>
-            </div>
-            <div className="col-4 p-0 d-flex">
-              <div className="tm_area text-left pl-0">
-                <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-              </div>
-            </div>
-            <div className="col-5 d-flex justify-content-center align-items-center">
-              <span className="add_session pointer">+ Add Session</span>
-              <span className="add_line">|</span>
-              <span className="add_break pointer">+ Add Break</span>
-            </div>
-          </div>
-          <div className="break_part row mb-2">
-            <div className="col-3 pr-3">
-              <div className="break_select position-relative">
-                <img src={toAbsoluteUrl("/media/patients/break_line.svg")} alt="" className="break_line" />
-                <input type="checkbox" id="break_01" name="" className="" />
-                <label className="" for="break_01">Break</label>
-              </div>
-            </div>
-            <div className="col-4 p-0 d-flex">
-              <div className="tm_area text-left pl-0">
-                <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-              </div>
-            </div>
-          </div>
-          <div className="break_part row mb-2">
-            <div className="col-3 pr-3">
-              <div className="break_select position-relative">
-                <img src={toAbsoluteUrl("/media/patients/break_line.svg")} alt="" className="break_line" />
-                <input type="checkbox" id="break_01" name="" className="" />
-                <label className="" for="break_01">Break</label>
-              </div>
-            </div>
-            <div className="col-4 p-0 d-flex">
-              <div className="tm_area text-left pl-0">
-                <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="form-group mt-6 mb-0">
-          <div className="d-flex justify-content-end patientButton add_timing">
-            <button type="button" className="btn btn-primary m-0">+ Add Timings</button>
+          <div className="col-6">
+          <label class="form-label d-block">Price (&#2352;)</label>
+            <input placeholder="500" type="text" className={`form-control`} name=""/>
           </div>
         </div>
       </div>
-      
-
+      <div className="form-group border-bottom">
+        <div className="d-flex">
+          <label class="staff_title_text">Advanced Pricing Option <span className="font-weight-normal">(Optional)</span></label>
+        </div>
+      </div>
+      <div className="form-group">
+        <div className="d-flex row">
+          <div className="col-4">
+            <label class="form-label d-block">Provider/Staff Name</label>
+            <input placeholder="Gopinath" type="text" className={`form-control`} name=""/>
+          </div>
+          <div className="col-4">
+            <label class="form-label d-block">Duration</label>
+            <input placeholder="1 Hour 30 Mins" type="text" className={`form-control`} name=""/>
+          </div>
+          <div className="col-4">
+            <label class="form-label d-block">Price (&#2352;)</label>
+            <input placeholder="500" type="text" className={`form-control`} name=""/>
+          </div>
+        </div>
+      </div>
+      <div className="form-group border-bottom">
+        <div className="d-flex">
+          <label class="staff_title_text">Buffer Time</label>
+        </div>
+      </div>
+      <div className="form-group">
+        <div className="d-flex row">
+          <div className="col-6">
+          <label class="form-label d-block">Buffer Time Before</label>
+            <input placeholder="15 Mins" type="text" className={`form-control`} name=""/>
+          </div>
+          <div className="col-6">
+          <label class="form-label d-block">Buffer Time After</label>
+            <input placeholder="30 Mins" type="text" className={`form-control`} name=""/>
+          </div>
+        </div>
+      </div>
+      <div className="form-group border-bottom">
+        <div className="d-flex">
+          <label class="staff_title_text">Service Timing</label>
+        </div>
+      </div>
+      <div className="busi_cus mt-3 mb-8 clearfix">
+        <SelectHours />
+      </div>
+      <div className="text-left  mt-3 pb-2 session_start border-bottom ">
+        <div className="session_part row mb-2">
+          <div className="col-3 pr-2 min_width100">
+            <div className="session_select">
+              <label>Monday</label>
+            </div>
+          </div>
+          <div className="col-4 p-0 d-flex">
+            <div className="tm_area text-left pl-0">
+              <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+            </div>
+          </div>
+        </div>
+        <div className="session_part row mb-2">
+          <div className="col-3 pr-2 min_width100">
+            <div className="session_select">
+              <label>Tuesday</label>
+            </div>
+          </div>
+          <div className="col-4 p-0 d-flex">
+            <div className="tm_area text-left pl-0">
+              <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+            </div>
+          </div>
+        </div>
+        <div className="session_part row mb-2">
+          <div className="col-3 pr-2 min_width100">
+            <div className="session_select">
+              <label>Wednesday</label>
+            </div>
+          </div>
+          <div className="col-4 p-0 d-flex">
+            <div className="tm_area text-left pl-0">
+              <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+            </div>
+          </div>
+        </div>
+        <div className="session_part row mb-2">
+          <div className="col-3 pr-2 min_width100">
+            <div className="session_select">
+              <label>Thursday</label>
+            </div>
+          </div>
+          <div className="col-4 p-0 d-flex">
+            <div className="tm_area text-left pl-0">
+              <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+            </div>
+          </div>
+        </div>
+        <div className="session_part row mb-2">
+          <div className="col-3 pr-2 min_width100">
+            <div className="session_select">
+              <label>Friday</label>
+            </div>
+          </div>
+          <div className="col-4 p-0 d-flex">
+            <div className="tm_area text-left pl-0">
+              <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="form-group mb-0">
         <div className="d-flex justify-content-end patientButton pos_fix">
           <button type="button" className="btn btn-primary">Save</button>
@@ -575,8 +545,6 @@ function SelectHours() {
         >
           <FormControlLabel value="business" control={<Radio />} label="Business hours" />
           <FormControlLabel value="custom" control={<Radio />} label="Custom" />
-          
-  
         </RadioGroup>
       </FormControl>
       
