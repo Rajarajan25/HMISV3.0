@@ -3250,9 +3250,49 @@ p.setting_color {
 		.MuiIconButton-root.Mui-checked + span.MuiTypography-root {
 			font-weight: 500;
 		}
+		&.ser_tme {
+			.MuiTypography-root {
+				margin-right: 12px;
+				font-size: 13px;
+			}
+			.MuiSvgIcon-root {
+				width: .8em;
+				height: .8em;
+				+ .MuiSvgIcon-root {
+					left: 0px;
+					top: 0px;
+				}
+			}
+		}
 	}
 	.day_off {
 		color: #C0C0C0
+	}
+	.color_57AA7F {
+		color: #57AA7F;
+	}
+	.color_6B58B6 {
+		color: #6B58B6;
+	}
+	.color_20AEC2 {
+		color: #20AEC2;
+	}
+	.staff_title_img {
+		height: 30px;
+		width: 30px;
+		border-radius: 50%;
+		text-align: center;
+		line-height: 30px;
+		margin-right: 10px;
+	}
+	.bg_D5EEE2 {
+		background: #D5EEE2;
+	}
+	.bg_EBE9FB {
+		background: #EBE9FB;
+	}
+	.bg_D3EDF2 {
+		background: #D3EDF2;
 	}
 }
 .staff_third {

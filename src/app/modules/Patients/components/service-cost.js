@@ -131,20 +131,33 @@ export function ServiceCost() {
   return (
     <div className="staff_first staff_second w-100 p-6">
       <div className="form-group border-bottom">
-        <div className="d-flex">
-          <label class="staff_title_text">Pricing and Duration</label>
+        <div className="d-flex mb-3 align-items-center">
+          <span className="staff_title_img bg_D5EEE2"><img src={toAbsoluteUrl("/media/patients/price_icon.svg")} alt="" className="" /></span>
+          <label class="staff_title_text color_57AA7F m-0">Pricing and Duration</label>
         </div>
       </div>
       <div className="form-group">
         <div className="d-flex row">
-          <div className="col-6">
-          <label class="form-label d-block">Duration</label>
+          <div className="col-4">
+            <label class="form-label d-block">Duration</label>
             <input placeholder="1 Hour 30 Mins" type="text" className={`form-control`} name=""/>
           </div>
-          <div className="col-6">
-          <label class="form-label d-block">Price (&#2352;)</label>
+          <div className="col-4">
+            <label class="form-label d-block">Price Type</label>
+            <input placeholder="Price Type" type="text" className={`form-control`} name=""/>
+          </div>
+          <div className="col-4">
+            <label class="form-label d-block">Price (&#2352;)</label>
             <input placeholder="500" type="text" className={`form-control`} name=""/>
           </div>
+        </div>
+      </div>
+      <div className="form-group">
+        <div className="d-flex justify-content-end">
+          <Link to="#">
+            <img src={toAbsoluteUrl("/media/patients/add-advanced.svg")} alt="" className="" />
+            <span className="color_6B58B6 pl-2 font-weight-500">Advanced</span>
+          </Link>
         </div>
       </div>
       <div className="form-group border-bottom">
@@ -169,32 +182,46 @@ export function ServiceCost() {
         </div>
       </div>
       <div className="form-group border-bottom">
-        <div className="d-flex">
-          <label class="staff_title_text">Buffer Time</label>
+        <div className="d-flex mb-3 align-items-center">
+          <span className="staff_title_img bg_EBE9FB"><img src={toAbsoluteUrl("/media/patients/buffer_icon.svg")} alt="" className="" /></span>
+          <label class="staff_title_text color_6B58B6 m-0">Buffer Time</label>
         </div>
       </div>
       <div className="form-group">
         <div className="d-flex row">
           <div className="col-6">
-          <label class="form-label d-block">Buffer Time Before</label>
+            <label class="form-label d-block">Buffer Time Before</label>
             <input placeholder="15 Mins" type="text" className={`form-control`} name=""/>
           </div>
           <div className="col-6">
-          <label class="form-label d-block">Buffer Time After</label>
+            <label class="form-label d-block">Buffer Time After</label>
             <input placeholder="30 Mins" type="text" className={`form-control`} name=""/>
           </div>
         </div>
       </div>
       <div className="form-group border-bottom">
-        <div className="d-flex">
-          <label class="staff_title_text">Service Timing</label>
+        <div className="d-flex mb-3 align-items-center">
+          <span className="staff_title_img bg_D3EDF2"><img src={toAbsoluteUrl("/media/patients/24-hours_icon.svg")} alt="" className="" /></span>
+          <label class="staff_title_text color_20AEC2 m-0">Service Timing</label>
         </div>
       </div>
-      <div className="busi_cus mt-3 mb-8 clearfix">
+      <div className="busi_cus ser_tme mt-3 mb-5 clearfix">
         <SelectHours />
       </div>
-      <div className="text-left  mt-3 pb-2 session_start border-bottom ">
-        <div className="session_part row mb-2">
+      <div className="text-left  mt-3 pb-2 session_start border-bottom">
+        <div className="session_part row mb-3">
+          <div className="col-3 pr-2 min_width100">
+            <div className="session_select">
+              <label>Sunday</label>
+            </div>
+          </div>
+          <div className="col-4 p-0 d-flex">
+            <div className="tm_area text-left pl-0">
+              <span className="day_off">Week Off</span>
+            </div>
+          </div>
+        </div>
+        <div className="session_part row mb-3">
           <div className="col-3 pr-2 min_width100">
             <div className="session_select">
               <label>Monday</label>
@@ -206,7 +233,7 @@ export function ServiceCost() {
             </div>
           </div>
         </div>
-        <div className="session_part row mb-2">
+        <div className="session_part row mb-3">
           <div className="col-3 pr-2 min_width100">
             <div className="session_select">
               <label>Tuesday</label>
@@ -218,7 +245,7 @@ export function ServiceCost() {
             </div>
           </div>
         </div>
-        <div className="session_part row mb-2">
+        <div className="session_part row mb-3">
           <div className="col-3 pr-2 min_width100">
             <div className="session_select">
               <label>Wednesday</label>
@@ -230,7 +257,7 @@ export function ServiceCost() {
             </div>
           </div>
         </div>
-        <div className="session_part row mb-2">
+        <div className="session_part row mb-3">
           <div className="col-3 pr-2 min_width100">
             <div className="session_select">
               <label>Thursday</label>
@@ -242,7 +269,7 @@ export function ServiceCost() {
             </div>
           </div>
         </div>
-        <div className="session_part row mb-2">
+        <div className="session_part row mb-3">
           <div className="col-3 pr-2 min_width100">
             <div className="session_select">
               <label>Friday</label>
@@ -251,6 +278,18 @@ export function ServiceCost() {
           <div className="col-4 p-0 d-flex">
             <div className="tm_area text-left pl-0">
               <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+            </div>
+          </div>
+        </div>
+        <div className="session_part row mb-3">
+          <div className="col-3 pr-2 min_width100">
+            <div className="session_select">
+              <label>Saturday</label>
+            </div>
+          </div>
+          <div className="col-4 p-0 d-flex">
+            <div className="tm_area text-left pl-0">
+              <span className="day_off">Week Off</span>
             </div>
           </div>
         </div>
@@ -265,26 +304,6 @@ export function ServiceCost() {
 }
 
 
-export function SwitchLabels() {
-
-  const [state, setState] = React.useState({
-    checkedA: false,
-  });
-
-  const handleChange = name => event => {
-    setState({ ...state, [name]: event.target.checked });
-  };
-
-  return (
-    <FormGroup row>
-      <FormControlLabel
-        control={
-          <Switch checked={state.checkedA} onChange={handleChange('checkedA')} value="checkedA" />
-        }
-      />
-    </FormGroup>
-  );
-}
 
 export function TimePickers() {
     // The first commit of Material-UI
@@ -418,101 +437,6 @@ export function AvailMultipleSelect() {
 }
 
 
-
-
-export function TimeExpansionPanels() {
-  const [expanded, setExpanded] = React.useState('panel1');
-
-  const handleChange = panel => (event, newExpanded) => {
-    setExpanded(newExpanded ? panel : false);
-  };
-
-  return (
-    <div>
-      <ExpansionPanel square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1d-content" id="panel1d-header">
-          <Typography>
-            <label className="staff_title_text">Timing Schedule 1 :</label>
-          </Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography>
-          <div className="text-left">
-            <div className="row mt-3">
-              <div className="col-2">
-              </div>
-              <div className="col d-flex">
-                <div className="tm_area text-left flex-fill">
-                  <label className="form-label d-block">Session 1</label>
-                </div>
-                <div className="tm_area text-left flex-fill">
-                  <label className="form-label d-block">Session 2</label>
-                </div>
-              </div>
-            </div>
-            <SelectWeekTime />
-          </div>
-          </Typography>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
-      <ExpansionPanel square expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel2d-content" id="panel2d-header">
-          <Typography>
-            <label className="staff_title_text">Timing Schedule 2 :</label>
-          </Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography>
-            <div className="text-left">
-              <div className="row mt-3">
-                <div className="col-2">
-                </div>
-                <div className="col d-flex">
-                  <div className="tm_area text-left flex-fill">
-                    <label className="form-label d-block">Session 1</label>
-                  </div>
-                  <div className="tm_area text-left flex-fill">
-                    <label className="form-label d-block">Session 2</label>
-                  </div>
-                </div>
-              </div>
-              <SelectWeekTime />
-            </div>
-          </Typography>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
-      <ExpansionPanel square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel3d-content" id="panel3d-header">
-          <Typography>
-            <label className="staff_title_text">Timing Schedule 3 :</label>
-          </Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography>
-            <div className="text-left">
-              <div className="row mt-3">
-                <div className="col-2">
-                </div>
-                <div className="col d-flex">
-                  <div className="tm_area text-left flex-fill">
-                    <label className="form-label d-block">Session 1</label>
-                  </div>
-                  <div className="tm_area text-left flex-fill">
-                    <label className="form-label d-block">Session 2</label>
-                  </div>
-                </div>
-              </div>
-              <SelectWeekTime />
-            </div>
-          </Typography>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
-    </div>
-  );
-}
-
-
-
 function SelectHours() {
 
   const useStyles = makeStyles(theme => ({
@@ -548,120 +472,6 @@ function SelectHours() {
         </RadioGroup>
       </FormControl>
       
-    </div>
-  );
-}
-
-function SelectWeekTime() {
-
-  return (
-    <div className="clearfix">
-      <div className="row mt-3">
-        <div className="col-2">
-          <div className="d-inline-flex">
-            <label className="staff_title_text">Mon</label>
-            <div className="switchlabel"><SwitchLabels /></div>
-          </div>
-        </div>
-        <div className="col d-flex">
-          <div className="tm_area text-left border-right flex-fill">
-            <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-          </div>
-          <div className="tm_area text-left border-right flex-fill">
-            <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-          </div>
-        </div>
-      </div>
-      <div className="row mt-3">
-        <div className="col-2">
-          <div className="d-inline-flex">
-            <label className="staff_title_text">Tue</label>
-            <div className="switchlabel"><SwitchLabels /></div>
-          </div>
-        </div>
-        <div className="col d-flex">
-          <div className="tm_area text-left border-right flex-fill">
-            <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-          </div>
-          <div className="tm_area text-left border-right flex-fill">
-            <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-          </div>
-        </div>
-      </div>
-      <div className="row mt-3">
-        <div className="col-2">
-          <div className="d-inline-flex">
-            <label className="staff_title_text">Wed</label>
-            <div className="switchlabel"><SwitchLabels /></div>
-          </div>
-        </div>
-        <div className="col d-flex">
-          <div className="tm_area text-left border-right flex-fill">
-            <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-          </div>
-          <div className="tm_area text-left border-right flex-fill">
-            <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-          </div>
-        </div>
-      </div>
-      <div className="row mt-3">
-        <div className="col-2">
-          <div className="d-inline-flex">
-            <label className="staff_title_text">Thu</label>
-            <div className="switchlabel"><SwitchLabels /></div>
-          </div>
-        </div>
-        <div className="col d-flex">
-          <div className="tm_area text-left border-right flex-fill">
-            <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-          </div>
-          <div className="tm_area text-left border-right flex-fill">
-            <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-          </div>
-        </div>
-      </div>
-      <div className="row mt-3">
-        <div className="col-2">
-          <div className="d-inline-flex">
-            <label className="staff_title_text">Fri</label>
-            <div className="switchlabel"><SwitchLabels /></div>
-          </div>
-        </div>
-        <div className="col d-flex">
-          <div className="tm_area text-left border-right flex-fill">
-            <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-          </div>
-          <div className="tm_area text-left border-right flex-fill">
-            <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-          </div>
-        </div>
-      </div>
-      <div className="row mt-3">
-        <div className="col-2">
-          <div className="d-inline-flex">
-            <label className="staff_title_text day_off">Sat</label>
-            <div className="switchlabel"><SwitchLabels /></div>
-          </div>
-        </div>
-        <div className="col d-flex">
-          <div className="tm_area text-left">
-            <span className="day_off">Day Off</span>
-          </div>
-        </div>
-      </div>
-      <div className="row mt-3">
-        <div className="col-2">
-          <div className="d-inline-flex">
-            <label className="staff_title_text day_off">Sun</label>
-            <div className="switchlabel"><SwitchLabels /></div>
-          </div>
-        </div>
-        <div className="col d-flex">
-          <div className="tm_area text-left">
-            <span className="day_off">Day Off</span>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

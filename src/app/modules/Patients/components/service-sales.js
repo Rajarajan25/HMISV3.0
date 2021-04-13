@@ -55,9 +55,11 @@ export function ServiceSales() {
           </div>
         </div>
       </div>
+      <div className="form-group border-bottom">
+        <label className="d-block staff_title_text mr-auto">Staff</label>
+      </div>
       <div className="form-group">
         <div className="d-flex mb-3">
-          <label className="d-block staff_title_text mt-2 mr-auto">Services</label>
           <div className="d-flex justify-items-center service_search">
             <button type="button" className="service_search_icon">
               <img src="/media/patients/cat_search.svg" alt="" className="" />
@@ -223,20 +225,28 @@ export function ServiceSales() {
         </div>
       </div>
       <div className="form-group">
-        <label class="d-block staff_title_text pb-2">Set Service Commission</label>
         <div className="d-flex row">
           <div className="col-6">
-          <label class="form-label d-block">Amount (&#2352;)</label>
+            <label class="form-label d-block">Commission</label>
+            <input placeholder="100" type="text" className={`form-control`} name=""/>
+          </div>
+        </div>
+      </div>
+      <div className="form-group">
+        <label class="d-block staff_title_text pb-2">Set Service tax</label>
+        <div className="d-flex row">
+          <div className="col-6">
+            <label class="form-label d-block">Amount (&#2352;)</label>
             <input placeholder="100" type="text" className={`form-control`} name=""/>
           </div>
           <div className="col-6">
-          <label class="form-label d-block">Percentage (%)</label>
+            <label class="form-label d-block">Percentage (%)</label>
             <input placeholder="10%" type="text" className={`form-control`} name=""/>
           </div>
         </div>
       </div>
       <div className="form-group">
-        <label class="d-block staff_title_text pb-2">Set Product Commission</label>
+        <label class="d-block staff_title_text pb-2">Set Voucher/Coupon Sales</label>
         <div className="d-flex row">
           <div className="col-6">
           <label class="form-label d-block">Amount (&#2352;)</label>
