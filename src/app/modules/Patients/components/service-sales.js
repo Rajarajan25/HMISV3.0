@@ -69,147 +69,47 @@ export function ServiceSales() {
         </div>
         <div className="serve_sec">
           <div className="row">
-            <div className="col-3 px-1">
+            <div className="col-4 px-1">
               <input type="checkbox" id="pet_box_01" />
-              <label className="pat_box" for="pet_box_01">
-                <div className="d-flex serve_act">
-                  <span className="privatebg">Private</span>
-                  <span className="ml-auto"><span>$</span> 100</span>
-                </div>
-                <div className="d-block text-center">
-                  <div className="service_img d-flex" style={{backgroundColor: `rgba(28,183,148, 0.1)`}}>
-                    <img src={toAbsoluteUrl("/media/patients/service_icon_01.svg")} alt="" className="m-auto align-items-center" />
-                  </div>
-                  <div className="service_title">
-                    <p>Pet Services</p>
-                    <p><span>Duration:</span><span>30 Mins</span></p>
+              <label className="pat_box staff_sales" for="pet_box_01">
+                <div className="d-flex align-items-center mb-3">
+                  <span className="staff_sales_icon my-auto"><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+                  <div className="my-auto">
+                    <p className="staff_sales_name m-0">Gopinath Rajendran</p>
+                    <span className="staff_sales_desc d-block">9876543210</span>
                   </div>
                 </div>
-              </label>
-            </div>
-            <div className="col-3 px-1">
-              <input type="checkbox" id="pet_box_02" />
-              <label className="pat_box" for="pet_box_02">
-                <div className="d-flex serve_act">
-                  <span className="publicbg">Public</span>
-                  <span className="ml-auto"><span>$</span> 100</span>
-                </div>
-                <div className="d-block text-center">
-                  <div className="service_img d-flex" style={{backgroundColor: `#FEEFF6`}}>
-                    <img src={toAbsoluteUrl("/media/patients/service_icon_02.svg")} alt="" className="m-auto align-items-center" />
-                  </div>
-                  <div className="service_title">
-                    <p>Pet Services</p>
-                    <p><span>Duration:</span><span>30 Mins</span></p>
-                  </div>
-                </div>
-              </label>
-            </div>
-            <div className="col-3 px-1">
-              <input type="checkbox" id="pet_box_03" />
-              <label className="pat_box" for="pet_box_03">
-                <div className="d-flex serve_act">
-                  <span className="privatebg">Private</span>
-                  <span className="ml-auto"><span>$</span> 100</span>
-                </div>
-                <div className="d-block text-center">
-                  <div className="service_img d-flex" style={{backgroundColor: `rgba(28,88,251, 0.1)`}}>
-                    <img src={toAbsoluteUrl("/media/patients/service_icon_03.svg")} alt="" className="m-auto align-items-center" />
-                  </div>
-                  <div className="service_title">
-                    <p>Pet Services</p>
-                    <p><span>Duration:</span><span>30 Mins</span></p>
-                  </div>
-                </div>
-              </label>
-            </div>
-            <div className="col-3 px-1">
-              <input type="checkbox" id="pet_box_04" />
-              <label className="pat_box" for="pet_box_04">
-                <div className="d-flex serve_act">
-                  <span className="publicbg">Public</span>
-                  <span className="ml-auto"><span>$</span> 100</span>
-                </div>
-                <div className="d-block text-center">
-                  <div className="service_img d-flex" style={{backgroundColor: `rgba(13,113,106, 0.1)`}}>
-                    <img src={toAbsoluteUrl("/media/patients/service_icon_04.svg")} alt="" className="m-auto align-items-center" />
-                  </div>
-                  <div className="service_title">
-                    <p>Pet Services</p>
-                    <p><span>Duration:</span><span>30 Mins</span></p>
-                  </div>
-                </div>
-              </label>
-            </div>
-            <div className="col-3 px-1">
-              <input type="checkbox" id="pet_box_05" />
-              <label className="pat_box" for="pet_box_05">
-                <div className="d-flex serve_act">
-                  <span className="privatebg">Private</span>
-                  <span className="ml-auto"><span>&#2352;</span> 100</span>
-                </div>
-                <div className="d-block text-center">
-                  <div className="service_img d-flex" style={{backgroundColor: `rgba(84,67,172, 0.1)`, color: 'rgba(84,67,172,1)'}}>
-                    go
-                  </div>
-                  <div className="service_title">
-                    <p>Pet Services</p>
-                    <p><span>Duration:</span><span>30 Mins</span></p>
-                  </div>
-                </div>
-              </label>
-            </div>
-            <div className="col-3 px-1">
-              <input type="checkbox" id="pet_box_06" />
-              <label className="pat_box" for="pet_box_06">
-                <div className="d-flex serve_act">
-                  <span className="publicbg">Public</span>
-                  <span className="ml-auto"><span>&#2352;</span> 100</span>
-                </div>
-                <div className="d-block text-center">
-                  <div className="service_img d-flex" style={{backgroundColor: `rgba(29,168,255, 0.1)`, color: 'rgba(29,168,255,1)'}}>
-                    pi
-                  </div>
-                  <div className="service_title">
-                    <p>Pet Services</p>
-                    <p><span>Duration:</span><span>30 Mins</span></p>
-                  </div>
-                </div>
-              </label>
-            </div>
-            <div className="col-3 px-1">
-              <input type="checkbox" id="pet_box_07" />
-              <label className="pat_box" for="pet_box_07">
-                <div className="d-flex serve_act">
-                  <span className="privatebg">Private</span>
-                  <span className="ml-auto"><span>&#2352;</span> 100</span>
-                </div>
-                <div className="d-block text-center">
-                  <div className="service_img d-flex" style={{backgroundColor: `rgba(215,116,29, 0.1)`, color: 'rgba(215,116,29,1)'}}>
-                    ma
-                  </div>
-                  <div className="service_title">
-                    <p>Pet Services</p>
-                    <p><span>Duration:</span><span>30 Mins</span></p>
-                  </div>
-                </div>
-              </label>
-            </div>
-            <div className="col-3 px-1">
-              <input type="checkbox" id="pet_box_08" />
-              <label className="pat_box" for="pet_box_08">
-                <div className="d-flex serve_act">
-                  <span className="publicbg">Public</span>
-                  <span className="ml-auto"><span>&#2352;</span> 100</span>
-                </div>
-                <div className="d-block text-center">
-                  <div className="service_img d-flex" style={{backgroundColor: `rgba(230,46,46, 0.1)`, color: 'rgba(230,46,46,1)'}}>
-                    ni
-                  </div>
-                  <div className="service_title">
-                    <p>Pet Services</p>
-                    <p><span>Duration:</span><span>30 Mins</span></p>
-                  </div>
+                <div className="d-flex">
+                  <OverlayTrigger 
+                    placement="top"
+                    overlay={
+                    <Tooltip id="quick-search-tooltip" className="tool_bg">Chat</Tooltip>
+                    }>
+                    <span className="avails chat_bg">
+                      <img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="Chat" className="m-0" />
+                    </span>
+                  </OverlayTrigger>
+                  <OverlayTrigger 
+                    placement="top"
+                    overlay={
+                    <Tooltip id="quick-search-tooltip" className="tool_bg">Phone</Tooltip>
+                    }>
+                    <span className="avails phone_bg"><img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="Phone" className="m-0" /></span>
+                  </OverlayTrigger>
+                  <OverlayTrigger 
+                    placement="top"
+                    overlay={
+                    <Tooltip id="quick-search-tooltip" className="tool_bg">Vidoe</Tooltip>
+                    }>
+                    <span className="avails video_bg"><img src={toAbsoluteUrl("/media/patients/avail_video.svg")} alt="Video" className="m-0" /></span>
+                  </OverlayTrigger>
+                  <OverlayTrigger 
+                    placement="top"
+                    overlay={
+                    <Tooltip id="quick-search-tooltip" className="tool_bg">In Person</Tooltip>
+                    }>
+                    <span className="avails visit_bg"><img src={toAbsoluteUrl("/media/patients/avail_visit.svg")} alt="In Person" className="m-0" /></span>
+                  </OverlayTrigger>
                 </div>
               </label>
             </div>

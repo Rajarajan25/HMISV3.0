@@ -2940,7 +2940,7 @@ input.edit_mobile[type=text] {
 }
 label.staff_title_text {
 	font-size: 1rem;
-	color: #5C5E5F;
+	color: #303030;
 	text-transform: capitalize;
 	margin: 0 0 8px 0;
 	font-weight: 700;
@@ -3294,6 +3294,9 @@ p.setting_color {
 	.bg_D3EDF2 {
 		background: #D3EDF2;
 	}
+	.min_wid {
+		min-width: 85px;
+	}
 }
 .staff_third {
 	.inc_bg {
@@ -3436,6 +3439,47 @@ p.setting_color {
 				}
 			}
 		}
+		.pat_box.staff_sales {
+			border-radius: 5px;
+			border: 1px solid #F1F1F1;
+			padding: 8px 8px 8px;
+		}
+		.staff_sales_icon {
+			width: 35px;
+			height: 35px;
+			font-size: 13px !important;
+			line-height: 35px;
+			border: 1px solid #1d6aff;
+			border-radius: 50%;
+			margin-right: 0.5rem !important;
+			text-align: center;
+			color: #fff !important;
+			white-space: nowrap;
+			font-weight: bold;
+			display: inline-block;
+			padding: 0;
+			cursor: pointer;
+			img {
+				padding: 2px;
+			}
+		}
+		.staff_sales_name {
+			font-size: 12px;
+			color: #5C5E5F;
+			font-weight: bold;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			max-width: 100px;
+		}
+		.staff_sales_desc {
+			font-size: 11px;
+			color: #C6C6C6;
+		}
+		.staff_sales_location {
+			font-size: 11px;
+			color: #707070;
+		}
 	}
 	.service_search {
 		border: 1px solid #DEDEDE;
@@ -3528,6 +3572,9 @@ p.setting_color {
 		padding-right: 10px;
 		margin-right: 0;
 		color: #3F4355;
+		a {
+			color: #3F4355;
+		}
 	}
 	/*.topMiddlecontent .drag_sel:hover li:first-child .userLogoicon span.serv_title {
 		color: #1D6AFF;

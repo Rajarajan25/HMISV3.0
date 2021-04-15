@@ -470,7 +470,6 @@ export function ColorDropdownMenu() {
            </li>
        </ul>
        {/*end::Navigation*/}
- 
    </>
  }
  
@@ -537,7 +536,6 @@ export function ColorDropdownMenu() {
            </li>
        </ul>
        {/*end::Navigation*/}
- 
    </>
  }
 

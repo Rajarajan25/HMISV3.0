@@ -10,7 +10,6 @@ import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { ServiceDetail } from "./service-detail";
 import { ServiceCost } from "./service-cost";
 import { ServiceSales } from "./service-sales";
-import { ServiceLocation } from "./service-location";
 import { ServiceSettings } from "./service-settings";
 
 function TabContainer(props) {
@@ -61,7 +60,6 @@ export function ServiceDetailsTab() {
                   <Tab label={<TabServiceDetails />} />
                   <Tab label={<TabCost />} />
                   <Tab label={<TabSales />} />
-                  <Tab label={<TabLocation />} />
                   <Tab label={<TabServiceSettings />} />
                 </Tabs>
               </AppBar>
@@ -71,8 +69,7 @@ export function ServiceDetailsTab() {
             {value === 0 && <TabContainer> <ServiceDetail /> </TabContainer>}
             {value === 1 && <TabContainer> <ServiceCost /> </TabContainer>}
             {value === 2 && <TabContainer> <ServiceSales /> </TabContainer>}
-            {value === 3 && <TabContainer> <ServiceLocation /> </TabContainer>}
-            {value === 4 && <TabContainer> <ServiceSettings /> </TabContainer>}
+            {value === 3 && <TabContainer> <ServiceSettings /> </TabContainer>}
           </div>
         </div>
       </Col>
@@ -84,7 +81,7 @@ export function StaffName() {
     <div class="d-flex">
       <span className="listprofileIcon my-auto" style={{backgroundColor: `#2ecd6f`}}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
       <div className="select_staff_name my-auto">
-        <p className="m-0">Gopinath Rajendran</p>
+        <p className="m-0">Service Name</p>
         <span>Add Description</span>
       </div>
     </div>
@@ -124,16 +121,6 @@ export function TabSales() {
   );
 }
 
-export function TabLocation() {
-  return (
-    <div className="clearfix">
-      <div className="d-flex">
-        <span className="staff_tab_img"><img src={toAbsoluteUrl("/media/patients/TabSettings.svg")} alt="" className="d-inline-flex" /></span>
-        <span className="staff_tab_title">Location</span>
-      </div>
-    </div>
-  );
-}
 
 export function TabServiceSettings() {
   return (

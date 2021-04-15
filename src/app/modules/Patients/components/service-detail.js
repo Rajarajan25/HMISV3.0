@@ -51,44 +51,6 @@ export function ServiceDetail() {
           </div>
         </div>
       </div>
-      <div className="form-group d-none">
-        <div className="d-flex">
-          <div className="col-6">
-          <label class="form-label d-block">Phone number</label>
-            <input placeholder="9876543210" type="text" className={`form-control`} name=""/>
-          </div>
-          <div className="col-6">
-          <label class="form-label d-block">Email ID</label>
-            <input placeholder="Sagayaraj@lookman.in" type="text" className={`form-control`} name=""/>
-          </div>
-        </div>
-      </div>
-      <div className="form-group d-none">
-        <div className="col-12">
-          <label class="form-label d-block">Employment</label>
-        </div>
-        <div className="d-flex">
-          <div className="col-6">
-            <DatePicker />
-          </div>
-          <div className="col-6">
-            <DatePicker />
-          </div>
-        </div>
-      </div>
-      <div className="form-group d-none">
-        <div className="col-12">
-          <label class="form-label d-block">Experience</label>
-        </div>
-        <div className="d-flex">
-          <div className="col-6">
-            <input placeholder="Years" type="text" className={`form-control`} name=""/>
-          </div>
-          <div className="col-6">
-            <input placeholder="Month" type="text" className={`form-control`} name=""/>
-          </div>
-        </div>
-      </div>
       <div className="form-group">
         <div className="d-flex">
           <div className="col-3">
@@ -96,7 +58,7 @@ export function ServiceDetail() {
             <label htmlFor="raised-button-file" className="up_avatar">
               <Button variant="raised" component="span" className={classes.button}>
                 <img src={toAbsoluteUrl("/media/patients/avatar_icon.svg")} alt="" className="d-block mb-2" />
-                <span className="d-block">Upload Avatar</span>
+                <span className="d-block">Upload icon Or image</span>
               </Button>
             </label> 
           </div>
@@ -211,15 +173,15 @@ export function ServiceDetail() {
           </div>
         </div>
       </div>
-      <div className="form-group d-none">
+      <div className="form-group">
         <div className="col-12">
-          <label class="form-label d-block">Gender</label>
+          <label class="form-label d-block">Preferred Gender</label>
         </div>
         <div className="d-flex">
           <div className="col-12">
             <div className="pre_gender d-flex">
               <div className="gender_col">
-                <input type="radio" id="gender_01" name="gender_img" className="" checked="true"  />
+                <input type="radio" id="gender_01" name="gender_img" className=""  />
                 <label className="avatar_col" for="gender_01">
                   <span className="gen_img male"><img src={toAbsoluteUrl("/media/patients/male_icon.svg")} alt="" className="d-inline-flex" /></span>
                   <span className="d-flex justify-content-center">Male</span>
@@ -232,33 +194,12 @@ export function ServiceDetail() {
                   <span className="d-flex justify-content-center">Female</span>
                 </label>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="form-group d-none">
-        <div className="row">
-          <div className="col-6">
-            <div className="col-12">
-              <label class="form-label d-block">Status</label>
-            </div>
-            <div className="d-flex">
-              <div className="col-12">
-                <div className="pre_status">
-                  <SwitchLabels />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-6">
-            <div className="col-12">
-              <label class="form-label d-block">Provider</label>
-            </div>
-            <div className="d-flex">
-              <div className="col-12">
-                <div className="pre_status">
-                  <ProviderLabels />
-                </div>
+              <div className="gender_col">
+                <input type="radio" id="gender_03" name="gender_img" className="" />
+                <label className="avatar_col" for="gender_03">
+                  <span className="gen_img both"><img src={toAbsoluteUrl("/media/patients/both_icon.svg")} alt="" className="d-inline-flex" /></span>
+                  <span className="d-flex justify-content-center">Both</span>
+                </label>
               </div>
             </div>
           </div>

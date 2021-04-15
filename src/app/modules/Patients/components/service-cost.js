@@ -130,12 +130,6 @@ export function ServiceCost() {
   const classes = useStyles();
   return (
     <div className="staff_first staff_second w-100 p-6">
-      <div className="form-group border-bottom">
-        <div className="d-flex mb-3 align-items-center">
-          <span className="staff_title_img bg_D5EEE2"><img src={toAbsoluteUrl("/media/patients/price_icon.svg")} alt="" className="" /></span>
-          <label class="staff_title_text color_57AA7F m-0">Pricing and Duration</label>
-        </div>
-      </div>
       <div className="form-group">
         <div className="d-flex row">
           <div className="col-4">
@@ -153,10 +147,22 @@ export function ServiceCost() {
         </div>
       </div>
       <div className="form-group">
+        <div className="d-flex row">
+          <div className="col-4">
+            <label class="form-label d-block">Buffer Time Before</label>
+            <input placeholder="15 Mins" type="text" className={`form-control`} name=""/>
+          </div>
+          <div className="col-4">
+            <label class="form-label d-block">Buffer Time After</label>
+            <input placeholder="30 Mins" type="text" className={`form-control`} name=""/>
+          </div>
+        </div>
+      </div>
+      <div className="form-group">
         <div className="d-flex justify-content-end">
           <Link to="#">
             <img src={toAbsoluteUrl("/media/patients/add-advanced.svg")} alt="" className="" />
-            <span className="color_6B58B6 pl-2 font-weight-500">Advanced</span>
+            <span className="color_6B58B6 pl-2 font-weight-500">Advanced Pricing</span>
           </Link>
         </div>
       </div>
@@ -171,38 +177,31 @@ export function ServiceCost() {
             <label class="form-label d-block">Provider/Staff Name</label>
             <input placeholder="Gopinath" type="text" className={`form-control`} name=""/>
           </div>
-          <div className="col-4">
+          <div className="col-3">
             <label class="form-label d-block">Duration</label>
             <input placeholder="1 Hour 30 Mins" type="text" className={`form-control`} name=""/>
           </div>
-          <div className="col-4">
+          <div className="col-3">
+            <label class="form-label d-block">Price Type</label>
+            <input placeholder="Price Type" type="text" className={`form-control`} name=""/>
+          </div>
+          <div className="col-2">
             <label class="form-label d-block">Price (&#2352;)</label>
             <input placeholder="500" type="text" className={`form-control`} name=""/>
           </div>
         </div>
       </div>
-      <div className="form-group border-bottom">
-        <div className="d-flex mb-3 align-items-center">
-          <span className="staff_title_img bg_EBE9FB"><img src={toAbsoluteUrl("/media/patients/buffer_icon.svg")} alt="" className="" /></span>
-          <label class="staff_title_text color_6B58B6 m-0">Buffer Time</label>
-        </div>
-      </div>
       <div className="form-group">
-        <div className="d-flex row">
-          <div className="col-6">
-            <label class="form-label d-block">Buffer Time Before</label>
-            <input placeholder="15 Mins" type="text" className={`form-control`} name=""/>
-          </div>
-          <div className="col-6">
-            <label class="form-label d-block">Buffer Time After</label>
-            <input placeholder="30 Mins" type="text" className={`form-control`} name=""/>
-          </div>
+        <div className="d-flex justify-content-end">
+          <Link to="#">
+            <img src={toAbsoluteUrl("/media/patients/add-advanced.svg")} alt="" className="" />
+            <span className="color_6B58B6 pl-2 font-weight-500">Add</span>
+          </Link>
         </div>
       </div>
       <div className="form-group border-bottom">
-        <div className="d-flex mb-3 align-items-center">
-          <span className="staff_title_img bg_D3EDF2"><img src={toAbsoluteUrl("/media/patients/24-hours_icon.svg")} alt="" className="" /></span>
-          <label class="staff_title_text color_20AEC2 m-0">Service Timing</label>
+        <div className="d-flex align-items-center">
+          <label class="staff_title_text">Timings</label>
         </div>
       </div>
       <div className="busi_cus ser_tme mt-3 mb-5 clearfix">
@@ -210,21 +209,23 @@ export function ServiceCost() {
       </div>
       <div className="text-left  mt-3 pb-2 session_start border-bottom">
         <div className="session_part row mb-3">
-          <div className="col-3 pr-2 min_width100">
+          <div className="col-4 pr-2 min_width100">
             <div className="session_select">
-              <label>Sunday</label>
+              <label className="staff_title_text min_wid">Sunday</label>
+              <div className="switchlabel"><SwitchLabels /></div>
             </div>
           </div>
           <div className="col-4 p-0 d-flex">
-            <div className="tm_area text-left pl-0">
+            <div className="tm_area text-left pl-0 my-auto">
               <span className="day_off">Week Off</span>
             </div>
           </div>
         </div>
         <div className="session_part row mb-3">
-          <div className="col-3 pr-2 min_width100">
+          <div className="col-4 pr-2 min_width100">
             <div className="session_select">
-              <label>Monday</label>
+              <label className="staff_title_text min_wid">Monday</label>
+              <div className="switchlabel"><SwitchLabels /></div>
             </div>
           </div>
           <div className="col-4 p-0 d-flex">
@@ -234,9 +235,10 @@ export function ServiceCost() {
           </div>
         </div>
         <div className="session_part row mb-3">
-          <div className="col-3 pr-2 min_width100">
+          <div className="col-4 pr-2 min_width100">
             <div className="session_select">
-              <label>Tuesday</label>
+              <label className="staff_title_text min_wid">Tuesday</label>
+              <div className="switchlabel"><SwitchLabels /></div>
             </div>
           </div>
           <div className="col-4 p-0 d-flex">
@@ -246,9 +248,10 @@ export function ServiceCost() {
           </div>
         </div>
         <div className="session_part row mb-3">
-          <div className="col-3 pr-2 min_width100">
+          <div className="col-4 pr-2 min_width100">
             <div className="session_select">
-              <label>Wednesday</label>
+              <label className="staff_title_text min_wid">Wednesday</label>
+              <div className="switchlabel"><SwitchLabels /></div>
             </div>
           </div>
           <div className="col-4 p-0 d-flex">
@@ -258,9 +261,10 @@ export function ServiceCost() {
           </div>
         </div>
         <div className="session_part row mb-3">
-          <div className="col-3 pr-2 min_width100">
+          <div className="col-4 pr-2 min_width100">
             <div className="session_select">
-              <label>Thursday</label>
+              <label className="staff_title_text min_wid">Thursday</label>
+              <div className="switchlabel"><SwitchLabels /></div>
             </div>
           </div>
           <div className="col-4 p-0 d-flex">
@@ -270,9 +274,10 @@ export function ServiceCost() {
           </div>
         </div>
         <div className="session_part row mb-3">
-          <div className="col-3 pr-2 min_width100">
+          <div className="col-4 pr-2 min_width100">
             <div className="session_select">
-              <label>Friday</label>
+              <label className="staff_title_text min_wid">Friday</label>
+              <div className="switchlabel"><SwitchLabels /></div>
             </div>
           </div>
           <div className="col-4 p-0 d-flex">
@@ -282,13 +287,14 @@ export function ServiceCost() {
           </div>
         </div>
         <div className="session_part row mb-3">
-          <div className="col-3 pr-2 min_width100">
+          <div className="col-4 pr-2 min_width100">
             <div className="session_select">
-              <label>Saturday</label>
+              <label className="staff_title_text min_wid">Saturday</label>
+              <div className="switchlabel"><SwitchLabels /></div>
             </div>
           </div>
           <div className="col-4 p-0 d-flex">
-            <div className="tm_area text-left pl-0">
+            <div className="tm_area text-left pl-0 my-auto">
               <span className="day_off">Week Off</span>
             </div>
           </div>
@@ -304,6 +310,27 @@ export function ServiceCost() {
 }
 
 
+
+export function SwitchLabels() {
+
+  const [state, setState] = React.useState({
+    checkedA: false,
+  });
+
+  const handleChange = name => event => {
+    setState({ ...state, [name]: event.target.checked });
+  };
+
+  return (
+    <FormGroup row>
+      <FormControlLabel
+        control={
+          <Switch checked={state.checkedA} onChange={handleChange('checkedA')} value="checkedA" />
+        }
+      />
+    </FormGroup>
+  );
+}
 
 export function TimePickers() {
     // The first commit of Material-UI
