@@ -1808,19 +1808,17 @@ span.avails {
 .form-control-select {
 	display: block;
 	width: 100%;
-	padding: 0.25rem 0.5rem;
+	padding: 0;
 	font-size: 1rem;
 	font-weight: 400;
 	line-height: 1.5;
-	color: #b7b7b7;
 	background-color: #ffffff;
 	background-clip: padding-box;
-	border: 1px solid #D5D5D5;
-	border-radius: 3px;
+	border: 0px solid #D5D5D5;
 	min-width: 150px;
 	box-shadow: none;
-	height: 36px;	
-	border-radius: 5px;
+	height: auto;	
+	border-radius: 0;
 	outline: 0 !important;													
 }
 .price_hoverimg {
@@ -3698,5 +3696,75 @@ p.setting_color {
 	.w_130 {
 		width: 130px;
 		margin: 0px auto;
+	}
+}
+.re_select {
+	.css-yk16xz-control {
+		border-color: #eee;
+		border-radius: 0;
+		border-width: 0;
+		min-height: 30px;
+		border-bottom-width: 1px;
+	}
+	.css-yk16xz-control:hover {
+		border-color: #eee;
+	}
+	.css-g1d714-ValueContainer {
+		padding: 0px 5px 0px 0px;
+	}
+	.css-1okebmr-indicatorSeparator {
+		width: 0;
+	}
+	.css-tlfecz-indicatorContainer, .css-1gtu0rj-indicatorContainer  {
+		padding: 4px;
+	}
+	.css-1pahdxg-control {
+		border-color: #1D6AFF;
+		border-radius: 0;
+		border-width: 0;
+		min-height: 30px;
+		border-bottom-width: 1px;
+		box-shadow: none;
+	}
+	.css-1pahdxg-control:hover {
+		border-color: #eee;
+	}
+	.css-1wa3eu0-placeholder {
+		color: #b5b5c3;
+		margin-left: 0px;
+		margin-right: 0px;
+		font-weight: 500;
+		font-size: 1rem;
+	}
+	.css-1uccc91-singleValue {
+		color: #303030;
+		margin-left: 0;
+		margin-right: 0;
+		font-weight: 500;
+		font-size: 1rem;
+	}
+	.css-b8ldur-Input {
+		input:focus {
+			color: #1D6AFF !important;
+			font-weight: 500;
+			font-size: 1rem;
+		}
+	}
+	.css-4ljt47-MenuList{
+		padding-bottom:0px;
+		padding-top:0px;
+	}
+	&.multis {
+		.css-1gtu0rj-indicatorContainer:first-child, .css-tlfecz-indicatorContainer:first-child {
+			display: none;
+		}
+		.css-12jo7m5 {
+			border-radius: 5px;
+			padding: 3px 1px 3px 4px;
+		}
+		.css-xb97g8 {
+			padding-left: 2px;
+			padding-right: 2px;
+		}
 	}
 }

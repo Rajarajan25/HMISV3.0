@@ -16,7 +16,7 @@ import {
 import Input from '@material-ui/core/Input';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+import Select from 'react-select';
 import Chip from '@material-ui/core/Chip';
 import { withStyles } from '@material-ui/core/styles';
 import MuiExpansionPanel from '@material-ui/core/ExpansionPanel';
@@ -109,12 +109,6 @@ const MenuProps = {
   },
 };
 
-const names = [
-  'Chat',
-  'Call',
-  'Video',
-  'In-Person',
-];
 
 function getStyles(name, personName, theme) {
   return {
@@ -124,6 +118,17 @@ function getStyles(name, personName, theme) {
         : theme.typography.fontWeightMedium,
   };
 }
+
+const locationselect = [
+  { value: 'adayar', label: 'Adayar' },
+  { value: 'tambaram', label: 'Tambaram' }
+]
+const availability = [
+  { value: 'chat', label: 'Chat' },
+  { value: 'call', label: 'Call' },
+  { value: 'video', label: 'Video' },
+  { value: 'inperson', label: 'In Person' }
+]
 
 
 export function StaffTiming() {
@@ -135,13 +140,17 @@ export function StaffTiming() {
           <SelectHours />
         </div>
         <div className="row locate_avail">
-          <div className="col-6">
+          <div className="col-5">
               <label className="form-label d-block">Choose your location</label>
-              <LocationSelect />
+              <div className="re_select">
+                <Select options={locationselect} />
+              </div>
             </div>
-            <div className="col-6">
+            <div className="col-7">
               <label className="form-label d-block">Availability</label>
-              <AvailMultipleSelect />
+              <div className="re_select multis">
+                <Select isMulti options={availability} />
+              </div>
             </div>
         </div>
         <div className="day_select py-6">
@@ -359,93 +368,6 @@ export function TimePickers() {
   );
 }
 
-
-export function LocationSelect() {
-  
-  const classes = useStyles();
-  const [values, setValues] = React.useState({
-    age: '',
-    name: 'hai',
-  });
-
-  function handleChange(event) {
-    setValues(oldValues => ({
-      ...oldValues,
-      [event.target.name]: event.target.value,
-    }));
-  }
-
-  return (
-      <FormControl className={classes.formControl}>
-        
-        <Select
-          value={values.age}
-          onChange={handleChange}
-          input={<Input name="age" id="age-label-placeholder" />}
-          displayEmpty
-          name="age"
-          className={classes.selectEmpty}
-        >
-          <MenuItem value="">
-          Adayar
-          </MenuItem>
-          <MenuItem value={10}>Thiruvanmiur</MenuItem>
-          <MenuItem value={20}>Perungudi</MenuItem>
-          <MenuItem value={30}>OMR</MenuItem>
-        </Select>
-      </FormControl>
-  );
-}
-
-
-export function AvailMultipleSelect() {
-  const classes = useStyles();
-  const theme = useTheme();
-  const [personName, setPersonName] = React.useState([]);
-
-  function handleChange(event) {
-    setPersonName(event.target.value);
-  }
-
-  function handleChangeMultiple(event) {
-    const { options } = event.target;
-    const value = [];
-    for (let i = 0, l = options.length; i < l; i += 1) {
-      if (options[i].selected) {
-        value.push(options[i].value);
-      }
-    }
-    setPersonName(value);
-  }
-
-  return (
-    <div className={classes.root + " " + "col_sel"}>
-      <FormControl className={classes.formControl}>
-        <Select
-          multiple
-          className={"mr_top"}
-          value={personName}
-          onChange={handleChange}
-          input={<Input id="select-multiple-chip" />}
-          renderValue={selected => (
-            <div className={classes.chips}>
-              {selected.map(value => (
-                <Chip key={value} label={value} className={classes.chip  + " " + value} />
-              ))}
-            </div>
-          )}
-          MenuProps={MenuProps}
-        >
-          {names.map(name => (
-            <MenuItem key={name} value={name} style={getStyles(name, personName, theme)}>
-              {name}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-    </div>
-  );
-}
 
 
 

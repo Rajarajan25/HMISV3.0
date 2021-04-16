@@ -1,5 +1,6 @@
 import 'date-fns';
 import React , { useState } from "react";
+import Select from 'react-select';
 import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -16,7 +17,6 @@ import {
 import Input from '@material-ui/core/Input';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
 import Chip from '@material-ui/core/Chip';
 import { withStyles } from '@material-ui/core/styles';
 import MuiExpansionPanel from '@material-ui/core/ExpansionPanel';
@@ -109,12 +109,6 @@ const MenuProps = {
   },
 };
 
-const names = [
-  'Chat',
-  'Call',
-  'Video',
-  'In-Person',
-];
 
 function getStyles(name, personName, theme) {
   return {
@@ -125,6 +119,22 @@ function getStyles(name, personName, theme) {
   };
 }
 
+const pricetype = [
+  { value: 'free', label: 'Free' },
+  { value: 'fixed', label: 'Fixed' }
+]
+const buffertime = [
+  { value: '5mins', label: '5 Mins' },
+  { value: '10mins', label: '10 Mins' },
+  { value: '15mins', label: '15 Mins' },
+  { value: '20mins', label: '20 Mins' }
+]
+const availability = [
+  { value: 'chat', label: 'Chat' },
+  { value: 'call', label: 'Call' },
+  { value: 'video', label: 'Video' },
+  { value: 'inperson', label: 'In Person' }
+]
 
 export function ServiceCost() {
   const classes = useStyles();
@@ -134,11 +144,15 @@ export function ServiceCost() {
         <div className="d-flex row">
           <div className="col-4">
             <label class="form-label d-block">Duration</label>
-            <input placeholder="1 Hour 30 Mins" type="text" className={`form-control`} name=""/>
+            <div className="re_select">
+              <Select options={buffertime} />
+            </div>
           </div>
           <div className="col-4">
             <label class="form-label d-block">Price Type</label>
-            <input placeholder="Price Type" type="text" className={`form-control`} name=""/>
+            <div className="re_select">
+              <Select options={pricetype} />
+            </div>
           </div>
           <div className="col-4">
             <label class="form-label d-block">Price (&#2352;)</label>
@@ -148,13 +162,17 @@ export function ServiceCost() {
       </div>
       <div className="form-group">
         <div className="d-flex row">
-          <div className="col-4">
+          <div className="col-7">
             <label class="form-label d-block">Buffer Time Before</label>
-            <input placeholder="15 Mins" type="text" className={`form-control`} name=""/>
+            <div className="re_select">
+              <Select options={buffertime} />
+            </div>
           </div>
           <div className="col-4">
             <label class="form-label d-block">Buffer Time After</label>
-            <input placeholder="30 Mins" type="text" className={`form-control`} name=""/>
+            <div className="re_select">
+              <Select options={buffertime} />
+            </div>
           </div>
         </div>
       </div>
@@ -179,11 +197,15 @@ export function ServiceCost() {
           </div>
           <div className="col-3">
             <label class="form-label d-block">Duration</label>
-            <input placeholder="1 Hour 30 Mins" type="text" className={`form-control`} name=""/>
+            <div className="re_select">
+              <Select options={buffertime} />
+            </div>
           </div>
           <div className="col-3">
             <label class="form-label d-block">Price Type</label>
-            <input placeholder="Price Type" type="text" className={`form-control`} name=""/>
+            <div className="re_select">
+              <Select options={pricetype} />
+            </div>
           </div>
           <div className="col-2">
             <label class="form-label d-block">Price (&#2352;)</label>
@@ -375,93 +397,6 @@ export function TimePickers() {
   );
 }
 
-
-export function LocationSelect() {
-  
-  const classes = useStyles();
-  const [values, setValues] = React.useState({
-    age: '',
-    name: 'hai',
-  });
-
-  function handleChange(event) {
-    setValues(oldValues => ({
-      ...oldValues,
-      [event.target.name]: event.target.value,
-    }));
-  }
-
-  return (
-      <FormControl className={classes.formControl}>
-        
-        <Select
-          value={values.age}
-          onChange={handleChange}
-          input={<Input name="age" id="age-label-placeholder" />}
-          displayEmpty
-          name="age"
-          className={classes.selectEmpty}
-        >
-          <MenuItem value="">
-          Adayar
-          </MenuItem>
-          <MenuItem value={10}>Thiruvanmiur</MenuItem>
-          <MenuItem value={20}>Perungudi</MenuItem>
-          <MenuItem value={30}>OMR</MenuItem>
-        </Select>
-      </FormControl>
-  );
-}
-
-
-export function AvailMultipleSelect() {
-  const classes = useStyles();
-  const theme = useTheme();
-  const [personName, setPersonName] = React.useState([]);
-
-  function handleChange(event) {
-    setPersonName(event.target.value);
-  }
-
-  function handleChangeMultiple(event) {
-    const { options } = event.target;
-    const value = [];
-    for (let i = 0, l = options.length; i < l; i += 1) {
-      if (options[i].selected) {
-        value.push(options[i].value);
-      }
-    }
-    setPersonName(value);
-  }
-
-  return (
-    <div className={classes.root + " " + "col_sel"}>
-      <FormControl className={classes.formControl}>
-        <Select
-          multiple
-          className={"mr_top"}
-          value={personName}
-          onChange={handleChange}
-          input={<Input id="select-multiple-chip" />}
-          renderValue={selected => (
-            <div className={classes.chips}>
-              {selected.map(value => (
-                <Chip key={value} label={value} className={classes.chip  + " " + value} />
-              ))}
-            </div>
-          )}
-          MenuProps={MenuProps}
-        >
-          {names.map(name => (
-            <MenuItem key={name} value={name} style={getStyles(name, personName, theme)}>
-              {name}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-    </div>
-  );
-}
 
 
 function SelectHours() {
