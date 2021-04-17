@@ -5,7 +5,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
-import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
 const useStyles = makeStyles({
   list: {
@@ -15,7 +14,6 @@ const useStyles = makeStyles({
     width: 'auto',
   },
 });
-
 
 export function ServiceSales() {
   const classes = useStyles();
@@ -80,36 +78,148 @@ export function ServiceSales() {
                   </div>
                 </div>
                 <div className="d-flex">
-                  <OverlayTrigger 
-                    placement="top"
-                    overlay={
-                    <Tooltip id="quick-search-tooltip" className="tool_bg">Chat</Tooltip>
-                    }>
-                    <span className="avails chat_bg">
-                      <img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="Chat" className="m-0" />
-                    </span>
-                  </OverlayTrigger>
-                  <OverlayTrigger 
-                    placement="top"
-                    overlay={
-                    <Tooltip id="quick-search-tooltip" className="tool_bg">Phone</Tooltip>
-                    }>
-                    <span className="avails phone_bg"><img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="Phone" className="m-0" /></span>
-                  </OverlayTrigger>
-                  <OverlayTrigger 
-                    placement="top"
-                    overlay={
-                    <Tooltip id="quick-search-tooltip" className="tool_bg">Vidoe</Tooltip>
-                    }>
-                    <span className="avails video_bg"><img src={toAbsoluteUrl("/media/patients/avail_video.svg")} alt="Video" className="m-0" /></span>
-                  </OverlayTrigger>
-                  <OverlayTrigger 
-                    placement="top"
-                    overlay={
-                    <Tooltip id="quick-search-tooltip" className="tool_bg">In Person</Tooltip>
-                    }>
-                    <span className="avails visit_bg"><img src={toAbsoluteUrl("/media/patients/avail_visit.svg")} alt="In Person" className="m-0" /></span>
-                  </OverlayTrigger>
+                  <span className="avails chat_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="Chat" className="m-0" />
+                  </span>
+                  <span className="avails phone_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="Phone" className="m-0" />
+                  </span>
+                  <span className="avails video_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_video.svg")} alt="Video" className="m-0" />
+                  </span>
+                  <span className="avails visit_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_visit.svg")} alt="In Person" className="m-0" />
+                  </span>
+                </div>
+              </label>
+            </div>
+            <div className="col-4 px-1">
+              <input type="checkbox" id="pet_box_02" />
+              <label className="pat_box staff_sales" for="pet_box_02">
+                <div className="d-flex align-items-center mb-3">
+                  <span className="staff_sales_icon my-auto"><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+                  <div className="my-auto">
+                    <p className="staff_sales_name m-0">Gopinath Rajendran</p>
+                    <span className="staff_sales_desc d-block">9876543210</span>
+                  </div>
+                </div>
+                <div className="d-flex">
+                  <span className="avails chat_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="Chat" className="m-0" />
+                  </span>
+                  <span className="avails phone_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="Phone" className="m-0" />
+                  </span>
+                  <span className="avails video_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_video.svg")} alt="Video" className="m-0" />
+                  </span>
+                  <span className="avails visit_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_visit.svg")} alt="In Person" className="m-0" />
+                  </span>
+                </div>
+              </label>
+            </div>
+            <div className="col-4 px-1">
+              <input type="checkbox" id="pet_box_03" />
+              <label className="pat_box staff_sales" for="pet_box_03">
+                <div className="d-flex align-items-center mb-3">
+                  <span className="staff_sales_icon my-auto"><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+                  <div className="my-auto">
+                    <p className="staff_sales_name m-0">Gopinath Rajendran</p>
+                    <span className="staff_sales_desc d-block">9876543210</span>
+                  </div>
+                </div>
+                <div className="d-flex">
+                  <span className="avails chat_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="Chat" className="m-0" />
+                  </span>
+                  <span className="avails phone_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="Phone" className="m-0" />
+                  </span>
+                  <span className="avails video_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_video.svg")} alt="Video" className="m-0" />
+                  </span>
+                  <span className="avails visit_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_visit.svg")} alt="In Person" className="m-0" />
+                  </span>
+                </div>
+              </label>
+            </div>
+            <div className="col-4 px-1">
+              <input type="checkbox" id="pet_box_04" />
+              <label className="pat_box staff_sales" for="pet_box_04">
+                <div className="d-flex align-items-center mb-3">
+                  <span className="staff_sales_icon my-auto"><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+                  <div className="my-auto">
+                    <p className="staff_sales_name m-0">Gopinath Rajendran</p>
+                    <span className="staff_sales_desc d-block">9876543210</span>
+                  </div>
+                </div>
+                <div className="d-flex">
+                  <span className="avails chat_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="Chat" className="m-0" />
+                  </span>
+                  <span className="avails phone_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="Phone" className="m-0" />
+                  </span>
+                  <span className="avails video_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_video.svg")} alt="Video" className="m-0" />
+                  </span>
+                  <span className="avails visit_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_visit.svg")} alt="In Person" className="m-0" />
+                  </span>
+                </div>
+              </label>
+            </div>
+            <div className="col-4 px-1">
+              <input type="checkbox" id="pet_box_05" />
+              <label className="pat_box staff_sales" for="pet_box_05">
+                <div className="d-flex align-items-center mb-3">
+                  <span className="staff_sales_icon my-auto"><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+                  <div className="my-auto">
+                    <p className="staff_sales_name m-0">Gopinath Rajendran</p>
+                    <span className="staff_sales_desc d-block">9876543210</span>
+                  </div>
+                </div>
+                <div className="d-flex">
+                  <span className="avails chat_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="Chat" className="m-0" />
+                  </span>
+                  <span className="avails phone_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="Phone" className="m-0" />
+                  </span>
+                  <span className="avails video_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_video.svg")} alt="Video" className="m-0" />
+                  </span>
+                  <span className="avails visit_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_visit.svg")} alt="In Person" className="m-0" />
+                  </span>
+                </div>
+              </label>
+            </div>
+            <div className="col-4 px-1">
+              <input type="checkbox" id="pet_box_06" />
+              <label className="pat_box staff_sales" for="pet_box_06">
+                <div className="d-flex align-items-center mb-3">
+                  <span className="staff_sales_icon my-auto"><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+                  <div className="my-auto">
+                    <p className="staff_sales_name m-0">Gopinath Rajendran</p>
+                    <span className="staff_sales_desc d-block">9876543210</span>
+                  </div>
+                </div>
+                <div className="d-flex">
+                  <span className="avails chat_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="Chat" className="m-0" />
+                  </span>
+                  <span className="avails phone_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="Phone" className="m-0" />
+                  </span>
+                  <span className="avails video_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_video.svg")} alt="Video" className="m-0" />
+                  </span>
+                  <span className="avails visit_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_visit.svg")} alt="In Person" className="m-0" />
+                  </span>
                 </div>
               </label>
             </div>
@@ -169,7 +279,7 @@ export function ServiceSales() {
 
 
 export default function SwitchLabels() {
-
+  
   const [state, setState] = React.useState({
     checkedA: true,
   });

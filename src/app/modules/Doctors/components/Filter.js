@@ -9,6 +9,12 @@ import { shallowEqual, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 //import { DropdownCustomToggler,DropdownMenu4 } from "../../../../_metronic/_partials/dropdowns";
+import Select from 'react-select';
+
+const options = [
+  { value: 'newest', label: 'Newest' },
+  { value: 'oldest', label: 'Oldest' },
+]
 
 export function Filter() {
   const user = useSelector(({ auth }) => auth.user, shallowEqual);
@@ -35,10 +41,7 @@ export function Filter() {
                           <div className="d-flex ml-auto align-items-center">   
                             <div className="sort-text">Sort By:</div>
                             <div className="select-box p-3">
-                                <select class="form-control-select">
-                                    <option>Newst</option>
-                                    <option>Oldest</option>
-                                </select>
+                              <Select className="form-control-select" options={options} />
                             </div>
                             <div className="HoverView">
                                 <Link to="#" className="d-block p-3"><img src={toAbsoluteUrl("/media/health/gridview.svg")} alt="" className="mx-auto" /></Link>

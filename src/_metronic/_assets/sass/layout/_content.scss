@@ -1715,6 +1715,7 @@ span.avails {
 	}
 }
 .tool_bg {
+	z-index: 10 !important;
 	.tooltip-inner {
 		background: #394148;
 		color: #ffffff;
@@ -3766,5 +3767,25 @@ p.setting_color {
 			padding-left: 2px;
 			padding-right: 2px;
 		}
+	}
+}
+.new_customer_btn {
+    background: #1d6aff;
+    color: #fff;
+    padding: 7px 10px;
+    border-radius: 5px;
+	margin-bottom: 10px;
+	&:hover {
+		color: #fff;
+	}
+	img {
+		filter: brightness(0) invert(1);
+		-webkit-filter: brightness(0) invert(1);
+	}
+}
+.subheader {
+	.btn.btn-primary {
+		background-color: #1d6aff !important;
+		border-color: #1d6aff !important;
 	}
 }

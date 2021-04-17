@@ -2,7 +2,7 @@ import 'date-fns';
 import React , { useState } from "react";
 import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
@@ -10,14 +10,9 @@ import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 import {
   MuiPickersUtilsProvider,
-  KeyboardTimePicker,
-  KeyboardDatePicker,
-} from '@material-ui/pickers';
-import Input from '@material-ui/core/Input';
-import MenuItem from '@material-ui/core/MenuItem';
+  KeyboardTimePicker } from '@material-ui/pickers';
 import FormControl from '@material-ui/core/FormControl';
 import Select from 'react-select';
-import Chip from '@material-ui/core/Chip';
 import { withStyles } from '@material-ui/core/styles';
 import MuiExpansionPanel from '@material-ui/core/ExpansionPanel';
 import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
@@ -368,10 +363,6 @@ export function TimePickers() {
   );
 }
 
-
-
-
-
 export function TimeExpansionPanels() {
   const [expanded, setExpanded] = React.useState('panel1');
 
@@ -462,8 +453,6 @@ export function TimeExpansionPanels() {
     </div>
   );
 }
-
-
 
 function SelectHours() {
 

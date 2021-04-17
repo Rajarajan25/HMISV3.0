@@ -42,29 +42,29 @@ export function PatientInvoice() {
   return (
     <div className="invoice_card w-100">
       <div className="text-center">
-        <h2 className="font-size-24 font_weight_bold my-4">Hmis</h2>
-        <p className="font-size-16 color_707070 font_weight_bold mb-8">info@hmisservice.com, 9876543210</p>
+        <h2 className="font-size-24 font_weight_bold my-2">Hmis</h2>
+        <p className="font-size-16 color_707070 font_weight_bold mb-5">info@hmisservice.com, 9876543210</p>
       </div>
-      <div className="row m-0 pb-10  border-bottom">
+      <div className="row m-0 pb-7  border-bottom">
         <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-          <p className="font-size-18 font_weight_bold mb-6">Doctor Treatment Invoice</p>
-          <div className="d-flex mb-3">
+          <p className="font-size-18 font_weight_bold mb-4">Doctor Treatment Invoice</p>
+          <div className="d-flex mb-2">
             <span className="font_weight_medium color_707070 mw_130">Invoice Number:</span>
             <span className="font_weight_bold">012345</span>
           </div>
-          <div className="d-flex mb-3">
+          <div className="d-flex mb-2">
             <span className="font_weight_medium color_707070 mw_130">Billing To:</span>
             <span className="font_weight_bold">Andrea Jemmiah</span>
           </div>
-          <div className="d-flex mb-3">
+          <div className="d-flex mb-2">
             <span className="font_weight_medium color_707070 mw_130">Client Address:</span>
             <span className="font_weight_bold">12 Gandhi Nagar, Chennai - 600176</span>
           </div>
-          <div className="d-flex mb-3">
+          <div className="d-flex mb-2">
             <span className="font_weight_medium color_707070 mw_130">Email:</span>
             <span className="font_weight_bold">Andrea@gmail.com</span>
           </div>
-          <div className="d-flex mb-3">
+          <div className="d-flex mb-2">
             <span className="font_weight_medium color_707070 mw_130">Due Date:</span>
             <span className="font_weight_bold">12th Feb 2021</span>
           </div>
@@ -77,7 +77,6 @@ export function PatientInvoice() {
         </div>
       </div>
       <InvoiceHistory />
-
       <Drawer className="patientProfileinfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
         <div className="py-5 px-10 overflow-auto">
           <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}>
@@ -96,7 +95,7 @@ export function PatientInvoice() {
 export function InvoiceHistory(){
   return(
     <div className="table-responsive text-nowrap invoice_card">
-      <Table className="table color_292D34 font_weight_medium font-size-12">
+      <Table className="table color_292D34 font_weight_medium font-size-12 mb-1">
         <thead>
         <tr>
             <th colSpan="6" className="font-size-16 py-5">Invoice Details</th>

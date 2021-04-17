@@ -5,15 +5,16 @@ import Select from 'react-select';
 import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 
+
+const options = [
+  { value: 'newest', label: 'Newest' },
+  { value: 'oldest', label: 'Oldest' },
+]
+
 export function Filter() {
   const user = useSelector(({ auth }) => auth.user, shallowEqual);
 
-  const options = [
-    { value: 'newest', label: 'Newest' },
-    { value: 'oldest', label: 'Oldest' },
-  ]
-
-  useEffect(() => {
+    useEffect(() => {
     return () => {};
   }, [user]);
 

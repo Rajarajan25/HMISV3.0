@@ -1,13 +1,8 @@
 import 'date-fns';
 import React from "react";
-import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
-import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 import {
@@ -225,52 +220,6 @@ export function ServiceDetail() {
     </div>
   );
 }
-
-
-export default function SwitchLabels() {
-
-  const [state, setState] = React.useState({
-    checkedA: true,
-  });
-
-  const handleChange = name => event => {
-    setState({ ...state, [name]: event.target.checked });
-  };
-
-  return (
-    <FormGroup row>
-      <FormControlLabel
-        control={
-          <Switch checked={state.checkedA} onChange={handleChange('checkedA')} value="checkedA" />
-        }
-        label="Active"
-      />
-    </FormGroup>
-  );
-}
-
-export function ProviderLabels() {
-
-  const [state, setState] = React.useState({
-    checkedA: true,
-  });
-
-  const handleChange = name => event => {
-    setState({ ...state, [name]: event.target.checked });
-  };
-
-  return (
-    <FormGroup row>
-      <FormControlLabel
-        control={
-          <Switch checked={state.checkedA} onChange={handleChange('checkedA')} value="checkedA" />
-        }
-        label="Yes"
-      />
-    </FormGroup>
-  );
-}
-
 
 export function DatePicker() {
   // The first commit of Material-UI

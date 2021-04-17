@@ -31,8 +31,6 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-
-
 export function ServiceDetailsTab() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
@@ -120,7 +118,6 @@ export function TabSales() {
     </div>
   );
 }
-
 
 export function TabServiceSettings() {
   return (

@@ -232,7 +232,7 @@ export function PatientBasicDetails(){
           </Row>
         </div>
       </div>
-      <div className="d-flex w-100 flex-column mt-10">
+      <div className="d-flex w-100 flex-column mt-8">
         <div className="d-flex font-size-16 mb-3 font_weight_bold">
           <span>Patient Summary</span>       
         </div>
