@@ -49,6 +49,20 @@ const pricetype = [
   { value: 'free', label: 'Free' },
   { value: 'fixed', label: 'Fixed' }
 ]
+const durationtime = [
+  { value: '5mins', label: '5 Mins' },
+  { value: '10mins', label: '10 Mins' },
+  { value: '15mins', label: '15 Mins' },
+  { value: '20mins', label: '20 Mins' },
+  { value: '25mins', label: '25 Mins' },
+  { value: '30mins', label: '30 Mins' },
+  { value: '35mins', label: '35 Mins' },
+  { value: '40mins', label: '40 Mins' },
+  { value: '45mins', label: '45 Mins' },
+  { value: '50mins', label: '50 Mins' },
+  { value: '55mins', label: '55 Mins' },
+  { value: '1hour', label: '1 Hour' }
+]
 const buffertime = [
   { value: '5mins', label: '5 Mins' },
   { value: '10mins', label: '10 Mins' },
@@ -71,7 +85,7 @@ export function ServiceCost() {
           <div className="col-4">
             <label class="form-label d-block">Duration</label>
             <div className="re_select">
-              <Select options={buffertime} />
+              <Select options={durationtime} />
             </div>
           </div>
           <div className="col-4">
@@ -124,7 +138,7 @@ export function ServiceCost() {
           <div className="col-3">
             <label class="form-label d-block">Duration</label>
             <div className="re_select">
-              <Select options={buffertime} />
+              <Select options={durationtime} />
             </div>
           </div>
           <div className="col-3">

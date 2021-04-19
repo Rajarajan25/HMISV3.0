@@ -73,8 +73,16 @@ export function CustomerDetail(){
           </Col>
           <Col md={6}>
             <div className="form-group border-bottom">
-              <label className="form-lable font_weight_bold color_303030">Date & Time</label>
-              <input placeholder="26/11/2020 02:00 PM" type="text" className="form-control font_weight_medium color_707070 pl-0 border-0" name="" />
+              <label className="form-lable font_weight_bold color_303030">Email ID</label>
+              <input placeholder="Enter Email ID" type="text" className="form-control font_weight_medium color_707070 pl-0 border-0" name="" />
+            </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={6}>
+            <div className="form-group border-bottom">
+              <label className="form-lable font_weight_bold color_303030">Phone</label>
+              <input placeholder="Enter Phone No" type="text" className="form-control font_weight_medium color_707070 pl-0 border-0" name="" />
             </div>
           </Col>
         </Row>
@@ -102,8 +110,8 @@ export function CustomerDetail(){
         <Row>
           <Col md={6}>
             <div className="form-group border-bottom">
-              <label className="form-lable font_weight_bold color_303030">City</label>
-              <input placeholder="Enter City" type="text" className="form-control font_weight_medium color_707070 pl-0 border-0" name="" />
+              <label className="form-lable font_weight_bold color_303030">Address</label>
+              <input placeholder="Enter Address" type="text" className="form-control font_weight_medium color_707070 pl-0 border-0" name="" />
             </div>
           </Col>
           <Col md={6}>
@@ -113,16 +121,6 @@ export function CustomerDetail(){
             </div>
           </Col>
         </Row>
-      </div>
-      <div className="d-flex w-100 flex-column">
-        <div className="d-flex color_303030 font-size-14 mb-4 font_weight_bold">
-          <span>Terms and Conditions</span>       
-        </div>
-        <div className="w-100">
-        <label className="d-flex color_707070 font-size-13"> 
-          <input type="checkbox" name="acceptTerms" className="m-1"/>  <span className="ml-2">It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passage.</span>
-        </label>
-        </div>
       </div>
       <div className="w-100 mt-15">
         <div className="d-flex justify-content-end color_c0c0c0">
