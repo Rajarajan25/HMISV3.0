@@ -1,69 +1,54 @@
-export const appointments = [
+export const today = new Date();
+today.setHours(0, 0, 0, 0);
+today.setDate(today.getDate() - today.getDay() + 3);
+
+export const data = [
   {
-    text: 'Website Re-Design Plan',
-    startDate: new Date('2021-04-24T16:30:00.000Z'),
-    endDate: new Date('2021-04-24T18:30:00.000Z')
+    movieId: 1,
+    startDate: new Date(today.getTime() - 113.5 * 3600000),
+    endDate: new Date(today.getTime() - 111.5 * 3600000),
+    recurrenceRule: 'FREQ=HOURLY;INTERVAL=15;COUNT=15'
   }, {
-    text: 'Book Flights to San Fran for Sales Trip',
-    startDate: new Date('2021-04-24T19:00:00.000Z'),
-    endDate: new Date('2021-04-24T20:00:00.000Z'),
-    allDay: true
+    movieId: 2,
+    startDate: new Date(today.getTime() - 110.5 * 3600000),
+    endDate: new Date(today.getTime() - 108.5 * 3600000),
+    recurrenceRule: 'FREQ=HOURLY;INTERVAL=15;COUNT=15'
   }, {
-    text: 'Install New Router in Dev Room',
-    startDate: new Date('2021-04-24T21:30:00.000Z'),
-    endDate: new Date('2021-04-24T22:30:00.000Z')
+    movieId: 3,
+    startDate: new Date(today.getTime() - 106.5 * 3600000),
+    endDate: new Date(today.getTime() - 104.5 * 3600000),
+    recurrenceRule: 'FREQ=HOURLY;INTERVAL=15;COUNT=15'
   }, {
-    text: 'Approve Personal Computer Upgrade Plan',
-    startDate: new Date('2021-04-25T17:00:00.000Z'),
-    endDate: new Date('2021-04-25T18:00:00.000Z')
+    movieId: 4,
+    startDate: new Date(today.getTime() - 104 * 3600000),
+    endDate: new Date(today.getTime() - 102 * 3600000),
+    recurrenceRule: 'FREQ=HOURLY;INTERVAL=15;COUNT=15'
   }, {
-    text: 'Final Budget Review',
-    startDate: new Date('2021-04-25T19:00:00.000Z'),
-    endDate: new Date('2021-04-25T20:35:00.000Z')
-  }, {
-    text: 'New Brochures',
-    startDate: new Date('2021-04-25T21:30:00.000Z'),
-    endDate: new Date('2021-04-25T22:45:00.000Z')
-  }, {
-    text: 'Install New Database',
-    startDate: new Date('2021-04-26T16:45:00.000Z'),
-    endDate: new Date('2021-04-26T18:15:00.000Z')
-  }, {
-    text: 'Approve New Online Marketing Strategy',
-    startDate: new Date('2021-04-26T19:00:00.000Z'),
-    endDate: new Date('2021-04-26T21:00:00.000Z')
-  }, {
-    text: 'Upgrade Personal Computers',
-    startDate: new Date('2021-04-26T22:15:00.000Z'),
-    endDate: new Date('2021-04-26T23:30:00.000Z')
-  }, {
-    text: 'Customer Workshop',
-    startDate: new Date('2021-04-27T18:00:00.000Z'),
-    endDate: new Date('2021-04-27T19:00:00.000Z'),
-    allDay: true
-  }, {
-    text: 'Prepare 2021 Marketing Plan',
-    startDate: new Date('2021-04-27T18:00:00.000Z'),
-    endDate: new Date('2021-04-27T20:30:00.000Z')
-  }, {
-    text: 'Brochure Design Review',
-    startDate: new Date('2021-04-27T21:00:00.000Z'),
-    endDate: new Date('2021-04-27T22:30:00.000Z')
-  }, {
-    text: 'Create Icons for Website',
-    startDate: new Date('2021-04-28T17:00:00.000Z'),
-    endDate: new Date('2021-04-28T18:30:00.000Z')
-  }, {
-    text: 'Upgrade Server Hardware',
-    startDate: new Date('2021-04-28T21:30:00.000Z'),
-    endDate: new Date('2021-04-28T23:00:00.000Z')
-  }, {
-    text: 'Submit New Website Design',
-    startDate: new Date('2021-04-28T23:30:00.000Z'),
-    endDate: new Date('2021-04-29T01:00:00.000Z')
-  }, {
-    text: 'Launch New Website',
-    startDate: new Date('2021-04-28T19:20:00.000Z'),
-    endDate: new Date('2021-04-28T21:00:00.000Z')
+    movieId: 5,
+    startDate: new Date(today.getTime() - 101 * 3600000),
+    endDate: new Date(today.getTime() - 99 * 3600000),
+    recurrenceRule: 'FREQ=HOURLY;INTERVAL=15;COUNT=15'
   }
 ];
+
+export const moviesData = [{
+  id: 1,
+  text: 'His Girl Friday',
+  image: 'https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/movies/HisGirlFriday.jpg'
+}, {
+  id: 2,
+  text: 'Royal Wedding',
+  image: 'https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/movies/RoyalWedding.jpg'
+}, {
+  id: 3,
+  text: 'A Star Is Born',
+  image: 'https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/movies/AStartIsBorn.jpg'
+}, {
+  id: 4,
+  text: 'The Screaming Skull',
+  image: 'https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/movies/ScreamingSkull.jpg'
+}, {
+  id: 5,
+  text: 'It\'s a Wonderful Life',
+  image: 'https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/movies/ItsAWonderfulLife.jpg'
+}];
