@@ -80,7 +80,7 @@ export function QuickActions() {
                   />
                 </span>
                 <span className="d-block font-weight-bold font-size-h6 mt-2">
-                  Projects
+                  Project
                 </span>
               </a>
             </div>

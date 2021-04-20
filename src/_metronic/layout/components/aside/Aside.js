@@ -130,12 +130,12 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-                title="Metronic Features"
+                title="Calendar"
               >
                 <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="metronic-features">Metronic Features</Tooltip>
+                    <Tooltip id="metronic-features">Calendar</Tooltip>
                   }
                 >
                   <a
@@ -166,12 +166,12 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-                title="Metronic Features"
+                title="Calendar"
               >
                 <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="metronic-features">Metronic Features</Tooltip>
+                    <Tooltip id="metronic-features">Calendar</Tooltip>
                   }
                 >
                   <a
@@ -245,12 +245,12 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-                title="Metronic Features"
+                title="Calendar"
               >
                 <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="metronic-features">Metronic Features</Tooltip>
+                    <Tooltip id="metronic-features">Calendar</Tooltip>
                   }
                 >
                   <a
@@ -604,8 +604,8 @@ export function Aside() {
               {/* begin::Workspace */}
               <div className="aside-workspace scroll scroll-push">
                 <div className="tab-content">
-                  <AsideSearch isActive={activeTab === tabs.tabId1} />
-                  <AsideSearch isActive={activeTab === tabs.tabId2} />
+                  <AsideMenu isActive={activeTab === tabs.tabId1} />
+                  <AsideMenu isActive={activeTab === tabs.tabId2} />
                   <AsideMenu isActive={activeTab === tabs.tabId3} />
                   <AsideSubmenu isActive={activeTab === tabs.tabId4} />
                 </div>

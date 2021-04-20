@@ -33,7 +33,7 @@ const GPlace = () => {
 
   return (
     <>
-      {!place?<input type="text" ref={placeInputRef} />:<></>}
+      {!place?<input type="text"  className={`form-control py-5 px-6 `} ref={placeInputRef} />:<></>}
        <div style={{ marginTop: 20, lineHeight: '25px' }}>
         <div style={{ marginBottom: 10 }}><b>Selected Place</b></div>
         <input

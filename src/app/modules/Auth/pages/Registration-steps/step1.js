@@ -25,6 +25,7 @@ import { gql, useQuery, useMutation } from "@apollo/client";
 import { BusinessContext } from '../BusinessContext';
 import {StaffContext } from '../StaffContext';
 import LocationSearchInput from './LocationSearchInput';
+import { Options } from "devextreme-react/autocomplete";
 const ADD_BUSINESS = gql`
   mutation addBusiness($business: BusinessInput) {
     addBusiness(business: $business)  {
@@ -140,8 +141,9 @@ function Registration(props) {
 
   const { intl } = props;
   const [loading, setLoading] = useState(false);
-
-
+  const [size,setSize]=React.useState("");
+  const [type,setType]=React.useState("");
+  const [phone,setPhone] =React.useState("");
   const RegistrationSchema = Yup.object().shape({
     fullname: Yup.string()
       .min(3, "Minimum 3 symbols")
@@ -312,6 +314,16 @@ function Registration(props) {
     setValue(event.target.value);
 
   }
+  let selectedSize={value:'',label:''};
+  let selectedType={value:'',label:''};
+  let selectedPhone={value:'',label:''};
+  if(currentBusiness)
+  {
+    selectedSize =business_size_options.find(bus => bus.value === currentBusiness.size);
+    selectedType =business_type_options.find(bus => bus.value === currentBusiness.type);
+    selectedPhone =options.find(bus => bus.value === currentBusiness.phone_country);
+
+  }
   if (localStorage.getItem("BackFlag") === "Y") {
     {
       if (currentBusiness) {
@@ -331,6 +343,9 @@ function Registration(props) {
                   values.city=localStorage.getItem("city")
                   values.zip_code=localStorage.getItem("zipcode")
                   values.street=localStorage.getItem("street")
+                  values.size=size.value;
+                  values.type=type.value;
+                  values.phone_country=phone.value;
                   handleChangess(values);
 
                   handleNext()
@@ -380,7 +395,9 @@ function Registration(props) {
                         <Field
                           placeholder="Business Name"
                           type="text"
-                          
+                          className={`form-control py-5 px-6 ${getInputClasses(
+                            "fullname"
+                          )}`}
                           name="name"
 
                         />
@@ -436,19 +453,14 @@ function Registration(props) {
 
                           <FormControl>
 
-                            <Field name="size" as="select">
-                              {
-                                business_size_options.map(value => {
-                                  return (
-                                    <option value={value.label} >{value.label}</option>
-                                  )
-
-                                })
-                              }
-
-
-
-                            </Field>
+                          {/* <Field name="size" component={Select} options={business_size_options} value={size} onChange={setSize} 
+                          defaultValue={[business_size_options[0]]}> */}
+                          <Select
+      
+      defaultValue={[selectedSize]}
+      options={business_size_options}  onChange={setSize}
+    />
+                            {/* </Field> */}
                           </FormControl>
 
 
@@ -469,16 +481,11 @@ function Registration(props) {
 
 
 
-                            <Field name="type" as="select">
-                              {
-                                business_type_options.map(value => {
-                                  return (
-                                    <option value={value.label} >{value.label}</option>
-                                  )
-
-                                })
-                              }
-                            </Field>
+                          <Select
+      
+      defaultValue={[selectedType]}
+      options={business_type_options}  onChange={setType}
+    />
                           </FormControl>
 
 
@@ -497,17 +504,11 @@ function Registration(props) {
                         </div>
                         <div className="col">
                           <label class="form-label d-block" for="exampleForm.ControlInput1">Country code</label>
-                          <Field name="phone_country" as="select">
-                            {
-                              options.map(value => {
-                                return (
-                                  <option value={value.label} >{value.label}</option>
-                                )
-
-                              })
-                            }
-                          </Field>
-
+                          <Select
+      
+      defaultValue={[selectedPhone]}
+      options={options}  onChange={setPhone}
+    />
                         </div>
                       </div>
                       <div className="form-group col-6">
@@ -602,12 +603,15 @@ function Registration(props) {
             initialValues={{ name: '', billingAddress: '', size: 1, type: '', phone_country: '', phone_no: '', 'acceptTerms': false }}
 
             onSubmit={(values, { setSubmitting }) => {
-              // alert(JSON.stringify(values, null, 2))
+               alert(JSON.stringify(values, null, 2))
               values.billingAddress=localStorage.getItem("Address")
               values.state=localStorage.getItem("state")
               values.city=localStorage.getItem("city")
               values.zip_code=localStorage.getItem("zipcode")
               values.street=localStorage.getItem("street")
+              values.size=size.value
+              values.type=type.value
+              values.phone_country=phone.value
               handleChange(values)
               handleNext()
             }}
@@ -655,8 +659,9 @@ function Registration(props) {
                     <Field
                       placeholder="Business Name"
                       type="text"
-                      className={`form-control py-5 px-6 `}
-                      name="name"
+                      className={`form-control py-5 px-6 ${getInputClasses(
+                        "username"
+                      )}`}                      name="name"
 
                     />
                     {formik.touched.fullname && formik.errors.fullname ? (
@@ -695,16 +700,12 @@ function Registration(props) {
                       <label class="form-label d-block" for="exampleForm.ControlInput1">Business size</label>
                       <FormControl>
 
-                        <Field name="size" as="select">
-                          {
-                            business_size_options.map(value => {
-                              return (
-                                <option value={value.label} >{value.label}</option>
-                              )
-
-                            })
-                          }
-                        </Field>
+                      <Select
+      
+      defaultValue={[business_size_options[0]]}
+      options={business_size_options} onChange={setSize}
+    />                          
+                        
                       </FormControl>
                     </div>
                   </div>
@@ -716,16 +717,10 @@ function Registration(props) {
                       <label class="form-label d-block" for="exampleForm.ControlInput1">Type</label>
                       <FormControl>
 
-                        <Field name="type" as="select">
-                          {
-                            business_type_options.map(value => {
-                              return (
-                                <option value={value.label} >{value.label}</option>
-                              )
-
-                            })
-                          }
-                        </Field>
+                      <Select
+      
+      defaultValue={[business_type_options[0]]}
+      options={business_type_options} onChange={setType}/>
                       </FormControl>
                     </div>
 
@@ -742,16 +737,11 @@ function Registration(props) {
                     </div>
                     <div className="col">
                       <label class="form-label d-block" for="exampleForm.ControlInput1">Country code</label>
-                      <Field name="phone_country" as="select">
-                        {
-                          options.map(value => {
-                            return (
-                              <option value={value.label} >{value.label}</option>
-                            )
-
-                          })
-                        }
-                      </Field>
+                      <Select
+      
+      defaultValue={[options[0]]}
+      options={options} onChange={setPhone}
+    />       
 
                     </div>
                   </div>

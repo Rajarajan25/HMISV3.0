@@ -68,7 +68,7 @@ export function AsideSearch({ isActive }) {
       </form>
       {/* end::Form */}
 
-      <h3 className="p-2 p-lg-3 my-1 my-lg-3">Projects</h3>
+      <h3 className="p-2 p-lg-3 my-1 my-lg-3">Project</h3>
 
       {/* begin::List */}
 
