@@ -9,7 +9,6 @@ const currentDate = new Date();
 const views = ['day', 'week','month','workWeek','timelineWeek'];
 
 export default function Schedular  () {
-  
   const [state,setState]=React.useState({
     allowAdding: true,
     allowDeleting: true,
