@@ -18,7 +18,6 @@ export default function Schedular  () {
     showCurrentTimeIndicator: true,
     shadeUntilCurrentTime: true,
   });
-
   const onContentReady=(e) =>{
     const currentHour = new Date().getHours() - 1;
     e.component.scrollToTime(currentHour, 30, new Date());
