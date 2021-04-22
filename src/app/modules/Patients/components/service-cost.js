@@ -103,6 +103,10 @@ export function ServiceCost() {
       <div className="form-group">
         <div className="d-flex row">
           <div className="col-4">
+            <label class="form-label d-block">Special Price (&#2352;)</label>
+            <input placeholder="500" type="text" className={`form-control`} name=""/>
+          </div>
+          <div className="col-4">
             <label class="form-label d-block">Buffer Time Before</label>
             <div className="re_select">
               <Select options={buffertime} />

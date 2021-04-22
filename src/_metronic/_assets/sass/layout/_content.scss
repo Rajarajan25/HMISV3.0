@@ -2505,7 +2505,6 @@ input.edit_mobile[type=text] {
 		}
 		.MuiTabs-indicator {
 			background: #6D5CD2;
-			width: 75px !important;
 		}
 		.MuiTab-root {
 			min-width: inherit;
@@ -2565,6 +2564,71 @@ input.edit_mobile[type=text] {
 			font-size: 13px !important;
 			line-height: 35px;
 		}
+		.timingavail {
+			.mx-150 {
+				max-width: 150px;
+			}
+			.MuiTab-textColorPrimary {
+				color: #C5C6C9;
+				&.Mui-selected {
+					color: #1D6AFF;
+				}
+			}
+			.MuiTabs-indicator {
+				background: #1D6AFF;
+			}
+			.MuiTabs-root {
+				min-height: 45px;
+			}
+			.MuiTab-root {
+				min-height: 45px;
+				margin-right: 2.5rem;
+			}
+			.avail_device {
+				.vid_bg {
+					background: transparent;
+					border-radius: 5px;
+					padding: 8px 10px;
+					margin: 8px 0;
+					cursor: pointer;	
+					border: 1px solid #e8e8e8;
+					transition: background-color 150ms 200ms, transform 350ms cubic-bezier(0.78, -1.22, 0.17, 1.89) !important;
+					img {
+						margin-right: 10px;
+						height: 18px;
+					}
+					span {
+						color: #000000;
+						text-transform: capitalize;
+						font-weight: 500;
+						font-size: 12px;
+					}
+					&:hover {
+						transform: scale(1.05);
+						border: 1px solid #1C6AFC;
+						animation: shadow-pulse 1s infinite;
+					}
+				}
+				input[type=radio] {
+					display: none;
+				}
+				input[type=radio]:checked + label.vid_bg{
+					transform: scale(1.05);
+					border: 1px solid #1C6AFC;
+					animation: shadow-pulse 1s infinite;
+					&::before {
+						content: "";
+						background:url(/media/patients/select_avatar.svg);
+						position: absolute;
+						width: 13px;
+						height: 13px;
+						bottom: -4px;
+						right: -6px;
+					}
+				}
+			}
+		}
+			
 	}
 }
 .staff_first {
@@ -3296,6 +3360,83 @@ p.setting_color {
 	.min_wid {
 		min-width: 85px;
 	}
+	.avail-person {
+		margin-bottom: 15px;
+		label {
+			font-size: 13px;
+			font-weight: bold;
+			color: #5C5E5F;
+			padding-left: 8px;
+			cursor: pointer;
+		}
+	}
+	.per_add {
+		input[type=radio] {
+			display: none;
+		}
+		.person_addr {
+			box-shadow: 0px 1px 6px #00000029;
+			border-radius: 3px;
+			padding: 15px 20px 15px;
+			margin-bottom: 15px;
+			width: 100%;
+			border: 1px solid transparent;
+			position: relative;
+			cursor: pointer;
+			h3 {
+				font-size: 13px;
+				font-weight: bold;
+				color: #2C2C2C;
+				margin-bottom: 10px;
+			}
+			p {
+				color: #C5C6C9;
+				font-size: 12px;
+				margin-bottom: 0px;
+				font-weight: 500;
+			}
+			a {
+				color: #6D5CD2;
+				font-size: 12px;
+				font-weight: 500;
+			}
+		}
+		input[type=radio]:checked + label.person_addr{
+			border: 1px solid #1C6AFC;
+			&::before {
+				content: "";
+				background:url(/media/patients/select_avatar.svg);
+				position: absolute;
+				width: 13px;
+				height: 13px;
+				bottom: -4px;
+				right: -6px;
+			}
+		}
+	}
+	.avail-call {
+		margin-bottom: 15px;
+		position: relative;
+		input[type=radio] {
+			position: absolute;
+			top: 9px;
+			left: 8px;
+		}
+		label {
+			font-size: 13px;
+			color: #5C5E5F;
+			padding: 5px 8px 5px 30px;
+			cursor: pointer;
+			border: 1px solid transparent;
+			margin-right: 15px;
+		}
+		input[type=radio]:checked + label {
+			border: 1px solid #488DDE;
+			border-radius: 3px;
+			font-weight: 500;
+			background: #e8f0f9;
+		}
+	}
 }
 .staff_third {
 	.inc_bg {
@@ -3787,5 +3928,152 @@ p.setting_color {
 	.btn.btn-primary {
 		background-color: #1d6aff !important;
 		border-color: #1d6aff !important;
+	}
+}
+
+.event-stepper {
+	background: #fff;
+	.stepper-circle {
+		.MuiStepper-root {
+			display: block;
+			padding: 0;
+			background-color: transparent;
+		}	
+		.MuiStep-horizontal {
+			padding-left: 0;
+			padding-right: 0;
+			padding-top: 15px;
+			padding-bottom: 15px;
+		}
+		.MuiStepLabel-root {
+			align-items: start;
+		}
+		.MuiSvgIcon-root {
+			width: 40px;
+			height: 40px;
+		}
+		.MuiStepLabel-iconContainer {
+			padding-right: 20px;
+			position: relative;
+    		z-index: 3;
+		}
+		.MuiStepIcon-root {
+			color: #E3E9F4;
+			background: #fff;
+		}
+		.MuiStepIcon-root.MuiStepIcon-active {
+			color: #1964F3;
+			.MuiStepIcon-text {
+				fill: #ffffff;
+			}
+		}
+		.MuiStepIcon-root.MuiStepIcon-completed {
+			color: #56CAA1;
+		}
+		h3.stepper-title {
+			font-size: 1.3rem;
+			margin-top: 8px;
+			margin-bottom: 8px;
+			font-weight: 400;
+			color: #969DAC;
+		}
+		p.stepper-desc {
+			font-size: 1rem;
+			font-weight: 400;
+			margin-bottom: 7px;
+			color: #969DAC;
+		}
+		span.stepper-progress {
+			font-weight: 400;
+			font-size: 1.05rem;
+			color: #969DAC;
+		}
+		.MuiStepConnector-root {
+			position: relative;
+			z-index: 1;
+		}
+		.MuiStepConnector-lineHorizontal {
+			border: 0px;
+			height: 125px;
+			position: absolute;
+			width: 2px;
+			background: #E3E9F4;
+			top: -90px;
+			left: 18px;
+		}
+		.MuiStepConnector-active {
+			.MuiStepConnector-lineHorizontal {
+				background: #56CAA1;
+			}
+		}
+		.MuiStepConnector-completed {
+			.MuiStepConnector-lineHorizontal {
+				background: #56CAA1;
+			}
+		}
+		.MuiStepLabel-active {
+			h3.stepper-title {
+				font-weight: 500;
+				color: #1964F3;
+			}
+			p.stepper-desc {
+				color: #969DAC;
+			}
+			span.stepper-progress {
+				font-weight: 500;
+				color: #1964F3;
+			}
+		}
+		.MuiStepLabel-completed {
+			h3.stepper-title {
+				font-weight: 500;
+				color: #56CAA1;
+			}
+			p.stepper-desc {
+				color: #303030;
+			}
+			span.stepper-progress {
+				font-weight: 500;
+				color: #56CAA1;
+			}
+		}
+	}
+	.stepper-box {
+		border-left: 1px solid #E3E9F4;
+		background: #f5f5f5;
+	}
+	.patientButton  {
+		display: none !important;
+	}
+	.stepper-btn {
+		position: fixed;
+		right: 50px;
+		bottom: 80px;
+		.MuiButton-root {
+			font-size: 1.1rem;
+		}
+	}
+	.MuiButton-containedPrimary, .MuiButton-containedPrimary:hover {
+		color: #3867FA;
+		background-color: transparent;
+		box-shadow: none;
+	}
+}
+.eventmodal {
+	.modal-dialog {
+		max-width: 100%;
+		margin: 0;
+		height: 100%;
+	}
+	.modal-content {
+		border-radius: 0;
+		box-shadow: none;
+		height: 100%;
+	}
+	.modal-header .close span {
+		display: block;
+	}
+	.modal-body {
+		padding: 0;
 	}
 }
