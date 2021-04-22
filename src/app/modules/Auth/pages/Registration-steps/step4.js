@@ -7,7 +7,6 @@ import Select from '@material-ui/core/Select';
 import Input from '@material-ui/core/Input';
 import { Link } from "react-router-dom";
 import TimezoneSelect from 'react-timezone-select'
-import TimezonePicker from 'react-timezone-picker';
 import { BusinessContext } from '../BusinessContext';
 import { gql, useQuery, useMutation } from "@apollo/client";
 import { Formik, Field } from 'formik';

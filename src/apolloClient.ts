@@ -1,22 +1,27 @@
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { ApolloClient } from 'apollo-client';
-import { HttpLink } from 'apollo-link-http';
-import { ApolloLink } from 'apollo-link';
+import { ApolloClient, HttpLink, ApolloLink, InMemoryCache, concat} from '@apollo/client'
 
 // Create cache:
 const cache = new InMemoryCache({
   addTypename: false
 });
 
-// Create an http link:
+const httpLink = new HttpLink({ uri: 'https://hmisgraph.azurewebsites.net/graphql' });
 
+const authMiddleware = new ApolloLink((operation, forward) => {
+  // add the authorization to the headers
+  operation.setContext({
+    headers: {
+      authorization: localStorage.getItem('token') || null,
+    }
+  });
 
-const httpLink = new HttpLink({
-  uri:"http://localhost:4000/graphql",
+  return forward(operation);
 })
+
+// Create an client:
 const client = new ApolloClient({
     cache,
-    link:ApolloLink.from([ httpLink])
+    link: concat(authMiddleware, httpLink),
   });
 
 export default client;

@@ -543,8 +543,6 @@ function CountryCode() {
   );
 }
 
-
-
 function GenderGroup() {
 
   const useStyles = makeStyles(theme => ({
@@ -584,9 +582,6 @@ function GenderGroup() {
     </div>
   );
 }
-
-
-
 
 function ControlledTooltips() {
   const [open, setOpen] = React.useState(false);

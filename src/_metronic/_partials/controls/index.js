@@ -1,13 +1,3 @@
-// CodeExamples
-export {CodeBlock} from "./code-examples/CodeBlock";
-export {CodeBlockToolbar} from "./code-examples/CodeBlockToolbar";
-export {CodeExample} from "./code-examples/CodeExample";
-export {CodeExampleSimple} from "./code-examples/CodeExampleSimple";
-
-// KTCodeExamples
-export {KTCodeBlock} from "./code-examples-kt/KTCodeBlock";
-export {KTCodeExample} from "./code-examples-kt/KTCodeExample";
-
 // Forms
 export {DatePickerField} from "./forms/DatePickerField";
 export {FieldFeedbackLabel} from "./forms/FieldFeedbackLabel";

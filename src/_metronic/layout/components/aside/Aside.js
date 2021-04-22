@@ -5,7 +5,6 @@ import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import SVG from "react-inlinesvg";
 import { useHtmlClassService } from "../../_core/MetronicLayout";
 import { toAbsoluteUrl } from "../../../_helpers";
-import { AsideSearch } from "./AsideSearch";
 import { AsideSubmenu } from "./aside-menu/AsideSubmenu";
 import { AsideMenu } from "./aside-menu/AsideMenu";
 import { LanguageSelectorDropdown } from "../extras/dropdowns/LanguageSelectorDropdown";

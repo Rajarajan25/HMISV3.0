@@ -67,7 +67,9 @@ const mainConfig = function () {
 						{
 							loader: "sass-loader",
 							options: {
+								...cssOptions,
 								sourceMap: true,
+								url: false
 							}
 						},
 					]

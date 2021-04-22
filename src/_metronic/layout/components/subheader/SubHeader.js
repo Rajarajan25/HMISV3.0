@@ -6,7 +6,6 @@ import SVG from "react-inlinesvg";
 import { toAbsoluteUrl } from "../../../_helpers";
 import { QuickActions } from "./components/QuickActions";
 import { BreadCrumbs } from "./components/BreadCrumbs";
-import Popup from "reactjs-popup";
 
 import Warper from "./Warper";
 
