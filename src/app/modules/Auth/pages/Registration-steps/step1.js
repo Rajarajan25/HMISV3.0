@@ -23,7 +23,7 @@ import StepLabel from '@material-ui/core/StepLabel';
 import { Formik, Field } from 'formik';
 import { gql, useQuery, useMutation } from "@apollo/client";
 import { BusinessContext } from '../BusinessContext';
-import {StaffContext } from '../StaffContext';
+import { StaffContext } from '../StaffContext';
 import LocationSearchInput from './LocationSearchInput';
 const ADD_BUSINESS = gql`
   mutation addBusiness($business: BusinessInput) {
@@ -111,7 +111,6 @@ const initialValues = {
   username: "",
   password: "",
   changepassword: "",
-
   acceptTerms: false,
 };
 
@@ -137,12 +136,11 @@ function Registration(props) {
   const [business, setBusiness] = React.useContext(BusinessContext)
   const classes = useStyles();
   let business_id = localStorage.getItem("Business_id")
-
   const { intl } = props;
   const [loading, setLoading] = useState(false);
-  const [size,setSize]=React.useState("");
-  const [type,setType]=React.useState("");
-  const [phone,setPhone] =React.useState("");
+  const [size, setSize] = React.useState("");
+  const [type, setType] = React.useState("");
+  const [phone, setPhone] = React.useState("");
   const RegistrationSchema = Yup.object().shape({
     fullname: Yup.string()
       .min(3, "Minimum 3 symbols")
@@ -220,11 +218,6 @@ function Registration(props) {
   const { data } = useQuery(GET_BUSINESS);
   let currentBusiness = business.currentBusiness;
 
-
-  // if(data!=undefined)
-  // {
-  //   currentBusiness= data.getBusiness.find(user => user._id === business_id);
-  // }
   const business_size_options = [
     { value: 100, label: 100 },
     { value: 200, label: 200 },
@@ -239,12 +232,12 @@ function Registration(props) {
   ];
   const handleChange = (values) => {
     let site_id = localStorage.getItem("site_id");
-    let addbusiness = addBusiness({
+    addBusiness({
       variables: {
         business: {
           type: values.type, name: values.name, site_id: site_id,
-          size: values.size, phone_no: values.phone_no, billingAddress: values.billingAddress, phone_country: values.phone_country,acceptTerms: values.acceptTerms,
-          street:values.street,state:values.state,city:values.city,zip_code:values.zip_code
+          size: values.size, phone_no: values.phone_no, billingAddress: values.billingAddress, phone_country: values.phone_country, acceptTerms: values.acceptTerms,
+          street: values.street, state: values.state, city: values.city, zip_code: values.zip_code
         }
       }
     })
@@ -256,8 +249,6 @@ function Registration(props) {
           type: "SET_CURRENT_BUSINESS",
           payload: values
         });
-
-        // onStaffAdd(res.data.addSite);
       })
   }
   const handleChangess = (values) => {
@@ -267,7 +258,7 @@ function Registration(props) {
         businessID: business_id,
         business: {
           type: values.type, name: values.name,
-          size: values.size, phone_no: values.phone_no, billingAddress: values.billingAddress, phone_country: values.phone_country,acceptTerms: values.acceptTerms
+          size: values.size, phone_no: values.phone_no, billingAddress: values.billingAddress, phone_country: values.phone_country, acceptTerms: values.acceptTerms
         }
       }
     })
@@ -313,14 +304,13 @@ function Registration(props) {
     setValue(event.target.value);
 
   }
-  let selectedSize={value:'',label:''};
-  let selectedType={value:'',label:''};
-  let selectedPhone={value:'',label:''};
-  if(currentBusiness)
-  {
-    selectedSize =business_size_options.find(bus => bus.value === currentBusiness.size);
-    selectedType =business_type_options.find(bus => bus.value === currentBusiness.type);
-    selectedPhone =options.find(bus => bus.value === currentBusiness.phone_country);
+  let selectedSize = { value: '', label: '' };
+  let selectedType = { value: '', label: '' };
+  let selectedPhone = { value: '', label: '' };
+  if (currentBusiness) {
+    selectedSize = business_size_options.find(bus => bus.value === currentBusiness.size);
+    selectedType = business_type_options.find(bus => bus.value === currentBusiness.type);
+    selectedPhone = options.find(bus => bus.value === currentBusiness.phone_country);
 
   }
   if (localStorage.getItem("BackFlag") === "Y") {
@@ -337,14 +327,14 @@ function Registration(props) {
                 enableReinitialize
                 onSubmit={(values, { setSubmitting }) => {
                   // alert(JSON.stringify(values, null, 2))
-                  values.billingAddress=localStorage.getItem("Address")
-                  values.state=localStorage.getItem("state")
-                  values.city=localStorage.getItem("city")
-                  values.zip_code=localStorage.getItem("zipcode")
-                  values.street=localStorage.getItem("street")
-                  values.size=size.value;
-                  values.type=type.value;
-                  values.phone_country=phone.value;
+                  values.billingAddress = localStorage.getItem("Address")
+                  values.state = localStorage.getItem("state")
+                  values.city = localStorage.getItem("city")
+                  values.zip_code = localStorage.getItem("zipcode")
+                  values.street = localStorage.getItem("street")
+                  values.size = size.value;
+                  values.type = type.value;
+                  values.phone_country = phone.value;
                   handleChangess(values);
 
                   handleNext()
@@ -425,7 +415,7 @@ function Registration(props) {
 
 
                         {value === "business" ? <label class="form-label  d-block" for="exampleForm.ControlInput1">Your Business Address</label> : <label class="form-label  d-block" for="exampleForm.ControlInput1">Your Address</label>}
-                        <LocationSearchInput/>
+                        <LocationSearchInput />
                         {formik.touched.fullname && formik.errors.fullname ? (
                           <div className="fv-plugins-message-container">
                             <div className="fv-help-block">{formik.errors.fullname}</div>
@@ -452,13 +442,13 @@ function Registration(props) {
 
                           <FormControl>
 
-                          {/* <Field name="size" component={Select} options={business_size_options} value={size} onChange={setSize} 
+                            {/* <Field name="size" component={Select} options={business_size_options} value={size} onChange={setSize} 
                           defaultValue={[business_size_options[0]]}> */}
-                          <Select
-      
-      defaultValue={[selectedSize]}
-      options={business_size_options}  onChange={setSize}
-    />
+                            <Select
+
+                              defaultValue={[selectedSize]}
+                              options={business_size_options} onChange={setSize}
+                            />
                             {/* </Field> */}
                           </FormControl>
 
@@ -480,11 +470,11 @@ function Registration(props) {
 
 
 
-                          <Select
-      
-      defaultValue={[selectedType]}
-      options={business_type_options}  onChange={setType}
-    />
+                            <Select
+
+                              defaultValue={[selectedType]}
+                              options={business_type_options} onChange={setType}
+                            />
                           </FormControl>
 
 
@@ -504,10 +494,10 @@ function Registration(props) {
                         <div className="col">
                           <label class="form-label d-block" for="exampleForm.ControlInput1">Country code</label>
                           <Select
-      
-      defaultValue={[selectedPhone]}
-      options={options}  onChange={setPhone}
-    />
+
+                            defaultValue={[selectedPhone]}
+                            options={options} onChange={setPhone}
+                          />
                         </div>
                       </div>
                       <div className="form-group col-6">
@@ -553,7 +543,7 @@ function Registration(props) {
                           rel="noopener noreferrer"
                         >
                           Show my phone number & address to my clients
-                  </Link>
+                        </Link>
 
                       </label>
                       {formik.touched.acceptTerms && formik.errors.acceptTerms ? (
@@ -602,15 +592,15 @@ function Registration(props) {
             initialValues={{ name: '', billingAddress: '', size: 1, type: '', phone_country: '', phone_no: '', 'acceptTerms': false }}
 
             onSubmit={(values, { setSubmitting }) => {
-               alert(JSON.stringify(values, null, 2))
-              values.billingAddress=localStorage.getItem("Address")
-              values.state=localStorage.getItem("state")
-              values.city=localStorage.getItem("city")
-              values.zip_code=localStorage.getItem("zipcode")
-              values.street=localStorage.getItem("street")
-              values.size=size.value
-              values.type=type.value
-              values.phone_country=phone.value
+              alert(JSON.stringify(values, null, 2))
+              values.billingAddress = localStorage.getItem("Address")
+              values.state = localStorage.getItem("state")
+              values.city = localStorage.getItem("city")
+              values.zip_code = localStorage.getItem("zipcode")
+              values.street = localStorage.getItem("street")
+              values.size = size.value
+              values.type = type.value
+              values.phone_country = phone.value
               handleChange(values)
               handleNext()
             }}
@@ -631,7 +621,7 @@ function Registration(props) {
                   <h2 className="d-block h4 mb-1">Choose your business type?</h2>
                   <div className="per_busi">
                     <FormControl component="fieldset" className={classes.formControl}>
-                      
+
                       <RadioGroup
                         aria-label="Gender"
                         className={classes.group}
@@ -660,7 +650,7 @@ function Registration(props) {
                       type="text"
                       className={`form-control py-5 px-6 ${getInputClasses(
                         "username"
-                      )}`}                      name="name"
+                      )}`} name="name"
 
                     />
                     {formik.touched.fullname && formik.errors.fullname ? (
@@ -680,7 +670,7 @@ function Registration(props) {
                   </div>
                   <div className="col">
                     {value === "business" ? <label class="form-label  d-block" for="exampleForm.ControlInput1">Your Business Address</label> : <label class="form-label  d-block" for="exampleForm.ControlInput1">Your Address</label>}
-                    <LocationSearchInput/>
+                    <LocationSearchInput />
                     {formik.touched.fullname && formik.errors.fullname ? (
                       <div className="fv-plugins-message-container">
                         <div className="fv-help-block">{formik.errors.fullname}</div>
@@ -699,12 +689,12 @@ function Registration(props) {
                       <label class="form-label d-block" for="exampleForm.ControlInput1">Business size</label>
                       <FormControl>
 
-                      <Select
-      
-      defaultValue={[business_size_options[0]]}
-      options={business_size_options} onChange={setSize}
-    />                          
-                        
+                        <Select
+
+                          defaultValue={[business_size_options[0]]}
+                          options={business_size_options} onChange={setSize}
+                        />
+
                       </FormControl>
                     </div>
                   </div>
@@ -716,10 +706,10 @@ function Registration(props) {
                       <label class="form-label d-block" for="exampleForm.ControlInput1">Type</label>
                       <FormControl>
 
-                      <Select
-      
-      defaultValue={[business_type_options[0]]}
-      options={business_type_options} onChange={setType}/>
+                        <Select
+
+                          defaultValue={[business_type_options[0]]}
+                          options={business_type_options} onChange={setType} />
                       </FormControl>
                     </div>
 
@@ -737,10 +727,10 @@ function Registration(props) {
                     <div className="col">
                       <label class="form-label d-block" for="exampleForm.ControlInput1">Country code</label>
                       <Select
-      
-      defaultValue={[options[0]]}
-      options={options} onChange={setPhone}
-    />       
+
+                        defaultValue={[options[0]]}
+                        options={options} onChange={setPhone}
+                      />
 
                     </div>
                   </div>
@@ -784,7 +774,7 @@ function Registration(props) {
                       rel="noopener noreferrer"
                     >
                       Show my phone number & address to my clients
-                </Link>
+                    </Link>
 
                   </label>
                   {formik.touched.acceptTerms && formik.errors.acceptTerms ? (
@@ -846,7 +836,7 @@ function BusinessSize() {
       >
         <MenuItem value="">
           100 Person
-          </MenuItem>
+        </MenuItem>
         <MenuItem value={10}>01</MenuItem>
         <MenuItem value={20}>02</MenuItem>
         <MenuItem value={30}>03</MenuItem>
@@ -882,7 +872,7 @@ function BusinessType() {
       >
         <MenuItem value="">
           Type
-          </MenuItem>
+        </MenuItem>
         <MenuItem value={10}>01</MenuItem>
         <MenuItem value={20}>02</MenuItem>
         <MenuItem value={30}>03</MenuItem>
@@ -918,7 +908,7 @@ function CountryCode() {
       >
         <MenuItem value="">
           India (91)
-          </MenuItem>
+        </MenuItem>
         <MenuItem value={10}>India (91)</MenuItem>
         <MenuItem value={20}>India (91)</MenuItem>
         <MenuItem value={30}>India (91)</MenuItem>

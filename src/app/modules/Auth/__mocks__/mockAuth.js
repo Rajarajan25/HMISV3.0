@@ -73,6 +73,7 @@ export default function mockAuth(mock) {
       Authorization.startsWith("Bearer ") &&
       Authorization.slice("Bearer ".length);
 
+      console.log("accessToken-->",accessToken);
     if (accessToken) {
       const user = userTableMock.find(x => x.accessToken === accessToken);
 

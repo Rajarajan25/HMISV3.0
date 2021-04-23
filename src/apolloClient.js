@@ -5,13 +5,13 @@ const cache = new InMemoryCache({
   addTypename: false
 });
 
-const httpLink = new HttpLink({ uri: 'https://hmisgraph.azurewebsites.net/graphql' });
+const httpLink = new HttpLink({ uri: process.env.REACT_APP_NO_SQL_URL });
 
 const authMiddleware = new ApolloLink((operation, forward) => {
   // add the authorization to the headers
   operation.setContext({
     headers: {
-      authorization: localStorage.getItem('token') || null,
+      authorization: localStorage.getItem('authToken') || null,
     }
   });
 

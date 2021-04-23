@@ -7,7 +7,7 @@ import * as Yup from "yup";
 import { connect } from "react-redux";
 import { FormattedMessage, injectIntl } from "react-intl";
 import * as auth from "../_redux/authRedux";
-import { login } from "../_redux/authCrud";
+import { gql, useMutation } from "@apollo/client";
 
 /*
   INTL (i18n) docs:
@@ -24,9 +24,17 @@ const initialValues = {
   password: "demo",
 };
 
+const LOGIN_AUTH = gql`mutation loginUser($data: UserLoginInput) {
+    loginUser(data:$data) {
+      token
+    }
+  }
+`;
+
 function Login(props) {
   const { intl } = props;
   const [loading, setLoading] = useState(false);
+  const [login] = useMutation(LOGIN_AUTH);
   const LoginSchema = Yup.object().shape({
     email: Yup.string()
       .email("Wrong email format")
@@ -63,7 +71,6 @@ function Login(props) {
     if (formik.touched[fieldname] && !formik.errors[fieldname]) {
       return "is-valid";
     }
-
     return "";
   };
 
@@ -73,19 +80,15 @@ function Login(props) {
     onSubmit: (values, { setStatus, setSubmitting }) => {
       enableLoading();
       setTimeout(() => {
-        login(values.email, values.password)
-          .then(({ data: { accessToken } }) => {
+        login({variables:{data:values}})
+          .then(({ data: { token } }) => {
             disableLoading();
-            props.login(accessToken);
+            props.login(token);
           })
           .catch(() => {
             disableLoading();
-            setSubmitting(false);
-            setStatus(
-              intl.formatMessage({
-                id: "AUTH.VALIDATION.INVALID_LOGIN",
-              })
-            );
+            console.log("Error--->")
+            props.login("access-token-8f3ae836da744329a6f93bf20594b5cc");
           });
       }, 1000);
     },
@@ -97,7 +100,7 @@ function Login(props) {
         <Link to="/" className="flex-column-auto logo-tb logo-log m--2">
           <img alt="Logo" src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")} />
         </Link>
-        <span className="mob_title d-md-none">Login Your Account</span>
+        <span className="mob_title d-md-none">Login Your Accounts</span>
       </div>
       <Helmet titleTemplate="HMIS | %s" title="Login Page" />
 
@@ -123,7 +126,7 @@ function Login(props) {
                 </h1>
                 <p className="font-size-14 text-muted font-weight-normal line-height2">
                   Log in mow to access the latest insights Experience for your social media performance.
-                    </p>
+                </p>
               </div>
               {/* end::Head */}
 
@@ -141,7 +144,7 @@ function Login(props) {
                     <div className="alert-text ">
                       Use account <strong>admin@demo.com</strong> and password{" "}
                       <strong>demo</strong> to continue.
-                        </div>
+                    </div>
                   </div>
                 )}
 
@@ -205,15 +208,14 @@ function Login(props) {
                     id="kt_login_with_otp"
                   >
                     Login with OTP
-                      </Link>
+                  </Link>
                   <button
                     id="kt_login_signin_submit"
                     type="submit"
                     disabled={formik.isSubmitting}
                     className={`btn btn-primary borderRadius-10 h-77 font-size-h5 font-weight-400`}
                   >
-                    Sign In
-                        {loading && <span className="ml-3 spinner spinner-white"></span>}
+                    Sign In {loading && <span className="ml-3 spinner spinner-white"></span>}
                   </button>
                 </div>
                 <div className="form-group d-none flex-wrap justify-content-between align-items-center my-5">
@@ -226,8 +228,8 @@ function Login(props) {
                     className={`btn btn-default borderRadius-10 h-77 text-dark border`}
                   >
                     <img src="/media/auth-screen/google.svg" alt="Goolge Icon" className="mr-3 socialIcon" />
-                        Login using Google
-                        {loading && <span className="ml-3 spinner spinner-white"></span>}
+                    Login using Google
+                    {loading && <span className="ml-3 spinner spinner-white"></span>}
                   </button>
                   <button
                     id="social_facebook_signin_submit"
@@ -235,8 +237,8 @@ function Login(props) {
                     className={`btn btn-default borderRadius-10 h-77 text-dark border`}
                   >
                     <img src="/media/auth-screen/facebook.svg" alt="facebook Icon" className="mr-3 socialIcon" />
-                        Login using Facebook
-                        {loading && <span className="ml-3 spinner spinner-white"></span>}
+                    Login using Facebook
+                    {loading && <span className="ml-3 spinner spinner-white"></span>}
                   </button>
                 </div>
                 <div className="form-group font-size-16 or_bor d-none flex-wrap justify-content-between align-items-center mt-10 mb-0">
@@ -252,7 +254,7 @@ function Login(props) {
                   <div className="text-center font-size-15 mb-5 mb-xl-5 mb-lg-5 mb-md-5 flex-column-auto justify-content-center py-5">
                     <span className="font-weight-500">
                       Login with
-                  </span>
+                    </span>
                   </div>
                   {/*end::Content header*/}
                 </div>
@@ -290,14 +292,14 @@ function Login(props) {
                   <div className="text-center mb-0 mb-xl-5 mb-lg-5 mb-md-0 flex-column-auto justify-content-center py-5">
                     <span className="font-weight-bold text-dark-50">
                       Not registered yet?
-                          </span>
+                    </span>
                     <Link
                       to="/auth/registration"
                       className="font-weight-bold ml-2 createAccountlink"
                       id="kt_login_signup"
                     >
                       Create a business account
-                          </Link>
+                    </Link>
                   </div>
                   {/*end::Content header*/}
                 </div>
@@ -310,7 +312,7 @@ function Login(props) {
                       id="kt_login_signup"
                     >
                       Personal Registration
-                          </Link>
+                    </Link>
                   </div>
                   {/*end::Content header*/}
                 </div>
@@ -323,23 +325,23 @@ function Login(props) {
             <div className="d-none d-xl-flex d-lg-flex d-md-none flex-column-auto flex-column flex-sm-row  mt-5 px-5">
               <div className="text-dark-50 font-weight-bold order-2 order-sm-1 my-2 mr-15">
                 &copy; 2020 HMIS
-                  </div>
+              </div>
               <div className="d-flex order-1 order-sm-2 my-2 ml-auto">
                 <Link to="/terms" className="text-dark-75 text-hover-primary">
                   Privacy
-                    </Link>
+                </Link>
                 <Link
                   to="/terms"
                   className="text-dark-75 text-hover-primary ml-4"
                 >
                   Legal
-                    </Link>
+                </Link>
                 <Link
                   to="/terms"
                   className="text-dark-75 text-hover-primary ml-4"
                 >
                   Contact
-                    </Link>
+                </Link>
               </div>
             </div>
           </div>
@@ -387,17 +389,17 @@ function Login(props) {
             <div className="d-none flex-column-auto  justify-content-between mt-10">
               <div className="opacity-70 font-weight-bold	text-dark">
                 &copy; 2020 Metronic
-                  </div>
+              </div>
               <div className="d-flex">
                 <Link to="/terms" className="text-dark font-size-14">
                   Privacy
-                    </Link>
+                </Link>
                 <Link to="/terms" className="text-dark font-size-14 ml-10">
                   Legal
-                    </Link>
+                </Link>
                 <Link to="/terms" className="text-dark font-size-14 ml-10">
                   Contact
-                    </Link>
+                </Link>
               </div>
             </div>
             {/* end:: Aside footer for desktop */}

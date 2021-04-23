@@ -51,7 +51,7 @@ export default function Signup() {
 
   const handleChange = (values) => {
     var userLanguage = window.navigator.userLanguage || window.navigator.language;
-    let addsite = addSite({
+    addSite({
       variables: {
         site: {
           DefaultLanguageId: userLanguage, status: true, DisplayOrder: 1
@@ -68,7 +68,7 @@ export default function Signup() {
       })
   }
   const Add_Password = (site_id, values) => {
-    let addpassword = addPassword({
+    addPassword({
       variables: {
         password: {
           password: values.password, password_format_id: 0
@@ -83,7 +83,7 @@ export default function Signup() {
       })
   }
   const Add_User = (site_id, values, password_id) => {
-    let adduser = addUser({
+    addUser({
       variables: {
         userIn: {
           email: values.email, password_id: password_id, site_id: site_id, color_code: "#0A32E8"
