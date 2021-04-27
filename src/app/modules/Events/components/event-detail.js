@@ -67,7 +67,7 @@ export function ContentEventDetails() {
           </div>
         </div>
 
-        <div className="patientProfileinfo StaffInfo">
+        <div className="patientProfileinfo StaffInfo d-none">
           <label className="form-lable font_weight_bold color_303030 mb-0">Availability</label>
           <div className="staff_first staff_second">
             <div className={'timingavail'+' '+classes.root}>

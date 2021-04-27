@@ -14,7 +14,7 @@ import DateFnsUtils from '@date-io/date-fns';
 import {
   MuiPickersUtilsProvider,
   KeyboardTimePicker } from '@material-ui/pickers';
-  
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -49,13 +49,13 @@ export function ContentEventTiming() {
           <div className="col-md-6">
             <div className="form-group border-bottom">
               <label className="form-lable font_weight_bold color_303030">Time Zone</label>
-              <input placeholder="Enter Address" type="text" className="form-control font_weight_medium color_707070 pl-0 border-0" name="" />
+              <input placeholder="Time Zone" type="text" className="form-control font_weight_medium color_707070 pl-0 border-0" name="" />
             </div>
           </div>
           <div className="col-md-6">
             <div className="form-group border-bottom">
               <label className="form-lable font_weight_bold color_303030">Duration</label>
-              <input placeholder="Enter Zip Code" type="text" className="form-control font_weight_medium color_707070 pl-0 border-0" name="" />
+              <input placeholder="Duration" type="text" className="form-control font_weight_medium color_707070 pl-0 border-0" name="" />
             </div>
           </div>
         </div>
@@ -63,15 +63,19 @@ export function ContentEventTiming() {
           <div className="col-md-6">
             <div className="form-group border-bottom">
               <label className="form-lable font_weight_bold color_303030">Buffer Time Before</label>
-              <input placeholder="Enter Address" type="text" className="form-control font_weight_medium color_707070 pl-0 border-0" name="" />
+              <input placeholder="Buffer Time Before" type="text" className="form-control font_weight_medium color_707070 pl-0 border-0" name="" />
             </div>
           </div>
           <div className="col-md-6">
             <div className="form-group border-bottom">
               <label className="form-lable font_weight_bold color_303030">Buffer Time After</label>
-              <input placeholder="Enter Zip Code" type="text" className="form-control font_weight_medium color_707070 pl-0 border-0" name="" />
+              <input placeholder="Buffer Time After" type="text" className="form-control font_weight_medium color_707070 pl-0 border-0" name="" />
             </div>
           </div>
+        </div>
+        <div className="form-group border-bottom">
+          <label className="form-lable font_weight_bold color_303030 mb-0">Date Range</label>
+          <input placeholder="Date Range" type="text" className="form-control font_weight_medium color_707070 pl-0 border-0" name="" />
         </div>
         <div className="patientProfileinfo StaffInfo">
           <label className="form-lable font_weight_bold color_303030 mb-0">Availability</label>
