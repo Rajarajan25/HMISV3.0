@@ -3261,7 +3261,22 @@ p.setting_color {
 		font-size: 11px;
 		color: #1C6AFC;
 		font-weight: 500;
-		padding: 0 4px;
+		padding: 0 3px;
+	}
+	.remove_line {
+		cursor: pointer;
+		display: none;
+		img {
+			filter: brightness(0) invert(0);
+			-webkit-filter: brightness(0) invert(0);
+			height: 12px;
+			opacity: 0.6;
+		}
+	}
+	.session_part:hover, .break_part:hover {
+		.remove_line {
+			display: block;
+		}
 	}
 	.accor_sec {
 		.MuiPaper-elevation1 {
@@ -4060,20 +4075,148 @@ p.setting_color {
 	}
 }
 .eventmodal {
+	background-color: #F4F7FC;
 	.modal-dialog {
 		max-width: 100%;
 		margin: 0;
 		height: 100%;
+		background-color: #F4F7FC;
 	}
 	.modal-content {
 		border-radius: 0;
 		box-shadow: none;
-		height: 100%;
+		margin: 0 auto;
+		background-color: transparent;
+		padding: 2% 0;
+    	height: 96%;
 	}
-	.modal-header .close span {
-		display: block;
+	.modal-header {
+		align-items: center;
+		border: 0;
+		padding: 12px 15px;
+		position: absolute;
+		right: 0;
+		top: 0;
+		.close {
+			line-height: inherit;
+			width: 100%;
+			text-align: right;
+			opacity: 1;
+			text-shadow: none;
+			font-size: 30px;
+			font-weight: normal;
+			span {
+				display: inline-block;
+				background: #C0C0C0;
+				color: #fff;
+				width: 45px;
+				height: 45px;
+				text-align: center;
+				border-radius: 50%;
+			}
+		}
 	}
 	.modal-body {
 		padding: 0;
+		background: #fff;
+		border-radius: 10px;
+		box-shadow: 0px 0px 10px rgba(0, 70, 131, 0.3);
+		max-width: 900px;
+		margin: 0px auto;
+		width: 100%;
+	}
+}
+.event-tab {
+	h3.event-tab-title {
+		font-weight: bold;
+		color: #01234B;
+		padding: 15px 20px 10px 20px;
+		border-bottom: 1px solid #eee;
+		margin-bottom: 0;
+		font-size: 1.4rem;
+		text-transform: uppercase;
+	}
+	.timingavail  {
+		background-color: transparent;
+	}
+	.tab-left {
+		.MuiTabs-flexContainer {
+			display: block;
+		}
+		.MuiTab-root {
+			min-width: 100%;
+			max-width: 100%;
+			width: 100%;
+			display: block;
+			text-align: left;
+			text-transform: capitalize;
+			font-size: 1rem;
+			min-height: inherit;
+			opacity: 1;
+			padding: 3px 10px;
+			&:nth-child(3) {
+				margin-top: 40px;
+			}
+		}
+		.MuiAppBar-root {
+			background: #fff;
+			box-shadow: none;
+			border-right: 1px solid #EBEDF3;
+			padding-top: 10px;
+		}
+		.MuiTabs-indicator {
+			display: none;
+		}
+		.MuiTab-wrapper {
+			align-items: start;
+		}
+		.MuiTouchRipple-rippleVisible {
+			opacity: 0;
+			animation: inherit;
+		}
+		.evn_bg {
+			min-width: 150px;
+			padding: 8px 10px;
+			color: #3F4772;
+			font-weight: 500;
+		}
+		.Mui-selected {
+			.evn_bg {
+				background: #2E53BF1A;
+    			border-radius: 5px;
+				font-weight: bold;
+			}
+		}
+		h3.evn_title {
+			font-size: 1.05rem;
+			text-transform: uppercase;
+			margin: 0;
+			font-weight: 600;
+			color: #384C6D;
+			padding: 0px 0 0px 18px;
+			position: absolute;
+			top: 105px;
+			z-index: 1;
+		}
+	}
+	.tab-right {
+		margin-left: 2rem;
+		margin-right: 1.50rem;
+		padding-top: 10px;
+	}
+	.event_detail {
+		.form-group {
+			margin-bottom: 1.25rem;
+		}
+		.booking_link {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: block;
+			font-size: 1rem;
+			font-weight: 500;
+			color: #1D6AFF;
+			padding: 10px 0;
+		}
 	}
 }

@@ -1,10 +1,11 @@
 import React from "react";
-import { EventSteps } from "./events-steps";
+import { makeStyles } from '@material-ui/core/styles';
 import { Modal } from "react-bootstrap";
-import {Button,ButtonToolbar} from "react-bootstrap";
-
+import {Button} from "react-bootstrap";
+import { EventTab } from "./event-tab";
 
 export class NewEvent extends React.Component {
+
   constructor(props, context) {
     super(props, context);
 
@@ -35,17 +36,12 @@ export class NewEvent extends React.Component {
           dialogClassName="modal-90w"
           aria-labelledby="example-custom-modal-styling-title"
         >
-          <Modal.Header closeButton>
-            <Modal.Title id="example-custom-modal-styling-title">
-              New Event
-            </Modal.Title>
-          </Modal.Header>
+          <Modal.Header closeButton></Modal.Header>
           <Modal.Body>
-            <div className="event-stepper">
-              <EventSteps />
-            </div>
+            <EventTab />
           </Modal.Body>
         </Modal>
+
       </>
     );
   }
