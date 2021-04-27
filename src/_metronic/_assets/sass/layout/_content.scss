@@ -4218,5 +4218,11 @@ p.setting_color {
 			color: #1D6AFF;
 			padding: 10px 0;
 		}
+		.re_select {
+			.css-yk16xz-control, .css-1pahdxg-control {
+				min-height: 39px;
+				border-bottom-width: 0;
+			}
+		}
 	}
 }

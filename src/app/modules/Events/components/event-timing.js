@@ -14,6 +14,11 @@ import DateFnsUtils from '@date-io/date-fns';
 import {
   MuiPickersUtilsProvider,
   KeyboardTimePicker } from '@material-ui/pickers';
+  import FormControl from '@material-ui/core/FormControl';
+  import RadioGroup from '@material-ui/core/RadioGroup';
+  import Radio from '@material-ui/core/Radio';
+  import FormControlLabel from '@material-ui/core/FormControlLabel';
+  import Select from 'react-select';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -35,6 +40,30 @@ TabContainer.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
+const timezone = [
+  { value: 'india', label: 'Tamil Nadu (GMT+5:30)' },
+]
+
+const durationtime = [
+  { value: '5mins', label: '5 Mins' },
+  { value: '10mins', label: '10 Mins' },
+  { value: '15mins', label: '15 Mins' },
+  { value: '20mins', label: '20 Mins' },
+  { value: '25mins', label: '25 Mins' },
+  { value: '30mins', label: '30 Mins' },
+  { value: '35mins', label: '35 Mins' },
+  { value: '40mins', label: '40 Mins' },
+  { value: '45mins', label: '45 Mins' },
+  { value: '50mins', label: '50 Mins' },
+  { value: '55mins', label: '55 Mins' },
+  { value: '1hour', label: '1 Hour' }
+]
+const buffertime = [
+  { value: '5mins', label: '5 Mins' },
+  { value: '10mins', label: '10 Mins' },
+  { value: '15mins', label: '15 Mins' },
+  { value: '20mins', label: '20 Mins' }
+]
 
 export function ContentEventTiming() {
   const classes = useStyles();
@@ -49,13 +78,17 @@ export function ContentEventTiming() {
           <div className="col-md-6">
             <div className="form-group border-bottom">
               <label className="form-lable font_weight_bold color_303030">Time Zone</label>
-              <input placeholder="Time Zone" type="text" className="form-control font_weight_medium color_707070 pl-0 border-0" name="" />
+              <div className="re_select">
+                <Select options={timezone} />
+              </div>
             </div>
           </div>
           <div className="col-md-6">
             <div className="form-group border-bottom">
               <label className="form-lable font_weight_bold color_303030">Duration</label>
-              <input placeholder="Duration" type="text" className="form-control font_weight_medium color_707070 pl-0 border-0" name="" />
+              <div className="re_select">
+                <Select options={durationtime} />
+              </div>
             </div>
           </div>
         </div>
@@ -63,13 +96,17 @@ export function ContentEventTiming() {
           <div className="col-md-6">
             <div className="form-group border-bottom">
               <label className="form-lable font_weight_bold color_303030">Buffer Time Before</label>
-              <input placeholder="Buffer Time Before" type="text" className="form-control font_weight_medium color_707070 pl-0 border-0" name="" />
+              <div className="re_select">
+                <Select options={buffertime} />
+              </div>
             </div>
           </div>
           <div className="col-md-6">
             <div className="form-group border-bottom">
               <label className="form-lable font_weight_bold color_303030">Buffer Time After</label>
-              <input placeholder="Buffer Time After" type="text" className="form-control font_weight_medium color_707070 pl-0 border-0" name="" />
+              <div className="re_select">
+                <Select options={buffertime} />
+              </div>
             </div>
           </div>
         </div>
@@ -104,6 +141,9 @@ export function ContentEventTiming() {
                 {value === 1 && <TabContainer> <AvailCall /> </TabContainer>}
                 {value === 2 && <TabContainer> <AvailVideo /> </TabContainer>}
               </div>
+            </div>
+            <div className="busi_cus mt-3 mb-3 clearfix">
+              <SelectHours />
             </div>
             <div className="day_select py-6">
               <div className="d-flex">
@@ -396,6 +436,47 @@ export function AvailVideo() {
   );
 }
 
+
+function SelectHours() {
+
+  const useStyles = makeStyles(theme => ({
+    root: {
+      display: 'flex',
+    },
+    formControl: {
+      margin: theme.spacing(3),
+    },
+    group: {
+      margin: theme.spacing(1, 0),
+    },
+  }));
+
+  const classes = useStyles();
+  const [value, setValue] = React.useState('female');
+
+  function handleChange(event) {
+    setValue(event.target.value);
+  }
+
+  return (
+    <div className={classes.root}>
+      <FormControl component="fieldset" className={classes.formControl}>
+        <RadioGroup
+          name="business"
+          className={classes.group}
+          value={value}
+          onChange={handleChange}
+        >
+          <FormControlLabel value="business" control={<Radio />} label="Business hours" />
+          <FormControlLabel value="custom" control={<Radio />} label="Custom" />
+
+        </RadioGroup>
+      </FormControl>
+      
+    </div>
+  );
+}
+
 export function TimePickers() {
   // The first commit of Material-UI
   const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
@@ -438,3 +519,4 @@ return (
 </MuiPickersUtilsProvider>
 );
 }
+
