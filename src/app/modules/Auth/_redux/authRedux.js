@@ -80,7 +80,6 @@ export function* saga() {
 
   yield takeLatest(actionTypes.UserRequested, function* userRequested() {
     const data = yield getUserByToken();
-    console.log("jwt-->",data);
     yield put(actions.fulfillUser(data));
   });
 }

@@ -1,3 +1,4 @@
+import { DevConsoleLog } from "../../../SiteUtill";
 import {
   LOGIN_URL,
   ME_URL,
@@ -72,8 +73,7 @@ export default function mockAuth(mock) {
       Authorization &&
       Authorization.startsWith("Bearer ") &&
       Authorization.slice("Bearer ".length);
-
-      console.log("accessToken-->",accessToken);
+      DevConsoleLog("accessToken-->",accessToken);
     if (accessToken) {
       const user = userTableMock.find(x => x.accessToken === accessToken);
 

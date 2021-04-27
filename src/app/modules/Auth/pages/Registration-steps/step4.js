@@ -188,7 +188,6 @@ const [applyall,setApplyall] =React.useState(false)
             onSubmit={
               fields => {
                 //fields.parent_category_ids=fieldValue;
-                // alert(JSON.stringify(fields, null, 2))
                 localStorage.setItem("SelectedTimezone",selectedtimeZone.label)
                 updateBusiness({
                   variables: {
@@ -512,7 +511,6 @@ const [applyall,setApplyall] =React.useState(false)
             onSubmit={
               fields => {
                 //fields.parent_category_ids=fieldValue;
-                // alert(JSON.stringify(fields, null, 2))
                 localStorage.setItem("SelectedTimezone",selectedtimeZone.label)
                 // if(applyall)
                 // {
@@ -855,8 +853,6 @@ const [applyall,setApplyall] =React.useState(false)
             onSubmit={
               fields => {
                 //fields.parent_category_ids=fieldValue;
-                // alert(JSON.stringify(fields, null, 2))
-               
                 localStorage.setItem("SelectedTimezone",selectedTimezone.label)
                   updateBusiness({
                     variables: {

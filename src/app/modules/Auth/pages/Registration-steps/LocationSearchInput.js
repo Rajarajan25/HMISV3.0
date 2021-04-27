@@ -15,23 +15,21 @@ const loadGoogleMapScript = (callback) => {
   }
 }
 
-const App = () => {
+const LocationSearchInput = (props) => {
   const [loadMap, setLoadMap] = useState(false);
 
   useEffect(() => {
     loadGoogleMapScript(() => {
-      setLoadMap(true)
+      setLoadMap(true);
     });
     
   }, []);
 
   return (
     <div className="App">
-     
-      {!loadMap ? <div>Loading...</div> : <GPlace />}
-     
+      {!loadMap ? <div>Loading...</div> : <GPlace callback={props.callback} searchField={props.searchField}/>}
     </div>
   );
 }
 
-export default App;
+export default LocationSearchInput;

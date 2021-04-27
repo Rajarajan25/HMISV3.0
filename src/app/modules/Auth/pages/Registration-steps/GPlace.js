@@ -1,56 +1,92 @@
 import React, { useEffect, useRef, useState } from "react";
+import { DevConsoleLog } from "../../../../SiteUtill";
 
-const GPlace = () => {
-  const placeInputRef = useRef(null);
+const GPlace = (props) => {
   const [place, setPlace] = useState(null);
-
+  let autocomplete;
   useEffect(() => {
     initPlaceAPI();
   }, []);
 
   // initialize the google place autocomplete
   const initPlaceAPI = () => {
-    let autocomplete = new window.google.maps.places.Autocomplete(placeInputRef.current);
-    new window.google.maps.event.addListener(autocomplete, "place_changed", function () {
-      let addressObject = autocomplete.getPlace();
-      let address = addressObject.address_components
-      localStorage.setItem("Address",addressObject.formatted_address)
-      localStorage.setItem("street",`${address[0].long_name} ${address[1].long_name}`)
-      localStorage.setItem("city",address[4].long_name)
-      localStorage.setItem("state",address[5].long_name)
-      localStorage.setItem("zipcode",address[7].long_name)
-      //localStorage.setItem("street",`${address[0].long_name} ${address[1].long_name}`)
-      setPlace({
-        name: addressObject.name,
-      street_address: `${address[0].long_name} ${address[1].long_name}`,
-      city: address[4].long_name,
-      state: address[5].short_name,
-      zip_code: address[7].long_name,
-      googleMapLink: addressObject.url
-      });
+    let searchField= document.querySelector(props.searchField);
+    autocomplete=new window.google.maps.places.Autocomplete(searchField, {
+      componentRestrictions: { country: ["in"] },
+      fields: ["name","address_components", "geometry","formatted_address","url","business_status"],
     });
+    // When the user selects an address from the drop-down, populate the
+    // address fields in the form.
+    autocomplete.addListener("place_changed", fillInAddress);
   };
 
-  return (
-    <>
-      {!place?<input type="text"  className={`form-control py-5 px-6 `} ref={placeInputRef} />:<></>}
-       <div style={{ marginTop: 20, lineHeight: '25px' }}>
-        <div style={{ marginBottom: 10 }}><b>Selected Place</b></div>
-        <input
-                    placeholder="Your Business Address"
-                    type="text"
-                    className={`form-control py-5 px-6 `}
-                    value={place ||localStorage.getItem("BackFlag")==="Y"?localStorage.getItem("Address"):1}
-                    
-                  />
-        {/* <input type="text" value={place ||localStorage.getItem("BackFlag")==="Y"?localStorage.getItem("street"):1} /> */}
-        {/* <input type="text" value={place ||localStorage.getItem("BackFlag")==="Y"?localStorage.getItem("city"):1} />
-        <input type="text" value={place ||localStorage.getItem("BackFlag")==="Y"?localStorage.getItem("state"):1} />
-        <input type="text" value={place ||localStorage.getItem("BackFlag")==="Y"?localStorage.getItem("zipcode"):1} />
-         */}
+  function fillInAddress() {
+    // Get the place details from the autocomplete object.
+    const place = autocomplete.getPlace();
+    DevConsoleLog("place",place);
+      let address1 = "";
+      let postcode = "";
+      let locality="";
+      let state="";
+      let country="";
+        // Get each component of the address from the place details,
+        // and then fill-in the corresponding field on the form.
+        // place.address_components are google.maps.GeocoderAddressComponent objects
+        // which are documented at http://goo.gle/3l5i5Mr
+        for (const component of place.address_components) {
+          const componentType = component.types[0];
+
+          switch (componentType) {
+            case "street_number": {
+              address1 = `${component.long_name} ${address1}`;
+              break;
+            }
+
+            case "route": {
+              address1 += component.short_name;
+              break;
+            }
+
+            case "postal_code": {
+              postcode = `${component.long_name}${postcode}`;
+              break;
+            }
+
+            case "postal_code_suffix": {
+              postcode = `${postcode}-${component.long_name}`;
+              break;
+            }
+            case "locality":
+              locality = component.long_name;
+              break;
+
+            case "administrative_area_level_1": {
+              state = component.short_name;
+              break;
+            }
+            case "country":
+              country = component.long_name;
+              break;
+          }
+        }
       
-      </div>
-    </>
+        let selectedPlace={
+          fulladdress:place.formatted_address,
+          location_name:place.name,
+          url:place.url,
+          business_status:place.business_status,
+          street: address1,
+          city: locality,
+          state:state,
+          zip_code:postcode,
+          country:country,
+        }
+        setPlace(selectedPlace);
+        props.callback(selectedPlace);
+  }
+
+  return (
+    <></>
   );
 };
 

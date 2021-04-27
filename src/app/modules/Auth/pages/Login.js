@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 import { FormattedMessage, injectIntl } from "react-intl";
 import * as auth from "../_redux/authRedux";
 import { gql, useMutation } from "@apollo/client";
+import { DevConsoleLog } from "../../../SiteUtill";
 
 /*
   INTL (i18n) docs:
@@ -87,7 +88,7 @@ function Login(props) {
           })
           .catch(() => {
             disableLoading();
-            console.log("Error--->")
+            DevConsoleLog("Error--->");
             props.login("access-token-8f3ae836da744329a6f93bf20594b5cc");
           });
       }, 1000);
@@ -154,9 +155,7 @@ function Login(props) {
                     <input
                       placeholder="Email"
                       type="email"
-                      className={`form-control py-5 px-8 pl-15 ${getInputClasses(
-                        "email"
-                      )}`}
+                      className={`form-control py-5 px-8 pl-15 ${getInputClasses("email")}`}
                       name="email"
                       {...formik.getFieldProps("email")}
                     />

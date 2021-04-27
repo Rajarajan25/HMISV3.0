@@ -19,6 +19,7 @@ import { gql, useQuery, useMutation } from "@apollo/client";
 import { Formik, Field } from 'formik';
 import countryList from 'react-select-country-list'
 import Select from 'react-select';
+import { DevAlertPopUp, DevConsoleLog } from "../../../SiteUtill";
 const GET_USER = gql`
 {
   getUser{
@@ -69,7 +70,6 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-
 function Registration(props) {
   const classes = useStyles();
   const { intl } = props;
@@ -80,11 +80,10 @@ function Registration(props) {
   const [value, setValue] = useState('')
   const options = useMemo(() => countryList().getData(), [])
   let currentUser = [];
-  if (data != undefined) {
+  if (data !== undefined) {
     currentUser = data.getUser.find(user => user._id === user_id);
   }
-
-  console.log(currentUser)
+  DevConsoleLog(currentUser)
   const changeHandler = value => {
     setValue(value)
   }
@@ -163,8 +162,6 @@ function Registration(props) {
 
   const formik = useFormik({
     initialValues,
-
-
   });
 
   return (
@@ -253,10 +250,8 @@ function Registration(props) {
             <Formik
               initialValues={currentUser}
               enableReinitialize
-
               onSubmit={(values) => {
-                alert(JSON.stringify(values, null, 2))
-
+                DevAlertPopUp(values);
                 updateUser({
                   variables: {
                     userID: values._id,
@@ -273,7 +268,7 @@ function Registration(props) {
                     }
                   }
                 }).then(res => {
-                  console.log(res.data.updateUser);
+                  DevConsoleLog(res.data.updateUser);
                   localStorage.setItem("UserMobileNo", res.data.updateUser.mobile_number)
                   window.location.href = "/auth/registration-confirmation";
                 })

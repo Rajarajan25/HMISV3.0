@@ -35,11 +35,7 @@ function getSteps() {
   return [<Stepper1 />, <Stepper2 />, <Stepper3 />, <Stepper4 />, <Stepper5 />];
 }
 
-
-
-
 export default function HorizontalLabelPositionBelowStepper() {
-
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
@@ -78,8 +74,8 @@ export default function HorizontalLabelPositionBelowStepper() {
   return (
     <div className={classes.root}>
       <Stepper className="businessSteps rounded" activeStep={activeStep} alternativeLabel>
-        {steps.map(label => (
-          <Step key={label}>
+        {steps.map((label,index) => (
+          <Step key={index}>
             <StepLabel>{label}</StepLabel>
           </Step>
         ))}

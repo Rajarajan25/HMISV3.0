@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Formik, Field } from 'formik';
 import { gql, useMutation } from '@apollo/client';
 import { UserContext } from './UserContext';
+import { DevConsoleLog, DevAlertPopUp } from "../../../SiteUtill";
 
 const ADD_SITE = gql`
   mutation addSite($site: SiteInput!) {
@@ -40,6 +41,8 @@ const UPDATE_PASSWORD = gql`
     }
   }
 `;
+
+
 export default function Signup() {
   let site_id = "";
   let password_id = "";
@@ -59,7 +62,7 @@ export default function Signup() {
       }
     })
       .then(res => {
-        console.log(res.data.addSite);
+        DevConsoleLog(res.data.addSite);
         site_id = res.data.addSite._id;
         localStorage.setItem("site_id", site_id)
         Add_Password(site_id, values);
@@ -76,7 +79,7 @@ export default function Signup() {
       }
     })
       .then(res => {
-        console.log(res.data.addPassword);
+        DevConsoleLog(res.data.addPassword);
         password_id = res.data.addPassword._id;
         Add_User(site_id, values, password_id)
 
@@ -91,9 +94,8 @@ export default function Signup() {
       }
     })
       .then(res => {
-        console.log(res.data.addUser);
+        DevConsoleLog(res.data.addUser);
         let user_id = res.data.addUser._id
-
         PassWordUpdate(user_id, password_id)
         let user = [];
         user.push(res.data.addUser)
@@ -126,15 +128,13 @@ export default function Signup() {
     });
 
   }
-  console.log(user)
+  DevConsoleLog("",user);
   const [passwordShown, setPasswordShown] = useState(true);
   const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
   };
   return (
-
     <div className="d-flex justify-content-center flex-column col-xl-8 col-lg-11 wid col">
-
       {/* start:: Aside header */}
       <div class="d-lg-flex d-xl-flex d-md-flex d-block w-100 text-center">
         <Link to="/" className="flex-column-auto logo-tb mb-5">
@@ -220,10 +220,6 @@ export default function Signup() {
               </Link>
               </p>
             </div>
-
-
-
-
             <div className="login-signin reg_sec">
               <Formik
                 initialValues={{ email: '', password: '' }}
@@ -238,8 +234,8 @@ export default function Signup() {
                   return errors;
                 }}
                 onSubmit={(values, { setSubmitting }) => {
-                  alert(JSON.stringify(values, null, 2))
-                  handleChange(values)
+                  DevAlertPopUp(values);
+                  handleChange(values);
                 }}
               >
                 {({
@@ -251,23 +247,21 @@ export default function Signup() {
                   handleSubmit,
                   isSubmitting,
                 }) => (
-
                   <form className="form fv-plugins-bootstrap fv-plugins-framework" onSubmit={handleSubmit}>
                     <div className="form-group fv-plugins-icon-container mb-8">
                       <label class="d-block mb-3 font-weight-500">E-mail / Mobile Number</label>
                       <div className="">
                         <Field name="email" placeholder="9876543210" type="text" className="form-control py-5 px-6" />
+                        <div className="fv-plugins-message-container">
                         <div className="fv-help-block">{errors.email}</div>
-
-
+                        </div>
                       </div>
                     </div>
                     <div className="form-group fv-plugins-icon-container mb-10">
                       <label class="d-block mb-3 font-weight-500">Password</label>
                       <div className="sign_pass" onClick={togglePasswordVisiblity}>
                         <Field name="password" placeholder="Minimum 6 characters" className="form-control py-5 px-6" type={passwordShown ? "text" : "password"} />
-                        <div className="fv-help-block">{errors.password}</div>
-
+                        <div className="fv-plugins-message-container"><div className="fv-help-block">{errors.password}</div></div>
                       </div>
                     </div>
                     <div className="form-group d-flex cr_ac flex-wrap justify-content-between align-items-center mb-6">
@@ -284,20 +278,19 @@ export default function Signup() {
                     <div className="fv-plugins-icon-container mb-10">
                       {/*begin::Content header*/}
                       {/* <div className="text-center flex-column-auto justify-content-center">
-                  <span className="font-weight-500">
-                  Signup with
-                  </span>
-                  <Link
-                    to="/auth/personalinfo"
-                    className="font-weight-500 ml-2 createAccountlink"
-                    id="kt_login_signup"
-                  >
-                    Personal Information
-                  </Link>
-                </div> */}
+                          <span className="font-weight-500">
+                          Signup with
+                          </span>
+                          <Link
+                            to="/auth/personalinfo"
+                            className="font-weight-500 ml-2 createAccountlink"
+                            id="kt_login_signup"
+                          >
+                            Personal Information
+                          </Link>
+                        </div> */}
                       {/*end::Content header*/}
                     </div>
-
                     <div className="form-group reg_icon text-center align-items-center">
                       <button
                         id="social_google_signin_submit"
@@ -323,9 +316,7 @@ export default function Signup() {
                 )}
               </Formik>
             </div>
-
           </div>
-
         </div>
       </div>
     </div>
