@@ -1,8 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { DevConsoleLog } from "../../../../SiteUtill";
 
 const GPlace = (props) => {
-  const [place, setPlace] = useState(null);
   let autocomplete;
   useEffect(() => {
     initPlaceAPI();
@@ -67,6 +66,9 @@ const GPlace = (props) => {
             case "country":
               country = component.long_name;
               break;
+            default:
+              country=""
+            break;
           }
         }
       
@@ -81,7 +83,6 @@ const GPlace = (props) => {
           zip_code:postcode,
           country:country,
         }
-        setPlace(selectedPlace);
         props.callback(selectedPlace);
   }
 

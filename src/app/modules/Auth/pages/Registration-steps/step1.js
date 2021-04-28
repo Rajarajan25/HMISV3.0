@@ -171,7 +171,7 @@ function Registration(props) {
 
 
   const handleAddBusiness = (values) => {
-    setLoading(true);
+    enableLoading();
     let site_id = localStorage.getItem("site_id");
     addBusiness({
       variables: {
@@ -183,7 +183,7 @@ function Registration(props) {
       }
     })
       .then(res => {
-        setLoading(false);
+        disableLoading();
         console.log(res.data.addBusiness);
         let business_id = res.data.addBusiness._id
         localStorage.setItem("Business_id", business_id)
@@ -195,7 +195,7 @@ function Registration(props) {
       })
   }
   const handleUpdateBisness = (values) => {
-    setLoading(true);
+    enableLoading();
     updateBusiness({
       variables: {
         businessID: business_id,
@@ -207,7 +207,7 @@ function Registration(props) {
     })
       .then(res => {
         console.log(res.data.updateBusiness);
-        setLoading(false);
+        disableLoading();
         setBusiness({
           type: "SET_CURRENT_BUSINESS",
           payload: values
@@ -304,7 +304,7 @@ function Registration(props) {
                     name="name" />
                   {value === "business" && props.touched.name && props.errors.name ? (
                     <div className="fv-plugins-message-container">
-                      <div className="fv-help-block">{props.errors.fullname}</div>
+                      <div className="fv-help-block">{props.errors.name}</div>
                     </div>
                   ) : null}
                 </div>

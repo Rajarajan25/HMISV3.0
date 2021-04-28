@@ -1034,10 +1034,14 @@
     text-align: center;
     position: relative;
     &::before {
-        content: url(/media/auth-screen/date_tick.svg);
         position: absolute;
         top: -10px;
         right: -5px;
+    }
+}
+.date_bx_select {
+    &::before {
+        content: url(/media/auth-screen/date_tick.svg);
     }
 }
 .sun_d {
