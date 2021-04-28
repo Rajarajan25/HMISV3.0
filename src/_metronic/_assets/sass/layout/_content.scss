@@ -260,12 +260,11 @@
 	top:4px;
   }
   
-
-  /* Middle content section start */
+ /* Middle content section start */
 
   .contentAreaouter{
 	display: flex;
-	  width: 100%;
+	width: 100%;
 	margin-top: 1.7rem;
   }
   .contentArea{
@@ -4088,7 +4087,7 @@ p.setting_color {
 		margin: 0 auto;
 		background-color: transparent;
 		padding: 2% 0;
-    	height: 96%;
+    	height: 100%;
 	}
 	.modal-header {
 		align-items: center;
@@ -4124,9 +4123,93 @@ p.setting_color {
 		max-width: 900px;
 		margin: 0px auto;
 		width: 100%;
+		&.evt-ft {
+			background: transparent;
+			border-radius: 0;
+			box-shadow: none;
+			max-width: 1200px;
+		}
+		.loginMaincontent  {
+			min-height: 650px;
+		}
+		.nxt-btn {
+			.btn-primary {
+				background: #1D6AFF;
+				border-color: #1D6AFF;
+				border-radius: 20px;
+				min-width: 120px;
+				font-size: 13px;
+				font-weight: 500;
+				margin: 0 15px;
+				&:hover, &:focus {
+					background: #1D6AFF !important;
+					border-color: #1D6AFF !important;
+				}
+			}
+		}
+	}
+}
+
+.event-selection {
+	margin: 40px 0;
+	.event-radio {
+		input[type=radio] {
+			display: none;
+		}
+		label {
+			width: 100%;
+			position: relative;
+			padding: 0 30px;
+			cursor: pointer;
+			color: #3F4772;
+			font-size: 1.2rem;
+			&:before {
+				box-sizing: content-box;
+				content: "";
+				color: #fff;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 20px;
+				height: 20px;
+				margin-top: 0;
+				border: 1px solid #cacaca;
+				text-align: center;
+				transition: all .4s ease;
+				border-radius: 50%;
+			}
+			&:after {
+				content: "";
+				position: absolute;
+				top: 6px;
+				left: 6px;
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background: #1c6afc;
+				opacity: 0;
+			}
+			span {
+				display: block;
+			}
+			img {
+				display: block;
+				margin: 30px 0 20px;
+			}
+		}
+		input[type=radio]:checked+label {
+			font-weight: 600;
+			&:before {
+				border: 1px solid #1c6afc;
+			}
+			&:after {
+				opacity: 1;
+			}
+		}
 	}
 }
 .event-tab {
+	font-family: Poppins;
 	h3.event-tab-title {
 		font-weight: bold;
 		color: #01234B;
@@ -4138,6 +4221,26 @@ p.setting_color {
 	}
 	.timingavail  {
 		background-color: transparent;
+		.status_hover {
+			.form-control {
+				letter-spacing: -0.05px;
+				color: #303030;
+				font-size: 1rem;
+				font-weight: 500;
+				outline: 0;
+				padding: 0.65rem 1rem;
+				border: 1px solid #EEEEEE;
+				height: 35px;
+				margin-bottom: 10px;
+				border-radius: 5px;
+			}	
+			.btn {
+				min-height: 35px;
+				width: 100%;
+				height: auto;
+				padding: 0px;
+			}
+		}
 	}
 	.tab-left {
 		.MuiTabs-flexContainer {
@@ -4162,7 +4265,7 @@ p.setting_color {
 			background: #fff;
 			box-shadow: none;
 			border-right: 1px solid #EBEDF3;
-			padding-top: 10px;
+			padding-top: 0px;
 		}
 		.MuiTabs-indicator {
 			display: none;
@@ -4202,7 +4305,7 @@ p.setting_color {
 	.tab-right {
 		margin-left: 2rem;
 		margin-right: 1.50rem;
-		padding-top: 10px;
+		padding-top: 0px;
 	}
 	.event_detail {
 		.form-group {
@@ -4222,6 +4325,34 @@ p.setting_color {
 			.css-yk16xz-control, .css-1pahdxg-control {
 				min-height: 39px;
 				border-bottom-width: 0;
+			}
+		}
+		.notify-border {
+			border: 1px solid #E5E7EB;
+			padding: 15px 0px 15px 20px;
+			margin-bottom: 15px;
+		}
+		.pre_status {
+			.MuiFormControlLabel-root {
+				margin-left: 0;
+				margin-right: 0;
+			}
+			.MuiSwitch-track {
+				width: 40px;
+				height: 20px;
+				box-shadow: none;
+			}
+			.MuiSwitch-root {
+				padding: 0;
+				width: 40px;
+				height: 25px;
+			}
+			.MuiSwitch-thumb {
+				width: 14px;
+				height: 14px;
+			}
+			.MuiSwitch-switchBase {
+				padding: 3px 3px;
 			}
 		}
 	}

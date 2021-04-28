@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { makeStyles } from '@material-ui/core/styles';
-import {Button} from "react-bootstrap";
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
@@ -19,6 +18,8 @@ import {
   import Radio from '@material-ui/core/Radio';
   import FormControlLabel from '@material-ui/core/FormControlLabel';
   import Select from 'react-select';
+  import { Dropdown } from "react-bootstrap";
+  import {DropdownItemToggler} from "../../../../_metronic/_partials/dropdowns";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -332,7 +333,18 @@ export function AvailPerson() {
           <input type="radio" id="availperson_01" name="availperson" className="" />
           <label className="mb-0" for="availperson_01">My Business Address</label>
         </div>
-        <Link to="#" className="ml-auto add_setting">+ Add Address</Link>
+        <div className="ml-auto">
+          <Dropdown drop="down" alignCenter className="dropdown h-100">
+            <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
+              <Link to="#" className="add_setting">+ Add Address</Link>
+            </Dropdown.Toggle>
+            <Dropdown.Menu  className="dropdown-menu dropdown-md-menu p-0 mt-1 drop_nav status_hover" style={{
+                  width: `250px`,
+                }}>
+              <ServicesDropdownMenu />
+            </Dropdown.Menu>
+          </Dropdown>
+        </div>
       </div>
       <div className="row per_add">
         <div className="col-6">
@@ -520,3 +532,19 @@ return (
 );
 }
 
+export function ServicesDropdownMenu() {
+  return <>
+      {/*begin::Navigation*/}
+      <ul className="navi navi-hover">
+          <li className="navi-item p-5">
+            <input type="text" placeholder="Door No, Street Name" className="form-control" />
+            <input type="text" placeholder="City" className="form-control" />
+            <input type="text" placeholder="State" className="form-control" />
+            <input type="text" placeholder="Zipcode" className="form-control" />
+            <button type="submit" className="btn btn-primary">Submit</button>
+          </li>
+      </ul>
+      {/*end::Navigation*/}
+
+  </>
+}
