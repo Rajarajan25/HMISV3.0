@@ -1,6 +1,5 @@
 
 import React from 'react';
-import {BusinessContext} from '../BusinessContext'
 import { gql, useQuery } from "@apollo/client";
 const GET_USER = gql`
 {
@@ -12,10 +11,8 @@ const GET_USER = gql`
 
       `;
 export default function BusinessConfirmatoin() {
-  const[business,setBusiness] =React.useContext(BusinessContext)
-  let currentBusiness= business.currentBusiness;
   let currentUser={};
-  const {data}=useQuery(GET_USER)
+  const {data}=useQuery(GET_USER);
   let business_id=localStorage.getItem("Business_id")
   if(data!== undefined)
   {
