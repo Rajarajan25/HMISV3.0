@@ -4209,12 +4209,7 @@ p.setting_color {
 	}
 }
 .event-tab {
-	font-family: Poppins;
-	box-shadow: 0px 0px 10px rgba(0, 70, 131, 0.3);
-	border-radius: 15px;
-	max-width: 900px;
-	margin: 0px auto;
-	background: #fff;
+
 	h3.event-tab-title {
 		font-weight: bold;
 		color: #01234B;
@@ -4248,6 +4243,7 @@ p.setting_color {
 		}
 	}
 	.tab-left {
+		padding-left: 0;
 		.MuiTabs-flexContainer {
 			display: block;
 		}
@@ -4283,8 +4279,8 @@ p.setting_color {
 			animation: inherit;
 		}
 		.evn_bg {
-			min-width: 150px;
-			padding: 8px 10px;
+			min-width: 135px;
+			padding: 8px 5px 8px 10px;
 			color: #3F4772;
 			font-weight: 500;
 		}
@@ -4308,10 +4304,11 @@ p.setting_color {
 		}
 	}
 	.tab-right {
-		margin-left: 1rem;
+		margin-left: 0;
 		margin-right: 0;
 		padding-top: 0px;
 		padding-right: 0;
+		padding-left: 5px;
 	}
 	.event_detail {
 		.form-group {
@@ -4337,6 +4334,10 @@ p.setting_color {
 			border: 1px solid #E5E7EB;
 			padding: 15px 0px 15px 20px;
 			margin-bottom: 15px;
+			textarea.form-control {
+				background: #F7F7FC;
+				border: 0;
+			}
 		}
 		.pre_status {
 			.MuiFormControlLabel-root {
@@ -4365,8 +4366,8 @@ p.setting_color {
 			overflow: hidden;
 			overflow-y: scroll;
 			height: calc(100vh - 210px);
-			padding-right: 25px;
-			padding-left: 15px;
+			padding-right: 15px;
+    		padding-left: 5px;
 		}
 		.event-btn {
 			.btn-primary {
@@ -4414,4 +4415,63 @@ p.setting_color {
 			}
 		}
 	}
+	.event-radio {
+		input[type=radio] {
+			display: none;
+		}
+		label {
+			width: 100%;
+			position: relative;
+			padding: 0 10px 0 24px;
+			cursor: pointer;
+			color: #303030;
+			font-size: 1rem;
+			margin: 0;
+			&:before {
+				box-sizing: content-box;
+				content: "";
+				color: #fff;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 15px;
+				height: 15px;
+				margin-top: 0;
+				border: 1px solid #cacaca;
+				text-align: center;
+				transition: all .4s ease;
+				border-radius: 50%;
+			}
+			&:after {
+				content: "";
+				position: absolute;
+				top: 5px;
+				left: 5px;
+				width: 7px;
+				height: 7px;
+				border-radius: 50%;
+				background: #1c6afc;
+				opacity: 0;
+			}
+			span {
+				display: block;
+			}
+			img {
+				display: block;
+				margin: 30px 0 20px;
+			}
+		}
+		input[type=radio]:checked+label {
+			font-weight: 500;
+			&:before {
+				border: 1px solid #1c6afc;
+			}
+			&:after {
+				opacity: 1;
+			}
+		}
+	}
+}
+.patientProfileinfo.EventDrawer .MuiDrawer-paper {
+    max-width: 700px;
 }

@@ -20,6 +20,7 @@ import {
   import Select from 'react-select';
   import { Dropdown } from "react-bootstrap";
   import {DropdownItemToggler} from "../../../../_metronic/_partials/dropdowns";
+  import TextField from "@material-ui/core/TextField";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -59,6 +60,7 @@ const durationtime = [
   { value: '55mins', label: '55 Mins' },
   { value: '1hour', label: '1 Hour' }
 ]
+
 const buffertime = [
   { value: '5mins', label: '5 Mins' },
   { value: '10mins', label: '10 Mins' },
@@ -113,7 +115,29 @@ export function ContentEventTiming() {
             </div>
           </div>
           <div className="form-group border-bottom">
-            <label className="form-lable font_weight_medium color_303030 mb-0">Date Range</label>
+            <div className="d-flex">
+              <label className="form-lable font_weight_medium color_303030 mb-0 mr-5">Date Range</label>
+              <div className="d-flex">
+                <div className="event-radio">
+                  <input type="radio" id="eventdate_01" name="eventdate-radio" className=""/>
+                  <label className="" for="eventdate_01">
+                    <span class="chk_txt">Range</span>
+                  </label>
+                </div>
+                <div className="event-radio">
+                  <input type="radio" id="eventdate_02" name="eventdate-radio" className=""/>
+                  <label className="" for="eventdate_02">
+                    <span class="chk_txt">Infinity</span>
+                  </label>
+                </div>
+                <div className="event-radio">
+                  <input type="radio" id="eventdate_03" name="eventdate-radio" className=""/>
+                  <label className="" for="eventdate_03">
+                    <span class="chk_txt">Default</span>
+                  </label>
+                </div>
+              </div>
+            </div>
             <input placeholder="Date Range" type="text" className="form-control font_weight_medium color_707070 pl-0 border-0" name="" />
           </div>
           <div className="patientProfileinfo StaffInfo">
@@ -555,3 +579,5 @@ export function ServicesDropdownMenu() {
 
   </>
 }
+
+

@@ -1,11 +1,25 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import { Modal } from "react-bootstrap";
 import {Button} from "react-bootstrap";
 import { EventTab } from "./event-tab";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
+import Drawer from '@material-ui/core/Drawer';
+
+const useStyles = makeStyles({
+  list: {
+    width: 650,
+  },
+  fullList: {
+    width: 'auto',
+  },
+});
+
+
 
 export class NewEvent extends React.Component {
+
 
   constructor(props, context) {
     super(props, context);
@@ -29,7 +43,8 @@ export class NewEvent extends React.Component {
         <Button variant="primary" className="d-none" onClick={this.handleShow}>
           New Event
         </Button>
-        <EventTab />
+        <EventDrawer />
+    
         <Modal
           className="eventmodal"
           show={this.state.show}
@@ -142,4 +157,75 @@ export class PopEvent extends React.Component {
       </>
     );
   }
+}
+
+
+
+export function EventDrawer() {  
+  const classes = useStyles();
+const [state, setState] = React.useState({
+  top: false,
+  left: false,
+  bottom: false,
+  right: false,
+});
+const styles = {
+  BackdropProps: {
+    background: 'transparent'
+  }
+};
+
+const toggleDrawer = (side, open) => event => {
+  if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+    return;
+  }
+  setState({ ...state, [side]: open });
+};
+
+const toggleDrawerClose = () => {
+  setState(false);
+};
+  return (
+      <div className="clearfix">
+        <span><Link to="#" onClick={toggleDrawer('right', true)}>Gopi</Link></span>
+        <Drawer className="patientProfileinfo EventDrawer StaffInfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
+          <div className="p-0 overflow-auto">
+            <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}>
+              <span className="my-auto font-weight-500">
+                <img src={toAbsoluteUrl("/media/patients/drawer_close.svg")} alt="" className="d-block" />
+              </span>
+            </Link>
+            <div className="flex-column-fluid d-none flex-column justify-content-center h-100">
+              <div className="col d-flex justify-content-center align-items-center rounded-right">
+                <div className="my-auto">
+                  <h1 class="h1 color_3F4772 font-weight-600 my-auto">Choose your Event type?</h1>
+                  <div className="event-selection">
+                    <div className="d-flex">
+                      <div className="event-radio">
+                        <input type="radio" id="event_01" name="event-radio" className=""/>
+                        <label className="" for="event_01">
+                          <span class="chk_txt">One-On-One</span>
+                          <img src={toAbsoluteUrl("/media/events/one-one-icon.svg")} alt="" className="" />
+                        </label>
+                      </div>
+                      <div className="event-radio">
+                        <input type="radio" id="event_02" name="event-radio" className=""/>
+                        <label className="" for="event_02">
+                          <span class="chk_txt">Group</span>
+                          <img src={toAbsoluteUrl("/media/events/group-icon.svg")} alt="" className="" />
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="nxt-btn d-flex">
+                    <span className="ml-auto btn btn-primary">Next</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <EventTab />
+          </div>
+        </Drawer>
+      </div>
+    );
 }
