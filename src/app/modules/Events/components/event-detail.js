@@ -39,90 +39,90 @@ export function ContentEventDetails() {
   return (
     <div className="clearfix">
       <div className="event_detail pb-5">
+        <div className="event-height">
 
-      <p className="font_weight_bold font-size-20 m-0 pb-5 d-none">Details</p>
+          <p className="font_weight_bold font-size-20 m-0 pb-5 d-none">Details</p>
 
-      <div className="d-flex w-100 flex-column patientPersoanlinfo">
+          <div className="d-flex w-100 flex-column patientPersoanlinfo">
 
-        <div className="form-group border-bottom">
-          <label className="form-lable font_weight_bold color_303030 mb-0">Name *</label>
-          <input placeholder="Enter name" type="text" className="form-control font_weight_medium color_707070 pl-0 border-0" name="" />
-        </div>
-
-        <div className="form-group">
-          <label className="form-lable font_weight_bold color_303030">Visibility</label>
-          <div className="w-100 mt-3">
-            <div className="d-inline-flex gen">
-              <input type="radio" id="private" name="visibility" className="checkbx" />
-              <label className="subCategory" for="private">
-                  <span className="chk_txt">Private</span>
-              </label>
+            <div className="form-group border-bottom">
+              <label className="form-lable font_weight_medium color_303030 mb-0">Name *</label>
+              <input placeholder="Enter name" type="text" className="form-control font_weight_medium color_707070 pl-0 border-0" name="" />
             </div>
-            <div className="d-inline-flex gen">
-              <input type="radio" id="public" name="visibility" className="checkbx" />
-              <label className="subCategory" for="public">
-                  <span className="chk_txt">Public</span>
-              </label>
-            </div>
-          </div>
-        </div>
 
-        <div className="patientProfileinfo StaffInfo d-none">
-          <label className="form-lable font_weight_bold color_303030 mb-0">Availability</label>
-          <div className="staff_first staff_second">
-            <div className={'timingavail'+' '+classes.root}>
-              <div className="d-flex border-bottom">
-                <div className="p-0">
-                  <AppBar position="static" color="default">
-                    <Tabs
-                      value={value}
-                      onChange={handleChange}
-                      indicatorColor="primary"
-                      textColor="primary"
-                      variant="scrollable"
-                      scrollButtons="auto"
-                    >
-                      <Tab label={<TabPerson />} />
-                      <Tab label={<TabCall />} />
-                      <Tab label={<TabVideo />} />
-                    </Tabs>
-                  </AppBar>
+            <div className="form-group">
+              <label className="form-lable font_weight_medium color_303030">Visibility</label>
+              <div className="w-100 mt-3">
+                <div className="d-inline-flex gen">
+                  <input type="radio" id="private" name="visibility" className="checkbx" />
+                  <label className="subCategory" for="private">
+                      <span className="chk_txt">Private</span>
+                  </label>
+                </div>
+                <div className="d-inline-flex gen">
+                  <input type="radio" id="public" name="visibility" className="checkbx" />
+                  <label className="subCategory" for="public">
+                      <span className="chk_txt">Public</span>
+                  </label>
                 </div>
               </div>
-              <div className="p-0">
-                {value === 0 && <TabContainer> <AvailPerson />  </TabContainer>}
-                {value === 1 && <TabContainer> <AvailCall /> </TabContainer>}
-                {value === 2 && <TabContainer> <AvailVideo /> </TabContainer>}
+            </div>
+
+            <div className="patientProfileinfo StaffInfo d-none">
+              <label className="form-lable font_weight_medium color_303030 mb-0">Availability</label>
+              <div className="staff_first staff_second">
+                <div className={'timingavail'+' '+classes.root}>
+                  <div className="d-flex border-bottom">
+                    <div className="p-0">
+                      <AppBar position="static" color="default">
+                        <Tabs
+                          value={value}
+                          onChange={handleChange}
+                          indicatorColor="primary"
+                          textColor="primary"
+                          variant="scrollable"
+                          scrollButtons="auto"
+                        >
+                          <Tab label={<TabPerson />} />
+                          <Tab label={<TabCall />} />
+                          <Tab label={<TabVideo />} />
+                        </Tabs>
+                      </AppBar>
+                    </div>
+                  </div>
+                  <div className="p-0">
+                    {value === 0 && <TabContainer> <AvailPerson />  </TabContainer>}
+                    {value === 1 && <TabContainer> <AvailCall /> </TabContainer>}
+                    {value === 2 && <TabContainer> <AvailVideo /> </TabContainer>}
+                  </div>
+                </div>
               </div>
             </div>
+
+            <div className="form-group">
+              <label className="form-lable font_weight_medium color_303030 mb-3">Description</label>
+              <textarea placeholder="Description" type="text" className={`form-control`} name="description"> </textarea>
+            </div>
+
+            <div className="form-group">
+              <label className="form-lable font_weight_medium color_303030 mb-0">Picture & Color *</label>
+              <ColorCode />
+            </div>
+
+            <div className="form-group border-bottom">
+              <label className="form-lable font_weight_medium color_303030 mb-0 d-block">Event Link</label>
+              <Link to="Hmis/Sagayaraj/https://dribbble.com/search/more 20options" className="booking_link" target="blank">
+                https://Hmis/Sagayaraj/https://dribbble.com/search/more 20options </Link>
+            </div>
+
           </div>
         </div>
-
-        <div className="form-group">
-          <label className="form-lable font_weight_bold color_303030 mb-3">Description</label>
-          <textarea placeholder="Description" type="text" className={`form-control`} name="description"> </textarea>
-        </div>
-
-        <div className="form-group">
-          <label className="form-lable font_weight_bold color_303030 mb-0">Picture & Color *</label>
-          <ColorCode />
-        </div>
-
-        <div className="form-group border-bottom">
-          <label className="form-lable font_weight_bold color_303030 mb-0 d-block">Event Link</label>
-          <Link to="Hmis/Sagayaraj/https://dribbble.com/search/more 20options" className="booking_link" target="blank">
-            https://Hmis/Sagayaraj/https://dribbble.com/search/more 20options </Link>
-        </div>
-
-      </div>
-
-      <div className="w-100 mt-15">
-        <div className="d-flex justify-content-end color_c0c0c0">
-          <button type="button" className="btn font-size-16 font_weight_medium color_c0c0c0 text-uppercase">Cancel</button>
-          <button type="button" className="btn font-size-16 font_weight_medium color_1D6AFF text-uppercase">Save</button>
+        <div className="w-100 event-btn mt-8">
+          <div className="d-flex justify-content-end">
+            <button type="submit" className="btn btn-primary">Save</button>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }

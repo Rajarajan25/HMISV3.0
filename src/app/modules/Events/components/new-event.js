@@ -26,10 +26,10 @@ export class NewEvent extends React.Component {
   render() {
     return (
       <>
-        <Button variant="primary" onClick={this.handleShow}>
+        <Button variant="primary" className="d-none" onClick={this.handleShow}>
           New Event
         </Button>
-
+        <EventTab />
         <Modal
           className="eventmodal"
           show={this.state.show}

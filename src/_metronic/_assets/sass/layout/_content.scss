@@ -4210,6 +4210,11 @@ p.setting_color {
 }
 .event-tab {
 	font-family: Poppins;
+	box-shadow: 0px 0px 10px rgba(0, 70, 131, 0.3);
+	border-radius: 15px;
+	max-width: 900px;
+	margin: 0px auto;
+	background: #fff;
 	h3.event-tab-title {
 		font-weight: bold;
 		color: #01234B;
@@ -4303,9 +4308,10 @@ p.setting_color {
 		}
 	}
 	.tab-right {
-		margin-left: 2rem;
-		margin-right: 1.50rem;
+		margin-left: 1rem;
+		margin-right: 0;
 		padding-top: 0px;
+		padding-right: 0;
 	}
 	.event_detail {
 		.form-group {
@@ -4353,6 +4359,58 @@ p.setting_color {
 			}
 			.MuiSwitch-switchBase {
 				padding: 3px 3px;
+			}
+		}
+		.event-height {
+			overflow: hidden;
+			overflow-y: scroll;
+			height: calc(100vh - 210px);
+			padding-right: 25px;
+			padding-left: 15px;
+		}
+		.event-btn {
+			.btn-primary {
+				background: #1D6AFF;
+				border-color: #1D6AFF;
+				border-radius: 20px;
+				min-width: 120px;
+				font-size: 13px;
+				font-weight: 500;
+				margin: 0 15px;
+				&:hover, &:focus {
+					background: #1D6AFF !important;
+					border-color: #1D6AFF !important;
+				}
+			}
+		}
+		.notify-custom {
+			color: #B2B2B2;
+			font-weight: 600;
+			padding-right: 20px;
+		}
+		.gen input[type=radio] + label {
+			border-color: #EBEDF3;
+		}
+		textarea.form-control {
+			border-color: #EBEDF3;
+		}
+		&.dummy {
+			.form-control {
+				border-color: #E5E7EB;
+				border-radius: 5px;
+				&:hover, &:focus, &:active {
+					box-shadow: 0px 3px 6px #1789FC29;
+					border: 1px solid #0089FF;
+				}
+			}
+			.booking_link {
+				border: 1px solid #E5E7EB;
+				border-radius: 5px;
+				padding-left: 15px;
+			}
+			.form-group label {
+				font-weight: 500;
+				color: #384C6D;
 			}
 		}
 	}

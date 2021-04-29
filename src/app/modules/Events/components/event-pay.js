@@ -12,7 +12,11 @@ import Typography from '@material-ui/core/Typography';
 export function ContentEventPay() {
   return (
     <div className="clearfix">
-      ContentEventPay
+      <div className="event_detail pb-5">
+        <div className="event-height">
+          ContentEventPay
+        </div>
+      </div>
     </div>
   );
 }
