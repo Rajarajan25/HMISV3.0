@@ -2562,72 +2562,7 @@ input.edit_mobile[type=text] {
 			height: 35px;
 			font-size: 13px !important;
 			line-height: 35px;
-		}
-		.timingavail {
-			.mx-150 {
-				max-width: 150px;
-			}
-			.MuiTab-textColorPrimary {
-				color: #C5C6C9;
-				&.Mui-selected {
-					color: #1D6AFF;
-				}
-			}
-			.MuiTabs-indicator {
-				background: #1D6AFF;
-			}
-			.MuiTabs-root {
-				min-height: 45px;
-			}
-			.MuiTab-root {
-				min-height: 45px;
-				margin-right: 2.5rem;
-			}
-			.avail_device {
-				.vid_bg {
-					background: transparent;
-					border-radius: 5px;
-					padding: 8px 10px;
-					margin: 8px 0;
-					cursor: pointer;	
-					border: 1px solid #e8e8e8;
-					transition: background-color 150ms 200ms, transform 350ms cubic-bezier(0.78, -1.22, 0.17, 1.89) !important;
-					img {
-						margin-right: 10px;
-						height: 18px;
-					}
-					span {
-						color: #000000;
-						text-transform: capitalize;
-						font-weight: 500;
-						font-size: 12px;
-					}
-					&:hover {
-						transform: scale(1.05);
-						border: 1px solid #1C6AFC;
-						animation: shadow-pulse 1s infinite;
-					}
-				}
-				input[type=radio] {
-					display: none;
-				}
-				input[type=radio]:checked + label.vid_bg{
-					transform: scale(1.05);
-					border: 1px solid #1C6AFC;
-					animation: shadow-pulse 1s infinite;
-					&::before {
-						content: "";
-						background:url(/media/patients/select_avatar.svg);
-						position: absolute;
-						width: 13px;
-						height: 13px;
-						bottom: -4px;
-						right: -6px;
-					}
-				}
-			}
-		}
-			
+		}	
 	}
 }
 .staff_first {
@@ -2880,6 +2815,81 @@ input.edit_mobile[type=text] {
 		font-weight: 500;
 		color: #1D6AFF;
 		padding: 5px 0;
+	}
+	.MuiAppBar-colorDefault {
+		color: #B9BCC2;
+		background-color: transparent;
+		box-shadow: none;
+	}
+	.timingavail {
+		.mx-150 {
+			max-width: 150px;
+		}
+		.MuiTab-textColorPrimary {
+			color: #C5C6C9;
+			&.Mui-selected {
+				color: #1D6AFF;
+			}
+		}
+		.MuiTabs-indicator {
+			background: #1D6AFF;
+		}
+		.MuiTabs-root {
+			min-height: 45px;
+		}
+		.MuiTab-root {
+			min-height: 45px;
+			margin-right: 2.5rem;
+			min-width: inherit;
+			padding: 0;
+			text-transform: capitalize;
+			font-weight: normal;
+			font-size: 1rem;
+			border: 0px;
+		}
+		.avail_device {
+			.vid_bg {
+				background: transparent;
+				border-radius: 5px;
+				padding: 8px 10px;
+				margin: 8px 0;
+				cursor: pointer;	
+				border: 1px solid #e8e8e8;
+				transition: background-color 150ms 200ms, transform 350ms cubic-bezier(0.78, -1.22, 0.17, 1.89) !important;
+				img {
+					margin-right: 10px;
+					height: 18px;
+				}
+				span {
+					color: #000000;
+					text-transform: capitalize;
+					font-weight: 500;
+					font-size: 12px;
+				}
+				&:hover {
+					transform: scale(1.05);
+					border: 1px solid #1C6AFC;
+					animation: shadow-pulse 1s infinite;
+				}
+			}
+			input[type=radio] {
+				display: none;
+			}
+			input[type=radio]:checked + label.vid_bg{
+				transform: scale(1.05);
+				border: 1px solid #1C6AFC;
+				animation: shadow-pulse 1s infinite;
+				&::before {
+					content: "";
+					background:url(/media/patients/select_avatar.svg);
+					position: absolute;
+					width: 13px;
+					height: 13px;
+					bottom: -4px;
+					right: -6px;
+				}
+			}
+		}
 	}
 }
 .pre_status {
@@ -3375,7 +3385,7 @@ p.setting_color {
 		min-width: 85px;
 	}
 	.avail-person {
-		margin-bottom: 15px;
+		margin-bottom: 10px;
 		label {
 			font-size: 13px;
 			font-weight: bold;
@@ -4189,13 +4199,6 @@ p.setting_color {
 				background: #1c6afc;
 				opacity: 0;
 			}
-			span {
-				display: block;
-			}
-			img {
-				display: block;
-				margin: 30px 0 20px;
-			}
 		}
 		input[type=radio]:checked+label {
 			font-weight: 600;
@@ -4213,7 +4216,7 @@ p.setting_color {
 	h3.event-tab-title {
 		font-weight: bold;
 		color: #01234B;
-		padding: 20px 20px 15px 20px;
+		padding: 15px 20px 15px 12px;
 		border-bottom: 0;
 		margin-bottom: 0;
 		font-size: 1.4rem;
@@ -4307,61 +4310,55 @@ p.setting_color {
 		margin-left: 0;
 		margin-right: 0;
 		padding-top: 0px;
-		padding-right: 0;
-		padding-left: 5px;
+	}
+	.notify-border {
+		border: 1px solid #E5E7EB;
+		padding: 15px 0px 15px 20px;
+		margin-bottom: 15px;
+		textarea.form-control {
+			background: #F7F7FC;
+			border: 0;
+		}
+	}
+	.pre_status {
+		.MuiFormControlLabel-root {
+			margin-left: 0;
+			margin-right: 0;
+		}
+		.MuiSwitch-track {
+			width: 40px;
+			height: 20px;
+			box-shadow: none;
+		}
+		.MuiSwitch-root {
+			padding: 0;
+			width: 40px;
+			height: 25px;
+		}
+		.MuiSwitch-thumb {
+			width: 14px;
+			height: 14px;
+		}
+		.MuiSwitch-switchBase {
+			padding: 3px 3px;
+		}
+	}
+	.notify-custom {
+		color: #B2B2B2;
+		font-weight: 600;
+		padding-right: 20px;
+	}
+	.booking_link {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: block;
+		font-size: 1rem;
+		font-weight: 500;
+		color: #1D6AFF;
+		padding: 10px 0;
 	}
 	.event_detail {
-		.form-group {
-			margin-bottom: 1.25rem;
-		}
-		.booking_link {
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			display: block;
-			font-size: 1rem;
-			font-weight: 500;
-			color: #1D6AFF;
-			padding: 10px 0;
-		}
-		.re_select {
-			.css-yk16xz-control, .css-1pahdxg-control {
-				min-height: 39px;
-				border-bottom-width: 0;
-			}
-		}
-		.notify-border {
-			border: 1px solid #E5E7EB;
-			padding: 15px 0px 15px 20px;
-			margin-bottom: 15px;
-			textarea.form-control {
-				background: #F7F7FC;
-				border: 0;
-			}
-		}
-		.pre_status {
-			.MuiFormControlLabel-root {
-				margin-left: 0;
-				margin-right: 0;
-			}
-			.MuiSwitch-track {
-				width: 40px;
-				height: 20px;
-				box-shadow: none;
-			}
-			.MuiSwitch-root {
-				padding: 0;
-				width: 40px;
-				height: 25px;
-			}
-			.MuiSwitch-thumb {
-				width: 14px;
-				height: 14px;
-			}
-			.MuiSwitch-switchBase {
-				padding: 3px 3px;
-			}
-		}
 		.event-height {
 			overflow: hidden;
 			overflow-y: scroll;
@@ -4382,36 +4379,6 @@ p.setting_color {
 					background: #1D6AFF !important;
 					border-color: #1D6AFF !important;
 				}
-			}
-		}
-		.notify-custom {
-			color: #B2B2B2;
-			font-weight: 600;
-			padding-right: 20px;
-		}
-		.gen input[type=radio] + label {
-			border-color: #EBEDF3;
-		}
-		textarea.form-control {
-			border-color: #EBEDF3;
-		}
-		&.dummy {
-			.form-control {
-				border-color: #E5E7EB;
-				border-radius: 5px;
-				&:hover, &:focus, &:active {
-					box-shadow: 0px 3px 6px #1789FC29;
-					border: 1px solid #0089FF;
-				}
-			}
-			.booking_link {
-				border: 1px solid #E5E7EB;
-				border-radius: 5px;
-				padding-left: 15px;
-			}
-			.form-group label {
-				font-weight: 500;
-				color: #384C6D;
 			}
 		}
 	}
@@ -4456,9 +4423,16 @@ p.setting_color {
 			span {
 				display: block;
 			}
-			img {
-				display: block;
-				margin: 30px 0 20px;
+			.evn_img {
+				border: 1px solid #2E53BF1A;
+				min-width: 100px;
+				border-radius: 10px;
+				margin-bottom: 8px;
+				img {
+					display: block;
+					margin: 10px auto;
+					height: 20px;
+				}
 			}
 		}
 		input[type=radio]:checked+label {
@@ -4469,9 +4443,44 @@ p.setting_color {
 			&:after {
 				opacity: 1;
 			}
+			.evn_img {
+				background: #2E53BF1A;
+			}
+		}
+		&.evn-type {
+			label {
+				padding: 0 20px 0 0;
+				&:before {
+					content: inherit;
+				}
+				&:after {
+					content: inherit;
+				}
+			}
 		}
 	}
 }
-.patientProfileinfo.EventDrawer .MuiDrawer-paper {
-    max-width: 700px;
+
+.event-tab {
+	.mh-55 {
+		min-height: 55px;
+	}
+	.tab-left {
+		position: absolute;
+		left: -168px;
+		max-width: 180px;
+		top: 60px;
+		.MuiAppBar-root {
+			padding: 15px 10px 15px 8px;
+			border-radius: 15px 0 0 15px;
+			box-shadow: -10px 0px 20px 0px #1c6afc1a;
+		}
+		h3.evn_title {
+			padding: 0px 0 0px 25px;
+			top: 110px;
+		}
+		.MuiTab-root:nth-child(3) {
+			margin-top: 30px;
+		}
+	}
 }

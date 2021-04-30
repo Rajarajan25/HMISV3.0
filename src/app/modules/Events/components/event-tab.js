@@ -45,8 +45,10 @@ export function EventTab() {
 
   return (
     <div className="event-tab clearfix">
-      <h3 className="event-tab-title">New Event</h3>
-      <div className={'timingavail'+' '+classes.root}>
+      <div className="BoxShade px-8">
+          <EventName />
+      </div>
+      <div className={'timingavail p-4'+' '+classes.root}>
         <div className="d-flex">
           <div className="col-3 tab-left">
             <h3 className="evn_title">Additional</h3>
@@ -79,6 +81,16 @@ export function EventTab() {
   );
 }
 
+export function EventName() {
+  return (
+    <div class="d-flex mh-55">
+      <div className="select_staff_name my-auto">
+        <p className="m-0">New Event</p>
+        <span>Add Description</span>
+      </div>
+    </div>
+  );
+}
 
 export function TabEventDetails() {
   return (

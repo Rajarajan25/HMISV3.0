@@ -40,10 +40,13 @@ export class NewEvent extends React.Component {
   render() {
     return (
       <>
+
+        <EventDrawer />
+
         <Button variant="primary" className="d-none" onClick={this.handleShow}>
           New Event
         </Button>
-        <EventDrawer />
+        
     
         <Modal
           className="eventmodal"
@@ -187,7 +190,7 @@ const toggleDrawerClose = () => {
 };
   return (
       <div className="clearfix">
-        <span><Link to="#" onClick={toggleDrawer('right', true)}>Gopi</Link></span>
+        <span><Link to="#" onClick={toggleDrawer('right', true)}>New Event</Link></span>
         <Drawer className="patientProfileinfo EventDrawer StaffInfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
           <div className="p-0 overflow-auto">
             <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}>
@@ -195,34 +198,6 @@ const toggleDrawerClose = () => {
                 <img src={toAbsoluteUrl("/media/patients/drawer_close.svg")} alt="" className="d-block" />
               </span>
             </Link>
-            <div className="flex-column-fluid d-none flex-column justify-content-center h-100">
-              <div className="col d-flex justify-content-center align-items-center rounded-right">
-                <div className="my-auto">
-                  <h1 class="h1 color_3F4772 font-weight-600 my-auto">Choose your Event type?</h1>
-                  <div className="event-selection">
-                    <div className="d-flex">
-                      <div className="event-radio">
-                        <input type="radio" id="event_01" name="event-radio" className=""/>
-                        <label className="" for="event_01">
-                          <span class="chk_txt">One-On-One</span>
-                          <img src={toAbsoluteUrl("/media/events/one-one-icon.svg")} alt="" className="" />
-                        </label>
-                      </div>
-                      <div className="event-radio">
-                        <input type="radio" id="event_02" name="event-radio" className=""/>
-                        <label className="" for="event_02">
-                          <span class="chk_txt">Group</span>
-                          <img src={toAbsoluteUrl("/media/events/group-icon.svg")} alt="" className="" />
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="nxt-btn d-flex">
-                    <span className="ml-auto btn btn-primary">Next</span>
-                  </div>
-                </div>
-              </div>
-            </div>
             <EventTab />
           </div>
         </Drawer>

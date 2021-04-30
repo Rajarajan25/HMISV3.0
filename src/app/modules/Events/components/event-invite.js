@@ -13,10 +13,8 @@ import Typography from '@material-ui/core/Typography';
 export function ContentEventInvite() {
   return (
     <div className="clearfix">
-      <div className="event_detail pb-5">
-        <div className="event-height">
+      <div className="event_detail">
         ContentEventInvite
-        </div>
       </div>
     </div>
   );

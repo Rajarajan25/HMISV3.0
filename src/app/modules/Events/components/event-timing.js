@@ -76,255 +76,237 @@ export function ContentEventTiming() {
   }
   return (
     <div className="clearfix">
-      <div className="event_detail pb-5">
-        <div className="event-height">
+      <div className="staff_first staff_second w-100">
+        <div className="form-group">
           <div className="row">
-            <div className="col-md-6">
-              <div className="form-group border-bottom">
-                <label className="form-lable font_weight_medium color_303030">Time Zone</label>
-                <div className="re_select">
-                  <Select options={timezone} />
-                </div>
+            <div className="col-6">
+              <label className="form-label d-block">Time Zone</label>
+              <div className="re_select">
+                <Select options={timezone} /> 
               </div>
             </div>
-            <div className="col-md-6">
-              <div className="form-group border-bottom">
-                <label className="form-lable font_weight_medium color_303030">Duration</label>
-                <div className="re_select">
-                  <Select options={durationtime} />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-6">
-              <div className="form-group border-bottom">
-                <label className="form-lable font_weight_medium color_303030">Buffer Time Before</label>
-                <div className="re_select">
-                  <Select options={buffertime} />
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6">
-              <div className="form-group border-bottom">
-                <label className="form-lable font_weight_medium color_303030">Buffer Time After</label>
-                <div className="re_select">
-                  <Select options={buffertime} />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="form-group border-bottom">
-            <div className="d-flex">
-              <label className="form-lable font_weight_medium color_303030 mb-0 mr-5">Date Range</label>
-              <div className="d-flex">
-                <div className="event-radio">
-                  <input type="radio" id="eventdate_01" name="eventdate-radio" className=""/>
-                  <label className="" for="eventdate_01">
-                    <span class="chk_txt">Range</span>
-                  </label>
-                </div>
-                <div className="event-radio">
-                  <input type="radio" id="eventdate_02" name="eventdate-radio" className=""/>
-                  <label className="" for="eventdate_02">
-                    <span class="chk_txt">Infinity</span>
-                  </label>
-                </div>
-                <div className="event-radio">
-                  <input type="radio" id="eventdate_03" name="eventdate-radio" className=""/>
-                  <label className="" for="eventdate_03">
-                    <span class="chk_txt">Default</span>
-                  </label>
-                </div>
-              </div>
-            </div>
-            <input placeholder="Date Range" type="text" className="form-control font_weight_medium color_707070 pl-0 border-0" name="" />
-          </div>
-          <div className="patientProfileinfo StaffInfo">
-            <label className="form-lable font_weight_medium color_303030 mb-0">Availability</label>
-            <div className="staff_first staff_second">
-              <div className={'timingavail'+' '+classes.root}>
-                <div className="d-flex border-bottom">
-                  <div className="p-0">
-                    <AppBar position="static" color="default">
-                      <Tabs
-                        value={value}
-                        onChange={handleChange}
-                        indicatorColor="primary"
-                        textColor="primary"
-                        variant="scrollable"
-                        scrollButtons="auto"
-                      >
-                        <Tab label={<TabPerson />} />
-                        <Tab label={<TabCall />} />
-                        <Tab label={<TabVideo />} />
-                      </Tabs>
-                    </AppBar>
-                  </div>
-                </div>
-                <div className="p-0">
-                  {value === 0 && <TabContainer> <AvailPerson />  </TabContainer>}
-                  {value === 1 && <TabContainer> <AvailCall /> </TabContainer>}
-                  {value === 2 && <TabContainer> <AvailVideo /> </TabContainer>}
-                </div>
-              </div>
-              <div className="busi_cus mt-3 mb-3 clearfix">
-                <SelectHours />
-              </div>
-              <div className="day_select py-6">
-                <div className="d-flex">
-                  <label className="staff_title_text">Working Days</label>
-                  <Link to="#" className="ml-auto add_setting">+ Additional Settings</Link>
-                </div>
-                <div className="d-flex mt-3">
-                  <div className="day_input">
-                    <input type="checkbox" id="day_select01" name="" className="" />
-                    <label className="date_bx sun_d" for="day_select01">Sun</label>
-                  </div>
-                  <div className="day_input">
-                    <input type="checkbox" id="day_select02" name="" className="" />
-                    <label className="date_bx mon_d" for="day_select02">Mon</label>
-                  </div>
-                  <div className="day_input">
-                    <input type="checkbox" id="day_select03" name="" className="" />
-                    <label className="date_bx tue_d" for="day_select03">Tue</label>
-                  </div>
-                  <div className="day_input">
-                    <input type="checkbox" id="day_select04" name="" className="" />
-                    <label className="date_bx wed_d" for="day_select04">Wed</label>
-                  </div>
-                  <div className="day_input">
-                    <input type="checkbox" id="day_select05" name="" className="" />
-                    <label className="date_bx thu_d" for="day_select05">Thu</label>
-                  </div>
-                  <div className="day_input">
-                    <input type="checkbox" id="day_select06" name="" className="" />
-                    <label className="date_bx fri_d" for="day_select06">Fri</label>
-                  </div>
-                  <div className="day_input">
-                    <input type="checkbox" id="day_select07" name="" className="" />
-                    <label className="date_bx sat_d" for="day_select07">Sat</label>
-                  </div>
-                </div>
-              </div>
-              <div className="text-left  mt-3 pb-2 session_start border-bottom ">
-                <div className="session_part row mb-2">
-                  <div className="col-3 pr-2 min_width100">
-                    <div className="session_select">
-                      <input type="checkbox" id="session_01" name="" className="" />
-                      <label className="" for="session_01">Session 1</label>
-                    </div>
-                  </div>
-                  <div className="col-4 p-0 d-flex">
-                    <div className="tm_area text-left pl-0">
-                      <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-                    </div>
-                  </div>
-                  <div className="col-5 d-flex justify-content-start align-items-center pl-2 pr-2">
-                    <span className="add_session pointer">+ Add Session</span>
-                    <span className="add_line">|</span>
-                    <span className="add_break pointer">+ Add Break</span>
-                    <span className="add_line">|</span>
-                    <span className="remove_line"><img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="d-block" /></span>
-                  </div>
-                </div>
-                <div className="break_part row mb-2">
-                  <div className="col-3 pr-3">
-                    <div className="break_select position-relative">
-                      <img src={toAbsoluteUrl("/media/patients/break_line.svg")} alt="" className="break_line" />
-                      <input type="checkbox" id="break_01" name="" className="" />
-                      <label className="" for="break_01">Break</label>
-                    </div>
-                  </div>
-                  <div className="col-4 p-0 d-flex">
-                    <div className="tm_area text-left pl-0">
-                      <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-                    </div>
-                  </div>
-                  <div className="col-5 d-flex justify-content-start align-items-center pl-2 pr-2">
-                    <span className="remove_line"><img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="d-block" /></span>
-                  </div>
-                </div>
-                <div className="break_part row mb-2">
-                  <div className="col-3 pr-3">
-                    <div className="break_select position-relative">
-                      <img src={toAbsoluteUrl("/media/patients/break_line.svg")} alt="" className="break_line" />
-                      <input type="checkbox" id="break_02" name="" className="" />
-                      <label className="" for="break_02">Break</label>
-                    </div>
-                  </div>
-                  <div className="col-4 p-0 d-flex">
-                    <div className="tm_area text-left pl-0">
-                      <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-                    </div>
-                  </div>
-                  <div className="col-5 d-flex justify-content-start align-items-center pl-2 pr-2">
-                    <span className="remove_line"><img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="d-block" /></span>
-                  </div>
-                </div>
-              </div>
-              <div className="text-left  mt-3 pb-2 session_start border-bottom ">
-                <div className="session_part row mb-2">
-                  <div className="col-3 pr-2 min_width100">
-                    <div className="session_select">
-                      <input type="checkbox" id="session_02" name="" className="" />
-                      <label className="" for="session_02">Session 2</label>
-                    </div>
-                  </div>
-                  <div className="col-4 p-0 d-flex">
-                    <div className="tm_area text-left pl-0">
-                      <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-                    </div>
-                  </div>
-                  <div className="col-5 d-flex justify-content-start align-items-center pl-2 pr-2">
-                    <span className="add_session pointer">+ Add Session</span>
-                    <span className="add_line">|</span>
-                    <span className="add_break pointer">+ Add Break</span>
-                    <span className="add_line">|</span>
-                    <span className="remove_line"><img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="d-block" /></span>
-                  </div>
-                </div>
-                <div className="break_part row mb-2">
-                  <div className="col-3 pr-3">
-                    <div className="break_select position-relative">
-                      <img src={toAbsoluteUrl("/media/patients/break_line.svg")} alt="" className="break_line" />
-                      <input type="checkbox" id="break_03" name="" className="" />
-                      <label className="" for="break_03">Break</label>
-                    </div>
-                  </div>
-                  <div className="col-4 p-0 d-flex">
-                    <div className="tm_area text-left pl-0">
-                      <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-                    </div>
-                  </div>
-                  <div className="col-5 d-flex justify-content-start align-items-center pl-2 pr-2">
-                    <span className="remove_line"><img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="d-block" /></span>
-                  </div>
-                </div>
-                <div className="break_part row mb-2">
-                  <div className="col-3 pr-3">
-                    <div className="break_select position-relative">
-                      <img src={toAbsoluteUrl("/media/patients/break_line.svg")} alt="" className="break_line" />
-                      <input type="checkbox" id="break_04" name="" className="" />
-                      <label className="" for="break_04">Break</label>
-                    </div>
-                  </div>
-                  <div className="col-4 p-0 d-flex">
-                    <div className="tm_area text-left pl-0">
-                      <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-                    </div>
-                  </div>
-                  <div className="col-5 d-flex justify-content-start align-items-center pl-2 pr-2">
-                    <span className="remove_line"><img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="d-block" /></span>
-                  </div>
-                </div>
+            <div className="col-6">
+              <label className="form-label d-block">Duration</label>
+              <div className="re_select">
+                <Select options={durationtime} /> 
               </div>
             </div>
           </div>
         </div>
-        <div className="w-100 event-btn mt-8">
-          <div className="d-flex justify-content-end">
-            <button type="submit" className="btn btn-primary">Save</button>
+        <div className="form-group">
+          <div className="row">
+            <div className="col-6">
+              <label className="form-label d-block">Buffer Time Before</label>
+              <div className="re_select">
+                <Select options={buffertime} />
+              </div>
+            </div>
+            <div className="col-6">
+              <label className="form-label d-block">Buffer Time After</label>
+              <div className="re_select">
+                <Select options={buffertime} />  
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="form-group">
+          <div className="d-flex">
+            <label className="form-label d-block mr-5">Date Range</label>
+            <div className="d-flex">
+              <div className="busi_cus ser_tme clearfix">
+                <DateRange />
+              </div>
+            </div>
+          </div>
+          <input placeholder="Date Range" type="text" className="form-control" name="" />
+        </div>
+        <div className="busi_cus ser_tme mt-2 mb-1 clearfix">
+          <SelectHours />
+        </div>
+        <div className={'timingavail'+' '+classes.root}>
+          <div className="d-flex border-bottom">
+            <div className="col mx-150 pl-0 my-auto">
+              <label className="staff_title_text m-0">Availability</label>
+            </div>
+            <div className="col p-0">
+              <AppBar position="static" color="default">
+                <Tabs
+                  value={value}
+                  onChange={handleChange}
+                  indicatorColor="primary"
+                  textColor="primary"
+                  variant="scrollable"
+                  scrollButtons="auto"
+                >
+                  <Tab label={<TabPerson />} />
+                  <Tab label={<TabCall />} />
+                  <Tab label={<TabVideo />} />
+                </Tabs>
+              </AppBar>
+            </div>
+          </div>
+          <div className="p-0">
+            {value === 0 && <TabContainer> <AvailPerson />  </TabContainer>}
+            {value === 1 && <TabContainer> <AvailCall /> </TabContainer>}
+            {value === 2 && <TabContainer> <AvailVideo /> </TabContainer>}
+          </div>
+        </div>
+        <div className="day_select pt-0 pb-5">
+          <div className="d-flex">
+            <label className="staff_title_text">Working Days</label>
+            <Link to="#" className="ml-auto add_setting">+ Additional Settings</Link>
+          </div>
+          <div className="d-flex mt-3">
+            <div className="day_input">
+              <input type="checkbox" id="day_select01" name="" className="" />
+              <label className="date_bx sun_d" for="day_select01">Sun</label>
+            </div>
+            <div className="day_input">
+              <input type="checkbox" id="day_select02" name="" className="" />
+              <label className="date_bx mon_d" for="day_select02">Mon</label>
+            </div>
+            <div className="day_input">
+              <input type="checkbox" id="day_select03" name="" className="" />
+              <label className="date_bx tue_d" for="day_select03">Tue</label>
+            </div>
+            <div className="day_input">
+              <input type="checkbox" id="day_select04" name="" className="" />
+              <label className="date_bx wed_d" for="day_select04">Wed</label>
+            </div>
+            <div className="day_input">
+              <input type="checkbox" id="day_select05" name="" className="" />
+              <label className="date_bx thu_d" for="day_select05">Thu</label>
+            </div>
+            <div className="day_input">
+              <input type="checkbox" id="day_select06" name="" className="" />
+              <label className="date_bx fri_d" for="day_select06">Fri</label>
+            </div>
+            <div className="day_input">
+              <input type="checkbox" id="day_select07" name="" className="" />
+              <label className="date_bx sat_d" for="day_select07">Sat</label>
+            </div>
+          </div>
+        </div>
+        <div className="text-left  mt-3 pb-2 session_start border-bottom ">
+          <div className="session_part row mb-2">
+            <div className="col-3 pr-2 min_width100">
+              <div className="session_select">
+                <input type="checkbox" id="session_01" name="" className="" />
+                <label className="" for="session_01">Session 1</label>
+              </div>
+            </div>
+            <div className="col-4 p-0 d-flex">
+              <div className="tm_area text-left pl-0">
+                <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+              </div>
+            </div>
+            <div className="col-5 d-flex justify-content-start align-items-center pl-2 pr-2">
+              <span className="add_session pointer">+ Add Session</span>
+              <span className="add_line">|</span>
+              <span className="add_break pointer">+ Add Break</span>
+              <span className="add_line">|</span>
+              <span className="remove_line"><img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="d-block" /></span>
+            </div>
+          </div>
+          <div className="break_part row mb-2">
+            <div className="col-3 pr-3">
+              <div className="break_select position-relative">
+                <img src={toAbsoluteUrl("/media/patients/break_line.svg")} alt="" className="break_line" />
+                <input type="checkbox" id="break_01" name="" className="" />
+                <label className="" for="break_01">Break</label>
+              </div>
+            </div>
+            <div className="col-4 p-0 d-flex">
+              <div className="tm_area text-left pl-0">
+                <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+              </div>
+            </div>
+            <div className="col-5 d-flex justify-content-start align-items-center pl-2 pr-2">
+              <span className="remove_line"><img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="d-block" /></span>
+            </div>
+          </div>
+          <div className="break_part row mb-2">
+            <div className="col-3 pr-3">
+              <div className="break_select position-relative">
+                <img src={toAbsoluteUrl("/media/patients/break_line.svg")} alt="" className="break_line" />
+                <input type="checkbox" id="break_02" name="" className="" />
+                <label className="" for="break_02">Break</label>
+              </div>
+            </div>
+            <div className="col-4 p-0 d-flex">
+              <div className="tm_area text-left pl-0">
+                <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+              </div>
+            </div>
+            <div className="col-5 d-flex justify-content-start align-items-center pl-2 pr-2">
+              <span className="remove_line"><img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="d-block" /></span>
+            </div>
+          </div>
+        </div>
+        <div className="text-left  mt-3 pb-2 session_start border-bottom ">
+          <div className="session_part row mb-2">
+            <div className="col-3 pr-2 min_width100">
+              <div className="session_select">
+                <input type="checkbox" id="session_02" name="" className="" />
+                <label className="" for="session_02">Session 2</label>
+              </div>
+            </div>
+            <div className="col-4 p-0 d-flex">
+              <div className="tm_area text-left pl-0">
+                <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+              </div>
+            </div>
+            <div className="col-5 d-flex justify-content-start align-items-center pl-2 pr-2">
+              <span className="add_session pointer">+ Add Session</span>
+              <span className="add_line">|</span>
+              <span className="add_break pointer">+ Add Break</span>
+              <span className="add_line">|</span>
+              <span className="remove_line"><img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="d-block" /></span>
+            </div>
+          </div>
+          <div className="break_part row mb-2">
+            <div className="col-3 pr-3">
+              <div className="break_select position-relative">
+                <img src={toAbsoluteUrl("/media/patients/break_line.svg")} alt="" className="break_line" />
+                <input type="checkbox" id="break_03" name="" className="" />
+                <label className="" for="break_03">Break</label>
+              </div>
+            </div>
+            <div className="col-4 p-0 d-flex">
+              <div className="tm_area text-left pl-0">
+                <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+              </div>
+            </div>
+            <div className="col-5 d-flex justify-content-start align-items-center pl-2 pr-2">
+              <span className="remove_line"><img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="d-block" /></span>
+            </div>
+          </div>
+          <div className="break_part row mb-2">
+            <div className="col-3 pr-3">
+              <div className="break_select position-relative">
+                <img src={toAbsoluteUrl("/media/patients/break_line.svg")} alt="" className="break_line" />
+                <input type="checkbox" id="break_04" name="" className="" />
+                <label className="" for="break_04">Break</label>
+              </div>
+            </div>
+            <div className="col-4 p-0 d-flex">
+              <div className="tm_area text-left pl-0">
+                <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+              </div>
+            </div>
+            <div className="col-5 d-flex justify-content-start align-items-center pl-2 pr-2">
+              <span className="remove_line"><img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="d-block" /></span>
+            </div>
+          </div>
+          <div className="form-group mt-6 mb-0">
+            <div className="d-flex justify-content-end patientButton add_timing">
+              <button type="button" className="btn btn-primary m-0">+ Add Timings</button>
+            </div>
+          </div>
+        </div>
+        <div className="form-group mb-0">
+          <div className="d-flex justify-content-end patientButton pos_fix">
+            <button type="button" className="btn btn-primary">Save</button>
           </div>
         </div>
       </div>
@@ -513,6 +495,46 @@ function SelectHours() {
           <FormControlLabel value="business" control={<Radio />} label="Business hours" />
           <FormControlLabel value="custom" control={<Radio />} label="Custom" />
 
+        </RadioGroup>
+      </FormControl>
+      
+    </div>
+  );
+}
+
+function DateRange() {
+
+  const useStyles = makeStyles(theme => ({
+    root: {
+      display: 'flex',
+    },
+    formControl: {
+      margin: theme.spacing(3),
+    },
+    group: {
+      margin: theme.spacing(1, 0),
+    },
+  }));
+
+  const classes = useStyles();
+  const [value, setValue] = React.useState('female');
+
+  function handleChange(event) {
+    setValue(event.target.value);
+  }
+
+  return (
+    <div className={classes.root}>
+      <FormControl component="fieldset" className={classes.formControl}>
+        <RadioGroup
+          name="business"
+          className={classes.group}
+          value={value}
+          onChange={handleChange}
+        >
+          <FormControlLabel value="range" control={<Radio />} label="Range" />
+          <FormControlLabel value="infinity" control={<Radio />} label="Infinity" />
+          <FormControlLabel value="default" control={<Radio />} label="Default" />
         </RadioGroup>
       </FormControl>
       

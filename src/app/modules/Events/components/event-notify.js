@@ -25,8 +25,8 @@ const durationtime = [
 export function ContentEventNotify() {
   return (
     <div className="clearfix">
-      <div className="event_detail pb-5">
-        <div className="event-height">
+      <div className="staff_first w-100">
+        <div className="event-bx">
           <div className="notify-border">
             <div className="d-flex">
               <div className="pr-10 mr-auto">
@@ -44,7 +44,7 @@ export function ContentEventNotify() {
               <label className="d-block staff_title_text font_weight_medium">Text Message</label>
               <textarea placeholder="Event Reminder"  className="form-control"></textarea>
             </div>
-            <div className="form-group border-bottom mb-0 mr-8">
+            <div className="form-group mb-0 mr-8">
               <label className="form-lable d-block font_weight_medium color_303030 mb-0">Reminder Notification *</label>
               <div className="re_select">
                 <Select options={durationtime} />
