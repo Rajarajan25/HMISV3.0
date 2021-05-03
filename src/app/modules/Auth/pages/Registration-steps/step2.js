@@ -80,14 +80,19 @@ export default function Step2(props) {
     setLoading(false);
   };
   const handleToggle = value => () => {
-    const newChecked = [value];
-    setChecked(newChecked);
+    const seletedItem = check.includes(value)
+            ? check.filter(i => i !== value) // remove item
+            : [ ...check, value ]; // add item
+    setChecked(seletedItem);
   };
-
-  const getActive = (id) => {
+  const getActiveImg = (id) => {
     if(!isCategory) return"";
     const found = check.find(value =>value===id);
     return found?"active":"";
+  }
+  const getActive = (id) => {
+    if(!isCategory) return;
+    return !!check.find(value =>value===id);
   };
 
   return (
@@ -127,14 +132,15 @@ export default function Step2(props) {
                 {parent_category.map((item) => {
                   return (
                     <>
-                      <div className="m-0" >
-                        <div className={`btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column ${getActive(item._id)}`} id="checkbox" onClick={handleToggle(item._id)} tabindex="0">
-                          <span className="svg-icon svg-icon-3x svg-icon-primary m-auto " >
+                    <div className="m-0 _2FwA">
+                      <input type="checkbox" id={item.category_name} name="subcategory" className={`checkbx`}  checked={getActive(item._id)} onClick={handleToggle(item._id)} />
+                      <label className={`btn btn-block btn-light text-dark-50 text-center px-5 d-flex flex-column`} for={item.category_name}>
+                      <span className="svg-icon svg-icon-3x svg-icon-primary m-auto " >
                             <img alt="Category icons" src={toAbsoluteUrl("/media/auth-screen/hospital.svg")} />
                           </span>
                           <span className="d-block font-weight-500 text-truncate mt-3 mb-2" >{item.category_name}</span>
-                        </div>
-                      </div>
+                      </label>
+                    </div>
                     </>
                   )
                 })}

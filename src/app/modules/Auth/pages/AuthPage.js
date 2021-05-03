@@ -4,11 +4,11 @@ import { Link, Switch, Redirect } from "react-router-dom";
 import { ContentRoute } from "../../../../_metronic/layout";
 import Login from "./Login";
 import Registration from "./Registration";
-import Personalinfo from "./personalinfo";
-import RegistrationConfirmation from "./registration-confirmation";
-import Signup from "./sign-up";
+import Personalinfo from "./PersonaIinfo";
+import RegistrationConfirmation from "./RegistrationConfirmation";
+import Signup from "./Signup";
 import ForgotPassword from "./ForgotPassword";
-import LoginOTP from "./Login-OTP";
+import LoginOTP from "./LoginOTP";
 import "../../../../_metronic/_assets/sass/pages/login/classic/login-1.scss";
 import {UserProvider} from './UserContext'
 import {BusinessProvider} from './BusinessContext';

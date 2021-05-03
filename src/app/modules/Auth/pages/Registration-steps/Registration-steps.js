@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { toAbsoluteUrl } from "../../../../../_metronic/_helpers";
 import { makeStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -17,7 +16,6 @@ import Stepper2 from './stepper/stepper2';
 import Stepper3 from './stepper/stepper3';
 import Stepper4 from './stepper/stepper4';
 import Stepper5 from './stepper/stepper5';
-import { BusinessContext } from '../BusinessContext';
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
@@ -93,20 +91,13 @@ export default function HorizontalLabelPositionBelowStepper() {
               <Button
                 disabled={activeStep === 0}
                 onClick={handleBack}
-                className={'backbtn' + ' ' + classes.backButton}
+                className={'backbtn ' + classes.backButton}
               >
                 <img src="/media/auth-screen/back_arrow.svg" className="mr-2" alt="arrow" /> <span>Back</span>
               </Button>
               <Button className={"skipButton"} >
                 <span>Skip</span>
               </Button>
-
-              {/* <Button variant="contained" 
-              className={"nextButton ml-auto " + (activeStep === steps.length - 1 ? 'd-none' : 'show')} 
-              color="primary" 
-              onClick={handleNext}>
-                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-              </Button> */}
             </div>
           </div>
         )}

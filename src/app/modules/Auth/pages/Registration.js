@@ -4,58 +4,57 @@ import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { Link } from "react-router-dom";
 import { injectIntl } from "react-intl";
 import * as auth from "../_redux/authRedux";
-import HorizontalLabelPositionBelowStepper from "./Registration-steps/Registration-steps"
+import HorizontalLabelPositionBelowStepper from "./Registration-steps/Registration-steps";
 function Registration(props) {
   return (
     <div className="d-flex justify-content-center flex-column col-xl-8 col-lg-11 wid col">
       {/* start:: Aside header */}
       <div class="d-lg-flex d-xl-flex d-md-flex d-block w-100 text-center">
         <Link to="/" className="flex-column-auto logo-tb mb-5">
-          <img
-            alt="Logo"
-            src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
-          />
+          <img alt="Logo" src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")} />
         </Link>
-        <span className="mob_title d-lg-none d-xl-none d-md-none d-inline-block mt-0">Business Info</span>
+        <span className="mob_title d-lg-none d-xl-none d-md-none d-inline-block mt-0">
+          Business Info
+        </span>
       </div>
       {/* end:: Aside header */}
-      <div className="d-flex w-100 loginMaincontent shadow" >
+
+      <div className="d-flex w-100 loginMaincontent shadow">
         {/*begin::Aside*/}
-        <div
-          className="login-aside d-none d-xl-flex d-lg-flex flex-2 bgi-size-cover bgi-no-repeat col-5 order-0 rounded-left"
-          style={{
-            backgroundColor: `#1D6AFF`,
-          }}
-        >
-          {/*
-              style={{
-                backgroundImage: `url(${toAbsoluteUrl("/media/bg/bg-4.jpg")})`,
-              }}
-              */}
+        <div className="login-aside d-none d-xl-flex d-lg-flex flex-2 bgi-size-cover bgi-no-repeat col-5 order-0 rounded-left"
+          style={{backgroundColor: `#1D6AFF`}}>
           {/*begin: Aside Container*/}
           <div className="d-flex flex-row-fluid flex-column justify-content-between">
-
             {/* start:: Aside content */}
-
             <div className="flex-column-fluid d-flex flex-column justify-content-center">
               <div className="d-flex flex-column h-100">
                 <div className="bk_aw d-none text-white font-weight-500 font-size-15 position-absolute ml-5 mt-7">
-                  <img src="/media/auth-screen/back_arrow.svg" className="mr-2" alt="arrow" /> <span>Back</span>
+                  <img
+                    src="/media/auth-screen/back_arrow.svg"
+                    className="mr-2"
+                    alt="arrow"
+                  />{" "}
+                  <span>Back</span>
                 </div>
                 <div className="mt-25 mb-10 mx-auto loginRightimg1 col-lg-11 col-11 flex-column-fluid text-center">
                   <h3 className="font-size-h1 text-uppercase font-weight-600 mb-5 text-white">
                     Business Info
                   </h3>
                   <p className="font-size-14  font-weight-300 text-white line-height2">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum is simply dummy text of
+                    the printing and typesetting industry.
                   </p>
                 </div>
                 <div className="text-center mx-auto d-flex align-items-end">
-                  <img src="/media/auth-screen/business_info_banner.svg" className="m-auto col-lg-10" alt="banner" />
+                  <img
+                    src="/media/auth-screen/business_info_banner.svg"
+                    className="m-auto col-lg-10"
+                    alt="banner"
+                  />
                 </div>
               </div>
             </div>
-
             {/* end:: Aside content */}
 
             {/* start:: Aside footer for desktop d-lg-flex */}
@@ -87,8 +86,8 @@ function Registration(props) {
             <HorizontalLabelPositionBelowStepper />
           </div>
         </div>
-
       </div>
+      
       {/* begin::Mobile footer */}
       <div className="d-none flex-column-auto flex-column flex-sm-row justify-content-between align-items-center mt-5 p-5">
         <div className="text-dark-50 font-weight-bold order-2 order-sm-1 my-2">
@@ -98,16 +97,10 @@ function Registration(props) {
           <Link to="/terms" className="text-dark-75 text-hover-primary">
             Privacy
           </Link>
-          <Link
-            to="/terms"
-            className="text-dark-75 text-hover-primary ml-4"
-          >
+          <Link to="/terms" className="text-dark-75 text-hover-primary ml-4">
             Legal
           </Link>
-          <Link
-            to="/terms"
-            className="text-dark-75 text-hover-primary ml-4"
-          >
+          <Link to="/terms" className="text-dark-75 text-hover-primary ml-4">
             Contact
           </Link>
         </div>
