@@ -14,6 +14,7 @@ import "../../../../_metronic/_assets/sass/pages/login/classic/login-1.scss";
 import {UserProvider} from './UserContext'
 import {BusinessProvider} from './BusinessContext';
 import {StaffProvider} from './StaffContext';
+import ResetPassword from "./ResetPassword"
 export function AuthPage() {
   
   return (
@@ -46,8 +47,13 @@ export function AuthPage() {
                     component={ForgotPassword}
                   />
                   <ContentRoute
-                    path="/emailverify"
+                    path="/auth/emailverify"
                     component={EmailVerification}
+                  />
+
+                  <ContentRoute
+                    path="/auth/reset-password"
+                    component={ResetPassword}
                   />
 
                   <ContentRoute

@@ -9,24 +9,34 @@ import { Formik, Field, Form } from "formik";
 import { injectIntl } from "react-intl";
 import * as auth from "../_redux/authRedux";
 
-const FORGOT_PASSWORD = gql`
-  mutation forgetPasswordMail($email: String!) {
-    forgetPasswordMail(email: $email)
+const RESET_PASSWORD = gql`
+  mutation submitForgetPassword($data: submitForgetPass!) {
+    submitForgetPassword(data: $data)
   }
 `;
 
 const initialValues = {
-  email: "",
+  email:"basheer@lookman.in",
+  password: "",
+  confirmpassword: "",
 };
 
-function ForgotPassword(props) {
+function ResetPassword(props) {
   const { intl } = props;
   const [isRequested, setIsRequested] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [forgotpassword] = useMutation(FORGOT_PASSWORD);
-  const ForgotPasswordSchema = Yup.object().shape({
-    email: Yup.string()
-      .email("Wrong email format")
+  const [passwordShown, setPasswordShown] = useState(true);
+  const [resetPassword] = useMutation(RESET_PASSWORD);
+  const ResetPasswordSchema = Yup.object().shape({
+    password: Yup.string()
+      .min(3, "Minimum 3 symbols")
+      .max(50, "Maximum 50 symbols")
+      .required(
+        intl.formatMessage({
+          id: "AUTH.VALIDATION.REQUIRED_FIELD",
+        })
+      ),
+    confirmpassword: Yup.string()
       .min(3, "Minimum 3 symbols")
       .max(50, "Maximum 50 symbols")
       .required(
@@ -55,6 +65,9 @@ function ForgotPassword(props) {
     setLoading(false);
   };
 
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(passwordShown ? false : true);
+  };
   return (
     <>
       <div className="d-flex flex-column justify-content-center w-100 h-lg-100 h-xl-100">
@@ -62,9 +75,9 @@ function ForgotPassword(props) {
           <Link to="/" className="flex-column-auto logo-tb logo-log m--2">
             <img alt="Logo" src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")} />
           </Link>
-          <span className="mob_title d-md-none">Forgot Password</span>
+          <span className="mob_title d-md-none">Reset Password</span>
         </div>
-        <Helmet titleTemplate="HMIS | %s" title="Forgot Page" />
+        <Helmet titleTemplate="HMIS | %s" title="Reset password Page" />
         <div className="d-flex flex-row-reverse w-100 loginMaincontent h-100">
           {/*begin::Login*/}
           <div className="d-flex flex-column flex-1 position-relative p-7 bg-white col bor-20 mh_650">
@@ -82,16 +95,10 @@ function ForgotPassword(props) {
                   </p>
                 </div>
 
-                <div className="text-left mb-8">
+                {!isRequested && ( <div className="text-left mb-8">
                   <h1 className="font-size-h1 font-size-30 color_01234B font-weight-600 mb-2">
-                    Forgotten Password ?
+                    Reset Password 
                   </h1>
-                  <h1 className="font-size-h1 font-size-30 color_01234B font-weight-600 mb-5">
-                    Don't worry, we got you.
-                  </h1>
-                  <p className="font-size-14 text-muted font-weight-normal">
-                    Enter the email address associated with your account
-                  </p>
                   <p className="text-muted font-weight-400">
                     <span class="alre_letter">Already a member?</span>
                     <Link
@@ -102,14 +109,19 @@ function ForgotPassword(props) {
                       Log in
                     </Link>
                   </p>
-                </div>
+                </div>)}
 
                 {/* end::Head */}
                 {isRequested && (
                   <div>
                     <p className="font-size-14 mx-auto loginRightimg1 font-weight-300 line-height2">
-                      An email with password reset link is sent to your email
-                      address. Please follow the instructions in the email.
+                      Your password reset successfully. Please go to <Link
+                      to="/auth/login"
+                      className="ml-3 font-weight-500 log_letter"
+                      id="kt_login_signup"
+                    >
+                      Log in
+                    </Link>
                     </p>
                   </div>
                 )}
@@ -119,9 +131,14 @@ function ForgotPassword(props) {
                     onSubmit={(values, { setStatus, setSubmitting }) => {
                       enableLoading();
                       setSubmitting(true);
-                      forgotpassword({
+                      resetPassword({
                         variables: {
-                          email: values.email,
+                          data: {
+                            email: values.email,
+                            password: values.password,
+                          },
+                         // id: "e7661b58d69c37a2405e814f06466191",
+                          //content:"18e4d2817b86fcf07820878f92c7430a737619aa86c0adaa5fb93873ee0de8db1af7fb41fdf3",
                         },
                       }).then((res) => {
                         setIsRequested(true);
@@ -129,7 +146,7 @@ function ForgotPassword(props) {
                         disableLoading();
                       });
                     }}
-                    validationSchema={ForgotPasswordSchema}
+                    validationSchema={ResetPasswordSchema}
                   >
                     {({ errors, touched, status, isSubmitting }) => (
                       <Form className="form fv-plugins-bootstrap fv-plugins-framework animated animate__animated animate__backInUp">
@@ -140,27 +157,48 @@ function ForgotPassword(props) {
                             </div>
                           </div>
                         )}
-                        <div className="form-group fv-plugins-icon-container">
-                          <label
-                            class="form-label d-none"
-                            for="exampleForm.ControlInput1"
-                          >
-                            Email address
+                        <div className="form-group fv-plugins-icon-container mb-10">
+                          <label class="d-block mb-3 font-weight-500">
+                            Password
                           </label>
-                          <div className="emailIcon1">
+                          <div
+                            className="sign_pass"
+                            onClick={togglePasswordVisiblity}
+                          >
                             <Field
-                              placeholder="Email Id"
-                              type="email"
-                              className={`form-control py-5 px-6 ${getInputClasses(
-                                { touched, errors },
-                                "email"
-                              )}`}
-                              name="email"
+                              name="password"
+                              placeholder="Minimum 6 characters"
+                              className="form-control py-5 px-6"
+                              type={passwordShown ? "text" : "password"}
                             />
-                            {touched.email && errors.email ? (
+                            {touched.password && errors.password ? (
                               <div className="fv-plugins-message-container  invalid-feedback">
                                 <div className="fv-help-block">
-                                  {errors.email}
+                                  {errors.password}
+                                </div>
+                              </div>
+                            ) : null}
+                          </div>
+                        </div>
+                        <div className="form-group fv-plugins-icon-container mb-10">
+                          <label class="d-block mb-3 font-weight-500">
+                            Confirm Password
+                          </label>
+                          <div
+                            className="sign_pass"
+                            onClick={togglePasswordVisiblity}
+                          >
+                            <Field
+                              name="confirmpassword"
+                              placeholder="Minimum 6 characters"
+                              className="form-control py-5 px-6"
+                              type={passwordShown ? "text" : "password"}
+                            />
+                            {touched.confirmpassword &&
+                            errors.confirmpassword ? (
+                              <div className="fv-plugins-message-container  invalid-feedback">
+                                <div className="fv-help-block">
+                                  {errors.confirmpassword}
                                 </div>
                               </div>
                             ) : null}
@@ -183,7 +221,7 @@ function ForgotPassword(props) {
                     )}
                   </Formik>
                 )}
-                <div className="form-group d-flex flex-wrap lg-ac font-size-14 my-3">
+                {!isRequested && (<div className="form-group d-flex flex-wrap lg-ac font-size-14 my-3">
                   Don't have an account?
                   <Link
                     to="/auth/sign-up"
@@ -192,7 +230,7 @@ function ForgotPassword(props) {
                   >
                     Sign up
                   </Link>
-                </div>
+                </div>)}
               </div>
 
               {/* begin::Mobile footer */}
@@ -300,4 +338,4 @@ function ForgotPassword(props) {
   );
 }
 
-export default injectIntl(connect(null, auth.actions)(ForgotPassword));
+export default injectIntl(connect(null, auth.actions)(ResetPassword));
