@@ -79,29 +79,29 @@ export function ContentEventTiming() {
       <div className="staff_first staff_second w-100">
         <div className="form-group">
           <div className="row">
-            <div className="col-6">
+            <div className="col-12">
               <label className="form-label d-block">Time Zone</label>
               <div className="re_select">
                 <Select options={timezone} /> 
-              </div>
-            </div>
-            <div className="col-6">
-              <label className="form-label d-block">Duration</label>
-              <div className="re_select">
-                <Select options={durationtime} /> 
               </div>
             </div>
           </div>
         </div>
         <div className="form-group">
           <div className="row">
-            <div className="col-6">
+            <div className="col-4">
+              <label className="form-label d-block">Duration</label>
+              <div className="re_select">
+                <Select options={durationtime} /> 
+              </div>
+            </div>
+            <div className="col-4">
               <label className="form-label d-block">Buffer Time Before</label>
               <div className="re_select">
                 <Select options={buffertime} />
               </div>
             </div>
-            <div className="col-6">
+            <div className="col-4">
               <label className="form-label d-block">Buffer Time After</label>
               <div className="re_select">
                 <Select options={buffertime} />  
@@ -110,24 +110,23 @@ export function ContentEventTiming() {
           </div>
         </div>
         <div className="form-group">
-          <div className="d-flex">
-            <label className="form-label d-block mr-5">Date Range</label>
-            <div className="d-flex">
-              <div className="busi_cus ser_tme clearfix">
-                <DateRange />
-              </div>
+          <label className="form-label d-block mr-5 mb-2">Date Range</label>
+          <div className="d-flex mb-2">
+            <div className="busi_cus ser_tme clearfix">
+              <DateRange />
             </div>
           </div>
           <input placeholder="Date Range" type="text" className="form-control" name="" />
         </div>
-        <div className="busi_cus ser_tme mt-2 mb-1 clearfix">
+        <div className="form-group mb-2">
+          <label className="staff_title_text m-0">Timings</label>
+        </div>
+        <div className="busi_cus ser_tme mt-2 mb-4 clearfix">
           <SelectHours />
         </div>
         <div className={'timingavail'+' '+classes.root}>
+          <label className="staff_title_text m-0">Availability</label>
           <div className="d-flex border-bottom">
-            <div className="col mx-150 pl-0 my-auto">
-              <label className="staff_title_text m-0">Availability</label>
-            </div>
             <div className="col p-0">
               <AppBar position="static" color="default">
                 <Tabs

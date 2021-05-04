@@ -3288,25 +3288,38 @@ p.setting_color {
 		}
 	}
 	.accor_sec {
+		border: 1px solid #EBEDF3;
+		border-bottom: 0;
 		.MuiPaper-elevation1 {
 			box-shadow: none !important;
 			border: 0 !important;
+			border-bottom: 1px solid #EBEDF3 !important
 		}
 		.MuiExpansionPanelSummary-root {
 			padding: 0px 0;
 			margin-bottom: 0;
-			border-bottom: 1px solid #EBEDF3 !important;
+			border-bottom: 0px solid #EBEDF3 !important;
 			min-height: inherit !important;
 			background: transparent !important;
 		}
 		.MuiIconButton-root {
-			padding: 5px 12px  !important;
+			&.MuiExpansionPanelSummary-expandIcon {
+				padding: 5px 3px  !important;
+				margin-right: 0;
+				position: absolute;
+				left: 0px;
+				top: 6px;
+				transform: rotate(270deg);
+				&.Mui-expanded {
+					transform: rotate(0deg);
+				}
+			}
 		}
 		.MuiExpansionPanelSummary-content {
-			margin: 10px 0 0px  !important;
+			margin: 10px 0 0px 25px !important;
 		}
 		.MuiExpansionPanelDetails-root {
-			padding: 5px 0 10px  !important;
+			padding: 5px 20px 10px  !important;
 		}
 		.switchlabel {
 			.MuiIconButton-root {
@@ -3333,9 +3346,13 @@ p.setting_color {
 		}
 		.MuiIconButton-root {
 			padding: 0 10px 0 0;
+			&.Mui-checked {
+				color: #1D6AFF;
+			}
 		}
 		.MuiIconButton-root.Mui-checked + span.MuiTypography-root {
 			font-weight: 500;
+			color: #1D6AFF;
 		}
 		&.ser_tme {
 			.MuiTypography-root {
@@ -4159,7 +4176,6 @@ p.setting_color {
 		}
 	}
 }
-
 .event-selection {
 	margin: 40px 0;
 	.event-radio {
@@ -4178,12 +4194,12 @@ p.setting_color {
 				content: "";
 				color: #fff;
 				position: absolute;
-				top: 0;
+				top: 0px;
 				left: 0;
-				width: 20px;
-				height: 20px;
+				width: 11px;
+				height: 11px;
 				margin-top: 0;
-				border: 1px solid #cacaca;
+				border: 1px solid rgba(0, 0, 0, 0.54);
 				text-align: center;
 				transition: all .4s ease;
 				border-radius: 50%;
@@ -4191,10 +4207,10 @@ p.setting_color {
 			&:after {
 				content: "";
 				position: absolute;
-				top: 6px;
-				left: 6px;
-				width: 10px;
-				height: 10px;
+				top: 3px;
+				left: 3px;
+				width: 8px;
+				height: 7px;
 				border-radius: 50%;
 				background: #1c6afc;
 				opacity: 0;
@@ -4310,6 +4326,7 @@ p.setting_color {
 		margin-left: 0;
 		margin-right: 0;
 		padding-top: 0px;
+		padding-left: 10px;
 	}
 	.notify-border {
 		border: 1px solid #E5E7EB;
@@ -4322,8 +4339,7 @@ p.setting_color {
 	}
 	.pre_status {
 		.MuiFormControlLabel-root {
-			margin-left: 0;
-			margin-right: 0;
+			margin: 0;
 		}
 		.MuiSwitch-track {
 			width: 40px;
@@ -4340,7 +4356,7 @@ p.setting_color {
 			height: 14px;
 		}
 		.MuiSwitch-switchBase {
-			padding: 3px 3px;
+			padding: 1px 3px;
 		}
 	}
 	.notify-custom {
@@ -4357,6 +4373,13 @@ p.setting_color {
 		font-weight: 500;
 		color: #1D6AFF;
 		padding: 10px 0;
+	}
+	.clu_pri {
+		border-radius: 5px;
+		padding: 1rem;
+	}
+	.notify-head {
+		padding: 5px 20px;
 	}
 	.event_detail {
 		.event-height {
@@ -4401,8 +4424,8 @@ p.setting_color {
 				position: absolute;
 				top: 0;
 				left: 0;
-				width: 15px;
-				height: 15px;
+				width: 11px;
+				height: 11px;
 				margin-top: 0;
 				border: 1px solid #cacaca;
 				text-align: center;
@@ -4412,9 +4435,9 @@ p.setting_color {
 			&:after {
 				content: "";
 				position: absolute;
-				top: 5px;
-				left: 5px;
-				width: 7px;
+				top: 3px;
+				left: 3px;
+				width: 8px;
 				height: 7px;
 				border-radius: 50%;
 				background: #1c6afc;
@@ -4434,9 +4457,21 @@ p.setting_color {
 					height: 20px;
 				}
 			}
+			&.eprice {
+				&:before {
+					top: 4px;
+				}
+				&:after {
+					top: 7px;
+				}
+				.form-group {
+					display: none;
+				}
+			}
 		}
 		input[type=radio]:checked+label {
 			font-weight: 500;
+			color: #1D6AFF;
 			&:before {
 				border: 1px solid #1c6afc;
 			}
@@ -4445,6 +4480,11 @@ p.setting_color {
 			}
 			.evn_img {
 				background: #2E53BF1A;
+			}
+			&.eprice {
+				.form-group {
+					display: block;
+				}
 			}
 		}
 		&.evn-type {

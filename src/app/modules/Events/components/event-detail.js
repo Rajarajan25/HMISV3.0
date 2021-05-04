@@ -39,7 +39,7 @@ export function ContentEventDetails() {
         <div className="form-group">
           <label class="form-label d-block">Name *</label>
           <div className="d-flex">
-            <input placeholder="Event Name" type="text" className={`form-control`} name="firstname"/>
+            <input placeholder="Name" type="text" className={`form-control`} name="firstname"/>
           </div>
         </div>
         <div className="form-group">
