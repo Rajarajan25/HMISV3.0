@@ -112,7 +112,6 @@ export class NewEvent extends React.Component {
             </div>
           </Modal.Body>
         </Modal>
-
       </>
     );
   }

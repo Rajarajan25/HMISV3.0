@@ -1337,6 +1337,19 @@
 .MuiTypography-body1 {
     font-family: inherit;
 }
+.mail_con {
+    h3 {
+        color: #22D678;
+        img {
+            width: 30px;
+        }
+    }
+    p {
+        color: #777777;
+        font-style: italic;
+    }
+}
+
 // Desktop and Mobile mode
 @media (min-width: 1200px) and (max-width: 1600px){
     .login.login-1 {

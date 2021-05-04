@@ -91,23 +91,13 @@ const useStyles = makeStyles(theme => ({
 const durationtime = [
   { value: '5mins', label: '5 Mins' },
   { value: '10mins', label: '10 Mins' },
-  { value: '15mins', label: '15 Mins' },
-  { value: '20mins', label: '20 Mins' },
-  { value: '25mins', label: '25 Mins' },
-  { value: '30mins', label: '30 Mins' },
-  { value: '35mins', label: '35 Mins' },
-  { value: '40mins', label: '40 Mins' },
-  { value: '45mins', label: '45 Mins' },
-  { value: '50mins', label: '50 Mins' },
-  { value: '55mins', label: '55 Mins' },
-  { value: '1hour', label: '1 Hour' }
 ]
 
 export function ContentEventNotify() {
   return (
     <div className="clearfix">
       <div className="staff_first staff_second w-100">
-        <div className="event-bx">
+        <div className="event-bx d-none">
           <div className="notify-border">
             <div className="d-flex">
               <div className="pr-10 mr-auto">
@@ -159,9 +149,7 @@ export function ContentEventNotify() {
         </div>
         <div className="clearfix notify-head d-none">
           <div className="row">
-            <div className="col-6">
-              
-            </div>
+            <div className="col-6"></div>
             <div className="col-2 text-center">
               <label className="staff_title_text">Email</label>
             </div>
@@ -221,8 +209,51 @@ export function NotifyExpansionPanels() {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-            <div className="clearfix">
-              <div className="row d-none">
+          <p>Test</p>
+            <div className="clearfix d-none">
+              <div className="row">
+                <div className="col-6">
+                  <p className="setting_color">Your invitees will have the option of receiving text reminders before a scheduled event.</p>
+                </div>
+                <div className="col-2 text-center">
+                  <input type="checkbox" name="reminder" />
+                </div>
+                <div className="col-2 text-center">
+                  <input type="checkbox" name="reminder" />
+                </div>
+                <div className="col-2 text-center">
+                  <div className="pre_status">
+                    <SwitchLabels />
+                  </div>
+                </div>
+              </div>
+              <div className="clearfix">
+                <div className="d-block mt-4 mb-4">
+                  <label className="d-block staff_title_text font_weight_medium">Text Message</label>
+                  <textarea placeholder="Event Reminder"  className="form-control"></textarea>
+                </div>
+                <div className="form-group mb-2">
+                  <label className="form-lable d-block font_weight_medium color_303030 mb-0">Reminder Notification *</label>
+                  <div className="re_select">
+                    <Select options={durationtime} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+      <ExpansionPanel square expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel2d-content" id="panel2d-header">
+          <Typography>
+            <label className="staff_title_text">Email Reminders</label>
+          </Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>
+          <p>Test</p>
+            <div className="clearfix d-none">
+              <div className="row">
                 <div className="col-6">
                   <p className="setting_color">Your invitees will have the option of receiving text reminders before a scheduled event.</p>
                 </div>
@@ -242,20 +273,6 @@ export function NotifyExpansionPanels() {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      <ExpansionPanel square expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel2d-content" id="panel2d-header">
-          <Typography>
-            <label className="staff_title_text">Email Reminders</label>
-          </Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography>
-            <div className="text-left">
-              Gopi  
-            </div>
-          </Typography>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
       <ExpansionPanel square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel3d-content" id="panel3d-header">
           <Typography>
@@ -264,8 +281,24 @@ export function NotifyExpansionPanels() {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-            <div className="text-left">
-                        
+          <p>Test</p>
+            <div className="clearfix d-none">
+              <div className="row">
+                <div className="col-6">
+                  <p className="setting_color">Your invitees will have the option of receiving text reminders before a scheduled event.</p>
+                </div>
+                <div className="col-2 text-center">
+                  <input type="checkbox" name="reminder" />
+                </div>
+                <div className="col-2 text-center">
+                  <input type="checkbox" name="reminder" />
+                </div>
+                <div className="col-2 text-center">
+                  <div className="pre_status">
+                    <SwitchLabels />
+                  </div>
+                </div>
+              </div>  
             </div>
           </Typography>
         </ExpansionPanelDetails>

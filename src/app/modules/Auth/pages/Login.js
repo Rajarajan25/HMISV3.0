@@ -301,7 +301,7 @@ function Login(props) {
                         </div>
                         {/*end::Content header*/}
                       </div>
-                    <div className="form-group fv-plugins-icon-container mt-0">
+                      <div className="form-group fv-plugins-icon-container mt-0">
                         {/*begin::Content header*/}
                         <div className="text-center mb-0 mb-xl-5 mb-lg-5 mb-md-5 flex-column-auto justify-content-center py-5">
                           <Link
@@ -310,6 +310,19 @@ function Login(props) {
                             id="kt_login_signup"
                           >
                             Personal Registration
+                          </Link>
+                        </div>
+                        {/*end::Content header*/}
+                      </div>
+                      <div className="form-group fv-plugins-icon-container mt-0">
+                        {/*begin::Content header*/}
+                        <div className="text-center mb-0 mb-xl-5 mb-lg-5 mb-md-5 flex-column-auto justify-content-center py-5">
+                          <Link
+                            to="/auth/email-verification"
+                            className="font-weight-bold ml-2 createAccountlink"
+                            id="kt_login_signup"
+                          >
+                            E-Mail Verification
                           </Link>
                         </div>
                         {/*end::Content header*/}
