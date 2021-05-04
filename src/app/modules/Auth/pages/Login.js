@@ -27,7 +27,7 @@ const initialValues = {
 
 const LOGIN_AUTH = gql`mutation loginUser($data: UserLoginInput) {
     loginUser(data:$data) {
-      token
+      accessToken
     }
   }
 `;
@@ -81,10 +81,10 @@ function Login(props) {
     onSubmit: (values, { setStatus, setSubmitting }) => {
       enableLoading();
       setTimeout(() => {
-        login({variables:{data:values}})
-          .then(({ data: { token } }) => {
+        login({variables:{data:{email:values.email, password_salt:values.password}}})
+          .then(({ data: { accessToken } }) => {
             disableLoading();
-            props.login(token);
+            props.login(accessToken);
           })
           .catch(() => {
             disableLoading();

@@ -5,6 +5,7 @@ import { ContentRoute } from "../../../../_metronic/layout";
 import Login from "./Login";
 import Registration from "./Registration";
 import Personalinfo from "./PersonaIinfo";
+import EmailVerification from "./EmailVerification";
 import RegistrationConfirmation from "./RegistrationConfirmation";
 import Signup from "./Signup";
 import ForgotPassword from "./ForgotPassword";
@@ -44,6 +45,11 @@ export function AuthPage() {
                     path="/auth/forgot-password"
                     component={ForgotPassword}
                   />
+                  <ContentRoute
+                    path="/emailverify"
+                    component={EmailVerification}
+                  />
+
                   <ContentRoute
                     path="/auth/Login-OTP"
                     component={LoginOTP}
