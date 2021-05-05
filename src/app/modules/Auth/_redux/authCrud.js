@@ -24,5 +24,6 @@ export function requestPassword(email) {
 
 export function getUserByToken() {
   // Authorization head should be fulfilled in interceptor.
+  let token=localStorage.getItem("authtoken");
   return jwt_decode(token); //axios.get(ME_URL);
 }

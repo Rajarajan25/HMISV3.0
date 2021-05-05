@@ -9,6 +9,7 @@ import { FormattedMessage, injectIntl } from "react-intl";
 import * as auth from "../_redux/authRedux";
 import { gql, useMutation } from "@apollo/client";
 import { DevConsoleLog } from "../../../SiteUtill";
+import jwt_decode from "jwt-decode";
 
 /*
   INTL (i18n) docs:
@@ -21,8 +22,8 @@ import { DevConsoleLog } from "../../../SiteUtill";
 */
 
 const initialValues = {
-  email: "admin@demo.com",
-  password: "demo",
+  email: "basheer@lookman.in",
+  password: "basheer@123",
 };
 
 const LOGIN_AUTH = gql`mutation loginUser($data: UserLoginInput) {
@@ -80,16 +81,23 @@ function Login(props) {
     validationSchema: LoginSchema,
     onSubmit: (values, { setStatus, setSubmitting }) => {
       enableLoading();
+      setSubmitting(true);
       setTimeout(() => {
         login({variables:{data:{email:values.email, password_salt:values.password}}})
-          .then(({ data: { accessToken } }) => {
+          .then((data) => {
             disableLoading();
-            props.login(accessToken);
-          })
-          .catch(() => {
+            DevConsoleLog("accessToken-->",data.data.loginUser.accessToken);
+            props.login(data.data.loginUser.accessToken);
+            props.fulfillUser({user:jwt_decode(data.data.loginUser.accessToken)});
+            localStorage.setItem("authtoken",data.data.loginUser.accessToken);
+          }).catch((e) => {
             disableLoading();
-            DevConsoleLog("Error--->");
-            props.login("access-token-8f3ae836da744329a6f93bf20594b5cc");
+            setSubmitting(false);
+            setStatus(
+              intl.formatMessage({
+                id: "AUTH.VALIDATION.INVALID_LOGIN",
+              })
+            );
           });
       }, 1000);
     },
