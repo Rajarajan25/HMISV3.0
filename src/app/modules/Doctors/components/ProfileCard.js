@@ -9,9 +9,17 @@ import {
   DropdownCustomToggler,
   DropdownMenu4,
 } from "../../../../_metronic/_partials/dropdowns";
+import { gql, useQuery } from "@apollo/client";
+
+const GET_USER = gql`
+  {
+    bye 
+  }
+`;
 
 export function ProfileCard() {
   const user = useSelector(({ auth }) => auth.user, shallowEqual);
+  const { data } = useQuery(GET_USER);
 
   useEffect(() => {
     return () => {};
@@ -94,7 +102,7 @@ export function ProfileCard() {
                 </div>
                 <div className="d-flex align-items-center justify-content-between">
                   <span className="font-weight-bold mr-2">Location:</span>
-                  <span className="text-muted">{user.address.city}</span>
+                  <span className="text-muted">{user.address}</span>
                 </div>
               </div>
               {/* end::Contact */}

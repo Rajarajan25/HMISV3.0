@@ -86,10 +86,10 @@ function Login(props) {
         login({variables:{data:{email:values.email, password_salt:values.password}}})
           .then((data) => {
             disableLoading();
+            setSubmitting(false);
             DevConsoleLog("accessToken-->",data.data.loginUser.accessToken);
+            localStorage.setItem("authToken",data.data.loginUser.accessToken);
             props.login(data.data.loginUser.accessToken);
-            props.fulfillUser({user:jwt_decode(data.data.loginUser.accessToken)});
-            localStorage.setItem("authtoken",data.data.loginUser.accessToken);
           }).catch((e) => {
             disableLoading();
             setSubmitting(false);
