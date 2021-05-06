@@ -4532,5 +4532,47 @@ p.setting_color {
 			border-radius: 15px 0 0 15px;
 			border-top: 0;
 		}
+		.mx-210 {
+			max-width: 180px;
+		}
+		.evn_bg {
+			align-items: center;
+		}
+		.staff_tab_img {
+			width: 30px;
+			height: 30px;
+			line-height: 26px;
+			img {
+				opacity: 1;
+				filter: none;
+				-webkit-filter: none;
+			}
+		}
+		.MuiTab-root {
+			font-size: 1.05rem;
+			margin-right: 1.5rem;
+		}
+		.MuiTab-textColorPrimary.Mui-selected {
+			color: #1C6AFC;
+			.staff_tab_img {
+				background: #1C6AFC;
+				img {
+					opacity: 1;
+					filter: brightness(0) invert(1);
+    				-webkit-filter: brightness(0) invert(1);
+				}
+			}
+		}
+		.MuiTabs-indicator {
+			background: #1C6AFC;
+		}
+		.event-additional {
+			.MuiTab-root {
+				min-height: 45px;
+			}
+			.MuiTabs-root {
+				min-height: 45px;
+			}
+		}
 	}
 }

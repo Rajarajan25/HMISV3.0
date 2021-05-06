@@ -61,25 +61,17 @@ export function EventTab() {
                 >
                 <Tab label={<TabEventDetails />} />
                 <Tab label={<TabEventTiming />} />
-                <Tab label={<TabEventBook />} />
-                <Tab label={<TabEventInvite />} />
-                <Tab label={<TabEventPay />} />
-                <Tab label={<TabEventNotify />} />
+                <Tab label={<TabEventAdditional />} />
               </Tabs>
             </AppBar>
           </div>
         </div>
 
       <div className={'timingavail p-4'+' '+classes.root}>
-        <div className="">
-          <div className="tab-right">
-            {value === 0 && <TabContainer> <ContentEventDetails />  </TabContainer>}
-            {value === 1 && <TabContainer> <ContentEventTiming /> </TabContainer>}
-            {value === 2 && <TabContainer> <ContentEventBook /> </TabContainer>}
-            {value === 3 && <TabContainer> <ContentEventInvite /> </TabContainer>}
-            {value === 4 && <TabContainer> <ContentEventPay /> </TabContainer>}
-            {value === 5 && <TabContainer> <ContentEventNotify /> </TabContainer>}
-          </div>
+        <div className="tab-right">
+          {value === 0 && <TabContainer> <ContentEventDetails />  </TabContainer>}
+          {value === 1 && <TabContainer> <ContentEventTiming /> </TabContainer>}
+          {value === 2 && <TabContainer> <ContentEventAdditional /> </TabContainer>}
         </div>
         
       </div>
@@ -91,7 +83,7 @@ export function EventName() {
   return (
     <div class="d-flex mh-55">
       <div className="select_staff_name my-auto">
-        <p className="m-0 font-size-18 font-weight-bold color_303030">New Event</p>
+        <p className="m-0 font-size-18 font-weight-bold color_303030">Event Info</p>
         <span className="d-none">Add Description</span>
       </div>
     </div>
@@ -102,8 +94,10 @@ export function TabEventDetails() {
   return (
     <div className="clearfix">
       <div className="d-flex evn_bg">
-        <img src={toAbsoluteUrl("/media/events/event-details.svg")} alt="" className="mr-3" />
-        <span className="staff_tab_title d-none">Details</span>
+      <span class="staff_tab_img">
+        <img src={toAbsoluteUrl("/media/events/event-details.svg")} alt="" className="" />
+      </span>
+        <span className="staff_tab_title">Details</span>
       </div>
     </div>
   );
@@ -113,8 +107,62 @@ export function TabEventTiming() {
   return (
     <div className="clearfix">
       <div className="d-flex evn_bg">
-        <img src={toAbsoluteUrl("/media/events/event-timing.svg")} alt="" className="mr-3" />
-        <span className="staff_tab_title d-none">Timing</span>
+        <span class="staff_tab_img">
+          <img src={toAbsoluteUrl("/media/events/event-timing.svg")} alt="" className="" />
+        </span>
+        <span className="staff_tab_title">Timing</span>
+      </div>
+    </div>
+  );
+}
+
+export function TabEventAdditional() {
+  return (
+    <div className="clearfix">
+      <div className="d-flex evn_bg">
+        <span class="staff_tab_img">
+          <img src={toAbsoluteUrl("/media/events/event-additional.svg")} alt="" className="" />
+        </span>
+        <span className="staff_tab_title">Additional</span>
+      </div>
+    </div>
+  );
+}
+
+
+
+
+export function ContentEventAdditional() {
+  const classes = useStyles();
+  const [value, setValue] = React.useState(0);
+  function handleChange(event, newValue) {
+    setValue(newValue);
+  }
+
+  return (
+    <div className="event-tab clearfix">
+      <div className="event-additional">
+        <div className="col p-0 border-bottom">
+          <AppBar position="static" color="default">
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              >
+              <Tab label={<TabEventBook />} />
+              <Tab label={<TabEventInvite />} />
+              <Tab label={<TabEventPay />} />
+              <Tab label={<TabEventNotify />} />
+            </Tabs>
+          </AppBar>
+        </div>
+      </div>
+      <div className={'timingavail px-0 py-4'+' '+classes.root}>
+        <div className="">
+          {value === 0 && <TabContainer> <ContentEventBook /> </TabContainer>}
+          {value === 1 && <TabContainer> <ContentEventInvite /> </TabContainer>}
+          {value === 2 && <TabContainer> <ContentEventPay /> </TabContainer>}
+          {value === 3 && <TabContainer> <ContentEventNotify /> </TabContainer>}
+        </div>
       </div>
     </div>
   );
@@ -125,7 +173,7 @@ export function TabEventBook() {
     <div className="clearfix">
       <div className="d-flex evn_bg">
         <img src={toAbsoluteUrl("/media/events/event-booking.svg")} alt="" className="mr-3" />
-        <span className="staff_tab_title d-none">Booking</span>
+        <span className="staff_tab_title">Booking</span>
       </div>
     </div>
   );
@@ -136,7 +184,7 @@ export function TabEventInvite() {
     <div className="clearfix">
       <div className="d-flex evn_bg">
         <img src={toAbsoluteUrl("/media/events/event-invite.svg")} alt="" className="mr-3" />
-        <span className="staff_tab_title d-none">Invite</span>
+        <span className="staff_tab_title">Invite</span>
       </div>
     </div>
   );
@@ -147,7 +195,7 @@ export function TabEventPay() {
     <div className="clearfix">
       <div className="d-flex evn_bg">
         <img src={toAbsoluteUrl("/media/events/event-payment.svg")} alt="" className="mr-3" />
-        <span className="staff_tab_title d-none">Payment</span>
+        <span className="staff_tab_title">Payment</span>
       </div>
     </div>
   );
@@ -158,7 +206,7 @@ export function TabEventNotify() {
     <div className="clearfix">
       <div className="d-flex evn_bg">
         <img src={toAbsoluteUrl("/media/events/event-notify.svg")} alt="" className="mr-3" />
-        <span className="staff_tab_title d-none">Notifications</span>
+        <span className="staff_tab_title">Notifications</span>
       </div>
     </div>
   );
