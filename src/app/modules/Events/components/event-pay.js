@@ -17,34 +17,34 @@ export function ContentEventPay() {
   return (
     <div className="clearfix">
       <div className="staff_first staff_second">
-        <div className="form-group mb-2">
+        <div className="form-group mt-2 mb-4">
           <label className="staff_title_text m-0">Price Type *</label>
         </div>
         <div className="busi_cus ser_tme mt-2 mb-4 clearfix">
           <SelectPrice />
         </div>
-        <div className="clearfix mb-3">
+        <div className="clearfix mt-10 mb-3">
           <label className="staff_title_text m-0">Price Details *</label>
         </div>
         <div className="form-group">
           <div className="row">
-            <div className="col-4">
+            <div className="col-6">
               <label className="form-label d-block">Ticket</label>
               <input placeholder="Ticket" type="text" className="form-control" name="" />
+              <div className="clearfix">
+                <Link to="#" className="ml-auto booking_link">+ Add</Link>
+              </div>
             </div>
-            <div className="col-4">
+            <div className="col-6">
               <label className="form-label d-block">Price</label>
               <input placeholder="Price" type="text" className="form-control" name="" />
-            </div>
-            <div className="col-4">
-              <Link to="#" className="ml-auto booking_link">+ Add</Link>
             </div>
           </div>
         </div>
         <div className="form-group">
           <div className="row">
             <div className="col-6">
-              <div className="border d-flex clu_pri">
+              <div className="clu_pri">
                 <div className="cf">
                   <label className="form-label font_weight_medium d-block">Include in the price</label>
                   <input placeholder="E-Certificate" type="text" className="form-control" name="" />
@@ -53,7 +53,7 @@ export function ContentEventPay() {
               </div>
             </div>
             <div className="col-6">
-              <div className="border d-flex clu_pri">
+              <div className="clu_pri">
                 <div className="cf">
                   <label className="form-label font_weight_medium d-block">Exclude in the price</label>
                   <input placeholder="E-Certificate" type="text" className="form-control" name="" />
@@ -63,41 +63,47 @@ export function ContentEventPay() {
             </div>
           </div>
         </div>
-        <div className="clearfix mb-3">
+        <div className="clearfix mb-4">
           <label className="staff_title_text m-0">Extra Price</label>
         </div>
         <div className="form-group">
-          <label className="form-label d-block pb-2">Payment and Pricing</label>
-          <div className="event-radio pb-2">
+          <label className="form-label d-block font_weight_medium pb-4">Payment and Pricing</label>
+          <div className="event-radio pb-5">
             <input type="radio" id="extra_01" name="event-Eprice" className=""/>
             <label className="eprice" for="extra_01">
               <span class="chk_txt">Do not display a price</span>
             </label>
           </div>
-          <div className="event-radio pb-2">
+          <div className="event-radio pb-5">
             <input type="radio" id="extra_02" name="event-Eprice" className=""/>
             <label className="eprice" for="extra_02">
               <span class="chk_txt">Display a price but do not collect payment via schedule once</span>
               <div className="form-group mt-1 mb-0">
                 <div className="row">
-                  <div className="col-4">
+                  <div className="col-6">
                     <input placeholder="100" type="text" className="form-control" name="" />
                   </div>
-                  <div className="col-4">
+                  <div className="col-6">
                     <input placeholder="Rupess" type="text" className="form-control" name="" />
                   </div>
                 </div>
               </div>
             </label>
           </div>
-          <div className="event-radio pb-2">
+          <div className="event-radio pb-5">
             <input type="radio" id="extra_03" name="event-Eprice" className=""/>
             <label className="eprice" for="extra_03">
               <span class="chk_txt">Display a price and collect payment via schedule once</span>
             </label>
           </div>
         </div>
-        <div className="form-group mb-0">
+        <div className="w-100 mt-15">
+          <div className="d-flex justify-content-end color_c0c0c0">
+            <button type="button" className="btn font-size-16 font_weight_medium color_c0c0c0 text-uppercase">Cancel</button>
+            <button type="button" className="btn font-size-16 font_weight_medium color_1D6AFF text-uppercase">Save</button>
+          </div>
+        </div>
+        <div className="form-group mb-0 d-none">
           <div className="d-flex justify-content-end patientButton pos_fix">
             <button type="button" className="btn btn-primary">Save</button>
           </div>

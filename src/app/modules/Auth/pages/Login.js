@@ -325,6 +325,13 @@ function Login(props) {
                             E-Mail Verification
                           </Link>
                         </div>
+                        <Link
+                        to="/auth/reset-password"
+                        className="text-hover-primary my-3 mr-2 font-size-14 text-primary"
+                        id="kt_login_forgot"
+                      >
+                        Reset Password
+                      </Link>
                         {/*end::Content header*/}
                       </div>
                   </form>

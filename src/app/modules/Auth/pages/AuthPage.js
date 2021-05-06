@@ -9,6 +9,7 @@ import Personalinfo from "./personalinfo";
 import RegistrationConfirmation from "./registration-confirmation";
 import Signup from "./sign-up";
 import ForgotPassword from "./ForgotPassword";
+import ResetPassword from "./ResetPassword";
 import LoginOTP from "./Login-OTP";
 import MailVerification from "./email-verification";
 import "../../../../_metronic/_assets/sass/pages/login/classic/login-1.scss";
@@ -33,6 +34,10 @@ export function AuthPage() {
                   <ContentRoute
                     path="/auth/registration"
                     component={Registration}
+                  />
+                  <ContentRoute
+                    path="/auth/reset-password"
+                    component={ResetPassword}
                   />
                   <ContentRoute
                     path="/auth/forgot-password"

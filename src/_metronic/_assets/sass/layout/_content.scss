@@ -4376,7 +4376,7 @@ p.setting_color {
 	}
 	.clu_pri {
 		border-radius: 5px;
-		padding: 1rem;
+		padding: 1rem 0;
 	}
 	.notify-head {
 		padding: 5px 20px;
@@ -4521,6 +4521,16 @@ p.setting_color {
 		}
 		.MuiTab-root:nth-child(3) {
 			margin-top: 30px;
+		}
+	}
+}
+.patientProfileinfo{
+	&.eventIfo {
+		.MuiDrawer-paper {
+			top: 5%;
+			bottom: 5%;
+			border-radius: 15px 0 0 15px;
+			border-top: 0;
 		}
 	}
 }

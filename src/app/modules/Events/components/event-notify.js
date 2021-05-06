@@ -107,7 +107,7 @@ export function ContentEventNotify() {
               <div className="d-flex">
                 <span className="notify-custom">Custom</span>
                 <div className="pre_status">
-                    <SwitchLabels />
+                  <SwitchLabels />
                 </div>
               </div>
             </div>
@@ -130,7 +130,7 @@ export function ContentEventNotify() {
             <div className="d-flex">
               <span className="notify-custom">Custom</span>
               <div className="pre_status">
-                  <SwitchLabels />
+                <SwitchLabels />
               </div>
             </div>
           </div>
@@ -142,12 +142,12 @@ export function ContentEventNotify() {
             <div className="d-flex">
               <span className="notify-custom">Custom</span>
               <div className="pre_status">
-                  <SwitchLabels />
+                <SwitchLabels />
               </div>
             </div>
           </div>
         </div>
-        <div className="clearfix notify-head d-none">
+        <div className="clearfix notify-head">
           <div className="row">
             <div className="col-6"></div>
             <div className="col-2 text-center">
@@ -168,7 +168,6 @@ export function ContentEventNotify() {
     </div>
   );
 }
-
 
 export default function SwitchLabels() {
 
@@ -209,8 +208,7 @@ export function NotifyExpansionPanels() {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-          <p>Test</p>
-            <div className="clearfix d-none">
+            <div className="clearfix">
               <div className="row">
                 <div className="col-6">
                   <p className="setting_color">Your invitees will have the option of receiving text reminders before a scheduled event.</p>
@@ -235,7 +233,8 @@ export function NotifyExpansionPanels() {
                 <div className="form-group mb-2">
                   <label className="form-lable d-block font_weight_medium color_303030 mb-0">Reminder Notification *</label>
                   <div className="re_select">
-                    <Select options={durationtime} />
+                    <Select className="d-none" options={durationtime} />
+                    <input placeholder="Reminder Notification" type="text" className="form-control" name="" />
                   </div>
                 </div>
               </div>
@@ -251,8 +250,7 @@ export function NotifyExpansionPanels() {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-          <p>Test</p>
-            <div className="clearfix d-none">
+            <div className="clearfix">
               <div className="row">
                 <div className="col-6">
                   <p className="setting_color">Your invitees will have the option of receiving text reminders before a scheduled event.</p>
@@ -281,8 +279,7 @@ export function NotifyExpansionPanels() {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-          <p>Test</p>
-            <div className="clearfix d-none">
+            <div className="clearfix">
               <div className="row">
                 <div className="col-6">
                   <p className="setting_color">Your invitees will have the option of receiving text reminders before a scheduled event.</p>

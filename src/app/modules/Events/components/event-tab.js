@@ -45,17 +45,19 @@ export function EventTab() {
 
   return (
     <div className="event-tab clearfix">
-      <div className="BoxShade px-8">
-          <EventName />
-      </div>
-      <div className={'timingavail p-4'+' '+classes.root}>
-        <div className="d-flex">
-          <div className="col-3 tab-left">
-            <h3 className="evn_title">Additional</h3>
+        <div className="d-flex BoxShade">
+          <div className="col mx-210 pr-2 my-auto">
+            <EventName />
+          </div>
+          <div className="col p-0">
             <AppBar position="static" color="default">
               <Tabs
                 value={value}
                 onChange={handleChange}
+                indicatorColor="primary"
+                textColor="primary"
+                variant="scrollable"
+                scrollButtons="auto"
                 >
                 <Tab label={<TabEventDetails />} />
                 <Tab label={<TabEventTiming />} />
@@ -66,7 +68,11 @@ export function EventTab() {
               </Tabs>
             </AppBar>
           </div>
-          <div className="col tab-right">
+        </div>
+
+      <div className={'timingavail p-4'+' '+classes.root}>
+        <div className="">
+          <div className="tab-right">
             {value === 0 && <TabContainer> <ContentEventDetails />  </TabContainer>}
             {value === 1 && <TabContainer> <ContentEventTiming /> </TabContainer>}
             {value === 2 && <TabContainer> <ContentEventBook /> </TabContainer>}
@@ -85,8 +91,8 @@ export function EventName() {
   return (
     <div class="d-flex mh-55">
       <div className="select_staff_name my-auto">
-        <p className="m-0">New Event</p>
-        <span>Add Description</span>
+        <p className="m-0 font-size-18 font-weight-bold color_303030">New Event</p>
+        <span className="d-none">Add Description</span>
       </div>
     </div>
   );
@@ -97,7 +103,7 @@ export function TabEventDetails() {
     <div className="clearfix">
       <div className="d-flex evn_bg">
         <img src={toAbsoluteUrl("/media/events/event-details.svg")} alt="" className="mr-3" />
-        <span className="staff_tab_title">Details</span>
+        <span className="staff_tab_title d-none">Details</span>
       </div>
     </div>
   );
@@ -108,7 +114,7 @@ export function TabEventTiming() {
     <div className="clearfix">
       <div className="d-flex evn_bg">
         <img src={toAbsoluteUrl("/media/events/event-timing.svg")} alt="" className="mr-3" />
-        <span className="staff_tab_title">Timing</span>
+        <span className="staff_tab_title d-none">Timing</span>
       </div>
     </div>
   );
@@ -119,7 +125,7 @@ export function TabEventBook() {
     <div className="clearfix">
       <div className="d-flex evn_bg">
         <img src={toAbsoluteUrl("/media/events/event-booking.svg")} alt="" className="mr-3" />
-        <span className="staff_tab_title">Booking</span>
+        <span className="staff_tab_title d-none">Booking</span>
       </div>
     </div>
   );
@@ -130,7 +136,7 @@ export function TabEventInvite() {
     <div className="clearfix">
       <div className="d-flex evn_bg">
         <img src={toAbsoluteUrl("/media/events/event-invite.svg")} alt="" className="mr-3" />
-        <span className="staff_tab_title">Invite</span>
+        <span className="staff_tab_title d-none">Invite</span>
       </div>
     </div>
   );
@@ -141,7 +147,7 @@ export function TabEventPay() {
     <div className="clearfix">
       <div className="d-flex evn_bg">
         <img src={toAbsoluteUrl("/media/events/event-payment.svg")} alt="" className="mr-3" />
-        <span className="staff_tab_title">Payment</span>
+        <span className="staff_tab_title d-none">Payment</span>
       </div>
     </div>
   );
@@ -152,7 +158,7 @@ export function TabEventNotify() {
     <div className="clearfix">
       <div className="d-flex evn_bg">
         <img src={toAbsoluteUrl("/media/events/event-notify.svg")} alt="" className="mr-3" />
-        <span className="staff_tab_title">Notifications</span>
+        <span className="staff_tab_title d-none">Notifications</span>
       </div>
     </div>
   );
