@@ -4371,7 +4371,7 @@ p.setting_color {
 		display: block;
 		font-size: 1rem;
 		font-weight: 500;
-		color: #1D6AFF;
+		color: #0089FF;
 		padding: 10px 0;
 	}
 	.clu_pri {
@@ -4414,9 +4414,10 @@ p.setting_color {
 			position: relative;
 			padding: 0 10px 0 24px;
 			cursor: pointer;
-			color: #303030;
-			font-size: 1rem;
+			color: #707070;
+			font-size: 1.1rem;
 			margin: 0;
+			font-weight: 500;
 			&:before {
 				box-sizing: content-box;
 				content: "";
@@ -4424,10 +4425,10 @@ p.setting_color {
 				position: absolute;
 				top: 0;
 				left: 0;
-				width: 11px;
-				height: 11px;
+				width: 14px;
+				height: 14px;
 				margin-top: 0;
-				border: 1px solid #cacaca;
+				border: 1px solid #707070;
 				text-align: center;
 				transition: all .4s ease;
 				border-radius: 50%;
@@ -4435,12 +4436,12 @@ p.setting_color {
 			&:after {
 				content: "";
 				position: absolute;
-				top: 3px;
-				left: 3px;
+				top: 4px;
+				left: 4px;
 				width: 8px;
-				height: 7px;
+				height: 8px;
 				border-radius: 50%;
-				background: #1c6afc;
+				background: #0089FF;
 				opacity: 0;
 			}
 			span {
@@ -4458,11 +4459,8 @@ p.setting_color {
 				}
 			}
 			&.eprice {
-				&:before {
-					top: 4px;
-				}
-				&:after {
-					top: 7px;
+				span {
+					line-height: 15px;
 				}
 				.form-group {
 					display: none;
@@ -4470,10 +4468,9 @@ p.setting_color {
 			}
 		}
 		input[type=radio]:checked+label {
-			font-weight: 500;
-			color: #1D6AFF;
+			color: #0089FF;
 			&:before {
-				border: 1px solid #1c6afc;
+				border: 1px solid #0089FF;
 			}
 			&:after {
 				opacity: 1;
@@ -4524,13 +4521,15 @@ p.setting_color {
 		}
 	}
 }
-.patientProfileinfo{
+.patientProfileinfo.StaffInfo{
 	&.eventIfo {
 		.MuiDrawer-paper {
-			top: 5%;
-			bottom: 5%;
-			border-radius: 15px 0 0 15px;
+			top: 4%;
+			bottom: 4%;
+			border-radius: 10px 0 0 10px;
 			border-top: 0;
+			box-shadow: -10px 0px 30px #1C6AFC33;
+			border: 1px solid #E9E9E9;
 		}
 		.mx-210 {
 			max-width: 180px;
@@ -4548,11 +4547,15 @@ p.setting_color {
 				-webkit-filter: none;
 			}
 		}
+		.staff_tab_title {
+			color: rgba(0, 0, 0, 0.54);
+			font-size: 1.05rem;
+		}
 		.MuiTab-root {
 			font-size: 1.05rem;
 			margin-right: 1.5rem;
 		}
-		.MuiTab-textColorPrimary.Mui-selected {
+		.Mui-selected {
 			color: #1C6AFC;
 			.staff_tab_img {
 				background: #1C6AFC;
@@ -4561,6 +4564,10 @@ p.setting_color {
 					filter: brightness(0) invert(1);
     				-webkit-filter: brightness(0) invert(1);
 				}
+			}
+			.staff_tab_title {
+				color: #1C6AFC;
+				font-weight: 500;
 			}
 		}
 		.MuiTabs-indicator {
@@ -4572,6 +4579,57 @@ p.setting_color {
 			}
 			.MuiTabs-root {
 				min-height: 45px;
+			}
+		}
+		label.staff_title_text {
+			font-size: 1.1rem;
+		}
+		.staff_first .form-label {
+			font-size: 1.1rem;
+			font-weight: 500;
+		}
+		.staff_first .form-control {
+			color: #707070;
+			font-size: 1.1rem;
+			height: 35px;
+		}
+		.re_select {
+			.css-yk16xz-control {
+				min-height: 35px;
+			}
+		
+			.css-1pahdxg-control {
+				min-height: 35px;
+			}
+			.css-1wa3eu0-placeholder {
+				font-size: 1.1rem;
+			}
+			.css-1uccc91-singleValue {
+				color: #707070;
+				font-size: 1.1rem;
+			}
+			.css-b8ldur-Input {
+				input:focus {
+					font-size: 1.1rem;
+				}
+			}
+		}
+		.staff_second {
+			.add_setting {
+				font-size: 12px;
+			}
+			.busi_cus.ser_tme {
+				.MuiTypography-root {
+					font-size: 1.1rem;
+					font-weight: 500;
+					color: #707070;
+				}
+				.MuiIconButton-root.Mui-checked {
+					color: #0089FF;
+				}
+				.MuiIconButton-root.Mui-checked + span.MuiTypography-root {
+					color: #0089FF;
+				}
 			}
 		}
 	}
