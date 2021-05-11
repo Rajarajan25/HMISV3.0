@@ -1765,3 +1765,51 @@
         }
     }
   }
+
+.workspace {
+    .logo-tb {
+        background: #fff;
+        width: 80px;
+        height: 80px;
+        line-height: 70px;
+        text-align: center;
+        border-radius: 50%;
+    }
+    .workspace-con {
+        width: 100%;
+        max-width: 800px;
+        h1 {
+            color: #343434;
+            font-size: 30px;
+            font-weight: 500;
+        }
+        .input-contain {
+            width: 100%; 
+            height: 50px;
+            margin-top: 40px;
+            input {
+                width: 100%;
+                background-color: transparent;
+                border: 0;
+                border-bottom: 1px solid #707070;
+                height: 60px;
+                color: #343434;
+                font-size: 36px;
+                padding: 10px 0;
+            }
+        }
+        .space-btn {
+            margin-top: 70px;
+            .btn{
+                background: #1D6AFF;
+                border-radius: 5px;
+                color: #fff;
+                min-width: 160px;
+                height: 60px;
+                font-size: 20px;
+                font-weight: 500;
+            }
+
+        }
+    }	
+}

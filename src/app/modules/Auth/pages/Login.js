@@ -332,6 +332,15 @@ function Login(props) {
                       >
                         Reset Password
                       </Link>
+                      <div className="text-center mb-0 mb-xl-5 mb-lg-5 mb-md-5 flex-column-auto justify-content-center py-5">
+                          <Link
+                            to="/auth/workspace1"
+                            className="font-weight-bold ml-2 createAccountlink"
+                            id="kt_login_signup"
+                          >
+                           Workspace1
+                          </Link>
+                        </div>
                         {/*end::Content header*/}
                       </div>
                   </form>

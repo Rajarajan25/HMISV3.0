@@ -13,7 +13,7 @@ export default function MailVerification() {
           src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
         />
       </Link>
-      <span className="mob_title d-lg-none d-xl-none d-md-none d-inline-block mt-0">Gopi</span>
+      <span className="mob_title d-lg-none d-xl-none d-md-none d-inline-block mt-0">Email Verification</span>
     </div>
     <div className="d-flex w-100 loginMaincontent shadow min-heis" >
       <div className="login-aside d-none d-xl-flex d-lg-flex flex-2 bgi-size-cover bgi-no-repeat bg-white col-5 order-0 rounded-left">
