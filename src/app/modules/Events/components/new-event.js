@@ -7,6 +7,7 @@ import { EventTab } from "./event-tab";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import Drawer from '@material-ui/core/Drawer';
 
+
 const useStyles = makeStyles({
   list: {
     width: 650,
@@ -41,9 +42,9 @@ export class NewEvent extends React.Component {
     return (
       <>
 
-        <EventDrawer />
+        
 
-        <Button variant="primary" className="d-none" onClick={this.handleShow}>
+        <Button variant="primary" onClick={this.handleShow}>
           New Event
         </Button>
         
@@ -112,6 +113,11 @@ export class NewEvent extends React.Component {
             </div>
           </Modal.Body>
         </Modal>
+
+        <div className="mt-10">
+          <EventDrawer />
+        </div>
+        
       </>
     );
   }
@@ -189,7 +195,7 @@ const toggleDrawerClose = () => {
 };
   return (
       <div className="clearfix">
-        <span><Link to="#" onClick={toggleDrawer('right', true)}>New Event</Link></span>
+        <span><Link to="#" className="btn btn-primary" onClick={toggleDrawer('right', true)}>New Event</Link></span>
         <Drawer className="patientProfileinfo EventDrawer eventIfo StaffInfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
           <div className="p-0 overflow-auto">
             <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}>
@@ -200,6 +206,7 @@ const toggleDrawerClose = () => {
             <EventTab />
           </div>
         </Drawer>
+        
       </div>
     );
 }
