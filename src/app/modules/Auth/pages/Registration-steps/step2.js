@@ -85,11 +85,6 @@ export default function Step2(props) {
             : [ ...check, value ]; // add item
     setChecked(seletedItem);
   };
-  const getActiveImg = (id) => {
-    if(!isCategory) return"";
-    const found = check.find(value =>value===id);
-    return found?"active":"";
-  }
   const getActive = (id) => {
     if(!isCategory) return;
     return !!check.find(value =>value===id);

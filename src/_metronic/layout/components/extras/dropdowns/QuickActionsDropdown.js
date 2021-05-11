@@ -136,7 +136,7 @@ export function QuickActionsDropdown() {
                       ></SVG>
                     </span>
                     <span className="d-block text-dark-75 font-weight-bold font-size-h6 mt-2 mb-1">
-                      Project
+                      Projects
                     </span>
                     <span className="d-block text-dark-50 font-size-lg">
                       Pending Tasks

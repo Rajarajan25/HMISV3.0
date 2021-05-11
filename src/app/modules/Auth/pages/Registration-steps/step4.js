@@ -1,12 +1,11 @@
 import React, { useContext, useState } from 'react';
-import { Link } from "react-router-dom";
 import TimezoneSelect from 'react-timezone-select'
 import { BusinessContext } from '../BusinessContext';
 import { gql, useMutation } from "@apollo/client";
 import { Formik, Field } from 'formik';
 import 'date-fns';
 import DateFnsUtils from '@date-io/date-fns';
-import { TimePicker,KeyboardTimePicker } from 'formik-material-ui-pickers';
+import { TimePicker } from 'formik-material-ui-pickers';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import { DevConsoleLog } from '../../../../SiteUtill';
 
@@ -153,7 +152,7 @@ export default function Step4(props) {
                 timing=[...timing,rItem]
               }
             });
-
+            enableLoading();
             localStorage.setItem("SelectedTimezone", selectedTimezone.label)
             updateBusiness({
               variables: {
@@ -168,7 +167,7 @@ export default function Step4(props) {
             }).then(res => {
                 console.log(res.data.updateBusiness);
                 handleNext();
-                //let business_id=res.data.addBusiness._id
+                disableLoading();
                 //localStorage.setItem("Business_id",business_id)
                 setBusiness({
                   type: "SET_CURRENT_BUSINESS",
@@ -226,6 +225,7 @@ export default function Step4(props) {
                 <div className="form-group  flex-wrap flex-center">
                   <button type="submit" className="btn btn-primary sign-btn h-77 font-weight-500 mt-6" >
                     <span>Next</span>
+                    {loading && <span className="ml-3 spinner spinner-white"></span>}
                   </button>
                 </div>
               </div>

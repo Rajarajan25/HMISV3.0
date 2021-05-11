@@ -24,7 +24,7 @@ export function QuickUserToggler() {
       {layoutProps.offcanvas && (
         <OverlayTrigger
           placement="right"
-          overlay={<Tooltip id="quick-user-tooltip">User Profile</Tooltip>}
+          overlay={<Tooltip id="quick-user-tooltip" className="tool_bg">User Profile</Tooltip>}
         >
           <div
             className="d-flex flex-column text-center w-100 leftMenuuserprofileicon"

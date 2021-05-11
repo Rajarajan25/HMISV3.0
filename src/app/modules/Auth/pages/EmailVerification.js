@@ -15,6 +15,7 @@ export default function EmailVerification() {
   const [loading, setLoading] = useState(false);
   const [isRequested, setIsRequested] = useState(false);
   const [message, setMessage] = useState(false);
+  
   const enableLoading = () => {
     setLoading(true);
   };

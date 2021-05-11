@@ -1034,14 +1034,10 @@
     text-align: center;
     position: relative;
     &::before {
+        content: url(/media/auth-screen/date_tick.svg);
         position: absolute;
         top: -10px;
         right: -5px;
-    }
-}
-.date_bx_select {
-    &::before {
-        content: url(/media/auth-screen/date_tick.svg);
     }
 }
 .sun_d {
@@ -1338,6 +1334,22 @@
     z-index: 2;
     position: relative;
 }
+.MuiTypography-body1 {
+    font-family: inherit;
+}
+.mail_con {
+    h3 {
+        color: #22D678;
+        img {
+            width: 30px;
+        }
+    }
+    p {
+        color: #777777;
+        font-style: italic;
+    }
+}
+
 // Desktop and Mobile mode
 @media (min-width: 1200px) and (max-width: 1600px){
     .login.login-1 {

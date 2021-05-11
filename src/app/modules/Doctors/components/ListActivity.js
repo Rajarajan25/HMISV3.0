@@ -1,21 +1,11 @@
-import React, { useState } from "react";
-import { useFormik } from "formik";
-import { BrowserRouter as Router, Switch, Route,Link } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { Dropdown } from "react-bootstrap";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import {DropdownItemToggler} from "../../../../_metronic/_partials/dropdowns";
 import { makeStyles } from '@material-ui/core/styles';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import Input from '@material-ui/core/Input';
 import Drawer from '@material-ui/core/Drawer';
-import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
-import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { StaffDetailsTab } from "./staff-details-tab";
 
 const useStyles = makeStyles({
@@ -26,9 +16,6 @@ const useStyles = makeStyles({
     width: 'auto',
   },
 });
-
-
-
 
 
 export function ListActivity01() {  
@@ -44,13 +31,6 @@ const styles = {
     background: 'transparent'
   }
 };
-const [toggleValueservice, setToggleValueservice] = useState(false);
-
-const toggleHandlerservice = () => {
-  setToggleValueservice(!toggleValueservice);
-};
-
-
 
 const toggleDrawer = (side, open) => event => {
   if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -63,59 +43,30 @@ const toggleDrawerClose = () => {
   setState(false);
 };
   return (
-    <Accordion className="contentAreaouter w-100">
-    <div className="contentAreaouter w-100"> 
+    <div className="contentAreaouter"> 
         <div className="add-staff">
           <Link to="#" onClick={toggleDrawer('right', true)}><img src={toAbsoluteUrl("/media/patients/add_staff.svg")} alt="" className="d-block rounded-circle" /></Link>
         </div>
-      <Drawer className="patientProfileinfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
-        <div className="py-5 px-10 overflow-auto">
-          <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}><span className="my-auto font-weight-500">X</span></Link>
+      <Drawer className="patientProfileinfo StaffInfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
+        <div className="p-0 overflow-auto">
+          <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}>
+            <span className="my-auto font-weight-500">
+              <img src={toAbsoluteUrl("/media/patients/drawer_close.svg")} alt="" className="d-block" />
+            </span>
+          </Link>
           <StaffDetails />
         </div>
       </Drawer>
-    
-          <AccordionSummary className=" heading w-100" >
-           
-            <div
-           style={{  cursor: "pointer" }}
-          className=" w-100"
-          
-        >
-          {toggleValueservice ? <div className="contentArea d-block">  <div className="topHeadercontent d-flex"><div className="toggleLefticon LefticonBG11">
-                <Link to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor11 customProfileBG11" onClick={() => toggleHandlerservice()}>
-                  <i className="fa fa-plus text-white"></i>
-                </Link>
-                </div>
-                <ul className="list-inline w-100 row">
-                  <li className="col-lg-3">
-                    <span className="headingHighlight customProfileBG11 text-white">Service Provider</span>
-                    <span className="tasklistCount">1 Staff</span>
-                  </li>
-                  <li className="col-lg-1"><span className="title_drag">Experience</span></li>
-                  <li className="col-lg-1"><span className="title_drag">Services</span></li>
-                  <li className="col-lg-1"><span className="title_drag">Status</span></li>
-                  <li className="col-lg-1"><span className="title_drag">Sex</span></li>
-                  <li className="col-lg-1"><span className="title_drag">Availability</span></li>
-                  <li className="col-lg-2"><span className="title_drag">Email</span></li>
-                  <li className="col-lg-2 position-relative">
-                    <span className="title_drag">Phone</span> 
-                    <span className="addMultiplecolumn rounded-circle bg-grey"><i className="fa fa-plus fa-sm"></i></span>
-                  </li>
-                </ul>
-                
-                
-                </div></div>: 
-                <div className="contentArea d-block">
+            <div className="contentArea">
               <div className="topHeadercontent d-flex">
                 <div className="toggleLefticon LefticonBG11">
-                  <Link  to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor11 customProfileBG11" onClick={() => toggleHandlerservice()}>
+                  <Link  to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor11 customProfileBG11">
                     <i className="fa fa-minus text-white"></i>
                   </Link>                   
                 </div>
                 <ul className="list-inline w-100 row">
                   <li className="col-lg-3">
-                    <span className="headingHighlight customProfileBG11 text-white">Service Provider</span>
+                    <span className="headingHighlight customProfileBG11 text-white">Service Provider<a class="ml-3"><i class="fa fa-pen"></i></a></span>
                     <span className="tasklistCount">1 Staff</span>
                   </li>
                   <li className="col-lg-1"><span className="title_drag">Experience</span></li>
@@ -443,107 +394,26 @@ const toggleDrawerClose = () => {
                   </div>    
                 </div>                 
               </div>
-            </div>}
-       
-              
-              </div>
-           
-
-          </AccordionSummary>
-        
-       
+            </div>
           </div>
-          </Accordion>
               
   );
 }
 
 export function ListActivity02() {  
-  const classes = useStyles();
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  });
-  const styles = {
-    BackdropProps: {
-      background: 'transparent'
-    }
-  };
 
-  const [toggleValuestaff, setToggleValuestaff] = useState(false);
-  
-  const toggleHandlerstaff = () => {
-    setToggleValuestaff(!toggleValuestaff);
-  };
- 
-  
-  const toggleDrawer = (side, open) => event => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
-    setState({ ...state, [side]: open });
-  };
-  
-  const toggleDrawerClose = () => {
-    setState(false);
-  };
   return (
-
-    <Accordion className="contentAreaouter w-100">
-    <div className="contentAreaouter w-100"> 
-        <div className="add-staff">
-          <Link to="#" onClick={toggleDrawer('right', true)}><img src={toAbsoluteUrl("/media/patients/add_staff.svg")} alt="" className="d-block rounded-circle" /></Link>
-        </div>
-      <Drawer className="patientProfileinfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
-        <div className="py-5 px-10 overflow-auto">
-          <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}><span className="my-auto font-weight-500">X</span></Link>
-          <StaffDetails />
-        </div>
-      </Drawer>
-    
-          <AccordionSummary className=" heading w-100">
-           
-            <div
-           style={{  cursor: "pointer" }}
-          className=" w-100"
-        
-        >
-          {toggleValuestaff ? <div className="contentArea d-block">  <div className="topHeadercontent d-flex"><div className="toggleLefticon LefticonBG12">
-                <Link to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor12 customProfileBG12"   onClick={() => toggleHandlerstaff()}>
-                  <i className="fa fa-plus text-white"></i>
-                </Link>
-                </div>
-                <ul className="list-inline w-100 row">
-                  <li className="col-lg-3">
-                    <span className="headingHighlight customProfileBG12 text-white">Staff</span>
-                    <span className="tasklistCount">1 Staff</span>
-                  </li>
-                  <li className="col-lg-1"><span className="title_drag">Experience</span></li>
-                  <li className="col-lg-1"><span className="title_drag">Services</span></li>
-                  <li className="col-lg-1"><span className="title_drag">Status</span></li>
-                  <li className="col-lg-1"><span className="title_drag">Sex</span></li>
-                  <li className="col-lg-1"><span className="title_drag">Availability</span></li>
-                  <li className="col-lg-2"><span className="title_drag">Email</span></li>
-                  <li className="col-lg-2 position-relative">
-                    <span className="title_drag">Phone</span> 
-                    <span className="addMultiplecolumn rounded-circle bg-grey"><i className="fa fa-plus fa-sm"></i></span>
-                  </li>
-                </ul>
-                
-                
-                </div></div>   :        
-        <div className="contentArea d-block">
-        <div className="topHeadercontent d-flex">
+    <div className="contentAreaouter">                  
+      <div className="contentArea">
+          <div className="topHeadercontent d-flex">
             <div className="toggleLefticon LefticonBG12">
-              <Link  to="javascript:void(0)" data-toggle="collapse" data-target="#staffmanagement" className="borderColor12 customProfileBG12"   onClick={() => toggleHandlerstaff()}>
+              <Link  to="javascript:void(0)" data-toggle="collapse" data-target="#staffmanagement" className="borderColor12 customProfileBG12">
                 <i className="fa fa-minus text-white"></i>
               </Link >                    
             </div>
             <ul className="list-inline w-100 row">
               <li className="col-lg-3">
-                <span className="headingHighlight customProfileBG12 text-white">Staff</span>
+                <span className="headingHighlight customProfileBG12 text-white">Staff <a class="ml-3"><i class="fa fa-pen"></i></a></span>
                 <span className="tasklistCount">1 Staff</span>
               </li>
               <li className="col-lg-1"><span className="title_drag">Experience</span></li>
@@ -729,109 +599,26 @@ export function ListActivity02() {
               </div>    
             </div>                 
           </div>
-          </div>
-        }
-       
-              
-       </div>
-    
-
-   </AccordionSummary>
- 
-
-   </div>
-   </Accordion>
+        </div>   
+    </div>
   );
 }
 
 export function ListActivity03() {  
-  const classes = useStyles();
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  });
-  const styles = {
-    BackdropProps: {
-      background: 'transparent'
-    }
-  };
 
-  const [toggleValueadmin, setToggleValueadmin] = useState(false);
-  
-  const toggleHandleradmin = () => {
-    setToggleValueadmin(!toggleValueadmin);
-  };
- 
-  
-  const toggleDrawer = (side, open) => event => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
-    setState({ ...state, [side]: open });
-  };
-  
-  const toggleDrawerClose = () => {
-    setState(false);
-  };
   return (
-
-    <Accordion className="contentAreaouter w-100">
-    <div className="contentAreaouter w-100"> 
-        <div className="add-staff">
-          <Link to="#" onClick={toggleDrawer('right', true)}><img src={toAbsoluteUrl("/media/patients/add_staff.svg")} alt="" className="d-block rounded-circle" /></Link>
-        </div>
-      <Drawer className="patientProfileinfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
-        <div className="py-5 px-10 overflow-auto">
-          <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}><span className="my-auto font-weight-500">X</span></Link>
-          <StaffDetails />
-        </div>
-      </Drawer>
     
-          <AccordionSummary className=" heading w-100">
-           
-            <div
-           style={{  cursor: "pointer" }}
-          className=" w-100"
-          
-        >
-          {toggleValueadmin ? <div className="contentArea d-block">  <div className="topHeadercontent d-flex"><div className="toggleLefticon LefticonBG13">
-                <Link to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor13 customProfileBG13" onClick={() => toggleHandleradmin()}>
-                  <i className="fa fa-plus text-white"></i>
-                </Link>
-                </div>
-                <ul className="list-inline w-100 row">
-                  <li className="col-lg-3">
-                    <span className="headingHighlight customProfileBG13 text-white">Admin</span>
-                    <span className="tasklistCount">1 Staff</span>
-                  </li>
-                  <li className="col-lg-1"><span className="title_drag">Experience</span></li>
-                  <li className="col-lg-1"><span className="title_drag">Services</span></li>
-                  <li className="col-lg-1"><span className="title_drag">Status</span></li>
-                  <li className="col-lg-1"><span className="title_drag">Sex</span></li>
-                  <li className="col-lg-1"><span className="title_drag">Availability</span></li>
-                  <li className="col-lg-2"><span className="title_drag">Email</span></li>
-                  <li className="col-lg-2 position-relative">
-                    <span className="title_drag">Phone</span> 
-                    <span className="addMultiplecolumn rounded-circle bg-grey"><i className="fa fa-plus fa-sm"></i></span>
-                  </li>
-                </ul>
-                
-                
-                </div></div>   :        
-        <div className="contentArea d-block">
-               
-    
-               <div className="topHeadercontent d-flex">
+    <div className="contentAreaouter">                  
+      <div className="contentArea">
+          <div className="topHeadercontent d-flex">
             <div className="toggleLefticon LefticonBG13">
-              <Link  to="javascript:void(0)" data-toggle="collapse" data-target="#staffmanagement" className="borderColor13 customProfileBG13" onClick={() => toggleHandleradmin()}>
+              <Link  to="javascript:void(0)" data-toggle="collapse" data-target="#staffmanagement" className="borderColor13 customProfileBG13">
                 <i className="fa fa-minus text-white"></i>
               </Link >                    
             </div>
             <ul className="list-inline w-100 row">
               <li className="col-lg-3">
-                <span className="headingHighlight customProfileBG13 text-white">Admin</span>
+                <span className="headingHighlight customProfileBG13 text-white">Admin <a class="ml-3"><i class="fa fa-pen"></i></a></span>
                 <span className="tasklistCount">1 Staff</span>
               </li>
               <li className="col-lg-1"><span className="title_drag">Experience</span></li>
@@ -1507,111 +1294,26 @@ export function ListActivity03() {
             </div>                 
           </div>
         </div>   
-   
- }
-       
-              
- </div>
+    </div>
 
-
-</AccordionSummary>
-
-
-</div>
-</Accordion>
   );
 }
 
 
 export function ListActivity04() {  
 
-  const classes = useStyles();
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  });
-  const styles = {
-    BackdropProps: {
-      background: 'transparent'
-    }
-  };
-
-  const [toggleValuereceptionist, setToggleValuereceptionist] = useState(false);
-  
-  const toggleHandlerreceptionist = () => {
-    setToggleValuereceptionist(!toggleValuereceptionist);
-  };
- 
-  
-  const toggleDrawer = (side, open) => event => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
-    setState({ ...state, [side]: open });
-  };
-  
-  const toggleDrawerClose = () => {
-    setState(false);
-  };
   return (
-
-    <Accordion className="contentAreaouter w-100">
-    <div className="contentAreaouter w-100"> 
-        <div className="add-staff">
-          <Link to="#" onClick={toggleDrawer('right', true)}><img src={toAbsoluteUrl("/media/patients/add_staff.svg")} alt="" className="d-block rounded-circle" /></Link>
-        </div>
-      <Drawer className="patientProfileinfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
-        <div className="py-5 px-10 overflow-auto">
-          <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}><span className="my-auto font-weight-500">X</span></Link>
-          <StaffDetails />
-        </div>
-      </Drawer>
-    
-          <AccordionSummary className=" heading w-100">
-           
-            <div
-           style={{  cursor: "pointer" }}
-          className=" w-100"
-         
-        >
-          {toggleValuereceptionist ? <div className="contentArea d-block">  <div className="topHeadercontent d-flex"><div className="toggleLefticon LefticonBG14">
-                <Link to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor14 customProfileBG14"  onClick={() => toggleHandlerreceptionist()}>
-                  <i className="fa fa-plus text-white"></i>
-                </Link>
-                
-                </div>
-                <ul className="list-inline w-100 row">
-                  <li className="col-lg-3" onClick={() => toggleHandlerreceptionist()}>
-                    <span className="headingHighlight customProfileBG14 text-white">Receptionist</span>
-                    <span className="tasklistCount">1 Staff</span>
-                  </li>
-                  <li className="col-lg-1"><span className="title_drag">Experience</span></li>
-                  <li className="col-lg-1"><span className="title_drag">Services</span></li>
-                  <li className="col-lg-1"><span className="title_drag">Status</span></li>
-                  <li className="col-lg-1"><span className="title_drag">Sex</span></li>
-                  <li className="col-lg-1"><span className="title_drag">Availability</span></li>
-                  <li className="col-lg-2"><span className="title_drag">Email</span></li>
-                  <li className="col-lg-2 position-relative">
-                    <span className="title_drag">Phone</span> 
-                    <span className="addMultiplecolumn rounded-circle bg-grey"><i className="fa fa-plus fa-sm"></i></span>
-                  </li>
-                </ul>
-                
-                
-                </div></div>   :        
-        <div className="contentArea d-block">
-        
+    <div className="contentAreaouter">                  
+      <div className="contentArea">
           <div className="topHeadercontent d-flex">
             <div className="toggleLefticon LefticonBG14">
-              <Link  to="javascript:void(0)" data-toggle="collapse" data-target="#staffmanagement" className="borderColor14 customProfileBG14"  onClick={() => toggleHandlerreceptionist()}>
+              <Link  to="javascript:void(0)" data-toggle="collapse" data-target="#staffmanagement" className="borderColor14 customProfileBG14">
                 <i className="fa fa-minus text-white"></i>
               </Link >                    
             </div>
             <ul className="list-inline w-100 row">
-              <li className="col-lg-3" onClick={() => toggleHandlerreceptionist()}>
-                <span className="headingHighlight customProfileBG14 text-white">Receptionist</span>
+              <li className="col-lg-3">
+                <span className="headingHighlight customProfileBG14 text-white">Receptionist <a class="ml-3"><i class="fa fa-pen"></i></a></span>
                 <span className="tasklistCount">1 Staff</span>
               </li>
               <li className="col-lg-1"><span className="title_drag">Experience</span></li>
@@ -1817,22 +1519,10 @@ export function ListActivity04() {
             </div>                 
           </div>
         </div>  
-  }
-       
-              
-  </div>
- 
- 
- </AccordionSummary>
- 
- 
- </div>
- </Accordion>
-   );
- }
+    </div>
 
-  
-
+  );
+}
 
 export function ColorDropdownMenu() {
   return <>

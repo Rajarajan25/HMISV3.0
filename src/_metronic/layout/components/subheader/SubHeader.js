@@ -6,7 +6,6 @@ import SVG from "react-inlinesvg";
 import { toAbsoluteUrl } from "../../../_helpers";
 import { QuickActions } from "./components/QuickActions";
 import { BreadCrumbs } from "./components/BreadCrumbs";
-
 import Warper from "./Warper";
 
 import {
@@ -14,12 +13,6 @@ import {
   useSubheader,
 } from "../../_core/MetronicSubheader";
 import { useHtmlClassService } from "../../_core/MetronicLayout";
-
-
-const contentStyle = {
-  maxWidth: "600px",
-  width: "90%"
-};
 
 function  SubHeader(){
   const uiService = useHtmlClassService();

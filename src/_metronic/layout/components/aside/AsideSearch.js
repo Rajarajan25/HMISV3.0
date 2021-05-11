@@ -44,7 +44,7 @@ export function AsideSearch({ isActive }) {
               <OverlayTrigger
                 placement="left"
                 overlay={
-                  <Tooltip id="quick-search-tooltip">Quick search</Tooltip>
+                  <Tooltip id="quick-search-tooltip" className="tool_bg">Quick search</Tooltip>
                 }
               >
                 <a
@@ -68,7 +68,7 @@ export function AsideSearch({ isActive }) {
       </form>
       {/* end::Form */}
 
-      <h3 className="p-2 p-lg-3 my-1 my-lg-3">Project</h3>
+      <h3 className="p-2 p-lg-3 my-1 my-lg-3">Projects</h3>
 
       {/* begin::List */}
 

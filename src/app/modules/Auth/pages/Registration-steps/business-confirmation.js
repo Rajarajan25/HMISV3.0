@@ -16,7 +16,7 @@ export default function BusinessConfirmatoin() {
   let business_id=localStorage.getItem("Business_id")
   if(data!== undefined)
   {
-     currentUser= data.getUser.find(user => user._id==business_id);
+     currentUser= data.getUser.find(user => user._id===business_id);
   }
        
   const handleClick = () => {

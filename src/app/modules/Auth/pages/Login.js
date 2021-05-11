@@ -9,7 +9,6 @@ import { FormattedMessage, injectIntl } from "react-intl";
 import * as auth from "../_redux/authRedux";
 import { gql, useMutation } from "@apollo/client";
 import { DevConsoleLog } from "../../../SiteUtill";
-import jwt_decode from "jwt-decode";
 
 /*
   INTL (i18n) docs:

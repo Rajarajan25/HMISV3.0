@@ -173,7 +173,7 @@ export function SearchDropdown() {
           <Dropdown.Toggle as={DropdownItemToggler}>
             <OverlayTrigger
               placement="bottom"
-              overlay={<Tooltip id="search-panel-tooltip">Quick search</Tooltip>}
+              overlay={<Tooltip id="search-panel-tooltip" className="tool_bg">Quick search</Tooltip>}
             >
               <div className="btn btn-icon btn-hover-transparent-white btn-lg btn-dropdown mr-1">
                 <span className="svg-icon svg-icon-xl">

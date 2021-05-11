@@ -232,7 +232,7 @@ export function PatientBasicDetails(){
           </Row>
         </div>
       </div>
-      <div className="d-flex w-100 flex-column mt-10">
+      <div className="d-flex w-100 flex-column mt-8">
         <div className="d-flex font-size-16 mb-3 font_weight_bold">
           <span>Patient Summary</span>       
         </div>
@@ -264,7 +264,11 @@ export function PatientBasicDetails(){
         <button type="button" className="btn btn-primary" onClick={toggleDrawer('right', true)}>Book Appointment</button>
         <Drawer className="patientProfileinfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
           <div className="py-5 px-10 overflow-auto">
-            <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}><span className="my-auto font-weight-500">X</span></Link>
+            <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}>
+              <span className="my-auto font-weight-500">
+                <img src={toAbsoluteUrl("/media/patients/drawer_close.svg")} alt="" className="d-block" />
+              </span>  
+            </Link>
             <BookDetail />
           </div>
         </Drawer>

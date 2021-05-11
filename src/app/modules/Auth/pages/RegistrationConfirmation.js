@@ -20,7 +20,7 @@ export default function RegistrationConfirmation() {
   const {data} =useQuery(GET_USER)
   let user_id=localStorage.getItem("UserId");
   let currentUser=[];
-  if(data!=undefined)
+  if(data!==undefined)
   {
     currentUser= data.getUser.find(user => user._id === user_id);
   }

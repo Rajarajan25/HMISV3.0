@@ -1,6 +1,5 @@
 import React from "react";
-import { Redirect, BrowserRouter as  Router, Switch, Route, Link } from "react-router-dom";
-import { toAbsoluteUrl } from "../../../_metronic/_helpers";
+import { Redirect, Switch, Route } from "react-router-dom";
 import { useSubheader } from "../../../_metronic/layout";
 import AccountInformation from "./AccountInformation";
 import { ProfileOverview } from "./ProfileOverview";

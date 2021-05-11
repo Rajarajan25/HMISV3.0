@@ -45,7 +45,7 @@ export default function Signup() {
   const [addUser] = useMutation(ADD_USER);
   const [addPassword] = useMutation(ADD_PASSWORD);
   const [updatePassword] = useMutation(UPDATE_PASSWORD);
-  const [user, setUser] = useContext(UserContext);
+  const [setUser] = useContext(UserContext);
   const [loading, setLoading] = useState(false);
   const [passwordShown, setPasswordShown] = useState(true);
 

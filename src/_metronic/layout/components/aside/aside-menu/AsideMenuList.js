@@ -40,7 +40,7 @@ export function AsideMenuList({ layoutProps }) {
             <span className="svg-icon menu-icon">
               <SVG src={toAbsoluteUrl("/media/svg/icons/Home/Library.svg")} />
             </span>
-            <span className="menu-text">Schedular</span>
+            <span className="menu-text">Layout Builder</span>
           </NavLink>
         </li>
         {/*end::1 Level*/}

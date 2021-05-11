@@ -19,6 +19,11 @@ const ServiceProvider = lazy(() =>
   import("./modules/Patients/Service-provider")
 );
 
+const EventDetails = lazy(() =>
+  import("./modules/Events/event-details")
+);
+
+
 export default function BasePage() {
   return (
     <Suspense fallback={<LayoutSplashScreen visible={false} />}>
@@ -34,6 +39,7 @@ export default function BasePage() {
         <Route path="/manage/staff-management" component={StaffPage} />
         <Route path="/manage/patients-details" component={PatientDetailspage} />
         <Route path="/manage/service-provider" component={ServiceProvider} />
+        <Route path="/manage/event-details" component={EventDetails} />
         <Redirect to="error/error-v1" />
       </Switch>
     </Suspense>

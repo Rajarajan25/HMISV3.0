@@ -9,24 +9,13 @@ export default function ServiceProvider() {
   const suhbeader = useSubheader();
   suhbeader.setTitle("Services");
   return (
-    <div className="pat_list">
-      <div className="d-block">
-        <div className="d-flex flex-row">
-          <Filter></Filter>
-        </div>
-        <div className="d-block mt-lg-5">
-          <div className="d-flex flex-column flex-xl-row">
-            <div className="col">
-              <ServiceProviderHeader />
-            </div>
-          </div>
-        </div>
-        <div className="d-block mt-lg-7">
-          <div className="d-flex flex-column flex-xl-row">
-            <div className="col">
-              <ServiceProviderContainer />
-            </div>
-          </div>
+    <div className="d-block">
+      <div className="d-flex flex-row">        
+        <Filter></Filter>
+      </div>
+      <div className="d-flex flex-column mt-1"> 
+        <div className="contentSection collapse show w-100" id="holepageToggle">
+          <ServiceProviderContainer />
         </div>
       </div>
     </div>

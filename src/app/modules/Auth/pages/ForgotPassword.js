@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { connect } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { gql, useMutation } from "@apollo/client";
 import * as Yup from "yup";
 import { Formik, Field, Form } from "formik";
@@ -75,7 +75,7 @@ function ForgotPassword(props) {
               >
                 {/* begin::Head */}
                 <div className="text-left mb-7 d-none">
-                  <h1 className="font-size-30 color_01234B font-weight-600 mb-5"></h1>
+                  <h1 className="font-size-30 color_01234B font-weight-600 mb-5">{""}</h1>
                   <p className="font-size-14 text-muted font-weight-normal">
                     Log in mow to access the latest insights Experience for your
                     social media performance.

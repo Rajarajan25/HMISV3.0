@@ -34,7 +34,7 @@ export function AsideSubMenuList({ layoutProps }) {
               <OverlayTrigger
                 placement="left"
                 overlay={
-                  <Tooltip id="quick-search-tooltip">Quick search</Tooltip>
+                  <Tooltip id="quick-search-tooltip" className="tool_bg">Quick search</Tooltip>
                 }
               >
                 <a
@@ -187,7 +187,7 @@ export function AsideSubMenuList({ layoutProps }) {
                   <i className="menu-bullet menu-bullet-dot">
                     <span />
                   </i>
-                  <span className="menu-text">Patients</span>
+                  <span className="menu-text">Customers</span>
                 </NavLink>
               </li>
               {/*end::2 Level*/}
@@ -209,38 +209,17 @@ export function AsideSubMenuList({ layoutProps }) {
                   <span className="menu-text">Service</span>
                 </NavLink>
               </li>
-
-
-
-              {/*begin::3 Level*/}
-              <li
-                className={`menu-item ${getMenuItemActive(
-                  "/available-patients/profile-overview"
-                )}`}
-                aria-haspopup="true"
-              >
-                <NavLink
-                  className="menu-link"
-                  to="/available-patients/profile-overview"
-                >
-                  <i className="menu-bullet menu-bullet-dot">
-                    <span />
-                  </i>
-                  <span className="menu-text">Customers</span>
-                </NavLink>
-              </li>
-              {/*end::3 Level*/}
-
+           
               {/*begin::4 Level*/}
               <li
                 className={`menu-item ${getMenuItemActive(
-                  "/available-patients/profile-overview"
+                  "/manage/event-details"
                 )}`}
                 aria-haspopup="true"
               >
                 <NavLink
                   className="menu-link"
-                  to="/available-patients/profile-overview"
+                  to="/manage/event-details"
                 >
                   <i className="menu-bullet menu-bullet-dot">
                     <span />
