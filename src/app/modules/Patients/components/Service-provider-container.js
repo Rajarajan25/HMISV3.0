@@ -33,7 +33,11 @@ export default function ServiceProviderContainer() {
       const items = Array.from(services);
       const [reorderedItem] = items.splice(result.source.index, 1);
       items.splice(result.destination.index, 0, reorderedItem);
-      service.listService=items;
+      //service.listService=items;
+      setservice({
+        type: "SETSTATE_SERVICE",
+        payload: items
+      });
     }
    const classes = useStyles();
    const [state, setState] = React.useState({
@@ -128,7 +132,7 @@ export default function ServiceProviderContainer() {
                   return (
                     <Draggable key={_id} draggableId={_id} index={index}>
                       {(provided) => (
-                        <div className="d-flex drag_sel drag_selected position-relative" ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}
+                        <div  ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}
                         selected={selectedIndex === _id} onClick={(event) => { onServiceclick(_id); handleListItemClick(event, _id) }} key={_id} button>
                           <ul className="list-inline w-100 row">
                                  <li className="col-lg-5 my-auto">

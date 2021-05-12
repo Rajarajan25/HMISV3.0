@@ -43,7 +43,9 @@ export default function BusinessTiming(props) {
         initialValues={{currentService}}
         enableReinitialize
         onSubmit={(values, { setSubmitting }) => {
-            values.timings.timing=businessHours;
+            //values.timings.timing=businessHours;
+            values.timings.availablity.data[0].availability_type="In-Person";
+            values.timings.availablity.data[0].session.data=businessHours;
           setservice({
             type: "EDIT_SERVICE",
             payload: values
@@ -133,7 +135,7 @@ export function SwitchLabels(value) {
 
 export function TimePickers(value) {
     // The first commit of Material-UI
-    const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
+    const [selectedDate, setSelectedDate] = React.useState(new Date());
     let values=value.value
     const handleDateChange = (date) => {
         setSelectedDate(date);
