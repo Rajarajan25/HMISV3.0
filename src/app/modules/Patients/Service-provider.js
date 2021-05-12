@@ -2,13 +2,14 @@ import React from "react";
 import { Redirect, BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Filter } from "./components/Filter";
 import ServiceProviderHeader from "./components/service-provider-header";
-import { ServiceProviderContainer } from "./components/Service-provider-container";
+import  ServiceProviderContainer  from "./components/Service-provider-container";
 import { useSubheader } from "../../../_metronic/layout";
-
+import {ServiceProviders} from './components/ServiceContext'
 export default function ServiceProvider() {
   const suhbeader = useSubheader();
   suhbeader.setTitle("Services");
   return (
+    <ServiceProviders>
     <div className="d-block">
       <div className="d-flex flex-row">        
         <Filter></Filter>
@@ -19,5 +20,7 @@ export default function ServiceProvider() {
         </div>
       </div>
     </div>
+    </ServiceProviders>
   );
+
 }

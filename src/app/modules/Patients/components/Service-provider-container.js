@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { Dropdown } from "react-bootstrap";
@@ -6,8 +6,12 @@ import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import {DropdownItemToggler} from "../../../../_metronic/_partials/dropdowns";
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
-
+import {ServiceContext} from './ServiceContext'
 import { ServiceDetailsTab } from "./service-details-tab";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import './App.css';
+import { Formik, Field } from 'formik';
+
 const useStyles = makeStyles({
    list: {
      width: 650,
@@ -17,8 +21,21 @@ const useStyles = makeStyles({
    },
  });
  
+ 
+export default function ServiceProviderContainer() { 
+   const [service,setservice]=React.useContext(ServiceContext);
+   const [selectedIndex, setSelectedIndex] = React.useState(0);
+   let services=service.listService;
+   const [fields, setFields] = useState();
 
-export function ServiceProviderContainer() { 
+   function handleOnDragEnd(result) {
+      if (!result.destination) return;
+  
+      const items = Array.from(services);
+      const [reorderedItem] = items.splice(result.source.index, 1);
+      items.splice(result.destination.index, 0, reorderedItem);
+      service.listService=items;
+    }
    const classes = useStyles();
    const [state, setState] = React.useState({
      top: false,
@@ -26,11 +43,31 @@ export function ServiceProviderContainer() {
      bottom: false,
      right: false,
    });
-   const styles = {
-     BackdropProps: {
-       background: 'transparent'
-     }
-   };
+
+   function handleAdd(type) {
+    const values = [];
+    values.push({ "type": type })
+    setFields(values);
+
+  }
+  function handleRemove() {
+    const values = [...fields];
+    values.splice(0, 1);
+    setFields(values);
+  }
+   const onServiceclick = (_id) => {
+    
+      let staffnew = service.listService.find(staff => staff._id === _id);
+      setservice({
+        type: "SET_CURRENT_SERVICE",
+        payload: staffnew
+      });
+    }
+   
+   
+    function handleListItemClick(event, index) {
+      setSelectedIndex(index);
+    }
    const toggleDrawer = (side, open) => event => {
      if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
        return;
@@ -41,6 +78,13 @@ export function ServiceProviderContainer() {
    const toggleDrawerClose = () => {
      setState(false);
    };
+   const AddService =(values)=>{
+     setservice({
+        type: "ADD_SERVICE",
+        payload: values
+      }); 
+      handleRemove();
+      }
       return (
          <div className="clearfix">
             <Drawer className="patientProfileinfo StaffInfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
@@ -77,8 +121,17 @@ export function ServiceProviderContainer() {
                      <div className="row">
                         <div className="col-lg-12">
                            <div className="topMiddlecontent">
-                              <div className="d-flex drag_sel drag_selected position-relative">
-                              <ul className="list-inline w-100 row">
+                           <DragDropContext onDragEnd={handleOnDragEnd}>
+          <Droppable droppableId="characters">
+            {(provided) => (
+              <ul  {...provided.droppableProps} ref={provided.innerRef}>
+                {service.listService.map(({_id, name, cost,service_type}, index) => {
+                  return (
+                    <Draggable key={_id} draggableId={_id} index={index}>
+                      {(provided) => (
+                        <div className="d-flex drag_sel drag_selected position-relative" ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}
+                        selected={selectedIndex === _id} onClick={(event) => { onServiceclick(_id); handleListItemClick(event, _id) }} key={_id} button>
+                          <ul className="list-inline w-100 row">
                                  <li className="col-lg-5 my-auto">
                                     <div className="userLogoicon align-content-center">
                                        <Dropdown drop="down" alignCenter className="dropdown h-100">
@@ -91,7 +144,7 @@ export function ServiceProviderContainer() {
                                        </Dropdown>
                                        <div className="">
                                           <div className="d-flex"> 
-                                             <span className="serv_title"><Link to="#" onClick={toggleDrawer('right', true)}>Health</Link></span>
+                                             <span className="serv_title"><Link to="#" onClick={toggleDrawer('right', true)}>{name}</Link></span>
                                              <Link to="#" className="edit_staff">
                                                 <OverlayTrigger 
                                                    placement="top"
@@ -114,7 +167,7 @@ export function ServiceProviderContainer() {
                                  <li className="col-lg-2 activeStatuscontent">
                                     <Dropdown drop="down" alignCenter className="dropdown h-100 w_130">
                                        <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                                       <span className="d-flex pointer h-100 align-items-center justify-content-center font_weight_medium">Private</span>
+                                       <span className="d-flex pointer h-100 align-items-center justify-content-center font_weight_medium">{service_type}</span>
                                        </Dropdown.Toggle>
                                        <Dropdown.Menu  className="dropdown-menu p-0 mt-1 drop_nav st_hover">
                                           <STypeDropdownMenu />
@@ -141,8 +194,8 @@ export function ServiceProviderContainer() {
                                  </li>
                                  <li className="col-lg-3 my-auto d-flex justify-content-center">
                                     <div className="d-flex border-left pl-8">
-                                       <span className="d-flex align-items-center font-size-13">Price</span>
-                                       <Link to="#" className="pay_amt">Rs. 200</Link>
+                                       <span className="d-flex align-items-center font-size-13">Cost</span>
+                                       <Link to="#" className="pay_amt">Rs. {cost}</Link>
                                     </div>
                                     <div className="avalib">
                                        <div className="d-flex justify-content-end">
@@ -177,8 +230,39 @@ export function ServiceProviderContainer() {
                                     </div>
                                  </li>
                               </ul>
-                           </div>
-                           <div className="d-flex drag_sel position-relative">
+                        </div>
+                      )}
+                    </Draggable>
+                  );
+                })}
+                {provided.placeholder}
+              </ul>
+            )}
+          </Droppable>
+        </DragDropContext>
+                             
+                        
+                           {fields!==undefined &&fields.map(value=>{
+                             return(
+                               <>
+<Formik
+    initialValues={{_id:'4',name:'',cost:'200',service_type:'Private',duration:'30 mins'}}
+    onSubmit={(values, { setSubmitting }) => {
+      AddService(values);
+    }}
+  >
+    {({
+      values,
+      errors,
+      touched,
+      handleChange,
+      handleBlur,
+      handleSubmit,
+      isSubmitting,
+    }) => (
+
+      <form onSubmit={handleSubmit}>
+                              <div className="d-flex drag_sel position-relative">
                               <ul className="list-inline w-100 row">
                                  <li className="col-lg-5 my-auto">
                                     <div className="userLogoicon align-content-center">
@@ -191,7 +275,7 @@ export function ServiceProviderContainer() {
                                           </Dropdown.Menu>
                                        </Dropdown>
                                        <div className="d-flex">
-                                          <input type="text" className="edit_name" name="" id="" placeholder="Anand" />  
+                                          <Field  type="text" className="edit_name" name="name" id="" placeholder="Anand" />  
                                        </div>
                                     </div>
                                  </li>
@@ -261,9 +345,16 @@ export function ServiceProviderContainer() {
                                     </div>
                                  </li>
                               </ul>
+                              <button type="submit" className="btn btn-primary btn-sm font-sm mx-1 saveNewtask" >SAVE</button>
                            </div>
+                           </form>
+                )}
+              </Formik>
+                           </>
+                             )
+                           })}
                         </div>
-                        <button type="button" className="customNewtaskBTN">+ New Staff</button>
+                        <button type="button" className="customNewtaskBTN" onClick={() => handleAdd("ENT")}>+ New Service</button>
                      </div>    
                   </div>                 
                </div>
