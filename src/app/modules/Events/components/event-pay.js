@@ -23,7 +23,7 @@ export function ContentEventPay() {
         <div className="busi_cus ser_tme mt-2 mb-4 clearfix">
           <SelectPrice />
         </div>
-        <div className="clearfix mt-10 mb-3">
+        <div className="clearfix mt-7 mb-3">
           <label className="staff_title_text m-0">Price Details *</label>
         </div>
         <div className="form-group">

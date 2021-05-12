@@ -17,7 +17,7 @@ export function ContentEventDetails() {
   return (
     <div className="clearfix">
       <div className="staff_first w-100">
-        <div className="form-group">
+        <div className="form-group d-none">
           <label class="form-label d-block">Type</label>
           <div className="d-flex mt-3">
             <div className="event-radio evn-type mr-3">
