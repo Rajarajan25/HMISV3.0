@@ -269,11 +269,11 @@ export function ServiceCost() {
       {value==="business"? <BusinessTiming service={currentService}/> : <CustomTiming service={currentService}/>}
               </div>
               
-              <div className="form-group mb-0">
+              {/* <div className="form-group mb-0">
                 <div className="d-flex justify-content-end patientButton pos_fix">
                   <button type="submit" className="btn btn-primary">Save</button>
                 </div>
-              </div>
+              </div> */}
             </div>
           </form>
         )}
