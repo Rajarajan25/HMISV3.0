@@ -9,7 +9,6 @@ import Drawer from '@material-ui/core/Drawer';
 import {ServiceContext} from './ServiceContext'
 import { ServiceDetailsTab } from "./service-details-tab";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import './App.css';
 import { Formik, Field } from 'formik';
 
 const useStyles = makeStyles({
