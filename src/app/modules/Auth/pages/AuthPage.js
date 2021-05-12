@@ -13,6 +13,9 @@ import ResetPassword from "./ResetPassword";
 import LoginOTP from "./Login-OTP";
 import MailVerification from "./email-verification";
 import WorkSpace1 from "./workspace1";
+import WorkSpace2 from "./workspace2";
+import WorkSpace3 from "./workspace3";
+import WorkSpace4 from "./workspace4";
 import "../../../../_metronic/_assets/sass/pages/login/classic/login-1.scss";
 
 export function AuthPage() {
@@ -63,6 +66,18 @@ export function AuthPage() {
                   <ContentRoute
                     path="/auth/workspace1"
                     component={WorkSpace1}
+                  />
+                  <ContentRoute
+                    path="/auth/workspace2"
+                    component={WorkSpace2}
+                  />
+                  <ContentRoute
+                    path="/auth/workspace3"
+                    component={WorkSpace3}
+                  />
+                  <ContentRoute
+                    path="/auth/workspace4"
+                    component={WorkSpace4}
                   />
                   <ContentRoute
                     path="/auth/registration-confirmation"

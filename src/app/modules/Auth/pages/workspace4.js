@@ -3,7 +3,7 @@ import React from 'react';
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { Link } from "react-router-dom";
 
-export default function WorkSpace1() {
+export default function WorkSpace3() {
   return (
     <div className="workspace position-relative bg_FAFBFC p-7 col bor-20 h-100">
 
@@ -16,7 +16,7 @@ export default function WorkSpace1() {
           src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
         />
       </Link>
-      <span className="mob_title d-lg-none d-xl-none d-md-none d-inline-block mt-0">Workspace1</span>
+      <span className="mob_title d-lg-none d-xl-none d-md-none d-inline-block mt-0">Workspace4</span>
     </div>
     <div className="d-flex w-100 loginMaincontent min-heis" >
       <div className="d-flex w-100">
@@ -24,12 +24,11 @@ export default function WorkSpace1() {
           <img alt="Logo" src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")} />
         </Link>
         <div className="ml-10 mt-5 workspace-con">
-          <h1>Workspace Name</h1>
-          <div className="input-contain">
-            <input type="text" placeholder="Email" name="" className="" />
-          </div>
+          <h1>Yor’re ready for takeoff!</h1>
+         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+         <img alt="Logo" src={toAbsoluteUrl("media/auth-screen/rocket.svg")} />
           <div className="space-btn">
-            <button type="submit" className="btn btn-btn-primary">Next</button>
+            <button type="submit" className="btn btn-btn-primary">Go</button>
           </div>
         </div>
       </div>
@@ -38,6 +37,5 @@ export default function WorkSpace1() {
   </div>
   );
 }
-
 
 

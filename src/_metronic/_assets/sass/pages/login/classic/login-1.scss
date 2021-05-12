@@ -303,6 +303,8 @@
     background-position: top right;
 
 }
+
+
 .emailIcon:before{
     content: url(/media/auth-screen/emailIcon.svg);
     position: absolute;
@@ -1794,7 +1796,7 @@
                 border-bottom: 1px solid #707070;
                 height: 60px;
                 color: #343434;
-                font-size: 32px;
+                font-size: 30px;
                 padding: 10px 0;
                 outline: 0;
             }
@@ -1813,4 +1815,34 @@
 
         }
     }	
+}
+
+.workspace:before{
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    right: -1150px;
+    width: 100%;
+    height: 460px;
+    z-index: 1;
+    background-image: url(/media/auth-screen/workspace_bottom_bg.svg);
+    background-color: transparent;
+    background-repeat: no-repeat;
+}
+.workspace:after{
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 75%;
+    height: 75%;
+    z-index: 1;
+    background-image: url(/media/auth-screen/workspace_top_bg.svg);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: top right;
+
+}
+.bg_FAFBFC {
+    background-color: #FAFBFC;
 }
