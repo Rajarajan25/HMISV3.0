@@ -2,10 +2,21 @@
 import React from 'react';
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { Link } from "react-router-dom";
+import { makeStyles } from '@material-ui/core/styles';
+import {Button} from "react-bootstrap";
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 1,
+    width: '100%',
+    backgroundColor: theme.palette.background.paper,
+  },
+}));
 
 export default function WorkSpace1() {
+  const classes = useStyles();
   return (
-  <div className="d-flex justify-content-center flex-column col-xl-7 col-lg-11 wid col">
+  <div className="d-flex justify-content-center flex-column col-xl-9 col-lg-11 wid col">
     <div class="d-none w-100 text-center">
       <Link to="/" className="flex-column-auto logo-tb mb-5">
         <img
@@ -29,8 +40,160 @@ export default function WorkSpace1() {
             <button type="submit" className="btn btn-btn-primary">Next</button>
           </div>
         </div>
+        <div className="form-group">
+          <div className="d-flex pb-2">
+            <div className="col-3">
+              <input accept="image/*" className={classes.input} style={{ display: 'none' }} id="raised-button-file" multiple type="file"/>
+              <label htmlFor="raised-button-file" className="up_avatar">
+                <Button variant="raised" component="span" className={classes.button}>
+                  <img src={toAbsoluteUrl("/media/patients/avatar_icon.svg")} alt="" className="mt-3 mb-2" />
+                  <span className="d-block">Upload image</span>
+                </Button>
+              </label> 
+            </div>
+            <div className="col-9 pr-0">
+              <ColorCode />
+            </div>
+          </div>
+        </div>
+        <div className="serve_sec">
+          <div className="row">
+            <div className="col-3 px-1">
+              <input type="checkbox" id="pet_box_01" />
+              <label className="pat_box" for="pet_box_01">
+                <div className="d-flex serve_act">
+                  <span className="privatebg">Private</span>
+                  <span className="ml-auto"><span>$</span> 100</span>
+                </div>
+                <div className="d-block text-center">
+                  <div className="service_img d-flex">
+                    <img src={toAbsoluteUrl("/media/patients/service_icon_01.svg")} alt="" className="m-auto align-items-center" />
+                  </div>
+                  <div className="service_title">
+                    <p>Pet Services</p>
+                  </div>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+  );
+}
+
+
+
+export function ColorCode() {
+  const classes = useStyles();
+  return (
+    <div className="color_select">
+          <div class="d-inline-flex color_col p-3">
+            <input type="radio" id="color_01" name="color-code" className=""/>
+            <label className="" for="color_01">
+              <span style={{backgroundColor: `#41BC87`}}></span>
+            </label>
+          </div>
+          <div class="d-inline-flex color_col p-3">
+            <input type="radio" id="color_02" name="color-code" className="" />
+            <label className="" for="color_02">
+              <span style={{backgroundColor: `#1DBC9C`}}></span>
+            </label>
+          </div>
+          <div class="d-inline-flex color_col p-3">
+            <input type="radio" id="color_03" name="color-code" className="" />
+            <label className="" for="color_03">
+              <span style={{backgroundColor: `#27AE60`}}></span>
+            </label>
+          </div>
+          <div class="d-inline-flex color_col p-3">
+            <input type="radio" id="color_04" name="color-code" className="" />
+            <label className="" for="color_04">
+              <span style={{backgroundColor: `#21D726`}}></span>
+            </label>
+          </div>
+          <div class="d-inline-flex color_col p-3">
+            <input type="radio" id="color_05" name="color-code" className="" />
+            <label className="" for="color_05">
+              <span style={{backgroundColor: `#F41D2F`}}></span>
+            </label>
+          </div>
+          <div class="d-inline-flex color_col p-3">
+            <input type="radio" id="color_06" name="color-code" className="" />
+            <label className="" for="color_06">
+              <span style={{backgroundColor: `#181D21`}}></span>
+            </label>
+          </div>
+          <div class="d-inline-flex color_col p-3">
+            <input type="radio" id="color_07" name="color-code" className="" />
+            <label className="" for="color_07">
+              <span style={{backgroundColor: `#FD575E`}}></span>
+            </label>
+          </div>
+          <div class="d-inline-flex color_col p-3">
+            <input type="radio" id="color_08" name="color-code" className="" />
+            <label className="" for="color_08">
+              <span style={{backgroundColor: `#FDB42B`}}></span>
+            </label>
+          </div>
+          <div class="d-inline-flex color_col p-3">
+            <input type="radio" id="color_09" name="color-code" className="" />
+            <label className="" for="color_09">
+              <span style={{backgroundColor: `#B17F22`}}></span>
+            </label>
+          </div>
+          <div class="d-inline-flex color_col p-3">
+            <input type="radio" id="color_10" name="color-code" className="" />
+            <label className="" for="color_10">
+              <span style={{backgroundColor: `#F34D1D`}}></span>
+            </label>
+          </div>
+          <div class="d-inline-flex color_col p-3">
+            <input type="radio" id="color_11" name="color-code" className="" />
+            <label className="" for="color_11">
+              <span style={{backgroundColor: `#FD8624`}}></span>
+            </label>
+          </div>
+          <div class="d-inline-flex color_col p-3">
+            <input type="radio" id="color_12" name="color-code" className="" />
+            <label className="" for="color_12">
+              <span style={{backgroundColor: `#2798B7`}}></span>
+            </label>
+          </div>
+          <div class="d-inline-flex color_col p-3">
+          <input type="radio" id="color_13" name="color-code" className="" />
+            <label className="" for="color_13">
+              <span style={{backgroundColor: `#2980B9`}}></span>
+            </label>
+          </div>
+          <div class="d-inline-flex color_col p-3">
+          <input type="radio" id="color_14" name="color-code" className="" />
+            <label className="" for="color_14">
+              <span style={{backgroundColor: `#3598DC`}}></span>
+            </label>
+          </div>
+          <div class="d-inline-flex color_col p-3">
+          <input type="radio" id="color_15" name="color-code" className="" />
+            <label className="" for="color_15">
+              <span style={{backgroundColor: `#528CCB`}}></span>
+            </label>
+          </div>
+          <div class="d-inline-flex color_col p-3">
+          <input type="radio" id="color_16" name="color-code" className="" />
+            <label className="" for="color_16">
+              <span style={{backgroundColor: `#0921EC`}}></span>
+            </label>
+          </div>
+          <div class="d-inline-flex color_col p-3">
+            <input type="radio" id="color_17" name="color-code" className="" />
+            <label className="" for="color_17">
+              <span style={{backgroundColor: `#199EC7`}}></span>
+            </label>
+          </div>
+          <div class="d-inline-flex color_col p-3">
+            <span className="color_add"><i>+</i></span>
+          </div>
+        </div>
   );
 }
