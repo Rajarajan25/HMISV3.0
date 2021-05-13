@@ -28,19 +28,54 @@ export default function WorkSpace3() {
           <h1>Select your business type</h1>
           <div className="serve_sec">
             <div className="row">
-              <div className="col-3 px-1">
-                <input type="checkbox" id="pet_box_01" />
+              <div className="col px-1">
+                <input type="radio" id="pet_box_01" />
                 <label className="pat_box" for="pet_box_01">
-                  <div className="d-flex serve_act">
-                    <span className="privatebg">Private</span>
-                    <span className="ml-auto"><span>$</span> 100</span>
-                  </div>
                   <div className="d-block text-center">
                     <div className="service_img d-flex">
-                      <img src={toAbsoluteUrl("/media/patients/service_icon_01.svg")} alt="" className="m-auto align-items-center" />
+                      <img src={toAbsoluteUrl("/media/auth-screen/service_provider.svg")} alt="" className="m-auto align-items-center" />
                     </div>
                     <div className="service_title">
-                      <p>Pet Services</p>
+                      <p>Service Provider</p>
+                    </div>
+                  </div>
+                </label>
+              </div>
+              <div className="col px-1">
+                <input type="radio" id="pet_box_02" />
+                <label className="pat_box" for="pet_box_02">
+                  <div className="d-block text-center">
+                    <div className="service_img d-flex">
+                      <img src={toAbsoluteUrl("/media/auth-screen/meetings.svg")} alt="" className="m-auto align-items-center" />
+                    </div>
+                    <div className="service_title">
+                      <p>Meetings</p>
+                    </div>
+                  </div>
+                </label>
+              </div>
+              <div className="col px-1">
+                <input type="radio" id="pet_box_03" />
+                <label className="pat_box" for="pet_box_03">
+                  <div className="d-block text-center">
+                    <div className="service_img d-flex">
+                      <img src={toAbsoluteUrl("/media/auth-screen/events.svg")} alt="" className="m-auto align-items-center" />
+                    </div>
+                    <div className="service_title">
+                      <p>Events</p>
+                    </div>
+                  </div>
+                </label>
+              </div>
+              <div className="col px-1">
+                <input type="radio" id="pet_box_04" />
+                <label className="pat_box" for="pet_box_04">
+                  <div className="d-block text-center">
+                    <div className="service_img d-flex">
+                      <img src={toAbsoluteUrl("/media/auth-screen/classes.svg")} alt="" className="m-auto align-items-center" />
+                    </div>
+                    <div className="service_title">
+                      <p>Classes</p>
                     </div>
                   </div>
                 </label>

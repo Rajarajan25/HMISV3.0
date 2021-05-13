@@ -26,7 +26,7 @@ export default function WorkSpace3() {
         <div className="ml-10 mt-5 workspace-con">
           <h1>Yor’re ready for takeoff!</h1>
          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-         <img alt="Logo" src={toAbsoluteUrl("media/auth-screen/rocket.svg")} />
+         <img alt="Logo" src={toAbsoluteUrl("/media/auth-screen/rocket.svg")} />
           <div className="space-btn">
             <button type="submit" className="btn btn-btn-primary">Go</button>
           </div>

@@ -17,10 +17,10 @@ export function ContentEventPay() {
   return (
     <div className="clearfix">
       <div className="staff_first staff_second">
-        <div className="form-group mt-2 mb-4">
+        <div className="form-group mt-2 mb-4 d-none">
           <label className="staff_title_text m-0">Price Type *</label>
         </div>
-        <div className="busi_cus ser_tme mt-2 mb-4 clearfix">
+        <div className="busi_cus ser_tme mt-2 mb-4 clearfix  d-none">
           <SelectPrice />
         </div>
         <div className="clearfix mt-7 mb-3">
@@ -97,13 +97,7 @@ export function ContentEventPay() {
             </label>
           </div>
         </div>
-        <div className="w-100 mt-15">
-          <div className="d-flex justify-content-end color_c0c0c0">
-            <button type="button" className="btn font-size-16 font_weight_medium color_c0c0c0 text-uppercase">Cancel</button>
-            <button type="button" className="btn font-size-16 font_weight_medium color_1D6AFF text-uppercase">Save</button>
-          </div>
-        </div>
-        <div className="form-group mb-0 d-none">
+        <div className="form-group mb-0">
           <div className="d-flex justify-content-end patientButton pos_fix">
             <button type="button" className="btn btn-primary">Save</button>
           </div>

@@ -1776,6 +1776,7 @@
         line-height: 70px;
         text-align: center;
         border-radius: 50%;
+        box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2);
     }
     .workspace-con {
         width: 100%;
@@ -1784,11 +1785,10 @@
             color: #343434;
             font-size: 30px;
             font-weight: 500;
+            margin-bottom: 60px;
         }
         .input-contain {
             width: 100%; 
-            height: 50px;
-            margin-top: 40px;
             input {
                 width: 100%;
                 background-color: transparent;
@@ -1832,8 +1832,8 @@
 .workspace:after{
     content: '';
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 5px;
+    right: 20px;
     width: 75%;
     height: 75%;
     z-index: 1;
@@ -1845,4 +1845,55 @@
 }
 .bg_FAFBFC {
     background-color: #FAFBFC;
+}
+.workspace {
+    .up_avatar {
+        width: 200px;
+        height: 200px;
+        border: 2px dashed #C3CFF4;
+        border-radius: 50%;
+        margin: 0;
+        font-size: 20px;
+        outline: 0;
+        text-align: center;
+        padding-top: 30px;
+    }
+    .color_col {
+        label {
+            width: 35px;
+            height: 35px;
+            span:after {
+                height: 3px;
+                top: 23px;
+                left: 14px;
+            }
+            span:before {
+                height: 3px;
+                top: 17px;
+                left: 9px;
+            }
+        }
+        span {
+            width: 35px;
+            height: 35px;
+        }
+        input[type=radio]:checked + label span:after {
+            width: 20px;
+        }
+        input[type=radio]:checked + label span:before {
+            width: 12px;
+        }
+    } 
+    .serve_sec .pat_box {
+        padding: 10px 10px 12px;
+        margin: 4px 0;
+        cursor: pointer;
+        position: relative;
+        width: 100%;
+        background: #FFFFFF;
+        border: 1px solid #C6DBF4;
+        border-radius: 10px;
+        height: 170px;
+        width: 170px;
+    }
 }

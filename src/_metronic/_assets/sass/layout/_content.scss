@@ -2504,6 +2504,7 @@ input.edit_mobile[type=text] {
 		}
 		.MuiTabs-indicator {
 			background: #6D5CD2;
+			height: 1px;
 		}
 		.MuiTab-root {
 			min-width: inherit;
@@ -2529,7 +2530,7 @@ input.edit_mobile[type=text] {
 				-webkit-filter: brightness(0) invert(0);
 			}
 		}
-		.MuiTab-textColorPrimary.Mui-selected {
+		.Mui-selected {
 			color: #6D5CD2;
 			font-weight: 500;
 			.staff_tab_img {
@@ -2833,6 +2834,7 @@ input.edit_mobile[type=text] {
 		}
 		.MuiTabs-indicator {
 			background: #1D6AFF;
+			height: 1px;
 		}
 		.MuiTabs-root {
 			min-height: 45px;

@@ -196,7 +196,7 @@ const toggleDrawerClose = () => {
   return (
       <div className="clearfix">
         <span><Link to="#" className="btn btn-primary" onClick={toggleDrawer('right', true)}>New Event</Link></span>
-        <Drawer className="patientProfileinfo EventDrawer eventIfo StaffInfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
+        <Drawer className="patientProfileinfo EventDrawer StaffInfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
           <div className="p-0 overflow-auto">
             <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}>
               <span className="my-auto font-weight-500">
