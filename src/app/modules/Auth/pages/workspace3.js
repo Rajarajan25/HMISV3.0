@@ -29,7 +29,7 @@ export default function WorkSpace3() {
           <div className="serve_sec">
             <div className="row">
               <div className="col px-1">
-                <input type="radio" id="pet_box_01" />
+                <input type="radio" name="busi_type" id="pet_box_01" />
                 <label className="pat_box" for="pet_box_01">
                   <div className="d-block text-center">
                     <div className="service_img d-flex">
@@ -42,7 +42,7 @@ export default function WorkSpace3() {
                 </label>
               </div>
               <div className="col px-1">
-                <input type="radio" id="pet_box_02" />
+                <input type="radio" name="busi_type" id="pet_box_02" />
                 <label className="pat_box" for="pet_box_02">
                   <div className="d-block text-center">
                     <div className="service_img d-flex">
@@ -55,7 +55,7 @@ export default function WorkSpace3() {
                 </label>
               </div>
               <div className="col px-1">
-                <input type="radio" id="pet_box_03" />
+                <input type="radio" name="busi_type" id="pet_box_03" />
                 <label className="pat_box" for="pet_box_03">
                   <div className="d-block text-center">
                     <div className="service_img d-flex">
@@ -68,7 +68,7 @@ export default function WorkSpace3() {
                 </label>
               </div>
               <div className="col px-1">
-                <input type="radio" id="pet_box_04" />
+                <input type="radio" name="busi_type" id="pet_box_04" />
                 <label className="pat_box" for="pet_box_04">
                   <div className="d-block text-center">
                     <div className="service_img d-flex">
