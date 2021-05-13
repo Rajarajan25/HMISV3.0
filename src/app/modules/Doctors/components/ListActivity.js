@@ -1724,8 +1724,6 @@ export function ColorDropdownMenu() {
   </>
 }
 
-
-
 export function ServicesDropdownMenu() {
   return <>
       {/*begin::Navigation*/}
@@ -1791,8 +1789,6 @@ export function ServicesDropdownMenu() {
   </>
 }
 
-
-
 export function StatusDropdownMenu() {
   return <>
       {/*begin::Navigation*/}
@@ -1814,7 +1810,6 @@ export function StatusDropdownMenu() {
 
   </>
 }
-
 export function SxDropdownMenu() {
   return <>
       {/*begin::Navigation*/}
@@ -1834,7 +1829,6 @@ export function SxDropdownMenu() {
 
   </>
 }
-
 
 export function AvailDropdownMenu() {
   return <>
