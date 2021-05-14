@@ -6,8 +6,7 @@ import { Link } from "react-router-dom";
 export default function WorkSpace3() {
   return (
     <div className="workspace position-relative bg_FAFBFC p-7 col bor-20 h-100">
-
-  <div className="d-flex justify-content-center flex-column col-xl-9 col-lg-11 wid col h-100">
+  <div className="d-flex justify-content-center flex-column col-xl-9 col-lg-11 wid col h-100 ml-35">
 
     <div class="d-none w-100 text-center">
       <Link to="/" className="flex-column-auto logo-tb mb-5">
