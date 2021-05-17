@@ -10,7 +10,7 @@ const ECommercePage = lazy(() =>
 const UserProfilepage = lazy(() =>
   import("./modules/UserProfile/UserProfilePage")
 );
-const StaffPage = lazy(() => import("./modules/Doctors/StaffPage"));
+const StaffPage = lazy(() => import("./modules/Staffs/StaffPage"));
 const PatientDetailspage = lazy(() =>
   import("./modules/Patients/Patient-details")
 );
@@ -36,9 +36,9 @@ export default function BasePage() {
         <ContentRoute path="/my-page" component={MyPage} />
         <Route path="/e-commerce" component={ECommercePage} />
         <Route path="/user-profile" component={UserProfilepage} />
-        <Route path="/manage/staff-management" component={StaffPage} />
+        <ContentRoute path="/manage/staff-management" title="Staff Managements" component={StaffPage} />
         <Route path="/manage/patients-details" component={PatientDetailspage} />
-        <Route path="/manage/service-provider" component={ServiceProvider} />
+        <ContentRoute path="/manage/service-provider" title="Services" component={ServiceProvider} />
         <Route path="/manage/event-details" component={EventDetails} />
         <Redirect to="error/error-v1" />
       </Switch>

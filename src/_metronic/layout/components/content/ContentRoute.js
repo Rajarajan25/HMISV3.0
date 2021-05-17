@@ -1,8 +1,11 @@
 import React from "react";
 import {Route} from "react-router-dom";
 import {Content} from "./Content";
+import {useSubheader} from "../../_core/MetronicSubheader";
 
 export function ContentRoute({ children, component, render, ...props }) {
+   const suhbeader = useSubheader();
+   suhbeader.setTitle(props.title);
   return (
     <Route {...props}>
       {routeProps => {
