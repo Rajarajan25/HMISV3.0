@@ -21,11 +21,10 @@ const useStyles = makeStyles(theme => ({
 }));
 const initialValues = { name: '', description: '', color_code: '', prefered_gender: '', booking_url: '' };
 
-export function ServiceDetail() {
+export function ServiceDetail(props) {
   const classes = useStyles();
-  const [service, setservice] = React.useContext(ServiceContext)
-  let currentService = service.currentService;
   const [checked, setChecked] = React.useState();
+ const {editService,currentService} =props;
 
 
   return (
@@ -33,11 +32,8 @@ export function ServiceDetail() {
       initialValues={currentService || initialValues}
       enableReinitialize
       onSubmit={(values) => {
-        setservice({
-          type: "EDIT_SERVICE",
-          payload: values
-        });
-      }}
+        editService(values);
+        }}
     >
       {({
         values,

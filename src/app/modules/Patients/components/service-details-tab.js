@@ -11,7 +11,8 @@ import { ServiceDetail } from "./service-detail";
 import { ServiceCost } from "./service-cost";
 import { ServiceSales } from "./service-sales";
 import { ServiceSettings } from "./service-settings";
-
+import {ServiceContext} from './ServiceContext'
+import {ContentEventDetails} from '../../../components/Details'
 function TabContainer(props) {
   return (
     <Typography component="div">
@@ -34,10 +35,19 @@ const useStyles = makeStyles(theme => ({
 export function ServiceDetailsTab() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-
+  const [service,setservice]=React.useContext(ServiceContext);
+  let currentService=service.currentService;
   function handleChange(event, newValue) {
     setValue(newValue);
   }
+  function editService (values)
+  {
+    setservice({
+      type: "EDIT_SERVICE",
+      payload: values
+    });
+  }
+  
   return (
       <Col sm={12} className="bg-white d-flex flex-column p-0">
         <div className={classes.root}>
@@ -64,7 +74,7 @@ export function ServiceDetailsTab() {
             </div>
           </div>
           <div className="p-0">
-            {value === 0 && <TabContainer> <ServiceDetail /> </TabContainer>}
+            {value === 0 && <TabContainer> <ContentEventDetails current={currentService} handleSave={editService}/> </TabContainer>}
             {value === 1 && <TabContainer> <ServiceCost /> </TabContainer>}
             {value === 2 && <TabContainer> <ServiceSales /> </TabContainer>}
             {value === 3 && <TabContainer> <ServiceSettings /> </TabContainer>}
