@@ -1835,7 +1835,7 @@
     position: absolute;
     top: 5px;
     right: -310px;
-    width: 100%;
+    width: 40%;
     height: 100%;
     z-index: 1;
     background-image: url(/media/auth-screen/workspace_top_bg.svg);
@@ -1877,6 +1877,14 @@
         span {
             width: 35px;
             height: 35px;
+        }
+        label:hover span:before {
+            width: 12px;
+            transition: width 100ms ease;
+        }
+        label:hover span:after {
+            width: 20px;
+            transition: width 150ms ease 100ms;
         }
         input[type=radio]:checked + label span:after {
             width: 20px;

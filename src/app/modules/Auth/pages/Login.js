@@ -340,27 +340,7 @@ function Login(props) {
                           >
                            Workspace1
                           </Link>
-                          <Link
-                            to="/auth/workspace2"
-                            className="font-weight-bold ml-2 createAccountlink"
-                            id="kt_login_signup"
-                          >
-                           Workspace2
-                          </Link>
-                          <Link
-                            to="/auth/workspace3"
-                            className="font-weight-bold ml-2 createAccountlink"
-                            id="kt_login_signup"
-                          >
-                           Workspace3
-                          </Link>
-                          <Link
-                            to="/auth/workspace4"
-                            className="font-weight-bold ml-2 createAccountlink"
-                            id="kt_login_signup"
-                          >
-                           Workspace4
-                          </Link>
+                          
                         </div>
                         {/*end::Content header*/}
                       </div>
