@@ -7,6 +7,10 @@ import { DropdownItemToggler } from "../../../../_metronic/_partials/dropdowns";
 import { makeStyles } from '@material-ui/core/styles';
 import { StaffDetailsTab } from "./staff-details-tab";
 import { ColorPalette } from '../../../components/ColorPalette';
+import { SxDropDown } from '../../../components/SxDropDown';
+import { StatusDropDown } from '../../../components/StatusDropDown';
+import { ServicesDropDown } from '../../../components/ServicesDropDown';
+import { AvailableDropDown } from '../../../components/AvailableDropDown';
 
 const useStyles = makeStyles({
   list: {
@@ -51,7 +55,7 @@ export function ListActivity01(props) {
           <div className="col-lg-12">
             <div className="topMiddlecontent">
               {props.dataList.map((item, index) => {
-               return( <div className="d-flex drag_sel drag_selected position-relative">
+                return (<div className="d-flex drag_sel drag_selected position-relative">
                   <div className="drag_hov mh-100 my-auto">
                     <span className="cu-task-row-toggle__marker"></span>
                     <img src={toAbsoluteUrl("/media/patients/drag_hover.svg")} alt="" className="drag_img" />
@@ -61,7 +65,7 @@ export function ListActivity01(props) {
                       <div className="userLogoicon align-content-center">
                         <Dropdown drop="down" alignCenter className="dropdown h-100">
                           <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                            <span className="listprofileIcon" style={{ backgroundColor: item.avatar_bg_color }}>{item.avatar?<img src={toAbsoluteUrl(item.avatar)} alt="" className="mh-100 d-block rounded-circle" />:"AK"}</span>
+                            <span className="listprofileIcon" style={{ backgroundColor: item.avatar_bg_color }}>{item.avatar ? <img src={toAbsoluteUrl(item.avatar)} alt="" className="mh-100 d-block rounded-circle" /> : "AK"}</span>
                           </Dropdown.Toggle>
                           <Dropdown.Menu className="dropdown-menu p-0 mt-2 dropdown-menu-md drop_nav">
                             <ColorDropdownMenu />
@@ -89,57 +93,16 @@ export function ListActivity01(props) {
                       </div>
                     </li>
                     <li className="col-lg-1 my-auto">
-                      <Dropdown drop="down" alignCenter className="dropdown h-100">
-                        <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                          <div class="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column pointer">
-                            <div class="d-flex mt-1 mb-1 justify-content-center">
-                              <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#E6511B` }}>{item.service}
-                                      <span className="dropdown_label_remove" style={{ backgroundColor: `#E6511B` }}>
-                                  <span className="dropdown_label_remove_icon">x</span>
-                                </span>
-                              </span>
-                            </div>
-                          </div>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
-                          <ServicesDropdownMenu />
-                        </Dropdown.Menu>
-                      </Dropdown>
+                      <ServicesDropDown item={item}/>
                     </li>
                     <li className="col-lg-1 activeStatuscontent active_clr text-white">
-                      <Dropdown drop="down" alignCenter className="dropdown h-100">
-                        <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                          <a href="#" className="d-flex text-white h-100 align-items-center justify-content-center">{item.status}</a>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav status_hover">
-                          <StatusDropdownMenu />
-                        </Dropdown.Menu>
-                      </Dropdown>
+                      <StatusDropDown item={item}/>
                     </li>
                     <li className="col-lg-1 activeStatuscontent male_bg text-white">
-                      <Dropdown drop="down" alignCenter className="dropdown h-100">
-                        <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                          <a href="#" className="d-flex text-white h-100 align-items-center justify-content-center">{item.gender}</a>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav sx_hover">
-                          <SxDropdownMenu />
-                        </Dropdown.Menu>
-                      </Dropdown>
+                      <SxDropDown item={item}/>
                     </li>
                     <li className="col-lg-1 my-auto">
-                      <Dropdown drop="down" alignCenter className="dropdown h-100">
-                        <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                          <div className="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column flex-column avail_wid">
-                            <div className="d-flex mt-1 mb-1 p-1 justify-content-center avail_hover">
-                              <span className="avails chat_bg"><img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="" className="" /></span>
-                              <span>{item.availability}</span> <span className="close_icons chat_bg">x</span>
-                            </div>
-                          </div>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav">
-                          <AvailDropdownMenu />
-                        </Dropdown.Menu>
-                      </Dropdown>
+                      <AvailableDropDown item={item}/>
                     </li>
                     <li className="col-lg-2 activeStatuscontent my-auto d-flex justify-content-center">
                       <span className="d-inline-flex">{item.official_email}</span>
@@ -255,7 +218,7 @@ export function ListActivity01(props) {
                         </div>
                       </Dropdown.Toggle>
                       <Dropdown.Menu className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
-                        <ServicesDropdownMenu />
+                        <ServicesDropDown />
                       </Dropdown.Menu>
                     </Dropdown>
                   </li>
@@ -265,7 +228,7 @@ export function ListActivity01(props) {
                         <a href="#" className="d-flex text-white h-100 align-items-center justify-content-center">Active</a>
                       </Dropdown.Toggle>
                       <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav status_hover">
-                        <StatusDropdownMenu />
+                        <StatusDropDown />
                       </Dropdown.Menu>
                     </Dropdown>
                   </li>
@@ -275,7 +238,7 @@ export function ListActivity01(props) {
                         <a href="#" className="d-flex text-white h-100 align-items-center justify-content-center">Male</a>
                       </Dropdown.Toggle>
                       <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav sx_hover">
-                        <SxDropdownMenu />
+                        <SxDropDown />
                       </Dropdown.Menu>
                     </Dropdown>
                   </li>
@@ -290,7 +253,7 @@ export function ListActivity01(props) {
                         </div>
                       </Dropdown.Toggle>
                       <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav">
-                        <AvailDropdownMenu />
+                        <AvailableDropDown />
                       </Dropdown.Menu>
                     </Dropdown>
                   </li>
@@ -448,7 +411,7 @@ export function ListActivity02(props) {
                           </div>
                         </Dropdown.Toggle>
                         <Dropdown.Menu className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
-                          <ServicesDropdownMenu />
+                          <ServicesDropDown />
                         </Dropdown.Menu>
                       </Dropdown>
                     </li>
@@ -458,7 +421,7 @@ export function ListActivity02(props) {
                           <a href="#" className="d-flex text-white h-100 align-items-center justify-content-center">Inactive</a>
                         </Dropdown.Toggle>
                         <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav status_hover">
-                          <StatusDropdownMenu />
+                          <StatusDropDown />
                         </Dropdown.Menu>
                       </Dropdown>
                     </li>
@@ -468,7 +431,7 @@ export function ListActivity02(props) {
                           <a href="#" className="d-flex text-white h-100 align-items-center justify-content-center">Female</a>
                         </Dropdown.Toggle>
                         <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav sx_hover">
-                          <SxDropdownMenu />
+                          <SxDropDown />
                         </Dropdown.Menu>
                       </Dropdown>
                     </li>
@@ -483,7 +446,7 @@ export function ListActivity02(props) {
                           </div>
                         </Dropdown.Toggle>
                         <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav">
-                          <AvailDropdownMenu />
+                          <AvailableDropDown />
                         </Dropdown.Menu>
                       </Dropdown>
                     </li>
@@ -653,7 +616,7 @@ export function ListActivity03(props) {
                           </div>
                         </Dropdown.Toggle>
                         <Dropdown.Menu className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
-                          <ServicesDropdownMenu />
+                          <ServicesDropDown />
                         </Dropdown.Menu>
                       </Dropdown>
                     </li>
@@ -663,7 +626,7 @@ export function ListActivity03(props) {
                           <a href="#" className="d-flex text-white h-100 align-items-center justify-content-center">Active</a>
                         </Dropdown.Toggle>
                         <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav status_hover">
-                          <StatusDropdownMenu />
+                          <StatusDropDown />
                         </Dropdown.Menu>
                       </Dropdown>
                     </li>
@@ -673,7 +636,7 @@ export function ListActivity03(props) {
                           <a href="#" className="d-flex text-white h-100 align-items-center justify-content-center">Male</a>
                         </Dropdown.Toggle>
                         <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav sx_hover">
-                          <SxDropdownMenu />
+                          <SxDropDown />
                         </Dropdown.Menu>
                       </Dropdown>
                     </li>
@@ -688,7 +651,7 @@ export function ListActivity03(props) {
                           </div>
                         </Dropdown.Toggle>
                         <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav">
-                          <AvailDropdownMenu />
+                          <AvailableDropDown />
                         </Dropdown.Menu>
                       </Dropdown>
                     </li>
@@ -802,57 +765,18 @@ export function ListActivity03(props) {
                       </div>
                     </li>
                     <li className="col-lg-1 my-auto">
-                      <Dropdown drop="down" alignCenter className="dropdown h-100">
-                        <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                          <div class="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column pointer">
-                            <div class="d-flex mt-1 mb-1 justify-content-center">
-                              <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#0A31E8` }}>Amoxicillin
-                                  <span className="dropdown_label_remove" style={{ backgroundColor: `#0A31E8` }}>
-                                  <span className="dropdown_label_remove_icon">x</span>
-                                </span>
-                              </span>
-                            </div>
-                          </div>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
-                          <ServicesDropdownMenu />
-                        </Dropdown.Menu>
-                      </Dropdown>
+                      <ServicesDropDown />
                     </li>
                     <li className="col-lg-1 activeStatuscontent active_clr text-white">
-                      <Dropdown drop="down" alignCenter className="dropdown h-100">
-                        <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                          <a href="#" className="d-flex text-white h-100 align-items-center justify-content-center">Active</a>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav status_hover">
-                          <StatusDropdownMenu />
-                        </Dropdown.Menu>
-                      </Dropdown>
+                      <StatusDropDown />
                     </li>
                     <li className="col-lg-1 activeStatuscontent male_bg text-white">
-                      <Dropdown drop="down" alignCenter className="dropdown h-100">
-                        <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                          <a href="#" className="d-flex text-white h-100 align-items-center justify-content-center">Male</a>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav sx_hover">
-                          <SxDropdownMenu />
-                        </Dropdown.Menu>
-                      </Dropdown>
+                      <SxDropDown />
                     </li>
                     <li className="col-lg-1 my-auto">
-                      <Dropdown drop="down" alignCenter className="dropdown h-100">
-                        <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                          <div className="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column flex-column avail_wid">
-                            <div className="d-flex mt-1 mb-1 p-1 justify-content-center avail_hover">
-                              <span className="avails visit_bg"><img src={toAbsoluteUrl("/media/patients/avail_visit.svg")} alt="" className="" /></span>
-                              <span>Inperson</span> <span className="close_icons visit_bg">x</span>
-                            </div>
-                          </div>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav">
-                          <AvailDropdownMenu />
-                        </Dropdown.Menu>
-                      </Dropdown>
+
+                      <AvailableDropDown />
+
                     </li>
                     <li className="col-lg-2 activeStatuscontent my-auto d-flex justify-content-center">
                       <span className="d-inline-flex">sagayaraj@lookman.in</span>
@@ -965,57 +889,24 @@ export function ListActivity03(props) {
                       </div>
                     </li>
                     <li className="col-lg-1 my-auto">
-                      <Dropdown drop="down" alignCenter className="dropdown h-100">
-                        <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                          <div class="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column pointer">
-                            <div class="d-flex mt-1 mb-1 justify-content-center">
-                              <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#F9D930` }}>Calcium
-                                  <span className="dropdown_label_remove" style={{ backgroundColor: `#F9D930` }}>
-                                  <span className="dropdown_label_remove_icon">x</span>
-                                </span>
-                              </span>
-                            </div>
-                          </div>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
-                          <ServicesDropdownMenu />
-                        </Dropdown.Menu>
-                      </Dropdown>
+
+                      <ServicesDropDown />
+
                     </li>
                     <li className="col-lg-1 activeStatuscontent inactive_clr text-white">
-                      <Dropdown drop="down" alignCenter className="dropdown h-100">
-                        <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                          <a href="#" className="d-flex text-white h-100 align-items-center justify-content-center">Inactive</a>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav status_hover">
-                          <StatusDropdownMenu />
-                        </Dropdown.Menu>
-                      </Dropdown>
+
+                      <StatusDropDown />
+
                     </li>
                     <li className="col-lg-1 activeStatuscontent female_bg text-white">
-                      <Dropdown drop="down" alignCenter className="dropdown h-100">
-                        <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                          <a href="#" className="d-flex text-white h-100 align-items-center justify-content-center">Female</a>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav sx_hover">
-                          <SxDropdownMenu />
-                        </Dropdown.Menu>
-                      </Dropdown>
+
+                      <SxDropDown />
+
                     </li>
                     <li className="col-lg-1 my-auto">
-                      <Dropdown drop="down" alignCenter className="dropdown h-100">
-                        <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                          <div className="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column flex-column avail_wid">
-                            <div className="d-flex mt-1 mb-1 p-1 justify-content-center avail_hover">
-                              <span className="avails phone_bg"><img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="" className="" /></span>
-                              <span>Phone</span> <span className="close_icons phone_bg">x</span>
-                            </div>
-                          </div>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav">
-                          <AvailDropdownMenu />
-                        </Dropdown.Menu>
-                      </Dropdown>
+
+                      <AvailableDropDown />
+
                     </li>
                     <li className="col-lg-2 activeStatuscontent my-auto d-flex justify-content-center">
                       <span className="d-inline-flex">sagayaraj@lookman.in</span>
@@ -1128,57 +1019,16 @@ export function ListActivity03(props) {
                       </div>
                     </li>
                     <li className="col-lg-1 my-auto">
-                      <Dropdown drop="down" alignCenter className="dropdown h-100">
-                        <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                          <div class="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column pointer">
-                            <div class="d-flex mt-1 mb-1 justify-content-center">
-                              <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#1DBC9C` }}>Ambien
-                                  <span className="dropdown_label_remove" style={{ backgroundColor: `#1DBC9C` }}>
-                                  <span className="dropdown_label_remove_icon">x</span>
-                                </span>
-                              </span>
-                            </div>
-                          </div>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
-                          <ServicesDropdownMenu />
-                        </Dropdown.Menu>
-                      </Dropdown>
+                      <ServicesDropDown />
                     </li>
                     <li className="col-lg-1 activeStatuscontent active_clr text-white">
-                      <Dropdown drop="down" alignCenter className="dropdown h-100">
-                        <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                          <a href="#" className="d-flex text-white h-100 align-items-center justify-content-center">Active</a>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav status_hover">
-                          <StatusDropdownMenu />
-                        </Dropdown.Menu>
-                      </Dropdown>
+                      <StatusDropDown />
                     </li>
                     <li className="col-lg-1 activeStatuscontent male_bg text-white">
-                      <Dropdown drop="down" alignCenter className="dropdown h-100">
-                        <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                          <a href="#" className="d-flex text-white h-100 align-items-center justify-content-center">Male</a>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav sx_hover">
-                          <SxDropdownMenu />
-                        </Dropdown.Menu>
-                      </Dropdown>
+                      <SxDropDown />
                     </li>
                     <li className="col-lg-1 my-auto">
-                      <Dropdown drop="down" alignCenter className="dropdown h-100">
-                        <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                          <div className="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column flex-column avail_wid">
-                            <div className="d-flex mt-1 mb-1 p-1 justify-content-center avail_hover">
-                              <span className="avails chat_bg"><img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="" className="" /></span>
-                              <span>Chat</span> <span className="close_icons chat_bg">x</span>
-                            </div>
-                          </div>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav">
-                          <AvailDropdownMenu />
-                        </Dropdown.Menu>
-                      </Dropdown>
+                      <AvailableDropDown />
                     </li>
                     <li className="col-lg-2 activeStatuscontent my-auto d-flex justify-content-center">
                       <span className="d-inline-flex">sagayaraj@lookman.in</span>
@@ -1334,76 +1184,16 @@ export function ListActivity04(props) {
                       </div>
                     </li>
                     <li className="col-lg-1">
-                      <Dropdown drop="down" alignCenter className="dropdown h-100">
-                        <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                          <div class="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column pointer">
-                            <div class="d-flex mt-1 mb-1 justify-content-center">
-                              <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#FD7FAB` }}>Prinvil
-                                  <span className="dropdown_label_remove" style={{ backgroundColor: `#FD7FAB` }}>
-                                  <span className="dropdown_label_remove_icon">x</span>
-                                </span>
-                              </span>
-                            </div>
-                            <div class="d-flex mt-1 mb-1 justify-content-center">
-                              <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#EA80FC` }}>Advil
-                                  <span className="dropdown_label_remove" style={{ backgroundColor: `#EA80FC` }}>
-                                  <span className="dropdown_label_remove_icon">x</span>
-                                </span>
-                              </span>
-                            </div>
-                          </div>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
-                          <ServicesDropdownMenu />
-                        </Dropdown.Menu>
-                      </Dropdown>
+                      <ServicesDropDown />
                     </li>
                     <li className="col-lg-1 activeStatuscontent active_clr text-white">
-                      <Dropdown drop="down" alignCenter className="dropdown h-100">
-                        <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                          <a href="#" className="d-flex text-white h-100 align-items-center justify-content-center">Active</a>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav status_hover">
-                          <StatusDropdownMenu />
-                        </Dropdown.Menu>
-                      </Dropdown>
+                      <StatusDropDown />
                     </li>
                     <li className="col-lg-1 activeStatuscontent male_bg text-white">
-                      <Dropdown drop="down" alignCenter className="dropdown h-100">
-                        <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                          <a href="#" className="d-flex text-white h-100 align-items-center justify-content-center">Male</a>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav sx_hover">
-                          <SxDropdownMenu />
-                        </Dropdown.Menu>
-                      </Dropdown>
+                      <SxDropDown />
                     </li>
                     <li className="col-lg-1">
-                      <Dropdown drop="down" alignCenter className="dropdown h-100">
-                        <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                          <div className="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column flex-column avail_wid">
-                            <div className="d-flex mt-1 mb-1 p-1 justify-content-center avail_hover">
-                              <span className="avails phone_bg"><img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="" className="" /></span>
-                              <span>Phone</span> <span className="close_icons phone_bg">x</span>
-                            </div>
-                            <div className="d-flex mt-1 mb-1 p-1 justify-content-center avail_hover">
-                              <span className="avails visit_bg"><img src={toAbsoluteUrl("/media/patients/avail_visit.svg")} alt="" className="" /></span>
-                              <span>Inperson</span> <span className="close_icons visit_bg">x</span>
-                            </div>
-                            <div className="d-flex mt-1 mb-1 p-1 justify-content-center avail_hover">
-                              <span className="avails chat_bg"><img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="" className="" /></span>
-                              <span>Chat</span> <span className="close_icons chat_bg">x</span>
-                            </div>
-                            <div className="d-flex mt-1 mb-1 p-1 justify-content-center avail_hover">
-                              <span className="avails video_bg"><img src={toAbsoluteUrl("/media/patients/avail_video.svg")} alt="" className="" /></span>
-                              <span>Video</span> <span className="close_icons video_bg">x</span>
-                            </div>
-                          </div>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav">
-                          <AvailDropdownMenu />
-                        </Dropdown.Menu>
-                      </Dropdown>
+                      <AvailableDropDown />
                     </li>
                     <li className="col-lg-2 activeStatuscontent my-auto d-flex justify-content-center">
                       <span className="d-inline-flex">sagayaraj@lookman.in</span>
@@ -1489,8 +1279,8 @@ export function ListActivity04(props) {
 }
 
 export function ColorDropdownMenu() {
-  
-  const avatarDropDown=["/media/users/300_20.jpg","/media/users/300_20.jpg","/media/users/300_20.jpg","/media/users/300_20.jpg","/media/users/300_20.jpg","/media/users/300_20.jpg","/media/users/300_20.jpg","/media/users/300_20.jpg","/media/users/300_20.jpg","/media/users/300_20.jpg","/media/users/300_20.jpg","/media/users/300_20.jpg"];
+
+  const avatarDropDown = ["/media/users/300_20.jpg", "/media/users/300_20.jpg", "/media/users/300_20.jpg", "/media/users/300_20.jpg", "/media/users/300_20.jpg", "/media/users/300_20.jpg", "/media/users/300_20.jpg", "/media/users/300_20.jpg", "/media/users/300_20.jpg", "/media/users/300_20.jpg", "/media/users/300_20.jpg", "/media/users/300_20.jpg"];
   return <>
     {/*begin::Navigation*/}
     <ul className="navi navi-hover">
@@ -1504,159 +1294,21 @@ export function ColorDropdownMenu() {
       </li>
       <li className="navi-item">
         <div className="avatar_select p-2">
-        {avatarDropDown.map((item, index) => {
-               return(
-                <div class="d-inline-flex avatar_box p-2">
-                <input type="radio" id={"avatar_"+index} name="avatar_img" className="" />
-                <label className="avatar_col" for={"avatar_"+index}>
+          {avatarDropDown.map((item, index) => {
+            return (
+              <div class="d-inline-flex avatar_box p-2">
+                <input type="radio" id={"avatar_" + index} name="avatar_img" className="" />
+                <label className="avatar_col" for={"avatar_" + index}>
                   <img src={toAbsoluteUrl(item)} alt="" className="mh-100 d-block rounded-circle" />
                 </label>
               </div>
-          )})}
+            )
+          })}
         </div>
       </li>
     </ul>
     {/*end::Navigation*/}
 
-  </>
-}
-
-export function ServicesDropdownMenu() {
-  return <>
-    {/*begin::Navigation*/}
-    <ul className="navi navi-hover">
-      <li className="navi-item">
-        <div className="service_select p-4">
-          <div class="d-inline-flex justify-content-center">
-            <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#E6511B` }}>Acupunture
-                  <span className="dropdown_label_remove" style={{ backgroundColor: `#E6511B` }}>
-                <span className="dropdown_label_remove_icon">x</span>
-              </span>
-            </span>
-          </div>
-          <div class="d-inline-flex justify-content-center">
-            <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#FD7FAB` }}>Dental
-                  <span className="dropdown_label_remove" style={{ backgroundColor: `#FD7FAB` }}>
-                <span className="dropdown_label_remove_icon">x</span>
-              </span>
-            </span>
-          </div>
-          <div class="d-inline-flex justify-content-center">
-            <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#EA80FC` }}>Skin Care
-                  <span className="dropdown_label_remove" style={{ backgroundColor: `#EA80FC` }}>
-                <span className="dropdown_label_remove_icon">x</span>
-              </span>
-            </span>
-          </div>
-          <div class="d-inline-flex justify-content-center">
-            <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#1DBC9C` }}>Ambien
-                  <span className="dropdown_label_remove" style={{ backgroundColor: `#1DBC9C` }}>
-                <span className="dropdown_label_remove_icon">x</span>
-              </span>
-            </span>
-          </div>
-        </div>
-        <div className="service_search position-relative">
-          <img src={toAbsoluteUrl("/media/patients/drop_search.svg")} alt="search" className="drop_search" />
-          <input type="text" placeholder="Search" className="form-control" />
-        </div>
-      </li>
-      <li className="navi-item">
-        <div className="dropdown-menu-search-main">
-          <div class="dropdown-menu-search-title">Relevant</div>
-          <div className="service_select">
-            <div class="d-flex justify-content-left py-1">
-              <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#E6511B` }}>Acupunture</span>
-            </div>
-            <div class="d-flex justify-content-left py-1">
-              <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#FD7FAB` }}>Dental</span>
-            </div>
-            <div class="d-flex justify-content-left py-1">
-              <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#EA80FC` }}>Skin Care</span>
-            </div>
-            <div class="d-flex justify-content-left py-1">
-              <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#1DBC9C` }}>Ambien</span>
-            </div>
-          </div>
-        </div>
-      </li>
-    </ul>
-    {/*end::Navigation*/}
-
-  </>
-}
-
-export function StatusDropdownMenu() {
-  return <>
-    {/*begin::Navigation*/}
-    <ul className="navi navi-hover">
-      <li className="navi-item">
-        <a href="#" className="navi-link">
-          <span className="navi-circle active_bg"></span>
-          <span className="navi-text">Active</span>
-        </a>
-      </li>
-      <li className="navi-item ina_hover">
-        <a href="#" className="navi-link">
-          <span className="navi-circle inactive_bg"></span>
-          <span className="navi-text">Inactive</span>
-        </a>
-      </li>
-    </ul>
-    {/*end::Navigation*/}
-
-  </>
-}
-export function SxDropdownMenu() {
-  return <>
-    {/*begin::Navigation*/}
-    <ul className="navi navi-hover">
-      <li className="navi-item">
-        <a href="#" className="navi-link">
-          <span className="navi-text">Male</span>
-        </a>
-      </li>
-      <li className="navi-item fe_hover">
-        <a href="#" className="navi-link">
-          <span className="navi-text">Female</span>
-        </a>
-      </li>
-    </ul>
-    {/*end::Navigation*/}
-
-  </>
-}
-
-export function AvailDropdownMenu() {
-  return <>
-    {/*begin::Navigation*/}
-    <ul className="navi navi-hover">
-      <li className="navi-item">
-        <a href="#" className="navi-link">
-          <span className="avails chat_bg"><img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="" className="mt-0" /></span>
-          <span className="navi-text">Chat</span>
-        </a>
-      </li>
-      <li className="navi-item">
-        <a href="#" className="navi-link">
-          <span className="avails video_bg"><img src={toAbsoluteUrl("/media/patients/avail_video.svg")} alt="" className="mt-0" /></span>
-          <span className="navi-text">Video</span>
-        </a>
-      </li>
-      <li className="navi-item">
-        <a href="#" className="navi-link">
-          <span className="avails phone_bg"><img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="" className="mt-0" /></span>
-          <span className="navi-text">Phone</span>
-        </a>
-      </li>
-      <li className="navi-item">
-        <a href="#" className="navi-link">
-          <span className="avails visit_bg"><img src={toAbsoluteUrl("/media/patients/avail_visit.svg")} alt="" className="mt-0" /></span>
-          <span className="navi-text">Inperson</span>
-        </a>
-      </li>
-    </ul>
-    {/*end::Navigation*/}
   </>
 }
 
