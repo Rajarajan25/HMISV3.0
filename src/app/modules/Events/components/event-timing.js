@@ -532,8 +532,8 @@ function DateRange() {
           onChange={handleChange}
         >
           <FormControlLabel value="range" control={<Radio />} label="Range" />
-          <FormControlLabel value="infinity" control={<Radio />} label="Infinity" />
-          <FormControlLabel value="default" control={<Radio />} label="Default" />
+          <FormControlLabel value="indefinitely" control={<Radio />} label="Indefinitely" />
+          <FormControlLabel value="advance" control={<Radio />} label="Advance" />
         </RadioGroup>
       </FormControl>
       
