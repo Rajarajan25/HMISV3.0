@@ -4,12 +4,7 @@ import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import DateFnsUtils from '@date-io/date-fns';
-import {
-  MuiPickersUtilsProvider,
-  KeyboardTimePicker,
-  KeyboardDatePicker,
-} from '@material-ui/pickers';
+import {DatePickersUtil} from '../../Components/DateAndTimePicker'
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -230,22 +225,8 @@ export function DatePicker() {
   };
 
   return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <Grid container justify="space-around">
-        <KeyboardDatePicker
-          variant="inline"
-          format="dd/MM/yyyy"
-          margin="normal"
-          id="date-picker-inline"
-          value={selectedDate}
-          disableFuture={true}
-          autoOk={true}
-          onChange={handleDateChange}
-          KeyboardButtonProps={{
-            'aria-label': 'change date',
-          }}
-        /> 
+      <DatePickersUtil /> 
       </Grid>
-    </MuiPickersUtilsProvider>
   );
 }

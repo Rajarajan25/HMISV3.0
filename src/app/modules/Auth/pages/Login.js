@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 import { FormattedMessage, injectIntl } from "react-intl";
 import * as auth from "../_redux/authRedux";
 import { login } from "../_redux/authCrud";
+import {DateRangePickersUtil} from "../../Components/DateAndTimePicker"
 
 /*
   INTL (i18n) docs:
@@ -126,7 +127,7 @@ function Login(props) {
                     </p>
                   </div>
                   {/* end::Head */}
-
+                  <DateRangePickersUtil />
                   {/*begin::Form*/}
                   <form
                     onSubmit={formik.handleSubmit}

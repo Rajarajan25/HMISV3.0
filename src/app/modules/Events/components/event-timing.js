@@ -7,12 +7,9 @@ import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import DateFnsUtils from '@date-io/date-fns';
-import {
-  MuiPickersUtilsProvider,
-  KeyboardTimePicker } from '@material-ui/pickers';
+import Typography from '@material-ui/core/Typography';
+import {TimePickersUtil} from '../../Components/DateAndTimePicker'
   import FormControl from '@material-ui/core/FormControl';
   import RadioGroup from '@material-ui/core/RadioGroup';
   import Radio from '@material-ui/core/Radio';
@@ -551,9 +548,8 @@ export function TimePickers() {
   const [isOpen, setIsOpen] = useState(false);
 
 return (
-  <MuiPickersUtilsProvider utils={DateFnsUtils}>
   <Grid container justify="space-around">
-    <KeyboardTimePicker
+    <TimePickersUtil
       variant="inline"
       margin="normal"
       id="time-picker-inline"
@@ -580,7 +576,6 @@ return (
       open={isOpen}
     />
   </Grid>
-</MuiPickersUtilsProvider>
 );
 }
 
