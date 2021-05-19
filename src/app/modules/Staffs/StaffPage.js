@@ -13,7 +13,6 @@ export function StaffDetails() {
   );
 }
 class StaffPage extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -22,7 +21,7 @@ class StaffPage extends React.Component {
         {_id:"1",name:"Anand",experience_year:"10",experience_month:"5",gender:"Male",status:"Active",official_email:"Anand@gmail.com",mobile:"789456123",avatar_bg_color:"#41BC87",avatar:"",service:"Acupunture",availability:"Chat"},
         {_id:"2",name:"Basheer",experience_year:"7",experience_month:"5",gender:"Male",status:"Inactive",official_email:"basheer@gmail.com",mobile:"9874561230",avatar_bg_color:"#B17F22",avatar:"",service:"Dental",availability:"Video"},
         {_id:"3",name:"Maadhuri",experience_year:"3",experience_month:"5",gender:"Female",status:"Active",official_email:"maadhuri@gmail.com",mobile:"8529637410",avatar_bg_color:"#2980B9",avatar:"/media/users/300_20.jpg",service:"Skin Care",availability:"Phone"}
-      ]
+      ],
     }
   }
 

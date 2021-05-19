@@ -22,6 +22,7 @@ export function ContentEventDetails(props) {
     initialValues={current}
     enableReinitialize
     onSubmit={(values) => {
+      console.log("values",JSON.stringify(values));
       handleSave(values);
       }}
   >
