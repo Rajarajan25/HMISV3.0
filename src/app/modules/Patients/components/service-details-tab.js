@@ -12,7 +12,9 @@ import { ServiceCost } from "./service-cost";
 import { ServiceSales } from "./service-sales";
 import { ServiceSettings } from "./service-settings";
 import {ServiceContext} from './ServiceContext'
-import {ContentEventDetails} from '../../../components/Details'
+import {Details} from '../../../components/Details'
+import {Duration} from '../../../components/Duration'
+
 function TabContainer(props) {
   return (
     <Typography component="div">
@@ -74,8 +76,9 @@ export function ServiceDetailsTab() {
             </div>
           </div>
           <div className="p-0">
-            {value === 0 && <TabContainer> <ContentEventDetails current={currentService} handleSave={editService}/> </TabContainer>}
-            {value === 1 && <TabContainer> <ServiceCost /> </TabContainer>}
+            {value === 0 && <TabContainer> <Details current={currentService} handleSave={editService}/> </TabContainer>}
+            {value === 1 && <TabContainer> <Duration current={currentService} handleSave={editService}/> </TabContainer>}
+            {/* {value === 1 && <TabContainer> <ServiceCost/> </TabContainer>} */}
             {value === 2 && <TabContainer> <ServiceSales /> </TabContainer>}
             {value === 3 && <TabContainer> <ServiceSettings /> </TabContainer>}
           </div>

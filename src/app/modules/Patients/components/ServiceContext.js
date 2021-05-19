@@ -49,7 +49,8 @@ const initialState = {
             "max-duration-in-seconds":5400,
             "min-duration-in-seconds":5400,
             "pricetype":"fixed",
-            "price":2000
+            "price":2000,
+            "date_range":"infinity"
          },
          "relationships":{
             "staff":{
@@ -242,13 +243,17 @@ const initialState = {
             "require_payment_for_service":"Boolean",
             "staff_commission":true,
             "voucher-enabled":true,
-            "service-pricing-by-staff":{
-               "data":[
+            "retail-price":"23.0",
+            "special-price":"20.0",
+            "price_type":"fixed",
+            "staff_name":"",
+            "service_pricing_by_staff":
+               [
                   {
                      "staff_id":89988,
                      "non-discounted-price":25.0,
-                     "price-type":"fixed",
-                     "retail-price":25.0,
+                     "price_type":"fixed",
+                     "retail_price":25.0,
                      "special_price":100,
                      "duration_hours":1,
                      "duration_minutes":20
@@ -256,14 +261,14 @@ const initialState = {
                   {
                      "staff_id":89988,
                      "non-discounted-price":25.0,
-                     "price-type":"fixed",
-                     "retail-price":25.0,
+                     "price_type":"fixed",
+                     "retail_price":25.0,
                      "special_price":100,
                      "duration_hours":1,
                      "duration_minutes":20
                   }
                ]
-            }
+            
          }
       },
       {
