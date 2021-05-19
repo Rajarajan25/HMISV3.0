@@ -5,11 +5,10 @@ import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { makeStyles } from '@material-ui/core/styles';
 import FormGroup from '@material-ui/core/FormGroup';
+import Grid from '@material-ui/core/Grid';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
-import Grid from '@material-ui/core/Grid';
-import DateFnsUtils from '@date-io/date-fns';
-import { MuiPickersUtilsProvider, KeyboardTimePicker } from '@material-ui/pickers';
+import {TimePickersUtil} from '../../Components/DateAndTimePicker'
 import FormControl from '@material-ui/core/FormControl';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -308,9 +307,8 @@ export function TimePickers() {
     const [isOpen, setIsOpen] = useState(false);
   
   return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
     <Grid container justify="space-around">
-      <KeyboardTimePicker
+      <TimePickersUtil
         variant="inline"
         margin="normal"
         id="time-picker-inline"
@@ -337,7 +335,6 @@ export function TimePickers() {
         open={isOpen}
       />
     </Grid>
-  </MuiPickersUtilsProvider>
   );
 }
 

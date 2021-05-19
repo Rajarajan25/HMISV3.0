@@ -8,9 +8,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
-import {
-  MuiPickersUtilsProvider,
-  KeyboardTimePicker } from '@material-ui/pickers';
+import {TimePickersUtil} from '../../Components/DateAndTimePicker'
 import FormControl from '@material-ui/core/FormControl';
 import Select from 'react-select';
 import { withStyles } from '@material-ui/core/styles';
@@ -403,9 +401,8 @@ export function TimePickers() {
     const [isOpen, setIsOpen] = useState(false);
   
   return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
     <Grid container justify="space-around">
-      <KeyboardTimePicker
+      <TimePickersUtil
         variant="inline"
         margin="normal"
         id="time-picker-inline"
@@ -432,7 +429,6 @@ export function TimePickers() {
         open={isOpen}
       />
     </Grid>
-  </MuiPickersUtilsProvider>
   );
 }
 
