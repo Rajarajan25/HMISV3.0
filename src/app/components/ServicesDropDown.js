@@ -20,9 +20,20 @@ export function ServicesDropDown(props) {
         </Dropdown.Menu>
     </Dropdown>)
 }
-
 export function ServicesDropdownMenu() {
-
+    const serviceArray=[
+        {type: "Acupunture", color: "#E6511B"},
+        {type: "Dental", color: "#FD7FAB"},
+        {type: "Skin Care", color: "#EA80FC"},
+        {type: "Ambien", color: "#1DBC9C"}];
+        
+    const [service, setSerivce] = React.useState(serviceArray);
+    let handleSerach = (event) => {
+        let search=event.target.value;
+        let arr=serviceArray.filter((e)=>{return e.type.toLowerCase().match(new RegExp(search.toLowerCase(), "g"))});
+        setSerivce(arr);
+    }
+    
     return <>
         {/*begin::Navigation*/}
         <ul className="navi navi-hover">
@@ -59,14 +70,20 @@ export function ServicesDropdownMenu() {
                 </div>
                 <div className="service_search position-relative">
                     <img src={toAbsoluteUrl("/media/patients/drop_search.svg")} alt="search" className="drop_search" />
-                    <input type="text" placeholder="Search" className="form-control" />
+                    <input type="text" placeholder="Search" className="form-control" onChange={handleSerach} />
                 </div>
             </li>
-            <li className="navi-item">
+           <li className="navi-item">
                 <div className="dropdown-menu-search-main">
                     <div class="dropdown-menu-search-title">Relevant</div>
                     <div className="service_select">
-                        <div class="d-flex justify-content-left py-1">
+                        {
+                         service.map((e)=> {
+                            return <div class="d-flex justify-content-left py-1" key={e.type}>
+                            <span className="specialInfo text-white position-relative" style={{ backgroundColor: e.color }}> {e.type}</span>
+                        </div>
+                        })}
+                        {/* <div class="d-flex justify-content-left py-1">
                             <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#E6511B` }}>Acupunture</span>
                         </div>
                         <div class="d-flex justify-content-left py-1">
@@ -77,11 +94,12 @@ export function ServicesDropdownMenu() {
                         </div>
                         <div class="d-flex justify-content-left py-1">
                             <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#1DBC9C` }}>Ambien</span>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </li>
         </ul>
         {/*end::Navigation*/}
+
     </>
 }
