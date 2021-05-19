@@ -17,7 +17,17 @@ import {TimePickersUtil} from '../../Components/DateAndTimePicker'
   import Select from 'react-select';
   import { Dropdown } from "react-bootstrap";
   import {DropdownItemToggler} from "../../../../_metronic/_partials/dropdowns";
- 
+  import TextField from "@material-ui/core/TextField";
+  import { DateRangePicker, DateRangeDelimiter, LocalizationProvider } from "@material-ui/pickers";
+  import DateFnsUtils from "@material-ui/pickers/adapter/date-fns";
+  import { blue } from "@material-ui/core/colors";
+  import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+
+  const defaultMaterialTheme = createMuiTheme({
+    palette: {
+      primary: blue,
+    },
+  });
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -113,7 +123,9 @@ export function ContentEventTiming() {
               <DateRange1 />
             </div>
           </div>
-          <input placeholder="Date Range" type="text" className="form-control" name="" />
+          <div className="daterangepicker mt-5">
+            <DateRangePickersUtil />
+          </div>
         </div>
         <div className="form-group mb-2">
           <label className="staff_title_text m-0">Timings</label>
@@ -597,3 +609,24 @@ export function ServicesDropdownMenu() {
 }
 
 
+export function DateRangePickersUtil() {
+  const [selectedDateRange, handleDateRangeChange] = React.useState([null, null]);
+  return (
+    <ThemeProvider theme={defaultMaterialTheme}>
+      <LocalizationProvider dateAdapter={DateFnsUtils}>
+        <DateRangePicker
+          
+          value={selectedDateRange}
+          onChange={date => handleDateRangeChange(date)}
+          renderInput={(startProps, endProps) => (
+            <>
+              <TextField {...startProps} />
+              <DateRangeDelimiter> to </DateRangeDelimiter>
+              <TextField {...endProps} />
+            </>
+          )}
+        />
+      </LocalizationProvider>
+    </ThemeProvider>
+  );
+}

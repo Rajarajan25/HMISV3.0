@@ -4644,3 +4644,27 @@ p.setting_color {
 		}
 	}
 }
+
+/*Gopi*/
+.daterangepicker {
+	label {
+		display: none;
+	}
+	p, input {
+		margin-left: 0 !important;
+		padding-left: 0 !important;
+		font-family: "Gotham Pro";
+	}
+	fieldset {
+		border-color: #eee !important;
+		border: 0 !important;
+		border-bottom: 1px solid #eee !important;
+		border-radius: 0 !important;
+	}
+	.MuiOutlinedInput-root-2624:hover .MuiOutlinedInput-notchedOutline-2630 {
+		border-color: #eee;
+	}
+	.MuiFormControl-root-23 {
+		width: 50%;
+	}
+}
