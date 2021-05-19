@@ -796,9 +796,6 @@ const initialState = {
    
              
    ],
-      
-
-   
    currentService: []
 };
 const reducer = (state, action) => {
