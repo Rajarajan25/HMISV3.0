@@ -21,7 +21,6 @@ import {
   import { Dropdown } from "react-bootstrap";
   import {DropdownItemToggler} from "../../../../_metronic/_partials/dropdowns";
  
-  
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -114,7 +113,7 @@ export function ContentEventTiming() {
           <label className="form-label d-block mr-5 mb-2">Date Range</label>
           <div className="d-flex mb-2">
             <div className="busi_cus ser_tme clearfix">
-              <DateRange />
+              <DateRange1 />
             </div>
           </div>
           <input placeholder="Date Range" type="text" className="form-control" name="" />
@@ -502,7 +501,7 @@ function SelectHours() {
   );
 }
 
-function DateRange() {
+function DateRange1 () {
 
   const useStyles = makeStyles(theme => ({
     root: {
@@ -601,6 +600,5 @@ export function ServicesDropdownMenu() {
 
   </>
 }
-
 
 
