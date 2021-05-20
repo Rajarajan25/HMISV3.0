@@ -8,7 +8,6 @@
             <circle class="c" cx="9.02" cy="9.02" r="8.27" />
         </g>
         <g transform="translate(1457.412 628.412)">
-            <line class="a" y2="7.818" transform="translate(3.909)" />
             <line class="a" y2="7.818" transform="translate(7.818 3.909) rotate(90)" />
         </g>
     </g>

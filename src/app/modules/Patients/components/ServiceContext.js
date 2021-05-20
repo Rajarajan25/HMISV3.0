@@ -248,6 +248,7 @@ const initialState = {
             "advance_retail_price":"200",
             "price_type":"fixed",
             "staff_name":"",
+            "isAdvancedPrice":true,
             "service_pricing_by_staff":
                [
                   {

@@ -19,6 +19,8 @@ import Timings from './Timings'
 import TimezoneSelect from 'react-timezone-select'
 import { Price } from './Price'
 import { Formik, Field } from 'formik';
+import SelectDropDown from './SelectDropDown'
+import { DevConsoleLog } from '../SiteUtill';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -36,39 +38,44 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
-
-
 const durationtime = [
-  { value: '5mins', label: '5 Mins' },
-  { value: '10mins', label: '10 Mins' },
-  { value: '15mins', label: '15 Mins' },
-  { value: '20mins', label: '20 Mins' },
-  { value: '25mins', label: '25 Mins' },
-  { value: '30mins', label: '30 Mins' },
-  { value: '35mins', label: '35 Mins' },
-  { value: '40mins', label: '40 Mins' },
-  { value: '45mins', label: '45 Mins' },
-  { value: '50mins', label: '50 Mins' },
-  { value: '55mins', label: '55 Mins' },
-  { value: '1hour', label: '1 Hour' }
+  { value: 5, label: '5 Mins' },
+  { value: 10, label: '10 Mins' },
+  { value: 15, label: '15 Mins' },
+  { value: 20, label: '20 Mins' },
+  { value: 25, label: '25 Mins' },
+  { value: 30, label: '30 Mins' },
+  { value: 35, label: '35 Mins' },
+  { value: 40, label: '40 Mins' },
+  { value: 45, label: '45 Mins' },
+  { value: 50, label: '50 Mins' },
+  { value: 55, label: '55 Mins' },
+  { value: 1, label: '1 Hour' }
 ]
 
 const buffertime = [
-  { value: '5mins', label: '5 Mins' },
-  { value: '10mins', label: '10 Mins' },
-  { value: '15mins', label: '15 Mins' },
-  { value: '20mins', label: '20 Mins' }
+  { value: 5, label: '5 Mins' },
+  { value: 10, label: '10 Mins' },
+  { value: 15, label: '15 Mins' },
+  { value: 20, label: '20 Mins' }
 ]
 
 export function Duration(props) {
   const classes = useStyles();
   const { current, handleSave } = props
+  const {duration,payments}=current;
+  const initValue={
+    duration:duration,
+    payments:payments,
+  }
+  DevConsoleLog("initValue",initValue);
   let timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   const [values, setValues] = React.useState('business');
 
   function handleTimingChanges(event) {
     setValues(event.target.value);
   }
+  
   const [preloading, setPreLoading] = useState(false);
   const [durationTime, setdurationtime] = React.useState(durationtime[0]);
   const [buffer, setBuffer] = React.useState(buffertime[0]);
@@ -90,23 +97,25 @@ export function Duration(props) {
 
   return (
     <Formik
-      initialValues={current}
+      initialValues={initValue}
       enableReinitialize
       onSubmit={(values) => {
-        // values.duration_minutes = durationTime.value
-        // values.buffer_before_min = buffer.value
-        // values.buffer_after_min = bufferafter.value
-        // current.duration=values
-        console.log("values",JSON.stringify(values));
+        DevConsoleLog("values", JSON.stringify(values));
+        let payments=values.payments;
+        // if(!values.payments.isAdvancedPrice){
+        //   payments.service_pricing_by_staff=[];
+        // }
+        current.duration=values.duration;
+        current.payments=payments;
+        DevConsoleLog("current-->", current);
         handleSave(current);
-      }}
-    >
+      }}>
       {({
-        handleSubmit,setFieldValue,values
+        handleSubmit, setFieldValue, values
       }) => (
 
         <form onSubmit={handleSubmit}>
-          <div className="clearfix">
+          <div className="clearfix p-5">
             <div className="staff_first staff_second w-100">
               <div className="form-group">
                 <div className="row">
@@ -125,26 +134,36 @@ export function Duration(props) {
                   <div className="col-4">
                     <label className="form-label d-block">Duration</label>
                     <div className="re_select">
-                      <Select value={durationTime}
-                        options={durationtime} onChange={setdurationtime} />
+                      <SelectDropDown
+                        className='input'
+                        onChange={value => setFieldValue('duration.duration_minutes', value.value)}
+                        value={values.duration.duration_minutes}
+                        options={durationtime}
+                      />
                     </div>
                   </div>
                   <div className="col-4">
                     <label className="form-label d-block">Buffer Time Before</label>
                     <div className="re_select">
-                      <Select
-                        value={buffer}
-                        options={buffertime} onChange={setBuffer}
+
+                      <SelectDropDown
+                        className='input'
+                        onChange={value => setFieldValue('duration.buffer_before_min', value.value)}
+                        value={values.duration.buffer_before_min}
+                        options={buffertime}
                       />
                     </div>
                   </div>
                   <div className="col-4">
                     <label className="form-label d-block">Buffer Time After</label>
                     <div className="re_select">
-                      <Select
-                        value={bufferafter}
-                        options={buffertime} onChange={setBufferafter}
+                      <SelectDropDown
+                        className='input'
+                        onChange={value => setFieldValue('duration.buffer_after_min', value.value)}
+                        value={values.duration.buffer_after_min}
+                        options={buffertime}
                       />
+
                     </div>
                   </div>
                 </div>
@@ -155,19 +174,19 @@ export function Duration(props) {
                   <div className="busi_cus ser_tme clearfix">
                     <div className={classes.root}>
                       <Field component={RadioGroup} name="duration.date_range">
-                          <FormControlLabel value="range"  control={<Radio />}label="Range"/> 
-                          <FormControlLabel value="infinity"  control={<Radio />}label="Infinity"/>
-                          <FormControlLabel value="default"  control={<Radio />}label="Default"/>
-                        </Field>
+                        <FormControlLabel value="range" control={<Radio />} label="Range" />
+                        <FormControlLabel value="infinity" control={<Radio />} label="Infinity" />
+                        <FormControlLabel value="default" control={<Radio />} label="Default" />
+                      </Field>
                     </div>
-                    
+
                   </div>
                 </div>
 
                 <input placeholder="Date Range" type="text" className="form-control" name="" />
               </div>
-            <Price formikValues={values} setFieldValue={setFieldValue}/>
-            <Timings current={current}/>
+              <Price formikValues={values} setFieldValue={setFieldValue} />
+              <Timings current={current} />
               <div className="form-group mb-0">
                 <div className="d-flex justify-content-end patientButton pos_fix">
                   <button type="submit" className="btn btn-primary">Save</button>
