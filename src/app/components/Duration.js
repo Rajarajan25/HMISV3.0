@@ -1,20 +1,11 @@
 import 'date-fns';
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { toAbsoluteUrl } from "../../_metronic/_helpers";
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import DateFnsUtils from '@date-io/date-fns';
-import { MuiPickersUtilsProvider, KeyboardTimePicker } from '@material-ui/pickers';
 import FormControl from '@material-ui/core/FormControl';
 import { RadioGroup } from 'formik-material-ui';
 import Radio from '@material-ui/core/Radio';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Select from 'react-select';
-import { Dropdown } from "react-bootstrap";
-import { DropdownItemToggler } from "../../_metronic/_partials/dropdowns";
 import Timings from './Timings'
 import TimezoneSelect from 'react-timezone-select'
 import { Price } from './Price'
@@ -70,30 +61,10 @@ export function Duration(props) {
   }
   DevConsoleLog("initValue",initValue);
   let timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-  const [values, setValues] = React.useState('business');
-
-  function handleTimingChanges(event) {
-    setValues(event.target.value);
-  }
-  
-  const [preloading, setPreLoading] = useState(false);
-  const [durationTime, setdurationtime] = React.useState(durationtime[0]);
-  const [buffer, setBuffer] = React.useState(buffertime[0]);
-  const [bufferafter, setBufferafter] = React.useState(buffertime[0]);
   const [selectedTimezone, setSelectedTimezone] = useState({
     value: timeZone,
     label: timeZone
   });
-  if (current && !preloading) {
-    let selectedduration = durationtime.find(dur => dur.value === current.duration.duration_minutes);
-    setdurationtime(selectedduration)
-    setPreLoading(!preloading);
-    let selectedbuffer = buffertime.find(dur => dur.value === current.duration.buffer_before_min);
-    setBuffer(selectedbuffer)
-    let selectedafterbuffer = buffertime.find(dur => dur.value === current.duration.buffer_after_min);
-    setBufferafter(selectedafterbuffer)
-
-  }
 
   return (
     <Formik
@@ -102,9 +73,6 @@ export function Duration(props) {
       onSubmit={(values) => {
         DevConsoleLog("values", JSON.stringify(values));
         let payments=values.payments;
-        // if(!values.payments.isAdvancedPrice){
-        //   payments.service_pricing_by_staff=[];
-        // }
         current.duration=values.duration;
         current.payments=payments;
         DevConsoleLog("current-->", current);
