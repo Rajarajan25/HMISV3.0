@@ -4682,3 +4682,122 @@ p.setting_color {
 		display: none;
 	}
 }
+.filtermodal {
+	.modal-dialog {
+		max-width: 700px;
+	}
+	.re_select {
+		.css-yk16xz-control {
+			border-color: #eee;
+			border-radius: 5px;
+			min-height: 40px;
+			border-width: 1px;
+		}
+		.css-yk16xz-control:hover {
+			border-color: #eee;
+		}
+		.css-g1d714-ValueContainer {
+			padding: 5px 10px;
+		}
+		.css-1okebmr-indicatorSeparator {
+			width: 0;
+		}
+		.css-tlfecz-indicatorContainer, .css-1gtu0rj-indicatorContainer  {
+			padding: 4px;
+		}
+		.css-1pahdxg-control {
+			border-color: #1D6AFF;
+			border-radius: 5px;
+			min-height: 40px;
+			border-width: 1px;
+			box-shadow: none;
+		}
+		.css-1pahdxg-control:hover {
+			border-color: #eee;
+		}
+		.css-1wa3eu0-placeholder {
+			color: #b5b5c3;
+			margin-left: 0px;
+			margin-right: 0px;
+			font-weight: 500;
+			font-size: 1rem;
+		}
+		
+	}
+	.modal-header {
+		
+		.modal .modal-header .close span {
+			display: block;
+		}
+	}
+	
+}
+.filters {
+	.filter-icon {
+		font-size: 16px;
+		margin-right: 15px;
+		margin-top: 8px;
+		cursor: pointer;
+		color: #808080;
+	}
+	.filter-title {
+		font-size: 1.1rem;
+		text-transform: uppercase;
+		color: #808080;
+		font-weight: 500;
+		padding: 10px 10px;
+		margin: 0;
+	}
+	.dropdown-menu.dropdown-menu-md {
+		width: 500px;
+	}
+	.filter-con {
+		.w-110 {
+			width: 120px;
+		}
+		.w-150 {
+			width: 130px;
+		}
+		.w-250 {
+			width: 250px;
+		}
+	}
+	.re_select {
+		.css-yk16xz-control {
+			border-color: #eee;
+			border-radius: 5px;
+			min-height: 40px;
+			border-width: 1px;
+		}
+		.css-yk16xz-control:hover {
+			border-color: #eee;
+		}
+		.css-g1d714-ValueContainer {
+			padding: 5px 10px;
+		}
+		.css-1okebmr-indicatorSeparator {
+			width: 0;
+		}
+		.css-tlfecz-indicatorContainer, .css-1gtu0rj-indicatorContainer  {
+			padding: 4px;
+		}
+		.css-1pahdxg-control {
+			border-color: #1D6AFF;
+			border-radius: 5px;
+			min-height: 40px;
+			border-width: 1px;
+			box-shadow: none;
+		}
+		.css-1pahdxg-control:hover {
+			border-color: #eee;
+		}
+		.css-1wa3eu0-placeholder {
+			color: #b5b5c3;
+			margin-left: 0px;
+			margin-right: 0px;
+			font-weight: 500;
+			font-size: 1rem;
+		}
+		
+	}
+}
