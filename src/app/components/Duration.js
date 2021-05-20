@@ -90,18 +90,19 @@ export function Duration(props) {
 
   return (
     <Formik
-      initialValues={current.duration}
+      initialValues={current}
       enableReinitialize
       onSubmit={(values) => {
-        values.duration_minutes = durationTime.value
-        values.buffer_before_min = buffer.value
-        values.buffer_after_min = bufferafter.value
-        current.duration=values
+        // values.duration_minutes = durationTime.value
+        // values.buffer_before_min = buffer.value
+        // values.buffer_after_min = bufferafter.value
+        // current.duration=values
+        console.log("values",JSON.stringify(values));
         handleSave(current);
       }}
     >
       {({
-        handleSubmit,
+        handleSubmit,setFieldValue,values
       }) => (
 
         <form onSubmit={handleSubmit}>
@@ -153,13 +154,11 @@ export function Duration(props) {
                 <div className="d-flex mb-2">
                   <div className="busi_cus ser_tme clearfix">
                     <div className={classes.root}>
-                      <Field component={RadioGroup} name="date_range">
+                      <Field component={RadioGroup} name="duration.date_range">
                           <FormControlLabel value="range"  control={<Radio />}label="Range"/> 
                           <FormControlLabel value="infinity"  control={<Radio />}label="Infinity"/>
                           <FormControlLabel value="default"  control={<Radio />}label="Default"/>
                         </Field>
-                      
-
                     </div>
                     
                   </div>
@@ -167,10 +166,8 @@ export function Duration(props) {
 
                 <input placeholder="Date Range" type="text" className="form-control" name="" />
               </div>
-              <Price />
-              
+            <Price formikValues={values} setFieldValue={setFieldValue}/>
             <Timings current={current}/>
-
               <div className="form-group mb-0">
                 <div className="d-flex justify-content-end patientButton pos_fix">
                   <button type="submit" className="btn btn-primary">Save</button>
