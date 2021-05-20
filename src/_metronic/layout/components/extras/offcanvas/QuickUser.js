@@ -294,7 +294,7 @@ export function QuickUser() {
           <span className="userIcon bg-primary-light">K</span>
           <span className="userIcon bg-danger">D</span>
           <span className="userIcon bg-success">M</span>
-          <Link to="#" className="userIcon bg-success font-size-h6 addNewevents">+</Link>
+          <Link to="/manage/workspace1" className="userIcon bg-success font-size-h6 addNewevents">+</Link>
         </div>
         <div className="d-flex w-100 userModalcontent">
           <div className="d-flex col h-100">

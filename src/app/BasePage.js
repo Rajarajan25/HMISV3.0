@@ -57,6 +57,7 @@ export default function BasePage() {
         <Route path="/manage/patients-details" component={PatientDetailspage} />
         <Route path="/manage/service-provider" component={ServiceProvider} />
         <Route path="/manage/event-details" component={EventDetails} />
+        
         <Redirect to="error/error-v1" />
       </Switch>
     </Suspense>
