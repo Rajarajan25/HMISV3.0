@@ -118,12 +118,36 @@ export function ContentEventTiming() {
         </div>
         <div className="form-group">
           <label className="form-label d-block mr-5 mb-2">Date Range</label>
-          <div className="d-flex mb-2">
-            <div className="busi_cus ser_tme clearfix">
-              <DateRange1 />
+          <div className="form-group">
+            <div className="d-flex event-range">
+              <div className="event-radio">
+                <input type="radio" id="range_01" name="time-range" className=""/>
+                <label className="eprice" for="range_01">
+                  <span class="chk_txt">Range</span>
+                </label>
+              </div>
+              <div className="event-radio">
+                <input type="radio" id="range_02" name="time-range" className=""/>
+                <label className="eprice" for="range_02">
+                  <span class="chk_txt">Indefinitely</span>
+                </label>
+              </div>
+              <div className="event-radio">
+                <input type="radio" id="range_03" name="time-range" className=""/>
+                <label className="eprice" for="range_03">
+                  <span class="chk_txt">Advance</span>
+                </label>
+              </div>
+              <div className="event-radio">
+                <input type="radio" id="range_04" name="time-range" className=""/>
+                <label className="eprice" for="range_04">
+                  <span class="chk_txt">Time</span>
+                </label>
+              </div>
             </div>
           </div>
-          <div className="daterangepicker mt-5">
+
+          <div className="daterangepicker">
             <DateRangePickersUtil />
           </div>
         </div>

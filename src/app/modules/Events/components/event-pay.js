@@ -75,6 +75,10 @@ export function ContentEventPay() {
               <img src={toAbsoluteUrl("/media/patients/add-advanced.svg")} alt="" className="" />
               <span className="color_6B58B6 pl-2 font-weight-500">Advanced Pricing</span>
             </Link>
+            <Link to="#" className="pl-5">
+            <img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="rem-icon" />
+              <span className="color_303030 pl-2 font-weight-500">Remove</span>
+            </Link>
           </div>
         </div>
         <div className="form-group border-bottom">
@@ -112,6 +116,28 @@ export function ContentEventPay() {
               <img src={toAbsoluteUrl("/media/patients/add-advanced.svg")} alt="" className="" />
               <span className="color_6B58B6 pl-2 font-weight-500">Add</span>
             </Link>
+          </div>
+        </div>
+        <div className="form-group">
+          <div className="row">
+            <div className="col-6">
+              <div className="clu_pri">
+                <div className="cf">
+                  <label className="form-label font_weight_medium d-block">What is Included in the price</label>
+                  <input placeholder="E-Certificate" type="text" className="form-control" name="" />
+                </div>
+                <Link to="#" className="booking_link color_6B58B6 my-auto ml-auto">+ Add</Link>
+              </div>
+            </div>
+            <div className="col-6 d-none">
+              <div className="clu_pri">
+                <div className="cf">
+                  <label className="form-label font_weight_medium d-block">Exclude in the price</label>
+                  <input placeholder="E-Certificate" type="text" className="form-control" name="" />
+                </div>
+                <Link to="#" className="booking_link color_6B58B6 my-auto ml-auto ">+ Add</Link>
+              </div>
+            </div>
           </div>
         </div>
 
