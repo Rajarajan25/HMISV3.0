@@ -543,6 +543,7 @@ function DateRange1 () {
           <FormControlLabel value="range" control={<Radio />} label="Range" />
           <FormControlLabel value="indefinitely" control={<Radio />} label="Indefinitely" />
           <FormControlLabel value="advance" control={<Radio />} label="Advance" />
+          <FormControlLabel value="time" control={<Radio />} label="Time" />
         </RadioGroup>
       </FormControl>
       

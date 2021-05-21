@@ -16,7 +16,9 @@ import Select from 'react-select';
 
 const pricetype = [
   { value: 'free', label: 'Free' },
-  { value: 'fixed', label: 'Fixed' }
+  { value: 'fixed', label: 'Fixed' },
+  { value: 'from', label: 'From' },
+  { value: 'ticket', label: 'Ticket' }
 ]
 const durationtime = [
   { value: '5mins', label: '5 Mins' },
