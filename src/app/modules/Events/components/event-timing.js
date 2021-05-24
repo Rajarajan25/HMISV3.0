@@ -123,25 +123,29 @@ export function ContentEventTiming() {
               <div className="event-radio">
                 <input type="radio" id="range_01" name="time-range" className=""/>
                 <label className="eprice" for="range_01">
-                  <span class="chk_txt">Range</span>
+                  <span className="circle-border"></span>
+                  <span className="chk_txt">Range</span>
                 </label>
               </div>
               <div className="event-radio">
                 <input type="radio" id="range_02" name="time-range" className=""/>
                 <label className="eprice" for="range_02">
-                  <span class="chk_txt">Indefinitely</span>
+                  <span className="circle-border"></span>
+                  <span className="chk_txt">Indefinitely</span>
                 </label>
               </div>
               <div className="event-radio">
                 <input type="radio" id="range_03" name="time-range" className=""/>
                 <label className="eprice" for="range_03">
-                  <span class="chk_txt">Advance</span>
+                  <span className="circle-border"></span>
+                  <span className="chk_txt">Advance</span>
                 </label>
               </div>
               <div className="event-radio">
                 <input type="radio" id="range_04" name="time-range" className=""/>
                 <label className="eprice" for="range_04">
-                  <span class="chk_txt">Time</span>
+                  <span className="circle-border"></span>
+                  <span className="chk_txt">Time</span>
                 </label>
               </div>
             </div>

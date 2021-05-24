@@ -76,7 +76,7 @@ export function ContentEventPay() {
               <span className="color_6B58B6 pl-2 font-weight-500">Advanced Pricing</span>
             </Link>
             <Link to="#" className="pl-5">
-            <img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="rem-icon" />
+              <img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="rem-icon" />
               <span className="color_303030 pl-2 font-weight-500">Remove</span>
             </Link>
           </div>
@@ -115,6 +115,10 @@ export function ContentEventPay() {
             <Link to="#">
               <img src={toAbsoluteUrl("/media/patients/add-advanced.svg")} alt="" className="" />
               <span className="color_6B58B6 pl-2 font-weight-500">Add</span>
+            </Link>
+            <Link to="#" className="pl-5">
+              <img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="rem-icon" />
+              <span className="color_303030 pl-2 font-weight-500">Remove</span>
             </Link>
           </div>
         </div>
