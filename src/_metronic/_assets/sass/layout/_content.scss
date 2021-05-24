@@ -4801,3 +4801,76 @@ p.setting_color {
 		
 	}
 }
+
+.event-tab {
+	.event-range {
+		.event-radio {
+			margin-right: 10px;
+			label{
+				font-weight: normal;
+				padding: 5px 10px 5px 10px;
+				display: flex;
+			}
+			label:after {
+				content: inherit;
+			}
+			label:before {
+				content: inherit;
+			}
+			input[type=radio]:checked + label {
+				color: #0E53F3;
+				border: 1px solid #70A0FC;
+				border-radius: 5px;
+				background: #E0EBFF;
+				font-weight: 500;
+			}	
+			.circle-border {
+				border: 1px solid #707070;
+				width: 18px;
+				height: 18px;
+				display: inline-block;
+				border-radius: 50%;
+				margin-right: 10px;
+				position: relative;
+			}	
+			input[type=radio]:checked + label {
+				.circle-border {
+					border: 1px solid #0089ff;
+					background-color: #0089ff;
+					&:before {
+						content: "";
+						width: 5px;
+						height: 2px;
+						border-radius: 2px;
+						background: #fff;
+						position: absolute;
+						transform: rotate(45deg);
+						top: 7px;
+						left: 4px;
+						transform-origin: 0% 0%;
+						transition: width 150ms ease 100ms;
+					}
+					&:after {
+						content: "";
+						width: 10px;
+						height: 2px;
+						border-radius: 2px;
+						background: #fff;
+						position: absolute;
+						transform: rotate(305deg);
+						top: 11px;
+						left: 6px;
+						transition: width 150ms ease 100ms;
+						transform-origin: 0% 0%;
+					}
+				}	
+			}	
+		}
+	}
+}
+.rem-icon {
+	filter: brightness(0) invert(0);
+	-webkit-filter: brightness(0) invert(0);
+	height: 16px;
+	opacity: 0.6;
+}
