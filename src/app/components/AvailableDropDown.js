@@ -8,7 +8,7 @@ export function AvailableDropDown(props) {
       <div className="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column flex-column avail_wid">
         <div className="d-flex mt-1 mb-1 p-1 justify-content-center avail_hover">
           <span className="avails chat_bg"><img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="" className="" /></span>
-          <span>{props.item.availability}</span> <span className="close_icons chat_bg">x</span>
+          <span>{props.item.availability||"Video"}</span> <span className="close_icons chat_bg">x</span>
         </div>
       </div>
     </Dropdown.Toggle>

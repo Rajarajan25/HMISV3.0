@@ -5,6 +5,11 @@ import Drawer from '@material-ui/core/Drawer';
 import { toAbsoluteUrl } from "../../../_metronic/_helpers";
 import { ListActivity01, ListActivity02, ListActivity03, ListActivity04 } from "../Doctors/components/ListActivity";
 import { StaffDetailsTab } from "../Doctors/components/staff-details-tab";
+import { mutations, queries } from './graphql';
+import { gql, useMutation } from '@apollo/client';
+import { withRouter } from 'react-router-dom';
+import { graphql } from '@apollo/client/react/hoc';
+import { DevConsoleLog } from "../../SiteUtill";
 export function StaffDetails() {
   return (
     <div className="staff_detail">
@@ -17,10 +22,11 @@ class StaffPage extends React.Component {
     super(props);
     this.state = {
       isDrawerOpen: false,
-      staffList:[
-        {_id:"1",name:"Anand",experience_year:"10",experience_month:"5",gender:"Male",status:"Active",official_email:"Anand@gmail.com",mobile:"789456123",avatar_bg_color:"#41BC87",avatar:"",service:"Acupunture",availability:"Chat"},
-        {_id:"2",name:"Basheer",experience_year:"7",experience_month:"5",gender:"Male",status:"Inactive",official_email:"basheer@gmail.com",mobile:"9874561230",avatar_bg_color:"#B17F22",avatar:"",service:"Dental",availability:"Video"},
-        {_id:"3",name:"Maadhuri",experience_year:"3",experience_month:"5",gender:"Female",status:"Active",official_email:"maadhuri@gmail.com",mobile:"8529637410",avatar_bg_color:"#2980B9",avatar:"/media/users/300_20.jpg",service:"Skin Care",availability:"Phone"}
+      currentStaff:{},
+      staffList: [
+        { _id: "1", name: "Anand", experience_year: "10", experience_month: "5", gender: "Male", status: "Active", official_email: "Anand@gmail.com", mobile: "789456123", avatar_bg_color: "#41BC87", avatar: "", service: "Acupunture", availability: "Chat" },
+        { _id: "2", name: "Basheer", experience_year: "7", experience_month: "5", gender: "Male", status: "Inactive", official_email: "basheer@gmail.com", mobile: "9874561230", avatar_bg_color: "#B17F22", avatar: "", service: "Dental", availability: "Video" },
+        { _id: "3", name: "Maadhuri", experience_year: "3", experience_month: "5", gender: "Female", status: "Active", official_email: "maadhuri@gmail.com", mobile: "8529637410", avatar_bg_color: "#2980B9", avatar: "/media/users/300_20.jpg", service: "Skin Care", availability: "Phone" }
       ],
     }
   }
@@ -39,11 +45,12 @@ class StaffPage extends React.Component {
 
   }
 
-  toggleDrawer = (open) => event => {
+  toggleDrawer = (open,selectedItem) => event => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
     }
-    this.setState({ isDrawerOpen: open });
+    DevConsoleLog("s-item",selectedItem);
+    this.setState({ isDrawerOpen: open,currentStaff:selectedItem});
   };
 
   toggleDrawerClose = () => {
@@ -51,6 +58,7 @@ class StaffPage extends React.Component {
   };
 
   render() {
+    const { staffList, loading } = this.props;
     return (
       <div className="d-block">
         <div className="d-flex flex-row">
@@ -58,7 +66,8 @@ class StaffPage extends React.Component {
         </div>
         <div className="d-flex flex-column mt-1">
           <div className="contentSection collapse show w-100" id="holepageToggle">
-            <ListActivity01 toggleDrawer={this.toggleDrawer} dataList={this.state.staffList}></ListActivity01>
+            {loading ? <div className="w-100 mh-100 text-center"><span className="ml-3 spinner spinner-lg spinner-primary"></span></div> :
+              <ListActivity01 toggleDrawer={this.toggleDrawer} dataList={staffList}></ListActivity01>}
           </div>
         </div>
         <div className="contentAreaouter">
@@ -81,4 +90,13 @@ class StaffPage extends React.Component {
   }
 }
 
-export default StaffPage;
+export default
+  graphql(gql(queries.staff), {
+    props: ({ data: { getStaffs, loading } }) => ({
+      staffList: getStaffs || [],
+      loading: loading
+    }),
+  })(StaffPage);
+
+
+//export default StaffPage;

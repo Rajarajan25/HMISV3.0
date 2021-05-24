@@ -63,6 +63,7 @@
         "jss-rtl": "^0.3.0",
         "jwt-decode": "^3.1.2",
         "lodash": "^4.17.21",
+        "lodash.flowright": "^3.5.0",
         "material-ui-formik-components": "^0.7.3",
         "material-ui-popup-state": "1.4.1",
         "object-path": "^0.11.5",
