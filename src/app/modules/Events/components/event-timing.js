@@ -118,7 +118,6 @@ export function ContentEventTiming() {
             </div>
           </div>
         </div>
-        <DateRangePickersUtil />
         <div className="form-group">
           <label className="form-label d-block mr-5 mb-2">Date Range</label>
           <div className="form-group">
