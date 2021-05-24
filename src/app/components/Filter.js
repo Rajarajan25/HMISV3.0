@@ -7,13 +7,13 @@ import { shallowEqual, useSelector } from "react-redux";
 //import GroupFilterSelectSubtask from "./GroupFilterSelectSubtask";
 //import SVG from "react-inlinesvg";
 import { Link } from "react-router-dom";
-import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
-//import { DropdownCustomToggler,DropdownMenu4 } from "../../../../_metronic/_partials/dropdowns";
+import { toAbsoluteUrl } from "../../_metronic/_helpers";
+//import { DropdownCustomToggler,DropdownMenu4 } from "../../_metronic/_partials/dropdowns";
 import Select from 'react-select';
 import { Modal } from "react-bootstrap";
 import { Dropdown } from "react-bootstrap";
-import {DropdownItemToggler} from "../../../../_metronic/_partials/dropdowns";
-import {ServiceDropDown} from '../../../components/ServiceDropDown'
+import {DropdownItemToggler} from "../../_metronic/_partials/dropdowns";
+import {ServiceDropDown} from './ServiceDropDown'
 const options = [
   { value: 'newest', label: 'Newest' },
   { value: 'oldest', label: 'Oldest' },

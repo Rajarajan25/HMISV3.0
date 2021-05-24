@@ -8,7 +8,7 @@ import ChangePassword from "./ChangePassword";
 import PersonaInformation from "./PersonaInformation";
 import EmailSettings from "./EmailSettings";
 import { ProfileCard } from "./components/ProfileCard";
-import { Filter } from "./components/Filter";
+import { Filter } from "../../components/Filter";
 import { ListActivity01, ListActivity02, ListActivity03, ListActivity04 } from "./components/ListActivity";
 
 export default function StaffPage() {
