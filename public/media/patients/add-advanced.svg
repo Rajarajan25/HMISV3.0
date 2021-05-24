@@ -1,15 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="18.041" height="18.041" viewBox="0 0 18.041 18.041">
-    <defs>
-        <style>.a,.c{fill:none;}.a{stroke:#6d5cd2;stroke-width:1.5px;}.b{stroke:none;}</style>
-    </defs>
-    <g transform="translate(-1452 -623)">
-        <g class="a" transform="translate(1452 623)">
-            <circle class="b" cx="9.02" cy="9.02" r="9.02" />
-            <circle class="c" cx="9.02" cy="9.02" r="8.27" />
-        </g>
-        <g transform="translate(1457.412 628.412)">
-            <line class="a" y2="7.818" transform="translate(3.909)" />
-            <line class="a" y2="7.818" transform="translate(7.818 3.909) rotate(90)" />
-        </g>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="18.041" height="18.041" viewBox="0 0 18.041 18.041"><defs><style>.a,.c{fill:none;}.a{stroke:#6d5cd2;stroke-width:1.5px;}.b{stroke:none;}</style></defs><g transform="translate(-1452 -623)"><g class="a" transform="translate(1452 623)"><circle class="b" cx="9.02" cy="9.02" r="9.02"/><circle class="c" cx="9.02" cy="9.02" r="8.27"/></g><g transform="translate(1457.412 628.412)"><line class="a" y2="7.818" transform="translate(3.909)"/><line class="a" y2="7.818" transform="translate(7.818 3.909) rotate(90)"/></g></g></svg>

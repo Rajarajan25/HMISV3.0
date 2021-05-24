@@ -8,16 +8,10 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import Grid from '@material-ui/core/Grid';
-import DateFnsUtils from '@date-io/date-fns';
-import {
-  MuiPickersUtilsProvider,
-  KeyboardTimePicker,
-  KeyboardDatePicker,
-} from '@material-ui/pickers';
-import { Gender } from '../../../components/Gender';
-import { ColorPalette } from '../../../components/ColorPalette';
-import { UploadAvatar } from '../../../components/UploadAvatar';
-
+import {DatePickersUtil} from '../../../components/DateAndTimePicker'
+import {UploadAvatar} from '../../../components/UploadAvatar'
+import {ColorPalette} from '../../../components/ColorPalette'
+import {Gender} from '../../../components/Gender'
 const useStyles = makeStyles(theme => ({
   container: {
     display: 'flex',
@@ -249,22 +243,8 @@ export function DatePicker() {
   };
 
   return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <Grid container justify="space-around">
-        <KeyboardDatePicker
-          variant="inline"
-          format="dd/MM/yyyy"
-          margin="normal"
-          id="date-picker-inline"
-          value={selectedDate}
-          disableFuture={true}
-          autoOk={true}
-          onChange={handleDateChange}
-          KeyboardButtonProps={{
-            'aria-label': 'change date',
-          }}
-        />
+        <DatePickersUtil />
       </Grid>
-    </MuiPickersUtilsProvider>
   );
 }

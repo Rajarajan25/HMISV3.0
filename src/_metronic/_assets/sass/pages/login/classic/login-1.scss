@@ -303,6 +303,8 @@
     background-position: top right;
 
 }
+
+
 .emailIcon:before{
     content: url(/media/auth-screen/emailIcon.svg);
     position: absolute;
@@ -1765,3 +1767,198 @@
         }
     }
   }
+
+.workspace {
+    .logo-tb {
+        background: #fff;
+        width: 80px;
+        height: 80px;
+        line-height: 70px;
+        text-align: center;
+        border-radius: 50%;
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+    }
+    .workspace-con {
+        width: 100%;
+        max-width: 750px;
+        position: relative;
+        h1 {
+            color: #343434;
+            font-size: 30px;
+            font-weight: 500;
+            margin-bottom: 60px;
+        }
+        .input-contain {
+            width: 100%; 
+            input {
+                width: 100%;
+                background-color: transparent;
+                border: 0;
+                border-bottom: 1px solid #707070;
+                height: 60px;
+                color: #343434;
+                font-size: 30px;
+                padding: 10px 0;
+                outline: 0;
+            }
+        }
+        .space-btn {
+            margin-top: 70px;
+            .btn{
+                background: #1D6AFF;
+                border-radius: 5px;
+                color: #fff;
+                min-width: 160px;
+                height: 60px;
+                font-size: 20px;
+                font-weight: 500;
+            }
+
+        }
+    }	
+}
+
+.workspace:before{
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    right: -1150px;
+    width: 100%;
+    height: 460px;
+    z-index: 1;
+
+    background-color: transparent;
+    background-repeat: no-repeat;
+}
+.workspace:after{
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: -310px;
+    width: 40%;
+    height: 100%;
+    z-index: 1;
+    background-image: url(/media/auth-screen/workspace_top_bg.svg);
+    background-color: transparent;
+    background-repeat: repeat-y;
+    background-position: top right;
+
+}
+.bg_FAFBFC {
+    background-color: #FAFBFC;
+}
+.workspace {
+    .up_avatar {
+        width: 200px;
+        height: 200px;
+        border: 2px dashed #C3CFF4;
+        border-radius: 50%;
+        margin: 0;
+        font-size: 20px;
+        outline: 0;
+        text-align: center;
+        padding-top: 30px;
+    }
+    .color_col {
+        label {
+            width: 35px;
+            height: 35px;
+            span:after {
+                height: 3px;
+                top: 23px;
+                left: 14px;
+            }
+            span:before {
+                height: 3px;
+                top: 17px;
+                left: 9px;
+            }
+        }
+        span {
+            width: 35px;
+            height: 35px;
+        }
+        label:hover span:before {
+            width: 12px;
+            transition: width 100ms ease;
+        }
+        label:hover span:after {
+            width: 20px;
+            transition: width 150ms ease 100ms;
+        }
+        input[type=radio]:checked + label span:after {
+            width: 20px;
+        }
+        input[type=radio]:checked + label span:before {
+            width: 12px;
+        }
+    } 
+    .serve_sec .pat_box {
+        padding: 25px 10px;
+        margin: 4px 0;
+        cursor: pointer;
+        position: relative;
+        background: #FFFFFF;
+        border: 1px solid #C6DBF4;
+        border-radius: 10px;
+        height: 130px;
+        width: 155px;
+        margin-right: 50px;
+        .service_img {
+            margin-bottom: 15px;
+            img {
+                height: 55px;
+            }
+        }
+        .service_title {
+            p {
+                margin: 0;
+                font-size: 16px;
+                font-weight: 500;
+            }
+        }
+    }
+    .serve_sec input[type=radio] {
+        display: none; 
+    }
+    .serve_sec input[type=radio]:checked + label.pat_box {
+        box-shadow: 0px 10px 20px #5382FC99;
+        border: 3px solid #1C6AFC;
+    }
+    .serve_sec input[type=radio]:checked + label.pat_box::before {
+        content: "";
+        background: url(/media/auth-screen/select_avatar.svg);
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        bottom: auto;
+        right: -1px;
+        top: -1px; 
+    }
+    .takeoff {
+        font-size: 28px;
+        color: #343434;
+        line-height: 56px;
+        width: 65%;
+    }
+    .rocket {
+        position: absolute;
+        top: -40px;
+        right: -20px;
+    }
+    .cancel_clr {
+        color: #1D6AFF;
+        font-weight: 500;
+        font-size: 20px;
+        text-align: right;
+        margin-top: 30px;
+    }
+    .mb150 {
+        margin-bottom: 180px;
+        position: relative;
+    }
+    .mx1460 {
+        width: 100%;
+        max-width: 1000px; 
+    }
+}

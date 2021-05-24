@@ -97,56 +97,6 @@ export function ContentEventNotify() {
   return (
     <div className="clearfix">
       <div className="staff_first staff_second w-100">
-        <div className="event-bx d-none">
-          <div className="notify-border">
-            <div className="d-flex">
-              <div className="pr-10 mr-auto">
-                <label className="d-block staff_title_text font_weight_medium">Text Reminders</label>
-                <p className="setting_color">Your invitees will have the option of receiving text reminders before a scheduled event.</p>
-              </div>
-              <div className="d-flex">
-                <span className="notify-custom">Custom</span>
-                <div className="pre_status">
-                  <SwitchLabels />
-                </div>
-              </div>
-            </div>
-            <div className="d-block mt-4 mr-8 mb-4">
-              <label className="d-block staff_title_text font_weight_medium">Text Message</label>
-              <textarea placeholder="Event Reminder"  className="form-control"></textarea>
-            </div>
-            <div className="form-group mb-0 mr-8">
-              <label className="form-lable d-block font_weight_medium color_303030 mb-0">Reminder Notification *</label>
-              <div className="re_select">
-                <Select options={durationtime} />
-              </div>
-            </div>
-          </div>
-          <div className="d-flex notify-border">
-            <div className="pr-10 mr-auto">
-              <label className="d-block staff_title_text font_weight_medium">Email Reminders</label>
-              <p className="setting_color">Your invitees will have the option of receiving text reminders before a scheduled event.</p>
-            </div>
-            <div className="d-flex">
-              <span className="notify-custom">Custom</span>
-              <div className="pre_status">
-                <SwitchLabels />
-              </div>
-            </div>
-          </div>
-          <div className="d-flex notify-border">
-            <div className="pr-10 mr-auto">
-              <label className="d-block staff_title_text font_weight_medium">Email Follow Up With Timing</label>
-              <p className="setting_color">Your invitees will have the option of receiving text reminders before a scheduled event.</p>
-            </div>
-            <div className="d-flex">
-              <span className="notify-custom">Custom</span>
-              <div className="pre_status">
-                <SwitchLabels />
-              </div>
-            </div>
-          </div>
-        </div>
         <div className="clearfix notify-head">
           <div className="row">
             <div className="col-6"></div>
@@ -275,6 +225,267 @@ export function NotifyExpansionPanels() {
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel3d-content" id="panel3d-header">
           <Typography>
             <label className="staff_title_text">Email Follow Up With Timing</label>
+          </Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>
+            <div className="clearfix">
+              <div className="row">
+                <div className="col-6">
+                  <p className="setting_color">Your invitees will have the option of receiving text reminders before a scheduled event.</p>
+                </div>
+                <div className="col-2 text-center">
+                  <input type="checkbox" name="reminder" />
+                </div>
+                <div className="col-2 text-center">
+                  <input type="checkbox" name="reminder" />
+                </div>
+                <div className="col-2 text-center">
+                  <div className="pre_status">
+                    <SwitchLabels />
+                  </div>
+                </div>
+              </div>  
+            </div>
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+      <ExpansionPanel square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel3d-content" id="panel3d-header">
+          <Typography>
+            <label className="staff_title_text">Automatic Booking</label>
+          </Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>
+            <div className="clearfix">
+              <div className="row">
+                <div className="col-6">
+                  <p className="setting_color">Your invitees will have the option of receiving text reminders before a scheduled event.</p>
+                </div>
+                <div className="col-2 text-center">
+                  <input type="checkbox" name="reminder" />
+                </div>
+                <div className="col-2 text-center">
+                  <input type="checkbox" name="reminder" />
+                </div>
+                <div className="col-2 text-center">
+                  <div className="pre_status">
+                    <SwitchLabels />
+                  </div>
+                </div>
+              </div>  
+            </div>
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+      <ExpansionPanel square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel3d-content" id="panel3d-header">
+          <Typography>
+            <label className="staff_title_text">Booking with approval</label>
+          </Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>
+            <div className="clearfix">
+              <div className="row">
+                <div className="col-6">
+                  <p className="setting_color">Your invitees will have the option of receiving text reminders before a scheduled event.</p>
+                </div>
+                <div className="col-2 text-center">
+                  <input type="checkbox" name="reminder" />
+                </div>
+                <div className="col-2 text-center">
+                  <input type="checkbox" name="reminder" />
+                </div>
+                <div className="col-2 text-center">
+                  <div className="pre_status">
+                    <SwitchLabels />
+                  </div>
+                </div>
+              </div>  
+            </div>
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+      <ExpansionPanel square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel3d-content" id="panel3d-header">
+          <Typography>
+            <label className="staff_title_text">Calendar event</label>
+          </Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>
+            <div className="clearfix">
+              <div className="row">
+                <div className="col-6">
+                  <p className="setting_color">Your invitees will have the option of receiving text reminders before a scheduled event.</p>
+                </div>
+                <div className="col-2 text-center">
+                  <input type="checkbox" name="reminder" />
+                </div>
+                <div className="col-2 text-center">
+                  <input type="checkbox" name="reminder" />
+                </div>
+                <div className="col-2 text-center">
+                  <div className="pre_status">
+                    <SwitchLabels />
+                  </div>
+                </div>
+              </div>  
+            </div>
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+      <ExpansionPanel square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel3d-content" id="panel3d-header">
+          <Typography>
+            <label className="staff_title_text">Reminders and follow-ups</label>
+          </Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>
+            <div className="clearfix">
+              <div className="row">
+                <div className="col-6">
+                  <p className="setting_color">Your invitees will have the option of receiving text reminders before a scheduled event.</p>
+                </div>
+                <div className="col-2 text-center">
+                  <input type="checkbox" name="reminder" />
+                </div>
+                <div className="col-2 text-center">
+                  <input type="checkbox" name="reminder" />
+                </div>
+                <div className="col-2 text-center">
+                  <div className="pre_status">
+                    <SwitchLabels />
+                  </div>
+                </div>
+              </div>  
+            </div>
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+      <ExpansionPanel square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel3d-content" id="panel3d-header">
+          <Typography>
+            <label className="staff_title_text">Booking cancellation</label>
+          </Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>
+            <div className="clearfix">
+              <div className="row">
+                <div className="col-6">
+                  <p className="setting_color">Your invitees will have the option of receiving text reminders before a scheduled event.</p>
+                </div>
+                <div className="col-2 text-center">
+                  <input type="checkbox" name="reminder" />
+                </div>
+                <div className="col-2 text-center">
+                  <input type="checkbox" name="reminder" />
+                </div>
+                <div className="col-2 text-center">
+                  <div className="pre_status">
+                    <SwitchLabels />
+                  </div>
+                </div>
+              </div>  
+            </div>
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+      <ExpansionPanel square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel3d-content" id="panel3d-header">
+          <Typography>
+            <label className="staff_title_text">Booking reschedule</label>
+          </Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>
+            <div className="clearfix">
+              <div className="row">
+                <div className="col-6">
+                  <p className="setting_color">Your invitees will have the option of receiving text reminders before a scheduled event.</p>
+                </div>
+                <div className="col-2 text-center">
+                  <input type="checkbox" name="reminder" />
+                </div>
+                <div className="col-2 text-center">
+                  <input type="checkbox" name="reminder" />
+                </div>
+                <div className="col-2 text-center">
+                  <div className="pre_status">
+                    <SwitchLabels />
+                  </div>
+                </div>
+              </div>  
+            </div>
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+      <ExpansionPanel square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel3d-content" id="panel3d-header">
+          <Typography>
+            <label className="staff_title_text">Booking request cancellation</label>
+          </Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>
+            <div className="clearfix">
+              <div className="row">
+                <div className="col-6">
+                  <p className="setting_color">Your invitees will have the option of receiving text reminders before a scheduled event.</p>
+                </div>
+                <div className="col-2 text-center">
+                  <input type="checkbox" name="reminder" />
+                </div>
+                <div className="col-2 text-center">
+                  <input type="checkbox" name="reminder" />
+                </div>
+                <div className="col-2 text-center">
+                  <div className="pre_status">
+                    <SwitchLabels />
+                  </div>
+                </div>
+              </div>  
+            </div>
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+      <ExpansionPanel square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel3d-content" id="panel3d-header">
+          <Typography>
+            <label className="staff_title_text">Booking request resubmission</label>
+          </Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>
+            <div className="clearfix">
+              <div className="row">
+                <div className="col-6">
+                  <p className="setting_color">Your invitees will have the option of receiving text reminders before a scheduled event.</p>
+                </div>
+                <div className="col-2 text-center">
+                  <input type="checkbox" name="reminder" />
+                </div>
+                <div className="col-2 text-center">
+                  <input type="checkbox" name="reminder" />
+                </div>
+                <div className="col-2 text-center">
+                  <div className="pre_status">
+                    <SwitchLabels />
+                  </div>
+                </div>
+              </div>  
+            </div>
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+      <ExpansionPanel square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel3d-content" id="panel3d-header">
+          <Typography>
+            <label className="staff_title_text">Other Notification</label>
           </Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
