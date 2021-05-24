@@ -10,6 +10,8 @@ import Tab from '@material-ui/core/Tab';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import {TimePickersUtil} from '../../Components/DateAndTimePicker'
+import {DateRangePickersUtil} from '../../Components/DateAndTimePicker'
+import {DateRangePickersUtilFailed} from '../../Components/DateAndTimePicker'
   import FormControl from '@material-ui/core/FormControl';
   import RadioGroup from '@material-ui/core/RadioGroup';
   import Radio from '@material-ui/core/Radio';
@@ -116,6 +118,7 @@ export function ContentEventTiming() {
             </div>
           </div>
         </div>
+        <DateRangePickersUtil />
         <div className="form-group">
           <label className="form-label d-block mr-5 mb-2">Date Range</label>
           <div className="d-flex mb-2">
@@ -123,9 +126,7 @@ export function ContentEventTiming() {
               <DateRange1 />
             </div>
           </div>
-          <div className="daterangepicker mt-5">
-            <DateRangePickersUtil />
-          </div>
+            
         </div>
         <div className="form-group mb-2">
           <label className="staff_title_text m-0">Timings</label>
@@ -610,24 +611,3 @@ export function ServicesDropdownMenu() {
 }
 
 
-export function DateRangePickersUtil() {
-  const [selectedDateRange, handleDateRangeChange] = React.useState([null, null]);
-  return (
-    <ThemeProvider theme={defaultMaterialTheme}>
-      <LocalizationProvider dateAdapter={DateFnsUtils}>
-        <DateRangePicker
-          
-          value={selectedDateRange}
-          onChange={date => handleDateRangeChange(date)}
-          renderInput={(startProps, endProps) => (
-            <>
-              <TextField {...startProps} />
-              <DateRangeDelimiter> to </DateRangeDelimiter>
-              <TextField {...endProps} />
-            </>
-          )}
-        />
-      </LocalizationProvider>
-    </ThemeProvider>
-  );
-}
