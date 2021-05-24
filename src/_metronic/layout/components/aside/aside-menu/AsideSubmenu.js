@@ -24,7 +24,7 @@ export function AsideSubmenu({ isActive }) {
           {...layoutProps.asideMenuAttr}
         >
           <div className="favoriteLink">
-            Favorites
+            HMIS
           </div>
           <AsideSubMenuList layoutProps={layoutProps} />
         </div>

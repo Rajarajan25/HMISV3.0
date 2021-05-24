@@ -59,9 +59,6 @@ class StaffPage extends React.Component {
         <div className="d-flex flex-column mt-1">
           <div className="contentSection collapse show w-100" id="holepageToggle">
             <ListActivity01 toggleDrawer={this.toggleDrawer} dataList={this.state.staffList}></ListActivity01>
-            {/* <ListActivity02 toggleDrawer={this.toggleDrawer}></ListActivity02>
-            <ListActivity03 toggleDrawer={this.toggleDrawer}></ListActivity03>
-            <ListActivity04 toggleDrawer={this.toggleDrawer}></ListActivity04> */}
           </div>
         </div>
         <div className="contentAreaouter">

@@ -96,6 +96,7 @@ function  SubHeader(){
           {/* Button */}
           <button
             type="button"
+            hidden="true"
             className={`btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2`}
           >
             <span className="svg-icon svg-icon-lg">
@@ -108,7 +109,7 @@ function  SubHeader(){
             {` `}New Member
           </button>
          
-          <QuickActions />
+          {/* <QuickActions /> */}
 
           {/* Button */}
 
