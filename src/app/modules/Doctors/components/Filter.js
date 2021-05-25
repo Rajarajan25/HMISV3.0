@@ -7,21 +7,21 @@ import { shallowEqual, useSelector } from "react-redux";
 //import GroupFilterSelectSubtask from "./GroupFilterSelectSubtask";
 //import SVG from "react-inlinesvg";
 import { Link } from "react-router-dom";
-import { toAbsoluteUrl } from "../../_metronic/_helpers";
-//import { DropdownCustomToggler,DropdownMenu4 } from "../../_metronic/_partials/dropdowns";
+import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
+//import { DropdownCustomToggler,DropdownMenu4 } from "../../../../_metronic/_partials/dropdowns";
 import Select from 'react-select';
 import { Modal } from "react-bootstrap";
 import { Dropdown } from "react-bootstrap";
-import {DropdownItemToggler} from "../../_metronic/_partials/dropdowns";
-import {FilterDropDown} from './FilterDropDown'
+import {DropdownItemToggler} from "../../../../_metronic/_partials/dropdowns";
+
 const options = [
   { value: 'newest', label: 'Newest' },
   { value: 'oldest', label: 'Oldest' },
 ]
 
-export function Filter(props) {
+export function Filter() {
   const user = useSelector(({ auth }) => auth.user, shallowEqual);
-  const {value,handleDataSource}=props;
+
   useEffect(() => {
     return () => {};
   }, [user]);
@@ -46,7 +46,7 @@ export function Filter(props) {
                                   </div>
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu  className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
-                                  <FilterDropDown value={value} handleDataSource={handleDataSource} />
+                                  <ServicesDropdownMenu />
                                 </Dropdown.Menu>
                               </Dropdown>
                             </div>
@@ -97,3 +97,38 @@ const Tom = [
 
 
 
+export function ServicesDropdownMenu() {
+  return <>
+      {/*begin::Navigation*/}
+      <ul className="navi navi-hover">
+          <li className="navi-item">
+            <p className="filter-title">Active Filters</p>
+            <div className="clearfix p-2 d-none">
+              <div className="filter-con">
+                <div className="d-flex align-items-center">
+                  <span className="p-2">Where</span>
+                  <div className="w-150 p-2">
+                    <div className="re_select">
+                      <Select options={duedate} /> 
+                    </div>
+                  </div>
+                  <div className="w-110 p-2">
+                    <div className="re_select">
+                      <Select options={Isdate} /> 
+                    </div>
+                  </div>
+                  <div className="w-250 p-2">
+                    <div className="re_select">
+                      <Select options={Tom} /> 
+                    </div>
+                  </div>
+                  <span className="p-2">X</span>
+                </div>
+              </div>
+            </div>
+          </li>
+      </ul>
+      {/*end::Navigation*/}
+
+  </>
+}

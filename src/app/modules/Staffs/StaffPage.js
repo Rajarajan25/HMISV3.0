@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Filter } from "../../components/Filter";
+import { Filter } from "../Doctors/components/Filter"
 import Drawer from "@material-ui/core/Drawer";
 import { toAbsoluteUrl } from "../../../_metronic/_helpers";
 import {
