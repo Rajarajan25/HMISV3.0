@@ -605,7 +605,7 @@ export function Aside() {
               <div className="aside-workspace scroll scroll-push">
                 <div className="tab-content">
                   <AsideSearch isActive={activeTab === tabs.tabId1} />
-                  <AsideSearch isActive={activeTab === tabs.tabId2} />
+                  <AsideMenu isActive={activeTab === tabs.tabId2} />
                   <AsideMenu isActive={activeTab === tabs.tabId3} />
                   <AsideSubmenu isActive={activeTab === tabs.tabId4} />
                 </div>
