@@ -10,10 +10,10 @@ import { gql, useMutation } from '@apollo/client';
 import { withRouter } from 'react-router-dom';
 import { graphql } from '@apollo/client/react/hoc';
 import { DevConsoleLog } from "../../SiteUtill";
-export function StaffDetails() {
+export function StaffDetails(props) {
   return (
     <div className="staff_detail">
-      <StaffDetailsTab />
+      <StaffDetailsTab {...props}/>
     </div>
   );
 }
@@ -22,7 +22,7 @@ class StaffPage extends React.Component {
     super(props);
     this.state = {
       isDrawerOpen: false,
-      currentStaff:{},
+      currentStaff:false,
       staffList: [
         { _id: "1", name: "Anand", experience_year: "10", experience_month: "5", gender: "Male", status: "Active", official_email: "Anand@gmail.com", mobile: "789456123", avatar_bg_color: "#41BC87", avatar: "", service: "Acupunture", availability: "Chat" },
         { _id: "2", name: "Basheer", experience_year: "7", experience_month: "5", gender: "Male", status: "Inactive", official_email: "basheer@gmail.com", mobile: "9874561230", avatar_bg_color: "#B17F22", avatar: "", service: "Dental", availability: "Video" },
@@ -50,11 +50,11 @@ class StaffPage extends React.Component {
       return;
     }
     DevConsoleLog("s-item",selectedItem);
-    this.setState({ isDrawerOpen: open,currentStaff:selectedItem});
+    this.setState({ isDrawerOpen: open,currentStaff:selectedItem||false});
   };
 
   toggleDrawerClose = () => {
-    this.setState({ isDrawerOpen: false });
+    this.setState({ isDrawerOpen: false,currentStaff:false });
   };
 
   render() {
@@ -81,7 +81,7 @@ class StaffPage extends React.Component {
                   <img src={toAbsoluteUrl("/media/patients/drawer_close.svg")} alt="" className="d-block" />
                 </span>
               </Link>
-              <StaffDetails />
+              <StaffDetails data={this.state.currentStaff}/>
             </div>
           </Drawer>
         </div>
