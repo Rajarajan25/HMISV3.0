@@ -19,9 +19,9 @@ const options = [
   { value: 'oldest', label: 'Oldest' },
 ]
 
-export function Filter() {
+export function Filter(props) {
   const user = useSelector(({ auth }) => auth.user, shallowEqual);
-
+  const {value,handleDataSource}=props;
   useEffect(() => {
     return () => {};
   }, [user]);
@@ -46,7 +46,7 @@ export function Filter() {
                                   </div>
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu  className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
-                                  <FilterDropDown />
+                                  <FilterDropDown value={value} handleDataSource={handleDataSource} />
                                 </Dropdown.Menu>
                               </Dropdown>
                             </div>

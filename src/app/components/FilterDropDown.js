@@ -16,10 +16,11 @@ const duedate = [
     { value: 'today', label: 'Today' },
   ]
   
-export function FilterDropDown() {
+export function FilterDropDown(props) {
+  const {value,handleDataSource}=props;
     return <>
         {/*begin::Navigation*/}
-       <FilterQuery />
+       <FilterQuery value={value} handleDataSource={handleDataSource}/>
         {/*end::Navigation*/}
   
     </>
