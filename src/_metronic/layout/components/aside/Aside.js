@@ -130,12 +130,12 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-                title="Metronic Features"
+                title="Calendar"
               >
                 <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="metronic-features" className="tool_bg">Metronic Features</Tooltip>
+                    <Tooltip id="metronic-features" className="tool_bg">Calendar</Tooltip>
                   }
                 >
                   <a

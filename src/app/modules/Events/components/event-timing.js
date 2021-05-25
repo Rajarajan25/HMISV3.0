@@ -10,6 +10,8 @@ import Tab from '@material-ui/core/Tab';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import {TimePickersUtil} from '../../Components/DateAndTimePicker'
+import {DateRangePickersUtil} from '../../Components/DateAndTimePicker'
+import {DateRangePickersUtilFailed} from '../../Components/DateAndTimePicker'
   import FormControl from '@material-ui/core/FormControl';
   import RadioGroup from '@material-ui/core/RadioGroup';
   import Radio from '@material-ui/core/Radio';
@@ -689,24 +691,3 @@ export function ServicesDropdownMenu() {
 }
 
 
-export function DateRangePickersUtil() {
-  const [selectedDateRange, handleDateRangeChange] = React.useState([null, null]);
-  return (
-    <ThemeProvider theme={defaultMaterialTheme}>
-      <LocalizationProvider dateAdapter={DateFnsUtils}>
-        <DateRangePicker
-          
-          value={selectedDateRange}
-          onChange={date => handleDateRangeChange(date)}
-          renderInput={(startProps, endProps) => (
-            <>
-              <TextField {...startProps} />
-              <DateRangeDelimiter> to </DateRangeDelimiter>
-              <TextField {...endProps} />
-            </>
-          )}
-        />
-      </LocalizationProvider>
-    </ThemeProvider>
-  );
-}
