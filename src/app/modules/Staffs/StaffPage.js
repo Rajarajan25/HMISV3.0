@@ -12,9 +12,9 @@ import {
 import { StaffDetailsTab } from "../Doctors/components/staff-details-tab";
 import { mutations, queries } from './graphql';
 import { gql, useMutation } from '@apollo/client';
-import { withRouter } from 'react-router-dom';
+import * as compose from 'lodash.flowright';
 import { graphql } from '@apollo/client/react/hoc';
-import { DevConsoleLog } from "../../SiteUtill";
+import { DevAlertPopUp, DevConsoleLog } from "../../SiteUtill";
 export function StaffDetails(props) {
   return (
     <div className="staff_detail">
@@ -73,8 +73,8 @@ class StaffPage extends React.Component {
     this.state = {
       isDrawerOpen: false,
       currentStaff:{},
-      staffList: this.staffList,
-      defaultStaffList: JSON.parse(JSON.stringify(this.staffList)),
+      staffList:[],
+      isUpdate:true,
     };
   }
   handleCancel = (props) => {
@@ -84,11 +84,14 @@ class StaffPage extends React.Component {
   };
 
   componentDidMount() {}
-  componentDidUpdate() {}
+  componentDidUpdate(prevProps,prevState) {
+    const { staffList } = this.props;
+    if (prevState.isUpdate&&staffList.length!=0) {
+      this.setState({ staffList:[...staffList],isUpdate:false});
+    }
+  }
   componentDidCatch() {}
-
   componentWillUnmount() {}
-
   toggleDrawer = (open,selectedItem) => event => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
@@ -101,18 +104,31 @@ class StaffPage extends React.Component {
     this.setState({ isDrawerOpen: false,currentStaff:false });
   };
   handleSave = (updatedValue, type, index) => {
-    let updatedItem = this.state.staffList.map((e, i) => {
+    let tempPickList  = JSON.parse(JSON.stringify(this.state.staffList));
+    let updatedItem = tempPickList.map((e, i) => {
       if (i === index) {
         e[type] = updatedValue;
       }
       return e;
     });
+    this.setState({staffList: updatedItem });
 
-    this.setState({ staffList: updatedItem });
+    let updateArray=this.state.staffList[index];
+    this.props.updateStaff({variables: {
+      staffID: updateArray._id,
+      staff: {
+        [type]: updatedValue,
+      }
+    }}).then(() => {
+      //this.props.refetchStaff();
+    })
+    .catch(error => {
+      DevAlertPopUp(error.message);
+    });
   };
 
   render() {
-    const { staffList, loading } = this.props;
+    const { loading } = this.props;
     return (
       <div className="d-block">
         <div className="d-flex flex-row">
@@ -121,7 +137,7 @@ class StaffPage extends React.Component {
         <div className="d-flex flex-column mt-1">
           <div className="contentSection collapse show w-100" id="holepageToggle">
             {loading ? <div className="w-100 mh-100 text-center"><span className="ml-3 spinner spinner-lg spinner-primary"></span></div> :
-              <ListActivity01 toggleDrawer={this.toggleDrawer} dataList={staffList} handleSave={this.handleSave}></ListActivity01>}
+              <ListActivity01 toggleDrawer={this.toggleDrawer} dataList={this.state.staffList} handleSave={this.handleSave}></ListActivity01>}
           </div>
         </div>
         <div className="contentAreaouter">
@@ -163,13 +179,24 @@ class StaffPage extends React.Component {
   }
 }
 
-export default
+export default compose(
   graphql(gql(queries.staff), {
-    props: ({ data: { getStaffs, loading } }) => ({
-      staffList: getStaffs || [],
-      loading: loading
-    }),
-  })(StaffPage);
-
+    props: ({ data: { getStaffs, loading,refetch } }) => ({
+            staffList: getStaffs || [],
+            loading: loading,
+            refetchStaff:refetch
+          })
+  }),graphql(gql(mutations.staffUpdate), {
+    name: 'updateStaff',
+    options: () => ({
+      variables: {}
+    })
+  }),graphql(gql(mutations.staffAdd), {
+    name: 'addStaff',
+    options: () => ({
+      variables: {}
+    })
+  })
+)(StaffPage);
 
 //export default StaffPage;

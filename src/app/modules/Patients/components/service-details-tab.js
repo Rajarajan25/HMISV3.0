@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
-import {Col} from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
@@ -11,9 +11,9 @@ import { ServiceDetail } from "./service-detail";
 import { ServiceCost } from "./service-cost";
 import { ServiceSales } from "./service-sales";
 import { ServiceSettings } from "./service-settings";
-import {ServiceContext} from './ServiceContext'
-import {Details} from '../../../components/Details'
-import {Duration} from '../../../components/Duration'
+import { ServiceContext } from './ServiceContext'
+import { Details } from '../../../components/Details'
+import { Duration } from '../../../components/Duration'
 
 function TabContainer(props) {
   return (
@@ -37,60 +37,66 @@ const useStyles = makeStyles(theme => ({
 export function ServiceDetailsTab() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-  const [service,setservice]=React.useContext(ServiceContext);
-  let currentService=service.currentService;
+  const [service, setservice] = React.useContext(ServiceContext);
+  const field = {
+    name: "Service Name",
+    gender:"Preferred Genders",
+    description: "Description",
+    avatar: "avatar",
+    link: "Service URL"
+  }
+  let currentService = service.currentService;
   function handleChange(event, newValue) {
     setValue(newValue);
   }
-  function editService (values)
-  {
+  function editService(values) {
     setservice({
       type: "EDIT_SERVICE",
       payload: values
     });
   }
-  
+
   return (
-      <Col sm={12} className="bg-white d-flex flex-column p-0">
-        <div className={classes.root}>
-          <div className="d-flex BoxShade">
-            <div className="col mx-210 pr-2 my-auto">
-              <StaffName />
-            </div>
-            <div className="col p-0">
-              <AppBar position="static" color="default">
-                <Tabs
-                  value={value}
-                  onChange={handleChange}
-                  indicatorColor="primary"
-                  textColor="primary"
-                  variant="scrollable"
-                  scrollButtons="auto"
-                >
-                  <Tab label={<TabServiceDetails />} />
-                  <Tab label={<TabCost />} />
-                  <Tab label={<TabSales />} />
-                  <Tab label={<TabServiceSettings />} />
-                </Tabs>
-              </AppBar>
-            </div>
+    <Col sm={12} className="bg-white d-flex flex-column p-0">
+      <div className={classes.root}>
+        <div className="d-flex BoxShade">
+          <div className="col mx-210 pr-2 my-auto">
+            <StaffName />
           </div>
-          <div className="p-0">
-            {value === 0 && <TabContainer> <Details current={currentService} handleSave={editService}/> </TabContainer>}
-            {value === 1 && <TabContainer> <Duration current={currentService} handleSave={editService}/> </TabContainer>}
-            {/* {value === 1 && <TabContainer> <ServiceCost/> </TabContainer>} */}
-            {value === 2 && <TabContainer> <ServiceSales /> </TabContainer>}
-            {value === 3 && <TabContainer> <ServiceSettings /> </TabContainer>}
+          <div className="col p-0">
+            <AppBar position="static" color="default">
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                indicatorColor="primary"
+                textColor="primary"
+                variant="scrollable"
+                scrollButtons="auto"
+              >
+                <Tab label={<TabServiceDetails />} />
+                <Tab label={<TabCost />} />
+                <Tab label={<TabSales />} />
+                <Tab label={<TabServiceSettings />} />
+              </Tabs>
+            </AppBar>
           </div>
         </div>
-      </Col>
+        <div className="p-0">
+          {value === 0 && <TabContainer> <Details current={currentService} handleSave={editService} fields={field} /> </TabContainer>}
+          {value === 1 && <TabContainer> <Duration current={currentService} handleSave={editService} /> </TabContainer>}
+          {/* {value === 1 && <TabContainer> <ServiceCost/> </TabContainer>} */}
+          {value === 2 && <TabContainer> <ServiceSales /> </TabContainer>}
+          {value === 3 && <TabContainer> <ServiceSettings /> </TabContainer>}
+        </div>
+      </div>
+    </Col>
   );
 }
 
 export function StaffName() {
   return (
     <div class="d-flex">
-      <span className="listprofileIcon my-auto" style={{backgroundColor: `#2ecd6f`}}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+      <span className="listprofileIcon my-auto" style={{ backgroundColor: `#2ecd6f` }}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
       <div className="select_staff_name my-auto">
         <p className="m-0">Service Name</p>
         <span>Add Description</span>
