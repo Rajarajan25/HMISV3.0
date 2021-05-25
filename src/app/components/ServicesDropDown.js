@@ -4,10 +4,10 @@ import { DropdownItemToggler } from "../../_metronic/_partials/dropdowns";
 import { toAbsoluteUrl } from "../../_metronic/_helpers";
 export function ServicesDropDown(props) {
     return(<Dropdown drop="down" alignCenter className="dropdown h-100">
-        <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
+        <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle1" className="h-100">
             <div class="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column pointer">
                 <div class="d-flex mt-1 mb-1 justify-content-center">
-                    <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#E6511B` }}>{props.item.service||""}
+                    <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#E6511B` }}>{props.item.service||"Acupunture"}
                         <span className="dropdown_label_remove" style={{ backgroundColor: `#E6511B` }}>
                             <span className="dropdown_label_remove_icon">x</span>
                         </span>
@@ -83,18 +83,6 @@ export function ServicesDropdownMenu() {
                             <span className="specialInfo text-white position-relative" style={{ backgroundColor: e.color }}> {e.type}</span>
                         </div>
                         })}
-                        {/* <div class="d-flex justify-content-left py-1">
-                            <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#E6511B` }}>Acupunture</span>
-                        </div>
-                        <div class="d-flex justify-content-left py-1">
-                            <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#FD7FAB` }}>Dental</span>
-                        </div>
-                        <div class="d-flex justify-content-left py-1">
-                            <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#EA80FC` }}>Skin Care</span>
-                        </div>
-                        <div class="d-flex justify-content-left py-1">
-                            <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#1DBC9C` }}>Ambien</span>
-                        </div> */}
                     </div>
                 </div>
             </li>

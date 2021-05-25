@@ -10,6 +10,11 @@ import {
   ListActivity04,
 } from "../Doctors/components/ListActivity";
 import { StaffDetailsTab } from "../Doctors/components/staff-details-tab";
+import { mutations, queries } from './graphql';
+import { gql, useMutation } from '@apollo/client';
+import { withRouter } from 'react-router-dom';
+import { graphql } from '@apollo/client/react/hoc';
+import { DevConsoleLog } from "../../SiteUtill";
 export function StaffDetails() {
   return (
     <div className="staff_detail">
@@ -67,6 +72,7 @@ class StaffPage extends React.Component {
     super(props);
     this.state = {
       isDrawerOpen: false,
+      currentStaff:{},
       staffList: this.staffList,
       defaultStaffList: JSON.parse(JSON.stringify(this.staffList)),
     };
@@ -83,14 +89,12 @@ class StaffPage extends React.Component {
 
   componentWillUnmount() {}
 
-  toggleDrawer = (open) => (event) => {
-    if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
+  toggleDrawer = (open,selectedItem) => event => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
     }
-    this.setState({ isDrawerOpen: open });
+    DevConsoleLog("s-item",selectedItem);
+    this.setState({ isDrawerOpen: open,currentStaff:selectedItem});
   };
 
   toggleDrawerClose = () => {
@@ -108,24 +112,16 @@ class StaffPage extends React.Component {
   };
 
   render() {
+    const { staffList, loading } = this.props;
     return (
       <div className="d-block">
         <div className="d-flex flex-row">
           <Filter></Filter>
         </div>
         <div className="d-flex flex-column mt-1">
-          <div
-            className="contentSection collapse show w-100"
-            id="holepageToggle"
-          >
-            <ListActivity01
-              toggleDrawer={this.toggleDrawer}
-              dataList={this.state.staffList}
-              handleSave={this.handleSave}
-            ></ListActivity01>
-            {/* <ListActivity02 toggleDrawer={this.toggleDrawer}></ListActivity02>
-            <ListActivity03 toggleDrawer={this.toggleDrawer}></ListActivity03>
-            <ListActivity04 toggleDrawer={this.toggleDrawer}></ListActivity04> */}
+          <div className="contentSection collapse show w-100" id="holepageToggle">
+            {loading ? <div className="w-100 mh-100 text-center"><span className="ml-3 spinner spinner-lg spinner-primary"></span></div> :
+              <ListActivity01 toggleDrawer={this.toggleDrawer} dataList={staffList} handleSave={this.handleSave}></ListActivity01>}
           </div>
         </div>
         <div className="contentAreaouter">
@@ -167,4 +163,13 @@ class StaffPage extends React.Component {
   }
 }
 
-export default StaffPage;
+export default
+  graphql(gql(queries.staff), {
+    props: ({ data: { getStaffs, loading } }) => ({
+      staffList: getStaffs || [],
+      loading: loading
+    }),
+  })(StaffPage);
+
+
+//export default StaffPage;

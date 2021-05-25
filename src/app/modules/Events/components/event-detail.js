@@ -17,7 +17,7 @@ export function ContentEventDetails() {
   return (
     <div className="clearfix">
       <div className="staff_first w-100">
-        <div className="form-group">
+        <div className="form-group d-none">
           <label class="form-label d-block">Type</label>
           <div className="d-flex mt-3">
             <div className="event-radio evn-type mr-3">
@@ -91,13 +91,7 @@ export function ContentEventDetails() {
             </a>
           </div>
         </div>
-        <div className="w-100 mt-15">
-          <div className="d-flex justify-content-end color_c0c0c0">
-            <button type="button" className="btn font-size-16 font_weight_medium color_c0c0c0 text-uppercase">Cancel</button>
-            <button type="button" className="btn font-size-16 font_weight_medium color_1D6AFF text-uppercase">Save</button>
-          </div>
-        </div>
-        <div className="form-group mb-0 d-none">
+        <div className="form-group mb-0">
           <div className="d-flex justify-content-end patientButton pos_fix">
             <button type="button" className="btn btn-primary">Save</button>
           </div>

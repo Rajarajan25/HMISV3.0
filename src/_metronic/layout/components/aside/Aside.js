@@ -99,7 +99,7 @@ export function Aside() {
                 <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="latest-project" className="tool_bg">Latest Project</Tooltip>
+                    <Tooltip id="latest-project" className="tool_bg">Project</Tooltip>
                   }
                 >
                   <a
@@ -135,7 +135,7 @@ export function Aside() {
                 <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="metronic-features" className="tool_bg">Metronic Features</Tooltip>
+                    <Tooltip id="metronic-features" className="tool_bg">Events</Tooltip>
                   }
                 >
                   <a
@@ -144,49 +144,13 @@ export function Aside() {
                       tabs.tabId2 && "active"}`}
                     data-toggle="tab"
                     data-target={`#${tabs.tabId2}`}
-                    onClick={() => handleTabChange(tabs.tabId2)}
+                    onClick={() => handleTabChange(tabs.tabId4)}
                     role="tab"
                   >
                     <span className="svg-icon svg-icon-md d-inline-flex">
                       <SVG
                         src={toAbsoluteUrl(
                           "/media/svg/left-menu/Calender.svg"
-                        )}
-                      />
-                    </span>
-                  </a>
-                </OverlayTrigger>
-              </li>
-              {/* end::Item */}
-
-              {/* begin::Item */}
-              <li
-                className="nav-item"
-                data-toggle="tooltip"
-                data-placement="rigth"
-                data-container="body"
-                data-boundary="window"
-                title="Metronic Features"
-              >
-                <OverlayTrigger
-                  placement="right"
-                  overlay={
-                    <Tooltip id="metronic-features" className="tool_bg">Metronic Features</Tooltip>
-                  }
-                >
-                  <a
-                    href="#"
-                    className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===
-                      tabs.tabId3 && "active"}`}
-                    data-toggle="tab"
-                    data-target={`#${tabs.tabId3}`}
-                    onClick={() => handleTabChange(tabs.tabId3)}
-                    role="tab"
-                  >
-                    <span className="svg-icon svg-icon-md d-inline-flex">
-                      <SVG
-                        src={toAbsoluteUrl(
-                          "/media/svg/left-menu/Services.svg"
                         )}
                       />
                     </span>
@@ -224,15 +188,9 @@ export function Aside() {
                     data-toggle="tab"
                     data-target={`#${tabs.tabId1}`}
                     role="tab"
-                    onClick={() => handleTabChange(tabs.tabId1)}
+                    onClick={() => handleTabChange(tabs.tabId4)}
                   >
-                    <span className="svg-icon svg-icon-md d-inline-flex">
-                      <SVG
-                        src={toAbsoluteUrl(
-                          "/media/svg/left-menu/Payment.svg"
-                        )}
-                      />
-                    </span>
+                    
                   </a>
                 </OverlayTrigger>
               </li>
@@ -262,13 +220,7 @@ export function Aside() {
                     onClick={() => handleTabChange(tabs.tabId2)}
                     role="tab"
                   >
-                    <span className="svg-icon svg-icon-md d-inline-flex">
-                      <SVG
-                        src={toAbsoluteUrl(
-                          "/media/svg/left-menu/Speaker.svg"
-                        )}
-                      />
-                    </span>
+                    
                   </a>
                 </OverlayTrigger>
               </li>
@@ -296,13 +248,7 @@ export function Aside() {
                     data-target="#kt_aside_tab_3"
                     role="tab"
                   >
-                    <span className="svg-icon svg-icon-md d-inline-flex">
-                      <SVG
-                        src={toAbsoluteUrl(
-                          "/media/svg/left-menu/Chart.svg"
-                        )}
-                      />
-                    </span>
+                   
                   </a>
                 </OverlayTrigger>
               </li>
@@ -330,13 +276,7 @@ export function Aside() {
                     data-target="#kt_aside_tab_3"
                     role="tab"
                   >
-                    <span className="svg-icon svg-icon-md d-inline-flex">
-                      <SVG
-                        src={toAbsoluteUrl(
-                          "/media/svg/left-menu/Products.svg"
-                        )}
-                      />
-                    </span>
+                    
                   </a>
                 </OverlayTrigger>
               </li>
@@ -366,13 +306,7 @@ export function Aside() {
                     data-target="#kt_aside_tab_4"
                     role="tab"
                   >
-                    <span className="svg-icon svg-icon-md d-inline-flex">
-                      <SVG
-                        src={toAbsoluteUrl(
-                          "/media/svg/left-menu/Setting.svg"
-                        )}
-                      />
-                    </span>
+                   
                   </a>
                 </OverlayTrigger>
               </li>
@@ -400,11 +334,7 @@ export function Aside() {
                     data-target="#kt_aside_tab_5"
                     role="tab"
                   >
-                    <span className="svg-icon svg-icon-md d-inline-flex">
-                      <SVG
-                        src={toAbsoluteUrl("/media/svg/left-menu/Help.svg")}
-                      />
-                    </span>
+                    
                   </a>
                 </OverlayTrigger>
               </li>

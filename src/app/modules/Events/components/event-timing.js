@@ -7,12 +7,9 @@ import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import DateFnsUtils from '@date-io/date-fns';
-import {
-  MuiPickersUtilsProvider,
-  KeyboardTimePicker } from '@material-ui/pickers';
+import Typography from '@material-ui/core/Typography';
+import {TimePickersUtil,DateRangePickersUtil} from '../../../components/DateAndTimePicker'
   import FormControl from '@material-ui/core/FormControl';
   import RadioGroup from '@material-ui/core/RadioGroup';
   import Radio from '@material-ui/core/Radio';
@@ -20,7 +17,14 @@ import {
   import Select from 'react-select';
   import { Dropdown } from "react-bootstrap";
   import {DropdownItemToggler} from "../../../../_metronic/_partials/dropdowns";
-  import TextField from "@material-ui/core/TextField";
+  import { blue } from "@material-ui/core/colors";
+  import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+
+  const defaultMaterialTheme = createMuiTheme({
+    palette: {
+      primary: blue,
+    },
+  });
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -113,10 +117,12 @@ export function ContentEventTiming() {
           <label className="form-label d-block mr-5 mb-2">Date Range</label>
           <div className="d-flex mb-2">
             <div className="busi_cus ser_tme clearfix">
-              <DateRange />
+              <DateRange1 />
             </div>
           </div>
-          <input placeholder="Date Range" type="text" className="form-control" name="" />
+          <div className="daterangepicker mt-5">
+            <DateRangePickersUtil startText="Start time" endText="End Time"/>
+          </div>
         </div>
         <div className="form-group mb-2">
           <label className="staff_title_text m-0">Timings</label>
@@ -303,13 +309,7 @@ export function ContentEventTiming() {
             </div>
           </div>
         </div>
-        <div className="w-100 mt-15">
-          <div className="d-flex justify-content-end color_c0c0c0">
-            <button type="button" className="btn font-size-16 font_weight_medium color_c0c0c0 text-uppercase">Cancel</button>
-            <button type="button" className="btn font-size-16 font_weight_medium color_1D6AFF text-uppercase">Save</button>
-          </div>
-        </div>
-        <div className="form-group mb-0 d-none">
+        <div className="form-group mb-0">
           <div className="d-flex justify-content-end patientButton pos_fix">
             <button type="button" className="btn btn-primary">Save</button>
           </div>
@@ -507,7 +507,7 @@ function SelectHours() {
   );
 }
 
-function DateRange() {
+function DateRange1 () {
 
   const useStyles = makeStyles(theme => ({
     root: {
@@ -538,8 +538,9 @@ function DateRange() {
           onChange={handleChange}
         >
           <FormControlLabel value="range" control={<Radio />} label="Range" />
-          <FormControlLabel value="infinity" control={<Radio />} label="Infinity" />
-          <FormControlLabel value="default" control={<Radio />} label="Default" />
+          <FormControlLabel value="indefinitely" control={<Radio />} label="Indefinitely" />
+          <FormControlLabel value="advance" control={<Radio />} label="Advance" />
+          <FormControlLabel value="time" control={<Radio />} label="Time" />
         </RadioGroup>
       </FormControl>
       
@@ -557,9 +558,8 @@ export function TimePickers() {
   const [isOpen, setIsOpen] = useState(false);
 
 return (
-  <MuiPickersUtilsProvider utils={DateFnsUtils}>
   <Grid container justify="space-around">
-    <KeyboardTimePicker
+    <TimePickersUtil
       variant="inline"
       margin="normal"
       id="time-picker-inline"
@@ -586,7 +586,6 @@ return (
       open={isOpen}
     />
   </Grid>
-</MuiPickersUtilsProvider>
 );
 }
 

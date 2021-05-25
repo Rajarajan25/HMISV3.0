@@ -5,9 +5,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
-import { MuiPickersUtilsProvider, KeyboardTimePicker } from '@material-ui/pickers';
-
-
+import {TimePickersUtil} from "../components/DateAndTimePicker"
 
 const days = [
     { work_day_id: 1, name:"Sunday",start_time: "Week Off",isWorking:false},
@@ -114,9 +112,8 @@ export function TimePickers(value) {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <MuiPickersUtilsProvider utils={DateFnsUtils}>
             <Grid container justify="space-around">
-                <KeyboardTimePicker
+                <TimePickersUtil
                     variant="inline"
                     margin="normal"
                     id="time-picker-inline"
@@ -143,7 +140,6 @@ export function TimePickers(value) {
                     open={isOpen}
                 />
             </Grid>
-        </MuiPickersUtilsProvider>
     );
 }
 
@@ -166,9 +162,8 @@ export function EndTimePickers(value) {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <MuiPickersUtilsProvider utils={DateFnsUtils}>
             <Grid container justify="space-around">
-                <KeyboardTimePicker
+                <TimePickersUtil
                     variant="inline"
                     margin="normal"
                     id="time-picker-inline"
@@ -195,6 +190,5 @@ export function EndTimePickers(value) {
                     open={isOpen}
                 />
             </Grid>
-        </MuiPickersUtilsProvider>
     );
 }

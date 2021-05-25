@@ -4,9 +4,7 @@ import { BusinessContext } from '../BusinessContext';
 import { gql, useMutation } from "@apollo/client";
 import { Formik, Field } from 'formik';
 import 'date-fns';
-import DateFnsUtils from '@date-io/date-fns';
-import { TimePicker } from 'formik-material-ui-pickers';
-import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import {TimePickersUtil} from "../../../../components/DateAndTimePicker"
 import { DevConsoleLog } from '../../../../SiteUtill';
 
 const UPDATE_BUSINESS = gql`
@@ -178,7 +176,6 @@ export default function Step4(props) {
           }}
       >
         {({handleSubmit}) => (
-          <MuiPickersUtilsProvider utils={DateFnsUtils}>
             <form onSubmit={handleSubmit}  >
               <div className="w-100 mh-100 text-center rightPanel">
                 <div className="text-left mb-5">
@@ -214,9 +211,9 @@ export default function Step4(props) {
                     </div>
                   </div>
                   <div className="tm_area text-left col">
-                    <Field component={TimePicker} timeZone ={selectedTimezone} autoOk={true} name={`start_time_${index}`} label="Time" variant="inline" value={item.start_time}  disabled={!getActive(item.work_day_id)} onChange={(e) =>handleDateChange(e,index,"start_time")} onOpen={e => clickTimePicker(e,index)}/>
+                    <Field component={TimePickersUtil} timeZone ={selectedTimezone} autoOk={true} name={`start_time_${index}`} label="Time" variant="inline" value={item.start_time}  disabled={!getActive(item.work_day_id)} onChange={(e) =>handleDateChange(e,index,"start_time")} onOpen={e => clickTimePicker(e,index)}/>
                     <span className="se_to">to</span>  
-                    <Field component={TimePicker} timeZone ={selectedTimezone} autoOk={true} name={`end_time_${index}`} variant="inline" value={item.end_time} disabled={!getActive(item.work_day_id)} onChange={(e) =>handleDateChange(e,index,"end_time")} onOpen={e => clickTimePicker(e,index)}/>
+                    <Field component={TimePickersUtil} timeZone ={selectedTimezone} autoOk={true} name={`end_time_${index}`} variant="inline" value={item.end_time} disabled={!getActive(item.work_day_id)} onChange={(e) =>handleDateChange(e,index,"end_time")} onOpen={e => clickTimePicker(e,index)}/>
                   </div>
                   {index===timePickerIndex&&seletedDays.length>1&&<a><button className="btn btn-link" type="button" onClick={handleAppyAll}>Apply All</button></a>}
                 </div>
@@ -230,8 +227,6 @@ export default function Step4(props) {
                 </div>
               </div>
             </form>
-          </MuiPickersUtilsProvider>
-
         )}
       </Formik>
     </>

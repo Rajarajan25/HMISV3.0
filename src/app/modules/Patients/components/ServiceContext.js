@@ -245,8 +245,10 @@ const initialState = {
             "voucher-enabled":true,
             "retail-price":"23.0",
             "special-price":"20.0",
+            "advance_retail_price":"200",
             "price_type":"fixed",
             "staff_name":"",
+            "isAdvancedPrice":true,
             "service_pricing_by_staff":
                [
                   {
@@ -259,13 +261,13 @@ const initialState = {
                      "duration_minutes":20
                   },
                   {
-                     "staff_id":89988,
+                     "staff_id":89987,
                      "non-discounted-price":25.0,
                      "price_type":"fixed",
-                     "retail_price":25.0,
-                     "special_price":100,
+                     "retail_price":50.0,
+                     "special_price":200,
                      "duration_hours":1,
-                     "duration_minutes":20
+                     "duration_minutes":10
                   }
                ]
             

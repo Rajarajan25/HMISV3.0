@@ -1,24 +1,17 @@
 import 'date-fns';
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { toAbsoluteUrl } from "../../_metronic/_helpers";
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import DateFnsUtils from '@date-io/date-fns';
-import { MuiPickersUtilsProvider, KeyboardTimePicker } from '@material-ui/pickers';
 import FormControl from '@material-ui/core/FormControl';
 import { RadioGroup } from 'formik-material-ui';
 import Radio from '@material-ui/core/Radio';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Select from 'react-select';
-import { Dropdown } from "react-bootstrap";
-import { DropdownItemToggler } from "../../_metronic/_partials/dropdowns";
 import Timings from './Timings'
 import TimezoneSelect from 'react-timezone-select'
 import { Price } from './Price'
 import { Formik, Field } from 'formik';
+import SelectDropDown from './SelectDropDown'
+import { DevConsoleLog } from '../SiteUtill';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -36,76 +29,61 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
-
-
 const durationtime = [
-  { value: '5mins', label: '5 Mins' },
-  { value: '10mins', label: '10 Mins' },
-  { value: '15mins', label: '15 Mins' },
-  { value: '20mins', label: '20 Mins' },
-  { value: '25mins', label: '25 Mins' },
-  { value: '30mins', label: '30 Mins' },
-  { value: '35mins', label: '35 Mins' },
-  { value: '40mins', label: '40 Mins' },
-  { value: '45mins', label: '45 Mins' },
-  { value: '50mins', label: '50 Mins' },
-  { value: '55mins', label: '55 Mins' },
-  { value: '1hour', label: '1 Hour' }
+  { value: 5, label: '5 Mins' },
+  { value: 10, label: '10 Mins' },
+  { value: 15, label: '15 Mins' },
+  { value: 20, label: '20 Mins' },
+  { value: 25, label: '25 Mins' },
+  { value: 30, label: '30 Mins' },
+  { value: 35, label: '35 Mins' },
+  { value: 40, label: '40 Mins' },
+  { value: 45, label: '45 Mins' },
+  { value: 50, label: '50 Mins' },
+  { value: 55, label: '55 Mins' },
+  { value: 1, label: '1 Hour' }
 ]
 
 const buffertime = [
-  { value: '5mins', label: '5 Mins' },
-  { value: '10mins', label: '10 Mins' },
-  { value: '15mins', label: '15 Mins' },
-  { value: '20mins', label: '20 Mins' }
+  { value: 5, label: '5 Mins' },
+  { value: 10, label: '10 Mins' },
+  { value: 15, label: '15 Mins' },
+  { value: 20, label: '20 Mins' }
 ]
 
 export function Duration(props) {
   const classes = useStyles();
   const { current, handleSave } = props
-  let timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-  const [values, setValues] = React.useState('business');
-
-  function handleTimingChanges(event) {
-    setValues(event.target.value);
+  const {duration,payments}=current;
+  const initValue={
+    duration:duration,
+    payments:payments,
   }
-  const [preloading, setPreLoading] = useState(false);
-  const [durationTime, setdurationtime] = React.useState(durationtime[0]);
-  const [buffer, setBuffer] = React.useState(buffertime[0]);
-  const [bufferafter, setBufferafter] = React.useState(buffertime[0]);
+  DevConsoleLog("initValue",initValue);
+  let timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   const [selectedTimezone, setSelectedTimezone] = useState({
     value: timeZone,
     label: timeZone
   });
-  if (current && !preloading) {
-    let selectedduration = durationtime.find(dur => dur.value === current.duration.duration_minutes);
-    setdurationtime(selectedduration)
-    setPreLoading(!preloading);
-    let selectedbuffer = buffertime.find(dur => dur.value === current.duration.buffer_before_min);
-    setBuffer(selectedbuffer)
-    let selectedafterbuffer = buffertime.find(dur => dur.value === current.duration.buffer_after_min);
-    setBufferafter(selectedafterbuffer)
-
-  }
 
   return (
     <Formik
-      initialValues={current.duration}
+      initialValues={initValue}
       enableReinitialize
       onSubmit={(values) => {
-        values.duration_minutes = durationTime.value
-        values.buffer_before_min = buffer.value
-        values.buffer_after_min = bufferafter.value
-        current.duration=values
+        DevConsoleLog("values", JSON.stringify(values));
+        let payments=values.payments;
+        current.duration=values.duration;
+        current.payments=payments;
+        DevConsoleLog("current-->", current);
         handleSave(current);
-      }}
-    >
+      }}>
       {({
-        handleSubmit,
+        handleSubmit, setFieldValue, values
       }) => (
 
         <form onSubmit={handleSubmit}>
-          <div className="clearfix">
+          <div className="clearfix p-5">
             <div className="staff_first staff_second w-100">
               <div className="form-group">
                 <div className="row">
@@ -124,26 +102,36 @@ export function Duration(props) {
                   <div className="col-4">
                     <label className="form-label d-block">Duration</label>
                     <div className="re_select">
-                      <Select value={durationTime}
-                        options={durationtime} onChange={setdurationtime} />
+                      <SelectDropDown
+                        className='input'
+                        onChange={value => setFieldValue('duration.duration_minutes', value.value)}
+                        value={values.duration.duration_minutes}
+                        options={durationtime}
+                      />
                     </div>
                   </div>
                   <div className="col-4">
                     <label className="form-label d-block">Buffer Time Before</label>
                     <div className="re_select">
-                      <Select
-                        value={buffer}
-                        options={buffertime} onChange={setBuffer}
+
+                      <SelectDropDown
+                        className='input'
+                        onChange={value => setFieldValue('duration.buffer_before_min', value.value)}
+                        value={values.duration.buffer_before_min}
+                        options={buffertime}
                       />
                     </div>
                   </div>
                   <div className="col-4">
                     <label className="form-label d-block">Buffer Time After</label>
                     <div className="re_select">
-                      <Select
-                        value={bufferafter}
-                        options={buffertime} onChange={setBufferafter}
+                      <SelectDropDown
+                        className='input'
+                        onChange={value => setFieldValue('duration.buffer_after_min', value.value)}
+                        value={values.duration.buffer_after_min}
+                        options={buffertime}
                       />
+
                     </div>
                   </div>
                 </div>
@@ -153,24 +141,20 @@ export function Duration(props) {
                 <div className="d-flex mb-2">
                   <div className="busi_cus ser_tme clearfix">
                     <div className={classes.root}>
-                      <Field component={RadioGroup} name="date_range">
-                          <FormControlLabel value="range"  control={<Radio />}label="Range"/> 
-                          <FormControlLabel value="infinity"  control={<Radio />}label="Infinity"/>
-                          <FormControlLabel value="default"  control={<Radio />}label="Default"/>
-                        </Field>
-                      
-
+                      <Field component={RadioGroup} name="duration.date_range">
+                        <FormControlLabel value="range" control={<Radio />} label="Range" />
+                        <FormControlLabel value="infinity" control={<Radio />} label="Infinity" />
+                        <FormControlLabel value="default" control={<Radio />} label="Default" />
+                      </Field>
                     </div>
-                    
+
                   </div>
                 </div>
 
                 <input placeholder="Date Range" type="text" className="form-control" name="" />
               </div>
-              <Price />
-              
-            <Timings current={current}/>
-
+              <Price formikValues={values} setFieldValue={setFieldValue} />
+              <Timings current={current} />
               <div className="form-group mb-0">
                 <div className="d-flex justify-content-end patientButton pos_fix">
                   <button type="submit" className="btn btn-primary">Save</button>
