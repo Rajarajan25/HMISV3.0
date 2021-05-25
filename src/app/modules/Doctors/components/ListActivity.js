@@ -8,7 +8,7 @@ const useStyles = makeStyles({
     width: 650,
   },
   fullList: {
-    width: 'auto',
+    width: "auto",
   },
 });
 
@@ -25,6 +25,35 @@ const Column=[{name:"Service Provider",hide:false},
 export function ListActivity01(props) {
   const {dataList,toggleDrawer}=props;
   const classes = useStyles();
+  const [staffList, setStaffList] = React.useState(props.dataList);
+  const [selectedIndexName, setSelectedIndexName] = React.useState(-1);
+  const [selectedIndexMail, setSelectedIndexMail] = React.useState(-1);
+  const [selectedIndexMobile, setSelectedIndexMobile] = React.useState(-1);
+  const updatedValue = React.useRef("");
+
+  const handleOnChange = () => setStaffList(props.dataList);
+  const handleEdit = (type, index) => {
+    if (type === "name") setSelectedIndexName(index);
+    if (type === "mail") setSelectedIndexMail(index);
+    if (type === "mobile") setSelectedIndexMobile(index);
+  };
+  const handleSave = (type, index) => {
+    props.handleSave(updatedValue.current.value, type, index);
+    handleCancel(type);
+  };
+  const handleCancel = (type) => {
+    if (type === "name") setSelectedIndexName(-1);
+    if (type === "mail") setSelectedIndexMail(-1);
+    if (type === "mobile") setSelectedIndexMobile(-1);
+  };
+{/* <ServiceEdit
+                          type={"mobile"}
+                          index={index}
+                          clickEdit={handleEdit}
+                          clickSave={handleSave}
+                          clickCancel={handleCancel}
+                          selectedIndex={selectedIndexMobile}
+                        ></ServiceEdit> */}
   return (
     <div className="contentArea">
       <TableHeader column={Column} listCount={dataList.length} expandVisiable={true} countLable="staff"/>
@@ -32,7 +61,6 @@ export function ListActivity01(props) {
     </div>
   );
 }
-
 
 
 export function StaffDetails() {
