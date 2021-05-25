@@ -62,11 +62,11 @@ export function Price(props) {
             </div>
             <div className="col-4">
               <label class="form-label d-block">Price (&#2352;)</label>
-              <Field placeholder="500" type="text" className={`form-control`} name="payments.retail-price" />
+              <Field placeholder="500" type="text" className={`form-control`} name="payments.retail_price" />
             </div>
             <div className="col-4">
               <label class="form-label d-block">Special Price (&#2352;)</label>
-              <Field placeholder="500" type="text" className={`form-control`} name="payments.special-price" />
+              <Field placeholder="500" type="text" className={`form-control`} name="payments.special_price" />
             </div>
           </div>
         </div>

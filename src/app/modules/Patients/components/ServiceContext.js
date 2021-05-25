@@ -244,8 +244,8 @@ const initialState = {
             "require_payment_for_service":"Boolean",
             "staff_commission":true,
             "voucher-enabled":true,
-            "retail-price":"23.0",
-            "special-price":"20.0",
+            "retail_price":"23.0",
+            "special_price":"20.0",
             "advance_retail_price":"200",
             "price_type":"fixed",
             "staff_name":"",
@@ -518,7 +518,7 @@ const initialState = {
                      "staff_id":89988,
                      "non-discounted-price":25.0,
                      "price-type":"fixed",
-                     "retail-price":25.0,
+                     "retail_price":25.0,
                      "special_price":100,
                      "duration_hours":1,
                      "duration_minutes":20
@@ -527,7 +527,7 @@ const initialState = {
                      "staff_id":89988,
                      "non-discounted-price":25.0,
                      "price-type":"fixed",
-                     "retail-price":25.0,
+                     "retail_price":25.0,
                      "special_price":100,
                      "duration_hours":1,
                      "duration_minutes":20
@@ -780,7 +780,7 @@ const initialState = {
                      "staff_id":89988,
                      "non-discounted-price":25.0,
                      "price-type":"fixed",
-                     "retail-price":25.0,
+                     "retail_price":25.0,
                      "special_price":100,
                      "duration_hours":1,
                      "duration_minutes":20
@@ -789,7 +789,7 @@ const initialState = {
                      "staff_id":89988,
                      "non-discounted-price":25.0,
                      "price-type":"fixed",
-                     "retail-price":25.0,
+                     "retail_price":25.0,
                      "special_price":100,
                      "duration_hours":1,
                      "duration_minutes":20
