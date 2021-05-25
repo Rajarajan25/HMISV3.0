@@ -4868,6 +4868,17 @@ p.setting_color {
 		}
 	}
 }
+.timeselect{
+	.MuiGrid-justify-xs-space-around {
+		justify-content: normal;
+	}
+	.MuiGrid-container {
+		display: block;
+	}
+	[class*="MuiFormControl-root-"]  {
+		display: flex;
+	}
+}
 .rem-icon {
 	filter: brightness(0) invert(0);
 	-webkit-filter: brightness(0) invert(0);

@@ -75,6 +75,25 @@ const buffertime = [
   { value: '20mins', label: '20 Mins' }
 ]
 
+const dayselect = [
+  { value: '1day', label: '1' },
+  { value: '2day', label: '2' },
+  { value: '3day', label: '3' },
+  { value: '4day', label: '4' },
+  { value: '5day', label: '5' },
+  { value: '6day', label: '6' },
+  { value: '7day', label: '7' },
+  { value: '8day', label: '8' },
+  { value: '9day', label: '9' },
+  { value: '10day', label: '10' },
+]
+
+const week = [
+  { value: 'week', label: 'Week' },
+  { value: 'month', label: 'Month' },
+  { value: 'year', label: 'Year' }
+]
+
 export function ContentEventTiming() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
@@ -153,6 +172,38 @@ export function ContentEventTiming() {
 
           <div className="daterangepicker">
             <DateRangePickersUtil />
+          </div>
+          <div className="advanceselect">
+            <div className="form-group">
+              <div className="row">
+                <div className="col-6">
+                  <label className="form-label d-block">Day</label>
+                  <div className="re_select">
+                    <Select options={dayselect} /> 
+                  </div>
+                </div>
+                <div className="col-6">
+                  <label className="form-label d-block">Week/Month/Year</label>
+                  <div className="re_select">
+                    <Select options={week} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="timeselect">
+            <div className="form-group">
+              <div className="row">
+                <div className="col-6">
+                  <label className="form-label d-block">From Time</label>
+                  <TimePickers />
+                </div>
+                <div className="col-6">
+                  <label className="form-label d-block">To Time</label>
+                  <TimePickers />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="form-group mb-2">
