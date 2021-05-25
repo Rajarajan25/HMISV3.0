@@ -108,3 +108,20 @@
 .display-block {
   display: block;
 }
+
+.react-google-flight-datepicker .dialog-date-picker{
+  width: 400px !important;
+  max-width: 400px !important;
+}
+
+.react-google-flight-datepicker .dialog-header .date-picker-input {
+  width: 95% !important;
+}
+
+.react-google-flight-datepicker .reset-button.mobile {
+  display: inline !important;
+}
+
+.react-google-flight-datepicker .reset-button {
+  display: none !important;
+}
