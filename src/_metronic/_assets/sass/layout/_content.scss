@@ -4885,3 +4885,105 @@ p.setting_color {
 	height: 16px;
 	opacity: 0.6;
 }
+
+.dx-scheduler {
+	font-family: "Gotham Pro", "Helvetica", "Arial", sans-serif !important;
+	margin: -12.5px -12.5px 0;
+	.dx-scheduler-header {
+		background-color: #fff;
+		border-bottom: 1px solid #E6E8EF;
+	}
+	.dx-scheduler-work-space {
+		border: 0;
+	}
+	.dx-scheduler-header-panel-cell {
+		font-weight: 500;
+		font-size: 16px;
+		color: #707070;
+	}
+	.dx-scheduler-date-table-cell {
+		border-left: 1px solid #E6E8EF;
+		border-right: 1px solid #E6E8EF;
+		border-top: 1px solid #E6E8EF;
+		background-color: #fff;
+		&.dx-state-hover {
+			background-color: transparent;
+		}
+		&.dx-scheduler-focused-cell {
+			box-shadow: none;
+			-webkit-box-shadow: none;
+		}
+	}
+	.dx-scheduler-work-space-day.dx-scheduler-work-space-odd-cells .dx-scheduler-date-table-row:nth-child(odd) .dx-scheduler-date-table-cell, .dx-scheduler-work-space-week.dx-scheduler-work-space-odd-cells .dx-scheduler-date-table-row:nth-child(odd) .dx-scheduler-date-table-cell, .dx-scheduler-work-space-work-week.dx-scheduler-work-space-odd-cells .dx-scheduler-date-table-row:nth-child(odd) .dx-scheduler-date-table-cell {
+		border-top: 1px solid #E6E8EF;
+	}
+	.dx-scheduler-time-panel-cell::after {
+		width: 0;
+		content: inherit;
+	}
+	.dx-scheduler-time-panel-cell {
+		color: #707070;
+	}
+	.dx-scheduler-appointment {
+		background-color: #5D1DD71A;
+		color: #5D1DD7;
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		left: -1px;
+		min-height: 40px;
+		height: auto !important;
+		border-radius: 0 10px 10px 0;
+		top: 6px;
+		font-weight: bold;
+		&.dx-state-hover {
+			&.dx-resizable {
+				box-shadow: none;
+				-webkit-box-shadow: none;
+			}
+		}
+		
+	}
+	.dx-scheduler-all-day-table-cell.dx-state-focused, .dx-scheduler-date-table-cell.dx-state-focused {
+		background-color: transparent;
+	}
+	.dx-tab-text {
+		color: #A3A6AC;
+		font-weight: 500;
+		font-size: 14px;
+	}
+	.dx-scheduler-view-switcher.dx-tabs .dx-tab.dx-tab-selected, .dx-scheduler-view-switcher.dx-tabs .dx-tab.dx-tab-selected::before {
+		background-color: transparent;
+	}
+	.dx-tab.dx-tab-selected {
+		.dx-tab-text {
+			color: #105DFB;
+		}
+	}
+	.dx-tab-selected::after {
+		content: inherit;
+	}
+	.dx-scheduler-view-switcher.dx-tabs {
+		float: left;
+	}
+	.dx-scheduler-navigator {
+		float: right;
+		margin-right: 40%;
+	}
+	.dx-scheduler-navigator-caption {
+		width: 250px;
+		font-size: 20px;
+		border: 0;
+		color: #707070;
+		&.dx-state-hover, &.dx-state-focused {
+			background-color: transparent;
+		}
+	}
+	.dx-scheduler-navigator-next, .dx-scheduler-navigator-previous {
+		&.dx-state-hover, &.dx-state-focused {
+			background-color: transparent;
+		}
+	}
+}
+.dx-widget {
+	font-family: "Gotham Pro", "Helvetica", "Arial", sans-serif !important;
+}

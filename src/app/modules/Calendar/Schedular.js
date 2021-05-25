@@ -33,7 +33,7 @@ export default function Schedular  () {
         shadeUntilCurrentTime={state.shadeUntilCurrentTime}
         defaultCurrentDate={currentDate}
         editing={state}
-        height={600}
+        height={800}
         appointmentRender={AppointmentTemplate}
         onContentReady={(e)=>onContentReady}
       >
