@@ -36,7 +36,7 @@ export function Details(props) {
       }}
     >
       {({
-        handleSubmit,
+        handleSubmit,setFieldValue,values
       }) => (
         <form onSubmit={handleSubmit}>
           <div className="clearfix">
@@ -100,7 +100,7 @@ export function Details(props) {
                   </div>
                 </div>
               </div>}
-              {fields.gender && <GenderFormik label={fields.gender}/>}
+              {fields.gender && <GenderFormik label={fields.gender} name="gender"/>}
               {fields.status && <div className="form-group">
                 <div className="row">
                   <div className="col-6">
@@ -110,7 +110,15 @@ export function Details(props) {
                     <div className="d-flex">
                       <div className="col-12">
                         <div className="pre_status">
-                          <SwitchLabels />
+                        <SwitchLabels
+                        label="Active"
+                        name="status"
+                        value={values.status}
+                        checked={values.status}
+                        onChange={(event, checked) => {
+                          setFieldValue("status", checked);
+                        }}
+                      />
                         </div>
                       </div>
                     </div>
@@ -122,7 +130,15 @@ export function Details(props) {
                     <div className="d-flex">
                       <div className="col-12">
                         <div className="pre_status">
-                          <ProviderLabels />
+                        <SwitchLabels
+                        label="yes"
+                        name="provider"
+                        value={values.provider}
+                        checked={values.provider}
+                        onChange={(event, checked) => {
+                          setFieldValue("provider", checked);
+                        }}
+                      />
                         </div>
                       </div>
                     </div>
@@ -166,23 +182,16 @@ export function DatePicker() {
   );
 }
 
-export default function SwitchLabels() {
-
-  const [state, setState] = React.useState({
-    checkedA: true,
-  });
-
-  const handleChange = name => event => {
-    setState({ ...state, [name]: event.target.checked });
-  };
-
+export default function SwitchLabels(props) {
+  const {lable}=props;
+  
   return (
     <FormGroup row>
       <FormControlLabel
         control={
-          <Switch checked={state.checkedA} onChange={handleChange('checkedA')} value="checkedA" />
+          <Switch {...props}/>
         }
-        label="Active"
+        label={lable}
       />
     </FormGroup>
   );

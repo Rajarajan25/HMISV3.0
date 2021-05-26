@@ -201,11 +201,6 @@ class StaffPage extends React.Component {
 
   addNewStaff = (value) => {
     let newstaff = { name: value };
-    this.setState({
-      isDrawerOpen: true,
-      currentStaff: { ...newstaff },
-      staffList: [...this.state.staffList, newstaff]
-    });
     this.props.addStaff({
       variables: {
         staff: {
@@ -218,7 +213,6 @@ class StaffPage extends React.Component {
         currentStaff: { ...newstaff },
         staffList: [...this.state.staffList, newstaff]
       });
-      this.props.refetchStaff();
     })
       .catch(error => {
         DevAlertPopUp(error.message);

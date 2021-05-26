@@ -7,7 +7,7 @@ export function ServicesDropDown(props) {
         <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle1" className="h-100">
             <div class="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column pointer">
                 <div class="d-flex mt-1 mb-1 justify-content-center">
-                    <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#E6511B` }}>{props.item.service||"Acupunture"}
+                    <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#E6511B` }}>{props.item.service||"Select service"}
                         <span className="dropdown_label_remove" style={{ backgroundColor: `#E6511B` }}>
                             <span className="dropdown_label_remove_icon">x</span>
                         </span>

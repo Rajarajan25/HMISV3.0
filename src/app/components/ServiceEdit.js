@@ -2,8 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { toAbsoluteUrl } from "../../_metronic/_helpers";
+import { DevConsoleLog } from "../SiteUtill";
 
 export function ServiceEdit(props) {
+  const {value,type,index,clickEdit,clickSave,clickCancel,selectedIndex}=props;
+  DevConsoleLog("value-->",value);
   const handleClick = (type, handleType, index) => {
     if (handleType === "save") props.clickSave(type, index);
     if (handleType === "cancel") props.clickCancel(type, index);
@@ -13,8 +16,8 @@ export function ServiceEdit(props) {
   // console.log(props);
   return (
     <span>
-      {props.selectedIndex === props.index ? (
-        <Link to="#" className="edit_staff">
+      {selectedIndex === index ? (
+        <div className="edit_staff">
           <OverlayTrigger
             placement="top"
             overlay={
@@ -27,7 +30,7 @@ export function ServiceEdit(props) {
               <img
                 src={toAbsoluteUrl("/media/patients/floppy-disk.svg")}
                 alt="edit"
-                onClick={() => handleClick(props.type, "save", props.index)}
+                onClick={() => handleClick(type, "save", index)}
               />
             </div>
           </OverlayTrigger>
@@ -43,13 +46,13 @@ export function ServiceEdit(props) {
               <img
                 src={toAbsoluteUrl("/media/patients/close_icon.svg")}
                 alt="Close"
-                onClick={() => handleClick(props.type, "cancel", -1)}
+                onClick={() => handleClick(type, "cancel", -1)}
               />
             </div>
           </OverlayTrigger>
-        </Link>
+        </div>
       ) : (
-        <Link to="#" className="edit_staff">
+        value?(<div className="edit_staff">
           <OverlayTrigger
             placement="top"
             overlay={
@@ -60,7 +63,7 @@ export function ServiceEdit(props) {
           >
             <div
               className="tab_col mt-0 mb-0"
-              onClick={() => handleClick(props.type, "edit", props.index)}
+              onClick={() => handleClick(type, "edit", index)}
             >
               <img
                 src={toAbsoluteUrl("/media/patients/blue_edit_icon.svg")}
@@ -68,7 +71,15 @@ export function ServiceEdit(props) {
               />
             </div>
           </OverlayTrigger>
-        </Link>
+        </div>):(<div
+              className="pointer mt-0 mb-0"
+              onClick={() => handleClick(type, "edit", index)}
+            >
+              <img
+                src={toAbsoluteUrl("/media/patients/add-advanced.svg")}
+                alt="edit"
+              />
+            </div>)
       )}
     </span>
   );

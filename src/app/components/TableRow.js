@@ -70,6 +70,7 @@ export function TableRow(props) {
                                             <ServiceEdit
                                                 type={"name"}
                                                 index={i}
+                                                value={item.name}
                                                 clickEdit={handleEdit}
                                                 clickSave={handleSaved}
                                                 clickCancel={handleCancel}
@@ -110,6 +111,7 @@ export function TableRow(props) {
                                         <ServiceEdit
                                             type={"official_email"}
                                             index={i}
+                                            value={item.official_email}
                                             clickEdit={handleEdit}
                                             clickSave={handleSaved}
                                             clickCancel={handleCancel}
@@ -132,6 +134,7 @@ export function TableRow(props) {
                                         <ServiceEdit
                                             type={"mobile"}
                                             index={i}
+                                            value={item.mobile}
                                             clickEdit={handleEdit}
                                             clickSave={handleSaved}
                                             clickCancel={handleCancel}
