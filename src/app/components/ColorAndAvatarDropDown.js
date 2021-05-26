@@ -9,7 +9,7 @@ export function ColorAndAvatarDropDown(props) {
     return (
         <Dropdown drop="down" alignCenter className="dropdown h-100">
             <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                <span className="listprofileIcon" style={{ backgroundColor: item.avatar_bg_color }}>{item.avatar ? <img src={toAbsoluteUrl(item.avatar)} alt="" className="mh-100 d-block rounded-circle" /> : "AK"}</span>
+                <span className="listprofileIcon" style={{ backgroundColor: item.avatar_bg_color||`#2ecd6f` }}>{item.avatar ? <img src={toAbsoluteUrl(item.avatar)} alt="" className="mh-100 d-block rounded-circle" /> : "AK"}</span>
             </Dropdown.Toggle>
             <Dropdown.Menu className="dropdown-menu p-0 mt-2 dropdown-menu-md drop_nav">
                 <ColorAndAvatarDropDownMenu />

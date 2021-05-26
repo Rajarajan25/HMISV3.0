@@ -77,11 +77,7 @@ class StaffPage extends React.Component {
       isUpdate:true,
     };
   }
-  handleCancel = (props) => {
-    this.setState({
-      isDrawerOpen: !this.state.isDrawerOpen,
-    });
-  };
+  
 
   componentDidMount() {}
   componentDidUpdate(prevProps,prevState) {
@@ -127,6 +123,34 @@ class StaffPage extends React.Component {
     });
   };
 
+  handleCancel = (props) => {
+    this.setState({
+      isDrawerOpen: !this.state.isDrawerOpen,
+    });
+  };
+
+  addNewStaff=(value)=>{
+    let newstaff={name:value};
+    this.setState({ isDrawerOpen: true,
+      currentStaff:{...newstaff},
+      staffList: [...this.state.staffList, newstaff]
+    });
+    this.props.addStaff({variables: {
+      staff: {
+        name: value,
+      }
+    }}).then(({ data: { addStaff}}) => {
+      newstaff={...newstaff,_id:addStaff._id};
+      this.setState({currentStaff:{...newstaff},
+        staffList: [...this.state.staffList, newstaff]
+      });
+      this.props.refetchStaff();
+    })
+    .catch(error => {
+      DevAlertPopUp(error.message);
+    });
+  }
+
    handleDataSource =(values)=>{
     this.setState({staffList: values });
   }
@@ -142,7 +166,7 @@ class StaffPage extends React.Component {
         <div className="d-flex flex-column mt-1">
           <div className="contentSection collapse show w-100" id="holepageToggle">
             {loading ? <div className="w-100 mh-100 text-center"><span className="ml-3 spinner spinner-lg spinner-primary"></span></div> :
-              <ListActivity01 toggleDrawer={this.toggleDrawer} dataList={staffList} handleSave={this.handleSave}></ListActivity01>}
+              <ListActivity01 toggleDrawer={this.toggleDrawer} dataList={staffList} handleSave={this.handleSave} addNew={this.addNewStaff}></ListActivity01>}
           </div>
         </div>
         <div className="contentAreaouter">

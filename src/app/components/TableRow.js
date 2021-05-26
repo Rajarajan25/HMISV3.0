@@ -9,12 +9,18 @@ import { AvailableDropDown } from '../components/AvailableDropDown';
 import { ColorAndAvatarDropDown } from '../components/ColorAndAvatarDropDown';
 import { ServiceEdit } from '../components/ServiceEdit';
 export function TableRow(props) {
-    const { row, drawer, addButton, addText, handleSave } = props;
-    const [addnew, setAddNew] = useState(false);
+    const { row, drawer, addButton, addText, handleSave,addNew } = props;
+    const [addNewRow, setAddNewRow] = useState(false);
+    
     const [selectedIndexName, setSelectedIndexName] = React.useState(-1);
     const [selectedIndexMail, setSelectedIndexMail] = React.useState(-1);
     const [selectedIndexMobile, setSelectedIndexMobile] = React.useState(-1);
     const updatedValue = React.useRef("");
+    const newName = React.useRef("");
+    const handleNew=()=>{
+        addNew(newName.current.value);
+        setAddNewRow(false);
+    }
     const handleEdit = (type, index) => {
         if (type === "name") setSelectedIndexName(index);
         if (type === "official_email") setSelectedIndexMail(index);
@@ -181,20 +187,20 @@ export function TableRow(props) {
                                 </ul>
                             </div>)
                         })}
-                        {addnew ? <ul className="newTask_1 row" >
+                        {addNewRow ? <ul className="newTask_1 row" >
                             <li className="col-lg-8">
                                 <Link to="#" className="userLogoicon" >
-                                    <img src={toAbsoluteUrl("/media/patients/close_icon.svg")} alt="close" className="removeNewtask" onClick={() => setAddNew(false)} />
-                                    <input type="text" className="newTaskinput" name="" id="" placeholder="Doctor name" />
+                                    <img src={toAbsoluteUrl("/media/patients/close_icon.svg")} alt="close" className="removeNewtask" onClick={() => setAddNewRow(false)} />
+                                    <input type="text" className="newTaskinput" name="addstaff" id="" placeholder="Doctor name" ref={newName}/>
                                 </Link>
                             </li>
                             <li className="col-lg-4 text-right">
                                 <span className="ctrlSpan">ctrl + enter to open </span>
-                                <button type="button" className="btn btn-primary btn-sm font-sm mx-1 saveNewtask">SAVE</button>
+                                <button type="button" className="btn btn-primary btn-sm font-sm mx-1 saveNewtask" onClick={()=>handleNew()}>SAVE</button>
                             </li>
                         </ul> : <div></div>}
                     </div>
-                    {addButton ? <button type="button" className="customNewtaskBTN" onClick={() => setAddNew(true)}>+ {addText}</button> : <div></div>}
+                    {addButton ? <button type="button" className="customNewtaskBTN" onClick={() => setAddNewRow(true)}>+ {addText}</button> : <div></div>}
                 </div>
             </div>
         </div>)
