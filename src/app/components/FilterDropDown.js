@@ -16,10 +16,10 @@ const duedate = [
   ]
   
 export function FilterDropDown(props) {
-  const {value,handleDataSource}=props;
+  const {value,handleDataSource,fields}=props;
     return <>
         {/*begin::Navigation*/}
-       <FilterQuery value={value} handleDataSource={handleDataSource}/>
+       <FilterQuery value={value} handleDataSource={handleDataSource} fields={fields} />
         {/*end::Navigation*/}
   
     </>

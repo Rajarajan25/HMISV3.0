@@ -2,13 +2,13 @@ import React from 'react';
 import FilterBuilder from 'devextreme-react/filter-builder';
 import Button from 'devextreme-react/button';
 import DataSource from 'devextreme/data/data_source';
-import { filter, fields } from './data.js';
 
 
 class FilterQuery extends React.Component {
   constructor(props) {
     super(props);
     this.handleDataSource=props.handleDataSource;
+    this.fields=props.fields;
     this.dataSource = new DataSource({
       store: props.value
     });
@@ -25,7 +25,7 @@ class FilterQuery extends React.Component {
       <div>
         <div className="filter-container">
           <FilterBuilder ref={this.setFilterBuilderInstance}
-            fields={fields}
+            fields={this.fields}
             value={this.state.value}
             onValueChanged={this.onValueChanged} />
           <Button

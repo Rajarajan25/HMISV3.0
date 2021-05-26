@@ -68,6 +68,31 @@ class StaffPage extends React.Component {
       availability: "Phone",
     },
   ];
+  fields = [
+    {
+     dataField: 'name',
+     dataType: 'string'
+   }, {
+     caption: 'Email',
+     dataField: 'official_email',
+     dataType: 'string',
+   },
+   {
+    caption: 'Mobile Number',
+    dataField: 'mobile',
+    dataType: 'string',
+  },
+  {
+    caption: 'Service',
+    dataField: 'service',
+    dataType: 'string',
+  },
+  {
+    caption: 'Experience',
+    dataField: 'experience_year',
+    dataType: 'number',
+  },
+ ];
   constructor(props) {
     super(props);
     this.state = {
@@ -161,7 +186,7 @@ class StaffPage extends React.Component {
     return (
       <div className="d-block">
         <div className="d-flex flex-row">
-        <Filter value={staffList} handleDataSource={this.handleDataSource}/>
+        <Filter value={staffList} handleDataSource={this.handleDataSource} fields={this.fields} />
         </div>
         <div className="d-flex flex-column mt-1">
           <div className="contentSection collapse show w-100" id="holepageToggle">

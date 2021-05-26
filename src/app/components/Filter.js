@@ -21,7 +21,7 @@ const options = [
 
 export function Filter(props) {
   const user = useSelector(({ auth }) => auth.user, shallowEqual);
-  const {value,handleDataSource}=props;
+  const {value,handleDataSource,fields}=props;
   useEffect(() => {
     return () => {};
   }, [user]);
@@ -46,7 +46,7 @@ export function Filter(props) {
                                   </div>
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu  className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
-                                  <FilterDropDown value={value} handleDataSource={handleDataSource} />
+                                  <FilterDropDown value={value} handleDataSource={handleDataSource} fields={fields} />
                                 </Dropdown.Menu>
                               </Dropdown>
                             </div>
