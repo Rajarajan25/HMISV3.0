@@ -20,6 +20,27 @@ const useStyles = makeStyles({
   },
 });
 
+const initialValues={
+  _id:"4",
+  name:"",
+  cost:"",
+  service_type:"",
+  duration:{duration_minutes:"",buffer_before_min:"",buffer_after_min:"",pricetype:"",price:"",date_range:""},
+  payments:{retail_price:"",special_price:"",staff_name:"",duration_minutes:"",price_type:"",service_pricing_by_staff:[{
+    staff_id:"",price_type:"",retail_price:"",special_price:"",duration_minutes:"",duration_hours:""
+  }]},
+  timings:{availablity:[{
+    availability_type:"",
+    sessions:[{
+      name:"",servicebreaktime:[{start_time:"",end_time:""}]      
+    }]
+  }]}
+
+  }
+
+
+
+
 
 export default function ServiceProviderContainer() {
   const [service, setservice] = React.useContext(ServiceContext);
@@ -249,7 +270,7 @@ export default function ServiceProviderContainer() {
                     return (
                       <>
                         <Formik
-                          initialValues={{ _id: '4', name: '', cost: '200', service_type: 'Private', duration: '30 mins' }}
+                          initialValues={initialValues}
                           onSubmit={(values, { setSubmitting }) => {
                             AddService(values);
                           }}

@@ -1,5 +1,4 @@
 import React from 'react';
-import Select from 'react-select';
 import FilterQuery from './FilterQuery'
 const duedate = [
     { value: 'duedate', label: 'Due Date' },
@@ -16,10 +15,11 @@ const duedate = [
     { value: 'today', label: 'Today' },
   ]
   
-export function FilterDropDown() {
+export function FilterDropDown(props) {
+  const {value,handleDataSource,fields}=props;
     return <>
         {/*begin::Navigation*/}
-       <FilterQuery />
+       <FilterQuery value={value} handleDataSource={handleDataSource} fields={fields} />
         {/*end::Navigation*/}
   
     </>

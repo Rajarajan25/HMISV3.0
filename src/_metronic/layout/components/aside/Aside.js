@@ -62,7 +62,7 @@ export function Aside() {
   };
   const [activeTab, setActiveTab] = useState(tabs.tabId4);
   const handleTabChange = (id) => {
-    setActiveTab(id);
+    setActiveTab(tabs.tabId4);
     const asideWorkspace = KTUtil.find(
       document.getElementById("kt_aside"),
       ".aside-secondary .aside-workspace"
@@ -88,18 +88,12 @@ export function Aside() {
 
             <ul className="list-unstyled flex-column asideTopleftfixedmenu" role="tablist">
               {/* begin::Item */}
-              <li
-                className="nav-item"
-                data-toggle="tooltip"
-                data-placement="rigth"
-                data-container="body"
-                data-boundary="window"
-                title="Latest Project"
-              >
-                <OverlayTrigger
+              
+              <li className="nav-item">
+              <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="latest-project" className="tool_bg">Project</Tooltip>
+                    <Tooltip id="quick-search-tooltip" className="tool_bg">Dashboard</Tooltip>
                   }
                 >
                   <a
@@ -119,6 +113,43 @@ export function Aside() {
                       />
                     </span>
                   </a>
+                  </OverlayTrigger>
+              </li>
+              
+              {/* end::Item */}
+
+              {/* begin::Item */}
+              <li
+                className="nav-item"
+                data-toggle="tooltip"
+                data-placement="rigth"
+                data-container="body"
+                data-boundary="window"
+                title="Calendar"
+              >
+                <OverlayTrigger
+                  placement="right"
+                  overlay={
+                    <Tooltip id="quick-search-tooltip" className="tool_bg">Calendar</Tooltip>
+                  }
+                >
+                  <a
+                    href="#"
+                    className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===
+                      tabs.tabId2 && "active"}`}
+                    data-toggle="tab"
+                    data-target={`#${tabs.tabId2}`}
+                    onClick={() => handleTabChange(tabs.tabId2)}
+                    role="tab"
+                  >
+                    <span className="svg-icon svg-icon-md d-inline-flex">
+                      <SVG
+                        src={toAbsoluteUrl(
+                          "/media/svg/left-menu/Calender.svg"
+                        )}
+                      />
+                    </span>
+                  </a>
                 </OverlayTrigger>
               </li>
               {/* end::Item */}
@@ -130,27 +161,27 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-                title="Metronic Features"
+                title="Manage"
               >
                 <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="metronic-features" className="tool_bg">Events</Tooltip>
+                    <Tooltip id="quick-search-tooltip" className="tool_bg">Manage</Tooltip>
                   }
                 >
                   <a
                     href="#"
                     className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===
-                      tabs.tabId2 && "active"}`}
+                      tabs.tabId3 && "active"}`}
                     data-toggle="tab"
-                    data-target={`#${tabs.tabId2}`}
-                    onClick={() => handleTabChange(tabs.tabId4)}
+                    data-target={`#${tabs.tabId3}`}
+                    onClick={() => handleTabChange(tabs.tabId3)}
                     role="tab"
                   >
                     <span className="svg-icon svg-icon-md d-inline-flex">
                       <SVG
                         src={toAbsoluteUrl(
-                          "/media/svg/left-menu/Calender.svg"
+                          "/media/svg/left-menu/Services.svg"
                         )}
                       />
                     </span>
@@ -173,12 +204,12 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-                title="Latest Project"
+                title="Payments"
               >
                 <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="latest-project" className="tool_bg">Latest Project</Tooltip>
+                    <Tooltip id="quick-search-tooltip" className="tool_bg">Payments</Tooltip>
                   }
                 >
                   <a
@@ -188,9 +219,15 @@ export function Aside() {
                     data-toggle="tab"
                     data-target={`#${tabs.tabId1}`}
                     role="tab"
-                    onClick={() => handleTabChange(tabs.tabId4)}
+                    onClick={() => handleTabChange(tabs.tabId1)}
                   >
-                    
+                    <span className="svg-icon svg-icon-md d-inline-flex">
+                      <SVG
+                        src={toAbsoluteUrl(
+                          "/media/svg/left-menu/Payment.svg"
+                        )}
+                      />
+                    </span>
                   </a>
                 </OverlayTrigger>
               </li>
@@ -203,12 +240,12 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-                title="Metronic Features"
+                title="Marketing"
               >
                 <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="metronic-features" className="tool_bg">Metronic Features</Tooltip>
+                    <Tooltip id="quick-search-tooltip" className="tool_bg">Marketing</Tooltip>
                   }
                 >
                   <a
@@ -220,7 +257,13 @@ export function Aside() {
                     onClick={() => handleTabChange(tabs.tabId2)}
                     role="tab"
                   >
-                    
+                    <span className="svg-icon svg-icon-md d-inline-flex">
+                      <SVG
+                        src={toAbsoluteUrl(
+                          "/media/svg/left-menu/Speaker.svg"
+                        )}
+                      />
+                    </span>
                   </a>
                 </OverlayTrigger>
               </li>
@@ -233,12 +276,12 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-                title="Latest Reports"
+                title="Products"
               >
                 <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="latest-reports" className="tool_bg">Latest Reports</Tooltip>
+                    <Tooltip id="quick-search-tooltip" className="tool_bg">Products</Tooltip>
                   }
                 >
                   <a
@@ -248,7 +291,13 @@ export function Aside() {
                     data-target="#kt_aside_tab_3"
                     role="tab"
                   >
-                   
+                    <span className="svg-icon svg-icon-md d-inline-flex">
+                      <SVG
+                        src={toAbsoluteUrl(
+                          "/media/svg/left-menu/Chart.svg"
+                        )}
+                      />
+                    </span>
                   </a>
                 </OverlayTrigger>
               </li>
@@ -261,12 +310,12 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-                title="Latest Reports"
+                title="Reports"
               >
                 <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="latest-reports" className="tool_bg">Latest Reports</Tooltip>
+                    <Tooltip id="quick-search-tooltip" className="tool_bg">Reports</Tooltip>
                   }
                 >
                   <a
@@ -276,7 +325,13 @@ export function Aside() {
                     data-target="#kt_aside_tab_3"
                     role="tab"
                   >
-                    
+                    <span className="svg-icon svg-icon-md d-inline-flex">
+                      <SVG
+                        src={toAbsoluteUrl(
+                          "/media/svg/left-menu/Products.svg"
+                        )}
+                      />
+                    </span>
                   </a>
                 </OverlayTrigger>
               </li>
@@ -294,7 +349,7 @@ export function Aside() {
                 <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="project-management" className="tool_bg">
+                    <Tooltip id="quick-search-tooltip" className="tool_bg">
                       Project Management
                     </Tooltip>
                   }
@@ -306,7 +361,13 @@ export function Aside() {
                     data-target="#kt_aside_tab_4"
                     role="tab"
                   >
-                   
+                    <span className="svg-icon svg-icon-md d-inline-flex">
+                      <SVG
+                        src={toAbsoluteUrl(
+                          "/media/svg/left-menu/Setting.svg"
+                        )}
+                      />
+                    </span>
                   </a>
                 </OverlayTrigger>
               </li>
@@ -334,7 +395,11 @@ export function Aside() {
                     data-target="#kt_aside_tab_5"
                     role="tab"
                   >
-                    
+                    <span className="svg-icon svg-icon-md d-inline-flex">
+                      <SVG
+                        src={toAbsoluteUrl("/media/svg/left-menu/Help.svg")}
+                      />
+                    </span>
                   </a>
                 </OverlayTrigger>
               </li>
@@ -418,7 +483,7 @@ export function Aside() {
               <OverlayTrigger
                 placement="right"
                 overlay={
-                  <Tooltip id="toggle-quick-actions" className="tool_bg">Quick Actions</Tooltip>
+                  <Tooltip id="toggle-quick-actions" className="tool_bg">Settings</Tooltip>
                 }
               >
                 <a
@@ -442,7 +507,7 @@ export function Aside() {
               <OverlayTrigger
                 placement="right"
                 overlay={
-                  <Tooltip id="toggle-quick-actions" className="tool_bg">Quick Actions</Tooltip>
+                  <Tooltip id="toggle-quick-actions" className="tool_bg">Help</Tooltip>
                 }
               >
                 <a
@@ -490,7 +555,7 @@ export function Aside() {
             {layoutProps.extrasQuickPanelDisplay && (
               <OverlayTrigger
                 placement="right"
-                overlay={<Tooltip id="toggle-quick-panel" className="tool_bg">Quick Panel</Tooltip>}
+                overlay={<Tooltip id="toggle-quick-panel" className="tool_bg">Notifications</Tooltip>}
               >
                 <a
                   href="#"
@@ -535,7 +600,7 @@ export function Aside() {
               <div className="aside-workspace scroll scroll-push">
                 <div className="tab-content">
                   <AsideSearch isActive={activeTab === tabs.tabId1} />
-                  <AsideSearch isActive={activeTab === tabs.tabId2} />
+                  <AsideMenu isActive={activeTab === tabs.tabId2} />
                   <AsideMenu isActive={activeTab === tabs.tabId3} />
                   <AsideSubmenu isActive={activeTab === tabs.tabId4} />
                 </div>

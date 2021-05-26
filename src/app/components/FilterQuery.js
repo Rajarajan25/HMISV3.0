@@ -1,71 +1,65 @@
 import React from 'react';
 import FilterBuilder from 'devextreme-react/filter-builder';
 import Button from 'devextreme-react/button';
-import DataGrid from 'devextreme-react/data-grid';
 import DataSource from 'devextreme/data/data_source';
-import ODataStore from 'devextreme/data/odata/store';
-import { filter, fields } from './data.js';
+
 
 class FilterQuery extends React.Component {
   constructor(props) {
     super(props);
+    this.handleDataSource=props.handleDataSource;
+    this.fields=props.fields;
     this.dataSource = new DataSource({
-      store: new ODataStore({
-        fieldTypes: {
-          'Product_Cost': 'Decimal',
-          'Product_Sale_Price': 'Decimal',
-          'Product_Retail_Price': 'Decimal'
-        },
-        url: 'https://js.devexpress.com/Demos/DevAV/odata/Products',
-      }),
-      select: [
-        'Product_ID',
-        'Product_Name',
-        'Product_Cost',
-        'Product_Sale_Price',
-        'Product_Retail_Price',
-        'Product_Current_Inventory'
-      ]
+      store: props.value
     });
+    this.filterBuilderInstance = null;
     this.state = {
-      value: filter,
-      gridFilterValue: filter
+      value: []
     };
     this.onValueChanged = this.onValueChanged.bind(this);
-    this.buttonClick = this.buttonClick.bind(this);
+    this.refreshDataSource = this.refreshDataSource.bind(this);
+    this.setFilterBuilderInstance = this.setFilterBuilderInstance.bind(this);
   }
   render() {
-    const { value, gridFilterValue } = this.state;
     return (
       <div>
         <div className="filter-container">
-          <FilterBuilder fields={fields}
-            value={value}
+          <FilterBuilder ref={this.setFilterBuilderInstance}
+            fields={this.fields}
+            value={this.state.value}
             onValueChanged={this.onValueChanged} />
           <Button
             text="Apply Filter"
             type="default"
-            onClick={this.buttonClick} />
+            onClick={this.refreshDataSource} />
           <div className="dx-clearfix"></div>
         </div>
-        <DataGrid
-          dataSource={this.dataSource}
-          filterValue={gridFilterValue}
-          showBorders={true}
-          columns={fields}
-          height={300} />
+        <div className="list-container">
+          {/* <List dataSource={this.dataSource} itemRender={CustomItem} /> */}
+        </div>
       </div>
     );
+  }
+  setFilterBuilderInstance(ref) {
+    this.filterBuilderInstance = ref.instance;
+    this.refreshDataSource();
   }
   onValueChanged(e) {
     this.setState({
       value: e.value
     });
   }
-  buttonClick() {
-    this.setState({
-      gridFilterValue: this.state.value
-    });
+  refreshDataSource() {
+    console.log("Beforeeeee")
+    console.log(this.dataSource)
+    this.dataSource.filter(this.filterBuilderInstance.getFilterExpression());
+    
+    this.dataSource.load();
+    this.handleDataSource(this.dataSource._items)
+    // console.log("Aftereeeee")
+    // console.log(this.dataSource._items)
+
+    
   }
 }
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Filter } from "../../components/Filter";
+import { Filter } from "../../components/Filter"
 import Drawer from "@material-ui/core/Drawer";
 import { toAbsoluteUrl } from "../../../_metronic/_helpers";
 import {
@@ -12,9 +12,9 @@ import {
 import { StaffDetailsTab } from "../Doctors/components/staff-details-tab";
 import { mutations, queries } from './graphql';
 import { gql, useMutation } from '@apollo/client';
-import { withRouter } from 'react-router-dom';
+import * as compose from 'lodash.flowright';
 import { graphql } from '@apollo/client/react/hoc';
-import { DevConsoleLog } from "../../SiteUtill";
+import { DevAlertPopUp, DevConsoleLog } from "../../SiteUtill";
 export function StaffDetails(props) {
   return (
     <div className="staff_detail">
@@ -68,21 +68,42 @@ class StaffPage extends React.Component {
       availability: "Phone",
     },
   ];
+  fields = [
+    {
+     dataField: 'name',
+     dataType: 'string'
+   }, {
+     caption: 'Email',
+     dataField: 'official_email',
+     dataType: 'string',
+   },
+   {
+    caption: 'Mobile Number',
+    dataField: 'mobile',
+    dataType: 'string',
+  },
+  {
+    caption: 'Service',
+    dataField: 'service',
+    dataType: 'string',
+  },
+  {
+    caption: 'Experience',
+    dataField: 'experience_year',
+    dataType: 'number',
+  },
+ ];
   constructor(props) {
     super(props);
     //console.log(props);
     this.state = {
       isDrawerOpen: false,
       currentStaff:{},
-      staffList: [],
-      loading: false,
+      staffList:[],
+      isUpdate:true,
     };
   }
-  handleCancel = (props) => {
-    this.setState({
-      isDrawerOpen: !this.state.isDrawerOpen,
-    });
-  };
+  
 
   componentDidMount() {
    // console.log(this.props);
@@ -97,9 +118,7 @@ class StaffPage extends React.Component {
     });
   }
   componentDidCatch() {}
-
   componentWillUnmount() {}
-
   toggleDrawer = (open,selectedItem) => event => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
@@ -123,27 +142,73 @@ class StaffPage extends React.Component {
   }
 
   handleSave = (updatedValue, type, index) => {
-    let updatedItem = this.state.staffList.map((e, i) => {
+    let tempPickList  = JSON.parse(JSON.stringify(this.state.staffList));
+    let updatedItem = tempPickList.map((e, i) => {
       if (i === index) {
         e[type] = updatedValue;
       }
       return e;
     });
+    this.setState({staffList: updatedItem });
 
-    this.setState({ staffList: updatedItem });
+    let updateArray=this.state.staffList[index];
+    this.props.updateStaff({variables: {
+      staffID: updateArray._id,
+      staff: {
+        [type]: updatedValue,
+      }
+    }}).then(() => {
+      //this.props.refetchStaff();
+    })
+    .catch(error => {
+      DevAlertPopUp(error.message);
+    });
   };
 
+  handleCancel = (props) => {
+    this.setState({
+      isDrawerOpen: !this.state.isDrawerOpen,
+    });
+  };
+
+  addNewStaff=(value)=>{
+    let newstaff={name:value};
+    this.setState({ isDrawerOpen: true,
+      currentStaff:{...newstaff},
+      staffList: [...this.state.staffList, newstaff]
+    });
+    this.props.addStaff({variables: {
+      staff: {
+        name: value,
+      }
+    }}).then(({ data: { addStaff}}) => {
+      newstaff={...newstaff,_id:addStaff._id};
+      this.setState({currentStaff:{...newstaff},
+        staffList: [...this.state.staffList, newstaff]
+      });
+      this.props.refetchStaff();
+    })
+    .catch(error => {
+      DevAlertPopUp(error.message);
+    });
+  }
+
+   handleDataSource =(values)=>{
+    this.setState({staffList: values });
+  }
+
   render() {
- const { staffList, loading } = this.props;
+    const { loading } = this.props;
+    const { staffList } = this.state;
     return (
       <div className="d-block">
         <div className="d-flex flex-row">
-          <Filter></Filter>
+        <Filter value={staffList} handleDataSource={this.handleDataSource} fields={this.fields} />
         </div>
         <div className="d-flex flex-column mt-1">
           <div className="contentSection collapse show w-100" id="holepageToggle">
             {loading ? <div className="w-100 mh-100 text-center"><span className="ml-3 spinner spinner-lg spinner-primary"></span></div> :
-              <ListActivity01 toggleDrawer={this.toggleDrawer} handleChangeDropDown={this.handleChangeDropDown} handleService={this.handleService} dataList={this.state.staffList} handleSave={this.handleSave}></ListActivity01>}
+              <ListActivity01 toggleDrawer={this.toggleDrawer} dataList={staffList} handleSave={this.handleSave} addNew={this.addNewStaff} handleChangeDropDown={this.handleChangeDropDown}></ListActivity01>}
           </div>
         </div>
         <div className="contentAreaouter">
@@ -185,13 +250,24 @@ class StaffPage extends React.Component {
   }
 }
 
-export default
+export default compose(
   graphql(gql(queries.staff), {
-    props: ({ data: { getStaffs, loading } }) => ({
-      staffList: getStaffs || [],
-      loading: loading
-    }),
-  })(StaffPage);
-
+    props: ({ data: { getStaffs, loading,refetch } }) => ({
+            staffList: getStaffs || [],
+            loading: loading,
+            refetchStaff:refetch
+          })
+  }),graphql(gql(mutations.staffUpdate), {
+    name: 'updateStaff',
+    options: () => ({
+      variables: {}
+    })
+  }),graphql(gql(mutations.staffAdd), {
+    name: 'addStaff',
+    options: () => ({
+      variables: {}
+    })
+  })
+)(StaffPage);
 
 //export default StaffPage;

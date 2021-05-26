@@ -23,34 +23,11 @@ const Column=[{name:"Service Provider",hide:false},
 ]
 
 export function ListActivity01(props) {
-  const {dataList,toggleDrawer, handleChangeDropDown}=props;
-  const classes = useStyles();
-  //const [staffList, setStaffList] = React.useState(props.dataList);
-  const [selectedIndexName, setSelectedIndexName] = React.useState(-1);
-  const [selectedIndexMail, setSelectedIndexMail] = React.useState(-1);
-  const [selectedIndexMobile, setSelectedIndexMobile] = React.useState(-1);
-  const updatedValue = React.useRef("");
-
-  //const handleOnChange = () => setStaffList(props.dataList);
-  const handleEdit = (type, index) => {
-    if (type === "name") setSelectedIndexName(index);
-    if (type === "mail") setSelectedIndexMail(index);
-    if (type === "mobile") setSelectedIndexMobile(index);
-  };
-  const handleSave = (type, index) => {
-    props.handleSave(updatedValue.current.value, type, index);
-    handleCancel(type);
-  };
-  const handleCancel = (type) => {
-    if (type === "name") setSelectedIndexName(-1);
-    if (type === "mail") setSelectedIndexMail(-1);
-    if (type === "mobile") setSelectedIndexMobile(-1);
-  };
-
+  const {dataList,toggleDrawer,handleSave,addNew,handleChangeDropDown}=props;
   return (
     <div className="contentArea">
       <TableHeader column={Column} listCount={dataList.length} expandVisiable={true} countLable="staff"/>
-      <TableRow row={dataList} drawer={toggleDrawer} addButton={true} addText="New Staff" handleChangeDropDown={handleChangeDropDown} />
+      <TableRow row={dataList} drawer={toggleDrawer} addButton={true} addText="New Staff" handleSave={handleSave} addNew={addNew} handleChangeDropDown={handleChangeDropDown}/>
     </div>
   );
 }

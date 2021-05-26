@@ -7,11 +7,35 @@ import { StatusDropDown } from '../components/StatusDropDown';
 import { ServicesDropDown } from '../components/ServicesDropDown';
 import { AvailableDropDown } from '../components/AvailableDropDown';
 import { ColorAndAvatarDropDown } from '../components/ColorAndAvatarDropDown';
+import { ServiceEdit } from '../components/ServiceEdit';
 export function TableRow(props) {
-    const { row, drawer, addButton, addText, handleChangeDropDown } = props;
-    const [addnew, setAddNew] = useState(false);
+    const { row, drawer, addButton, addText, handleSave,addNew,handleChangeDropDown } = props;
+    const [addNewRow, setAddNewRow] = useState(false);
     
-    
+    const [selectedIndexName, setSelectedIndexName] = React.useState(-1);
+    const [selectedIndexMail, setSelectedIndexMail] = React.useState(-1);
+    const [selectedIndexMobile, setSelectedIndexMobile] = React.useState(-1);
+    const updatedValue = React.useRef("");
+    const newName = React.useRef("");
+    const handleNew=()=>{
+        addNew(newName.current.value);
+        setAddNewRow(false);
+    }
+    const handleEdit = (type, index) => {
+        if (type === "name") setSelectedIndexName(index);
+        if (type === "official_email") setSelectedIndexMail(index);
+        if (type === "mobile") setSelectedIndexMobile(index);
+    };
+
+    const handleSaved = (type, index) => {
+        handleSave(updatedValue.current.value, type, index);
+        handleCancel(type);
+    };
+    const handleCancel = (type) => {
+        if (type === "name") setSelectedIndexName(-1);
+        if (type === "official_email") setSelectedIndexMail(-1);
+        if (type === "mobile") setSelectedIndexMobile(-1);
+    };
     return (
         <div className="innerContent collapse show" id="staffmanagement">
             <div className="row">
@@ -28,19 +52,29 @@ export function TableRow(props) {
                                         <div className="userLogoicon align-content-center">
                                             <ColorAndAvatarDropDown item={item} />
                                             <div className="d-flex">
-                                                <span><Link to="#" onClick={drawer(true,item)}>{item.name}</Link></span>
+                                                <span>
+                                                    {selectedIndexName === i ? (
+                                                        <input
+                                                            ref={updatedValue}
+                                                            type="text"
+                                                            style={{ width: "100px" }}
+                                                            defaultValue={item.name}
+                                                        />
+                                                    ) : (
+                                                        <Link to="#" onClick={drawer(true, item)}>
+                                                            {item.name}
+                                                        </Link>
+                                                    )}
+                                                </span>
                                             </div>
-                                            <Link to="#" className="edit_staff">
-                                                <OverlayTrigger
-                                                    placement="top"
-                                                    overlay={
-                                                        <Tooltip id="quick-search-tooltip" className="tool_bg">Rename</Tooltip>
-                                                    }>
-                                                    <div className="tab_col mt-0 mb-0">
-                                                        <img src={toAbsoluteUrl("/media/patients/blue_edit_icon.svg")} alt="edit" />
-                                                    </div>
-                                                </OverlayTrigger>
-                                            </Link>
+                                            <ServiceEdit
+                                                type={"name"}
+                                                index={i}
+                                                clickEdit={handleEdit}
+                                                clickSave={handleSaved}
+                                                clickCancel={handleCancel}
+                                                selectedIndex={selectedIndexName}
+                                            ></ServiceEdit>
                                         </div>
                                     </li>
                                     <li className="col-lg-1 my-auto">
@@ -61,33 +95,51 @@ export function TableRow(props) {
                                         <AvailableDropDown item={item} />
                                     </li>
                                     <li className="col-lg-2 activeStatuscontent my-auto d-flex justify-content-center">
-                                        <span className="d-inline-flex">{item.official_email}</span>
-                                        <Link to="#" className="edit_staff">
-                                            <OverlayTrigger
-                                                placement="top"
-                                                overlay={
-                                                    <Tooltip id="quick-search-tooltip" className="tool_bg">Edit</Tooltip>
-                                                }>
-                                                <div className="tab_col mt-0 mb-0">
-                                                    <img src={toAbsoluteUrl("/media/patients/blue_edit_icon.svg")} alt="edit" />
-                                                </div>
-                                            </OverlayTrigger>
-                                        </Link >
+                                        {selectedIndexMail === i ? (
+                                            <input
+                                                type="text"
+                                                ref={updatedValue}
+                                                style={{ width: "100px" }}
+                                                defaultValue={item.official_email}
+                                            />
+                                        ) : (
+                                            <span className="d-inline-flex">
+                                                {item.official_email}
+                                            </span>
+                                        )}
+                                        <ServiceEdit
+                                            type={"official_email"}
+                                            index={i}
+                                            clickEdit={handleEdit}
+                                            clickSave={handleSaved}
+                                            clickCancel={handleCancel}
+                                            selectedIndex={selectedIndexMail}
+                                        ></ServiceEdit>
                                     </li>
                                     <li className="col-lg-2 my-auto d-flex justify-content-center">
-                                        <span className="d-inline-flex">{item.mobile}</span>
-                                        <Link to="#" className="edit_staff">
-                                            <OverlayTrigger
-                                                placement="top"
-                                                overlay={
-                                                    <Tooltip id="quick-search-tooltip" className="tool_bg">Edit</Tooltip>
-                                                }>
-                                                <div className="tab_col mt-0 mb-0" style={{ top: '-3px' }}>
-                                                    <img src={toAbsoluteUrl("/media/patients/blue_edit_icon.svg")} alt="edit" />
-                                                </div>
-                                            </OverlayTrigger>
-                                        </Link >
-                                        <div className="d-flex justify-content-end more_icon">
+                                        <span>
+                                            {selectedIndexMobile === i ? (
+                                                <input
+                                                    type="text"
+                                                    ref={updatedValue}
+                                                    style={{ width: "100px" }}
+                                                    defaultValue={item.mobile}
+                                                />
+                                            ) : (
+                                                <span className="d-inline-flex">{item.mobile}</span>
+                                            )}
+                                        </span>
+                                        <ServiceEdit
+                                            type={"mobile"}
+                                            index={i}
+                                            clickEdit={handleEdit}
+                                            clickSave={handleSaved}
+                                            clickCancel={handleCancel}
+                                            selectedIndex={selectedIndexMobile}
+                                        ></ServiceEdit>
+
+                                        < >
+                                        <div className="d-flex justify-content-end more_icon" style={{marginLeft:"200px"}}>
                                             <OverlayTrigger
                                                 placement="top"
                                                 overlay={
@@ -129,24 +181,26 @@ export function TableRow(props) {
                                                 </div>
                                             </div>
                                         </div>
+                                        </>
                                     </li>
+                                    
                                 </ul>
                             </div>)
                         })}
-                        {addnew ? <ul className="newTask_1 row" >
+                        {addNewRow ? <ul className="newTask_1 row" >
                             <li className="col-lg-8">
                                 <Link to="#" className="userLogoicon" >
-                                    <img src={toAbsoluteUrl("/media/patients/close_icon.svg")} alt="close" className="removeNewtask" onClick={() => setAddNew(false)} />
-                                    <input type="text" className="newTaskinput" name="" id="" placeholder="Doctor name" />
+                                    <img src={toAbsoluteUrl("/media/patients/close_icon.svg")} alt="close" className="removeNewtask" onClick={() => setAddNewRow(false)} />
+                                    <input type="text" className="newTaskinput" name="addstaff" id="" placeholder="Doctor name" ref={newName}/>
                                 </Link>
                             </li>
                             <li className="col-lg-4 text-right">
                                 <span className="ctrlSpan">ctrl + enter to open </span>
-                                <button type="button" className="btn btn-primary btn-sm font-sm mx-1 saveNewtask">SAVE</button>
+                                <button type="button" className="btn btn-primary btn-sm font-sm mx-1 saveNewtask" onClick={()=>handleNew()}>SAVE</button>
                             </li>
                         </ul> : <div></div>}
                     </div>
-                    {addButton ? <button type="button" className="customNewtaskBTN" onClick={() => setAddNew(true)}>+ {addText}</button> : <div></div>}
+                    {addButton ? <button type="button" className="customNewtaskBTN" onClick={() => setAddNewRow(true)}>+ {addText}</button> : <div></div>}
                 </div>
             </div>
         </div>)
