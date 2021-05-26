@@ -61,7 +61,7 @@ export function TableRow(props) {
                                                             defaultValue={item.name}
                                                         />
                                                     ) : (
-                                                        <Link to="#" onClick={drawer(true, item)}>
+                                                        <Link to="#" onClick={drawer(true, item,i)}>
                                                             {item.name}
                                                         </Link>
                                                     )}

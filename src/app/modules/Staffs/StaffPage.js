@@ -18,7 +18,7 @@ import { DevAlertPopUp, DevConsoleLog } from "../../SiteUtill";
 export function StaffDetails(props) {
   return (
     <div className="staff_detail">
-      <StaffDetailsTab {...props}/>
+      <StaffDetailsTab {...props} />
     </div>
   );
 }
@@ -70,99 +70,95 @@ class StaffPage extends React.Component {
   ];
   fields = [
     {
-     dataField: 'name',
-     dataType: 'string'
-   }, {
-     caption: 'Email',
-     dataField: 'official_email',
-     dataType: 'string',
-   },
-   {
-    caption: 'Mobile Number',
-    dataField: 'mobile',
-    dataType: 'string',
-  },
-  {
-    caption: 'Service',
-    dataField: 'service',
-    dataType: 'string',
-  },
-  {
-    caption: 'Experience',
-    dataField: 'experience_year',
-    dataType: 'number',
-  },
- ];
+      dataField: 'name',
+      dataType: 'string'
+    }, {
+      caption: 'Email',
+      dataField: 'official_email',
+      dataType: 'string',
+    },
+    {
+      caption: 'Mobile Number',
+      dataField: 'mobile',
+      dataType: 'string',
+    },
+    {
+      caption: 'Service',
+      dataField: 'service',
+      dataType: 'string',
+    },
+    {
+      caption: 'Experience',
+      dataField: 'experience_year',
+      dataType: 'number',
+    },
+  ];
   constructor(props) {
     super(props);
     //console.log(props);
     this.state = {
       isDrawerOpen: false,
-      currentStaff:{},
-      staffList:[],
-      isUpdate:true,
+      currentStaff: {},
+      currentIndex:-1,
+      staffList: [],
+      isUpdate: true,
     };
   }
-  
 
   componentDidMount() {
-   // console.log(this.props);
-
   }
-  
+
   componentDidUpdate() {
-    this.setState((prvState, props )=> {
-      if(JSON.stringify(prvState.staffList) !== JSON.stringify(props.staffList) && !prvState.staffList.length) {
-        return {staffList: JSON.parse(JSON.stringify(props.staffList))}
+    this.setState((prvState, props) => {
+      if (JSON.stringify(prvState.staffList) !== JSON.stringify(props.staffList) && !prvState.staffList.length) {
+        return { staffList: JSON.parse(JSON.stringify(props.staffList)) }
       }
     });
   }
-  componentDidCatch() {}
-  componentWillUnmount() {}
-  toggleDrawer = (open,selectedItem) => event => {
+  componentDidCatch() { }
+  componentWillUnmount() { }
+  toggleDrawer = (open, selectedItem,index) => event => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
     }
-    DevConsoleLog("s-item",selectedItem);
-    this.setState({ isDrawerOpen: open,currentStaff:selectedItem||false});
+    DevConsoleLog("s-item", selectedItem);
+    this.setState({ isDrawerOpen: open, currentStaff: selectedItem || false,currentIndex:index ||0 });
   };
 
   toggleDrawerClose = () => {
-    this.setState({ isDrawerOpen: false,currentStaff:false });
+    this.setState({ isDrawerOpen: false, currentStaff: false });
   };
   handleChangeDropDown = (selectedVal, id, type) => {
     const currentStaffList = this.state.staffList.map((item) => {
       if (id === item._id) {
         item[type] = selectedVal;
-        
+
       }
       return item;
     });
-    this.setState({staffList: currentStaffList});
+    this.setState({ staffList: currentStaffList });
   }
 
-  handleSave = (updatedValue, type, index) => {
-    let tempPickList  = JSON.parse(JSON.stringify(this.state.staffList));
-    let updatedItem = tempPickList.map((e, i) => {
-      if (i === index) {
-        e[type] = updatedValue;
+  handleUpdate = (updatedValue,index) => {
+    let tempPickList = JSON.parse(JSON.stringify(this.state.staffList));
+    console.log("updatedValue-->",updatedValue);
+    let items = [...tempPickList];
+    let item = {...updatedValue};
+    items[index] = item;
+    this.setState({staffList:items});
+    let updatedItem = tempPickList[index];
+    delete updatedValue._id;
+    this.props.updateStaff({
+      variables: {
+        staffID: updatedItem._id,
+        staff: {...updatedValue}
       }
-      return e;
-    });
-    this.setState({staffList: updatedItem });
-
-    let updateArray=this.state.staffList[index];
-    this.props.updateStaff({variables: {
-      staffID: updateArray._id,
-      staff: {
-        [type]: updatedValue,
-      }
-    }}).then(() => {
+    }).then(() => {
       //this.props.refetchStaff();
     })
-    .catch(error => {
-      DevAlertPopUp(error.message);
-    });
+      .catch(error => {
+        DevAlertPopUp(error.message);
+      });
   };
 
   handleCancel = (props) => {
@@ -171,30 +167,66 @@ class StaffPage extends React.Component {
     });
   };
 
-  addNewStaff=(value)=>{
-    let newstaff={name:value};
-    this.setState({ isDrawerOpen: true,
-      currentStaff:{...newstaff},
+  handleSaveSingle = (updatedValue, type, index) => {
+    let tempPickList = JSON.parse(JSON.stringify(this.state.staffList));
+    let updatedItem = tempPickList.map((e, i) => {
+      if (i === index) {
+        e[type] = updatedValue;
+      }
+      return e;
+    });
+    this.setState({ staffList: updatedItem });
+
+    let updateArray = this.state.staffList[index];
+    this.props.updateStaff({
+      variables: {
+        staffID: updateArray._id,
+        staff: {
+          [type]: updatedValue,
+        }
+      }
+    }).then(() => {
+      //this.props.refetchStaff();
+    })
+      .catch(error => {
+        DevAlertPopUp(error.message);
+      });
+  };
+
+  handleCancel = (props) => {
+    this.setState({
+      isDrawerOpen: !this.state.isDrawerOpen,
+    });
+  };
+
+  addNewStaff = (value) => {
+    let newstaff = { name: value };
+    this.setState({
+      isDrawerOpen: true,
+      currentStaff: { ...newstaff },
       staffList: [...this.state.staffList, newstaff]
     });
-    this.props.addStaff({variables: {
-      staff: {
-        name: value,
+    this.props.addStaff({
+      variables: {
+        staff: {
+          name: value,
+        }
       }
-    }}).then(({ data: { addStaff}}) => {
-      newstaff={...newstaff,_id:addStaff._id};
-      this.setState({currentStaff:{...newstaff},
+    }).then(({ data: { addStaff } }) => {
+      newstaff = { ...newstaff, _id: addStaff._id };
+      this.setState({
+        currentStaff: { ...newstaff },
         staffList: [...this.state.staffList, newstaff]
       });
       this.props.refetchStaff();
     })
-    .catch(error => {
-      DevAlertPopUp(error.message);
-    });
+      .catch(error => {
+        DevAlertPopUp(error.message);
+      });
   }
 
-   handleDataSource =(values)=>{
-    this.setState({staffList: values });
+  handleDataSource = (values) => {
+    this.setState({ staffList: values });
   }
 
   render() {
@@ -203,12 +235,12 @@ class StaffPage extends React.Component {
     return (
       <div className="d-block">
         <div className="d-flex flex-row">
-        <Filter value={staffList} handleDataSource={this.handleDataSource} fields={this.fields} />
+          <Filter value={staffList} handleDataSource={this.handleDataSource} fields={this.fields} />
         </div>
         <div className="d-flex flex-column mt-1">
           <div className="contentSection collapse show w-100" id="holepageToggle">
             {loading ? <div className="w-100 mh-100 text-center"><span className="ml-3 spinner spinner-lg spinner-primary"></span></div> :
-              <ListActivity01 toggleDrawer={this.toggleDrawer} dataList={staffList} handleSave={this.handleSave} addNew={this.addNewStaff} handleChangeDropDown={this.handleChangeDropDown}></ListActivity01>}
+              <ListActivity01 toggleDrawer={this.toggleDrawer} dataList={staffList} handleSave={this.handleSaveSingle} addNew={this.addNewStaff} handleChangeDropDown={this.handleChangeDropDown} ></ListActivity01>}
           </div>
         </div>
         <div className="contentAreaouter">
@@ -241,7 +273,7 @@ class StaffPage extends React.Component {
                   />
                 </span>
               </Link>
-              <StaffDetails data={this.state.currentStaff}/>
+              <StaffDetails data={this.state.currentStaff} handleUpdate={this.handleUpdate} index={this.state.currentIndex}/>
             </div>
           </Drawer>
         </div>
@@ -252,17 +284,17 @@ class StaffPage extends React.Component {
 
 export default compose(
   graphql(gql(queries.staff), {
-    props: ({ data: { getStaffs, loading,refetch } }) => ({
-            staffList: getStaffs || [],
-            loading: loading,
-            refetchStaff:refetch
-          })
-  }),graphql(gql(mutations.staffUpdate), {
+    props: ({ data: { getStaffs, loading, refetch } }) => ({
+      staffList: getStaffs || [],
+      loading: loading,
+      refetchStaff: refetch
+    })
+  }), graphql(gql(mutations.staffUpdate), {
     name: 'updateStaff',
     options: () => ({
       variables: {}
     })
-  }),graphql(gql(mutations.staffAdd), {
+  }), graphql(gql(mutations.staffAdd), {
     name: 'addStaff',
     options: () => ({
       variables: {}

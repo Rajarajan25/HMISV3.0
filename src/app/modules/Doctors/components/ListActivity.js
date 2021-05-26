@@ -27,7 +27,7 @@ export function ListActivity01(props) {
   return (
     <div className="contentArea">
       <TableHeader column={Column} listCount={dataList.length} expandVisiable={true} countLable="staff"/>
-      <TableRow row={dataList} drawer={toggleDrawer} addButton={true} addText="New Staff" handleSave={handleSave} addNew={addNew} handleChangeDropDown={handleChangeDropDown}/>
+      <TableRow {...props} row={dataList} drawer={toggleDrawer} addButton={true} addText="New Staff" />
     </div>
   );
 }

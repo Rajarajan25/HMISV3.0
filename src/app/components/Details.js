@@ -21,14 +21,18 @@ const useStyles = makeStyles(theme => ({
 
 export function Details(props) {
   const classes = useStyles();
-  const { handleSave, current, fields } = props;
+  const { handleSave, current, fields ,index,handleUpdate} = props;
   return (
     <Formik
       initialValues={current}
       enableReinitialize
       onSubmit={(values) => {
         console.log("values", JSON.stringify(values));
-        handleSave(values);
+        if(index!=-1){
+          handleUpdate(values,index);
+          return;
+        }
+        //handleSave(values);
       }}
     >
       {({
@@ -58,7 +62,7 @@ export function Details(props) {
                   </div>}
                   {fields.email && <div className="col-6">
                     <label class="form-label d-block">{fields.email}</label>
-                    <Field placeholder={fields.email} type="email" className={`form-control`} name="email" />
+                    <Field placeholder={fields.email} type="email" className={`form-control`} name="official_email" />
                   </div>}
                 </div>
               </div>
