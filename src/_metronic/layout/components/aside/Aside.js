@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useMemo, useState } from "react";
 import objectPath from "object-path";
-import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import SVG from "react-inlinesvg";
 import { useHtmlClassService } from "../../_core/MetronicLayout";
 import { toAbsoluteUrl } from "../../../_helpers";
@@ -12,6 +11,7 @@ import { LanguageSelectorDropdown } from "../extras/dropdowns/LanguageSelectorDr
 import { QuickUserToggler } from "../extras/QuickUserToggler";
 import { Brand } from "../brand/Brand";
 import { KTUtil } from "./../../../_assets/js/components/util";
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
 export function Aside() {
   const uiService = useHtmlClassService();
@@ -88,18 +88,12 @@ export function Aside() {
 
             <ul className="list-unstyled flex-column asideTopleftfixedmenu" role="tablist">
               {/* begin::Item */}
-              <li
-                className="nav-item"
-                data-toggle="tooltip"
-                data-placement="rigth"
-                data-container="body"
-                data-boundary="window"
-                title="Latest Project"
-              >
-                <OverlayTrigger
-                  placement="right"
+              
+              <li className="nav-item">
+              <OverlayTrigger
+                  placement="bottom"
                   overlay={
-                    <Tooltip id="latest-project" className="tool_bg">Latest Project</Tooltip>
+                    <Tooltip id="quick-search-tooltip" className="tool_bg">Dashboard</Tooltip>
                   }
                 >
                   <a
@@ -119,8 +113,9 @@ export function Aside() {
                       />
                     </span>
                   </a>
-                </OverlayTrigger>
+                  </OverlayTrigger>
               </li>
+              
               {/* end::Item */}
 
               {/* begin::Item */}
@@ -135,7 +130,7 @@ export function Aside() {
                 <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="metronic-features" className="tool_bg">Calendar</Tooltip>
+                    <Tooltip id="quick-search-tooltip" className="tool_bg">Calendar</Tooltip>
                   }
                 >
                   <a
@@ -166,12 +161,12 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-                title="Metronic Features"
+                title="Manage"
               >
                 <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="metronic-features" className="tool_bg">Metronic Features</Tooltip>
+                    <Tooltip id="quick-search-tooltip" className="tool_bg">Manage</Tooltip>
                   }
                 >
                   <a
@@ -209,12 +204,12 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-                title="Latest Project"
+                title="Payments"
               >
                 <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="latest-project" className="tool_bg">Latest Project</Tooltip>
+                    <Tooltip id="quick-search-tooltip" className="tool_bg">Payments</Tooltip>
                   }
                 >
                   <a
@@ -245,12 +240,12 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-                title="Metronic Features"
+                title="Marketing"
               >
                 <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="metronic-features" className="tool_bg">Metronic Features</Tooltip>
+                    <Tooltip id="quick-search-tooltip" className="tool_bg">Marketing</Tooltip>
                   }
                 >
                   <a
@@ -281,12 +276,12 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-                title="Latest Reports"
+                title="Products"
               >
                 <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="latest-reports" className="tool_bg">Latest Reports</Tooltip>
+                    <Tooltip id="quick-search-tooltip" className="tool_bg">Products</Tooltip>
                   }
                 >
                   <a
@@ -315,12 +310,12 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-                title="Latest Reports"
+                title="Reports"
               >
                 <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="latest-reports" className="tool_bg">Latest Reports</Tooltip>
+                    <Tooltip id="quick-search-tooltip" className="tool_bg">Reports</Tooltip>
                   }
                 >
                   <a
@@ -354,7 +349,7 @@ export function Aside() {
                 <OverlayTrigger
                   placement="right"
                   overlay={
-                    <Tooltip id="project-management" className="tool_bg">
+                    <Tooltip id="quick-search-tooltip" className="tool_bg">
                       Project Management
                     </Tooltip>
                   }
@@ -488,7 +483,7 @@ export function Aside() {
               <OverlayTrigger
                 placement="right"
                 overlay={
-                  <Tooltip id="toggle-quick-actions" className="tool_bg">Quick Actions</Tooltip>
+                  <Tooltip id="toggle-quick-actions" className="tool_bg">Settings</Tooltip>
                 }
               >
                 <a
@@ -512,7 +507,7 @@ export function Aside() {
               <OverlayTrigger
                 placement="right"
                 overlay={
-                  <Tooltip id="toggle-quick-actions" className="tool_bg">Quick Actions</Tooltip>
+                  <Tooltip id="toggle-quick-actions" className="tool_bg">Help</Tooltip>
                 }
               >
                 <a
@@ -560,7 +555,7 @@ export function Aside() {
             {layoutProps.extrasQuickPanelDisplay && (
               <OverlayTrigger
                 placement="right"
-                overlay={<Tooltip id="toggle-quick-panel" className="tool_bg">Quick Panel</Tooltip>}
+                overlay={<Tooltip id="toggle-quick-panel" className="tool_bg">Notifications</Tooltip>}
               >
                 <a
                   href="#"
