@@ -1,43 +1,17 @@
-import TextField from "@material-ui/core/TextField";
-import { DateRangePicker, DateRangeDelimiter, LocalizationProvider, DatePicker, TimePicker, DesktopDateRangePicker } from "@material-ui/pickers";
-import DateFnsUtils from "@material-ui/pickers/adapter/date-fns";
-import { blue } from "@material-ui/core/colors";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import {DatePicker, TimePicker,MuiPickersUtilsProvider,
+  KeyboardTimePicker,
+  KeyboardDatePicker,} from "@material-ui/pickers";
+import DateFnsUtils from '@date-io/date-fns';
 import React, { useState } from "react";
 import { RangeDatePicker } from 'react-google-flight-datepicker';
 import 'react-google-flight-datepicker/dist/main.css';
-const defaultMaterialTheme = createMuiTheme({
-  palette: {
-    primary: blue,
-  },
-});
-export function DateRangePickersUtilFailed() {
-  const [selectedDateRange, handleDateRangeChange] = React.useState([null, null]);
-  return (
-    <ThemeProvider theme={defaultMaterialTheme}>
-      <LocalizationProvider dateAdapter={DateFnsUtils}>
-        <DesktopDateRangePicker
-          startText="Desktop start"
-          value={selectedDateRange}
-          onChange={(newValue) => handleDateRangeChange(newValue)}
-          renderInput={(startProps, endProps) => (
-            <React.Fragment>
-              <TextField {...startProps} />
-              <DateRangeDelimiter> to </DateRangeDelimiter>
-              <TextField {...endProps} />
-            </React.Fragment>
-          )}
-        />
-      </LocalizationProvider>
-    </ThemeProvider>
-  );
-}
 
-export function DateRangePickersUtil() {
-  const [startDate, onStartDateChange] = React.useState(new Date());
-  const [endDate, onEndDateChange] = React.useState(new Date());
+export function DateRangePickersUtil(props) {
+  const [startDate, onStartDateChange] = useState(new Date());
+  const [endDate, onEndDateChange] = useState(new Date());
   return (
     <RangeDatePicker
+    {...props}
       startDate={startDate}
       endDate={endDate}
       onChange={(startDate, endDate) => {
@@ -57,57 +31,52 @@ export function DateRangePickersUtil() {
 }
 
 export function DatePickersUtil(props) {
-  const [selectedDate, setDateChange] = React.useState(new Date());
+  const [selectedDate, setDateChange] = useState(new Date());
   return (
-    <ThemeProvider theme={defaultMaterialTheme}>
-      <LocalizationProvider dateAdapter={DateFnsUtils}>
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <DatePicker
-          label={props && props.label ? props.label : ""}
+        {...props}
+        variant="inline"
+        format="dd/MM/yyyy"
+        value={selectedDate}
+        autoOk={true}
+        id="date-picker-inline"
+        disableFuture={true}
+        onChange={setDateChange}
+      />
+        {/* <KeyboardDatePicker
+        {...props}
+          variant="inline"
+          format="dd/MM/yyyy"
+          margin="normal"
+          id="date-picker-inline"
           value={selectedDate}
-          onChange={(newValue) => setDateChange(newValue)}
-          renderInput={(props) => <TextField {...props} />}
-        />
-      </LocalizationProvider></ThemeProvider>
+          disableFuture={true}
+          autoOk={true}
+          onChange={setDateChange}
+          KeyboardButtonProps={{
+            'aria-label': 'change date',
+          }}
+        />  */}
+      </MuiPickersUtilsProvider>
   );
 }
 
 
-export function TimePickersUtil() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [valuetime, setTimeValue] = React.useState(new Date());
+export function TimePickersUtil(props) {
+  const [selectedDate, setSelectedDate] = useState(new Date('2014-08-18T21:11:54'));
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
   return (
-    <ThemeProvider theme={defaultMaterialTheme}>
-      <LocalizationProvider dateAdapter={DateFnsUtils}>
-        <TimePicker
-          renderInput={(props) => <TextField {...props} />}
-          variant="inline"
-          showToolbar={true}
-          margin="normal"
-          id="time-picker-inline"
-          autoOk={true}
-          KeyboardButtonProps={{
-            onFocus: e => {
-              setIsOpen(true);
-            }
-          }}
-          PopoverProps={{
-            disableRestoreFocus: true,
-            onClose: () => {
-              setIsOpen(false);
-            }
-          }}
-          label="12 hours"
-          open={isOpen}
-          InputProps={{
-            disableRestoreFocus: true,
-            onFocus: () => {
-              setIsOpen(true);
-            }
-          }}
-          value={valuetime}
-          onChange={(newValue) => setTimeValue(newValue)}
-        />
-      </LocalizationProvider>
-    </ThemeProvider>
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+         <TimePicker
+         {...props}
+        variant="inline"
+        value={selectedDate}
+        autoOk={true}
+        onChange={handleDateChange}
+      />
+      </MuiPickersUtilsProvider>
   );
 }

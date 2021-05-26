@@ -19,17 +19,7 @@ import {DateRangePickersUtilFailed} from '../../Components/DateAndTimePicker'
   import Select from 'react-select';
   import { Dropdown } from "react-bootstrap";
   import {DropdownItemToggler} from "../../../../_metronic/_partials/dropdowns";
-  import TextField from "@material-ui/core/TextField";
-  import { DateRangePicker, DateRangeDelimiter, LocalizationProvider } from "@material-ui/pickers";
-  import DateFnsUtils from "@material-ui/pickers/adapter/date-fns";
-  import { blue } from "@material-ui/core/colors";
-  import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
-  const defaultMaterialTheme = createMuiTheme({
-    palette: {
-      primary: blue,
-    },
-  });
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -633,42 +623,10 @@ function DateRange1 () {
 }
 
 export function TimePickers() {
-  // The first commit of Material-UI
-  const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
-
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-  };
-  const [isOpen, setIsOpen] = useState(false);
 
 return (
   <Grid container justify="space-around">
-    <TimePickersUtil
-      variant="inline"
-      margin="normal"
-      id="time-picker-inline"
-      value={selectedDate}
-      autoOk={true}
-      onChange={handleDateChange}
-      KeyboardButtonProps={{
-        onFocus: e => {
-          setIsOpen(true);
-        }
-      }}
-      PopoverProps={{
-        disableRestoreFocus: true,
-        onClose: () => {
-          setIsOpen(false);
-        }
-      }}
-      InputProps={{
-        disableRestoreFocus: true,
-        onFocus: () => {
-          setIsOpen(true);
-        }
-      }}
-      open={isOpen}
-    />
+    <TimePickersUtil/>
   </Grid>
 );
 }
