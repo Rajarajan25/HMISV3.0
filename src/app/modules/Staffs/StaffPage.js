@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Filter } from "../Doctors/components/Filter"
+import { Filter } from "../../components/Filter"
 import Drawer from "@material-ui/core/Drawer";
 import { toAbsoluteUrl } from "../../../_metronic/_helpers";
 import {
@@ -127,17 +127,22 @@ class StaffPage extends React.Component {
     });
   };
 
+   handleDataSource =(values)=>{
+    this.setState({staffList: values });
+  }
+
   render() {
     const { loading } = this.props;
+    const { staffList } = this.state;
     return (
       <div className="d-block">
         <div className="d-flex flex-row">
-          <Filter></Filter>
+        <Filter value={staffList} handleDataSource={this.handleDataSource}/>
         </div>
         <div className="d-flex flex-column mt-1">
           <div className="contentSection collapse show w-100" id="holepageToggle">
             {loading ? <div className="w-100 mh-100 text-center"><span className="ml-3 spinner spinner-lg spinner-primary"></span></div> :
-              <ListActivity01 toggleDrawer={this.toggleDrawer} dataList={this.state.staffList} handleSave={this.handleSave}></ListActivity01>}
+              <ListActivity01 toggleDrawer={this.toggleDrawer} dataList={staffList} handleSave={this.handleSave}></ListActivity01>}
           </div>
         </div>
         <div className="contentAreaouter">

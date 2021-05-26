@@ -5,7 +5,7 @@ import DataSource from 'devextreme/data/data_source';
 import { filter, fields } from './data.js';
 
 
-class App extends React.Component {
+class FilterQuery extends React.Component {
   constructor(props) {
     super(props);
     this.handleDataSource=props.handleDataSource;
@@ -14,7 +14,7 @@ class App extends React.Component {
     });
     this.filterBuilderInstance = null;
     this.state = {
-      value: filter
+      value: []
     };
     this.onValueChanged = this.onValueChanged.bind(this);
     this.refreshDataSource = this.refreshDataSource.bind(this);
@@ -63,4 +63,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default FilterQuery;

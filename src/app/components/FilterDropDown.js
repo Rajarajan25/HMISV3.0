@@ -1,5 +1,4 @@
 import React from 'react';
-import Select from 'react-select';
 import FilterQuery from './FilterQuery'
 const duedate = [
     { value: 'duedate', label: 'Due Date' },
