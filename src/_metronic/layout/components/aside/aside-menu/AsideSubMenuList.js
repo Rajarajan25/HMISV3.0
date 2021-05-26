@@ -101,19 +101,12 @@ export function AsideSubMenuList({ layoutProps }) {
           className={`menu-item ${getMenuItemActive("/dashboard", false)}`}
           aria-haspopup="true"
         >
-          <OverlayTrigger
-                  placement="top"
-                  overlay={
-                    <Tooltip id="quick-search-tooltip" className="tool_bg">Dashboard</Tooltip>
-                  }
-                >
           <NavLink className="menu-link" to="/dashboard">
             <span className="svg-icon menu-icon">
               <SVG src={toAbsoluteUrl("/media/svg/icons/Design/Layers.svg")} />
             </span>
             <span className="menu-text">Dashboard</span>
           </NavLink>
-          </OverlayTrigger>
         </li>
         {/*end::1 Level*/}
 

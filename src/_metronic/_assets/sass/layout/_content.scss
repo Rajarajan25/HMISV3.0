@@ -1714,7 +1714,7 @@ span.avails {
 	}
 }
 .tool_bg {
-	z-index: 10 !important;
+	z-index: 1000 !important;
 	.tooltip-inner {
 		background: #394148;
 		color: #ffffff;
@@ -4973,7 +4973,8 @@ p.setting_color {
 		width: 250px;
 		font-size: 20px;
 		border: 0;
-		color: #707070;
+		color: #292D34;
+    	font-weight: 500;
 		&.dx-state-hover, &.dx-state-focused {
 			background-color: transparent;
 		}

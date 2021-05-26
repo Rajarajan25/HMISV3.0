@@ -89,9 +89,16 @@ export function Aside() {
             <ul className="list-unstyled flex-column asideTopleftfixedmenu" role="tablist">
               {/* begin::Item */}
               
-              <li className="nav-item">
+              <li
+                className="nav-item"
+                data-toggle="tooltip"
+                data-placement="rigth"
+                data-container="body"
+                data-boundary="window"
+               
+              >
               <OverlayTrigger
-                  placement="bottom"
+                  placement="right"
                   overlay={
                     <Tooltip id="quick-search-tooltip" className="tool_bg">Dashboard</Tooltip>
                   }
@@ -125,7 +132,7 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-                title="Calendar"
+
               >
                 <OverlayTrigger
                   placement="right"
@@ -161,7 +168,7 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-                title="Manage"
+           
               >
                 <OverlayTrigger
                   placement="right"
@@ -204,7 +211,7 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-                title="Payments"
+         
               >
                 <OverlayTrigger
                   placement="right"
@@ -240,7 +247,7 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-                title="Marketing"
+       
               >
                 <OverlayTrigger
                   placement="right"
@@ -276,7 +283,7 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-                title="Products"
+      
               >
                 <OverlayTrigger
                   placement="right"
@@ -310,7 +317,7 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-                title="Reports"
+           
               >
                 <OverlayTrigger
                   placement="right"
