@@ -8,8 +8,10 @@ import { ServicesDropDown } from '../components/ServicesDropDown';
 import { AvailableDropDown } from '../components/AvailableDropDown';
 import { ColorAndAvatarDropDown } from '../components/ColorAndAvatarDropDown';
 export function TableRow(props) {
-    const { row, drawer, addButton, addText } = props;
+    const { row, drawer, addButton, addText, handleChangeDropDown } = props;
     const [addnew, setAddNew] = useState(false);
+    
+    
     return (
         <div className="innerContent collapse show" id="staffmanagement">
             <div className="row">
@@ -47,13 +49,13 @@ export function TableRow(props) {
                                         </div>
                                     </li>
                                     <li className="col-lg-1 my-auto">
-                                        <ServicesDropDown item={item} />
+                                        <ServicesDropDown item={item} handleChangeDropDown={handleChangeDropDown} />
                                     </li>
                                     <li className="col-lg-1 activeStatuscontent active_clr text-white">
-                                        <StatusDropDown item={item} />
+                                        <StatusDropDown item={item} handleChangeDropDown={handleChangeDropDown}/>
                                     </li>
                                     <li className="col-lg-1 activeStatuscontent male_bg text-white">
-                                        <SxDropDown item={item} />
+                                        <SxDropDown item={item} handleChangeDropDown={handleChangeDropDown}/>
                                     </li>
                                     <li className="col-lg-1 my-auto">
                                         <AvailableDropDown item={item} />

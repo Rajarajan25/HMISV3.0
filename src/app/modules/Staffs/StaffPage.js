@@ -70,11 +70,12 @@ class StaffPage extends React.Component {
   ];
   constructor(props) {
     super(props);
+    //console.log(props);
     this.state = {
       isDrawerOpen: false,
       currentStaff:{},
-      staffList: this.staffList,
-      defaultStaffList: JSON.parse(JSON.stringify(this.staffList)),
+      staffList: [],
+      loading: false,
     };
   }
   handleCancel = (props) => {
@@ -83,8 +84,18 @@ class StaffPage extends React.Component {
     });
   };
 
-  componentDidMount() {}
-  componentDidUpdate() {}
+  componentDidMount() {
+   // console.log(this.props);
+
+  }
+  
+  componentDidUpdate() {
+    this.setState((prvState, props )=> {
+      if(JSON.stringify(prvState.staffList) !== JSON.stringify(props.staffList) && !prvState.staffList.length) {
+        return {staffList: JSON.parse(JSON.stringify(props.staffList))}
+      }
+    });
+  }
   componentDidCatch() {}
 
   componentWillUnmount() {}
@@ -100,6 +111,17 @@ class StaffPage extends React.Component {
   toggleDrawerClose = () => {
     this.setState({ isDrawerOpen: false,currentStaff:false });
   };
+  handleChangeDropDown = (selectedVal, id, type) => {
+    const currentStaffList = this.state.staffList.map((item) => {
+      if (id === item._id) {
+        item[type] = selectedVal;
+        
+      }
+      return item;
+    });
+    this.setState({staffList: currentStaffList});
+  }
+
   handleSave = (updatedValue, type, index) => {
     let updatedItem = this.state.staffList.map((e, i) => {
       if (i === index) {
@@ -112,7 +134,7 @@ class StaffPage extends React.Component {
   };
 
   render() {
-    const { staffList, loading } = this.props;
+ const { staffList, loading } = this.props;
     return (
       <div className="d-block">
         <div className="d-flex flex-row">
@@ -121,7 +143,7 @@ class StaffPage extends React.Component {
         <div className="d-flex flex-column mt-1">
           <div className="contentSection collapse show w-100" id="holepageToggle">
             {loading ? <div className="w-100 mh-100 text-center"><span className="ml-3 spinner spinner-lg spinner-primary"></span></div> :
-              <ListActivity01 toggleDrawer={this.toggleDrawer} dataList={staffList} handleSave={this.handleSave}></ListActivity01>}
+              <ListActivity01 toggleDrawer={this.toggleDrawer} handleChangeDropDown={this.handleChangeDropDown} handleService={this.handleService} dataList={this.state.staffList} handleSave={this.handleSave}></ListActivity01>}
           </div>
         </div>
         <div className="contentAreaouter">

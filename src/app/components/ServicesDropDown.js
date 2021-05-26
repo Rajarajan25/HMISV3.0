@@ -16,11 +16,12 @@ export function ServicesDropDown(props) {
             </div>
         </Dropdown.Toggle>
         <Dropdown.Menu className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
-            <ServicesDropdownMenu />
+            <ServicesDropdownMenu handleChangeDropDown={props.handleChangeDropDown} item={props.item}/>
         </Dropdown.Menu>
     </Dropdown>)
 }
-export function ServicesDropdownMenu() {
+export function ServicesDropdownMenu(props) {
+    const {handleChangeDropDown, item} = props;
     const serviceArray=[
         {type: "Acupunture", color: "#E6511B"},
         {type: "Dental", color: "#FD7FAB"},
@@ -40,28 +41,28 @@ export function ServicesDropdownMenu() {
             <li className="navi-item">
                 <div className="service_select p-4">
                     <div class="d-inline-flex justify-content-center">
-                        <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#E6511B` }}>Acupunture
+                        <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#E6511B` }} onClick={()=>handleChangeDropDown("Acupunture", item._id), "service"}>Acupunture
                     <span className="dropdown_label_remove" style={{ backgroundColor: `#E6511B` }}>
                                 <span className="dropdown_label_remove_icon">x</span>
                             </span>
                         </span>
                     </div>
                     <div class="d-inline-flex justify-content-center">
-                        <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#FD7FAB` }}>Dental
+                        <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#FD7FAB` }} onClick={()=>handleChangeDropDown("Dental", item._id, "service")}>Dental
                     <span className="dropdown_label_remove" style={{ backgroundColor: `#FD7FAB` }}>
                                 <span className="dropdown_label_remove_icon">x</span>
                             </span>
                         </span>
                     </div>
                     <div class="d-inline-flex justify-content-center">
-                        <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#EA80FC` }}>Skin Care
+                        <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#EA80FC` }} onClick={()=>handleChangeDropDown("Skin Care", item._id, "service")}>Skin Care
                     <span className="dropdown_label_remove" style={{ backgroundColor: `#EA80FC` }}>
                                 <span className="dropdown_label_remove_icon">x</span>
                             </span>
                         </span>
                     </div>
                     <div class="d-inline-flex justify-content-center">
-                        <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#1DBC9C` }}>Ambien
+                        <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#1DBC9C` }} onClick={()=>handleChangeDropDown("Ambien", item._id, "service")}>Ambien
                     <span className="dropdown_label_remove" style={{ backgroundColor: `#1DBC9C` }}>
                                 <span className="dropdown_label_remove_icon">x</span>
                             </span>

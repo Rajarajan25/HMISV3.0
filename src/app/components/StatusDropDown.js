@@ -7,23 +7,26 @@ export function StatusDropDown(props) {
       <div  className="d-flex text-white h-100 align-items-center justify-content-center">{props.item.status||"Active"}</div>
     </Dropdown.Toggle>
     <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav status_hover">
-      <StatusDropdownMenu />
+      <StatusDropdownMenu handleChangeDropDown={props.handleChangeDropDown} item={props.item}/>
     </Dropdown.Menu>
   </Dropdown>)
 }
-export function StatusDropdownMenu() {
+export function StatusDropdownMenu(props) {
+  const {handleChangeDropDown, item} = props;
   const statusMenu=["Active","Inactive"];
   return <>
     {/*begin::Navigation*/}
     <ul className="navi navi-hover">
-    {statusMenu.map((item, index) => {
-      return(<li className="navi-item" key={index}>
-      <div className="navi-link" >
-        <span className="navi-circle active_bg"></span>
-        <span className="navi-text">{item}</span>
-      </div>
-    </li>)
-    })}
+    <li className="navi-item" onClick={()=>handleChangeDropDown("Active", item._id, 'status')}>
+        <a href="#" className="navi-link">
+          <span className="navi-text">Active</span>
+        </a>
+      </li>
+      <li className="navi-item fe_hover" onClick={()=>handleChangeDropDown("Inactive", item._id, 'status')}>
+        <a href="#" className="navi-link">
+          <span className="navi-text">Inactive</span>
+        </a>
+      </li>
     </ul>
     {/*end::Navigation*/}
 
