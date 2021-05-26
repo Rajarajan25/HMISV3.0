@@ -70,7 +70,7 @@ const toggleDrawerClose = () => {
                 </div>
                 <ul className="list-inline w-100 row">
                   <li className="col-lg-3">
-                    <span className="headingHighlight customProfileBG11 text-white">Service Provider<a class="ml-3"><i class="fa fa-pen"></i></a></span>
+                    <span className="headingHighlight customProfileBG11 text-white">Doctor<a class="ml-3"><i class="fa fa-pen"></i></a></span>
                     <span className="tasklistCount">1 Staff</span>
                   </li>
                   <li className="col-lg-1"><span className="title_drag">Experience</span></li>

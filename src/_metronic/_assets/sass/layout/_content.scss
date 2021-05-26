@@ -3608,11 +3608,13 @@ p.setting_color {
 				font-weight: 700;
 				color: #000000;
 				font-size: 13px;
+				min-height: 40px;
 			}
 			p:last-child {
 				font-weight: normal;
 				font-size: 9px;
 				margin-top: 5px;
+				min-height: inherit;
 				span:first-child {
 					color: #B3BABA;
 					padding-right: 3px;
@@ -4988,4 +4990,23 @@ p.setting_color {
 }
 .dx-widget {
 	font-family: "Gotham Pro", "Helvetica", "Arial", sans-serif !important;
+}
+.filter-container {
+    padding: 10px;
+    background-color: rgba(191, 191, 191, 0.15);
+    margin-bottom: 0px;
+	.dx-filterbuilder {
+		padding: 10px;
+	}
+	.dx-button-mode-contained.dx-button-default {
+		background-color: #1D6AFF;
+		margin: 15px 10px 5px;
+		float: right;
+		&.dx-state-hover {
+			background-color: #1D6AFF;
+		}
+	}
+}
+.dx-datagrid {
+    padding: 15px 15px 0;
 }
