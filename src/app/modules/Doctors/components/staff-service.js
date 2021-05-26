@@ -79,7 +79,7 @@ export function StaffService() {
                     <img src={toAbsoluteUrl("/media/patients/service_icon_01.svg")} alt="" className="m-auto align-items-center" />
                   </div>
                   <div className="service_title">
-                    <p>Pet Services</p>
+                    <p>Gynaecology</p>
                     <p><span>Duration:</span><span>30 Mins</span></p>
                   </div>
                 </div>
@@ -97,7 +97,7 @@ export function StaffService() {
                     <img src={toAbsoluteUrl("/media/patients/service_icon_02.svg")} alt="" className="m-auto align-items-center" />
                   </div>
                   <div className="service_title">
-                    <p>Pet Services</p>
+                    <p>Sexology</p>
                     <p><span>Duration:</span><span>30 Mins</span></p>
                   </div>
                 </div>
@@ -115,7 +115,7 @@ export function StaffService() {
                     <img src={toAbsoluteUrl("/media/patients/service_icon_03.svg")} alt="" className="m-auto align-items-center" />
                   </div>
                   <div className="service_title">
-                    <p>Pet Services</p>
+                    <p>General physician</p>
                     <p><span>Duration:</span><span>30 Mins</span></p>
                   </div>
                 </div>
@@ -133,7 +133,7 @@ export function StaffService() {
                     <img src={toAbsoluteUrl("/media/patients/service_icon_04.svg")} alt="" className="m-auto align-items-center" />
                   </div>
                   <div className="service_title">
-                    <p>Pet Services</p>
+                    <p>Dermatology</p>
                     <p><span>Duration:</span><span>30 Mins</span></p>
                   </div>
                 </div>
@@ -151,7 +151,7 @@ export function StaffService() {
                     go
                   </div>
                   <div className="service_title">
-                    <p>Pet Services</p>
+                    <p>Psychiatry</p>
                     <p><span>Duration:</span><span>30 Mins</span></p>
                   </div>
                 </div>
@@ -169,7 +169,7 @@ export function StaffService() {
                     pi
                   </div>
                   <div className="service_title">
-                    <p>Pet Services</p>
+                    <p>Stomach and digestion</p>
                     <p><span>Duration:</span><span>30 Mins</span></p>
                   </div>
                 </div>
@@ -187,7 +187,7 @@ export function StaffService() {
                     ma
                   </div>
                   <div className="service_title">
-                    <p>Pet Services</p>
+                    <p>Pediatrics</p>
                     <p><span>Duration:</span><span>30 Mins</span></p>
                   </div>
                 </div>
@@ -205,7 +205,7 @@ export function StaffService() {
                     ni
                   </div>
                   <div className="service_title">
-                    <p>Pet Services</p>
+                    <p>Kidney and urine</p>
                     <p><span>Duration:</span><span>30 Mins</span></p>
                   </div>
                 </div>
