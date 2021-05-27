@@ -169,7 +169,7 @@ export function ContentEventTiming() {
             <div className="form-group">
               <div className="row">
                 <div className="col-6">
-                  <label className="form-label d-block">Member</label>
+                  <label className="form-label d-block">No</label>
                   <div className="re_select">
                     <Select options={dayselect} /> 
                   </div>
