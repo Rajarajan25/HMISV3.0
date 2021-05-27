@@ -50,7 +50,7 @@ export function Price(props) {
         <div className="form-group">
           <div className="d-flex row">
             <div className="col-4">
-              <label class="form-label d-block">Price Type</label>
+              <label className="form-label d-block">Price Type</label>
               <div className="re_select">
                 <SelectDropDown
                   className='input'
@@ -61,11 +61,11 @@ export function Price(props) {
               </div>
             </div>
             <div className="col-4">
-              <label class="form-label d-block">Price (&#2352;)</label>
+              <label className="form-label d-block">Price (&#2352;)</label>
               <Field placeholder="500" type="text" className={`form-control`} name="payments.retail_price" />
             </div>
             <div className="col-4">
-              <label class="form-label d-block">Special Price (&#2352;)</label>
+              <label className="form-label d-block">Special Price (&#2352;)</label>
               <Field placeholder="500" type="text" className={`form-control`} name="payments.special_price" />
             </div>
           </div>
@@ -82,7 +82,7 @@ export function Price(props) {
           <div>
             <div className="form-group border-bottom">
               <div className="d-flex">
-                <label class="staff_title_text">Advanced Pricing Option <span className="font-weight-normal">(Optional)</span></label>
+                <label className="staff_title_text">Advanced Pricing Option <span className="font-weight-normal">(Optional)</span></label>
               </div>
             </div>
             <div className="form-group">
@@ -91,17 +91,16 @@ export function Price(props) {
                   return (
                     <div className="d-flex row" key={i}>
                       <div className="col-4">
-                        <label class="form-label d-block">Provider/Staff Name</label>
+                        <label className="form-label d-block">Provider/Staff Name</label>
                         <Field placeholder="Gopinath" type="text" className={`form-control`} name={`payments.service_pricing_by_staff.${i}.staff_id`} />
                       </div>
                       <div className="col-3">
-                        <label class="form-label d-block">Duration</label>
+                        <label className="form-label d-block">Duration</label>
                         <div className="re_select">
                           <SelectDropDown
                             className='input'
                             name={`payments.service_pricing_by_staff.${i}.duration_minutes`}
                             onChange={value => {
-                              console.log("value.value-->", value.value);
                               setFieldValue(`payments.service_pricing_by_staff.${i}.duration_minutes`, value.value)
                             }}
                             value={formikValues.payments.service_pricing_by_staff[i].duration_minutes}
@@ -110,7 +109,7 @@ export function Price(props) {
                         </div>
                       </div>
                       <div className="col-3">
-                        <label class="form-label d-block">Price Type</label>
+                        <label className="form-label d-block">Price Type</label>
                         <div className="re_select">
                           <SelectDropDown
                             className='input'
@@ -122,7 +121,7 @@ export function Price(props) {
                         </div>
                       </div>
                       <div className="col-2">
-                        <label class="form-label d-block">Price (&#2352;)</label>
+                        <label className="form-label d-block">Price (&#2352;)</label>
                         <Field placeholder="500" type="text" className={`form-control`} name={`payments.service_pricing_by_staff.${i}.retail_price`} />
                       </div>
                     </div>

@@ -158,7 +158,7 @@ export default function ServiceProviderContainer() {
                                     <ul className="list-inline w-100 row">
                                       <li className="col-lg-5 my-auto">
                                         <div className="userLogoicon align-content-center">
-                                          <Dropdown drop="down" alignCenter className="dropdown h-100">
+                                          <Dropdown drop="down" aligncenter="true" className="dropdown h-100">
                                             <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
                                               <span className="listprofileIcon" style={{ backgroundColor: `#2ecd6f` }}>AK</span>
                                             </Dropdown.Toggle>
@@ -189,7 +189,7 @@ export default function ServiceProviderContainer() {
                                         </div>
                                       </li>
                                       <li className="col-lg-2 activeStatuscontent">
-                                        <Dropdown drop="down" alignCenter className="dropdown h-100 w_130">
+                                        <Dropdown drop="down" aligncenter="true" className="dropdown h-100 w_130">
                                           <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
                                             <span className="d-flex pointer h-100 align-items-center justify-content-center font_weight_medium">{service_type}</span>
                                           </Dropdown.Toggle>
@@ -199,7 +199,7 @@ export default function ServiceProviderContainer() {
                                         </Dropdown>
                                       </li>
                                       <li className="col-lg-2 my-auto">
-                                        <Dropdown drop="down" alignCenter className="dropdown h-100">
+                                        <Dropdown drop="down" aligncenter="true" className="dropdown h-100">
                                           <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
                                             <div class="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column pointer">
                                               <div class="d-flex mt-1 mb-1 justify-content-center">
@@ -290,7 +290,7 @@ export default function ServiceProviderContainer() {
                                 <ul className="list-inline w-100 row">
                                   <li className="col-lg-5 my-auto">
                                     <div className="userLogoicon align-content-center">
-                                      <Dropdown drop="down" alignCenter className="dropdown h-100">
+                                      <Dropdown drop="down" aligncenter="true" className="dropdown h-100">
                                         <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
                                           <span className="listprofileIcon" style={{ backgroundColor: `#f5f6fa` }}><img src={toAbsoluteUrl("/media/health/heartbeat.svg")} alt="" className="" /></span>
                                         </Dropdown.Toggle>
@@ -304,7 +304,7 @@ export default function ServiceProviderContainer() {
                                     </div>
                                   </li>
                                   <li className="col-lg-2 activeStatuscontent">
-                                    <Dropdown drop="down" alignCenter className="dropdown h-100 w_130">
+                                    <Dropdown drop="down" aligncenter="true" className="dropdown h-100 w_130">
                                       <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
                                         <span className="d-flex pointer h-100 align-items-center justify-content-center font_weight_medium">Public</span>
                                       </Dropdown.Toggle>
@@ -314,7 +314,7 @@ export default function ServiceProviderContainer() {
                                     </Dropdown>
                                   </li>
                                   <li className="col-lg-2 my-auto">
-                                    <Dropdown drop="down" alignCenter className="dropdown h-100">
+                                    <Dropdown drop="down" aligncenter="true" className="dropdown h-100">
                                       <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
                                         <div class="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column pointer">
                                           <div class="d-flex mt-1 mb-1 justify-content-center">

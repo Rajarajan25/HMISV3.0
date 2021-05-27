@@ -57,7 +57,7 @@ render() {
                   type="text"
                   className="form-control border-0 h-40px"
                   placeholder="Search..."
-                  id="generalSearch"
+                  id="patientlistSearch"
                   autoComplete="false"
                 />  
               </div>

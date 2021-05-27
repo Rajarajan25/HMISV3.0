@@ -53,13 +53,13 @@ const buffertime = [
 
 export function Duration(props) {
   const classes = useStyles();
-  const { current, handleSave } = props
-  const {duration,payments}=current;
-  const initValue={
-    duration:duration,
-    payments:payments,
+  const { current, handleSave, fields } = props
+  const { duration, payments } = current;
+  const initValue = {
+    duration: duration,
+    payments: payments,
   }
-  DevConsoleLog("initValue",initValue);
+  DevConsoleLog("initValue", initValue);
   let timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   const [selectedTimezone, setSelectedTimezone] = useState({
     value: timeZone,
@@ -72,9 +72,9 @@ export function Duration(props) {
       enableReinitialize
       onSubmit={(values) => {
         DevConsoleLog("values", JSON.stringify(values));
-        let payments=values.payments;
-        current.duration=values.duration;
-        current.payments=payments;
+        let payments = values.payments;
+        current.duration = values.duration;
+        current.payments = payments;
         DevConsoleLog("current-->", current);
         handleSave(current);
       }}>
@@ -85,7 +85,7 @@ export function Duration(props) {
         <form onSubmit={handleSubmit}>
           <div className="clearfix p-5">
             <div className="staff_first staff_second w-100">
-              <div className="form-group">
+              {fields.timezone && <div className="form-group">
                 <div className="row">
                   <div className="col-12">
                     <label className="form-label d-block">Time Zone</label>
@@ -97,64 +97,72 @@ export function Duration(props) {
                   </div>
                 </div>
               </div>
-              <div className="form-group">
-                <div className="row">
-                  <div className="col-4">
-                    <label className="form-label d-block">Duration</label>
-                    <div className="re_select">
-                      <SelectDropDown
-                        className='input'
-                        onChange={value => setFieldValue('duration.duration_minutes', value.value)}
-                        value={values.duration.duration_minutes}
-                        options={durationtime}
-                      />
+              }
+              {fields.duration &&
+                <div className="form-group">
+                  <div className="row">
+                    <div className="col-4">
+                      <label className="form-label d-block">Duration</label>
+                      <div className="re_select">
+                        <SelectDropDown
+                          className='input'
+                          onChange={value => setFieldValue('duration.duration_minutes', value.value)}
+                          value={values.duration.duration_minutes}
+                          options={durationtime}
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div className="col-4">
-                    <label className="form-label d-block">Buffer Time Before</label>
-                    <div className="re_select">
+                    <div className="col-4">
+                      <label className="form-label d-block">Buffer Time Before</label>
+                      <div className="re_select">
 
-                      <SelectDropDown
-                        className='input'
-                        onChange={value => setFieldValue('duration.buffer_before_min', value.value)}
-                        value={values.duration.buffer_before_min}
-                        options={buffertime}
-                      />
+                        <SelectDropDown
+                          className='input'
+                          onChange={value => setFieldValue('duration.buffer_before_min', value.value)}
+                          value={values.duration.buffer_before_min}
+                          options={buffertime}
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div className="col-4">
-                    <label className="form-label d-block">Buffer Time After</label>
-                    <div className="re_select">
-                      <SelectDropDown
-                        className='input'
-                        onChange={value => setFieldValue('duration.buffer_after_min', value.value)}
-                        value={values.duration.buffer_after_min}
-                        options={buffertime}
-                      />
+                    <div className="col-4">
+                      <label className="form-label d-block">Buffer Time After</label>
+                      <div className="re_select">
+                        <SelectDropDown
+                          className='input'
+                          onChange={value => setFieldValue('duration.buffer_after_min', value.value)}
+                          value={values.duration.buffer_after_min}
+                          options={buffertime}
+                        />
 
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="form-group">
-                <label className="form-label d-block mr-5 mb-2">Date Range</label>
-                <div className="d-flex mb-2">
-                  <div className="busi_cus ser_tme clearfix">
-                    <div className={classes.root}>
-                      <Field component={RadioGroup} name="duration.date_range">
-                        <FormControlLabel value="range" control={<Radio />} label="Range" />
-                        <FormControlLabel value="infinity" control={<Radio />} label="Infinity" />
-                        <FormControlLabel value="default" control={<Radio />} label="Default" />
-                      </Field>
-                    </div>
+              }
+              {fields.daterange &&
+                <div className="form-group">
+                  <label className="form-label d-block mr-5 mb-2">Date Range</label>
+                  <div className="d-flex mb-2">
+                    <div className="busi_cus ser_tme clearfix">
+                      <div className={classes.root}>
+                        <Field component={RadioGroup} name="duration.date_range">
+                          <FormControlLabel value="range" control={<Radio />} label="Range" />
+                          <FormControlLabel value="infinity" control={<Radio />} label="Infinity" />
+                          <FormControlLabel value="default" control={<Radio />} label="Default" />
+                        </Field>
+                      </div>
 
+                    </div>
                   </div>
+
+                  <input placeholder="Date Range" type="text" className="form-control" name="" />
                 </div>
 
-                <input placeholder="Date Range" type="text" className="form-control" name="" />
-              </div>
-              <Price formikValues={values} setFieldValue={setFieldValue} />
-              <Timings current={current} />
+              }
+              {fields.price &&
+                <Price formikValues={values} setFieldValue={setFieldValue} />
+              }
+              {fields.timing && <Timings current={current} />}
               <div className="form-group mb-0">
                 <div className="d-flex justify-content-end patientButton pos_fix">
                   <button type="submit" className="btn btn-primary">Save</button>

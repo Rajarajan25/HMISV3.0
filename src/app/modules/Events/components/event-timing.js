@@ -352,7 +352,7 @@ export function AvailPerson() {
           <label className="mb-0" for="availperson_01">My Business Address</label>
         </div>
         <div className="ml-auto">
-          <Dropdown drop="down" alignCenter className="dropdown h-100">
+          <Dropdown drop="down" aligncenter="true" className="dropdown h-100">
             <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
               <Link to="#" className="add_setting">+ Add Address</Link>
             </Dropdown.Toggle>
@@ -549,42 +549,9 @@ function DateRange1 () {
 }
 
 export function TimePickers() {
-  // The first commit of Material-UI
-  const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
-
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-  };
-  const [isOpen, setIsOpen] = useState(false);
-
 return (
   <Grid container justify="space-around">
-    <TimePickersUtil
-      variant="inline"
-      margin="normal"
-      id="time-picker-inline"
-      value={selectedDate}
-      autoOk={true}
-      onChange={handleDateChange}
-      KeyboardButtonProps={{
-        onFocus: e => {
-          setIsOpen(true);
-        }
-      }}
-      PopoverProps={{
-        disableRestoreFocus: true,
-        onClose: () => {
-          setIsOpen(false);
-        }
-      }}
-      InputProps={{
-        disableRestoreFocus: true,
-        onFocus: () => {
-          setIsOpen(true);
-        }
-      }}
-      open={isOpen}
-    />
+    <TimePickersUtil />
   </Grid>
 );
 }

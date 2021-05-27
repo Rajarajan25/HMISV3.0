@@ -14,7 +14,7 @@ export function AvatarDropDown(props) {
       <div className="avatar_select p-2">
           {avatarDropDown.map((item, index) => {
             return (
-              <div class="d-inline-flex avatar_box p-2">
+              <div className="d-inline-flex avatar_box p-2">
                 <input type="radio" id={"avatar_" + index} name="avatar_img" className="" />
                 <label className="avatar_col" for={"avatar_" + index}>
                   <img src={toAbsoluteUrl(item)} alt="" className="mh-100 d-block rounded-circle" />

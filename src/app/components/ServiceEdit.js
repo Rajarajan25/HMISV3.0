@@ -6,7 +6,6 @@ import { DevConsoleLog } from "../SiteUtill";
 
 export function ServiceEdit(props) {
   const {value,type,index,clickEdit,clickSave,clickCancel,selectedIndex}=props;
-  DevConsoleLog("value-->",value);
   const handleClick = (type, handleType, index) => {
     if (handleType === "save") props.clickSave(type, index);
     if (handleType === "cancel") props.clickCancel(type, index);

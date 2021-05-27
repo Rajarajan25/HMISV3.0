@@ -80,7 +80,7 @@ export function TableRow(props) {
                                     </li>
                                     <li className="col-lg-1 my-auto">
                                         <div className="d-flex justify-content-center">
-                                            <span className="f-12 font-weight-500">{item.experience_year}.{item.experience_month} <span className="f-10">Years</span></span>
+                                            <span className="f-12 font-weight-500">{item.experience_year||"0"}.{item.experience_month||"0"} <span className="f-10">Years</span></span>
                                         </div>
                                     </li>
                                     <li className="col-lg-1 my-auto">

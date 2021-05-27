@@ -129,19 +129,33 @@ class StaffPage extends React.Component {
     this.setState({ isDrawerOpen: false, currentStaff: false });
   };
   handleChangeDropDown = (selectedVal, id, type) => {
-    const currentStaffList = this.state.staffList.map((item) => {
+    let index=0;
+    const currentStaffList = this.state.staffList.map((item,i) => {
       if (id === item._id) {
         item[type] = selectedVal;
-
+        index=i;
       }
       return item;
     });
     this.setState({ staffList: currentStaffList });
+    let updateArray = this.state.staffList[index];
+    this.props.updateStaff({
+      variables: {
+        staffID: updateArray._id,
+        staff: {
+          [type]: selectedVal,
+        }
+      }
+    }).then(() => {
+      //this.props.refetchStaff();
+    })
+      .catch(error => {
+        DevAlertPopUp(error.message);
+      });
   }
 
   handleUpdate = (updatedValue,index) => {
     let tempPickList = JSON.parse(JSON.stringify(this.state.staffList));
-    console.log("updatedValue-->",updatedValue);
     let items = [...tempPickList];
     let item = {...updatedValue};
     items[index] = item;
@@ -153,8 +167,11 @@ class StaffPage extends React.Component {
         staffID: updatedItem._id,
         staff: {...updatedValue}
       }
-    }).then(() => {
+    }).then(({ data: { updateStaff } }) => {
       //this.props.refetchStaff();
+      item = { ...item, _id: updateStaff._id };
+      items[index] = item;
+      this.setState({staffList:items});
     })
       .catch(error => {
         DevAlertPopUp(error.message);

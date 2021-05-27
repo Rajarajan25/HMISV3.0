@@ -37,10 +37,10 @@ export function Filter(props) {
                         <form autoComplete="off" className="filterForm w-100">
                           <div className="d-flex">
                             <div className="filters">
-                              <Dropdown drop="down" alignCenter className="dropdown h-100">
+                              <Dropdown drop="down" aligncenter="true"  className="dropdown h-100">
                                 <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                                  <div class="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column pointer">
-                                    <div class="d-flex mt-1 mb-1 justify-content-center">
+                                  <div className="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column pointer">
+                                    <div className="d-flex mt-1 mb-1 justify-content-center">
                                       <span className="fas fa-filter filter-icon"></span>
                                     </div>
                                   </div>

@@ -41,7 +41,7 @@ class FilterQuery extends React.Component {
     );
   }
   setFilterBuilderInstance(ref) {
-    this.filterBuilderInstance = ref.instance;
+    this.filterBuilderInstance = ref?ref.instance:null;
     this.refreshDataSource();
   }
   onValueChanged(e) {
@@ -50,16 +50,11 @@ class FilterQuery extends React.Component {
     });
   }
   refreshDataSource() {
-    console.log("Beforeeeee")
-    console.log(this.dataSource)
-    this.dataSource.filter(this.filterBuilderInstance.getFilterExpression());
-    
-    this.dataSource.load();
-    this.handleDataSource(this.dataSource._items)
-    // console.log("Aftereeeee")
-    // console.log(this.dataSource._items)
-
-    
+    if(this.filterBuilderInstance&&this.dataSource){
+      this.dataSource.filter(this.filterBuilderInstance.getFilterExpression());
+      this.dataSource.load();
+      this.handleDataSource(this.dataSource._items);
+    }
   }
 }
 

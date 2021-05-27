@@ -4,7 +4,7 @@ import { Field } from 'formik';
 export default function VisiblityFormik(props){
     return(
         <div className="form-group">
-        <label class="form-label d-block">{props.name}</label>
+        <label className="form-label d-block">{props.name}</label>
         <div className="d-flex">
           <div className="w-100 mt-3">
             <div className="d-inline-flex gen">

@@ -40,7 +40,7 @@ export function StaffDetailsTab(props) {
   const [value, setValue] = React.useState(0);
   const { data ,index} = props;
   console.log("props-->", props.data);
-  const field = {
+  const detail_field = {
     name: "Name",
     description: "About",
     phone:"Phone number",
@@ -53,6 +53,9 @@ export function StaffDetailsTab(props) {
     provider:"Provider",
     syncwith:"Sync With",
     link: "Staff booking link"
+  };
+  const timing_field = {
+    timing: "Timing",
   };
   
 
@@ -88,8 +91,8 @@ export function StaffDetailsTab(props) {
           </div>
         </div>
         <div className="p-0">
-          {value === 0 && <TabContainer> <Details {...props} current={data} handleSave={editStaff} fields={field} /> </TabContainer>}
-          {value === 1 && <TabContainer> <StaffTiming /> </TabContainer>}
+          {value === 0 && <TabContainer> <Details {...props} current={data} handleSave={editStaff} fields={detail_field} /> </TabContainer>}
+          {value === 1 && <TabContainer> <Duration {...props} current={data} handleSave={editStaff} fields={timing_field} /> </TabContainer>}
           {value === 2 && <TabContainer> <StaffService /> </TabContainer>}
           {value === 3 && <TabContainer> <StaffSetting /> </TabContainer>}
         </div>
@@ -103,7 +106,7 @@ export function StaffDetailsTab(props) {
 export function StaffName(props) {
   const { data } = props;
   return (
-    <div class="d-flex">
+    <div className="d-flex">
       <span className="listprofileIcon my-auto" style={{ backgroundColor: `#2ecd6f` }}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
       <div className="select_staff_name my-auto">
         <p className="m-0">{data.name || "name"}</p>

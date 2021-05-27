@@ -74,7 +74,7 @@ export function AsideSubMenuList({ layoutProps }) {
                   type="text"
                   className="form-control form-control-lg form-control-solid h-40px"
                   placeholder="Search..."
-                  id="generalSearch"
+                  id="asidemenuSearch"
                   autoComplete="false"
                 />
                 <span>

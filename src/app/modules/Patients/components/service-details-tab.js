@@ -45,6 +45,16 @@ export function ServiceDetailsTab() {
     avatar: "avatar",
     link: "Service URL"
   }
+
+
+  const timing_field = {
+    timezone:"Time Zone",
+    price:"Price",
+    timing: "Timing",
+    duration:"Duration",
+    daterange:"Date Range"
+  };
+
   let currentService = service.currentService;
   function handleChange(event, newValue) {
     setValue(newValue);
@@ -83,7 +93,7 @@ export function ServiceDetailsTab() {
         </div>
         <div className="p-0">
           {value === 0 && <TabContainer> <Details current={currentService} handleSave={editService} fields={field} /> </TabContainer>}
-          {value === 1 && <TabContainer> <Duration current={currentService} handleSave={editService} /> </TabContainer>}
+          {value === 1 && <TabContainer> <Duration current={currentService} handleSave={editService} fields={timing_field}/> </TabContainer>}
           {/* {value === 1 && <TabContainer> <ServiceCost/> </TabContainer>} */}
           {value === 2 && <TabContainer> <ServiceSales /> </TabContainer>}
           {value === 3 && <TabContainer> <ServiceSettings /> </TabContainer>}

@@ -9,14 +9,14 @@ export function ColorPalette(props) {
         <div className="color_select">
           {colorDropDown.map((item, index) => {
             return (
-              <div class="d-inline-flex color_col p-3">
+              <div className="d-inline-flex color_col p-3" key={index}>
                 <input type="radio" id={"color_" + index} name="avatar_bg_color" className="" />
-                <label className="" for={"color_" + index}>
+                <label className="" htmlFor={"color_" + index}>
                   <span style={{ backgroundColor: item }}></span>
                 </label>
               </div>)
           })}
-          <div class="d-inline-flex color_col p-3">
+          <div className="d-inline-flex color_col p-3">
             <span className="color_add"><i>+</i></span>
           </div>
         </div>
@@ -32,14 +32,14 @@ export function ColorPaletteFormik(props) {
         <div className="color_select">
         {colorDropDown.map((item, index) => {
             return (
-              <div class="d-inline-flex color_col p-3">
+              <div className="d-inline-flex color_col p-3" key={index}>
                 <Field type="radio" id={"color_" + index} name="avatar_bg_color" className="" value={item} />
-                <label className="" for={"color_" + index}>
+                <label className="" htmlFor={"color_" + index}>
                   <span style={{ backgroundColor: item }}></span>
                 </label>
               </div>)
           })}
-          <div class="d-inline-flex color_col p-3">
+          <div className="d-inline-flex color_col p-3">
             <span className="color_add"><i>+</i></span>
           </div>
         </div>

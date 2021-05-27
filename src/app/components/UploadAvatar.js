@@ -8,7 +8,7 @@ export function UploadAvatar(props) {
             <div className="col-3">
                 <input accept="image/*" className={props.classes.input||""} style={{ display: 'none' }} id="raised-button-file" multiple type="file" />
                 <label htmlFor="raised-button-file" className="up_avatar">
-                    <Button variant="raised" component="span" className={props.classes.button||""}>
+                    <Button variant="outlined" component="span" className={props.classes.button||""}>
                         <img src={toAbsoluteUrl("/media/patients/avatar_icon.svg")} alt="" className="d-block mb-2" />
                         <span className="d-block">Upload Avatar</span>
                     </Button>

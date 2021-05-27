@@ -3,7 +3,7 @@ import { DropdownItemToggler } from "../../_metronic/_partials/dropdowns";
 import { toAbsoluteUrl } from "../../_metronic/_helpers";
 import React from 'react';
 export function AvailableDropDown(props) {
-  return(<Dropdown drop="down" alignCenter className="dropdown h-100">
+  return(<Dropdown drop="down" aligncenter="true"  className="dropdown h-100">
     <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle2" className="h-100">
       <div className="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column flex-column avail_wid">
         <div className="d-flex mt-1 mb-1 p-1 justify-content-center avail_hover">

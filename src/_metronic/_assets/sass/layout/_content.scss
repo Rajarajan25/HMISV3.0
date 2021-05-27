@@ -321,7 +321,7 @@
   }
   
   	.toggleLefticon,.toggleLeftHeadericon {
-		a{  
+		a,div{  
 			display: inline-block;
 			width: 100%;
 			height: 100%;
@@ -1717,7 +1717,7 @@ span.avails {
 	}
 }
 .tool_bg {
-	z-index: 1000 !important;
+	z-index: 2000 !important;
 	.tooltip-inner {
 		background: #394148;
 		color: #ffffff;

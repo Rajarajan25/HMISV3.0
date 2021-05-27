@@ -3,10 +3,10 @@ import React from 'react';
 import { DropdownItemToggler } from "../../_metronic/_partials/dropdowns";
 import { toAbsoluteUrl } from "../../_metronic/_helpers";
 export function ServicesDropDown(props) {
-    return(<Dropdown drop="down" alignCenter className="dropdown h-100">
+    return(<Dropdown drop="down" aligncenter="true"  className="dropdown h-100">
         <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle1" className="h-100">
-            <div class="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column pointer">
-                <div class="d-flex mt-1 mb-1 justify-content-center">
+            <div className="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column pointer">
+                <div className="d-flex mt-1 mb-1 justify-content-center">
                     <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#E6511B` }}>{props.item.service||"Select service"}
                         <span className="dropdown_label_remove" style={{ backgroundColor: `#E6511B` }}>
                             <span className="dropdown_label_remove_icon">x</span>
@@ -40,28 +40,28 @@ export function ServicesDropdownMenu(props) {
         <ul className="navi navi-hover">
             <li className="navi-item">
                 <div className="service_select p-4">
-                    <div class="d-inline-flex justify-content-center">
+                    <div className="d-inline-flex justify-content-center">
                         <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#E6511B` }} onClick={()=>handleChangeDropDown("Acupunture", item._id), "service"}>Acupunture
                     <span className="dropdown_label_remove" style={{ backgroundColor: `#E6511B` }}>
                                 <span className="dropdown_label_remove_icon">x</span>
                             </span>
                         </span>
                     </div>
-                    <div class="d-inline-flex justify-content-center">
+                    <div className="d-inline-flex justify-content-center">
                         <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#FD7FAB` }} onClick={()=>handleChangeDropDown("Dental", item._id, "service")}>Dental
                     <span className="dropdown_label_remove" style={{ backgroundColor: `#FD7FAB` }}>
                                 <span className="dropdown_label_remove_icon">x</span>
                             </span>
                         </span>
                     </div>
-                    <div class="d-inline-flex justify-content-center">
+                    <div className="d-inline-flex justify-content-center">
                         <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#EA80FC` }} onClick={()=>handleChangeDropDown("Skin Care", item._id, "service")}>Skin Care
                     <span className="dropdown_label_remove" style={{ backgroundColor: `#EA80FC` }}>
                                 <span className="dropdown_label_remove_icon">x</span>
                             </span>
                         </span>
                     </div>
-                    <div class="d-inline-flex justify-content-center">
+                    <div className="d-inline-flex justify-content-center">
                         <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#1DBC9C` }} onClick={()=>handleChangeDropDown("Ambien", item._id, "service")}>Ambien
                     <span className="dropdown_label_remove" style={{ backgroundColor: `#1DBC9C` }}>
                                 <span className="dropdown_label_remove_icon">x</span>
@@ -76,11 +76,11 @@ export function ServicesDropdownMenu(props) {
             </li>
            <li className="navi-item">
                 <div className="dropdown-menu-search-main">
-                    <div class="dropdown-menu-search-title">Relevant</div>
+                    <div className="dropdown-menu-search-title">Relevant</div>
                     <div className="service_select">
                         {
                          service.map((e)=> {
-                            return <div class="d-flex justify-content-left py-1" key={e.type}>
+                            return <div className="d-flex justify-content-left py-1" key={e.type}>
                             <span className="specialInfo text-white position-relative" style={{ backgroundColor: e.color }}> {e.type}</span>
                         </div>
                         })}

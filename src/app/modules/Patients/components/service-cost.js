@@ -313,32 +313,7 @@ export function ServiceCost() {
 
     return (
         <Grid container justify="space-around">
-          <TimePickersUtil
-            variant="inline"
-            margin="normal"
-            id="time-picker-inline"
-            value={selectedDate}
-            autoOk={true}
-            onChange={handleDateChange}
-            KeyboardButtonProps={{
-              onFocus: e => {
-                setIsOpen(true);
-              }
-            }}
-            PopoverProps={{
-              disableRestoreFocus: true,
-              onClose: () => {
-                setIsOpen(false);
-              }
-            }}
-            InputProps={{
-              disableRestoreFocus: true,
-              onFocus: () => {
-                setIsOpen(true);
-              }
-            }}
-            open={isOpen}
-          />
+          <TimePickersUtil />
         </Grid>
     );
   }

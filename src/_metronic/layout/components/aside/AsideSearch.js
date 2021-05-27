@@ -24,7 +24,7 @@ export function AsideSearch({ isActive }) {
               type="text"
               className="form-control form-control-lg form-control-solid h-40px"
               placeholder="Search..."
-              id="generalSearch"
+              id="asideSearch"
               autoComplete="false"
             />
             <span>
