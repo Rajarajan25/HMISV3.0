@@ -250,8 +250,8 @@ export function NotifyExpansionPanels() {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      <ExpansionPanel square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel3d-content" id="panel3d-header">
+      <ExpansionPanel square expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel4d-content" id="panel4d-header">
           <Typography>
             <label className="staff_title_text">Automatic Booking</label>
           </Typography>
@@ -279,8 +279,8 @@ export function NotifyExpansionPanels() {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      <ExpansionPanel square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel3d-content" id="panel3d-header">
+      <ExpansionPanel square expanded={expanded === 'panel5'} onChange={handleChange('panel5')}>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel5d-content" id="panel5d-header">
           <Typography>
             <label className="staff_title_text">Booking with approval</label>
           </Typography>
@@ -308,8 +308,8 @@ export function NotifyExpansionPanels() {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      <ExpansionPanel square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel3d-content" id="panel3d-header">
+      <ExpansionPanel square expanded={expanded === 'panel6'} onChange={handleChange('panel6')}>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel6d-content" id="panel6d-header">
           <Typography>
             <label className="staff_title_text">Calendar event</label>
           </Typography>
@@ -337,8 +337,8 @@ export function NotifyExpansionPanels() {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      <ExpansionPanel square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel3d-content" id="panel3d-header">
+      <ExpansionPanel square expanded={expanded === 'panel7'} onChange={handleChange('panel7')}>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel7d-content" id="panel7d-header">
           <Typography>
             <label className="staff_title_text">Reminders and follow-ups</label>
           </Typography>
@@ -366,8 +366,8 @@ export function NotifyExpansionPanels() {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      <ExpansionPanel square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel3d-content" id="panel3d-header">
+      <ExpansionPanel square expanded={expanded === 'panel8'} onChange={handleChange('panel8')}>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel8d-content" id="panel8d-header">
           <Typography>
             <label className="staff_title_text">Booking cancellation</label>
           </Typography>
@@ -395,8 +395,8 @@ export function NotifyExpansionPanels() {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      <ExpansionPanel square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel3d-content" id="panel3d-header">
+      <ExpansionPanel square expanded={expanded === 'panel9'} onChange={handleChange('panel9')}>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel9d-content" id="panel9d-header">
           <Typography>
             <label className="staff_title_text">Booking reschedule</label>
           </Typography>
@@ -424,8 +424,8 @@ export function NotifyExpansionPanels() {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      <ExpansionPanel square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel3d-content" id="panel3d-header">
+      <ExpansionPanel square expanded={expanded === 'panel10'} onChange={handleChange('panel10')}>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel10d-content" id="panel10d-header">
           <Typography>
             <label className="staff_title_text">Booking request cancellation</label>
           </Typography>
@@ -453,8 +453,8 @@ export function NotifyExpansionPanels() {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      <ExpansionPanel square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel3d-content" id="panel3d-header">
+      <ExpansionPanel square expanded={expanded === 'panel11'} onChange={handleChange('panel11')}>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel11d-content" id="panel11d-header">
           <Typography>
             <label className="staff_title_text">Booking request resubmission</label>
           </Typography>
@@ -482,8 +482,8 @@ export function NotifyExpansionPanels() {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      <ExpansionPanel square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel3d-content" id="panel3d-header">
+      <ExpansionPanel square expanded={expanded === 'panel12'} onChange={handleChange('panel12')}>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel12d-content" id="panel12d-header">
           <Typography>
             <label className="staff_title_text">Other Notification</label>
           </Typography>

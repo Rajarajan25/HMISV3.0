@@ -42,7 +42,7 @@ export function ServiceProviderContainer() {
      setState(false);
    };
       return (
-         <div className="clearfix">
+         <div className="clearfix  ">
             <Drawer className="patientProfileinfo StaffInfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
                <div className="p-0 overflow-auto">
                   <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}>
@@ -268,11 +268,428 @@ export function ServiceProviderContainer() {
                   </div>                 
                </div>
             </div>
+            
          </div>
       </div>
       );
 }
 
+export function ServiceProviderContainer01() { 
+      return (
+         <div className="clearfix  ">
+            <div className="contentAreaouter">
+               <div className="contentArea Ser_Pro">
+                  <div className="topHeadercontent d-flex">
+                     <div className="toggleLefticon LefticonBG11">
+                        <Link  to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor11 customProfileBG11">
+                           <i className="fa fa-minus text-white"></i>
+                        </Link>                   
+                     </div>
+                     <ul className="list-inline w-100 row">
+                        <li className="col-lg-5">
+                        <span className="headingHighlight customProfileBG11 text-white">Gastro<a class="ml-3"><i class="fa fa-pen"></i></a></span>
+                        <span className="tasklistCount">1 Staff</span>
+                        </li>    
+                        <li className="col-lg-2"><span className="title_drag">Service Type</span></li>
+                        <li className="col-lg-2"><span className="title_drag">Providers</span></li>
+                        <li className="col-lg-3 position-relative">
+                           <span className="title_drag"></span> 
+                        </li>
+                     </ul>
+                  </div>
+                  <div className="innerContent collapse show" id="staffmanagement">
+                     <div className="row">
+                        <div className="col-lg-12">
+                           <div className="topMiddlecontent">
+                              <div className="d-flex drag_sel drag_selected position-relative">
+                              <ul className="list-inline w-100 row">
+                                 <li className="col-lg-5 my-auto">
+                                    <div className="userLogoicon align-content-center">
+                                       <Dropdown drop="down" alignCenter className="dropdown h-100">
+                                          <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
+                                             <span className="listprofileIcon" style={{backgroundColor: `#2ecd6f`}}>AK</span>
+                                          </Dropdown.Toggle>
+                                          <Dropdown.Menu  className="dropdown-menu p-0 mt-2 dropdown-menu-md drop_nav">
+                                             <ColorDropdownMenu />
+                                          </Dropdown.Menu>
+                                       </Dropdown>
+                                       <div className="">
+                                          <div className="d-flex"> 
+                                             <span className="serv_title">Health</span>
+                                             <Link to="#" className="edit_staff">
+                                                <OverlayTrigger 
+                                                   placement="top"
+                                                   overlay={
+                                                   <Tooltip id="quick-search-tooltip" className="tool_bg">Rename</Tooltip>
+                                                   }>
+                                                      <div className="tab_col mt-0 mb-0">
+                                                      <img src={toAbsoluteUrl("/media/patients/blue_edit_icon.svg")} alt="edit" />
+                                                      </div>
+                                                </OverlayTrigger>
+                                             </Link>
+                                             
+                                          </div>
+                                          <div className="d-flex">
+                                             <span className="DurationBg">Duration: 30 Mins</span>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </li>
+                                 <li className="col-lg-2 activeStatuscontent">
+                                    <Dropdown drop="down" alignCenter className="dropdown h-100 w_130">
+                                       <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
+                                       <span className="d-flex pointer h-100 align-items-center justify-content-center font_weight_medium">Private</span>
+                                       </Dropdown.Toggle>
+                                       <Dropdown.Menu  className="dropdown-menu p-0 mt-1 drop_nav st_hover">
+                                          <STypeDropdownMenu />
+                                       </Dropdown.Menu>
+                                    </Dropdown>
+                                 </li>
+                                 <li className="col-lg-2 my-auto">
+                                    <Dropdown drop="down" alignCenter className="dropdown h-100">
+                                       <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
+                                       <div class="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column pointer">
+                                          <div class="d-flex mt-1 mb-1 justify-content-center">
+                                             <span className="ProviderIcon" style={{backgroundColor: `#2ecd6f`}}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+                                             <span className="ProviderIcon" style={{backgroundColor: `#1D58FF`}}>GM</span>
+                                             <span className="ProviderIcon" style={{backgroundColor: `#2ecd6f`}}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+                                             <span className="ProviderIcon" style={{backgroundColor: `#2ecd6f`}}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+                                             <span className="ProviderIcon" style={{backgroundColor: `#A2A2A2`}}>+5</span>
+                                          </div>
+                                       </div>
+                                       </Dropdown.Toggle>
+                                       <Dropdown.Menu  className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
+                                         <ProviderDropdownMenu />
+                                       </Dropdown.Menu>
+                                    </Dropdown>
+                                 </li>
+                                 <li className="col-lg-3 my-auto d-flex justify-content-center">
+                                    <div className="d-flex border-left pl-8">
+                                       <span className="d-flex align-items-center font-size-13">Price</span>
+                                       <Link to="#" className="pay_amt">Rs. 200</Link>
+                                    </div>
+                                    <div className="avalib">
+                                       <div className="d-flex justify-content-end">
+                                          <OverlayTrigger 
+                                             placement="top"
+                                             overlay={
+                                             <Tooltip id="quick-search-tooltip" className="tool_bg">Edit</Tooltip>
+                                             }>
+                                             <div className="tab_col mt-0 mb-0">
+                                                <img src={toAbsoluteUrl("/media/patients/blue_edit_icon.svg")} alt="edit" className="mai1" />
+                                             </div>
+                                          </OverlayTrigger>
+                                          <OverlayTrigger 
+                                             placement="top"
+                                             overlay={
+                                             <Tooltip id="quick-search-tooltip" className="tool_bg">Delete</Tooltip>
+                                             }>
+                                             <div className="tab_col mt-0 mb-0">
+                                                <img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="delete" className="mai" />
+                                             </div>
+                                          </OverlayTrigger>
+                                          <OverlayTrigger 
+                                             placement="top"
+                                             overlay={
+                                             <Tooltip id="quick-search-tooltip" className="tool_bg">Duplicate</Tooltip>
+                                             }>
+                                             <div className="tab_col mt-0 mb-0">
+                                                <img src={toAbsoluteUrl("/media/patients/blue_copy_icon.svg")} alt="copy" />
+                                             </div>
+                                          </OverlayTrigger>
+                                       </div>
+                                    </div>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+                        <button type="button" className="customNewtaskBTN">+ New Staff</button>
+                     </div>    
+                  </div>                 
+               </div>
+            </div>
+         </div>
+      </div>
+      );
+}
+
+export function ServiceProviderContainer02() { 
+   return (
+      <div className="clearfix  ">
+         <div className="contentAreaouter">
+            <div className="contentArea Ser_Pro">
+               <div className="topHeadercontent d-flex">
+                  <div className="toggleLefticon LefticonBG11">
+                     <Link  to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor11 customProfileBG11">
+                        <i className="fa fa-minus text-white"></i>
+                     </Link>                   
+                  </div>
+                  <ul className="list-inline w-100 row">
+                     <li className="col-lg-5">
+                     <span className="headingHighlight customProfileBG11 text-white">Neuro<a class="ml-3"><i class="fa fa-pen"></i></a></span>
+                     <span className="tasklistCount">1 Staff</span>
+                     </li>    
+                     <li className="col-lg-2"><span className="title_drag">Service Type</span></li>
+                     <li className="col-lg-2"><span className="title_drag">Providers</span></li>
+                     <li className="col-lg-3 position-relative">
+                        <span className="title_drag"></span> 
+                     </li>
+                  </ul>
+               </div>
+               <div className="innerContent collapse show" id="staffmanagement">
+                  <div className="row">
+                     <div className="col-lg-12">
+                        <div className="topMiddlecontent">
+                           <div className="d-flex drag_sel drag_selected position-relative">
+                           <ul className="list-inline w-100 row">
+                              <li className="col-lg-5 my-auto">
+                                 <div className="userLogoicon align-content-center">
+                                    <Dropdown drop="down" alignCenter className="dropdown h-100">
+                                       <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
+                                          <span className="listprofileIcon" style={{backgroundColor: `#2ecd6f`}}>AK</span>
+                                       </Dropdown.Toggle>
+                                       <Dropdown.Menu  className="dropdown-menu p-0 mt-2 dropdown-menu-md drop_nav">
+                                          <ColorDropdownMenu />
+                                       </Dropdown.Menu>
+                                    </Dropdown>
+                                    <div className="">
+                                       <div className="d-flex"> 
+                                          <span className="serv_title">Health</span>
+                                          <Link to="#" className="edit_staff">
+                                             <OverlayTrigger 
+                                                placement="top"
+                                                overlay={
+                                                <Tooltip id="quick-search-tooltip" className="tool_bg">Rename</Tooltip>
+                                                }>
+                                                   <div className="tab_col mt-0 mb-0">
+                                                   <img src={toAbsoluteUrl("/media/patients/blue_edit_icon.svg")} alt="edit" />
+                                                   </div>
+                                             </OverlayTrigger>
+                                          </Link>
+                                          
+                                       </div>
+                                       <div className="d-flex">
+                                          <span className="DurationBg">Duration: 30 Mins</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </li>
+                              <li className="col-lg-2 activeStatuscontent">
+                                 <Dropdown drop="down" alignCenter className="dropdown h-100 w_130">
+                                    <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
+                                    <span className="d-flex pointer h-100 align-items-center justify-content-center font_weight_medium">Private</span>
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu  className="dropdown-menu p-0 mt-1 drop_nav st_hover">
+                                       <STypeDropdownMenu />
+                                    </Dropdown.Menu>
+                                 </Dropdown>
+                              </li>
+                              <li className="col-lg-2 my-auto">
+                                 <Dropdown drop="down" alignCenter className="dropdown h-100">
+                                    <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
+                                    <div class="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column pointer">
+                                       <div class="d-flex mt-1 mb-1 justify-content-center">
+                                          <span className="ProviderIcon" style={{backgroundColor: `#2ecd6f`}}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+                                          <span className="ProviderIcon" style={{backgroundColor: `#1D58FF`}}>GM</span>
+                                          <span className="ProviderIcon" style={{backgroundColor: `#2ecd6f`}}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+                                          <span className="ProviderIcon" style={{backgroundColor: `#2ecd6f`}}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+                                          <span className="ProviderIcon" style={{backgroundColor: `#A2A2A2`}}>+5</span>
+                                       </div>
+                                    </div>
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu  className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
+                                      <ProviderDropdownMenu />
+                                    </Dropdown.Menu>
+                                 </Dropdown>
+                              </li>
+                              <li className="col-lg-3 my-auto d-flex justify-content-center">
+                                 <div className="d-flex border-left pl-8">
+                                    <span className="d-flex align-items-center font-size-13">Price</span>
+                                    <Link to="#" className="pay_amt">Rs. 200</Link>
+                                 </div>
+                                 <div className="avalib">
+                                    <div className="d-flex justify-content-end">
+                                       <OverlayTrigger 
+                                          placement="top"
+                                          overlay={
+                                          <Tooltip id="quick-search-tooltip" className="tool_bg">Edit</Tooltip>
+                                          }>
+                                          <div className="tab_col mt-0 mb-0">
+                                             <img src={toAbsoluteUrl("/media/patients/blue_edit_icon.svg")} alt="edit" className="mai1" />
+                                          </div>
+                                       </OverlayTrigger>
+                                       <OverlayTrigger 
+                                          placement="top"
+                                          overlay={
+                                          <Tooltip id="quick-search-tooltip" className="tool_bg">Delete</Tooltip>
+                                          }>
+                                          <div className="tab_col mt-0 mb-0">
+                                             <img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="delete" className="mai" />
+                                          </div>
+                                       </OverlayTrigger>
+                                       <OverlayTrigger 
+                                          placement="top"
+                                          overlay={
+                                          <Tooltip id="quick-search-tooltip" className="tool_bg">Duplicate</Tooltip>
+                                          }>
+                                          <div className="tab_col mt-0 mb-0">
+                                             <img src={toAbsoluteUrl("/media/patients/blue_copy_icon.svg")} alt="copy" />
+                                          </div>
+                                       </OverlayTrigger>
+                                    </div>
+                                 </div>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                     <button type="button" className="customNewtaskBTN">+ New Staff</button>
+                  </div>    
+               </div>                 
+            </div>
+         </div>
+      </div>
+   </div>
+   );
+}
+
+export function ServiceProviderContainer03() { 
+   return (
+      <div className="clearfix  ">
+         <div className="contentAreaouter">
+            <div className="contentArea Ser_Pro">
+               <div className="topHeadercontent d-flex">
+                  <div className="toggleLefticon LefticonBG11">
+                     <Link  to="#" data-toggle="collapse" data-target="#staffmanagement" className="borderColor11 customProfileBG11">
+                        <i className="fa fa-minus text-white"></i>
+                     </Link>                   
+                  </div>
+                  <ul className="list-inline w-100 row">
+                     <li className="col-lg-5">
+                     <span className="headingHighlight customProfileBG11 text-white">Pediatrics<a class="ml-3"><i class="fa fa-pen"></i></a></span>
+                     <span className="tasklistCount">1 Staff</span>
+                     </li>    
+                     <li className="col-lg-2"><span className="title_drag">Service Type</span></li>
+                     <li className="col-lg-2"><span className="title_drag">Providers</span></li>
+                     <li className="col-lg-3 position-relative">
+                        <span className="title_drag"></span> 
+                     </li>
+                  </ul>
+               </div>
+               <div className="innerContent collapse show" id="staffmanagement">
+                  <div className="row">
+                     <div className="col-lg-12">
+                        <div className="topMiddlecontent">
+                           <div className="d-flex drag_sel drag_selected position-relative">
+                           <ul className="list-inline w-100 row">
+                              <li className="col-lg-5 my-auto">
+                                 <div className="userLogoicon align-content-center">
+                                    <Dropdown drop="down" alignCenter className="dropdown h-100">
+                                       <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
+                                          <span className="listprofileIcon" style={{backgroundColor: `#2ecd6f`}}>AK</span>
+                                       </Dropdown.Toggle>
+                                       <Dropdown.Menu  className="dropdown-menu p-0 mt-2 dropdown-menu-md drop_nav">
+                                          <ColorDropdownMenu />
+                                       </Dropdown.Menu>
+                                    </Dropdown>
+                                    <div className="">
+                                       <div className="d-flex"> 
+                                          <span className="serv_title">Health</span>
+                                          <Link to="#" className="edit_staff">
+                                             <OverlayTrigger 
+                                                placement="top"
+                                                overlay={
+                                                <Tooltip id="quick-search-tooltip" className="tool_bg">Rename</Tooltip>
+                                                }>
+                                                   <div className="tab_col mt-0 mb-0">
+                                                   <img src={toAbsoluteUrl("/media/patients/blue_edit_icon.svg")} alt="edit" />
+                                                   </div>
+                                             </OverlayTrigger>
+                                          </Link>
+                                          
+                                       </div>
+                                       <div className="d-flex">
+                                          <span className="DurationBg">Duration: 30 Mins</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </li>
+                              <li className="col-lg-2 activeStatuscontent">
+                                 <Dropdown drop="down" alignCenter className="dropdown h-100 w_130">
+                                    <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
+                                    <span className="d-flex pointer h-100 align-items-center justify-content-center font_weight_medium">Private</span>
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu  className="dropdown-menu p-0 mt-1 drop_nav st_hover">
+                                       <STypeDropdownMenu />
+                                    </Dropdown.Menu>
+                                 </Dropdown>
+                              </li>
+                              <li className="col-lg-2 my-auto">
+                                 <Dropdown drop="down" alignCenter className="dropdown h-100">
+                                    <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
+                                    <div class="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column pointer">
+                                       <div class="d-flex mt-1 mb-1 justify-content-center">
+                                          <span className="ProviderIcon" style={{backgroundColor: `#2ecd6f`}}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+                                          <span className="ProviderIcon" style={{backgroundColor: `#1D58FF`}}>GM</span>
+                                          <span className="ProviderIcon" style={{backgroundColor: `#2ecd6f`}}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+                                          <span className="ProviderIcon" style={{backgroundColor: `#2ecd6f`}}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+                                          <span className="ProviderIcon" style={{backgroundColor: `#A2A2A2`}}>+5</span>
+                                       </div>
+                                    </div>
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu  className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
+                                      <ProviderDropdownMenu />
+                                    </Dropdown.Menu>
+                                 </Dropdown>
+                              </li>
+                              <li className="col-lg-3 my-auto d-flex justify-content-center">
+                                 <div className="d-flex border-left pl-8">
+                                    <span className="d-flex align-items-center font-size-13">Price</span>
+                                    <Link to="#" className="pay_amt">Rs. 200</Link>
+                                 </div>
+                                 <div className="avalib">
+                                    <div className="d-flex justify-content-end">
+                                       <OverlayTrigger 
+                                          placement="top"
+                                          overlay={
+                                          <Tooltip id="quick-search-tooltip" className="tool_bg">Edit</Tooltip>
+                                          }>
+                                          <div className="tab_col mt-0 mb-0">
+                                             <img src={toAbsoluteUrl("/media/patients/blue_edit_icon.svg")} alt="edit" className="mai1" />
+                                          </div>
+                                       </OverlayTrigger>
+                                       <OverlayTrigger 
+                                          placement="top"
+                                          overlay={
+                                          <Tooltip id="quick-search-tooltip" className="tool_bg">Delete</Tooltip>
+                                          }>
+                                          <div className="tab_col mt-0 mb-0">
+                                             <img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="delete" className="mai" />
+                                          </div>
+                                       </OverlayTrigger>
+                                       <OverlayTrigger 
+                                          placement="top"
+                                          overlay={
+                                          <Tooltip id="quick-search-tooltip" className="tool_bg">Duplicate</Tooltip>
+                                          }>
+                                          <div className="tab_col mt-0 mb-0">
+                                             <img src={toAbsoluteUrl("/media/patients/blue_copy_icon.svg")} alt="copy" />
+                                          </div>
+                                       </OverlayTrigger>
+                                    </div>
+                                 </div>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                     <button type="button" className="customNewtaskBTN">+ New Staff</button>
+                  </div>    
+               </div>                 
+            </div>
+         </div>
+      </div>
+   </div>
+   );
+}
 
 export function ColorDropdownMenu() {
    return <>

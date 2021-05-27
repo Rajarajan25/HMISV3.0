@@ -23,7 +23,7 @@ export function AsideSubmenu({ isActive }) {
           className={`aside-menu  min-h-lg-800px ${layoutProps.asideClassesFromConfig}`}
           {...layoutProps.asideMenuAttr}
         >
-          <div className="favoriteLink">
+          <div className="favoriteLink d-none">
             Favorites
           </div>
           <AsideSubMenuList layoutProps={layoutProps} />

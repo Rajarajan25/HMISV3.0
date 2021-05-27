@@ -129,7 +129,7 @@ export function ContentEventTiming() {
         </div>
         <div className="form-group">
           <label className="form-label d-block mr-5 mb-2">Date Range</label>
-          <div className="form-group">
+          <div className="form-group mb-2">
             <div className="d-flex event-range">
               <div className="event-radio">
                 <input type="radio" id="range_01" name="time-range" className=""/>
@@ -169,7 +169,7 @@ export function ContentEventTiming() {
             <div className="form-group">
               <div className="row">
                 <div className="col-6">
-                  <label className="form-label d-block">Day</label>
+                  <label className="form-label d-block">Member</label>
                   <div className="re_select">
                     <Select options={dayselect} /> 
                   </div>
