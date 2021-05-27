@@ -547,11 +547,7 @@ export function Aside() {
                   id="kt_quick_actions_toggle"
                 >
                   <span className="svg-icon svg-icon-md d-inline-flex">
-                    <SVG
-                      src={toAbsoluteUrl(
-                        "/media/svg/left-menu/Thunder.svg"
-                      )}
-                    />
+                  <img src={toAbsoluteUrl("/media/svg/left-menu/Thunder.png")} alt="Thunder" />
                   </span>
                 </a>
               </OverlayTrigger>

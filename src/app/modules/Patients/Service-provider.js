@@ -17,8 +17,6 @@ export default function ServiceProvider() {
         <div className="contentSection collapse show w-100" id="holepageToggle">
           <ServiceProviderContainer />
           <ServiceProviderContainer01 />
-          <ServiceProviderContainer02 />
-          <ServiceProviderContainer03 />
         </div>
       </div>
     </div>
