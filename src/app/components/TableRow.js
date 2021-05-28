@@ -50,7 +50,7 @@ export function TableRow(props) {
                                 <ul className="list-inline w-100 row">
                                     <li className="col-lg-3 my-auto">
                                         <div className="userLogoicon align-content-center">
-                                            <ColorAndAvatarDropDown item={item} />
+                                            <ColorAndAvatarDropDown item={item} handleChangeDropDown={handleChangeDropDown} />
                                             <div className="d-flex">
                                                 <span>
                                                     {selectedIndexName === i ? (
@@ -61,7 +61,7 @@ export function TableRow(props) {
                                                             defaultValue={item.name}
                                                         />
                                                     ) : (
-                                                        <Link to="#" onClick={drawer(true, item,i)}>
+                                                        <Link to="#" onClick={drawer(true, item)}>
                                                             {item.name}
                                                         </Link>
                                                     )}
@@ -70,7 +70,6 @@ export function TableRow(props) {
                                             <ServiceEdit
                                                 type={"name"}
                                                 index={i}
-                                                value={item.name}
                                                 clickEdit={handleEdit}
                                                 clickSave={handleSaved}
                                                 clickCancel={handleCancel}
@@ -80,7 +79,7 @@ export function TableRow(props) {
                                     </li>
                                     <li className="col-lg-1 my-auto">
                                         <div className="d-flex justify-content-center">
-                                            <span className="f-12 font-weight-500">{item.experience_year||"0"}.{item.experience_month||"0"} <span className="f-10">Years</span></span>
+                                            <span className="f-12 font-weight-500">{item.experience_year}.{item.experience_month} <span className="f-10">Years</span></span>
                                         </div>
                                     </li>
                                     <li className="col-lg-1 my-auto">
@@ -93,7 +92,7 @@ export function TableRow(props) {
                                         <SxDropDown item={item} handleChangeDropDown={handleChangeDropDown}/>
                                     </li>
                                     <li className="col-lg-1 my-auto">
-                                        <AvailableDropDown item={item} />
+                                        <AvailableDropDown item={item}  handleChangeDropDown={handleChangeDropDown}/>
                                     </li>
                                     <li className="col-lg-2 activeStatuscontent my-auto d-flex justify-content-center">
                                         {selectedIndexMail === i ? (
@@ -111,7 +110,6 @@ export function TableRow(props) {
                                         <ServiceEdit
                                             type={"official_email"}
                                             index={i}
-                                            value={item.official_email}
                                             clickEdit={handleEdit}
                                             clickSave={handleSaved}
                                             clickCancel={handleCancel}
@@ -134,7 +132,6 @@ export function TableRow(props) {
                                         <ServiceEdit
                                             type={"mobile"}
                                             index={i}
-                                            value={item.mobile}
                                             clickEdit={handleEdit}
                                             clickSave={handleSaved}
                                             clickCancel={handleCancel}

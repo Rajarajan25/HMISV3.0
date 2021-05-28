@@ -1,23 +1,72 @@
-import { Field } from 'formik';
-import React from 'react';
-const colorDropDown = ["#41BC87", "#1DBC9C", "#27AE60", "#21D726", "#F41D2F", "#181D21",
-  "#FD575E", "#FDB42B", "#B17F22", "#F34D1D", "#FD8624", "#2798B7", "#2980B9", "#3598DC", "#528CCB", "#0921EC", "#199EC7"];
+import { Field } from "formik";
+import React from "react";
+import ColorPicker from "rsuite-color-picker";
+//import 'rsuite-color-picker/lib/styles.less'
+import "rsuite-color-picker/lib/styles.css";
+const colorDropDown = [
+  "#41BC87",
+  "#1DBC9C",
+  "#27AE60",
+  "#21D726",
+  "#F41D2F",
+  "#181D21",
+  "#FD575E",
+  "#FDB42B",
+  "#B17F22",
+  "#F34D1D",
+  "#FD8624",
+  "#2798B7",
+  "#2980B9",
+  "#3598DC",
+  "#528CCB",
+  "#0921EC",
+  "#199EC7",
+];
 export function ColorPalette(props) {
+  const { handleChangeDropDown, item } = props;
+  const [isPlusClicked, setIsPlusClicked] = React.useState(false);
+  const [selectedColor, setSelectedColor] = React.useState('');
+  const handlePlusbtn = () => {
+    if(selectedColor) {
+      colorDropDown.push(selectedColor);
+    }
+    setIsPlusClicked(!isPlusClicked);
+    setSelectedColor('');
+  };
+  const handleColorChange = (eve) => {
+    setSelectedColor(eve.hex);
+  };
   return (
     <>
       <div className="col-12 pr-0">
         <div className="color_select">
-          {colorDropDown.map((item, index) => {
+          {colorDropDown.map((colors, index) => {
             return (
-              <div className="d-inline-flex color_col p-3" key={index}>
-                <input type="radio" id={"color_" + index} name="avatar_bg_color" className="" />
-                <label className="" htmlFor={"color_" + index}>
-                  <span style={{ backgroundColor: item }}></span>
+              <div class="d-inline-flex color_col p-3">
+                <input
+                  type="radio"
+                  id={"color_" + index}
+                  name="color-code"
+                  className=""
+                />
+                <label className="" for={"color_" + index}>
+                  <span
+                    style={{ backgroundColor: colors }}
+                    onClick={() =>
+                      handleChangeDropDown(colors, item._id, "avatar_bg_color")
+                    }
+                  ></span>
                 </label>
-              </div>)
+              </div>
+            );
           })}
-          <div className="d-inline-flex color_col p-3">
-            <span className="color_add"><i>+</i></span>
+          <div class="d-inline-flex color_col p-3 plus_btn">
+            <span className="color_add">
+              <i onClick={handlePlusbtn}>+</i>
+            </span>
+            {isPlusClicked ? (
+              <ColorPicker onChangeComplete={(e) => handleColorChange(e)}/>
+            ) : null}
           </div>
         </div>
       </div>
@@ -30,17 +79,26 @@ export function ColorPaletteFormik(props) {
     <>
       <div className="col-12 pr-0">
         <div className="color_select">
-        {colorDropDown.map((item, index) => {
+          {colorDropDown.map((item, index) => {
             return (
-              <div className="d-inline-flex color_col p-3" key={index}>
-                <Field type="radio" id={"color_" + index} name="avatar_bg_color" className="" value={item} />
-                <label className="" htmlFor={"color_" + index}>
+              <div class="d-inline-flex color_col p-3">
+                <Field
+                  type="radio"
+                  id={"color_" + index}
+                  name="color_code"
+                  className=""
+                  value={item}
+                />
+                <label className="" for={"color_" + index}>
                   <span style={{ backgroundColor: item }}></span>
                 </label>
-              </div>)
+              </div>
+            );
           })}
-          <div className="d-inline-flex color_col p-3">
-            <span className="color_add"><i>+</i></span>
+          <div class="d-inline-flex color_col p-3">
+            <span className="color_add">
+              <i>+</i>
+            </span>
           </div>
         </div>
       </div>
