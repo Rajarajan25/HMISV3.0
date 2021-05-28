@@ -15,6 +15,7 @@ export function QuickPanel() {
       <div id="kt_quick_panel" className="offcanvas offcanvas-left pt-5 pb-10">
         <Tab.Container
             defaultActiveKey={selectedTab}
+           
         >
           {/*begin::Header*/}
           <div
@@ -57,7 +58,7 @@ export function QuickPanel() {
               </Nav.Item>
             </Nav>
 
-            <div className="offcanvas-close mt-n1 pr-5" style={{position: "absolute", top: "15px", right: "10px"}}>
+            <div className="offcanvas-close mt-n1 pr-5 " style={{position: "absolute", top: "15px", right: "10px"}}>
               <a
                   href="#"
                   className="btn btn-xs btn-icon btn-light btn-hover-primary"
@@ -71,7 +72,7 @@ export function QuickPanel() {
 
           {/*begin::Content*/}
           <div className="offcanvas-content px-10">
-            <div className="tab-content">
+            <div className="tab-content d-none">
               <div
                   id="kt_quick_panel_logs"
                   role="tabpanel"

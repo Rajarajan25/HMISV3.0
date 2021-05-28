@@ -178,11 +178,9 @@ export function Aside() {
                 >
                   <a
                     href="#"
-                    className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===
-                      tabs.tabId3 && "active"}`}
+                    className="nav-link btn btn-icon btn-clean btn-lg"
                     data-toggle="tab"
-                    data-target={`#${tabs.tabId3}`}
-                    onClick={() => handleTabChange(tabs.tabId3)}
+                    data-target="#kt_aside_tab_3"
                     role="tab"
                   >
                     <span className="svg-icon svg-icon-md d-inline-flex">
@@ -221,12 +219,10 @@ export function Aside() {
                 >
                   <a
                     href="#"
-                    className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===
-                      tabs.tabId1 && "active"}`}
+                    className="nav-link btn btn-icon btn-clean btn-lg"
                     data-toggle="tab"
-                    data-target={`#${tabs.tabId1}`}
+                    data-target="#kt_aside_tab_3"
                     role="tab"
-                    onClick={() => handleTabChange(tabs.tabId1)}
                   >
                     <span className="svg-icon svg-icon-md d-inline-flex">
                       <SVG
@@ -257,11 +253,9 @@ export function Aside() {
                 >
                   <a
                     href="#"
-                    className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===
-                      tabs.tabId2 && "active"}`}
+                    className="nav-link btn btn-icon btn-clean btn-lg"
                     data-toggle="tab"
-                    data-target={`#${tabs.tabId2}`}
-                    onClick={() => handleTabChange(tabs.tabId2)}
+                    data-target="#kt_aside_tab_3"
                     role="tab"
                   >
                     <span className="svg-icon svg-icon-md d-inline-flex">

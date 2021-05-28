@@ -11,8 +11,8 @@ export function QuickActions() {
         {/* begin::Header */}
         <div className="offcanvas-header d-flex align-items-center justify-content-between pb-10">
           <h3 className="font-weight-bold m-0">
-            Quick Actions
-            <small className="text-muted font-size-sm ml-2">
+            Settings
+            <small className="text-muted d-none font-size-sm ml-2">
               finance & reports
             </small>
           </h3>
@@ -27,7 +27,7 @@ export function QuickActions() {
         {/* end::Header */}
 
         {/* begin::Content */}
-        <div className="offcanvas-content pr-5 mr-n5">
+        <div className="offcanvas-content d-none pr-5 mr-n5">
           <div className="row gutter-b">
             {/* begin::Item */}
             <div className="col-6">
