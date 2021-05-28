@@ -4906,9 +4906,11 @@ p.setting_color {
 }
 .dx-scheduler {
 	font-family: "Gotham Pro", "Helvetica", "Arial", sans-serif !important;
-	margin: -12.5px -12.5px 0;
+	margin: 0 -12.5px 0;
 	.dx-scheduler-header {
 		background-color: #fff;
+		height: 80px;
+		border: 0;
 		border-bottom: 1px solid #E6E8EF;
 	}
 	.dx-scheduler-work-space {
@@ -4951,8 +4953,9 @@ p.setting_color {
 		min-height: 40px;
 		height: auto !important;
 		border-radius: 0 10px 10px 0;
-		top: 6px;
+		top: 4px;
 		font-weight: bold;
+		padding: 5px 0;
 		&.dx-state-hover {
 			&.dx-resizable {
 				box-shadow: none;
@@ -4974,7 +4977,7 @@ p.setting_color {
 	}
 	.dx-tab.dx-tab-selected {
 		.dx-tab-text {
-			color: #105DFB;
+			color: #1D6AFF;
 		}
 	}
 	.dx-tab-selected::after {
@@ -4985,10 +4988,12 @@ p.setting_color {
 	}
 	.dx-scheduler-navigator {
 		float: right;
-		margin-right: 40%;
+		margin-right: 50%;
+		position: relative;
+    	margin-top: 13px;
 	}
 	.dx-scheduler-navigator-caption {
-		width: 250px;
+		width: 300px;
 		font-size: 20px;
 		border: 0;
 		color: #292D34;
@@ -4999,13 +5004,74 @@ p.setting_color {
 	}
 	.dx-scheduler-navigator-next, .dx-scheduler-navigator-previous {
 		border: 0;
+		position: absolute;
 		&.dx-state-hover, &.dx-state-focused {
 			background-color: transparent;
 		}
 	}
+	.dx-scheduler-navigator-next {
+		left: -10px;
+	}
+	.dx-scheduler-navigator-previous {
+		left: -40px;
+	}
+	.dx-scheduler-appointment-content-date {
+		font-size: 10px;
+	}
 }
 .dx-widget {
 	font-family: "Gotham Pro", "Helvetica", "Arial", sans-serif !important;
+}
+.dx-scheduler-work-space {
+    margin-top: -66px;
+}
+.dx-scheduler-work-space-grouped.dx-scheduler-work-space-group-by-date .dx-scheduler-date-table-cell.dx-scheduler-last-group-cell, .dx-scheduler-work-space-grouped.dx-scheduler-work-space-group-by-date .dx-scheduler-group-header.dx-scheduler-last-group-cell, .dx-scheduler-work-space-grouped.dx-scheduler-work-space-group-by-date .dx-scheduler-header-panel-cell {
+    border-right: 1px solid #E6E8EF;
+}
+.dx-scheduler-date-table-cell, .dx-scheduler-time-panel-cell {
+    height: 60px;
+}
+.dx-scheduler-work-space.dx-scheduler-work-space-grouped:not(.dx-scheduler-agenda) .dx-scheduler-all-day-panel td {
+    border-left: 1px solid #E6E8EF;
+    border-top: 1px solid #E6E8EF;
+}
+.dx-scheduler-all-day-panel .dx-scheduler-all-day-table-cell {
+    border-bottom: 2px solid #E6E8EF;
+}
+.dx-scheduler-work-space-grouped .dx-scheduler-group-row th, .dx-scheduler-work-space.dx-scheduler-work-space-grouped .dx-scheduler-last-group-cell {
+    border-right: 1px solid #E6E8EF;
+}
+.dx-scheduler-header-panel-cell.dx-scheduler-header-panel-current-time-cell::before {
+    background-color: #1D6AFF;
+}
+.dx-button-mode-contained.dx-button-default.dx-state-focused, .dx-button-mode-contained.dx-button-default.dx-state-hover {
+    background-color: #1D6AFF;
+}
+.dx-scheduler-appointment-collector.dx-button, .dx-scheduler-appointment-collector.dx-button.dx-state-active, .dx-scheduler-appointment-collector.dx-button.dx-state-focused, .dx-scheduler-appointment-collector.dx-button.dx-state-hover {
+    background-color: #1D6AFF;
+}
+.dx-scheduler-appointment-collector.dx-button.dx-button-default {
+    padding: 3px;
+    border-radius: 5px;
+}
+.dx-calendar-navigator .dx-calendar-caption-button.dx-button .dx-button-content {
+    color: #1D6AFF;
+}
+.dx-calendar-navigator-previous-month.dx-button .dx-icon, .dx-calendar-navigator-previous-view.dx-button .dx-icon {
+    color: #1D6AFF;
+}
+.dx-calendar-navigator-next-view.dx-button, .dx-calendar-navigator-previous-month.dx-button {
+    border: 0;
+}
+.dx-calendar-navigator-previous-month.dx-button, .dx-calendar-navigator-previous-view.dx-button {
+    border-radius: 0;
+}
+.dx-popup-wrapper .dx-calendar .dx-calendar-caption-button {
+    border: 0;
+}
+.dx-calendar-cell.dx-calendar-selected-date.dx-calendar-contoured-date, .dx-calendar-cell.dx-calendar-selected-date.dx-calendar-today.dx-calendar-contoured-date {
+    -webkit-box-shadow: inset 0 0 0 1px #1D6AFF, inset 0 0 0 1000px #1D6AFF;
+    box-shadow: inset 0 0 0 1px #1D6AFF, inset 0 0 0 1000px #1D6AFF;
 }
 .filter-container {
     padding: 10px;
@@ -5064,3 +5130,21 @@ p.setting_color {
 	}
 }
 
+.office_zone {
+	margin: -12.5px -12.5px 0;
+	.option {
+		border-radius: 0;
+		border-left: 0;
+		border-right: 0;
+		align-items: center;
+		font-size: 1.1rem;
+	}
+	.value {
+		.dx-switch-on-value .dx-switch-handle::before {
+			background-color: #1D6AFF;
+		}
+		.dx-switch.dx-state-focused .dx-switch-container {
+			border-color: #1D6AFF;
+		}
+	}
+}

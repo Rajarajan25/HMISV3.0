@@ -73,26 +73,28 @@ class Schedular extends React.Component {
     const { timeZone, demoLocations,showCurrentTimeIndicator } = this.state;
     return (
       <React.Fragment>
-        <div className="option">
-          <span>Office Time Zone</span>
-          <SelectBox
-            items={demoLocations}
-            displayExpr="title"
-            valueExpr="id"
-            width={240}
-            value={timeZone}
-            onValueChanged={this.onValueChanged}
-          />
-        <div className="label">Current time indicator </div>
-              {' '}
-              <div className="value">
-                <Switch
-                  id="show-indicator"
-                  value={showCurrentTimeIndicator}
-                  onValueChanged={this.onShowCurrentTimeIndicatorChanged}
-                />
-              </div>
-           </div> 
+        <div className="office_zone">
+          <div className="option">
+            <span className="mr-5">Office Time Zone</span>
+            <SelectBox
+              items={demoLocations}
+              displayExpr="title"
+              valueExpr="id"
+              width={240}
+              value={timeZone}
+              onValueChanged={this.onValueChanged}
+            />
+            <div className="mx-5">Current Time Indicator</div>
+            {' '}
+            <div className="value">
+              <Switch
+                id="show-indicator"
+                value={showCurrentTimeIndicator}
+                onValueChanged={this.onShowCurrentTimeIndicatorChanged}
+              />
+            </div>
+          </div> 
+        </div>
         <Scheduler
           dataSource={data}
                     groups={groups}
