@@ -45,11 +45,11 @@ export const priorityData = [
   {
     text: 'Maadhu',
     id: 1,
-    
+    color: '#31E42E'
   }, {
     text: 'Gopi',
     id: 2,
-    
+    color: '#ff9747'
   }
 ];
 export const locations = ['Europe/London', 'Europe/Berlin', 'Europe/Helsinki','Asia/Kolkata'];
