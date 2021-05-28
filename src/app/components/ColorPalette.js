@@ -53,7 +53,7 @@ export function ColorPalette(props) {
                   <span
                     style={{ backgroundColor: colors }}
                     onClick={() =>
-                      handleChangeDropDown(colors, item._id, "avatar_bg_color")
+                      handleChangeDropDown(colors, item.id, "avatar_bg_color")
                     }
                   ></span>
                 </label>

@@ -25,7 +25,7 @@ export default function DoctorAvailablepage() {
         <div className="add-staff">
             <Link to="#"><img src={toAbsoluteUrl("/media/patients/add_staff.svg")} alt="" className="d-block rounded-circle" /></Link>
          </div> 
-        <div className="contentSection collapse show w-100" id="holepageToggle">
+        <div className="contentSection collapse show w-100">
           <ListActivity01></ListActivity01>
           <ListActivity02></ListActivity02>
           <ListActivity03></ListActivity03>

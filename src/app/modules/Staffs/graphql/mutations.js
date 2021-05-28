@@ -9,7 +9,7 @@ const commonParams = `{
 const staffAdd = `
   mutation addStaff($staff: StaffInput) {
     addStaff(staff:$staff) {
-      _id
+      id
     }
   }
 `;
@@ -17,7 +17,7 @@ const staffAdd = `
 const staffUpdate = `
   mutation updateStaff($staffID: ID!,$staff: StaffInput) {
     updateStaff(staffID: $staffID,staff:$staff) {
-      _id
+      id
     }
   }
 `;

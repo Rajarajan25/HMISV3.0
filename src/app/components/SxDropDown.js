@@ -17,19 +17,14 @@ export function SxDropdownMenu(props) {
   return <>
     {/*begin::Navigation*/}
     <ul className="navi navi-hover">
-      <li className="navi-item" onClick={()=>handleChangeDropDown("Male", item._id, 'gender')}>
+      <li className="navi-item" onClick={()=>handleChangeDropDown("Male", item.id, 'gender')}>
         <a href="#" className="navi-link">
           <span className="navi-text">Male</span>
         </a>
       </li>
-      <li className="navi-item fe_hover" onClick={()=>handleChangeDropDown("Female", item._id, 'gender')}>
+      <li className="navi-item fe_hover" onClick={()=>handleChangeDropDown("Female", item.id, 'gender')}>
         <a href="#" className="navi-link">
           <span className="navi-text">Female</span>
-        </a>
-      </li>
-      <li className="navi-item both" onClick={()=>handleChangeDropDown("Both", item._id, 'gender')}>
-        <a href="#" className="navi-link">
-          <span className="navi-text">Both</span>
         </a>
       </li>
     </ul>

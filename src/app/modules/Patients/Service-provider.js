@@ -15,7 +15,7 @@ export default function ServiceProvider() {
         <Filters></Filters>
       </div>
       <div className="d-flex flex-column mt-1"> 
-        <div className="contentSection collapse show w-100" id="holepageToggle">
+        <div className="contentSection collapse show w-100">
           <ServiceProviderContainer />
         </div>
       </div>

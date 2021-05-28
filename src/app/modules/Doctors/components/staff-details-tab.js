@@ -107,7 +107,8 @@ export function StaffName(props) {
   const { data } = props;
   return (
     <div className="d-flex">
-      <span className="listprofileIcon my-auto" style={{ backgroundColor: `#2ecd6f` }}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+      <span className="listprofileIcon my-auto" style={{ backgroundColor: `#2ecd6f` }}>
+      <img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
       <div className="select_staff_name my-auto">
         <p className="m-0">{data.name || "name"}</p>
         <span>{data.about || "Description"}</span>
