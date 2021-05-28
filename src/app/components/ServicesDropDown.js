@@ -80,8 +80,8 @@ export function ServicesDropdownMenu(props) {
                     <div className="service_select">
                         {
                          service.map((e)=> {
-                            return <div className="d-flex justify-content-left py-1" key={e.type}>
-                            <span className="specialInfo text-white position-relative" style={{ backgroundColor: e.color }}> {e.type}</span>
+                            return <div class="d-flex justify-content-left py-1" key={e.type}>
+                            <span className="specialInfo text-white position-relative" style={{ backgroundColor: e.color }} onClick={()=>handleChangeDropDown(e.type, item._id, "service")}> {e.type}</span>
                         </div>
                         })}
                     </div>

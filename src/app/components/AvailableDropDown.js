@@ -13,37 +13,38 @@ export function AvailableDropDown(props) {
       </div>
     </Dropdown.Toggle>
     <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav">
-      <AvailableDropdownMenu />
+      <AvailableDropdownMenu handleChangeDropDown={props.handleChangeDropDown} item={props.item}/>
     </Dropdown.Menu>
   </Dropdown>)
 }
 
-export function AvailableDropdownMenu() {
+export function AvailableDropdownMenu(props) {
+  const {handleChangeDropDown, item} = props;
   return <>
     {/*begin::Navigation*/}
     <ul className="navi navi-hover">
       <li className="navi-item">
         <a href="#" className="navi-link">
           <span className="avails chat_bg"><img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="" className="mt-0" /></span>
-          <span className="navi-text">Chat</span>
+          <span className="navi-text" onClick={()=>handleChangeDropDown("Chat", item._id, "availability")}>Chat</span>
         </a>
       </li>
       <li className="navi-item">
         <a href="#" className="navi-link">
           <span className="avails video_bg"><img src={toAbsoluteUrl("/media/patients/avail_video.svg")} alt="" className="mt-0" /></span>
-          <span className="navi-text">Video</span>
+          <span className="navi-text" onClick={()=>handleChangeDropDown("Video", item._id, "availability")}>Video</span>
         </a>
       </li>
       <li className="navi-item">
         <a href="#" className="navi-link">
           <span className="avails phone_bg"><img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="" className="mt-0" /></span>
-          <span className="navi-text">Phone</span>
+          <span className="navi-text" onClick={()=>handleChangeDropDown("Phone", item._id, "availability")}>Phone</span>
         </a>
       </li>
       <li className="navi-item">
         <a href="#" className="navi-link">
           <span className="avails visit_bg"><img src={toAbsoluteUrl("/media/patients/avail_visit.svg")} alt="" className="mt-0" /></span>
-          <span className="navi-text">Inperson</span>
+          <span className="navi-text" onClick={()=>handleChangeDropDown("Inperson", item._id, "availability")}>Inperson</span>
         </a>
       </li>
     </ul>

@@ -1991,7 +1991,11 @@ span.avails {
 	border-radius: 6px 6px 0 0;
 }
 .navi.navi-hover .navi-item:last-child, .navi.navi-hover .navi-item:last-child a {
+
 	border-radius: 0 0 6px 6px;
+}
+.navi-item.mr-t:last-child {
+	margin-top: 25px;
 }
 .sx_hover .navi.navi-hover .navi-item  {
 	.navi-link:hover {
@@ -2130,6 +2134,8 @@ span.avails {
 		font-size: 20px !important;
 		text-align: center;
 		color: #fff !important;
+		position: relative;
+		
 		i {
 			color: #fff;
 			position: absolute;
@@ -2237,6 +2243,18 @@ span.avails {
 	}
 	100% {
 		box-shadow: 0 0 0 5px rgba(0, 0, 0, 0);
+	}
+}
+.plus_btn {
+	position: relative;
+	.rsuite-color-picker {
+		position: absolute;
+		top: 32px;
+		right: 3px;
+		.rsuite-color-picker-overlay {
+			top: 0;
+			left: 140px;
+		}
 	}
 }
 .color_col {
