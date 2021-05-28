@@ -127,7 +127,7 @@ function Login(props) {
                     </p>
                   </div>
                   {/* end::Head */}
-                  <DateRangePickersUtil />
+              
                   {/*begin::Form*/}
                   <form
                     onSubmit={formik.handleSubmit}
