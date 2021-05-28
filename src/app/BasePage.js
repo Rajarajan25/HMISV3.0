@@ -9,6 +9,9 @@ import Schedular from '././modules/Calendar/Schedular'
 const GoogleMaterialPage = lazy(() =>
   import("./modules/GoogleMaterialExamples/GoogleMaterialPage")
 );
+const ManagePage = lazy(() =>
+  import("./modules/Components/ManagePage")
+);
 const ReactBootstrapPage = lazy(() =>
   import("./modules/ReactBootstrapExamples/ReactBootstrapPage")
 );
@@ -54,10 +57,11 @@ export default function BasePage() {
         <Route path="/react-bootstrap" component={ReactBootstrapPage} />
         <Route path="/e-commerce" component={ECommercePage} />
         <Route path="/user-profile" component={UserProfilepage} />
-        <Route path="/manage/staff-management" component={StaffPage} />
+        <Route path="/manage" component={ManagePage} />
+        {/* <Route path="/manage/staff-management" component={StaffPage} />
         <Route path="/manage/patients-details" component={PatientDetailspage} />
         <Route path="/manage/service-provider" component={ServiceProvider} />
-        <Route path="/manage/event-details" component={EventDetails} />
+        <Route path="/manage/event-details" component={EventDetails} /> */}
         
         <Redirect to="error/error-v1" />
       </Switch>

@@ -60,7 +60,7 @@ export function Aside() {
     tabId3: "kt_aside_tab_3",
     tabId4: "kt_aside_tab_4", 
   };
-  const [activeTab, setActiveTab] = useState(tabs.tabId4);
+  const [activeTab, setActiveTab] = useState(tabs.tabId2);
   const handleTabChange = (id) => {
     setActiveTab(id);
     const asideWorkspace = KTUtil.find(
@@ -106,11 +106,11 @@ export function Aside() {
                   <a
                     href="#"
                     className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===
-                    tabs.tabId4 && "active"}`}
+                    tabs.tabId2 && "active"}`}
                     data-toggle="tab"
-                    data-target={`#${tabs.tabId4}`}
+                    data-target={`#${tabs.tabId2}`}
                     role="tab"
-                    onClick={() => handleTabChange(tabs.tabId4)}
+                    onClick={() => handleTabChange(tabs.tabId2)}
                   >
                     <span className="svg-icon svg-icon-md d-inline-flex">
                       <SVG
@@ -143,10 +143,10 @@ export function Aside() {
                   <a
                     href="#"
                     className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===
-                      tabs.tabId2 && "active"}`}
+                      tabs.tabId4 && "active"}`}
                     data-toggle="tab"
-                    data-target={`#${tabs.tabId2}`}
-                    onClick={() => handleTabChange(tabs.tabId2)}
+                    data-target={`#${tabs.tabId4}`}
+                    onClick={() => handleTabChange(tabs.tabId4)}
                     role="tab"
                   >
                     <span className="svg-icon svg-icon-md d-inline-flex">
@@ -547,11 +547,7 @@ export function Aside() {
                   id="kt_quick_actions_toggle"
                 >
                   <span className="svg-icon svg-icon-md d-inline-flex">
-                    <SVG
-                      src={toAbsoluteUrl(
-                        "/media/svg/left-menu/Thunder.svg"
-                      )}
-                    />
+                  <img src={toAbsoluteUrl("/media/svg/left-menu/Thunder.png")} alt="Thunder" />
                   </span>
                 </a>
               </OverlayTrigger>
