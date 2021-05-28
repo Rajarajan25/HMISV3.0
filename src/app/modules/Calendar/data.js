@@ -1,54 +1,37 @@
-export const today = new Date();
-today.setHours(0, 0, 0, 0);
-today.setDate(today.getDate() - today.getDay() + 3);
-
 export const data = [
   {
-    movieId: 1,
-    startDate: new Date(today.getTime() - 113.5 * 3600000),
-    endDate: new Date(today.getTime() - 111.5 * 3600000),
-    recurrenceRule: 'FREQ=HOURLY;INTERVAL=15;COUNT=15'
+    text: 'Gynaecology',
+    startDate: '2021-05-26T18:00:00.000Z',
+    endDate: '2021-05-26T19:00:00.000Z'
   }, {
-    movieId: 2,
-    startDate: new Date(today.getTime() - 110.5 * 3600000),
-    endDate: new Date(today.getTime() - 108.5 * 3600000),
-    recurrenceRule: 'FREQ=HOURLY;INTERVAL=15;COUNT=15'
+    text: 'General Physician',
+    startDate: '2021-05-26T18:00:00.000Z',
+    endDate: '2021-05-26T19:00:00.000Z'
   }, {
-    movieId: 3,
-    startDate: new Date(today.getTime() - 106.5 * 3600000),
-    endDate: new Date(today.getTime() - 104.5 * 3600000),
-    recurrenceRule: 'FREQ=HOURLY;INTERVAL=15;COUNT=15'
+    text: 'Dermatology',
+    startDate: '2021-05-28T18:30:00.000Z',
+    endDate: '2021-05-28T18:45:00.000Z'
   }, {
-    movieId: 4,
-    startDate: new Date(today.getTime() - 104 * 3600000),
-    endDate: new Date(today.getTime() - 102 * 3600000),
-    recurrenceRule: 'FREQ=HOURLY;INTERVAL=15;COUNT=15'
+    text: 'Psychiatry',
+    startDate: '2021-05-25T12:30:00.000Z',
+    endDate: '2021-05-25T13:30:00.000Z'
   }, {
-    movieId: 5,
-    startDate: new Date(today.getTime() - 101 * 3600000),
-    endDate: new Date(today.getTime() - 99 * 3600000),
-    recurrenceRule: 'FREQ=HOURLY;INTERVAL=15;COUNT=15'
+    text: 'Pediatrics',
+    startDate: '2021-05-26T16:00:00.000Z',
+    endDate: '2021-05-26T15:00:00.000Z'
+  }, {
+    text: 'Kidney and urine',
+    startDate: '2021-05-24T07:00:00.000Z',
+    endDate: '2021-05-24T09:30:00.000Z'
+  }, {
+    text: 'Stomach and Digestion',
+    startDate: '2021-05-26T08:00:00.000Z',
+    endDate: '2021-05-26T10:00:00.000Z'
+  }, {
+    text: 'Sexology',
+    startDate: '2021-05-27T09:30:00.000Z',
+    endDate: '2021-05-27T11:00:00.000Z'
   }
 ];
 
-export const moviesData = [{
-  id: 1,
-  text: 'His Girl Friday',
-  image: 'https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/movies/HisGirlFriday.jpg'
-}, {
-  id: 2,
-  text: 'Royal Wedding',
-  image: 'https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/movies/RoyalWedding.jpg'
-}, {
-  id: 3,
-  text: 'A Star Is Born',
-  image: 'https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/movies/AStartIsBorn.jpg'
-}, {
-  id: 4,
-  text: 'The Screaming Skull',
-  image: 'https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/movies/ScreamingSkull.jpg'
-}, {
-  id: 5,
-  text: 'It\'s a Wonderful Life',
-  image: 'https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/movies/ItsAWonderfulLife.jpg'
-}];
+export const locations = ['Europe/London', 'Europe/Berlin', 'Europe/Helsinki','Asia/Kolkata'];
