@@ -1,7 +1,6 @@
 import React from 'react';
 import Scheduler, { Editing,Resource } from 'devextreme-react/scheduler';
 import SelectBox from 'devextreme-react/select-box';
-import 'devextreme/dist/css/dx.common.css';
 import 'devextreme/dist/css/dx.light.css';
 import { data, locations ,priorityData} from './data.js';
 import timeZoneUtils from 'devextreme/time_zone_utils';
