@@ -5153,3 +5153,33 @@ p.setting_color {
 		display: none;
 	}
 }
+.dx-item-content {
+	.movie {
+		display: flex;
+		align-items: center;
+		img {
+			width: 30px;
+			margin-right: 10px;
+		}
+	}
+}
+.dx-scheduler-appointment[data-movieid-1] {
+	background-color: #5D1DD71A !important;
+	color: #5D1DD7 !important;
+}
+.dx-scheduler-appointment[data-movieid-2] {
+	background-color: #2798B71A !important;
+	color: #2798B7 !important;
+}
+.dx-scheduler-appointment[data-movieid-3] {
+	background-color: #E9F7EF !important;
+	color: #27AE60 !important;
+}
+.dx-scheduler-appointment[data-movieid-4] {
+	background-color: #F7F2E8 !important;
+	color: #B17F22 !important;
+}
+.dx-scheduler-appointment[data-movieid-5] {
+	background-color: #FBE8F1 !important;
+	color: #DE1E77 !important;
+}
