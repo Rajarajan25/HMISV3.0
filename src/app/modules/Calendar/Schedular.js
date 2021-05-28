@@ -1,129 +1,52 @@
 import React from 'react';
-import Scheduler, { Editing,Resource } from 'devextreme-react/scheduler';
-import SelectBox from 'devextreme-react/select-box';
+import Scheduler,{ Resource ,Editing}from 'devextreme-react/scheduler';
 import 'devextreme/dist/css/dx.common.css';
 import 'devextreme/dist/css/dx.light.css';
-import { data, locations ,priorityData} from './data.js';
-import timeZoneUtils from 'devextreme/time_zone_utils';
-import { Switch } from 'devextreme-react/switch';
+import { data, moviesData } from './data.js';
+import AppointmentTemplate from './AppointmentTemplate.js';
 
 const currentDate = new Date();
-const views = ['workWeek','month','day','agenda'];
+const views = ['day', 'week','month','workWeek','timelineWeek','agenda'];
 
-function getLocations(date) {
-  const timeZones = timeZoneUtils.getTimeZones(date);
-  return timeZones.filter((timeZone) => {
-    return locations.indexOf(timeZone.id) !== -1;
+export default function Schedular  () {
+  const [state,setState]=React.useState({
+    allowAdding: true,
+    allowDeleting: true,
+    allowResizing: true,
+    allowDragging: true,
+    allowUpdating: true,
+    showCurrentTimeIndicator: true,
+    shadeUntilCurrentTime: true,
   });
-}
-const demoLocations = getLocations(currentDate);
-const groups = ['priorityId'];
-
-class Schedular extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      timeZone: demoLocations[0].id,
-      demoLocations: demoLocations,
-      showCurrentTimeIndicator: false,
-      groupByDate: true
-
-    };
-    this.onValueChanged = this.onValueChanged.bind(this);
-    this.onAppointmentFormOpening = this.onAppointmentFormOpening.bind(this);
-    this.onOptionChanged = this.onOptionChanged.bind(this);
-    this.onShowCurrentTimeIndicatorChanged=this.onShowCurrentTimeIndicatorChanged.bind(this);
-    
+  const onContentReady=(e) =>{
+    const currentHour = new Date().getHours() - 1;
+    e.component.scrollToTime(currentHour, 30, new Date());
   }
-  onShowCurrentTimeIndicatorChanged(e) {
-    this.setState({
-      showCurrentTimeIndicator: true
-    });
-  }
-  onValueChanged(e) {
-    this.setState({
-      timeZone: e.value
-    });
-  }
-
-  onAppointmentFormOpening(e) {
-    const form = e.form;
-
-    const startDateTimezoneEditor = form.getEditor('startDateTimeZone');
-    const endDateTimezoneEditor = form.getEditor('endDateTimeZone');
-    const startDateDataSource = startDateTimezoneEditor.option('dataSource');
-    const endDateDataSource = endDateTimezoneEditor.option('dataSource');
-
-    startDateDataSource.filter(['id', 'contains', 'Asia']);
-    endDateDataSource.filter(['id', 'contains', 'Asia']);
-
-    startDateDataSource.load();
-    endDateDataSource.load();
-  }
-
-  onOptionChanged(e) {
-    if(e.name === 'currentDate') {
-      this.setState({
-        demoLocations: getLocations(e.value)
-      });
-    }
-  }
-
-  render() {
-    const { timeZone, demoLocations,showCurrentTimeIndicator } = this.state;
     return (
       <React.Fragment>
-        <div className="office_zone">
-          <div className="option">
-            <span className="mr-5">Office Time Zone</span>
-            <SelectBox
-              items={demoLocations}
-              displayExpr="title"
-              valueExpr="id"
-              width={240}
-              value={timeZone}
-              onValueChanged={this.onValueChanged}
-            />
-            <div className="mx-5">Current Time Indicator</div>
-            {' '}
-            <div className="value">
-              <Switch
-                id="show-indicator"
-                value={showCurrentTimeIndicator}
-                onValueChanged={this.onShowCurrentTimeIndicatorChanged}
-              />
-            </div>
-          </div> 
-        </div>
-        <Scheduler
-          dataSource={data}
-                    groups={groups}
-
-          views={views}
-          defaultCurrentView="workWeek"
-          startDayHour={8}
-          defaultCurrentDate={currentDate}
-          timeZone={timeZone}
-          height={600}
-          onAppointmentFormOpening={this.onAppointmentFormOpening}
-          onOptionChanged={this.onOptionChanged}
-          showCurrentTimeIndicator={this.state.showCurrentTimeIndicator}
-          groupByDate={this.state.groupByDate}
-        >
-
-          <Resource
-            fieldExpr="priorityId"
-            allowMultiple={false}
-            dataSource={priorityData}
-            label="Staff"
-          />
-          <Editing
+      <Scheduler
+        dataSource={data}
+        views={views}
+        defaultCurrentView="week"
+        showCurrentTimeIndicator={state.showCurrentTimeIndicator}
+        showAllDayPanel={false}
+        shadeUntilCurrentTime={state.shadeUntilCurrentTime}
+        defaultCurrentDate={currentDate}
+        editing={state}
+        height={800}
+        appointmentRender={AppointmentTemplate}
+        onContentReady={(e)=>onContentReady}
+      >
+        <Resource
+          dataSource={moviesData}
+          fieldExpr="movieId"
+        />
+        <Editing
             allowTimeZoneEditing={true}
           />
-        </Scheduler>
-      </React.Fragment>
-    );
-  }
-}
+      </Scheduler>
+      
+    </React.Fragment>
+    )
 
-export default Schedular;
+}
