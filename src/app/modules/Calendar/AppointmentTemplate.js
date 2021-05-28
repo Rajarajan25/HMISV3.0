@@ -11,6 +11,7 @@ export default function AppointmentTemplate(model) {
   const movieInfo = getMovieById(model.appointmentData.movieId) || {};
   return (
     <div className="movie">
+      <img src={movieInfo.image} />
       <div className="movie-text">{movieInfo.text}</div>
     </div>
   );
