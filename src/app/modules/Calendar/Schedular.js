@@ -16,7 +16,6 @@ function getLocations(date) {
     return locations.indexOf(timeZone.id) !== -1;
   });
 }
-
 const demoLocations = getLocations(currentDate);
 
 class Schedular extends React.Component {
