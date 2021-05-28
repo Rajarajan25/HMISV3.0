@@ -1,9 +1,9 @@
 import React from 'react';
-import Scheduler, { Editing } from 'devextreme-react/scheduler';
+import Scheduler, { Editing,Resource } from 'devextreme-react/scheduler';
 import SelectBox from 'devextreme-react/select-box';
 import 'devextreme/dist/css/dx.common.css';
 import 'devextreme/dist/css/dx.light.css';
-import { data, locations } from './data.js';
+import { data, locations ,priorityData} from './data.js';
 import timeZoneUtils from 'devextreme/time_zone_utils';
 import { Switch } from 'devextreme-react/switch';
 
@@ -17,6 +17,7 @@ function getLocations(date) {
   });
 }
 const demoLocations = getLocations(currentDate);
+const groups = ['priorityId'];
 
 class Schedular extends React.Component {
   constructor(props) {
@@ -25,11 +26,14 @@ class Schedular extends React.Component {
       timeZone: demoLocations[0].id,
       demoLocations: demoLocations,
       showCurrentTimeIndicator: false,
+      groupByDate: true
+
     };
     this.onValueChanged = this.onValueChanged.bind(this);
     this.onAppointmentFormOpening = this.onAppointmentFormOpening.bind(this);
     this.onOptionChanged = this.onOptionChanged.bind(this);
-    this.onShowCurrentTimeIndicatorChanged=this.onShowCurrentTimeIndicatorChanged.bind(this)
+    this.onShowCurrentTimeIndicatorChanged=this.onShowCurrentTimeIndicatorChanged.bind(this);
+    
   }
   onShowCurrentTimeIndicatorChanged(e) {
     this.setState({
@@ -91,6 +95,8 @@ class Schedular extends React.Component {
            </div> 
         <Scheduler
           dataSource={data}
+                    groups={groups}
+
           views={views}
           defaultCurrentView="workWeek"
           startDayHour={8}
@@ -100,7 +106,15 @@ class Schedular extends React.Component {
           onAppointmentFormOpening={this.onAppointmentFormOpening}
           onOptionChanged={this.onOptionChanged}
           showCurrentTimeIndicator={this.state.showCurrentTimeIndicator}
+          groupByDate={this.state.groupByDate}
         >
+
+          <Resource
+            fieldExpr="priorityId"
+            allowMultiple={false}
+            dataSource={priorityData}
+            label="Staff"
+          />
           <Editing
             allowTimeZoneEditing={true}
           />
