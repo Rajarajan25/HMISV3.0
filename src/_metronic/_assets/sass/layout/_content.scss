@@ -5025,6 +5025,10 @@ p.setting_color {
 	.dx-scheduler-appointment-content-date {
 		font-size: 10px;
 	}
+	.dx-scheduler-view-switcher.dx-tabs .dx-tab {
+		width: inherit;
+		padding: 9px 20px;
+	}
 }
 .dx-widget {
 	font-family: "Gotham Pro", "Helvetica", "Arial", sans-serif !important;
