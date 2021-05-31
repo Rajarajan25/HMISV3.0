@@ -27,7 +27,7 @@ export function QuickActions() {
         {/* end::Header */}
 
         {/* begin::Content */}
-        <div className="offcanvas-content d-none pr-5 mr-n5">
+        <div className="offcanvas-content pr-5 mr-n5">
           <div className="row gutter-b">
             {/* begin::Item */}
             <div className="col-6">

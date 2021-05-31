@@ -72,7 +72,7 @@ export function QuickPanel() {
 
           {/*begin::Content*/}
           <div className="offcanvas-content px-10">
-            <div className="tab-content d-none">
+            <div className="tab-content">
               <div
                   id="kt_quick_panel_logs"
                   role="tabpanel"

@@ -4906,7 +4906,7 @@ p.setting_color {
 }
 .dx-scheduler {
 	font-family: "Gotham Pro", "Helvetica", "Arial", sans-serif !important;
-	margin: 0 -12.5px 0;
+	margin: -12.5px -12.5px 0;
 	.dx-scheduler-header {
 		background-color: #fff;
 		height: 80px;
@@ -4953,7 +4953,7 @@ p.setting_color {
 		min-height: 40px;
 		height: auto !important;
 		border-radius: 0 10px 10px 0;
-		top: 4px;
+		top: 5px;
 		font-weight: bold;
 		padding: 5px 0;
 		&.dx-state-hover {
@@ -4962,7 +4962,14 @@ p.setting_color {
 				-webkit-box-shadow: none;
 			}
 		}
-		
+		&.dx-state-focused {
+			box-shadow: none;
+			background-color: transparent;
+			&:before {
+				box-shadow: none;
+				background-color: transparent;
+			}
+		}
 	}
 	.dx-scheduler-all-day-table-cell.dx-state-focused, .dx-scheduler-date-table-cell.dx-state-focused {
 		background-color: transparent;
@@ -4988,7 +4995,7 @@ p.setting_color {
 	}
 	.dx-scheduler-navigator {
 		float: right;
-		margin-right: 50%;
+		margin-right: 30%;
 		position: relative;
     	margin-top: 13px;
 	}
@@ -5148,11 +5155,6 @@ p.setting_color {
 		}
 	}
 }
-.subheader {
-	.breadcrumb {
-		display: none;
-	}
-}
 .dx-item-content {
 	.movie {
 		display: flex;
@@ -5182,4 +5184,68 @@ p.setting_color {
 .dx-scheduler-appointment[data-movieid-5] {
 	background-color: #FBE8F1 !important;
 	color: #DE1E77 !important;
+}
+.subheader {
+	.breadcrumb {
+		display: none;
+	}
+}
+.dx-scheduler-work-space-day {
+	.dx-scheduler-appointment[data-movieid-1] {
+		border-left: 5px solid #5D1DD7;
+    	width: auto !important;
+		min-width: 300px;
+	}
+	.dx-scheduler-appointment[data-movieid-2] {
+		border-left: 5px solid #2798B7;
+    	width: auto !important;
+		min-width: 300px;
+	}
+	.dx-scheduler-appointment[data-movieid-3] {
+		border-left: 5px solid #27AE60;
+    	width: auto !important;
+		min-width: 300px;
+	}
+	.dx-scheduler-appointment[data-movieid-4] {
+		border-left: 5px solid #B17F22;
+    	width: auto !important;
+		min-width: 300px;
+	}
+	.dx-scheduler-appointment[data-movieid-5] {
+		border-left: 5px solid #DE1E77;
+    	width: auto !important;
+		min-width: 300px;
+	}
+}
+.dx-scheduler-agenda {
+	.dx-scheduler-appointment[data-movieid-1] {
+		border-left: 5px solid #5D1DD7;
+    	width: auto !important;
+		min-width: 300px;
+		max-width: 300px;
+	}
+	.dx-scheduler-appointment[data-movieid-2] {
+		border-left: 5px solid #2798B7;
+    	width: auto !important;
+		min-width: 300px;
+		max-width: 300px;
+	}
+	.dx-scheduler-appointment[data-movieid-3] {
+		border-left: 5px solid #27AE60;
+    	width: auto !important;
+		min-width: 300px;
+		max-width: 300px;
+	}
+	.dx-scheduler-appointment[data-movieid-4] {
+		border-left: 5px solid #B17F22;
+    	width: auto !important;
+		min-width: 300px;
+		max-width: 300px;
+	}
+	.dx-scheduler-appointment[data-movieid-5] {
+		border-left: 5px solid #DE1E77;
+    	width: auto !important;
+		min-width: 300px;
+		max-width: 300px;
+	}
 }
