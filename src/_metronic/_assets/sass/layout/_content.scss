@@ -5249,3 +5249,8 @@ p.setting_color {
 		max-width: 300px;
 	}
 }
+.dx-scheduler-appointment-tooltip-wrapper .dx-overlay-content .dx-popup-content .dx-list-item {
+    &.dx-state-hover, &.dx-state-focused {
+		background-color: transparent;
+	}
+}
