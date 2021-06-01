@@ -24,17 +24,8 @@ const colorDropDown = [
 ];
 export function ColorPalette(props) {
   const { handleChangeDropDown, item } = props;
-  const [isPlusClicked, setIsPlusClicked] = React.useState(false);
-  const [selectedColor, setSelectedColor] = React.useState('');
-  const handlePlusbtn = () => {
-    if(selectedColor) {
-      colorDropDown.push(selectedColor);
-    }
-    setIsPlusClicked(!isPlusClicked);
-    setSelectedColor('');
-  };
-  const handleColorChange = (eve) => {
-    setSelectedColor(eve.hex);
+  const handleColorChange = (eve, id) => {
+    handleChangeDropDown(eve.hex, id, "avatar_bg_color")
   };
   return (
     <>
@@ -62,11 +53,10 @@ export function ColorPalette(props) {
           })}
           <div class="d-inline-flex color_col p-3 plus_btn">
             <span className="color_add">
-              <i onClick={handlePlusbtn}>+</i>
+              <ColorPicker onChangeComplete={(e) => handleColorChange(e, item.id)}/>
+              <i className="add">+Add</i>
             </span>
-            {isPlusClicked ? (
-              <ColorPicker onChangeComplete={(e) => handleColorChange(e)}/>
-            ) : null}
+            
           </div>
         </div>
       </div>
