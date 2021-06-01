@@ -5298,6 +5298,17 @@ p.setting_color {
 		min-width: 300px;
 		max-width: 300px;
 	}
+	.dx-item-content {
+		.movie {
+			flex-direction: row-reverse;
+			img {
+				margin-right: 0;
+			}
+		}
+		.movie-text {
+			margin-right: auto;
+		}
+	}
 }
 .dx-scheduler-appointment-tooltip-wrapper .dx-overlay-content .dx-popup-content .dx-list-item {
     &.dx-state-hover, &.dx-state-focused {
