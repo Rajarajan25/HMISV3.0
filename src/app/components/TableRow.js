@@ -8,15 +8,24 @@ import { ServicesDropDown } from '../components/ServicesDropDown';
 import { AvailableDropDown } from '../components/AvailableDropDown';
 import { ColorAndAvatarDropDown } from '../components/ColorAndAvatarDropDown';
 import { ServiceEdit } from '../components/ServiceEdit';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+
 export function TableRow(props) {
-    const { row, drawer, addButton, addText, handleSave, addNew, handleChangeDropDown, pagename } = props;
+    const { row, drawer, addButton, addText, handleSave, addNew, handleChangeDropDown, pagename,handleDataSource } = props;
     const [addNewRow, setAddNewRow] = useState(false);
     const [selectedIndexName, setSelectedIndexName] = React.useState(-1);
     const [selectedIndexMail, setSelectedIndexMail] = React.useState(-1);
     const [selectedIndexMobile, setSelectedIndexMobile] = React.useState(-1);
     const updatedValue = React.useRef("");
     const newName = React.useRef("");
-
+    
+      function handleOnDragEnd(result) {
+        if (!result.destination) return;
+        const items = Array.from(row);
+        const [reorderedItem] = items.splice(result.source.index, 1);
+        items.splice(result.destination.index, 0, reorderedItem);       
+        handleDataSource(items) 
+      }
     const handleNew = () => {
         addNew(newName.current.value);
         setAddNewRow(false);
@@ -41,8 +50,16 @@ export function TableRow(props) {
             <div className="row">
                 <div className="col-lg-12">
                     <div className="topMiddlecontent">
-                        {row.map((item, i) => {
-                            return (<div className="d-flex drag_sel drag_selected position-relative" key={i}>
+                    <DragDropContext onDragEnd={handleOnDragEnd}>
+          <Droppable droppableId="characters">
+            {(provided) => (
+              <ul  {...provided.droppableProps} ref={provided.innerRef}>
+                {row.map((item, i) => {
+                  return (
+                    <Draggable key={item.id} draggableId={item.id} index={i}>
+                      {(provided) => (
+                        <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} key={i}>
+                          
                                 <div className="drag_hov mh-100 my-auto">
                                     <span className="cu-task-row-toggle__marker"></span>
                                     <img src={toAbsoluteUrl("/media/patients/drag_hover.svg")} alt="" className="drag_img" />
@@ -188,8 +205,17 @@ export function TableRow(props) {
                                     </li>
 
                                 </ul>
-                            </div>)
-                        })}
+                            </div>
+                      )}
+                    </Draggable>
+                  );
+                })}
+                {provided.placeholder}
+              </ul>
+            )}
+          </Droppable>
+        </DragDropContext>
+                        
                         {addNewRow ? <AddNewField {...props} nameRef={newName} handleNew={handleNew} setAddNewRow={setAddNewRow} /> : <div></div>}
                     </div>
                     {addButton ? <button type="button" className="customNewtaskBTN" onClick={() => setAddNewRow(true)}>+ {addText}</button> : <div></div>}
