@@ -93,7 +93,7 @@ export function StaffDetailsTab(props) {
         <div className="p-0">
           {value === 0 && <TabContainer> <Details {...props} current={data} handleSave={editStaff} fields={detail_field} /> </TabContainer>}
           {value === 1 && <TabContainer> <Duration {...props} current={data} handleSave={editStaff} fields={timing_field} /> </TabContainer>}
-          {value === 2 && <TabContainer> <StaffService /> </TabContainer>}
+          {value === 2 && <TabContainer> <StaffService current={data}/> </TabContainer>}
           {value === 3 && <TabContainer> <StaffSetting /> </TabContainer>}
         </div>
       </div>

@@ -155,7 +155,7 @@ export function Duration(props) {
                     </div>
                   </div>
 
-                  <input placeholder="Date Range" type="text" className="form-control" name="" />
+                {values.duration.date_range==="range"?  <input placeholder="Date Range" type="text" className="form-control" name="" />:null}
                 </div>
 
               }
