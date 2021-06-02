@@ -11,6 +11,15 @@ import { Syncwith } from './Syncwith'
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
+import * as Yup from 'yup';
+
+const detailSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(3, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Required')
+});
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -19,6 +28,16 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+const getInputClasses = (props,fieldname) => {
+  if (props.touched[fieldname] && props.errors[fieldname]) {
+    return "is-invalid";
+  }
+  if (props.touched[fieldname] && !props.errors[fieldname]) {
+    return "is-valid";
+  }
+  return "";
+};
+
 export function Details(props) {
   const classes = useStyles();
   const { handleSave, current, fields, index, handleUpdate } = props;
@@ -26,8 +45,9 @@ export function Details(props) {
     <Formik
       initialValues={current}
       enableReinitialize
+      validationSchema={detailSchema}
       onSubmit={(values) => {
-        values.phone_no=""+values.phone_no;
+        values.phone_no = "" + values.phone_no;
         console.log("values", JSON.stringify(values));
         if (index != -1) {
           handleUpdate(values, index);
@@ -37,17 +57,29 @@ export function Details(props) {
       }}
     >
       {({
-        handleSubmit, setFieldValue, values
+        handleSubmit, setFieldValue, values, touched, errors,getFieldProps
       }) => (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form fv-plugins-framework">
           <div className="clearfix">
             <div className="staff_first w-100 p-5">
-              {fields.name && <div className="form-group">
+              {fields.name && 
+              <div className="form-group fv-plugins-icon-container">
                 <label className="form-label d-block">Name *</label>
                 <div className="d-flex">
-                  <Field placeholder={fields.name} type="text" className={`form-control`} name="name" value={values.name || ""} />
+                  <Field placeholder={fields.name} 
+                  {...getFieldProps("name")}
+                  type="text"  className={`form-control py-5 px-6 ${getInputClasses({touched,errors},
+                    "name"
+                  )}`}
+                  name="name" value={values.name || ""} />
                 </div>
-              </div>}
+                {touched.name && errors.name ? (
+                      <div className="fv-plugins-message-container invalid-feedback d-block">
+                        <div className="fv-help-block">{errors.name}</div>
+                      </div>
+                    ) : null}
+              </div>
+              }
               {fields.visiblity && <Visiblity name="Visiblity" />}
               {fields.description && <div className="form-group">
                 <label className="form-label d-block">{fields.description}</label>
@@ -73,10 +105,10 @@ export function Details(props) {
                 </div>
                 <div className="d-flex">
                   <div className="col-6">
-                    <DatePicker value={values.employement_from || new Date('Apr 20 1988 10:10 AM' )} name="employement_from" onChange={(value)=>setFieldValue("employement_from",value)}/>
+                    <DatePicker value={values.employement_from || new Date('Apr 20 1988 10:10 AM')} name="employement_from" onChange={(value) => setFieldValue("employement_from", value)} />
                   </div>
                   <div className="col-6">
-                    <DatePicker value={values.employement_to || new Date('Apr 20 2020 10:10 AM' )} name="employement_from" onChange={(value)=>setFieldValue("employement_to",value)}/>
+                    <DatePicker value={values.employement_to || new Date('Apr 20 2020 10:10 AM')} name="employement_from" onChange={(value) => setFieldValue("employement_to", value)} />
                   </div>
                 </div>
               </div>}
@@ -115,9 +147,9 @@ export function Details(props) {
                             label="Active"
                             name="is_active"
                             value={values.is_active}
-                            checked={values.is_active==="true"?true:false}
+                            checked={values.is_active === "true" ? true : false}
                             onChange={(event, checked) => {
-                              setFieldValue("is_active", ""+checked);
+                              setFieldValue("is_active", "" + checked);
                             }}
                           />
                         </div>
@@ -135,9 +167,9 @@ export function Details(props) {
                             label="yes"
                             name="is_service_provider"
                             value={values.provider}
-                            checked={values.is_service_provider==="true"?true:false}
+                            checked={values.is_service_provider === "true" ? true : false}
                             onChange={(event, checked) => {
-                              setFieldValue("is_service_provider", ""+checked);
+                              setFieldValue("is_service_provider", "" + checked);
                             }}
                           />
                         </div>
@@ -171,7 +203,7 @@ export function Details(props) {
 export function DatePicker(props) {
   return (
     <Grid container justify="space-around">
-      <DatePickersUtil {...props}/>
+      <DatePickersUtil {...props} />
     </Grid>
   );
 }

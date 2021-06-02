@@ -53,10 +53,10 @@ const buffertime = [
 
 export function Duration(props) {
   const classes = useStyles();
-  const { current, handleSave, fields } = props
-  const { duration, payments } = current;
+  const { data, handleSave, fields,index, handleUpdate } = props
+  const { timings, payments } = data;
   const initValue = {
-    duration: duration,
+    timings: timings,
     payments: payments,
   }
   DevConsoleLog("initValue", initValue);
@@ -72,11 +72,7 @@ export function Duration(props) {
       enableReinitialize
       onSubmit={(values) => {
         DevConsoleLog("values", JSON.stringify(values));
-        let payments = values.payments;
-        current.duration = values.duration;
-        current.payments = payments;
-        DevConsoleLog("current-->", current);
-        handleSave(current);
+        handleSave(values);
       }}>
       {({
         handleSubmit, setFieldValue, values
@@ -162,7 +158,7 @@ export function Duration(props) {
               {fields.price &&
                 <Price formikValues={values} setFieldValue={setFieldValue} />
               }
-              {fields.timing && <Timings current={current} />}
+              {fields.timing && <Timings formikValues={values} setFieldValue={setFieldValue}/>}
               <div className="form-group mb-0">
                 <div className="d-flex justify-content-end patientButton pos_fix">
                   <button type="submit" className="btn btn-primary">Save</button>

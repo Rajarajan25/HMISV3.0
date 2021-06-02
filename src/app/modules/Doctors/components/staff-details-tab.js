@@ -38,31 +38,39 @@ const useStyles = makeStyles(theme => ({
 export function StaffDetailsTab(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-  const { data ,index} = props;
+  const { data, index, handleUpdate } = props;
+  const { staff_timings } = data;
+  const durationData = {
+    timings: staff_timings ? staff_timings[0] : {},
+  }
   const detail_field = {
     name: "Name",
     description: "About",
-    phone:"Phone number",
-    email:"Email",
-    daterange:"Employment",
-    experience:"month year",
+    phone: "Phone number",
+    email: "Email",
+    daterange: "Employment",
+    experience: "month year",
     avatar: "avatar",
-    gender:"Gender",
-    status:"status",
-    provider:"Provider",
-    syncwith:"Sync With",
+    gender: "Gender",
+    status: "status",
+    provider: "Provider",
+    syncwith: "Sync With",
     link: "Staff booking link"
   };
   const timing_field = {
     timing: "Timing",
   };
-  
+
 
   function handleChange(event, newValue) {
     setValue(newValue);
   }
   function editStaff(values) {
     console.log("values-->", values);
+    if (value === 1) {
+      data.staff_timings[0] = values.timings;
+      handleUpdate({ staff_timings: [...data.staff_timings] }, index);
+    }
   }
   return (
     <Col sm={12} className="bg-white d-flex flex-column p-0">
@@ -91,8 +99,8 @@ export function StaffDetailsTab(props) {
         </div>
         <div className="p-0">
           {value === 0 && <TabContainer> <Details {...props} current={data} handleSave={editStaff} fields={detail_field} /> </TabContainer>}
-          {value === 1 && <TabContainer> <Duration {...props} current={data} handleSave={editStaff} fields={timing_field} /> </TabContainer>}
-          {value === 2 && <TabContainer> <StaffService current={data}/> </TabContainer>}
+          {value === 1 && <TabContainer> <Duration data={durationData} handleSave={editStaff} fields={timing_field} /> </TabContainer>}
+          {value === 2 && <TabContainer> <StaffService current={data} /> </TabContainer>}
           {value === 3 && <TabContainer> <StaffSetting /> </TabContainer>}
         </div>
       </div>
@@ -107,7 +115,7 @@ export function StaffName(props) {
   return (
     <div className="d-flex">
       <span className="listprofileIcon my-auto" style={{ backgroundColor: `#2ecd6f` }}>
-      <img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+        <img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
       <div className="select_staff_name my-auto">
         <p className="m-0">{data.name || "name"}</p>
         <span>{data.description || "Description"}</span>

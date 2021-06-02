@@ -108,26 +108,26 @@ class StaffPage extends React.Component {
 
   handleUpdate = (updatedValue, index) => {
     let tempPickList = JSON.parse(JSON.stringify(this.state.staffList));
+    let updatedItem = tempPickList[index];
     let items = [...tempPickList];
-    let item = { ...updatedValue };
+    let item = { ...updatedItem,...updatedValue };
+    console.log("item-->",item);
     items[index] = item;
     this.setState({ staffList: items });
-    let updatedItem = tempPickList[index];
     delete updatedValue.id;
     this.props.updateStaff({
       variables: {
         staffID: updatedItem.id,
         staff: { ...updatedValue }
       }
-    }).then(({ data: { updateStaff } }) => {
+    }).then(({data:{updateStaff}}) => {
       //this.props.refetchStaff();
       item = { ...item, id: updateStaff.id };
       items[index] = item;
       this.setState({ staffList: items });
-    })
-      .catch(error => {
-        DevAlertPopUp(error.message);
-      });
+    }).catch(error => {
+      DevAlertPopUp(error.message);
+    });
   };
 
   handleCancel = (props) => {
@@ -166,6 +166,7 @@ class StaffPage extends React.Component {
     let sfm= StaffModel;
     sfm.name=value;
     delete sfm.id;
+    
     let newstaff = { name: value };
     DevConsoleLog("sfm-->",sfm);
     this.props.addStaff({
