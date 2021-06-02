@@ -6,6 +6,7 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
+import Search from '../../../components/Search';
 
 const useStyles = makeStyles({
   list: {
@@ -16,9 +17,21 @@ const useStyles = makeStyles({
   },
 });
 
-
-export function StaffService() {
+const field = {
+  staffCommission: "Staff Commission",
+  serviceTax: "Set Service Commission",
+  amount: "Amount (र)",
+  Percentage : "Percentage (%)",
+  Voucher:"Set Product Commission",
+  VoucherAmount:"Amount (र)",
+  VoucherPercent:"Percentage (%)"
+  }
+export function StaffService(props) {
+  const {current}=props;
   const classes = useStyles();
+  const handleSearch =()=>{
+
+  }
   return (
     <div className="staff_first staff_third w-100 p-6">
       <div className="form-group border-bottom d-none">
@@ -62,7 +75,7 @@ export function StaffService() {
             <button type="button" className="service_search_icon">
               <img src="/media/patients/cat_search.svg" alt="" className="" />
             </button>
-            <input className="service_search_input" type="text" name="" placeholder="Search" />
+            <Search handleSearch={handleSearch}/>
           </div>
         </div>
         <div className="serve_sec">
@@ -248,6 +261,7 @@ export function StaffService() {
           </div>
         </div>
       </div>
+      {/* <StaffCommission field={field} current={current}/> */}
       <div className="form-group mb-0">
         <div className="d-flex justify-content-end patientButton pos_fix">
           <button type="button" className="btn btn-primary">Save</button>
