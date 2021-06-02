@@ -39,7 +39,6 @@ export function StaffDetailsTab(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
   const { data ,index} = props;
-  console.log("props-->", props.data);
   const detail_field = {
     name: "Name",
     description: "About",
@@ -111,7 +110,7 @@ export function StaffName(props) {
       <img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
       <div className="select_staff_name my-auto">
         <p className="m-0">{data.name || "name"}</p>
-        <span>{data.about || "Description"}</span>
+        <span>{data.description || "Description"}</span>
       </div>
     </div>
   );

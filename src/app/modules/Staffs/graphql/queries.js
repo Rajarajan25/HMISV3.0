@@ -28,12 +28,9 @@ const staff = `
       site_owener
       sorting_id
       workspace_id
-      is_deleted
   }
 }
 `;
-
-
 
 export default {
   staff

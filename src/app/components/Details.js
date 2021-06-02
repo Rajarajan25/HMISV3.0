@@ -27,6 +27,7 @@ export function Details(props) {
       initialValues={current}
       enableReinitialize
       onSubmit={(values) => {
+        values.phone_no=""+values.phone_no;
         console.log("values", JSON.stringify(values));
         if (index != -1) {
           handleUpdate(values, index);
@@ -58,11 +59,11 @@ export function Details(props) {
                 <div className="d-flex">
                   {fields.phone && <div className="col-6">
                     <label className="form-label d-block">{fields.phone}</label>
-                    <Field placeholder={fields.phone} type="number" className={`form-control`} name="mobile" value={values.mobile || ""} />
+                    <Field placeholder={fields.phone} type="number" className={`form-control`} name="phone_no" value={values.phone_no || ""} />
                   </div>}
                   {fields.email && <div className="col-6">
                     <label className="form-label d-block">{fields.email}</label>
-                    <Field placeholder={fields.email} type="email" className={`form-control`} name="official_email" value={values.official_email || ""} />
+                    <Field placeholder={fields.email} type="email" className={`form-control`} name="email" value={values.email || ""} />
                   </div>}
                 </div>
               </div>
@@ -72,10 +73,10 @@ export function Details(props) {
                 </div>
                 <div className="d-flex">
                   <div className="col-6">
-                    <DatePicker value={values.employment_start || new Date('Apr 20 1988 10:10 AM' )} name="employment_start" onChange={(value)=>setFieldValue("employment_start",value)}/>
+                    <DatePicker value={values.employement_from || new Date('Apr 20 1988 10:10 AM' )} name="employement_from" onChange={(value)=>setFieldValue("employement_from",value)}/>
                   </div>
                   <div className="col-6">
-                    <DatePicker value={values.employment_end || new Date('Apr 20 2020 10:10 AM' )} name="employment_end" onChange={(value)=>setFieldValue("employment_end",value)}/>
+                    <DatePicker value={values.employement_to || new Date('Apr 20 2020 10:10 AM' )} name="employement_from" onChange={(value)=>setFieldValue("employement_to",value)}/>
                   </div>
                 </div>
               </div>}
@@ -112,11 +113,11 @@ export function Details(props) {
                         <div className="pre_status">
                           <SwitchLabels
                             label="Active"
-                            name="status"
-                            value={values.status}
-                            checked={values.status}
+                            name="is_active"
+                            value={values.is_active}
+                            checked={values.is_active==="true"?true:false}
                             onChange={(event, checked) => {
-                              setFieldValue("status", checked);
+                              setFieldValue("is_active", ""+checked);
                             }}
                           />
                         </div>
@@ -132,11 +133,11 @@ export function Details(props) {
                         <div className="pre_status">
                           <SwitchLabels
                             label="yes"
-                            name="provider"
+                            name="is_service_provider"
                             value={values.provider}
-                            checked={values.provider}
+                            checked={values.is_service_provider==="true"?true:false}
                             onChange={(event, checked) => {
-                              setFieldValue("provider", checked);
+                              setFieldValue("is_service_provider", ""+checked);
                             }}
                           />
                         </div>

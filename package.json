@@ -1,8 +1,8 @@
 {
-    "name": "demo3",
+    "name": "hmis",
     "version": "7.1.7",
     "private": true,
-    "homepage": "/metronic/react/demo3",
+    "homepage": "/hmis",
     "scripts": {
         "start": "react-scripts start -o",
         "build": "react-scripts build",
