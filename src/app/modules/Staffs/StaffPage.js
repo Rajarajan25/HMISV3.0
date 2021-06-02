@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Filter } from "../../components/Filter"
-import Drawer from "@material-ui/core/Drawer";
-import { toAbsoluteUrl } from "../../../_metronic/_helpers";
 import {
   ListActivity01,
   ListActivity02,
@@ -17,53 +15,11 @@ import { graphql } from '@apollo/client/react/hoc';
 import { DevAlertPopUp, DevConsoleLog } from "../../SiteUtill";
 import { RightSideDrawer } from "../../components/RightSideDrawer";
 import { AddFab } from "../../components/AddFab";
+import { StaffModel } from "../../models/StaffModel";
+import { SpinnerLarge } from "../../components/Spinner";
 
 
 class StaffPage extends React.Component {
-  staffList = [
-    {
-      _id: "1",
-      name: "Anand",
-      experience_year: "10",
-      experience_month: "5",
-      gender: "Male",
-      status: "Active",
-      official_email: "Anand@gmail.com",
-      mobile: "789456123",
-      avatar_bg_color: "#41BC87",
-      avatar: "",
-      service: "Acupunture",
-      availability: "Chat",
-    },
-    {
-      _id: "2",
-      name: "Basheer",
-      experience_year: "7",
-      experience_month: "5",
-      gender: "Male",
-      status: "Inactive",
-      official_email: "basheer@gmail.com",
-      mobile: "9874561230",
-      avatar_bg_color: "#B17F22",
-      avatar: "",
-      service: "Dental",
-      availability: "Video",
-    },
-    {
-      _id: "3",
-      name: "Maadhuri",
-      experience_year: "3",
-      experience_month: "5",
-      gender: "Female",
-      status: "Active",
-      official_email: "maadhuri@gmail.com",
-      mobile: "8529637410",
-      avatar_bg_color: "#2980B9",
-      avatar: "/media/users/300_20.jpg",
-      service: "Skin Care",
-      availability: "Phone",
-    },
-  ];
   fields = [
     {
       dataField: 'name',
@@ -100,7 +56,6 @@ class StaffPage extends React.Component {
     };
   }
 
-
   componentDidMount() {
   }
 
@@ -112,16 +67,19 @@ class StaffPage extends React.Component {
     });
   }
   componentDidCatch() { }
-  componentWillUnmount() { }
+  componentWillUnmount() {}
+
   toggleDrawer = (open, selectedItem, index) => event => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
     }
     this.setState({ isDrawerOpen: open, currentStaff: selectedItem || false, currentIndex: index || 0 });
   };
+
   toggleDrawerClose = () => {
     this.setState({ isDrawerOpen: false, currentStaff: false });
   };
+
   handleChangeDropDown = (selectedVal, id, type) => {
     let index = 0;
     const currentStaffList = this.state.staffList.map((item, i) => {
@@ -147,6 +105,7 @@ class StaffPage extends React.Component {
         DevAlertPopUp(error.message);
       });
   }
+
   handleUpdate = (updatedValue, index) => {
     let tempPickList = JSON.parse(JSON.stringify(this.state.staffList));
     let items = [...tempPickList];
@@ -170,11 +129,13 @@ class StaffPage extends React.Component {
         DevAlertPopUp(error.message);
       });
   };
+
   handleCancel = (props) => {
     this.setState({
       isDrawerOpen: !this.state.isDrawerOpen,
     });
   };
+
   handleSaveSingle = (updatedValue, type, index) => {
     let tempPickList = JSON.parse(JSON.stringify(this.state.staffList));
     let updatedItem = tempPickList.map((e, i) => {
@@ -200,13 +161,16 @@ class StaffPage extends React.Component {
         DevAlertPopUp(error.message);
       });
   };
+
   addNewStaff = (value) => {
+    let sfm= StaffModel;
+    sfm.name=value;
+    delete sfm.id;
     let newstaff = { name: value };
+    DevConsoleLog("sfm-->",sfm);
     this.props.addStaff({
       variables: {
-        staff: {
-          name: value
-        }
+        staff: sfm
       }
     }).then(({ data: { addStaff } }) => {
       newstaff = { ...newstaff, id: addStaff.id };
@@ -220,9 +184,11 @@ class StaffPage extends React.Component {
         DevAlertPopUp(error.message);
       });
   }
+
   handleDataSource = (values) => {
     this.setState({ staffList: values });
   }
+
   render() {
     const { loading } = this.props;
     const { staffList } = this.state;
@@ -231,19 +197,16 @@ class StaffPage extends React.Component {
         <Filter value={staffList} handleDataSource={this.handleDataSource} fields={this.fields} />
         <div className="d-flex flex-column mt-1">
           <div className="contentSection collapse show w-100">
-            {loading ?
-              (<div className="w-100 mh-100 text-center">
-                <span className="ml-3 spinner spinner-lg spinner-primary"></span>
-              </div>) :
+              <SpinnerLarge loading={loading}/>
               <ListActivity01
-                toggleDrawer={this.toggleDrawer}
+                loading={loading}
                 dataList={staffList} 
+                pagename="Staff"
+                toggleDrawer={this.toggleDrawer}
                 handleSave={this.handleSaveSingle}
                 addNew={this.addNewStaff}
                 handleChangeDropDown={this.handleChangeDropDown}
-                pagename="Staff">
-                </ListActivity01>
-            }
+                />
           </div>
         </div>
         <AddFab onClick={this.toggleDrawer(true)} />
