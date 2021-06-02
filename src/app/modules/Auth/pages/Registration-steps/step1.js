@@ -129,7 +129,6 @@ function Registration(props) {
   const { handleNext } = props;
   let business_id = localStorage.getItem("Business_id");
   let formPrefill = localStorage.getItem("BackFlag") === "Y";
-
   const business_size_options = [
     { value: 100, label: 100 },
     { value: 200, label: 200 },
