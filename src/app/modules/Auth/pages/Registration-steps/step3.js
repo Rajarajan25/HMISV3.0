@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import { toAbsoluteUrl } from "../../../../../_metronic/_helpers";
 
 const useStyles = makeStyles(theme => ({
     typography: {
@@ -141,7 +142,7 @@ function SimplePopover() {
     return (
       <div>
         <Button aria-describedby={id} variant="contained" onClick={handleClick}>
-        <img src="/media/auth-screen/plus_sym.svg" className="mw-100" alt="" />
+        <img src={toAbsoluteUrl("/media/auth-screen/plus_sym.svg")} className="mw-100" alt="" />
         </Button>
         <Popover
           id={id}

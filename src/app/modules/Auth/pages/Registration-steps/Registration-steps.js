@@ -93,7 +93,7 @@ export default function HorizontalLabelPositionBelowStepper() {
                 onClick={handleBack}
                 className={'backbtn'+' '+classes.backButton}
               >
-                <img src="/media/auth-screen/back_arrow.svg" className="mr-2" alt="arrow" /> <span>Back</span>
+                <img src={toAbsoluteUrl("/media/auth-screen/back_arrow.svg")} className="mr-2" alt="arrow" /> <span>Back</span>
               </Button>
               <Button className={"skipButton"} >
                 <span>Skip</span>

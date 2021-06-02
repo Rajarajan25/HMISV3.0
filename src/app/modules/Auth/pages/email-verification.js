@@ -21,7 +21,7 @@ export default function MailVerification() {
           <div className="flex-column-fluid d-flex flex-column justify-content-center">
             <div className="d-flex">
               <div className="text-center mx-auto d-flex align-items-center">
-                <img src="/media/auth-screen/mail-notify-icon.svg" className="m-auto col-lg-12" alt="banner" />
+                <img src={toAbsoluteUrl("/media/auth-screen/mail-notify-icon.svg")} className="m-auto col-lg-12" alt="banner" />
               </div>
             </div>
           </div>

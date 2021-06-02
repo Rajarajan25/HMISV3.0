@@ -177,7 +177,7 @@ function Registration(props) {
           <div className="flex-column-fluid d-flex flex-column justify-content-center">
             <div className="d-flex flex-column h-100">
               <div className="bk_aw text-white font-weight-500 font-size-15 position-absolute ml-5 mt-7">
-              <img src="/media/auth-screen/back_arrow.svg" className="mr-2" alt="arrow" /> <span>Back</span>
+              <img src={toAbsoluteUrl("/media/auth-screen/back_arrow.svg")} className="mr-2" alt="arrow" /> <span>Back</span>
               </div>
               <div className="mt-25 mb-10 mx-auto col-lg-11 col-11 flex-column-fluid text-center">
                 <h3 className="font-size-h1 text-uppercase font-weight-600 mb-5 text-white">
@@ -188,7 +188,7 @@ function Registration(props) {
                 </p>
               </div>
               <div className="text-center mx-auto d-flex align-items-end">
-                <img src="/media/auth-screen/personalinfo_banner.svg" className="m-auto col-lg-10" alt="banner" />
+                <img src={toAbsoluteUrl("/media/auth-screen/personalinfo_banner.svg")} className="m-auto col-lg-10" alt="banner" />
               </div>
             </div>
           </div>
@@ -241,7 +241,7 @@ function Registration(props) {
             <div className="d-flex fv-plugins-icon-container">
               <div className="form-group col-6 p-0 d-flex coun_cde">
                 <div className="info_img">
-                  <img src="/media/auth-screen/name.svg" className="m-auto mw-100" alt="" />
+                  <img src={toAbsoluteUrl("/media/auth-screen/name.svg")} className="m-auto mw-100" alt="" />
                 </div>
                 <div className="col">
                 <label class="form-label" for="exampleForm.ControlInput1">First Name</label>
@@ -283,7 +283,7 @@ function Registration(props) {
 
             <div className="form-group fv-plugins-icon-container d-flex">
               <div className="info_img">
-                <img src="/media/auth-screen/mail.svg" className="m-auto mw-100" alt="" />
+                <img src={toAbsoluteUrl("/media/auth-screen/mail.svg")} className="m-auto mw-100" alt="" />
               </div>
               <div className="col">
               <label class="form-label" for="exampleForm.ControlInput1">Email Id</label>
@@ -306,7 +306,7 @@ function Registration(props) {
 
             <div className="form-group fv-plugins-icon-container d-flex">
               <div className="info_img">
-                <img src="/media/auth-screen/name_icon.svg" className="m-auto mw-100" alt="" />
+                <img src={toAbsoluteUrl("/media/auth-screen/name_icon.svg")} className="m-auto mw-100" alt="" />
               </div>
               <div className="col">
               <label class="form-label" for="exampleForm.ControlInput1"><span className="pr-2">Display Name</span> <ControlledTooltips/> </label>
@@ -332,7 +332,7 @@ function Registration(props) {
             <div className="d-flex fv-plugins-icon-container">
               <div className="form-group col-6 p-0 d-flex coun_cde">
                 <div className="info_img">
-                  <img src="/media/auth-screen/phone_icon.svg" className="m-auto mw-100" alt="" />
+                  <img src={toAbsoluteUrl("/media/auth-screen/phone_icon.svg")} className="m-auto mw-100" alt="" />
                 </div>
                 <div className="col">
                     <label class="form-label d-block" for="exampleForm.ControlInput1">Country code</label>
@@ -363,7 +363,7 @@ function Registration(props) {
 
             <div className="form-group fv-plugins-icon-container d-flex">
               <div className="info_img">
-                <img src="/media/auth-screen/url_icon.svg" className="m-auto mw-100" alt="" />
+                <img src={toAbsoluteUrl("/media/auth-screen/url_icon.svg")} className="m-auto mw-100" alt="" />
               </div>
               <div className="col">
               <label class="form-label" for="exampleForm.ControlInput1"><span>Personal/Business Url</span> </label>
@@ -387,7 +387,7 @@ function Registration(props) {
 
             <div className="form-group d-flex  fv-plugins-icon-container">
             <div className="info_img">
-                  <img src="/media/auth-screen/sex.svg" className="m-auto mw-100" alt="" />
+                  <img src={toAbsoluteUrl("/media/auth-screen/sex.svg")} className="m-auto mw-100" alt="" />
                 </div>
                 <div className="col gend">
                     <GenderGroup />
@@ -529,7 +529,7 @@ function ControlledTooltips() {
 
   return (
     <Tooltip className="font-size-14" onClose={handleTooltipClose} onOpen={handleTooltipOpen} open={open} title="Display Name">
-     <img src="/media/auth-screen/tool_icon.svg" className="mw-100" alt="" />
+     <img src={toAbsoluteUrl("/media/auth-screen/tool_icon.svg")} className="mw-100" alt="" />
     </Tooltip>
   );
 }

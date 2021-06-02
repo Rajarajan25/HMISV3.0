@@ -30,7 +30,7 @@ export default function stee4() {
           </div>
           <div className="d-flex font-weight-500 pb-3">
             <div className="wal_clk">
-            <img src="/media/auth-screen/wall_clock.svg" alt="thumbs-up" /> <span>Time Zone:</span>
+            <img src={toAbsoluteUrl("/media/auth-screen/wall_clock.svg")} alt="thumbs-up" /> <span>Time Zone:</span>
             </div>
             <div className="tim_zne">
             <TimeZone />

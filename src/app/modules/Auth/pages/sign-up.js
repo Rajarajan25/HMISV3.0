@@ -38,7 +38,7 @@ export default function step1() {
                 <div className="flex-column-fluid d-flex flex-column justify-content-center">
                   <div className="d-flex flex-column h-100">
                     <div className="bk_aw text-white font-weight-500 font-size-15 position-absolute ml-5 mt-7">
-                    <img src="/media/auth-screen/back_arrow.svg" className="mr-2" alt="arrow" /> <span>Back</span>
+                    <img src={toAbsoluteUrl("/media/auth-screen/back_arrow.svg")} className="mr-2" alt="arrow" /> <span>Back</span>
                     </div>
                     <div className="mt-25 mb-10 mx-auto col-lg-11 col-11 flex-column-fluid text-center">
                       <h3 className="font-size-h1 text-uppercase font-weight-600 mb-5 text-white">
@@ -49,7 +49,7 @@ export default function step1() {
                       </p>
                     </div>
                     <div className="text-center mx-auto d-flex align-items-end">
-                      <img src="/media/auth-screen/sign_up_banner.svg" className="m-auto col-lg-10" alt="banner" />
+                      <img src={toAbsoluteUrl("/media/auth-screen/sign_up_banner.svg")} className="m-auto col-lg-10" alt="banner" />
                     </div>
                   </div>
                 </div>
@@ -145,18 +145,18 @@ export default function step1() {
                   type="submit"
                   className="soci"
                 >
-                  <img src="/media/auth-screen/google.svg" alt="Goolge Icon" className="socialIcon" />
+                  <img src={toAbsoluteUrl("/media/auth-screen/google.svg")} alt="Goolge Icon" className="socialIcon" />
 
                 </button>
                 <button id="social_facebook_signin_submit" type="submit" className="soci">
-                  <img src="/media/auth-screen/facebook.svg" alt="facebook Icon" className="socialIcon" />
+                  <img src={toAbsoluteUrl("/media/auth-screen/facebook.svg")} alt="facebook Icon" className="socialIcon" />
                 </button>
                 <button
                   id="social_facebook_signin_submit"
                   type="submit"
                   className="soci"
                 >
-                  <img src="/media/auth-screen/twitter.svg" alt="facebook Icon" className="socialIcon" />
+                  <img src={toAbsoluteUrl("/media/auth-screen/twitter.svg")} alt="facebook Icon" className="socialIcon" />
 
                 </button>
               </div>                

@@ -41,7 +41,7 @@ export default function RegistrationConfirmation() {
             <div className="flex-column-fluid d-flex flex-column justify-content-center">
               <div className="d-flex flex-column h-100">
                 <div className="bk_aw text-white font-weight-500 font-size-15 position-absolute ml-5 mt-7">
-                <img src="/media/auth-screen/back_arrow.svg" className="mr-2" alt="arrow" /> <span>Back</span>
+                <img src={toAbsoluteUrl("/media/auth-screen/back_arrow.svg")} className="mr-2" alt="arrow" /> <span>Back</span>
                 </div>
                 <div className="mt-25 mb-10 mx-auto col-lg-11 col-11 flex-column-fluid text-center">
                   <h3 className="font-size-h1 text-uppercase font-weight-600 mb-5 text-white">
@@ -52,7 +52,7 @@ export default function RegistrationConfirmation() {
                   </p>
                 </div>
                 <div className="text-center mx-auto d-flex align-items-end">
-                  <img src="/media/auth-screen/reg_con_banner.svg" className="m-auto col-lg-10" alt="banner" />
+                  <img src={toAbsoluteUrl("/media/auth-screen/reg_con_banner.svg")} className="m-auto col-lg-10" alt="banner" />
                 </div>
               </div>
             </div>
@@ -83,9 +83,9 @@ export default function RegistrationConfirmation() {
         <div className=" d-flex rounded-right bg-white registration-form login-signin mx-auto reg_con col-xl-5 col-lg-5 col-12">
           <div className="d-flex m-auto">
             <div class="loginRightimg col-lg-10 col-xl-9 ml-xl-18 ml-lg-10 ml-0">
-            <img src="/media/auth-screen/welcome_img.svg" className="d-block d-xl-none d-lg-none d-md-none wlcme mw-100" alt="" />
+            <img src={toAbsoluteUrl("/media/auth-screen/welcome_img.svg")} className="d-block d-xl-none d-lg-none d-md-none wlcme mw-100" alt="" />
               <div className="text-left mb-6">
-                <h1 className="h1 color_3F4772 font-weight-600 d-flex my-auto"><span className="my-auto">Welcome, Saga</span> <img src="/media/auth-screen/clapping.svg" alt="clap" className="ml-3" /> <img src="/media/auth-screen/clapping.svg" alt="clap" className="ml-3" /></h1>      
+                <h1 className="h1 color_3F4772 font-weight-600 d-flex my-auto"><span className="my-auto">Welcome, Saga</span> <img src={toAbsoluteUrl("/media/auth-screen/clapping.svg")} alt="clap" className="ml-3" /> <img src={toAbsoluteUrl("/media/auth-screen/clapping.svg")} alt="clap" className="ml-3" /></h1>      
                 <p className="font-size-18 wl_txt mt-10">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
               </div>
               <div className="form-group flex-wrap flex-center">

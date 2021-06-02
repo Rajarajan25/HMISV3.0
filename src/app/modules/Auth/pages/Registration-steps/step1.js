@@ -19,6 +19,7 @@ import FormLabel from '@material-ui/core/FormLabel';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
+import { toAbsoluteUrl } from "../../../../../_metronic/_helpers";
 
 const initialValues = {
   fullname: "",
@@ -169,7 +170,7 @@ function Registration(props) {
             {/* begin: Fullname */}
             <div className="form-group fv-plugins-icon-container d-flex">
               <div className="info_img">
-                <img src="/media/auth-screen/identity_icon.svg" className="m-auto mw-100" alt="" />
+                <img src={toAbsoluteUrl("/media/auth-screen/identity_icon.svg")} className="m-auto mw-100" alt="" />
               </div>
               <div className="col">
                 <label className="form-label d-block" for="exampleForm.ControlInput1">Business Name</label>
@@ -195,7 +196,7 @@ function Registration(props) {
             {/* begin: Fullname */}
             <div className="form-group fv-plugins-icon-container d-flex">
               <div className="info_img">
-                <img src="/media/auth-screen/location_icon.svg" className="m-auto mw-100" alt="" />
+                <img src={toAbsoluteUrl("/media/auth-screen/location_icon.svg")} className="m-auto mw-100" alt="" />
               </div>
               <div className="col">
                 <label class="form-label  d-block" for="exampleForm.ControlInput1">Your Business Address</label>
@@ -220,7 +221,7 @@ function Registration(props) {
             <div className="d-flex fv-plugins-icon-container">
             <div className="form-group col-6 p-0 d-flex coun_cde">
               <div className="info_img">
-                <img src="/media/auth-screen/feedback_icon.svg" className="m-auto mw-100" alt="" />
+                <img src={toAbsoluteUrl("/media/auth-screen/feedback_icon.svg")} className="m-auto mw-100" alt="" />
               </div>
                   <div className="col">
                   <label class="form-label d-block" for="exampleForm.ControlInput1">Business size</label>
@@ -229,7 +230,7 @@ function Registration(props) {
               </div>
               <div className="form-group col-6 d-flex coun_cde">
                 <div className="info_img">
-                  <img src="/media/auth-screen/branch_icon.svg" className="m-auto mw-100" alt="" />
+                  <img src={toAbsoluteUrl("/media/auth-screen/branch_icon.svg")} className="m-auto mw-100" alt="" />
                 </div>
                 <div className="col pr-0">
                   <label class="form-label d-block" for="exampleForm.ControlInput1">Type</label>
@@ -243,7 +244,7 @@ function Registration(props) {
             <div className="d-flex fv-plugins-icon-container">
               <div className="form-group col-6 p-0 d-flex coun_cde">
                 <div className="info_img">
-                  <img src="/media/auth-screen/phone_icon.svg" className="m-auto mw-100" alt="" />
+                  <img src={toAbsoluteUrl("/media/auth-screen/phone_icon.svg")} className="m-auto mw-100" alt="" />
                 </div>
                 <div className="col">
                     <label class="form-label d-block" for="exampleForm.ControlInput1">Country code</label>
@@ -299,7 +300,7 @@ function Registration(props) {
               ) : null}
 
                 <div className="plus_sym">
-                  <img src="/media/auth-screen/plus_sym.svg" className="m-auto mw-100" alt="" />
+                  <img src={toAbsoluteUrl("/media/auth-screen/plus_sym.svg")} className="m-auto mw-100" alt="" />
                 </div> 
 
             </div>

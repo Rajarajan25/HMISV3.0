@@ -1,13 +1,13 @@
 
 import React from 'react';
-
+import { toAbsoluteUrl } from "../../../../../_metronic/_helpers";
 
 export default function RegisterConfirmation() {
   return (
     <>
     <div class="busi_reg mt-30">
       <div className="text-left mb-6">
-        <h1 className="font-size-28 color_01234B font-weight-600 mb-10">Welcome, Saga <img src="/media/auth-screen/clapping.svg" alt="clap" className="ml-3" /> <img src="/media/auth-screen/clapping.svg" alt="clap" className="ml-3" /></h1>      
+        <h1 className="font-size-28 color_01234B font-weight-600 mb-10">Welcome, Saga <img src={toAbsoluteUrl("/media/auth-screen/clapping.svg")} alt="clap" className="ml-3" /> <img src={toAbsoluteUrl("/media/auth-screen/clapping.svg")} alt="clap" className="ml-3" /></h1>      
         <p className="font-size-24 wl_txt">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
       </div>
       <div className="form-group flex-wrap flex-center">

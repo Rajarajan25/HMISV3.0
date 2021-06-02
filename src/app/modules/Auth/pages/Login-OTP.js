@@ -144,7 +144,7 @@ export default class LoginOTP extends Component{
                   <div className="flex-column-fluid d-flex flex-column justify-content-center">
                     <div className="m-auto loginRightimg d-flex flex-column">
                       <div className="text-center d-flex mx-7">
-                        <img src="/media/auth-screen/OTP_Web.svg" className="m-auto col-10" alt="Login screen" />
+                        <img src={toAbsoluteUrl("/media/auth-screen/OTP_Web.svg")} className="m-auto col-10" alt="Login screen" />
                       </div>
                       <div className="mt-30 flex-column-fluid d-flex flex-column text-center">                                    
                         <h1 className="font-size-30 color_01234B font-weight-600 mb-5">Welcome to HMIS!</h1>      
