@@ -206,6 +206,7 @@ class StaffPage extends React.Component {
                 handleSave={this.handleSaveSingle}
                 addNew={this.addNewStaff}
                 handleChangeDropDown={this.handleChangeDropDown}
+                handleDataSource={this.handleDataSource}
                 />
           </div>
         </div>

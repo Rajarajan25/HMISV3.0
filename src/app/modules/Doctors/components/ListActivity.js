@@ -25,7 +25,7 @@ const Column=[
 ]
 
 export function ListActivity01(props) {
-  const {dataList,toggleDrawer,handleSave,addNew,handleChangeDropDown,pagename,loading}=props;
+  const {dataList,toggleDrawer,handleSave,addNew,handleChangeDropDown,pagename,loading,handleDataSource}=props;
   if (loading) {
     return<div></div>;
   }
