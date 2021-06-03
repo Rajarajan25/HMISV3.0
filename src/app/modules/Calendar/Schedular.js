@@ -6,7 +6,27 @@ import { data, moviesData } from './data.js';
 import AppointmentTemplate from './AppointmentTemplate.js';
 
 const currentDate = new Date();
-const views = ['day', 'week','month','workWeek','timelineWeek','agenda'];
+// const views = ['day', 'week','month','workWeek','timelineWeek','agenda'];
+const views = [{
+  type: 'day',
+  name: 'Day',
+},{
+  type: 'week',
+  name: 'Week',
+}, {
+  type: 'workWeek',
+  name: 'WorkWeek',
+},   {
+  type: 'month',
+  name: 'Month',
+  maxAppointmentsPerCell:1
+},{
+  type: 'timelineWeek',
+  name: 'TimelineWeek',
+}, {
+  type: 'agenda',
+  name: 'Agenda',
+}, ];
 
 export default function Schedular  () {
   const [state,setState]=React.useState({
@@ -28,7 +48,6 @@ export default function Schedular  () {
         views={views}
         defaultCurrentView="week"
         showCurrentTimeIndicator={state.showCurrentTimeIndicator}
-        showAllDayPanel={false}
         defaultCurrentDate={currentDate}
         editing={state}
         height={800}
