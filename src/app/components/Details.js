@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import { Formik, Field } from 'formik';
 import { ColorPaletteFormik } from "./ColorPalette";
@@ -12,6 +12,8 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import * as Yup from 'yup';
+import { SpinnerSmall } from "./Spinner";
+import { DevAlertPopUp } from "../SiteUtill";
 
 const detailSchema = Yup.object().shape({
   name: Yup.string()
@@ -40,11 +42,12 @@ const getInputClasses = (props,fieldname) => {
 
 export function Details(props) {
   const classes = useStyles();
-  const { handleSave, current, fields, index, handleUpdate } = props;
+  const [loading, setLoading] = useState(false);
+  const {current, fields, index, handleUpdate,addNew} = props;
   return (
     <Formik
       initialValues={current}
-      enableReinitialize
+      enableReinitialize={true}
       validationSchema={detailSchema}
       onSubmit={(values) => {
         values.phone_no = "" + values.phone_no;
@@ -52,12 +55,23 @@ export function Details(props) {
         if (index != -1) {
           handleUpdate(values, index);
           return;
+        }else{
+          setLoading(true);
+          addNew({
+            variables: {
+              staff: values
+            }
+          }).then(({ data: { addStaff } }) => {
+              setLoading(false);
+          }).catch(error => {
+              DevAlertPopUp(error.message);
+          });
         }
         //handleSave(values);
       }}
     >
       {({
-        handleSubmit, setFieldValue, values, touched, errors,getFieldProps
+        handleSubmit, setFieldValue,getFieldProps,values, touched, errors,
       }) => (
         <form onSubmit={handleSubmit} className="form fv-plugins-framework">
           <div className="clearfix">
@@ -68,9 +82,8 @@ export function Details(props) {
                 <div className="d-flex">
                   <Field placeholder={fields.name} 
                   {...getFieldProps("name")}
-                  type="text"  className={`form-control py-5 px-6 ${getInputClasses({touched,errors},
-                    "name"
-                  )}`}
+                  type="text"  
+                  className={`form-control py-5 px-6 ${getInputClasses({touched,errors},"name")}`}
                   name="name" value={values.name || ""} />
                 </div>
                 {touched.name && errors.name ? (
@@ -190,6 +203,7 @@ export function Details(props) {
               <div className="form-group mb-0">
                 <div className="d-flex justify-content-end patientButton pos_fix">
                   <button type="submit" className="btn btn-primary">Save</button>
+                  <SpinnerSmall loading={loading}/>
                 </div>
               </div>
             </div>

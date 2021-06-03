@@ -18,6 +18,7 @@ import { AddFab } from "../../components/AddFab";
 import { StaffModel } from "../../models/StaffModel";
 import { SpinnerLarge } from "../../components/Spinner";
 
+let newStaff = StaffModel;
 
 class StaffPage extends React.Component {
   fields = [
@@ -45,11 +46,12 @@ class StaffPage extends React.Component {
       dataType: 'number',
     },
   ];
+  
   constructor(props) {
     super(props);
     this.state = {
       isDrawerOpen: false,
-      currentStaff: {},
+      currentStaff: false,
       currentIndex: -1,
       staffList: [],
       isUpdate: true,
@@ -67,13 +69,14 @@ class StaffPage extends React.Component {
     });
   }
   componentDidCatch() { }
-  componentWillUnmount() {}
+  componentWillUnmount() { }
 
   toggleDrawer = (open, selectedItem, index) => event => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
     }
-    this.setState({ isDrawerOpen: open, currentStaff: selectedItem || false, currentIndex: index || 0 });
+    index=index===undefined?-1:index;
+    this.setState({ isDrawerOpen: open, currentStaff: selectedItem || newStaff, currentIndex: index});
   };
 
   toggleDrawerClose = () => {
@@ -110,8 +113,8 @@ class StaffPage extends React.Component {
     let tempPickList = JSON.parse(JSON.stringify(this.state.staffList));
     let updatedItem = tempPickList[index];
     let items = [...tempPickList];
-    let item = { ...updatedItem,...updatedValue };
-    console.log("item-->",item);
+    let item = { ...updatedItem, ...updatedValue };
+    console.log("item-->", item);
     items[index] = item;
     this.setState({ staffList: items });
     delete updatedValue.id;
@@ -120,11 +123,11 @@ class StaffPage extends React.Component {
         staffID: updatedItem.id,
         staff: { ...updatedValue }
       }
-    }).then(({data:{updateStaff}}) => {
+    }).then(({ data: { updateStaff } }) => {
       //this.props.refetchStaff();
       item = { ...item, id: updateStaff.id };
       items[index] = item;
-      this.setState({ staffList: items });
+      this.setState({ staffList: items,currentStaff:item});
     }).catch(error => {
       DevAlertPopUp(error.message);
     });
@@ -163,12 +166,10 @@ class StaffPage extends React.Component {
   };
 
   addNewStaff = (value) => {
-    let sfm= StaffModel;
-    sfm.name=value;
+    let sfm = StaffModel;
+    sfm.name = value;
     delete sfm.id;
-    
     let newstaff = { name: value };
-    DevConsoleLog("sfm-->",sfm);
     this.props.addStaff({
       variables: {
         staff: sfm
@@ -198,24 +199,29 @@ class StaffPage extends React.Component {
         <Filter value={staffList} handleDataSource={this.handleDataSource} fields={this.fields} />
         <div className="d-flex flex-column mt-1">
           <div className="contentSection collapse show w-100">
-              <SpinnerLarge loading={loading}/>
-              <ListActivity01
-                loading={loading}
-                dataList={staffList} 
-                pagename="Staff"
-                toggleDrawer={this.toggleDrawer}
-                handleSave={this.handleSaveSingle}
-                addNew={this.addNewStaff}
-                handleChangeDropDown={this.handleChangeDropDown}
-                handleDataSource={this.handleDataSource}
-                />
+            <SpinnerLarge loading={loading} />
+            <ListActivity01
+              loading={loading}
+              dataList={staffList}
+              pagename="Staff"
+              toggleDrawer={this.toggleDrawer}
+              handleSave={this.handleSaveSingle}
+              addNew={this.addNewStaff}
+              handleChangeDropDown={this.handleChangeDropDown}
+              handleDataSource={this.handleDataSource}
+            />
           </div>
         </div>
         <AddFab onClick={this.toggleDrawer(true)} />
         <RightSideDrawer
           isOpen={this.state.isDrawerOpen}
           toggleDrawer={this.toggleDrawer}>
-          <StaffDetailsTab data={this.state.currentStaff} handleUpdate={this.handleUpdate} index={this.state.currentIndex} />
+          <StaffDetailsTab
+            data={this.state.currentStaff}
+            handleUpdate={this.handleUpdate}
+            addNew={this.props.addStaff}
+            update={this.props.updateStaff}
+            index={this.state.currentIndex} />
         </RightSideDrawer>
       </div>
     );

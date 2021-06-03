@@ -3,7 +3,7 @@ import { OncallModel } from "./OncallModel";
 import { VideoData } from "./VideoData";
 
 export const AvailabilityModel = {
-    id:"0",
+    //id:"0",
     name: "availablity",
     inperson: InpersionModel,
     oncall:OncallModel,

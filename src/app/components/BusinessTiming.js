@@ -29,7 +29,7 @@ export default function BusinessTiming(props) {
     return (
         <div>
             <div className="text-left  mt-3 pb-2 session_start border-bottom">
-
+            <label className="staff_title_text p-l-5">Working Days</label>
                 {businessHours.map((value,i) => {
                     return (
                         <div className="session_part row mb-3" key={i}>

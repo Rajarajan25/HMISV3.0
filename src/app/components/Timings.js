@@ -7,6 +7,8 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { makeStyles } from '@material-ui/core/styles';
 import { DevConsoleLog } from '../SiteUtill';
 import { Field } from 'formik'
+import { TimingsModel } from '../models/TimingsModel';
+import Availability from './Availability';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -28,6 +30,10 @@ export default function Timings(props) {
   const { formikValues, setFieldValue } = props;
   const classes = useStyles();
 
+  if(!formikValues.timings||!formikValues.timings.timing_id){
+    formikValues.timings= TimingsModel;
+  }
+
   function handleTimingChanges(event) {
     let value = event.target.value == "true" ? true : false;
     setFieldValue(`timings.timing_id.sessions.business_hour`, value);
@@ -45,6 +51,7 @@ export default function Timings(props) {
             <FormControlLabel value={false} checked={formikValues.timings.timing_id.sessions.custome_hour} control={<Radio />} label="Custom" />
           </Field>
         </div>
+        <Availability {...props}/>
         {formikValues.timings.timing_id.sessions.business_hour ? <BusinessTiming {...props} /> : <CustomTiming {...props} />}
       </div>
     </div>
