@@ -14,12 +14,15 @@ export default function AppointmentTemplate(model) {
     <>
     <div className="movie">
       <img src={movieInfo.image} />
-      <div className="movie-text">{movieInfo.text}</div>
-      
+      <div className="movie-text"> 
+        <div className="service_name">{movieInfo.text}</div>
+        <div className="service_time">
+          {localization.formatDate(model.appointmentData.startDate, 'shortTime')}
+          {' - '}
+          {localization.formatDate(model.appointmentData.endDate, 'shortTime')}  
+        </div>
+      </div>
     </div>
-    <div className="movie-text">{localization.formatDate(model.appointmentData.startDate, 'shortTime')}
-    {' - '}
-    {localization.formatDate(model.appointmentData.endDate, 'shortTime')}</div>
     </>
   );
 }
