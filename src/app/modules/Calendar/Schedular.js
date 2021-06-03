@@ -28,6 +28,7 @@ const views = [{
   name: 'Agenda',
 }, ];
 
+
 export default function Schedular  () {
   const [state,setState]=React.useState({
     allowAdding: true,
