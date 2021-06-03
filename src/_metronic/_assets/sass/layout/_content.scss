@@ -4984,9 +4984,9 @@ p.setting_color {
 		background: #fff;
 		border-radius: 25px;
 	}
-	.dx-scheduler-view-switcher.dx-tabs .dx-tab.dx-tab-selected::before {
+	/*.dx-scheduler-view-switcher.dx-tabs .dx-tab.dx-tab-selected::before {
 		background: transparent;
-	}
+	}*/
 	.dx-tab.dx-tab-selected {
 		.dx-tab-text {
 			color: #171B1C;
@@ -5303,6 +5303,12 @@ p.setting_color {
     	width: auto !important;
 		min-width: 300px;
 		max-width: 300px;
+	}
+}
+.dx-scheduler-work-space-month {
+	.dx-scheduler-appointment {
+		width: auto !important;
+		min-width: 200px;
 	}
 }
 .dx-scheduler-appointment-tooltip-wrapper .dx-overlay-content .dx-popup-content .dx-list-item {
