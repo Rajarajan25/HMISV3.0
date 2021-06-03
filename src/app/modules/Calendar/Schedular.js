@@ -16,7 +16,6 @@ export default function Schedular  () {
     allowDragging: true,
     allowUpdating: true,
     showCurrentTimeIndicator: true,
-    shadeUntilCurrentTime: true,
   });
   const onContentReady=(e) =>{
     const currentHour = new Date().getHours() - 1;
@@ -30,7 +29,6 @@ export default function Schedular  () {
         defaultCurrentView="week"
         showCurrentTimeIndicator={state.showCurrentTimeIndicator}
         showAllDayPanel={false}
-        shadeUntilCurrentTime={state.shadeUntilCurrentTime}
         defaultCurrentDate={currentDate}
         editing={state}
         height={800}
