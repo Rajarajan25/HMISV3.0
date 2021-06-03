@@ -138,5 +138,10 @@
 @font-face {
     font-family: Proxima Nova;
     font-weight: bold;
-    src: url("Proxima Nova Bold.otf") format("opentype");
+    src: url("ProximaNova-Bold.otf") format("opentype");
+}
+@font-face {
+    font-family: Proxima Nova;
+    font-weight: 800;
+    src: url("ProximaNova-Extrabold.otf") format("opentype");
 }

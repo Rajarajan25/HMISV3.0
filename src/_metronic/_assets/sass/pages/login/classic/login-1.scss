@@ -1864,8 +1864,8 @@
             height: 35px;
             span:after {
                 height: 3px;
-                top: 23px;
-                left: 14px;
+                top: 25px;
+                left: 12px;
             }
             span:before {
                 height: 3px;
@@ -1878,18 +1878,18 @@
             height: 35px;
         }
         label:hover span:before {
-            width: 12px;
+            width: 10px;
             transition: width 100ms ease;
         }
         label:hover span:after {
             width: 20px;
             transition: width 150ms ease 100ms;
         }
-        input[type=radio]:checked + label span:after {
+        input[type=radio]:checked + label span:after, input[type=radio]:checked + label:hover span:after {
             width: 20px;
         }
-        input[type=radio]:checked + label span:before {
-            width: 12px;
+        input[type=radio]:checked + label span:before, input[type=radio]:checked + label:hover span:before {
+            width: 10px;
         }
     } 
     .serve_sec .pat_box {

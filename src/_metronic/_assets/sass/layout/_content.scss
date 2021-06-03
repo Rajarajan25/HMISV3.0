@@ -4949,13 +4949,14 @@ p.setting_color {
 		color: #5D1DD7;
 		-webkit-box-shadow: none;
 		box-shadow: none;
-		left: -1px;
-		min-height: 40px;
+		left: 12px;
+		min-height: 60px;
 		height: auto !important;
-		border-radius: 0 10px 10px 0;
-		top: 5px;
+		border-radius: 10px;
+		top: 4px;
 		font-weight: bold;
 		padding: 5px 0;
+		box-shadow: 0px 3px 6px #1043a71a;
 		&.dx-state-hover {
 			&.dx-resizable {
 				box-shadow: none;
@@ -5006,7 +5007,7 @@ p.setting_color {
 	}
 	.dx-scheduler-navigator-caption {
 		width: 300px;
-		font-size: 20px;
+		font-size: 24px;
 		border: 0;
 		color: #292D34;
 		font-weight: bold;
@@ -5071,6 +5072,12 @@ p.setting_color {
 	}
 	.dx-button-has-text .dx-button-content {
 		text-align: left;
+		padding-top: 4px;
+	}
+	.service_time {
+		font-size: 13px;
+		font-weight: normal;
+		margin-top: 7px;
 	}
 }
 .dx-widget {
@@ -5083,7 +5090,7 @@ p.setting_color {
     border-right: 1px solid #E6E8EF;
 }
 .dx-scheduler-date-table-cell, .dx-scheduler-time-panel-cell {
-    height: 60px;
+    height: 85px;
 }
 .dx-scheduler-work-space.dx-scheduler-work-space-grouped:not(.dx-scheduler-agenda) .dx-scheduler-all-day-panel td {
     border-left: 1px solid #E6E8EF;
@@ -5155,7 +5162,7 @@ p.setting_color {
     padding: 15px 15px 0;
 }
 .dx-scheduler-appointment-recurrence .dx-scheduler-appointment-content {
-	padding: 5px 7px 5px 7px;
+	padding: 10px 10px !important;
 }
 .daterangepicker {
 	.react-google-flight-datepicker {
@@ -5220,25 +5227,25 @@ p.setting_color {
 		font-size: 15px;
 		img {
 			width: 30px;
-			margin-right: 10px;
+			margin-right: 15px;
 		}
 	}
 }
 .dx-scheduler-appointment[data-movieid-1] {
-	background-color: #5D1DD71A !important;
-	color: #5D1DD7 !important;
+	background-color: #DCEEFF !important;
+    color: #125795 !important;
 }
 .dx-scheduler-appointment[data-movieid-2] {
 	background-color: #2798B71A !important;
 	color: #2798B7 !important;
 }
 .dx-scheduler-appointment[data-movieid-3] {
-	background-color: #E9F7EF !important;
-	color: #27AE60 !important;
+	background-color: #EAF4F5 !important;
+    color: #08585F !important;
 }
 .dx-scheduler-appointment[data-movieid-4] {
-	background-color: #F7F2E8 !important;
-	color: #B17F22 !important;
+	background-color: #FFEEDB !important;
+    color: #CD6C1B !important;
 }
 .dx-scheduler-appointment[data-movieid-5] {
 	background-color: #FBE8F1 !important;
@@ -5250,86 +5257,52 @@ p.setting_color {
 	}
 }
 .dx-scheduler-work-space-day {
-	.dx-item-content {
-		.movie {
-			flex-direction: row-reverse;
-			img {
-				margin-right: 0;
-			}
-		}
-		.movie-text {
-			margin-right: auto;
-		}
-	}
-}
-.dx-scheduler-work-space-day {
 	.dx-scheduler-appointment[data-movieid-1] {
-		border-left: 5px solid #5D1DD7;
     	width: auto !important;
 		min-width: 300px;
 	}
 	.dx-scheduler-appointment[data-movieid-2] {
-		border-left: 5px solid #2798B7;
     	width: auto !important;
 		min-width: 300px;
 	}
 	.dx-scheduler-appointment[data-movieid-3] {
-		border-left: 5px solid #27AE60;
     	width: auto !important;
 		min-width: 300px;
 	}
 	.dx-scheduler-appointment[data-movieid-4] {
-		border-left: 5px solid #B17F22;
     	width: auto !important;
 		min-width: 300px;
 	}
 	.dx-scheduler-appointment[data-movieid-5] {
-		border-left: 5px solid #DE1E77;
     	width: auto !important;
 		min-width: 300px;
 	}
 }
 .dx-scheduler-agenda {
 	.dx-scheduler-appointment[data-movieid-1] {
-		border-left: 5px solid #5D1DD7;
     	width: auto !important;
 		min-width: 300px;
 		max-width: 300px;
 	}
 	.dx-scheduler-appointment[data-movieid-2] {
-		border-left: 5px solid #2798B7;
     	width: auto !important;
 		min-width: 300px;
 		max-width: 300px;
 	}
 	.dx-scheduler-appointment[data-movieid-3] {
-		border-left: 5px solid #27AE60;
     	width: auto !important;
 		min-width: 300px;
 		max-width: 300px;
 	}
 	.dx-scheduler-appointment[data-movieid-4] {
-		border-left: 5px solid #B17F22;
     	width: auto !important;
 		min-width: 300px;
 		max-width: 300px;
 	}
 	.dx-scheduler-appointment[data-movieid-5] {
-		border-left: 5px solid #DE1E77;
     	width: auto !important;
 		min-width: 300px;
 		max-width: 300px;
-	}
-	.dx-item-content {
-		.movie {
-			flex-direction: row-reverse;
-			img {
-				margin-right: 0;
-			}
-		}
-		.movie-text {
-			margin-right: auto;
-		}
 	}
 }
 .dx-scheduler-appointment-tooltip-wrapper .dx-overlay-content .dx-popup-content .dx-list-item {
