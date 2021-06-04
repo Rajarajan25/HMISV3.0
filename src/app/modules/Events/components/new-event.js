@@ -6,7 +6,7 @@ import {Button} from "react-bootstrap";
 import { EventTab } from "./event-tab";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import Drawer from '@material-ui/core/Drawer';
-import {DateRangePickersUtil} from "../../Components/DateAndTimePicker"
+import {EventDashboard} from "./even-dahboard";
 
 const useStyles = makeStyles({
   list: {
@@ -209,6 +209,7 @@ const toggleDrawerClose = () => {
           </div>
         </Drawer>
         
+        <EventDashboard />
       </div>
     );
 }
