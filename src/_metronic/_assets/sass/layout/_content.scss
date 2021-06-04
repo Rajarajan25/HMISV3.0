@@ -5093,7 +5093,7 @@ p.setting_color {
     border-top: 1px solid #E6E8EF;
 }
 .dx-scheduler-all-day-panel .dx-scheduler-all-day-table-cell {
-    border-bottom: 2px solid #E6E8EF;
+    border-bottom: 1px solid #E6E8EF;
 }
 .dx-scheduler-work-space-grouped .dx-scheduler-group-row th, .dx-scheduler-work-space.dx-scheduler-work-space-grouped .dx-scheduler-last-group-cell {
     border-right: 1px solid #E6E8EF;
@@ -5314,6 +5314,11 @@ p.setting_color {
 	.dx-scheduler-appointment {
 		width: auto !important;
 		min-width: 200px;
+	}
+}
+.dx-scheduler-work-space-week {
+	.dx-scheduler-work-space-day.dx-scheduler-work-space-odd-cells .dx-scheduler-date-table-row:nth-child(odd) .dx-scheduler-date-table-cell, .dx-scheduler-work-space-week.dx-scheduler-work-space-odd-cells .dx-scheduler-date-table-row:nth-child(odd) .dx-scheduler-date-table-cell, .dx-scheduler-work-space-work-week.dx-scheduler-work-space-odd-cells .dx-scheduler-date-table-row:nth-child(odd) .dx-scheduler-date-table-cell {
+		border-top: 0px solid #E6E8EF;
 	}
 }
 .dx-scheduler-appointment-tooltip-wrapper .dx-overlay-content .dx-popup-content .dx-list-item {
