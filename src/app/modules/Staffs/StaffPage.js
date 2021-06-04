@@ -46,7 +46,7 @@ class StaffPage extends React.Component {
       dataType: 'number',
     },
   ];
-  
+
   constructor(props) {
     super(props);
     this.state = {
@@ -55,6 +55,7 @@ class StaffPage extends React.Component {
       currentIndex: -1,
       staffList: [],
       isUpdate: true,
+      isloading: false,
     };
   }
 
@@ -75,8 +76,8 @@ class StaffPage extends React.Component {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
     }
-    index=index===undefined?-1:index;
-    this.setState({ isDrawerOpen: open, currentStaff: selectedItem || newStaff, currentIndex: index});
+    index = index === undefined ? -1 : index;
+    this.setState({ isDrawerOpen: open, currentStaff: selectedItem || newStaff, currentIndex: index });
   };
 
   toggleDrawerClose = () => {
@@ -116,7 +117,7 @@ class StaffPage extends React.Component {
     let item = { ...updatedItem, ...updatedValue };
     console.log("item-->", item);
     items[index] = item;
-    this.setState({ staffList: items });
+    this.setState({ staffList: items, isloading: true });
     delete updatedValue.id;
     this.props.updateStaff({
       variables: {
@@ -127,7 +128,7 @@ class StaffPage extends React.Component {
       //this.props.refetchStaff();
       item = { ...item, id: updateStaff.id };
       items[index] = item;
-      this.setState({ staffList: items,currentStaff:item});
+      this.setState({ staffList: items, currentStaff: item, isloading: false });
     }).catch(error => {
       DevAlertPopUp(error.message);
     });
@@ -166,25 +167,26 @@ class StaffPage extends React.Component {
   };
 
   addNewStaff = (value) => {
-    let sfm = StaffModel;
-    sfm.name = value;
+    let sfm = { ...StaffModel };
+    sfm = { ...sfm, ...value };
     delete sfm.id;
-    let newstaff = { name: value };
+
+    let newstaff = {};
+    this.setState({ isloading: true });
     this.props.addStaff({
       variables: {
         staff: sfm
       }
     }).then(({ data: { addStaff } }) => {
-      newstaff = { ...newstaff, id: addStaff.id };
+      newstaff = { ...sfm, id: addStaff.id };
       this.setState({
         currentStaff: { ...newstaff },
-        staffList: [...this.state.staffList, newstaff]
+        staffList: [...this.state.staffList, newstaff],
+        isloading: false
       });
-      this.props.refetchStaff();
-    })
-      .catch(error => {
-        DevAlertPopUp(error.message);
-      });
+    }).catch(error => {
+      DevAlertPopUp(error.message);
+    });
   }
 
   handleDataSource = (values) => {
@@ -219,9 +221,9 @@ class StaffPage extends React.Component {
           <StaffDetailsTab
             data={this.state.currentStaff}
             handleUpdate={this.handleUpdate}
-            addNew={this.props.addStaff}
-            update={this.props.updateStaff}
-            index={this.state.currentIndex} />
+            isloading={this.state.isloading}
+            index={this.state.currentIndex}
+            addNew={this.addNewStaff} />
         </RightSideDrawer>
       </div>
     );

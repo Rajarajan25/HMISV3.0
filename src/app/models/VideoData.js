@@ -1,4 +1,4 @@
 export const VideoData={
-    id: "0",
+    id: "",
     video_type:""
 }

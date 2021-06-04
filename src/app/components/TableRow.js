@@ -11,7 +11,8 @@ import { ServiceEdit } from '../components/ServiceEdit';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 export function TableRow(props) {
-    const { row, drawer, addButton, addText, handleSave, addNew, handleChangeDropDown, pagename, handleDataSource } = props;
+    const { row, drawer, addButton, addText, handleSave, addNew, 
+        handleChangeDropDown, pagename, handleDataSource } = props;
     const [addNewRow, setAddNewRow] = useState(false);
     const [selectedIndexName, setSelectedIndexName] = React.useState(-1);
     const [selectedIndexMail, setSelectedIndexMail] = React.useState(-1);
@@ -27,7 +28,7 @@ export function TableRow(props) {
         handleDataSource(items)
     }
     const handleNew = () => {
-        addNew(newName.current.value);
+        addNew({name:newName.current.value});
         setAddNewRow(false);
     }
     const handleEdit = (type, index) => {

@@ -7,12 +7,11 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
-import { StaffDetail } from "./staff-detail";
-import { StaffTiming } from "./staff-timing";
 import { StaffService } from "./staff-service";
 import { StaffSetting } from "./staff-setting";
 import { Details } from '../../../components/Details'
 import { Duration } from '../../../components/Duration'
+import Toast from '../../../components/Toast';
 
 function TabContainer(props) {
   return (
@@ -38,6 +37,7 @@ const useStyles = makeStyles(theme => ({
 export function StaffDetailsTab(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+  const [toastOpen, setToast] = React.useState(false);
   const { data, index, handleUpdate } = props;
   const { staff_timings } = data;
   const durationData = {
@@ -69,8 +69,16 @@ export function StaffDetailsTab(props) {
     // productCommision: "Set Product Commission",
   }
 
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+        return;
+    }
+    setToast(false);
+};
   function handleChange(event, newValue) {
+    if(data.name)
     setValue(newValue);
+    else setToast(true);
   }
   function editStaff(values) {
     console.log("values-->", values);
@@ -80,6 +88,7 @@ export function StaffDetailsTab(props) {
     }
   }
   return (
+    
     <Col sm={12} className="bg-white d-flex flex-column p-0">
       <div className={classes.root}>
         <div className="d-flex BoxShade">
@@ -111,6 +120,7 @@ export function StaffDetailsTab(props) {
           {value === 3 && <TabContainer> <StaffSetting /> </TabContainer>}
         </div>
       </div>
+      <Toast message={"Please fill and save,after move to the tab"} open={toastOpen} handleClose={handleClose}/>
     </Col>
   );
 }

@@ -17,11 +17,9 @@ export function SpinnerLarge(props) {
 export function SpinnerSmall(props) {
     const { loading } = props;
     if (!loading) {
-        return <div></div>;
+        return <></>;
     }
     return (
-        <div {...props}>
-            <span className="ml-3 spinner spinner-white"></span>
-        </div>
+        <><span className="ml-3 mr-3 spinner spinner-white" {...props}></span></>
     )
 }

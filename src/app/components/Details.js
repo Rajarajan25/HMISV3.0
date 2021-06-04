@@ -42,8 +42,7 @@ const getInputClasses = (props,fieldname) => {
 
 export function Details(props) {
   const classes = useStyles();
-  const [loading, setLoading] = useState(false);
-  const {current, fields, index, handleUpdate,addNew} = props;
+  const {current, fields, index, handleUpdate,addNew,isloading} = props;
   return (
     <Formik
       initialValues={current}
@@ -56,16 +55,7 @@ export function Details(props) {
           handleUpdate(values, index);
           return;
         }else{
-          setLoading(true);
-          addNew({
-            variables: {
-              staff: values
-            }
-          }).then(({ data: { addStaff } }) => {
-              setLoading(false);
-          }).catch(error => {
-              DevAlertPopUp(error.message);
-          });
+          addNew(values);
         }
         //handleSave(values);
       }}
@@ -202,8 +192,7 @@ export function Details(props) {
               {fields.syncwith && <Syncwith />}
               <div className="form-group mb-0">
                 <div className="d-flex justify-content-end patientButton pos_fix">
-                  <button type="submit" className="btn btn-primary">Save</button>
-                  <SpinnerSmall loading={loading}/>
+                  <button type="submit" className="btn btn-primary">Save <SpinnerSmall loading={isloading}/> </button>
                 </div>
               </div>
             </div>

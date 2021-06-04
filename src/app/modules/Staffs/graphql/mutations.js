@@ -1,11 +1,3 @@
-const commonParamsDef = `{
-  $name: String!
-}`;
-
-const commonParams = `{
-  name: $name,
-}`;
-
 const staffAdd = `
   mutation addStaff($staff: StaffInput) {
     addStaff(staff:$staff) {
