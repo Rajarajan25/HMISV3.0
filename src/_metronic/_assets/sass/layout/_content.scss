@@ -4917,9 +4917,9 @@ p.setting_color {
 		border: 0;
 	}
 	.dx-scheduler-header-panel-cell {
-		font-weight: 500;
 		font-size: 16px;
-		color: #707070;
+		color: #424D51;
+		font-family: 'ProximaNova_SemiBold';
 	}
 	.dx-scheduler-date-table-cell {
 		border-left: 1px solid #E6E8EF;
@@ -4959,8 +4959,8 @@ p.setting_color {
 		box-shadow: 0px 3px 6px #1043a71a;
 		&.dx-state-hover {
 			&.dx-resizable {
-				box-shadow: none;
-				-webkit-box-shadow: none;
+				box-shadow: 0px 3px 6px #1043a71a;
+				-webkit-box-shadow: 0px 3px 6px #1043a71a;
 			}
 		}
 		&.dx-state-focused {
@@ -4977,8 +4977,9 @@ p.setting_color {
 	}
 	.dx-tab-text {
 		color: #788083;
-		font-weight: bold;
 		font-size: 16px;
+		font-family: ProximaNova_SemiBold !important;
+		letter-spacing: 0.5px;
 	}
 	.dx-scheduler-view-switcher.dx-tabs .dx-tab.dx-tab-selected, .dx-scheduler-view-switcher.dx-tabs .dx-tab.dx-state-hover {
 		background: #fff;
@@ -5006,12 +5007,12 @@ p.setting_color {
     	margin-top: 13px;
 	}
 	.dx-scheduler-navigator-caption {
-		width: 300px;
+		width: 320px;
 		font-size: 24px;
 		border: 0;
-		color: #292D34;
-		font-weight: bold;
+		color: #171B1C;
 		margin-left: 30px;
+		font-family: ProximaNova_ExtraBold !important;
 		&.dx-state-hover, &.dx-state-focused {
 			background-color: transparent;
 		}
@@ -5064,7 +5065,7 @@ p.setting_color {
 		display: block;
 		background-color: #EBF2FF;
 		margin: 14px 15px;
-		padding: 7px 7px;
+		padding: 7px 0px;
 		border-radius: 25px;
 	}
 	.dx-button-mode-contained .dx-icon {
@@ -5072,16 +5073,11 @@ p.setting_color {
 	}
 	.dx-button-has-text .dx-button-content {
 		text-align: left;
-		padding-top: 4px;
-	}
-	.service_time {
-		font-size: 13px;
-		font-weight: normal;
-		margin-top: 7px;
+		padding-top: 0px;
 	}
 }
 .dx-widget {
-	font-family: "Proxima Nova", "Gotham Pro", "Arial", sans-serif !important;
+	font-family: "ProximaNova", "Proxima Nova", "Gotham Pro", "Arial", sans-serif !important;
 }
 .dx-scheduler-work-space {
     margin-top: -70px;
@@ -5224,10 +5220,19 @@ p.setting_color {
 	.movie {
 		display: flex;
 		align-items: center;
-		font-size: 15px;
+		font-size: 16px;
+		font-weight: normal;
 		img {
 			width: 30px;
 			margin-right: 15px;
+		}
+		.service_name {
+			font-family: ProximaNova_Bold !important;
+		}
+		.service_time {
+			font-size: 13px;
+			margin-top: 6px;
+			font-family: Lato !important;
 		}
 	}
 }
@@ -5248,8 +5253,8 @@ p.setting_color {
     color: #CD6C1B !important;
 }
 .dx-scheduler-appointment[data-movieid-5] {
-	background-color: #FBE8F1 !important;
-	color: #DE1E77 !important;
+	background-color: #F7DCFF !important;
+    color: #951272 !important;
 }
 .subheader {
 	.breadcrumb {
