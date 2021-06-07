@@ -9,11 +9,10 @@ function getMovieById(id) {
 
 export default function AppointmentTemplate(model) {
   const movieInfo = getMovieById(model.appointmentData.movieId) || {};
-  console.log(localization.formatDate(model.appointmentData.startDate, 'shortTime'))
   return (
     <>
     <div className="movie">
-      <img src={movieInfo.image} />
+      <img src={movieInfo.image} alt={movieInfo.imageAlt}/>
       <div className="movie-text"> 
         <div className="service_name">{movieInfo.text}</div>
         <div className="service_time">
