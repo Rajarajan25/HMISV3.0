@@ -23,11 +23,11 @@ const Column=[{name:"Service Provider",hide:false},
 ]
 
 export function ListActivity01(props) {
-  const {dataList,toggleDrawer,handleSave,addNew,handleChangeDropDown,pagename}=props;
+  const {dataList,toggleDrawer,handleSave,addNew,handleChangeDropDown,pagename,handleDelete, handleDuplicate}=props;
   return (
     <div className="contentArea">
       <TableHeader column={Column} listCount={dataList.length} expandVisiable={true} countLable="staff"/>
-      <TableRow {...props} row={dataList} drawer={toggleDrawer} addButton={true} addText="New Staff" />
+    <TableRow {...props} row={dataList} drawer={toggleDrawer} handleDelete={handleDelete} handleDuplicate={handleDuplicate} addButton={true} addText="New Staff" />
     </div>
   );
 }

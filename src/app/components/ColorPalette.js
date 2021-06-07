@@ -65,11 +65,15 @@ export function ColorPalette(props) {
 }
 
 export function ColorPaletteFormik(props) {
+  const { handleChangeDropDown, item } = props;
+  const handleColorChange = (eve, id) => {
+    handleChangeDropDown(eve.hex, id, "avatar_bg_color")
+  };
   return (
     <>
       <div className="col-12 pr-0">
         <div className="color_select">
-          {colorDropDown.map((item, index) => {
+          {colorDropDown.map((colors, index) => {
             return (
               <div class="d-inline-flex color_col p-3">
                 <Field
@@ -77,17 +81,23 @@ export function ColorPaletteFormik(props) {
                   id={"color_" + index}
                   name="color_code"
                   className=""
-                  value={item}
+                  value={colors}
                 />
                 <label className="" for={"color_" + index}>
-                  <span style={{ backgroundColor: item }}></span>
+                <span
+                    style={{ backgroundColor: colors }}
+                    onClick={() =>
+                      handleChangeDropDown(colors, item.id, "avatar_bg_color")
+                    }
+                  ></span>
                 </label>
               </div>
             );
           })}
-          <div class="d-inline-flex color_col p-3">
+          <div class="d-inline-flex color_col p-3 plus_btn">
             <span className="color_add">
-              <i>+</i>
+            <ColorPicker onChangeComplete={(e) => handleColorChange(e, item.id)}/>
+            <i className="add">+Add</i>
             </span>
           </div>
         </div>

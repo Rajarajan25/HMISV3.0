@@ -23,8 +23,10 @@ const staffUpdate = `
 `;
 
 const staffRemove = `
-  mutation deleteStaff($_id:ID!) {
-    deleteStaff(staffID: $_id)
+  mutation deleteStaff($staffID:ID!) {
+    deleteStaff(staffID: $staffID){
+      id
+    }
   }
 `;
 
