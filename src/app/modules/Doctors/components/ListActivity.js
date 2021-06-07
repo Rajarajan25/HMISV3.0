@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { StaffDetailsTab } from "./staff-details-tab";
 import { TableHeader } from '../../../components/TableHeader';
 import { TableRow } from '../../../components/TableRow';
+
 const useStyles = makeStyles({
   list: {
     width: 650,
@@ -12,14 +13,15 @@ const useStyles = makeStyles({
   },
 });
 
-const Column=[{name:"Service Provider",hide:false},
-{name:"Experiencer",hide:false},
-{name:"Services",hide:false},
-{name:"Status",hide:false},
-{name:"Sex",hide:false},
-{name:"Availability",hide:false},
-{name:"Email",hide:false},
-{name:"Phone",hide:false},
+const Column=[
+  {name:"Service Provider",hide:false},
+  {name:"Experiencer",hide:false},
+  {name:"Services",hide:false},
+  {name:"Status",hide:false},
+  {name:"Sex",hide:false},
+  {name:"Availability",hide:false},
+  {name:"Email",hide:false},
+  {name:"Phone",hide:false},
 ]
 
 export function ListActivity01(props) {

@@ -17,7 +17,7 @@ export function TableHeader(props) {
                     </li>);
                     else if (i === column.length - 1) return (<li className="col-lg-2 position-relative text-right" key={i} >
                         <span className="title_drag">{item.name}</span>
-                        <span className="addMultiplecolumn rounded-circle bg-grey"><i className="fa fa-plus fa-sm"></i></span>
+                        {/* <span className="addMultiplecolumn rounded-circle bg-grey"><i className="fa fa-plus fa-sm"></i></span> */}
                     </li>)
                     else return (<li className="col-lg-1" key={i}><span className="title_drag">{item.name}</span></li>)
                 })}

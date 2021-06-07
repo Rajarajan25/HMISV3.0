@@ -77,7 +77,7 @@ _redux.setupAxios(axios, store);
 //   }),
 //   cache: new InMemoryCache()
 // });
-
+console.log("PUBLIC_URL-->",PUBLIC_URL);
 ReactDOM.render(
   <MetronicI18nProvider>
     <MetronicLayoutProvider>

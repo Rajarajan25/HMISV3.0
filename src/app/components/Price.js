@@ -92,7 +92,7 @@ export function Price(props) {
                     <div className="d-flex row" key={i}>
                       <div className="col-4">
                         <label className="form-label d-block">Provider/Staff Name</label>
-                        <Field placeholder="Gopinath" type="text" className={`form-control`} name={`payments.service_pricing_by_staff.${i}.staff_id`} />
+                        <Field placeholder="name" type="text" className={`form-control`} name={`payments.service_pricing_by_staff.${i}.staff_id`} />
                       </div>
                       <div className="col-3">
                         <label className="form-label d-block">Duration</label>

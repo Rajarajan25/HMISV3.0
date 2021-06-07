@@ -100,7 +100,26 @@ const initialState = {
             "private_service":true,
             "limit_booking":10
          },
+         "commission":{
+            "Commision":"10",
+            "tax_amount":"100",
+            "tax_percent":"10",
+            "voucher_amount":"20",
+            "voucher_percent":"2"
+         },
          "timings":{
+            "businessType":"MyBusiness",
+                  "businessAddress":[{
+                     "id":"1",
+                     "name":"Maadhuri Selvaraj",
+                     "address1":"2/130",
+                     "address2":"Kaliyamman Kovil Street, Keelakottai",
+                     "address3":"Melakottai (PO)",
+                     "city":"Madurai",
+                     "pincode":"625706"
+                  }],
+                  "ClientAddress":"",
+                  
             "availability":{
                "data":[
                   {
@@ -236,6 +255,28 @@ const initialState = {
                ]
             }
          },
+         "staff":[{
+            "id":"123455",
+            "name":"Maadhuri",
+            "mobile_number":"7094820686"
+         },
+         {
+            "id":"123456",
+            "name":"Prabhakaran",
+            "mobile_number":"6383376365",
+         },
+         {
+            "id":"123457",
+            "name":"Kabilan",
+            "mobile_number":"6383376365",
+         },
+         {
+            "id":"123458",
+            "name":"Murali",
+            "mobile_number":"6383376365",
+         }
+
+      ],
          "payments":{
             "currency":"usd",
             "deposit":1000,
@@ -321,6 +362,28 @@ const initialState = {
             "max-duration-in-seconds":5400,
             "min-duration-in-seconds":5400
          },
+         "staff":[{
+            "id":"123455",
+            "name":"Maadhuri",
+            "mobile_number":"7094820686"
+         },
+         {
+            "id":"123456",
+            "name":"Prabhakaran",
+            "mobile_number":"6383376365",
+         },
+         {
+            "id":"123457",
+            "name":"Kabilan",
+            "mobile_number":"6383376365",
+         },
+         {
+            "id":"123458",
+            "name":"Murali",
+            "mobile_number":"6383376365",
+         }
+
+      ],
          "relationships":{
             "staff":{
                "data":[
@@ -368,7 +431,26 @@ const initialState = {
             "private_service":true,
             "limit_booking":10
          },
+         "commission":{
+            "Commision":"10",
+            "tax_amount":"100",
+            "tax_percent":"10",
+            "voucher_amount":"20",
+            "voucher_percent":"2"
+         },
          "timings":{
+            "businessType":"MyBusiness",
+                  "businessAddress":[{
+                     "id":"1",
+                     "name":"Maadhuri Selvaraj",
+                     "address1":"2/130",
+                     "address2":"Kaliyamman Kovil Street, Keelakottai",
+                     "address3":"Melakottai (PO)",
+                     "city":"Madurai",
+                     "pincode":"625706"
+                  }],
+                  "ClientAddress":"",
+                  
             "availability":{
                "data":[
                   {
@@ -583,6 +665,28 @@ const initialState = {
             "max-duration-in-seconds":5400,
             "min-duration-in-seconds":5400
          },
+         "staff":[{
+            "id":"123455",
+            "name":"Maadhuri",
+            "mobile_number":"7094820686"
+         },
+         {
+            "id":"123456",
+            "name":"Prabhakaran",
+            "mobile_number":"6383376365",
+         },
+         {
+            "id":"123457",
+            "name":"Kabilan",
+            "mobile_number":"6383376365",
+         },
+         {
+            "id":"123458",
+            "name":"Murali",
+            "mobile_number":"6383376365",
+         }
+
+      ],
          "relationships":{
             "staff":{
                "data":[
@@ -630,7 +734,26 @@ const initialState = {
             "private_service":true,
             "limit_booking":10
          },
+         "commission":{
+            "Commision":"10",
+            "tax_amount":"100",
+            "tax_percent":"10",
+            "voucher_amount":"20",
+            "voucher_percent":"2"
+         },
          "timings":{
+            "businessType":"MyBusiness",
+                  "businessAddress":[{
+                     "id":"1",
+                     "name":"Maadhuri Selvaraj",
+                     "address1":"2/130",
+                     "address2":"Kaliyamman Kovil Street, Keelakottai",
+                     "address3":"Melakottai (PO)",
+                     "city":"Madurai",
+                     "pincode":"625706"
+                  }],
+                  "ClientAddress":"",
+                  
             "availability":{
                "data":[
                   {
