@@ -196,6 +196,7 @@ export function StaffTiming() {
                   <Tab label={<TabPerson />} />
                   <Tab label={<TabCall />} />
                   <Tab label={<TabVideo />} />
+                  <Tab label={<TabChat />} />
                 </Tabs>
               </AppBar>
             </div>
@@ -204,12 +205,12 @@ export function StaffTiming() {
             {value === 0 && <TabContainer> <AvailPerson />  </TabContainer>}
             {value === 1 && <TabContainer> <AvailCall /> </TabContainer>}
             {value === 2 && <TabContainer> <AvailVideo /> </TabContainer>}
+            {value === 3 && <TabContainer> <AvailChat /> </TabContainer>}
           </div>
         </div>
         <div className="day_select py-6">
           <div className="d-flex">
             <label className="staff_title_text">Working Days</label>
-            <Link to="#" className="ml-auto add_setting">+ Additional Settings</Link>
           </div>
           <div className="d-flex mt-3">
             <div className="day_input">
@@ -354,7 +355,11 @@ export function StaffTiming() {
             </div>
           </div>
         </div>
-
+        <div className="form-group mt-3 mb-0 d-none">
+          <div className="d-flex justify-content-end">
+            <span className="add_session pointer">More Timings</span>
+          </div>
+        </div>
         <div className="form-group mt-6 mb-0">
           <div className="d-flex justify-content-end patientButton add_timing">
             <button type="button" className="btn btn-primary m-0">+ Add Timings</button>
@@ -676,10 +681,19 @@ export function TabCall() {
   );
 }
 
+
 export function TabVideo() {
   return (
     <div className="clearfix">
       <span className="staff_tab_title">Video Call</span>
+    </div>
+  );
+}
+
+export function TabChat() {
+  return (
+    <div className="clearfix">
+      <span className="staff_tab_title">Chat</span>
     </div>
   );
 }
@@ -692,35 +706,11 @@ export function AvailPerson() {
           <input type="radio" id="availperson_01" name="availperson" className="" />
           <label className="mb-0" for="availperson_01">My Business Address</label>
         </div>
-        <Link to="#" className="ml-auto add_setting">+ Add Address</Link>
-      </div>
-      <div className="row per_add">
-        <div className="col-6">
-          <input type="radio" name="person_addr" id="address_01" />
-          <label className="person_addr" for="address_01">
-            <h3>Address 1</h3>
-            <p>B Wing Flat no 502,<br />
-              PN Building, Adayar,<br />
-              Chennai - 600096</p>
-          </label>
-        </div>
-        <div className="col-6">
-          <input type="radio" name="person_addr" id="address_02" />
-          <label className="person_addr" for="address_02">
-            <h3>Address 2</h3>
-            <p>B Wing Flat no 502,<br />
-              PN Building, Adayar,<br />
-              Chennai - 600096</p>
-          </label>
-        </div>
       </div>
       <div className="clearfix">
         <div className="avail-person">
           <input type="radio" id="availperson_02" name="availperson" className="" />
           <label className="mb-0" for="availperson_02">Client Address At Booking</label>
-        </div>
-        <div className="form-group">
-          <input placeholder="Address" type="text" className={`form-control`} name=""/>
         </div>
       </div>
     </div>
@@ -789,6 +779,23 @@ export function AvailVideo() {
           <label className="d-flex vid_bg" for="video_06">
             <img src={toAbsoluteUrl("/media/patients/google-meet_icon.png")} alt="" className="" />
             <span>Google Meet</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+export function AvailChat() {
+  return (
+    <div className="clearfix avail_device my-4">
+      <div className="row">
+        <div className="col-4">
+          <input type="radio" name="avail_chat" id="chat_01" />
+          <label className="d-flex vid_bg" for="chat_01">
+            <img src={toAbsoluteUrl("/media/patients/skype_icon.png")} alt="" className="" />
+            <span>Skype</span>
           </label>
         </div>
       </div>

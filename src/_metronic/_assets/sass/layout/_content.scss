@@ -4949,13 +4949,13 @@ p.setting_color {
 		color: #5D1DD7;
 		-webkit-box-shadow: none;
 		box-shadow: none;
-		left: 12px;
-		min-height: 60px;
+		left: 10px;
+		min-height: 50px;
 		height: auto !important;
 		border-radius: 10px;
-		top: 4px;
+		top: 3px;
 		font-weight: bold;
-		padding: 5px 0;
+		padding: 0;
 		box-shadow: 0px 3px 6px #1043a71a;
 		&.dx-state-hover {
 			&.dx-resizable {
@@ -4977,7 +4977,7 @@ p.setting_color {
 	}
 	.dx-tab-text {
 		color: #788083;
-		font-size: 16px;
+		font-size: 14px;
 		font-family: ProximaNova_SemiBold !important;
 		letter-spacing: 0.5px;
 	}
@@ -5158,7 +5158,7 @@ p.setting_color {
     padding: 15px 15px 0;
 }
 .dx-scheduler-appointment-recurrence .dx-scheduler-appointment-content {
-	padding: 10px 10px !important;
+	padding: 8px 5px 5px !important;
 }
 .daterangepicker {
 	.react-google-flight-datepicker {
@@ -5222,15 +5222,30 @@ p.setting_color {
 		align-items: center;
 		font-size: 16px;
 		font-weight: normal;
-		img {
-			width: 30px;
-			margin-right: 15px;
+		.movie-img {
+			background-color: #fff;
+			margin-right: 10px;
+			width: 45px;
+			height: 45px;
+			text-align: center;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			img {
+				height: 33px;
+    			margin: 0px auto;
+			}
+		}
+		.movie-text {
+			padding: 0;
 		}
 		.service_name {
-			font-family: ProximaNova_Bold !important;
+			font-family: 'Gotham Pro';
+			font-size: 1.1rem;
+			font-weight: 500;
 		}
 		.service_time {
-			font-size: 13px;
+			font-size: 12px;
 			margin-top: 6px;
 			font-family: Lato !important;
 		}
@@ -5239,22 +5254,27 @@ p.setting_color {
 .dx-scheduler-appointment[data-movieid-1] {
 	background-color: #DCEEFF !important;
     color: #125795 !important;
+	border-left: 5px solid #125795;
 }
 .dx-scheduler-appointment[data-movieid-2] {
 	background-color: #2798B71A !important;
 	color: #2798B7 !important;
+	border-left: 5px solid #2798B7;
 }
 .dx-scheduler-appointment[data-movieid-3] {
 	background-color: #EAF4F5 !important;
     color: #08585F !important;
+	border-left: 5px solid #08585F;
 }
 .dx-scheduler-appointment[data-movieid-4] {
 	background-color: #FFEEDB !important;
     color: #CD6C1B !important;
+	border-left: 5px solid #CD6C1B;
 }
 .dx-scheduler-appointment[data-movieid-5] {
 	background-color: #F7DCFF !important;
     color: #951272 !important;
+	border-left: 5px solid #951272;
 }
 .subheader {
 	.breadcrumb {
@@ -5311,9 +5331,8 @@ p.setting_color {
 	}
 }
 .dx-scheduler-work-space-month {
-	.dx-scheduler-appointment {
-		width: auto !important;
-		min-width: 200px;
+	.gg {
+		color: red;
 	}
 }
 .dx-scheduler-work-space-week {
