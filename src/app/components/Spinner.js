@@ -3,7 +3,7 @@ import React from "react";
 export function SpinnerLarge(props) {
     const { loading } = props;
     if (!loading) {
-        return <div></div>;
+        return <></>;
     }
     return (
         <div>

@@ -9,6 +9,8 @@ import { AvailableDropDown } from "../components/AvailableDropDown";
 import { ColorAndAvatarDropDown } from "../components/ColorAndAvatarDropDown";
 import { ServiceEdit } from "../components/ServiceEdit";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import { AccordionDetails } from "@material-ui/core";
 
 export function TableRow(props) {
   const {
@@ -62,7 +64,7 @@ export function TableRow(props) {
     props.handleDuplicate(item);
   };
   return (
-    <div className="innerContent collapse show" id="staffmanagement">
+    <div className="collapse show w-100" id="staffmanagement" data-parent="#accordionExample">
       <div className="row">
         <div className="col-lg-12">
           <div className="topMiddlecontent">
@@ -85,7 +87,7 @@ export function TableRow(props) {
                               {...provided.dragHandleProps}
                               key={i}
                             >
-                              <div className="drag_hov mh-100 my-auto">
+                              <div className="drag_hov mh-100 my-auto cursor-move">
                                 <span className="cu-task-row-toggle__marker"></span>
                                 <img
                                   src={toAbsoluteUrl(
@@ -343,29 +345,8 @@ export function TableRow(props) {
               <div></div>
             )}
           </div>
-          {addButton ? (
-            <button
-              type="button"
-              className="customNewtaskBTN"
-              onClick={() => setAddNewRow(true)}
-            >
-              + {addText}
-            </button>
-          ) : (
-            <div></div>
-          )}
+          {addButton ? <button type="button" className="customNewtaskBTN" onClick={() => setAddNewRow(true)}>+ {addText}</button> : <div></div>}
         </div>
-        );
-        {addNewRow ? (
-          <AddNewField
-            {...props}
-            nameRef={newName}
-            handleNew={handleNew}
-            setAddNewRow={setAddNewRow}
-          />
-        ) : (
-          <div></div>
-        )}
       </div>
     </div>
   );
@@ -374,7 +355,7 @@ export function TableRow(props) {
 export function AddNewField(props) {
   const { setAddNewRow, nameRef, handleNew } = props;
   return (
-    <ul className="newTask_1 row">
+    <ul className="newTask_1 row w-100">
       <li className="col-lg-8">
         <Link to="#" className="userLogoicon">
           <img

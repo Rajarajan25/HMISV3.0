@@ -197,41 +197,50 @@ class StaffPage extends React.Component {
     handleDelete = (deletedItem) => {
         if (window.confirm("Are you sure?")) {
             let tempPickItem = JSON.parse(JSON.stringify(this.state.staffList));
-            let deletedIndex = tempPickItem.findIndex(
-                (elm) => elm.id === deletedItem.id
-            );
-            tempPickItem.splice(deletedIndex, deletedIndex + 1);
             this.props
                 .deleteStaff({
                     variables: {
-                        staffID: deletedItem.id,
-                        staff: { ...deletedItem },
+                        staffID: deletedItem.id
                     },
                 })
                 .then(({ data: { deleteStaff } }) => {
-                    //this.props.refetchStaff();
-                    this.setState({ staffList: tempPickItem });
+                    this.setState({ staffList: tempPickItem.filter(el => el.id !== deletedItem.id)});
                 })
                 .catch((error) => {
                     DevAlertPopUp(error.message);
                 });
         }
     };
+    checkDuplicate =(value)=>{
+      let tempPickItem = JSON.parse(JSON.stringify(this.state.staffList));
+      let checkIndex=-1;
+      return checkIndex = tempPickItem.findIndex(
+        (elm) => elm.name === value
+      );
+    }
     handleDuplicate = (duplicatedItem) => {
         let tempPickItem = JSON.parse(JSON.stringify(this.state.staffList));
         let duplicatedIndex = tempPickItem.findIndex(
             (elm) => elm.id === duplicatedItem.id
         );
         delete duplicatedItem.id;
+        let isDuplicateID=1;
+        let duplicateName=duplicatedItem.name;
+        let i=1; 
+        while(isDuplicateID !=-1){
+          duplicateName=duplicateName.replace(/[0-9]\s*$/, "")+""+i;
+          isDuplicateID=this.checkDuplicate(duplicateName);
+          i++;
+        }
+        DevConsoleLog(duplicateName);
+        duplicatedItem={ ...duplicatedItem, name: duplicateName };
         this.props
             .addStaff({
                 variables: {
-                    // staff: { ...duplicatedItem },
-                    staff: { name: duplicatedItem.name }
+                    staff: { ...duplicatedItem},
                 },
             })
             .then(({ data: { addStaff } }) => {
-                console.log(addStaff)
                 duplicatedItem = { ...duplicatedItem, id: addStaff.id };
                 tempPickItem.splice(duplicatedIndex + 1, 0, duplicatedItem);
                 this.setState({ staffList: tempPickItem });
@@ -254,8 +263,7 @@ class StaffPage extends React.Component {
                     handleDataSource={this.handleDataSource}
                     fields={this.fields}
                 />
-                <div className="d-flex flex-column mt-1">
-                    <div className="contentSection collapse show w-100">
+                <div className="d-flex flex-row-auto w-100 mt-1">
                         <SpinnerLarge loading={loading} />
                         <ListActivity01
                             loading={loading}
@@ -269,7 +277,6 @@ class StaffPage extends React.Component {
                             handleDelete={this.handleDelete}
                             handleDuplicate={this.handleDuplicate}
                         />
-                    </div>
                 </div>
                 <AddFab onClick={this.toggleDrawer(true)} />
                 <RightSideDrawer

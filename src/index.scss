@@ -107,3 +107,13 @@
 .display-block {
   display: block;
 }
+.MuiAccordionSummary-root{
+  min-height: 0px !important;
+}
+.elevation-none{
+  box-shadow: none !important;
+}
+
+.cursor-move {
+  cursor: move !important;
+}
