@@ -5173,6 +5173,188 @@ p.setting_color {
 }
 .dx-widget {
   font-family: "Proxima Nova", "Gotham Pro", "Arial", sans-serif !important;
+	font-family: "Gotham Pro", "Helvetica", "Arial", sans-serif !important;
+	margin: -12.5px -12.5px 0;
+	.dx-scheduler-header {
+		background-color: #fff;
+		height: 80px;
+		border: 0;
+		border-bottom: 1px solid #E6E8EF;
+	}
+	.dx-scheduler-work-space {
+		border: 0;
+	}
+	.dx-scheduler-header-panel-cell {
+		font-size: 16px;
+		color: #424D51;
+		font-family: 'ProximaNova_SemiBold';
+	}
+	.dx-scheduler-date-table-cell {
+		border-left: 1px solid #E6E8EF;
+		border-right: 1px solid #E6E8EF;
+		border-top: 1px solid #E6E8EF;
+		background-color: #fff;
+		&.dx-state-hover {
+			background-color: transparent;
+		}
+		&.dx-scheduler-focused-cell {
+			box-shadow: none;
+			-webkit-box-shadow: none;
+		}
+	}
+	.dx-scheduler-work-space-day.dx-scheduler-work-space-odd-cells .dx-scheduler-date-table-row:nth-child(odd) .dx-scheduler-date-table-cell, .dx-scheduler-work-space-week.dx-scheduler-work-space-odd-cells .dx-scheduler-date-table-row:nth-child(odd) .dx-scheduler-date-table-cell, .dx-scheduler-work-space-work-week.dx-scheduler-work-space-odd-cells .dx-scheduler-date-table-row:nth-child(odd) .dx-scheduler-date-table-cell {
+		border-top: 1px solid #E6E8EF;
+	}
+	.dx-scheduler-time-panel-cell::after {
+		width: 0;
+		content: inherit;
+	}
+	.dx-scheduler-time-panel-cell {
+		color: #707070;
+	}
+	.dx-scheduler-appointment {
+		background-color: #5D1DD71A;
+		color: #5D1DD7;
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		left: 10px;
+		min-height: 50px;
+		height: auto !important;
+		border-radius: 10px;
+		top: 3px;
+		font-weight: bold;
+		padding: 0;
+		box-shadow: 0px 3px 6px #1043a71a;
+		&:before {
+			position: absolute;
+			content: "";
+			width: 4px;
+			height: 44px;
+			top: 7px;
+			left: 4px;
+			background-color: #5D1DD7;
+		}
+		&.dx-state-hover {
+			&.dx-resizable {
+				box-shadow: 0px 3px 6px #1043a71a;
+				-webkit-box-shadow: 0px 3px 6px #1043a71a;
+			}
+		}
+		&.dx-state-focused {
+			box-shadow: none;
+			background-color: transparent;
+			&:before {
+				box-shadow: none;
+				background-color: transparent;
+			}
+		}
+	}
+	.dx-scheduler-all-day-table-cell.dx-state-focused, .dx-scheduler-date-table-cell.dx-state-focused {
+		background-color: transparent;
+	}
+	.dx-tab-text {
+		color: #788083;
+		font-size: 14px;
+		font-family: ProximaNova_SemiBold !important;
+		letter-spacing: 0.5px;
+	}
+	.dx-scheduler-view-switcher.dx-tabs .dx-tab.dx-tab-selected, .dx-scheduler-view-switcher.dx-tabs .dx-tab.dx-state-hover {
+		background: #fff;
+		border-radius: 25px;
+	}
+	/*.dx-scheduler-view-switcher.dx-tabs .dx-tab.dx-tab-selected::before {
+		background: transparent;
+	}*/
+	.dx-tab.dx-tab-selected {
+		.dx-tab-text {
+			color: #171B1C;
+			font-weight: bold;
+		}
+	}
+	.dx-tab-selected::after {
+		content: inherit;
+	}
+	.dx-scheduler-view-switcher.dx-tabs {
+		float: right;
+	}
+	.dx-scheduler-navigator {
+		float: left;
+		margin-left: 5%;
+		position: relative;
+    	margin-top: 13px;
+	}
+	.dx-scheduler-navigator-caption {
+		width: auto;
+		font-size: 24px;
+		border: 0;
+		color: #171B1C;
+		margin-left: 30px;
+		font-family: ProximaNova_ExtraBold !important;
+		&.dx-state-hover, &.dx-state-focused {
+			background-color: transparent;
+		}
+	}
+	.dx-scheduler-navigator-next, .dx-scheduler-navigator-previous {
+		border: 0;
+		position: absolute;
+		&.dx-state-hover, &.dx-state-focused {
+			background-color: transparent;
+		}
+	}
+	.dx-scheduler-navigator-next {
+		left: 0px;
+		background: #EBF2FF !important;
+		width: 36px;
+		height: 36px;
+		border-radius: 50%;
+	}
+	.dx-scheduler-navigator-previous {
+		left: -50px;
+		background: #EBF2FF !important;
+		border-radius: 50%;
+		width: 36px;
+		height: 36px;
+	}
+	.dx-scheduler-appointment-content-date {
+		font-size: 10px;
+	}
+	.dx-scheduler-view-switcher.dx-tabs .dx-tab {
+		width: inherit;
+		padding: 9px 20px;
+		display: inline-block;
+		margin: 0 7px;
+		&::before {
+			position: absolute;
+			bottom: auto;
+			width: 1px;
+			height: 25px;
+			content: "";
+			left: -8px;
+			background-color: #D5DBE0;
+		}
+		&:first-child {
+			&::before {
+				content: inherit;
+			}
+		}
+	}
+	.dx-tabs-wrapper {
+		display: block;
+		background-color: #EBF2FF;
+		margin: 14px 15px;
+		padding: 7px 0px;
+		border-radius: 25px;
+	}
+	.dx-button-mode-contained .dx-icon {
+		color: #788083;
+	}
+	.dx-button-has-text .dx-button-content {
+		text-align: left;
+		padding-top: 0px;
+	}
+}
+.dx-widget {
+	font-family: "ProximaNova", "Proxima Nova", "Gotham Pro", "Arial", sans-serif !important;
 }
 .dx-scheduler-work-space {
   margin-top: -70px;
@@ -5197,6 +5379,7 @@ p.setting_color {
 }
 .dx-scheduler-all-day-panel .dx-scheduler-all-day-table-cell {
   border-bottom: 2px solid #e6e8ef;
+    border-bottom: 1px solid #E6E8EF;
 }
 .dx-scheduler-work-space-grouped .dx-scheduler-group-row th,
 .dx-scheduler-work-space.dx-scheduler-work-space-grouped
@@ -5254,6 +5437,19 @@ p.setting_color {
   border-radius: 50%;
   height: 37px;
 }
+#schedulerTodayButton {
+	border: 0;
+	.dx-button-content {
+		padding: 0;
+		font-size: 24px;
+	}
+	&.dx-state-hover, &.dx-state-focused {
+		background-color: transparent;
+	}
+}
+.dx-scheduler-navigator-calendar-popover {
+    display: inline-block;
+}
 .filter-container {
   padding: 10px;
   background-color: rgba(191, 191, 191, 0.15);
@@ -5275,6 +5471,7 @@ p.setting_color {
 }
 .dx-scheduler-appointment-recurrence .dx-scheduler-appointment-content {
   padding: 10px 10px !important;
+	padding: 8px 5px 5px 15px !important;
 }
 .daterangepicker {
   .react-google-flight-datepicker {
@@ -5370,6 +5567,81 @@ p.setting_color {
     display: none;
   }
 }
+	.movie {
+		display: flex;
+		align-items: center;
+		font-size: 16px;
+		font-weight: normal;
+		.movie-img {
+			background-color: #fff;
+			margin-right: 10px;
+			width: 45px;
+			height: 45px;
+			text-align: center;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			img {
+				height: 33px;
+    			margin: 0px auto;
+			}
+		}
+		.movie-text {
+			padding: 0;
+		}
+		.service_name {
+			font-family: 'Gotham Pro';
+			font-size: 1rem;
+			font-weight: 500;
+		}
+		.service_time {
+			font-size: 12px;
+			margin-top: 6px;
+			font-family: Lato !important;
+		}
+	}
+
+.dx-scheduler-appointment[data-movieid-1] {
+	background-color: #DCEEFF !important;
+    color: #125795 !important;
+	&:before {
+		background-color: #125795;
+	}
+}
+.dx-scheduler-appointment[data-movieid-2] {
+	background-color: #2798B71A !important;
+	color: #2798B7 !important;
+	&:before {
+		background-color: #2798B7;
+	}
+}
+.dx-scheduler-appointment[data-movieid-3] {
+	background-color: #EAF4F5 !important;
+    color: #08585F !important;
+	&:before {
+		background-color: #08585F;
+	}
+}
+.dx-scheduler-appointment[data-movieid-4] {
+	background-color: #FFEEDB !important;
+    color: #CD6C1B !important;
+	&:before {
+		background-color: #CD6C1B;
+	}
+}
+.dx-scheduler-appointment[data-movieid-5] {
+	background-color: #F7DCFF !important;
+    color: #951272 !important;
+	position: relative;
+	&:before {
+		background-color: #951272;
+	}
+}
+.subheader {
+	.breadcrumb {
+		display: none;
+	}
+}     
 .dx-scheduler-work-space-day {
   .dx-scheduler-appointment[data-movieid-1] {
     width: auto !important;
@@ -5710,4 +5982,15 @@ p.setting_color {
     font-size: 15px;
     font-weight: 700;
   }
+}
+
+.dx-scheduler-work-space-week {
+	.dx-scheduler-work-space-day.dx-scheduler-work-space-odd-cells .dx-scheduler-date-table-row:nth-child(odd) .dx-scheduler-date-table-cell, .dx-scheduler-work-space-week.dx-scheduler-work-space-odd-cells .dx-scheduler-date-table-row:nth-child(odd) .dx-scheduler-date-table-cell, .dx-scheduler-work-space-work-week.dx-scheduler-work-space-odd-cells .dx-scheduler-date-table-row:nth-child(odd) .dx-scheduler-date-table-cell {
+		border-top: 0px solid #E6E8EF;
+	}
+}
+.dx-scheduler-appointment-tooltip-wrapper .dx-overlay-content .dx-popup-content .dx-list-item {
+    &.dx-state-hover, &.dx-state-focused {
+		background-color: transparent;
+	}
 }

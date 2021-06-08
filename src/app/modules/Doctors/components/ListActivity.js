@@ -167,8 +167,8 @@ const toggleDrawerClose = () => {
                           <li className="col-lg-1 my-auto">
                             <Dropdown drop="down" alignCenter className="dropdown h-100">
                               <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                                <div className="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column flex-column avail_wid">
-                                  <div className="d-flex mt-1 mb-1 p-1 justify-content-center avail_hover">
+                                <div className="d-flex flex-wrap h-100 justify-content-center flex-column flex-column avail_wid">
+                                  <div className="d-flex mt-1 mb-1 pl-5 py-1 pr-1 avail_hover">
                                     <span className="avails chat_bg"><img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="" className="" /></span>
                                     <span>Chat</span> <span className="close_icons chat_bg">x</span>
                                   </div>
@@ -318,8 +318,8 @@ const toggleDrawerClose = () => {
                           <li className="col-lg-1 my-auto">
                             <Dropdown drop="down" alignCenter className="dropdown h-100">
                               <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                                <div className="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column flex-column avail_wid">
-                                  <div className="d-flex mt-1 mb-1 p-1 justify-content-center avail_hover">
+                                <div className="d-flex flex-wrap h-100 justify-content-center flex-column flex-column avail_wid">
+                                  <div className="d-flex mt-1 mb-1 pl-5 py-1 pr-1 avail_hover">
                                     <span className="avails chat_bg"><img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="" className="" /></span>
                                     <span>Chat</span> <span className="close_icons chat_bg">x</span>
                                   </div>
@@ -514,8 +514,8 @@ export function ListActivity02() {
                       <li className="col-lg-1 my-auto">
                         <Dropdown drop="down" alignCenter className="dropdown h-100">
                           <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                            <div className="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column flex-column avail_wid">
-                              <div className="d-flex mt-1 mb-1 p-1 justify-content-center avail_hover">
+                            <div className="d-flex flex-wrap h-100 justify-content-center flex-column flex-column avail_wid">
+                              <div className="d-flex mt-1 mb-1 pl-5 py-1 pr-1 avail_hover">
                                 <span className="avails phone_bg"><img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="" className="" /></span>
                                 <span>Phone</span> <span className="close_icons phone_bg">x</span>
                               </div>
@@ -719,8 +719,8 @@ export function ListActivity03() {
                       <li className="col-lg-1 my-auto">
                         <Dropdown drop="down" alignCenter className="dropdown h-100">
                           <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                            <div className="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column flex-column avail_wid">
-                              <div className="d-flex mt-1 mb-1 p-1 justify-content-center avail_hover">
+                            <div className="d-flex flex-wrap h-100 justify-content-center flex-column flex-column avail_wid">
+                              <div className="d-flex mt-1 mb-1 pl-5 py-1 pr-1 avail_hover">
                                 <span className="avails video_bg"><img src={toAbsoluteUrl("/media/patients/avail_video.svg")} alt="" className="" /></span>
                                 <span>Video</span> <span className="close_icons video_bg">x</span>
                               </div>
@@ -881,8 +881,8 @@ export function ListActivity03() {
                       <li className="col-lg-1 my-auto">
                         <Dropdown drop="down" alignCenter className="dropdown h-100">
                           <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                            <div className="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column flex-column avail_wid">
-                              <div className="d-flex mt-1 mb-1 p-1 justify-content-center avail_hover">
+                            <div className="d-flex flex-wrap h-100 justify-content-center flex-column flex-column avail_wid">
+                              <div className="d-flex mt-1 mb-1 pl-5 py-1 pr-1 avail_hover">
                                 <span className="avails visit_bg"><img src={toAbsoluteUrl("/media/patients/avail_visit.svg")} alt="" className="" /></span>
                                 <span>Inperson</span> <span className="close_icons visit_bg">x</span>
                               </div>
@@ -1044,8 +1044,8 @@ export function ListActivity03() {
                       <li className="col-lg-1 my-auto">
                         <Dropdown drop="down" alignCenter className="dropdown h-100">
                           <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                            <div className="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column flex-column avail_wid">
-                              <div className="d-flex mt-1 mb-1 p-1 justify-content-center avail_hover">
+                            <div className="d-flex flex-wrap h-100 justify-content-center flex-column flex-column avail_wid">
+                              <div className="d-flex mt-1 mb-1 pl-5 py-1 pr-1 avail_hover">
                                 <span className="avails phone_bg"><img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="" className="" /></span>
                                 <span>Phone</span> <span className="close_icons phone_bg">x</span>
                               </div>
@@ -1207,8 +1207,8 @@ export function ListActivity03() {
                       <li className="col-lg-1 my-auto">
                         <Dropdown drop="down" alignCenter className="dropdown h-100">
                           <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                            <div className="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column flex-column avail_wid">
-                              <div className="d-flex mt-1 mb-1 p-1 justify-content-center avail_hover">
+                            <div className="d-flex flex-wrap h-100 justify-content-center flex-column flex-column avail_wid">
+                              <div className="d-flex mt-1 mb-1 pl-5 py-1 pr-1 avail_hover">
                                 <span className="avails chat_bg"><img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="" className="" /></span>
                                 <span>Chat</span> <span className="close_icons chat_bg">x</span>
                               </div>
@@ -1421,20 +1421,20 @@ export function ListActivity04() {
                       <li className="col-lg-1">
                       <Dropdown drop="down" alignCenter className="dropdown h-100">
                           <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                            <div className="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column flex-column avail_wid">
-                              <div className="d-flex mt-1 mb-1 p-1 justify-content-center avail_hover">
+                            <div className="d-flex flex-wrap h-100 justify-content-center flex-column flex-column avail_wid">
+                              <div className="d-flex mt-1 mb-1 pl-5 py-1 pr-1 avail_hover">
                                 <span className="avails phone_bg"><img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="" className="" /></span>
                                 <span>Phone</span> <span className="close_icons phone_bg">x</span>
                               </div>
-                              <div className="d-flex mt-1 mb-1 p-1 justify-content-center avail_hover">
+                              <div className="d-flex mt-1 mb-1 pl-5 py-1 pr-1 avail_hover">
                                 <span className="avails visit_bg"><img src={toAbsoluteUrl("/media/patients/avail_visit.svg")} alt="" className="" /></span>
                                 <span>Inperson</span> <span className="close_icons visit_bg">x</span>
                               </div>
-                              <div className="d-flex mt-1 mb-1 p-1 justify-content-center avail_hover">
+                              <div className="d-flex mt-1 mb-1 pl-5 py-1 pr-1 avail_hover">
                                 <span className="avails chat_bg"><img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="" className="" /></span>
                                 <span>Chat</span> <span className="close_icons chat_bg">x</span>
                               </div>
-                              <div className="d-flex mt-1 mb-1 p-1 justify-content-center avail_hover">
+                              <div className="d-flex mt-1 mb-1 pl-5 py-1 pr-1 avail_hover">
                                 <span className="avails video_bg"><img src={toAbsoluteUrl("/media/patients/avail_video.svg")} alt="" className="" /></span>
                                 <span>Video</span> <span className="close_icons video_bg">x</span>
                               </div>
