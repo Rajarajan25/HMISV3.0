@@ -5825,7 +5825,7 @@ p.setting_color {
       flex-wrap: nowrap;
       justify-content: center;
       flex-direction: row;
-      font-size: 9px;
+      font-size: 12px;
       img {
         margin: 10px 5px;
       }
@@ -5854,7 +5854,7 @@ p.setting_color {
       flex-direction: row;
       align-content: center;
       justify-content: space-around;
-      font-size: 9px;
+      font-size: 12px;
       @media (max-width: $breakpoint-mobile) {
         font-size: 7px;
       }
@@ -5903,6 +5903,7 @@ p.setting_color {
 
 .event-selector {
   margin-top: 40px;
+  padding: 0 20px;
   input[type="checkbox"] {
     display: none;
   }
