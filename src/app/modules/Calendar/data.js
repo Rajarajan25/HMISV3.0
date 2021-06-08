@@ -78,12 +78,18 @@ export const moviesData = [{
   color: '#10E80D',
   
 }];
-export const owners = [
-  {
-    text: 'Maadhu',
-    id: 1,
-  }, {
-    text: 'Gopi',
-    id: 2,
-  }
-];
+export const owners = [{
+  text : 'Gopi',
+  id: 1,
+  color: '#56ca85',
+  avatar: 'https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/gym/coach-man.png',
+  age: 27,
+  discipline: 'Gynaecology, Dermatology, Psychiatry'
+}, {
+  text : 'Sandra Johnson',
+  id: 2,
+  color: '#ff9747',
+  avatar: 'https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/gym/coach-woman.png',
+  age: 24,
+  discipline: 'Pediatrics, General Physician'
+}];
