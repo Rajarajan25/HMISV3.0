@@ -4957,6 +4957,15 @@ p.setting_color {
 		font-weight: bold;
 		padding: 0;
 		box-shadow: 0px 3px 6px #1043a71a;
+		&:before {
+			position: absolute;
+			content: "";
+			width: 4px;
+			height: 44px;
+			top: 7px;
+			left: 4px;
+			background-color: #5D1DD7;
+		}
 		&.dx-state-hover {
 			&.dx-resizable {
 				box-shadow: 0px 3px 6px #1043a71a;
@@ -5158,7 +5167,7 @@ p.setting_color {
     padding: 15px 15px 0;
 }
 .dx-scheduler-appointment-recurrence .dx-scheduler-appointment-content {
-	padding: 8px 5px 5px !important;
+	padding: 8px 5px 5px 15px !important;
 }
 .daterangepicker {
 	.react-google-flight-datepicker {
@@ -5254,27 +5263,38 @@ p.setting_color {
 .dx-scheduler-appointment[data-movieid-1] {
 	background-color: #DCEEFF !important;
     color: #125795 !important;
-	border-left: 5px solid #125795;
+	&:before {
+		background-color: #125795;
+	}
 }
 .dx-scheduler-appointment[data-movieid-2] {
 	background-color: #2798B71A !important;
 	color: #2798B7 !important;
-	border-left: 5px solid #2798B7;
+	&:before {
+		background-color: #2798B7;
+	}
 }
 .dx-scheduler-appointment[data-movieid-3] {
 	background-color: #EAF4F5 !important;
     color: #08585F !important;
-	border-left: 5px solid #08585F;
+	&:before {
+		background-color: #08585F;
+	}
 }
 .dx-scheduler-appointment[data-movieid-4] {
 	background-color: #FFEEDB !important;
     color: #CD6C1B !important;
-	border-left: 5px solid #CD6C1B;
+	&:before {
+		background-color: #CD6C1B;
+	}
 }
 .dx-scheduler-appointment[data-movieid-5] {
 	background-color: #F7DCFF !important;
     color: #951272 !important;
-	border-left: 5px solid #951272;
+	position: relative;
+	&:before {
+		background-color: #951272;
+	}
 }
 .subheader {
 	.breadcrumb {
