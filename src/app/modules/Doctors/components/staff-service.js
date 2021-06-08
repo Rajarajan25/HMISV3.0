@@ -278,3 +278,25 @@ export default function SwitchLabels() {
     </FormGroup>
   );
 }
+
+
+// export default function SwitchLabels() {
+
+//   const [state, setState] = React.useState({
+//     checkedA: true,
+//   });
+
+//   const handleChange = name => event => {
+//     setState({ ...state, [name]: event.target.checked });
+//   };
+
+//   return (
+//     <FormGroup row>
+//       <FormControlLabel
+//         control={
+//           <Switch checked={state.checkedA} onChange={handleChange('checkedA')} value="checkedA" />
+//         }
+//       />
+//     </FormGroup>
+//   );
+// }
