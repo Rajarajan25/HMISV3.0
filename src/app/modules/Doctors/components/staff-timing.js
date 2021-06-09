@@ -180,7 +180,7 @@ export function StaffTiming() {
         </div>
         <div className={'timingavail'+' '+classes.root}>
           <div className="d-flex border-bottom">
-            <div className="col mx-150 pl-0 my-auto">
+            <div className="col mx-100 pl-0 my-auto">
               <label className="staff_title_text m-0">Availability</label>
             </div>
             <div className="col p-0">

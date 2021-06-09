@@ -19,7 +19,7 @@ import {DateRangePickersUtilFailed} from '../../Components/DateAndTimePicker'
   import Select from 'react-select';
   import { Dropdown } from "react-bootstrap";
   import {DropdownItemToggler} from "../../../../_metronic/_partials/dropdowns";
-
+  import { Modal } from "react-bootstrap";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -201,36 +201,26 @@ export function ContentEventTiming() {
         <div className="form-group mb-2">
           <label className="staff_title_text m-0">Timings</label>
         </div>
-        <div className="busi_cus ser_tme mt-2 mb-4 clearfix">
-          <SelectHours />
-        </div>
-        <div className={'timingavail'+' '+classes.root}>
-          <label className="staff_title_text m-0">Availability</label>
-          <div className="d-flex border-bottom">
-            <div className="col p-0">
-              <AppBar position="static" color="default">
-                <Tabs
-                  value={value}
-                  onChange={handleChange}
-                  indicatorColor="primary"
-                  textColor="primary"
-                  variant="scrollable"
-                  scrollButtons="auto"
-                >
-                  <Tab label={<TabPerson />} />
-                  <Tab label={<TabCall />} />
-                  <Tab label={<TabVideo />} />
-                  <Tab label={<TabChat />} />
-                </Tabs>
-              </AppBar>
+        <div className="clearfix my-4">
+          <div className="d-flex event-range">
+            <div className="event-radio">
+                <input type="radio" id="timings_01" name="timings" className="" />
+                <label className="eprice" for="timings_01">
+                    <span className="circle-border"></span>
+                    <span className="chk_txt">Business Hours</span>
+                </label>
+            </div>
+            <div className="event-radio">
+                <input type="radio" id="timings_02" name="timings" className=""/>
+                <label className="eprice" for="timings_02">
+                    <span className="circle-border"></span>
+                    <span className="chk_txt">Custom</span>
+                </label>
             </div>
           </div>
-          <div className="p-0">
-            {value === 0 && <TabContainer> <AvailPerson />  </TabContainer>}
-            {value === 1 && <TabContainer> <AvailCall /> </TabContainer>}
-            {value === 2 && <TabContainer> <AvailVideo /> </TabContainer>}
-            {value === 3 && <TabContainer> <AvailChat /> </TabContainer>}
-          </div>
+        </div>
+        <div className="clearfix">
+          <Availability />
         </div>
         <div className="day_select pt-0 pb-5">
           <div className="d-flex">
@@ -379,9 +369,7 @@ export function ContentEventTiming() {
             </div>
           </div>
           <div className="form-group mt-6 mb-0">
-            <div className="d-flex justify-content-end patientButton add_timing">
-              <button type="button" className="btn btn-primary m-0">+ More Timings</button>
-            </div>
+            <MoreTiming />
           </div>
         </div>
         <div className="form-group mb-0">
@@ -396,7 +384,8 @@ export function ContentEventTiming() {
 
 export function TabPerson() {
   return (
-    <div className="clearfix">
+    <div className="clearfix visit_bg">
+      <span className="avails"><img src={toAbsoluteUrl("/media/patients/avail_visit.svg")} alt="" className="" /></span>
       <span className="staff_tab_title">Inperson</span>
     </div>
   );
@@ -404,7 +393,8 @@ export function TabPerson() {
 
 export function TabCall() {
   return (
-    <div className="clearfix">
+    <div className="clearfix phone_bg">
+      <span className="avails"><img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="" className="" /></span>
       <span className="staff_tab_title">On Call</span>
     </div>
   );
@@ -412,7 +402,8 @@ export function TabCall() {
 
 export function TabVideo() {
   return (
-    <div className="clearfix">
+    <div className="clearfix video_bg">
+      <span className="avails"><img src={toAbsoluteUrl("/media/patients/avail_video.svg")} alt="" className="" /></span>
       <span className="staff_tab_title">Video Call</span>
     </div>
   );
@@ -420,7 +411,8 @@ export function TabVideo() {
 
 export function TabChat() {
   return (
-    <div className="clearfix">
+    <div className="clearfix chat_bg">
+      <span className="avails"><img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="" className="" /></span>
       <span className="staff_tab_title">Chat</span>
     </div>
   );
@@ -429,29 +421,20 @@ export function TabChat() {
 export function AvailPerson() {
   return (
     <div className="clearfix my-4">
-      <div className="d-flex">
-        <div className="avail-person">
-          <input type="radio" id="availperson_01" name="availperson" className="" />
-          <label className="mb-0" for="availperson_01">My Business Address</label>
+      <div className="d-flex event-range">
+        <div className="event-radio">
+            <input type="radio" id="availperson_01" name="availperson" className="" />
+            <label className="eprice" for="availperson_01">
+                <span className="circle-border"></span>
+                <span className="chk_txt">My Business Address</span>
+            </label>
         </div>
-        <div className="ml-auto d-none">
-          <Dropdown drop="down" alignCenter className="dropdown h-100">
-            <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-              <Link to="#" className="add_setting">+ Add Address</Link>
-            </Dropdown.Toggle>
-            <Dropdown.Menu  className="dropdown-menu dropdown-md-menu p-0 mt-1 drop_nav status_hover" style={{
-                  width: `250px`,
-                }}>
-              <ServicesDropdownMenu />
-            </Dropdown.Menu>
-          </Dropdown>
-        </div>
-      </div>
-      
-      <div className="clearfix">
-        <div className="avail-person">
-          <input type="radio" id="availperson_02" name="availperson" className="" />
-          <label className="mb-0" for="availperson_02">Client Address At Booking</label>
+        <div className="event-radio">
+            <input type="radio" id="availperson_02" name="availperson" className=""/>
+            <label className="eprice" for="availperson_02">
+                <span className="circle-border"></span>
+                <span className="chk_txt">Client Address At Booking</span>
+            </label>
         </div>
       </div>
     </div>
@@ -462,14 +445,20 @@ export function AvailPerson() {
 export function AvailCall() {
   return (
     <div className="clearfix my-4">
-      <div className="d-flex">
-        <div className="avail-call">
-          <input type="radio" id="availcall_01" name="availcall" className="" />
-          <label className="mb-0" for="availcall_01">Client will call you</label>
+      <div className="d-flex event-range">
+        <div className="event-radio">
+            <input type="radio" id="availcall_01" name="availcall" className="" />
+            <label className="eprice" for="availcall_01">
+                <span className="circle-border"></span>
+                <span className="chk_txt">Client will call you</span>
+            </label>
         </div>
-        <div className="avail-call">
-          <input type="radio" id="availcall_02" name="availcall" className="" />
-          <label className="mb-0" for="availcall_02">You will call the client</label>
+        <div className="event-radio">
+            <input type="radio" id="availcall_02" name="availcall" className=""/>
+            <label className="eprice" for="availcall_02">
+                <span className="circle-border"></span>
+                <span className="chk_txt">You will call the client</span>
+            </label>
         </div>
       </div>
     </div>
@@ -544,87 +533,6 @@ export function AvailChat() {
 }
 
 
-function SelectHours() {
-
-  const useStyles = makeStyles(theme => ({
-    root: {
-      display: 'flex',
-    },
-    formControl: {
-      margin: theme.spacing(3),
-    },
-    group: {
-      margin: theme.spacing(1, 0),
-    },
-  }));
-
-  const classes = useStyles();
-  const [value, setValue] = React.useState('female');
-
-  function handleChange(event) {
-    setValue(event.target.value);
-  }
-
-  return (
-    <div className={classes.root}>
-      <FormControl component="fieldset" className={classes.formControl}>
-        <RadioGroup
-          name="business"
-          className={classes.group}
-          value={value}
-          onChange={handleChange}
-        >
-          <FormControlLabel value="business" control={<Radio />} label="Business hours" />
-          <FormControlLabel value="custom" control={<Radio />} label="Custom" />
-
-        </RadioGroup>
-      </FormControl>
-      
-    </div>
-  );
-}
-
-function DateRange1 () {
-
-  const useStyles = makeStyles(theme => ({
-    root: {
-      display: 'flex',
-    },
-    formControl: {
-      margin: theme.spacing(3),
-    },
-    group: {
-      margin: theme.spacing(1, 0),
-    },
-  }));
-
-  const classes = useStyles();
-  const [value, setValue] = React.useState('female');
-
-  function handleChange(event) {
-    setValue(event.target.value);
-  }
-
-  return (
-    <div className={classes.root}>
-      <FormControl component="fieldset" className={classes.formControl}>
-        <RadioGroup
-          name="business"
-          className={classes.group}
-          value={value}
-          onChange={handleChange}
-        >
-          <FormControlLabel value="range" control={<Radio />} label="Range" />
-          <FormControlLabel value="indefinitely" control={<Radio />} label="Indefinitely" />
-          <FormControlLabel value="advance" control={<Radio />} label="Advance" />
-          <FormControlLabel value="time" control={<Radio />} label="Time" />
-        </RadioGroup>
-      </FormControl>
-      
-    </div>
-  );
-}
-
 export function TimePickers() {
 
 return (
@@ -652,5 +560,92 @@ export function ServicesDropdownMenu() {
 }
 
 
+export function Availability() {
+  const classes = useStyles();
+  const [value, setValue] = React.useState(0);
+  function handleChange(event, newValue) {
+    setValue(newValue);
+  }
+  return (
+    <div className="staff_first">
+      <div className="event-tab">
+        <div className={'timingavail'+' '+classes.root}>
+          <div className="d-flex border-bottom">
+            <div className="col mx-100 pl-0 my-auto">
+              <label className="staff_title_text m-0">Availability</label>
+            </div>
+            <div className="col p-0">
+              <AppBar position="static" color="default">
+                <Tabs
+                  value={value}
+                  onChange={handleChange}
+                  indicatorColor="primary"
+                  textColor="primary"
+                  variant="scrollable"
+                  scrollButtons="auto"
+                >
+                  <Tab label={<TabPerson />} />
+                  <Tab label={<TabCall />} />
+                  <Tab label={<TabVideo />} />
+                  <Tab label={<TabChat />} />
+                </Tabs>
+              </AppBar>
+            </div>
+          </div>
+          <div className="p-0">
+            {value === 0 && <TabContainer> <AvailPerson />  </TabContainer>}
+            {value === 1 && <TabContainer> <AvailCall /> </TabContainer>}
+            {value === 2 && <TabContainer> <AvailVideo /> </TabContainer>}
+            {value === 3 && <TabContainer> <AvailChat /> </TabContainer>}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+  }
 
+export class MoreTiming extends React.Component {
 
+  constructor(props, context) {
+    super(props, context);
+
+    this.state = {
+      show: false,
+    };
+
+    this.handleShow = () => {
+      this.setState({ show: true });
+    };
+
+    this.handleHide = () => {
+      this.setState({ show: false });
+    };
+  }
+
+  render() {
+    return (
+      <>
+
+        <div className="d-flex justify-content-end patientButton add_timing" >
+          <span type="button" className="btn btn-primary m-0" onClick={this.handleShow}>+ More Timings</span>
+        </div>
+
+        <Modal
+          show={this.state.show}
+          onHide={this.handleHide}
+          dialogClassName="modal-90w"
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+        >
+          <Modal.Header closeButton>
+            More Timings
+          </Modal.Header>
+          <Modal.Body>
+            xx
+          </Modal.Body>
+        </Modal>
+
+      </>
+    );
+  }
+}

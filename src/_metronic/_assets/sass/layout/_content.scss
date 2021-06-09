@@ -2889,6 +2889,9 @@ input.edit_mobile[type="text"] {
     .mx-150 {
       max-width: 150px;
     }
+	.mx-100 {
+		max-width: 100px;
+	  }
     .MuiTab-textColorPrimary {
       color: #c5c6c9;
       &.Mui-selected {
@@ -2897,14 +2900,14 @@ input.edit_mobile[type="text"] {
     }
     .MuiTabs-indicator {
       background: #1d6aff;
-      height: 1px;
+      height: 0px;
     }
     .MuiTabs-root {
       min-height: 45px;
     }
     .MuiTab-root {
       min-height: 45px;
-      margin-right: 2.5rem;
+      margin-right: 1.5rem;
       min-width: inherit;
       padding: 0;
       text-transform: capitalize;
@@ -2956,6 +2959,48 @@ input.edit_mobile[type="text"] {
         }
       }
     }
+	span.avails {
+		display: inline-block;
+		line-height: 19px;
+		background: #c5c6c9;
+		span.avails img {
+			margin-top: 0;
+		}
+	}
+	.Mui-selected {
+		.visit_bg {
+			span.avails {
+				background: #1caaf4;
+			}
+			.staff_tab_title {
+				color: #1caaf4;
+			}
+		}
+		.phone_bg {
+			span.avails {
+				background: #fd7822;
+			}
+			.staff_tab_title {
+				color: #fd7822;
+			}
+		}
+		.video_bg {
+			span.avails {
+				background: #f9da31;
+			}
+			.staff_tab_title {
+				color: #f9da31;
+			}
+		}
+		.chat_bg {
+			span.avails {
+				background: #1d6aff;
+			}
+			.staff_tab_title {
+				color: #1d6aff;
+			}
+		}
+	}
   }
 }
 .pre_status {
@@ -4887,7 +4932,7 @@ p.setting_color {
       margin-right: 10px;
       label {
         font-weight: normal;
-        padding: 5px 10px 5px 10px;
+        padding: 5px 15px 5px 0px;
         display: flex;
         font-size: 1rem;
       }
@@ -4899,9 +4944,9 @@ p.setting_color {
       }
       input[type="radio"]:checked + label {
         color: #0e53f3;
-        border: 1px solid #70a0fc;
+        /*border: 1px solid #70a0fc;
         border-radius: 5px;
-        background: #e0ebff;
+        background: #e0ebff;*/
         font-weight: 500;
       }
       .circle-border {
