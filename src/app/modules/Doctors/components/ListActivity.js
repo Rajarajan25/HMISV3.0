@@ -38,7 +38,7 @@ const Column = [
 
 export function ListActivity01(props) {
   const classes = useStyles();
-  const { dataList, toggleDrawer, handleSave, addNew, handleChangeDropDown, pagename, handleDelete, handleDuplicate, loading } = props;
+  const { dataList, toggleDrawer,handleDelete, handleDuplicate, loading } = props;
   const [expanded, setExpanded] = React.useState(true);
   const handleChange = () => {
     setExpanded(!expanded);

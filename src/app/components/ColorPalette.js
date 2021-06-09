@@ -27,7 +27,7 @@ export function ColorPalette(props) {
   const [colors,setColors] = React.useState("#FFFFFF");
   const handleColorChange = (eve, id) => {
     setColors(eve.hex);
-    // handleChangeDropDown(eve.hex, id, "avatar_bg_color");
+    handleChangeDropDown(eve.hex, id, "color_code");
   };
   return (
     <>
@@ -41,7 +41,7 @@ export function ColorPalette(props) {
                   <span
                     style={{ backgroundColor: colors }}
                     onClick={() =>
-                      handleChangeDropDown(colors, item.id, "avatar_bg_color")
+                      handleChangeDropDown(colors, item.id, "color_code")
                     }
                   ></span>
                 </label>
@@ -58,7 +58,7 @@ export function ColorPalette(props) {
           </div>
           <button
                 onClick={() =>
-                  handleChangeDropDown(colors, item.id, "avatar_bg_color")
+                  handleChangeDropDown(colors, item.id, "color_code")
                 }
               >
                 Ok
@@ -72,7 +72,7 @@ export function ColorPalette(props) {
 export function ColorPaletteFormik(props) {
   const { handleChangeDropDown, item } = props;
   const handleColorChange = (eve, id) => {
-    handleChangeDropDown(eve.hex, id, "avatar_bg_color");
+    handleChangeDropDown(eve.hex, id, "color_code");
   };
   return (
     <>
@@ -86,6 +86,7 @@ export function ColorPaletteFormik(props) {
                   id={"color_" + index}
                   name={props.name}
                   className=""
+                  name="color_code"
                   value={colors}
                 />
                 <label className="" for={"color_" + index}>

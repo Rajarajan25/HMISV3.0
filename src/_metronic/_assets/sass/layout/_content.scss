@@ -2407,7 +2407,7 @@ span.avails {
 	border: 0;
 	outline: 0;
 	background: none;
-	width: 0;
+	width: 100px;
 	// line-height: 30px;
 	// transition: width 0.4s linear;
 	padding: 0;
@@ -3577,6 +3577,9 @@ p.setting_color {
 	.serve_sec {
 		.row {
 			margin: 0;
+			max-height: 270px;
+			min-height: 100px;
+			overflow: auto;
 		}
 		input[type=checkbox] {
 			display: none;

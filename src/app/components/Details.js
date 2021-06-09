@@ -14,6 +14,7 @@ import Switch from '@material-ui/core/Switch';
 import * as Yup from 'yup';
 import { SpinnerSmall } from "./Spinner";
 import { DevAlertPopUp } from "../SiteUtill";
+import { ButtonLoading } from "./ButtonLoading";
 
 const detailSchema = Yup.object().shape({
   name: Yup.string()
@@ -190,11 +191,12 @@ export function Details(props) {
                 </div>
               </div>}
               {fields.syncwith && <Syncwith />}
-              <div className="form-group mb-0">
+              <ButtonLoading label="Save" loading={isloading}/>
+              {/* <div className="form-group mb-0">
                 <div className="d-flex justify-content-end patientButton pos_fix">
                   <button type="submit" className="btn btn-primary">Save <SpinnerSmall loading={isloading}/> </button>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </form>

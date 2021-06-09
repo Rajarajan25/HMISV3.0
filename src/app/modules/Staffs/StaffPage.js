@@ -56,6 +56,7 @@ class StaffPage extends React.Component {
             currentIndex: -1,
             staffList: [],
             isUpdate: true,
+            isDragDisabled:false,
             isloading: false,
             searchValue:"",
         };
@@ -257,6 +258,9 @@ class StaffPage extends React.Component {
     handleSearch= (value) =>{
         this.setState({searchValue: value});
     }
+    dragableDisable= (value) =>{
+        this.setState({isDragDisabled: value});
+    }
     render() {
         const { loading } = this.props;
         const { staffList } = this.state;
@@ -272,6 +276,7 @@ class StaffPage extends React.Component {
                             loading={loading}
                             dataList={staffList}
                             pagename="Staff"
+                            isDragDisabled={this.state.isDragDisabled}
                             toggleDrawer={this.toggleDrawer}
                             handleSave={this.handleSaveSingle}
                             addNew={this.addNewStaff}

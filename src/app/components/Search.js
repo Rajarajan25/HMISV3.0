@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
+import { toAbsoluteUrl } from '../../_metronic/_helpers';
 
 export default function Search(props) {
-    const { data, handleSearch,placeholder } = props;
+    const { data, handleSearch, placeholder } = props;
     const [textValue, setTextValue] = React.useState("");
     const [dataSource, setSource] = React.useState(data || []);
 
@@ -16,12 +17,16 @@ export default function Search(props) {
         handleSearch(arr);
     }
     return <>
-        <input className="search_input" 
-            type="text"
-            placeholder={placeholder||"Search"}
-            value={textValue} 
-            onChange={(e) => setTextValue(e.target.value)} 
-            onKeyUp={(e) => onHandleSearch(e)} 
-        />
+        <div className="searchbar d-flex justify-items-center">
+            <input className="search_input"
+                type="text"
+                placeholder={placeholder || "Search"}
+                value={textValue}
+                onChange={(e) => setTextValue(e.target.value)}
+                onKeyUp={(e) => onHandleSearch(e)}
+            />
+            <a href="#" className="search_icon"><img src={toAbsoluteUrl("/media/patients/cat_search.svg")} alt="" className="" /></a>
+        </div>
+
     </>
 }

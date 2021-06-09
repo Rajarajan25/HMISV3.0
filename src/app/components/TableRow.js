@@ -23,7 +23,7 @@ export function TableRow(props) {
     handleChangeDropDown,
     pagename,
     handleDataSource,
-    searchValue
+    isDragDisabled
   } = props;
   const [addNewRow, setAddNewRow] = useState(false);
   const [selectedIndexName, setSelectedIndexName] = React.useState(-1);
@@ -82,6 +82,7 @@ export function TableRow(props) {
                           key={item.id}
                           draggableId={item.id}
                           index={i}
+                          isDragDisabled={isDragDisabled}
                         >
                           {(provided) => (
                             <div

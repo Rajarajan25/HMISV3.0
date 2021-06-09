@@ -44,10 +44,7 @@ export function Filter(props) {
                           </Dropdown.Menu>
                         </Dropdown>
                       </div>
-                      <div className="searchbar d-flex justify-items-center">
                         <Search handleSearch={handleDataSource} data={value}></Search>
-                        <a href="#" className="search_icon"><img src={toAbsoluteUrl("/media/patients/cat_search.svg")} alt="" className="" /></a>
-                      </div>
                     </div>
                     <div className="d-flex ml-auto align-items-center">
                       <div className="sort-text">Sort By:</div>

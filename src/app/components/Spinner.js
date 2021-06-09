@@ -6,7 +6,7 @@ export function SpinnerLarge(props) {
         return <></>;
     }
     return (
-            <div className="w-100 mh-100 text-center align-content-center">
+            <div className="w-100 mh-100 text-center align-content-center mt-5">
                 <span className="ml-3 spinner spinner-lg spinner-primary"></span>
             </div>
     )
