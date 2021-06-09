@@ -262,13 +262,10 @@ class StaffPage extends React.Component {
         const { staffList } = this.state;
         return (
             <div className="d-block">
-                <Filter
-                    value={staffList}
+                <Filter value={staffList}
                     handleDataSource={this.handleDataSource}
                     fields={this.fields}
-                    handleSearch={this.handleSearch}
-                    
-                />
+                    placeholder="Staff Search"/>
                 <div className="d-flex flex-row-auto w-100 mt-1">
                         <SpinnerLarge loading={loading} />
                         <ListActivity01

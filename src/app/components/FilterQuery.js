@@ -34,9 +34,6 @@ class FilterQuery extends React.Component {
             onClick={this.refreshDataSource} />
           <div className="dx-clearfix"></div>
         </div>
-        <div className="list-container">
-          {/* <List dataSource={this.dataSource} itemRender={CustomItem} /> */}
-        </div>
       </div>
     );
   }
