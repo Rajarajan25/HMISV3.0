@@ -4,8 +4,9 @@ const initialState = {
 
    listService: [
       {
-         "_id":"1",
+         "id":"1",
          "name":"Service name 1",
+         "service_type":"Public",
          "description":"personal and retailer",
          "is_active":"1",
          "position":"1",
@@ -108,17 +109,7 @@ const initialState = {
             "voucher_percent":"2"
          },
          "timings":{
-            "businessType":"MyBusiness",
-                  "businessAddress":[{
-                     "id":"1",
-                     "name":"Maadhuri Selvaraj",
-                     "address1":"2/130",
-                     "address2":"Kaliyamman Kovil Street, Keelakottai",
-                     "address3":"Melakottai (PO)",
-                     "city":"Madurai",
-                     "pincode":"625706"
-                  }],
-                  "ClientAddress":"",
+            
                   
             "availability":{
                "data":[
@@ -316,9 +307,10 @@ const initialState = {
          }
       },
       {
-         "_id":"2",
+         "id":"2",
          "name":"Service name 2",
          "description":"personal and retailer",
+         "service_type":"Public",
          "is_active":"1",
          "position":"1",
          "cost":100,
@@ -439,17 +431,7 @@ const initialState = {
             "voucher_percent":"2"
          },
          "timings":{
-            "businessType":"MyBusiness",
-                  "businessAddress":[{
-                     "id":"1",
-                     "name":"Maadhuri Selvaraj",
-                     "address1":"2/130",
-                     "address2":"Kaliyamman Kovil Street, Keelakottai",
-                     "address3":"Melakottai (PO)",
-                     "city":"Madurai",
-                     "pincode":"625706"
-                  }],
-                  "ClientAddress":"",
+            
                   
             "availability":{
                "data":[
@@ -619,9 +601,10 @@ const initialState = {
          }
       },
       {
-         "_id":"3",
+         "id":"3",
          "name":"Service name 3",
          "description":"personal and retailer",
+         "service_type":"Public",
          "is_active":"1",
          "position":"1",
          "cost":250,
@@ -742,17 +725,7 @@ const initialState = {
             "voucher_percent":"2"
          },
          "timings":{
-            "businessType":"MyBusiness",
-                  "businessAddress":[{
-                     "id":"1",
-                     "name":"Maadhuri Selvaraj",
-                     "address1":"2/130",
-                     "address2":"Kaliyamman Kovil Street, Keelakottai",
-                     "address3":"Melakottai (PO)",
-                     "city":"Madurai",
-                     "pincode":"625706"
-                  }],
-                  "ClientAddress":"",
+            
                   
             "availability":{
                "data":[
@@ -940,14 +913,14 @@ const reducer = (state, action) => {
          };
       case "EDIT_SERVICE":
          return {
-            listService: state.listService.map(emp => (emp._id === action.payload._id ? action.payload : emp)),
+            listService: state.listService.map(emp => (emp.id === action.payload.id ? action.payload : emp)),
             currentService: action.payload,
             
          };
       case "DEL_SERVICE":
          return {
             ...state,
-            listService: state.listService.filter(emp => emp._id !== action.payload._id),
+            listService: state.listService.filter(emp => emp.id !== action.payload.id),
             
          }
       case "SET_CURRENT_SERVICE":

@@ -1,6 +1,6 @@
 import 'date-fns';
 import React, { useState } from "react";
-import { makeStyles } from '@material-ui/core/styles';
+import { duration, makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import FormControl from '@material-ui/core/FormControl';
 import { RadioGroup } from 'formik-material-ui';
@@ -57,6 +57,7 @@ export function Duration(props) {
   const { current, handleSave, fields ,isloading } = props
   const { timings, payments } = current;
   const initValue = {
+    duration:duration,
     timings: timings,
     payments: payments,
   }

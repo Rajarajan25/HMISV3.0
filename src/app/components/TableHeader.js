@@ -23,5 +23,6 @@ export function TableHeader(props) {
                 else return (<li className={`col-lg-${item.col_size} my-auto`} key={i}><span className="title_drag">{item.name}</span></li>)
             })}
         </ul>
+        
     </div>)
 }
