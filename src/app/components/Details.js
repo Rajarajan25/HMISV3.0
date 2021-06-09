@@ -132,7 +132,7 @@ export function Details(props) {
                 <div className="d-flex pb-2">
                   <UploadAvatar classes={classes} />
                   <div className="col-9 pr-0">
-                    <ColorPaletteFormik />
+                    <ColorPaletteFormik  name="color_code"/>
                   </div>
                 </div>
               </div>}

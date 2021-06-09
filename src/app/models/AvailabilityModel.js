@@ -7,7 +7,7 @@ export const AvailabilityModel = {
     name: "availablity",
     inperson: InpersionModel,
     oncall:OncallModel,
-    video: [VideoData],
+    video: [],
     site_id: "0",
     workspace_id: "0",
     is_deleted: false

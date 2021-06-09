@@ -128,7 +128,7 @@ export function TabPerson() {
   }
   export function AvailVideo(props) {
     const { formikValues, setFieldValue } = props;
-    const selectedVideo=formikValues.timings.timing_id.availability_id.video[0].video_type;
+    const selectedVideo=formikValues.timings.timing_id.availability_id.video||[];
     const avaiableVideoOption = [
       { name: "Zoom", svg: "/media/patients/zoom_icon.png" },
       { name: "Micro shoft", svg: "/media/patients/webex_icon.png" },
@@ -138,8 +138,17 @@ export function TabPerson() {
       { name: "Google Meet", svg: "/media/patients/google-meet_icon.png"}
     ];
     function handleVideoChanges(item) {
-      setFieldValue(`timings.timing_id.availability_id.video[0].video_type`, item.name);
+      let index=selectedVideo.findIndex(value =>value.video_type===item.name);
+      if(index!=-1){
+        selectedVideo=selectedVideo.filter(el => el.video_type !== item.name);
+      }else{
+        selectedVideo.push({id:"",video_type:item.name});
+      }
+      setFieldValue(`timings.timing_id.availability_id.video`,selectedVideo);
     }
+    const getSelected = (type) => {
+      return !!selectedVideo.find(value =>value.video_type===type);
+    };
     return (
       <div className="clearfix avail_device my-4">
         <div className="row">
@@ -147,10 +156,8 @@ export function TabPerson() {
               return (
                 <div className="col-4" key={index} >
                 <input type="radio" value={selectedVideo} 
-                checked={selectedVideo===item.name}
-                onChange={() =>
-                  handleVideoChanges(item)
-                }
+                checked={getSelected(item.name)}
+                onChange={() =>handleVideoChanges(item)}
                 id={item.name}/>
                 <label className="d-flex vid_bg" htmlFor={item.name} >
                   <img src={toAbsoluteUrl(item.svg)} alt="" className="" />

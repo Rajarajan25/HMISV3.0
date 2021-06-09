@@ -7,9 +7,43 @@ import { OncallModel } from "../models/OncallModel";
 import { VideoData } from "../models/VideoData";
 import { InpersionModel } from "../models/InpersionModel";
 import { TimingsModel } from "../models/TimingsModel";
-import { TimingModel } from "../models/TimingModel";
+const Type = {
+  INPERSON: "Inperson",
+  PHONE: "Oncall",
+  VIDEO: "Video",
+  CHAT: "Chat"
+};
+Object.freeze(Type);
 export function AvailableDropDown(props) {
   const { handleChangeDropDown, item } = props;
+
+  const handleDelete = (type) => {
+    let ava = { ...AvailabilityModel };
+    let timings = item.staff_timings||[];
+    if(timings[0].timing_id.availability_id){
+      ava={...timings[0].timing_id.availability_id};
+    }
+    switch(type){
+      case Type.INPERSON:
+        ava.inperson = {...InpersionModel};
+        break;
+        case Type.PHONE:
+          ava.oncall = {...OncallModel };
+        break;
+        case Type.VIDEO:
+          ava.video = [];
+        break;
+        case Type.CHAT:
+          ava.video = [];
+        break;
+        default:
+          break
+    }
+    timings[0].timing_id.availability_id = {...ava};
+    handleChangeDropDown(timings, item.id, "staff_timings");
+  };
+
+
   const selectOpt = [];
   if (item.staff_timings && item.staff_timings.length != 0) {
     const { availability_id } = item.staff_timings[0].timing_id;
@@ -17,19 +51,19 @@ export function AvailableDropDown(props) {
       if (availability_id.inperson) {
         const { buinsess_address, client_address } = availability_id.inperson;
         if (buinsess_address || client_address) {
-          selectOpt.push(<InpersonUI />);
+          selectOpt.push(<InpersonUI deleteUI={handleDelete}/>);
         }
       }
       if (availability_id.oncall) {
         const { client, staff } = availability_id.oncall;
         if (client || staff) {
-          selectOpt.push(<PhoneUI />);
+          selectOpt.push(<PhoneUI deleteUI={handleDelete}/>);
         }
       }
 
-      const video = availability_id.VideoData && availability_id.VideoData.length != 0;
+      const video = availability_id.video && availability_id.video.length != 0;
       if (video) {
-        selectOpt.push(<VideoUI />);
+        selectOpt.push(<VideoUI deleteUI={handleDelete}/>);
       }
     }
   }
@@ -37,6 +71,9 @@ export function AvailableDropDown(props) {
   if (selectOpt.length === 0) {
     selectOpt.push(<span>Select availability</span>);
   }
+
+  
+
   return (<Dropdown drop="down" aligncenter="true" className="dropdown h-100">
     <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle2" className="h-100">
       <div className="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column flex-column avail_wid">
@@ -58,10 +95,11 @@ export function AvailableDropDown(props) {
 export function AvailableDropdownMenu(props) {
   const { handleChangeDropDown, item } = props;
   const avaiableArray = [
-    //{ type: "Chat", icon: "/media/patients/avail_chat.svg", color_bg: "chat_bg" },
-    { type: "Video", icon: "/media/patients/avail_video.svg", color_bg: "video_bg" },
-    { type: "Phone", icon: "/media/patients/avail_phone.svg", color_bg: "phone_bg" },
-    { type: "Inperson", icon: "/media/patients/avail_visit.svg", color_bg: "visit_bg" }];
+    { type: Type.INPERSON, icon: "/media/patients/avail_visit.svg", color_bg: "visit_bg"},
+    { type: Type.PHONE, icon: "/media/patients/avail_phone.svg", color_bg: "phone_bg" },
+    { type: Type.VIDEO, icon: "/media/patients/avail_video.svg", color_bg: "video_bg" },
+    //{ type: Type.CHAT, icon: "/media/patients/avail_chat.svg", color_bg: "chat_bg" },
+  ];
   const handleDropDown = (type) => {
     let ava = { ...AvailabilityModel };
     let timings = item.staff_timings||[];
@@ -70,19 +108,25 @@ export function AvailableDropdownMenu(props) {
       ava={...timings[0].timing_id.availability_id};
     }
 
-    if (type === "Chat") {
-      ava.video = [{ ...VideoData, video_type: "Zoom" }];
-    } else if (type === "Video") {
-      ava.video = [{ ...VideoData, video_type: "Zoom" }];
-    } else if (type === "Phone") {
-      ava.oncall = { ...OncallModel, client: true };
-    } else if (type === "Inperson") {
-      ava.inperson = { ...InpersionModel, buinsess_address: true };
+    switch(type){
+      case Type.INPERSON:
+        ava.inperson = { ...InpersionModel, buinsess_address: true };
+        break;
+        case Type.PHONE:
+          ava.oncall = { ...OncallModel, client: true };
+        break;
+        case Type.VIDEO:
+          ava.video = [{ ...VideoData, video_type: "Zoom" }];
+        break;
+        case Type.CHAT:
+          ava.video = [];
+        break;
+        default:
+          break
     }
     
     timings[0].timing_id.availability_id = {...ava};
-    
-    handleChangeDropDown(timings, item.id, "staff_timings")
+    handleChangeDropDown(timings, item.id, "staff_timings");
   };
   return <>
     {/*begin::Navigation*/}
@@ -101,30 +145,33 @@ export function AvailableDropdownMenu(props) {
     {/*end::Navigation*/}
   </>
 }
+
 export function InpersonUI(props) {
+  const { deleteUI } = props;
   return (
     <>
       <span className="avails visit_bg"><img src={toAbsoluteUrl("/media/patients/avail_visit.svg")} alt="" className="" /></span>
-      <span>Inperson</span> <span className="close_icons visit_bg">x</span>
+      <span>Inperson</span> <span className="close_icons visit_bg" onClick={() =>deleteUI(Type.INPERSON)}>x</span>
     </>
   )
 }
 
 export function PhoneUI(props) {
+  const { deleteUI } = props;
   return (
     <>
       <span className="avails phone_bg"><img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="" className="" /></span>
-      <span>Phone</span> <span className="close_icons phone_bg">x</span>
+      <span>Phone</span> <span className="close_icons phone_bg" onClick={() =>deleteUI(Type.PHONE)}>x</span>
     </>
   )
 }
 
-
 export function VideoUI(props) {
+  const { deleteUI } = props;
   return (
     <>
       <span className="avails video_bg"><img src={toAbsoluteUrl("/media/patients/avail_video.svg")} alt="" className="" /></span>
-      <span>Video</span> <span className="close_icons video_bg">x</span>
+      <span>Video</span> <span className="close_icons video_bg" onClick={() =>deleteUI(Type.VIDEO)}>x</span>
     </>
   )
 }
