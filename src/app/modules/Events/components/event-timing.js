@@ -201,7 +201,7 @@ export function ContentEventTiming() {
         <div className="form-group mb-2">
           <label className="staff_title_text m-0">Timings</label>
         </div>
-        <div className="clearfix my-4">
+        <div className="clearfix mt-4 mb-2">
           <div className="d-flex event-range">
             <div className="event-radio">
                 <input type="radio" id="timings_01" name="timings" className="" />
@@ -641,7 +641,7 @@ export class MoreTiming extends React.Component {
             More Timings
           </Modal.Header>
           <Modal.Body>
-            xx
+            Timing
           </Modal.Body>
         </Modal>
 
