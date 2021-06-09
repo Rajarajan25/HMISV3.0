@@ -11,7 +11,10 @@ import { ServiceEdit } from "../components/ServiceEdit";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import { AccordionDetails } from "@material-ui/core";
-
+import { STypeDropdownMenu } from './STypeDropdownMenu'
+import { Dropdown } from "react-bootstrap";
+import { DropdownItemToggler } from "../../_metronic/_partials/dropdowns";
+import { ProviderDropDown } from './ProviderDropdownMenu'
 export function TableRow(props) {
   const {
     row,
@@ -23,7 +26,8 @@ export function TableRow(props) {
     handleChangeDropDown,
     pagename,
     handleDataSource,
-    searchValue
+    searchValue,
+    field
   } = props;
   const [addNewRow, setAddNewRow] = useState(false);
   const [selectedIndexName, setSelectedIndexName] = React.useState(-1);
@@ -102,7 +106,7 @@ export function TableRow(props) {
                                 />
                               </div>
                               <ul className="list-inline w-100 row">
-                                <li className="col-lg-3 my-auto">
+                                {field.name && <li className="col-lg-3 my-auto">
                                   <div className="userLogoicon align-content-center">
                                     <ColorAndAvatarDropDown
                                       item={item}
@@ -120,12 +124,15 @@ export function TableRow(props) {
                                             defaultValue={item.name}
                                           />
                                         ) : (
-                                          <Link
-                                            to="#"
-                                            onClick={drawer(true, item, i)}
-                                          >
-                                            {item.name}
-                                          </Link>
+                                          <div>
+                                            <Link
+                                              to="#"
+                                              onClick={drawer(true, item, i)}
+                                            >
+                                              {item.name}
+                                            </Link>
+                                            
+                                          </div>
                                         )}
                                       </span>
                                     </div>
@@ -139,8 +146,51 @@ export function TableRow(props) {
                                       selectedIndex={selectedIndexName}
                                     ></ServiceEdit>
                                   </div>
-                                </li>
-                                <li className="col-lg-1 my-auto">
+                                </li>}
+                                {field.Name && <li className="col-lg-5 my-auto">
+                                  <div className="userLogoicon align-content-center">
+                                    <ColorAndAvatarDropDown
+                                      item={item}
+                                      handleChangeDropDown={
+                                        handleChangeDropDown
+                                      }
+                                    />
+                                    <div className="d-flex">
+                                      <span>
+                                        {selectedIndexName === i ? (
+                                          <input
+                                            ref={updatedValue}
+                                            type="text"
+                                            style={{ width: "100px" }}
+                                            defaultValue={item.name}
+                                          />
+                                        ) : (
+                                          <>
+                                          <Link
+                                            to="#"
+                                            onClick={drawer(true, item, i)}
+                                          >
+                                            {item.name}
+                                          </Link>
+                                          {field.duration&&<div className="d-flex">
+                                              <span className="DurationBg">Duration: 30 Mins</span>
+                                            </div>}
+                                            </>
+                                        )}
+                                      </span>
+                                    </div>
+                                    <ServiceEdit
+                                      type={"name"}
+                                      index={i}
+                                      value={item.name}
+                                      clickEdit={handleEdit}
+                                      clickSave={handleSaved}
+                                      clickCancel={handleCancel}
+                                      selectedIndex={selectedIndexName}
+                                    ></ServiceEdit>
+                                  </div>
+                                </li>}
+                                {field.experience && <li className="col-lg-1 my-auto">
                                   <div className="d-flex justify-content-center">
                                     <span className="f-12 font-weight-500">
                                       {item.experience_year || "0"}.
@@ -148,32 +198,47 @@ export function TableRow(props) {
                                       <span className="f-10">Years</span>
                                     </span>
                                   </div>
-                                </li>
-                                <li className="col-lg-1 my-auto">
+                                </li>}
+                                {field.service_type && <li className="col-lg-2 activeStatuscontent">
+                                  <Dropdown drop="down" aligncenter="true" className="dropdown h-100 w_130">
+                                    <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
+                                      <span className="d-flex pointer h-100 align-items-center justify-content-center font_weight_medium">{item.service_type}</span>
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav st_hover">
+                                      <STypeDropdownMenu />
+                                    </Dropdown.Menu>
+                                  </Dropdown>
+                                </li>}
+                                {field.services && <li className="col-lg-1 my-auto">
                                   <ServicesDropDown
                                     item={item}
                                     handleChangeDropDown={handleChangeDropDown}
                                   />
-                                </li>
-                                <li className="col-lg-1 p-0">
+                                </li>}
+                                {field.providers && <li className="col-lg-2 my-auto">
+                                  <ProviderDropDown
+                                    item={item}
+                                  />
+                                </li>}
+                               {field.status&& <li className="col-lg-1 p-0">
                                   <StatusDropDown
                                     item={item}
                                     handleChangeDropDown={handleChangeDropDown}
                                   />
-                                </li>
-                                <li className="col-lg-1 p-0">
+                                </li>}
+                                {field.sex&&<li className="col-lg-1 p-0">
                                   <SxDropDown
                                     item={item}
                                     handleChangeDropDown={handleChangeDropDown}
                                   />
-                                </li>
-                                <li className="col-lg-1 my-auto">
+                                </li>}
+                               {field.availablity&& <li className="col-lg-1 my-auto">
                                   <AvailableDropDown
                                     item={item}
                                     handleChangeDropDown={handleChangeDropDown}
                                   />
-                                </li>
-                                <li className="col-lg-2 activeStatuscontent my-auto d-flex justify-content-center">
+                                </li>}
+                                {field.email&&<li className="col-lg-2 activeStatuscontent my-auto d-flex justify-content-center">
                                   {selectedIndexMail === i ? (
                                     <input
                                       type="text"
@@ -195,8 +260,8 @@ export function TableRow(props) {
                                     clickCancel={handleCancel}
                                     selectedIndex={selectedIndexMail}
                                   ></ServiceEdit>
-                                </li>
-                                <li className="col-lg-2 my-auto d-flex justify-content-center">
+                                </li>}
+                                {field.phone&&<li className="col-lg-2 my-auto d-flex justify-content-center">
                                   <span>
                                     {selectedIndexMobile === i ? (
                                       <input
@@ -326,7 +391,122 @@ export function TableRow(props) {
                                       </div>
                                     </div>
                                   </>
-                                </li>
+                                </li>}
+                                {field.price&& <li className="col-lg-3 my-auto d-flex justify-content-center">
+                                 
+                                    
+                                      <span className="d-inline-flex">
+                                        {item.cost}
+                                      </span>
+                                    
+                                  
+
+                                  <>
+                                    <div
+                                      className="d-flex justify-content-end more_icon"
+                                      style={{ marginLeft: "200px" }}
+                                    >
+                                      <OverlayTrigger
+                                        placement="top"
+                                        overlay={
+                                          <Tooltip
+                                            id="quick-search-tooltip"
+                                            className="tool_bg"
+                                          >
+                                            More
+                                          </Tooltip>
+                                        }
+                                      >
+                                        <div className="tab_col mt-0 mb-0">
+                                          <img
+                                            src={toAbsoluteUrl(
+                                              "/media/patients/more_icon.svg"
+                                            )}
+                                            alt="more"
+                                          />
+                                        </div>
+                                      </OverlayTrigger>
+
+                                      <div className="avalib">
+                                        <div className="d-flex justify-content-end">
+                                          <OverlayTrigger
+                                            placement="top"
+                                            overlay={
+                                              <Tooltip
+                                                id="quick-search-tooltip"
+                                                className="tool_bg"
+                                              >
+                                                Edit
+                                              </Tooltip>
+                                            }
+                                          >
+                                            <div
+                                              className="tab_col mt-0 mb-0"
+                                              onClick={drawer(true, item, i)}
+                                            >
+                                              <img
+                                                src={toAbsoluteUrl(
+                                                  "/media/patients/blue_edit_icon.svg"
+                                                )}
+                                                alt="edit"
+                                                className="mai1"
+                                              />
+                                            </div>
+                                          </OverlayTrigger>
+                                          <OverlayTrigger
+                                            placement="top"
+                                            overlay={
+                                              <Tooltip
+                                                id="quick-search-tooltip"
+                                                className="tool_bg"
+                                              >
+                                                Delete
+                                              </Tooltip>
+                                            }
+                                          >
+                                            <div
+                                              className="tab_col mt-0 mb-0"
+                                              onClick={() => handleDelete(item)}
+
+                                            >
+                                              <img
+                                                src={toAbsoluteUrl(
+                                                  "/media/patients/blue_delete_icon.svg"
+                                                )}
+                                                alt="delete"
+                                                className="mai"
+                                              />
+                                            </div>
+                                          </OverlayTrigger>
+                                          <OverlayTrigger
+                                            placement="top"
+                                            overlay={
+                                              <Tooltip
+                                                id="quick-search-tooltip"
+                                                className="tool_bg"
+                                              >
+                                                Duplicate
+                                              </Tooltip>
+                                            }
+                                          >
+                                            <div
+                                              className="tab_col mt-0 mb-0"
+                                              onClick={() =>
+                                                handleDuplicate(item)
+                                              }                                            >
+                                              <img
+                                                src={toAbsoluteUrl(
+                                                  "/media/patients/blue_copy_icon.svg"
+                                                )}
+                                                alt="copy"
+                                              />
+                                            </div>
+                                          </OverlayTrigger>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </>
+                                </li>}
                               </ul>
                             </div>
                           )}

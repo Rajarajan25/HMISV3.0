@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Column = [
   { name: "Service Provider", hide: false,col_size:"3"},
-  { name: "Experiencer", hide: false,col_size:"1" },
+  { name: "Experience", hide: false,col_size:"1" },
   { name: "Services", hide: false,col_size:"1" },
   { name: "Status", hide: false ,col_size:"1"},
   { name: "Sex", hide: false,col_size:"1" },
@@ -35,7 +35,16 @@ const Column = [
   { name: "Email", hide: false,col_size:"2" },
   { name: "Phone", hide: false ,col_size:"2"},
 ]
-
+const field={
+  name:"Name",
+  experience:"Experience",
+  services:"Services",
+  status:"status",
+  sex:"sex",
+  availablity:"availablity",
+  email:"email",
+  phone:"phone"
+}
 export function ListActivity01(props) {
   const classes = useStyles();
   const { dataList, toggleDrawer, handleSave, addNew, handleChangeDropDown, pagename, handleDelete, handleDuplicate, loading } = props;
@@ -51,7 +60,8 @@ export function ListActivity01(props) {
     <Accordion square  expanded={expanded} className="w-100 contentArea  elevation-none m-0" style={{background:"#00000000"}}>
       <TableHeader column={Column} listCount={dataList.length} expand={expanded} countLable="staff" toggleList={handleChange} />
       <AccordionDetails className="w-100 p-0">
-        <TableRow {...props} row={dataList} drawer={toggleDrawer} handleDelete={handleDelete} handleDuplicate={handleDuplicate} addButton={true} addText="New Staff" />
+        <TableRow {...props} row={dataList} drawer={toggleDrawer} handleDelete={handleDelete} handleDuplicate={handleDuplicate} 
+        addButton={true} addText="New Staff" field={field}/>
       </AccordionDetails>
     </Accordion>
   );
