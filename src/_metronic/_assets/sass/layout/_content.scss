@@ -2408,8 +2408,8 @@ span.avails {
 	outline: 0;
 	background: none;
 	width: 0;
-	line-height: 30px;
-	transition: width 0.4s linear;
+	// line-height: 30px;
+	// transition: width 0.4s linear;
 	padding: 0;
 	margin: 0;
 }
@@ -2430,8 +2430,8 @@ span.avails {
 }
 .searchbar:hover > .search_input {
 	padding: 0px 10px 0px 0px;
-	width: 300px;
-	transition: width 0.4s linear;
+	width: 100px;
+	// transition: width 0.4s linear;
 }
 input.edit_year[type=text] {
 	border: 0;

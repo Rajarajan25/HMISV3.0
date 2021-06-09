@@ -57,6 +57,7 @@ class StaffPage extends React.Component {
             staffList: [],
             isUpdate: true,
             isloading: false,
+            searchValue:"",
         };
     }
 
@@ -244,6 +245,9 @@ class StaffPage extends React.Component {
     handleDataSource = (values) => {
         this.setState({ staffList: values });
     };
+    handleSearch= (value) =>{
+        this.setState({searchValue: value});
+    }
     render() {
         const { loading } = this.props;
         const { staffList } = this.state;
@@ -253,6 +257,8 @@ class StaffPage extends React.Component {
                     value={staffList}
                     handleDataSource={this.handleDataSource}
                     fields={this.fields}
+                    handleSearch={this.handleSearch}
+                    
                 />
                 <div className="d-flex flex-column mt-1">
                     <div className="contentSection collapse show w-100">
@@ -268,6 +274,7 @@ class StaffPage extends React.Component {
                             handleDataSource={this.handleDataSource}
                             handleDelete={this.handleDelete}
                             handleDuplicate={this.handleDuplicate}
+                            searchValue={this.state.searchValue}
                         />
                     </div>
                 </div>

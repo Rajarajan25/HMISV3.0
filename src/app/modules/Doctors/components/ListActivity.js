@@ -25,11 +25,11 @@ const Column=[
 ]
 
 export function ListActivity01(props) {
-  const {dataList,toggleDrawer,handleSave,addNew,handleChangeDropDown,pagename,handleDelete, handleDuplicate}=props;
+  const {dataList,toggleDrawer,handleSave,addNew,handleChangeDropDown,pagename,handleDelete, handleDuplicate,searchValue}=props;
   return (
     <div className="contentArea">
       <TableHeader column={Column} listCount={dataList.length} expandVisiable={true} countLable="staff"/>
-    <TableRow {...props} row={dataList} drawer={toggleDrawer} handleDelete={handleDelete} handleDuplicate={handleDuplicate} addButton={true} addText="New Staff" />
+    <TableRow {...props} row={dataList} drawer={toggleDrawer} handleDelete={handleDelete} handleDuplicate={handleDuplicate} addButton={true} addText="New Staff" searchValue={searchValue} />
     </div>
   );
 }

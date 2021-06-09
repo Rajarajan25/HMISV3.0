@@ -19,7 +19,7 @@ export function FilterDropDown(props) {
   const {value,handleDataSource,fields}=props;
     return <>
         {/*begin::Navigation*/}
-       <FilterQuery value={value} handleDataSource={handleDataSource} fields={fields} />
+       <FilterQuery value={value} handleDataSource={handleDataSource} fields={fields}/>
         {/*end::Navigation*/}
   
     </>

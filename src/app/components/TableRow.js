@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../_metronic/_helpers";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
@@ -21,6 +21,7 @@ export function TableRow(props) {
     handleChangeDropDown,
     pagename,
     handleDataSource,
+    searchValue
   } = props;
   const [addNewRow, setAddNewRow] = useState(false);
   const [selectedIndexName, setSelectedIndexName] = React.useState(-1);
@@ -28,6 +29,9 @@ export function TableRow(props) {
   const [selectedIndexMobile, setSelectedIndexMobile] = React.useState(-1);
   const updatedValue = React.useRef("");
   const newName = React.useRef("");
+  // useEffect(()=>{
+  //   console.log(props.searchValue);
+  // },[searchValue])
 
   function handleOnDragEnd(result) {
     if (!result.destination) return;

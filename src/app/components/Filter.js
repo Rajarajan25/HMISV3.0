@@ -13,7 +13,8 @@ import Select from 'react-select';
 import { Modal } from "react-bootstrap";
 import { Dropdown } from "react-bootstrap";
 import {DropdownItemToggler} from "../../_metronic/_partials/dropdowns";
-import {FilterDropDown} from './FilterDropDown'
+import {FilterDropDown} from './FilterDropDown';
+import Search from '../components/Search';
 const options = [
   { value: 'newest', label: 'Newest' },
   { value: 'oldest', label: 'Oldest' },
@@ -21,7 +22,7 @@ const options = [
 
 export function Filter(props) {
   const user = useSelector(({ auth }) => auth.user, shallowEqual);
-  const {value,handleDataSource,fields}=props;
+  const {value,handleDataSource,fields, handleSearch}=props;
   useEffect(() => {
     return () => {};
   }, [user]);
@@ -46,12 +47,13 @@ export function Filter(props) {
                                   </div>
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu  className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
-                                  <FilterDropDown value={value} handleDataSource={handleDataSource} fields={fields} />
+                                  <FilterDropDown value={value} handleDataSource={handleDataSource} fields={fields}/>
                                 </Dropdown.Menu>
                               </Dropdown>
                             </div>
                             <div className="searchbar d-flex justify-items-center">
-                              <input className="search_input" type="text" name="" placeholder="Search Staff" />
+                              {/* <input className="search_input" type="text" name="" placeholder="Search Staff" /> */}
+                              <Search handleSearch={handleDataSource} data={value}></Search>
                               <a href="#" className="search_icon"><img src={toAbsoluteUrl("/media/patients/cat_search.svg")} alt="" className="" /></a>
                             </div>                         
                           </div>

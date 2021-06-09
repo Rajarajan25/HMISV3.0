@@ -24,8 +24,10 @@ const colorDropDown = [
 ];
 export function ColorPalette(props) {
   const { handleChangeDropDown, item } = props;
+  const [colors,setColors] = React.useState("#FFFFFF");
   const handleColorChange = (eve, id) => {
-    handleChangeDropDown(eve.hex, id, "avatar_bg_color")
+    setColors(eve.hex);
+    // handleChangeDropDown(eve.hex, id, "avatar_bg_color");
   };
   return (
     <>
@@ -33,14 +35,9 @@ export function ColorPalette(props) {
         <div className="color_select">
           {colorDropDown.map((colors, index) => {
             return (
-              <div className="d-inline-flex color_col p-3"  key={index}>
-                <input
-                  type="radio"
-                  id={"color_" + index}
-                  name="color-code"
-                 
-                />
-                <label  htmlFor={"color_" + index}>
+              <div className="d-inline-flex color_col p-3" key={index}>
+                <input type="radio" id={"color_" + index} name="color-code" />
+                <label htmlFor={"color_" + index}>
                   <span
                     style={{ backgroundColor: colors }}
                     onClick={() =>
@@ -53,11 +50,19 @@ export function ColorPalette(props) {
           })}
           <div className="d-inline-flex color_col p-3 plus_btn">
             <span className="color_add">
-              <ColorPicker onChangeComplete={(e) => handleColorChange(e, item.id)}/>
-              <i className="add">+Add</i>
+              <ColorPicker
+                onChangeComplete={(e) => handleColorChange(e, item.id)}
+              />
+             
             </span>
-            
           </div>
+          <button
+                onClick={() =>
+                  handleChangeDropDown(colors, item.id, "avatar_bg_color")
+                }
+              >
+                Ok
+              </button>
         </div>
       </div>
     </>
@@ -67,7 +72,7 @@ export function ColorPalette(props) {
 export function ColorPaletteFormik(props) {
   const { handleChangeDropDown, item } = props;
   const handleColorChange = (eve, id) => {
-    handleChangeDropDown(eve.hex, id, "avatar_bg_color")
+    handleChangeDropDown(eve.hex, id, "avatar_bg_color");
   };
   return (
     <>
@@ -84,7 +89,7 @@ export function ColorPaletteFormik(props) {
                   value={colors}
                 />
                 <label className="" for={"color_" + index}>
-                <span
+                  <span
                     style={{ backgroundColor: colors }}
                     onClick={() =>
                       handleChangeDropDown(colors, item.id, "avatar_bg_color")
@@ -96,8 +101,10 @@ export function ColorPaletteFormik(props) {
           })}
           <div class="d-inline-flex color_col p-3 plus_btn">
             <span className="color_add">
-            <ColorPicker onChangeComplete={(e) => handleColorChange(e, item.id)}/>
-            <i className="add">+Add</i>
+              <ColorPicker
+                onChangeComplete={(e) => handleColorChange(e, item.id)}
+              />
+              <i className="add">+Add</i>
             </span>
           </div>
         </div>
