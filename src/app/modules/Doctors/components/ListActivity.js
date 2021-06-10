@@ -60,7 +60,7 @@ export function ListActivity01(props) {
     <Accordion square  expanded={expanded} className="w-100 contentArea  elevation-none m-0" style={{background:"#00000000"}}>
       <TableHeader column={Column} listCount={dataList.length} expand={expanded} countLable="staff" toggleList={handleChange} />
       <AccordionDetails className="w-100 p-0">
-        <TableRow {...props} row={dataList} drawer={toggleDrawer} handleDelete={handleDelete} handleDuplicate={handleDuplicate} 
+        <TableRow {...props} row={dataList} drawer={toggleDrawer} handleDuplicate={handleDuplicate} 
         addButton={true} addText="New Staff" field={field}/>
       </AccordionDetails>
     </Accordion>

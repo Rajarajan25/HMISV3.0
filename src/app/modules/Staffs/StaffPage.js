@@ -18,6 +18,7 @@ import { AddFab } from "../../components/AddFab";
 import { StaffModel } from "../../models/StaffModel";
 import { SpinnerLarge } from "../../components/Spinner";
 import { id } from "date-fns/locale";
+import { DeleteDialog } from "../../components/DeleteDialog";
 
 let newStaff = StaffModel;
 
@@ -57,9 +58,12 @@ class StaffPage extends React.Component {
             currentIndex: -1,
             staffList: [],
             isUpdate: true,
-            isDragDisabled:false,
+            isDragDisabled: false,
             isloading: false,
-            searchValue:"",
+            searchValue: "",
+            showDialog: false,
+            dialogContent: false,
+            deletedItem: false,
         };
     }
 
@@ -126,7 +130,7 @@ class StaffPage extends React.Component {
         let item = { ...updatedItem, ...updatedValue };
         items[index] = item;
         this.setState({ staffList: items, isloading: true });
-        let {id,...updateValue}=updatedValue;
+        let { id, ...updateValue } = updatedValue;
         console.log(updateValue);
         this.props.updateStaff({
             variables: {
@@ -197,51 +201,35 @@ class StaffPage extends React.Component {
             DevAlertPopUp(error.message);
         });
     }
-    handleDelete = (deletedItem) => {
-        if (window.confirm("Are you sure?")) {
-            let tempPickItem = JSON.parse(JSON.stringify(this.state.staffList));
-            this.props
-                .deleteStaff({
-                    variables: {
-                        staffID: deletedItem.id
-                    },
-                })
-                .then(({ data: { deleteStaff } }) => {
-                    this.setState({ staffList: tempPickItem.filter(el => el.id !== deletedItem.id)});
-                })
-                .catch((error) => {
-                    DevAlertPopUp(error.message);
-                });
-        }
-    };
-    checkDuplicate =(value)=>{
-      let tempPickItem = JSON.parse(JSON.stringify(this.state.staffList));
-      let checkIndex=-1;
-      return checkIndex = tempPickItem.findIndex(
-        (elm) => elm.name === value
-      );
+
+    checkDuplicate = (value) => {
+        let tempPickItem = JSON.parse(JSON.stringify(this.state.staffList));
+        let checkIndex = -1;
+        return checkIndex = tempPickItem.findIndex(
+            (elm) => elm.name === value
+        );
     }
     handleDuplicate = (duplicatedItem) => {
         let tempPickItem = JSON.parse(JSON.stringify(this.state.staffList));
         let duplicatedIndex = tempPickItem.findIndex(
             (elm) => elm.id === duplicatedItem.id
         );
-        let {id,...duplicateitem}=duplicatedItem;
+        let { id, ...duplicateitem } = duplicatedItem;
         console.log(duplicateitem);
-        let isDuplicateID=1;
-        let duplicateName=duplicatedItem.name;
-        let i=1; 
-        while(isDuplicateID !=-1){
-          duplicateName=duplicateName.replace(/[0-9]\s*$/, "")+""+i;
-          isDuplicateID=this.checkDuplicate(duplicateName);
-          i++;
+        let isDuplicateID = 1;
+        let duplicateName = duplicatedItem.name;
+        let i = 1;
+        while (isDuplicateID != -1) {
+            duplicateName = duplicateName.replace(/[0-9]\s*$/, "") + "" + i;
+            isDuplicateID = this.checkDuplicate(duplicateName);
+            i++;
         }
         DevConsoleLog(duplicateName);
-        duplicatedItem={ ...duplicatedItem, name: duplicateName };
+        duplicatedItem = { ...duplicatedItem, name: duplicateName };
         this.props
             .addStaff({
                 variables: {
-                    staff: { ...duplicateitem},
+                    staff: { ...duplicateitem },
                 },
             })
             .then(({ data: { addStaff } }) => {
@@ -257,12 +245,53 @@ class StaffPage extends React.Component {
     handleDataSource = (values) => {
         this.setState({ staffList: values });
     };
-    handleSearch= (value) =>{
-        this.setState({searchValue: value});
+    handleSearch = (value) => {
+        this.setState({ searchValue: value });
     }
-    dragableDisable= (value) =>{
-        this.setState({isDragDisabled: value});
+    dragableDisable = (value) => {
+        this.setState({ isDragDisabled: value });
     }
+    dialogHide = () => {
+        this.setState({
+            deletedItem: false,
+            showDialog: false,
+            isloading: false,
+            dialogContent: false
+        });
+    }
+    deletePopUp = (item) => {
+        this.setState({
+            deletedItem: item,
+            showDialog: true,
+            dialogContent: {
+                title: "Staff Delete",
+                message: "Are you sure to permanently delete this staff?",
+                loadingMsg: "Staff Deleting...",
+                cancelLable: "Cancel",
+                okLable: "Delete"
+            }
+        });
+
+    };
+
+    handleDelete = () => {
+        let tempPickItem = JSON.parse(JSON.stringify(this.state.staffList));
+        this.setState({isloading:true});
+        this.props
+            .deleteStaff({
+                variables: {
+                    staffID: this.state.deletedItem.id
+                },
+            })
+            .then(({ data: { deleteStaff } }) => {
+                this.setState({ staffList: tempPickItem.filter(el => el.id !== this.state.deletedItem.id) });
+                this.dialogHide();
+            })
+            .catch((error) => {
+                DevAlertPopUp(error.message);
+            });
+    };
+
     render() {
         const { loading } = this.props;
         const { staffList } = this.state;
@@ -271,23 +300,23 @@ class StaffPage extends React.Component {
                 <Filter value={staffList}
                     handleDataSource={this.handleDataSource}
                     fields={this.fields}
-                    placeholder="Staff Search"/>
+                    placeholder="Staff Search" />
                 <div className="d-flex flex-row-auto w-100 mt-1">
-                        <SpinnerLarge loading={loading} />
-                        <ListActivity01
-                            loading={loading}
-                            dataList={staffList}
-                            pagename="Staff"
-                            isDragDisabled={this.state.isDragDisabled}
-                            toggleDrawer={this.toggleDrawer}
-                            handleSave={this.handleSaveSingle}
-                            addNew={this.addNewStaff}
-                            handleChangeDropDown={this.handleChangeDropDown}
-                            handleDataSource={this.handleDataSource}
-                            handleDelete={this.handleDelete}
-                            handleDuplicate={this.handleDuplicate}
-                            searchValue={this.state.searchValue}
-                        />
+                    <SpinnerLarge loading={loading} />
+                    <ListActivity01
+                        loading={loading}
+                        dataList={staffList}
+                        pagename="Staff"
+                        isDragDisabled={this.state.isDragDisabled}
+                        toggleDrawer={this.toggleDrawer}
+                        handleSave={this.handleSaveSingle}
+                        addNew={this.addNewStaff}
+                        handleChangeDropDown={this.handleChangeDropDown}
+                        handleDataSource={this.handleDataSource}
+                        handleDelete={this.deletePopUp}
+                        handleDuplicate={this.handleDuplicate}
+                        searchValue={this.state.searchValue}
+                    />
                 </div>
                 <AddFab onClick={this.toggleDrawer(true)} />
                 <RightSideDrawer
@@ -300,6 +329,13 @@ class StaffPage extends React.Component {
                         index={this.state.currentIndex}
                         addNew={this.addNewStaff} />
                 </RightSideDrawer>
+
+                <DeleteDialog 
+                    show={this.state.showDialog}
+                    onHide={this.dialogHide}
+                    deleteAction={this.handleDelete}
+                    content={this.state.dialogContent}
+                    isloading={this.state.isloading} />
             </div>
         );
     }
