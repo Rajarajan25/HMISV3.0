@@ -35,10 +35,11 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export function ServiceDetailsTab(props) {
-  const {currentService,handleUpdate,currentIndex}=props
+  const {handleUpdate,currentIndex}=props
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
   const [service, setservice] = React.useContext(ServiceContext);
+  let currentService=service.currentService
   const field = {
     name: "Service Name",
     gender:"Preferred Genders",
@@ -61,9 +62,12 @@ export function ServiceDetailsTab(props) {
     setValue(newValue);
   }
   function editService(values) {
+    currentService.payments=values.payments;
+    currentService.duration=values.duration;
+    currentService.timings=values.timings;
     setservice({
       type: "EDIT_SERVICE",
-      payload: values
+      payload: currentService
     });
   }
 

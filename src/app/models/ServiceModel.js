@@ -10,6 +10,13 @@ export const ServiceModel={
     payments:{retail_price:"",special_price:"",staff_name:"",duration_minutes:"",price_type:"",service_pricing_by_staff:[{
       staff_id:"",price_type:"",retail_price:"",special_price:"",duration_minutes:"",duration_hours:""
     }]},
+    staff:[
+      {
+        "id":"",
+        "name":"",
+        "mobile_number":""
+     }
+    ],
     staff_timings: [TimingsModel],
 
   
