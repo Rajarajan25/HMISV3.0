@@ -72,6 +72,25 @@ const buffertime = [
   { value: '20mins', label: '20 Mins' }
 ]
 
+const dayselect = [
+  { value: '1day', label: '1' },
+  { value: '2day', label: '2' },
+  { value: '3day', label: '3' },
+  { value: '4day', label: '4' },
+  { value: '5day', label: '5' },
+  { value: '6day', label: '6' },
+  { value: '7day', label: '7' },
+  { value: '8day', label: '8' },
+  { value: '9day', label: '9' },
+  { value: '10day', label: '10' },
+]
+
+const week = [
+  { value: 'week', label: 'Week' },
+  { value: 'month', label: 'Month' },
+  { value: 'year', label: 'Year' }
+]
+
 export function ContentEventTiming() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
@@ -115,9 +134,72 @@ export function ContentEventTiming() {
         </div>
         <div className="form-group">
           <label className="form-label d-block mr-5 mb-2">Date Range</label>
-          <div className="d-flex mb-2">
-            <div className="busi_cus ser_tme clearfix">
-              <DateRange1 />
+          <div className="form-group mb-2">
+            <div className="d-flex event-range">
+              <div className="event-radio">
+                <input type="radio" id="range_01" name="time-range" className=""/>
+                <label className="eprice" for="range_01">
+                  <span className="circle-border"></span>
+                  <span className="chk_txt">Range</span>
+                </label>
+              </div>
+              <div className="event-radio">
+                <input type="radio" id="range_02" name="time-range" className=""/>
+                <label className="eprice" for="range_02">
+                  <span className="circle-border"></span>
+                  <span className="chk_txt">Indefinitely</span>
+                </label>
+              </div>
+              <div className="event-radio">
+                <input type="radio" id="range_03" name="time-range" className=""/>
+                <label className="eprice" for="range_03">
+                  <span className="circle-border"></span>
+                  <span className="chk_txt">Advance</span>
+                </label>
+              </div>
+              <div className="event-radio">
+                <input type="radio" id="range_04" name="time-range" className=""/>
+                <label className="eprice" for="range_04">
+                  <span className="circle-border"></span>
+                  <span className="chk_txt">Time</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div className="daterangepicker">
+            <DateRangePickersUtil />
+          </div>
+          <div className="advanceselect">
+            <div className="form-group">
+              <div className="row">
+                <div className="col-6">
+                  <label className="form-label d-block">No</label>
+                  <div className="re_select">
+                    <Select options={dayselect} /> 
+                  </div>
+                </div>
+                <div className="col-6">
+                  <label className="form-label d-block">Week/Month/Year</label>
+                  <div className="re_select">
+                    <Select options={week} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="timeselect">
+            <div className="form-group">
+              <div className="row">
+                <div className="col-6">
+                  <label className="form-label d-block">From Time</label>
+                  <TimePickers />
+                </div>
+                <div className="col-6">
+                  <label className="form-label d-block">To Time</label>
+                  <TimePickers />
+                </div>
+              </div>
             </div>
           </div>
           <div className="daterangepicker mt-5">
@@ -146,6 +228,7 @@ export function ContentEventTiming() {
                   <Tab label={<TabPerson />} />
                   <Tab label={<TabCall />} />
                   <Tab label={<TabVideo />} />
+                  <Tab label={<TabChat />} />
                 </Tabs>
               </AppBar>
             </div>
@@ -154,12 +237,12 @@ export function ContentEventTiming() {
             {value === 0 && <TabContainer> <AvailPerson />  </TabContainer>}
             {value === 1 && <TabContainer> <AvailCall /> </TabContainer>}
             {value === 2 && <TabContainer> <AvailVideo /> </TabContainer>}
+            {value === 3 && <TabContainer> <AvailChat /> </TabContainer>}
           </div>
         </div>
         <div className="day_select pt-0 pb-5">
           <div className="d-flex">
             <label className="staff_title_text">Working Days</label>
-            <Link to="#" className="ml-auto add_setting">+ Additional Settings</Link>
           </div>
           <div className="d-flex mt-3">
             <div className="day_input">
@@ -305,7 +388,7 @@ export function ContentEventTiming() {
           </div>
           <div className="form-group mt-6 mb-0">
             <div className="d-flex justify-content-end patientButton add_timing">
-              <button type="button" className="btn btn-primary m-0">+ Add Timings</button>
+              <button type="button" className="btn btn-primary m-0">+ More Timings</button>
             </div>
           </div>
         </div>
@@ -343,6 +426,14 @@ export function TabVideo() {
   );
 }
 
+export function TabChat() {
+  return (
+    <div className="clearfix">
+      <span className="staff_tab_title">Chat</span>
+    </div>
+  );
+}
+
 export function AvailPerson() {
   return (
     <div className="clearfix my-4">
@@ -351,8 +442,8 @@ export function AvailPerson() {
           <input type="radio" id="availperson_01" name="availperson" className="" />
           <label className="mb-0" for="availperson_01">My Business Address</label>
         </div>
-        <div className="ml-auto">
-          <Dropdown drop="down" aligncenter="true" className="dropdown h-100">
+        <div className="ml-auto d-none">
+          <Dropdown drop="down" alignCenter className="dropdown h-100">
             <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
               <Link to="#" className="add_setting">+ Add Address</Link>
             </Dropdown.Toggle>
@@ -364,33 +455,11 @@ export function AvailPerson() {
           </Dropdown>
         </div>
       </div>
-      <div className="row per_add">
-        <div className="col-6">
-          <input type="radio" name="person_addr" id="address_01" />
-          <label className="person_addr" for="address_01">
-            <h3>Address 1</h3>
-            <p>B Wing Flat no 502,<br />
-              PN Building, Adayar,<br />
-              Chennai - 600096</p>
-          </label>
-        </div>
-        <div className="col-6">
-          <input type="radio" name="person_addr" id="address_02" />
-          <label className="person_addr" for="address_02">
-            <h3>Address 2</h3>
-            <p>B Wing Flat no 502,<br />
-              PN Building, Adayar,<br />
-              Chennai - 600096</p>
-          </label>
-        </div>
-      </div>
+      
       <div className="clearfix">
         <div className="avail-person">
           <input type="radio" id="availperson_02" name="availperson" className="" />
           <label className="mb-0" for="availperson_02">Client Address At Booking</label>
-        </div>
-        <div className="form-group">
-          <input placeholder="Address" type="text" className={`form-control`} name=""/>
         </div>
       </div>
     </div>
@@ -459,6 +528,22 @@ export function AvailVideo() {
           <label className="d-flex vid_bg" for="video_06">
             <img src={toAbsoluteUrl("/media/patients/google-meet_icon.png")} alt="" className="" />
             <span>Google Meet</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function AvailChat() {
+  return (
+    <div className="clearfix avail_device my-4">
+      <div className="row">
+        <div className="col-4">
+          <input type="radio" name="avail_chat" id="chat_01" />
+          <label className="d-flex vid_bg" for="chat_01">
+            <img src={toAbsoluteUrl("/media/patients/skype_icon.png")} alt="" className="" />
+            <span>Skype</span>
           </label>
         </div>
       </div>
@@ -549,9 +634,10 @@ function DateRange1 () {
 }
 
 export function TimePickers() {
+
 return (
   <Grid container justify="space-around">
-    <TimePickersUtil />
+    <TimePickersUtil/>
   </Grid>
 );
 }
