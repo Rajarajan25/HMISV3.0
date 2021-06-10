@@ -17,6 +17,7 @@ import { RightSideDrawer } from "../../components/RightSideDrawer";
 import { AddFab } from "../../components/AddFab";
 import { StaffModel } from "../../models/StaffModel";
 import { SpinnerLarge } from "../../components/Spinner";
+import { id } from "date-fns/locale";
 
 let newStaff = StaffModel;
 
@@ -123,14 +124,14 @@ class StaffPage extends React.Component {
         let updatedItem = tempPickList[index];
         let items = [...tempPickList];
         let item = { ...updatedItem, ...updatedValue };
-        console.log("item-->", item);
         items[index] = item;
         this.setState({ staffList: items, isloading: true });
-        delete updatedValue.id;
+        let {id,...updateValue}=updatedValue;
+        console.log(updateValue);
         this.props.updateStaff({
             variables: {
                 staffID: updatedItem.id,
-                staff: { ...updatedValue }
+                staff: { ...updateValue }
             }
         }).then(({ data: { updateStaff } }) => {
             //this.props.refetchStaff();
@@ -225,7 +226,8 @@ class StaffPage extends React.Component {
         let duplicatedIndex = tempPickItem.findIndex(
             (elm) => elm.id === duplicatedItem.id
         );
-        delete duplicatedItem.id;
+        let {id,...duplicateitem}=duplicatedItem;
+        console.log(duplicateitem);
         let isDuplicateID=1;
         let duplicateName=duplicatedItem.name;
         let i=1; 
@@ -239,7 +241,7 @@ class StaffPage extends React.Component {
         this.props
             .addStaff({
                 variables: {
-                    staff: { ...duplicatedItem},
+                    staff: { ...duplicateitem},
                 },
             })
             .then(({ data: { addStaff } }) => {
