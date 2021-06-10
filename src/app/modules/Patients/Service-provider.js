@@ -12,7 +12,7 @@ export default function ServiceProvider() {
     <ServiceProviders>
     <div className="d-block">
       <div className="d-flex flex-row">        
-        <Filters></Filters>
+        {/* <Filters></Filters> */}
       </div>
       <div className="d-flex flex-column mt-1"> 
         <div className="contentSection collapse show w-100">
