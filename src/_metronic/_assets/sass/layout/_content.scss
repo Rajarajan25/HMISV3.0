@@ -5091,7 +5091,7 @@ p.setting_color {
       position: absolute;
       content: "";
       width: 4px;
-      height: 40px;
+      height: 36px;
       top: 7px;
       left: 4px;
       background-color: #5d1dd7;
@@ -5337,7 +5337,7 @@ p.setting_color {
   padding: 15px 15px 0;
 }
 .dx-scheduler-appointment-recurrence .dx-scheduler-appointment-content {
-  padding: 8px 5px 5px 15px !important;
+  padding: 5px 5px 5px 15px !important;
 }
 .daterangepicker {
   .react-google-flight-datepicker {
@@ -5820,5 +5820,23 @@ p.setting_color {
     color: #ffff;
     font-size: 15px;
     font-weight: 700;
+  }
+}
+.MuiPopover-root {
+  z-index: 1500 !important;
+}
+.modal-backdrop {
+  z-index: 1440;
+}
+.timemodal {
+  z-index: 1450;
+  .modal-dialog {
+    max-width: 600px;
+  }
+  .modal-header .close span {
+    display: block;
+  }
+  .modal-body {
+    padding-top: 0.75rem;
   }
 }

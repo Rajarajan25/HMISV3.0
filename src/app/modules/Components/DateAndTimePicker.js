@@ -69,7 +69,7 @@ export function TimePickersUtil(props) {
     setSelectedDate(date);
   };
   return (
-      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+      <MuiPickersUtilsProvider className="time_pickers" utils={DateFnsUtils}>
          <TimePicker
          {...props}
         variant="inline"
