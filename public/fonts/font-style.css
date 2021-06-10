@@ -131,12 +131,60 @@
 	font-weight: 500;
 	font-style: italic;
 }
+
 @font-face {  
     font-family: Proxima Nova;
-    src: url("ProximaNova-Regular.otf") format("opentype");
+    src: url("ProximaNova-Regular.otf") format("OpenType");
 }
 @font-face {
     font-family: Proxima Nova;
     font-weight: bold;
-    src: url("Proxima Nova Bold.otf") format("opentype");
+    src: url("ProximaNova-Bold.otf") format("OpenType");
+}
+@font-face {
+    font-family: Proxima Nova;
+    font-weight: 800;
+    src: url("ProximaNova-Extrabold.otf") format("OpenType");
+}
+
+@font-face {
+    font-family: 'ProximaNova';
+    font-style: normal;
+    font-weight: normal;
+    src: local('ProximaNova'), url('ProximaNova_Book.woff') format('woff');
+}
+@font-face {
+    font-family: 'ProximaNova_Medium';
+    font-style: normal;
+    font-weight: normal;
+    src: local('ProximaNova_Medium'), url('ProximaNova_Medium.woff') format('woff');
+}
+@font-face {
+    font-family: 'ProximaNova_SemiBold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('ProximaNova_SemiBold'), url('ProximaNova_SemiBold.woff') format('woff');
+}
+@font-face {
+    font-family: 'ProximaNova_Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('ProximaNova_Bold'), url('ProximaNova_Bold.woff') format('woff');
+}
+@font-face {
+    font-family: 'ProximaNova_ExtraBold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('ProximaNova_ExtraBold'), url('ProximaNova_ExtraBold.woff') format('woff');
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('Lato-Regular.eot'); /* IE9 Compat Modes */
+    src: url('Lato-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('Lato-Regular.woff2') format('woff2'), /* Modern Browsers */
+         url('Lato-Regular.woff') format('woff'), /* Modern Browsers */
+         url('Lato-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
 }
