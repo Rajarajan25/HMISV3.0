@@ -19,27 +19,27 @@ export function AvailableDropDown(props) {
 
   const handleDelete = (type) => {
     let ava = { ...AvailabilityModel };
-    let timings = item.staff_timings||[];
-    if(timings[0].timing_id.availability_id){
-      ava={...timings[0].timing_id.availability_id};
+    let timings = item.staff_timings || [];
+    if (timings[0].timing_id.availability_id) {
+      ava = { ...timings[0].timing_id.availability_id };
     }
-    switch(type){
+    switch (type) {
       case Type.INPERSON:
-        ava.inperson = {...InpersionModel};
+        ava.inperson = { ...InpersionModel };
         break;
-        case Type.PHONE:
-          ava.oncall = {...OncallModel };
+      case Type.PHONE:
+        ava.oncall = { ...OncallModel };
         break;
-        case Type.VIDEO:
-          ava.video = [];
+      case Type.VIDEO:
+        ava.video = [];
         break;
-        case Type.CHAT:
-          ava.video = [];
+      case Type.CHAT:
+        ava.video = [];
         break;
-        default:
-          break
+      default:
+        break
     }
-    timings[0].timing_id.availability_id = {...ava};
+    timings[0].timing_id.availability_id = { ...ava };
     handleChangeDropDown(timings, item.id, "staff_timings");
   };
 
@@ -51,19 +51,19 @@ export function AvailableDropDown(props) {
       if (availability_id.inperson) {
         const { buinsess_address, client_address } = availability_id.inperson;
         if (buinsess_address || client_address) {
-          selectOpt.push(<InpersonUI deleteUI={handleDelete}/>);
+          selectOpt.push(<InpersonUI deleteUI={handleDelete} />);
         }
       }
       if (availability_id.oncall) {
         const { client, staff } = availability_id.oncall;
         if (client || staff) {
-          selectOpt.push(<PhoneUI deleteUI={handleDelete}/>);
+          selectOpt.push(<PhoneUI deleteUI={handleDelete} />);
         }
       }
 
       const video = availability_id.video && availability_id.video.length != 0;
       if (video) {
-        selectOpt.push(<VideoUI deleteUI={handleDelete}/>);
+        selectOpt.push(<VideoUI deleteUI={handleDelete} />);
       }
     }
   }
@@ -72,18 +72,17 @@ export function AvailableDropDown(props) {
     selectOpt.push(<span>Select availability</span>);
   }
 
-  
+
 
   return (<Dropdown drop="down" aligncenter="true" className="dropdown h-100">
     <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle2" className="h-100">
-      <div className="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column flex-column avail_wid">
-          {selectOpt.map((item, index) => {
-            return (
-              <div key={index} className="d-flex mt-1 mb-1 p-1 justify-content-center avail_hover">
-                {item}
-              </div>
-            );
-          })}
+      <div className="d-flex flex-wrap h-100 justify-content-center flex-column flex-column avail_wid">
+        {/* <div className="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column flex-column avail_wid"> */}
+        {selectOpt.map((item, index) => {
+          return (
+           <> { item }</>
+          );
+        })}
       </div>
     </Dropdown.Toggle>
     <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav">
@@ -95,37 +94,37 @@ export function AvailableDropDown(props) {
 export function AvailableDropdownMenu(props) {
   const { handleChangeDropDown, item } = props;
   const avaiableArray = [
-    { type: Type.INPERSON, icon: "/media/patients/avail_visit.svg", color_bg: "visit_bg"},
+    { type: Type.INPERSON, icon: "/media/patients/avail_visit.svg", color_bg: "visit_bg" },
     { type: Type.PHONE, icon: "/media/patients/avail_phone.svg", color_bg: "phone_bg" },
     { type: Type.VIDEO, icon: "/media/patients/avail_video.svg", color_bg: "video_bg" },
     //{ type: Type.CHAT, icon: "/media/patients/avail_chat.svg", color_bg: "chat_bg" },
   ];
   const handleDropDown = (type) => {
     let ava = { ...AvailabilityModel };
-    let timings = item.staff_timings||[];
-    if(timings.length===0||!timings[0].timing_id) timings=[TimingsModel];
-    if(timings[0].timing_id.availability_id){
-      ava={...timings[0].timing_id.availability_id};
+    let timings = item.staff_timings || [];
+    if (timings.length === 0 || !timings[0].timing_id) timings = [TimingsModel];
+    if (timings[0].timing_id.availability_id) {
+      ava = { ...timings[0].timing_id.availability_id };
     }
 
-    switch(type){
+    switch (type) {
       case Type.INPERSON:
         ava.inperson = { ...InpersionModel, buinsess_address: true };
         break;
-        case Type.PHONE:
-          ava.oncall = { ...OncallModel, client: true };
+      case Type.PHONE:
+        ava.oncall = { ...OncallModel, client: true };
         break;
-        case Type.VIDEO:
-          ava.video = [{ ...VideoData, video_type: "Zoom" }];
+      case Type.VIDEO:
+        ava.video = [{ ...VideoData, video_type: "Zoom" }];
         break;
-        case Type.CHAT:
-          ava.video = [];
+      case Type.CHAT:
+        ava.video = [];
         break;
-        default:
-          break
+      default:
+        break
     }
-    
-    timings[0].timing_id.availability_id = {...ava};
+
+    timings[0].timing_id.availability_id = { ...ava };
     handleChangeDropDown(timings, item.id, "staff_timings");
   };
   return <>
@@ -150,8 +149,10 @@ export function InpersonUI(props) {
   const { deleteUI } = props;
   return (
     <>
-      <span className="avails visit_bg"><img src={toAbsoluteUrl("/media/patients/avail_visit.svg")} alt="" className="" /></span>
-      <span>Inperson</span> <span className="close_icons visit_bg" onClick={() =>deleteUI(Type.INPERSON)}>x</span>
+      <div className="d-flex mt-1 mb-1 pl-5 py-1 pr-1 avail_hover">
+        <span className="avails visit_bg"><img src={toAbsoluteUrl("/media/patients/avail_visit.svg")} alt="" className="" /></span>
+        <span>Inperson</span> <span className="close_icons visit_bg" onClick={() => deleteUI(Type.INPERSON)}>x</span>
+      </div>
     </>
   )
 }
@@ -160,8 +161,10 @@ export function PhoneUI(props) {
   const { deleteUI } = props;
   return (
     <>
-      <span className="avails phone_bg"><img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="" className="" /></span>
-      <span>Phone</span> <span className="close_icons phone_bg" onClick={() =>deleteUI(Type.PHONE)}>x</span>
+      <div className="d-flex mt-1 mb-1 pl-5 py-1 pr-1 avail_hover">
+        <span className="avails phone_bg"><img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="" className="" /></span>
+        <span>Phone</span> <span className="close_icons phone_bg" onClick={() => deleteUI(Type.PHONE)}>x</span>
+      </div>
     </>
   )
 }
@@ -170,8 +173,23 @@ export function VideoUI(props) {
   const { deleteUI } = props;
   return (
     <>
-      <span className="avails video_bg"><img src={toAbsoluteUrl("/media/patients/avail_video.svg")} alt="" className="" /></span>
-      <span>Video</span> <span className="close_icons video_bg" onClick={() =>deleteUI(Type.VIDEO)}>x</span>
+      <div className="d-flex mt-1 mb-1 pl-5 py-1 pr-1 avail_hover">
+        <span className="avails video_bg"><img src={toAbsoluteUrl("/media/patients/avail_video.svg")} alt="" className="" /></span>
+        <span>Video</span> <span className="close_icons video_bg" onClick={() => deleteUI(Type.VIDEO)}>x</span>
+      </div>
     </>
   )
 }
+export function ChatUI(props) {
+  const { deleteUI } = props;
+  return (
+    <>
+      <div className="d-flex mt-1 mb-1 pl-5 py-1 pr-1 avail_hover">
+        <span className="avails chat_bg"><img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="" className="" /></span>
+        <span>Chat</span> <span className="close_icons chat_bg" onClick={() => deleteUI(Type.CHAT)}>x</span>
+      </div>
+    </>
+  )
+}
+
+
