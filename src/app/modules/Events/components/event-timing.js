@@ -611,6 +611,11 @@ export function Availability() {
               </div>
             </div>
           </div>
+          <div className="form-group mt-6 mb-0">
+            <div className="d-flex justify-content-end patientButton add_timing" >
+              <span type="button" className="btn btn-primary m-0">+ Add Timings</span>
+            </div>
+          </div>
         </div>
       </div>
     );

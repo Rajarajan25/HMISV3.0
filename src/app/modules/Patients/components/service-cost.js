@@ -177,7 +177,6 @@ export function ServiceCost() {
           <div className="col-4 pr-2 min_width100">
             <div className="session_select">
               <label className="staff_title_text min_wid">Sunday</label>
-              <div className="switchlabel"><SwitchLabels /></div>
             </div>
           </div>
           <div className="col-4 p-0 d-flex">
@@ -190,7 +189,6 @@ export function ServiceCost() {
           <div className="col-4 pr-2 min_width100">
             <div className="session_select">
               <label className="staff_title_text min_wid">Monday</label>
-              <div className="switchlabel"><SwitchLabels /></div>
             </div>
           </div>
           <div className="col-4 p-0 d-flex">
@@ -203,7 +201,6 @@ export function ServiceCost() {
           <div className="col-4 pr-2 min_width100">
             <div className="session_select">
               <label className="staff_title_text min_wid">Tuesday</label>
-              <div className="switchlabel"><SwitchLabels /></div>
             </div>
           </div>
           <div className="col-4 p-0 d-flex">
@@ -216,7 +213,6 @@ export function ServiceCost() {
           <div className="col-4 pr-2 min_width100">
             <div className="session_select">
               <label className="staff_title_text min_wid">Wednesday</label>
-              <div className="switchlabel"><SwitchLabels /></div>
             </div>
           </div>
           <div className="col-4 p-0 d-flex">
@@ -229,7 +225,6 @@ export function ServiceCost() {
           <div className="col-4 pr-2 min_width100">
             <div className="session_select">
               <label className="staff_title_text min_wid">Thursday</label>
-              <div className="switchlabel"><SwitchLabels /></div>
             </div>
           </div>
           <div className="col-4 p-0 d-flex">
@@ -242,7 +237,6 @@ export function ServiceCost() {
           <div className="col-4 pr-2 min_width100">
             <div className="session_select">
               <label className="staff_title_text min_wid">Friday</label>
-              <div className="switchlabel"><SwitchLabels /></div>
             </div>
           </div>
           <div className="col-4 p-0 d-flex">
@@ -255,7 +249,6 @@ export function ServiceCost() {
           <div className="col-4 pr-2 min_width100">
             <div className="session_select">
               <label className="staff_title_text min_wid">Saturday</label>
-              <div className="switchlabel"><SwitchLabels /></div>
             </div>
           </div>
           <div className="col-4 p-0 d-flex">
@@ -263,6 +256,9 @@ export function ServiceCost() {
               <span className="day_off">Week Off</span>
             </div>
           </div>
+        </div>
+        <div className="d-flex">
+          <Link to="#" className="ml-auto add_setting">Modify</Link>
         </div>
       </div>
       <div className="form-group mb-0">
