@@ -8,33 +8,38 @@ const thumbsContainer = {
   display: "flex",
   flexDirection: "row",
   flexWrap: "wrap",
-  marginTop: 16,
-  padding: 20
+  marginTop: "-98px",
+  marginLeft: "-2px",
+  padding: 0,
+  position:"absolute"
 };
 
 const thumb = {
   position: "relative",
   display: "inline-flex",
   borderRadius: 2,
-  border: "1px solid #eaeaea",
   marginBottom: 8,
   marginRight: 8,
   width: 100,
   height: 100,
   padding: 4,
-  boxSizing: "border-box"
 };
 
 const thumbInner = {
   display: "flex",
   minWidth: 0,
-  overflow: "hidden"
+  overflow: "hidden",
+  
 };
 
 const img = {
   display: "block",
   width: "auto",
-  height: "100%"
+  height: "100%",
+  width: "100%",
+  borderRadius: "50%",
+  margin: "0",
+  outline: "0",
 };
 
 const thumbButton = {
@@ -44,6 +49,7 @@ const thumbButton = {
   background: "rgba(0,0,0,.8)",
   color: "#fff",
   border: 0,
+  fontSize: "15px",
   borderRadius: ".325em",
   cursor: "pointer"
 };
@@ -99,27 +105,32 @@ export function Upload() {
       </div>
       <button
         style={thumbButton}
-        onClick={() =>
-          editImage(file, (output) => {
-            const updatedFiles = [...files];
+        onClick={(event) =>
+         { 
+           event.stopPropagation();
+           setFiles([]);
+        }
+          // editImage(file, (output) => {
+          //   
+          //   const updatedFiles = [...files];
 
-            // replace original image with new image
-            updatedFiles[index] = output;
+          //   // replace original image with new image
+          //   updatedFiles[index] = output;
 
-            // revoke preview URL for old image
-            if (file.preview) URL.revokeObjectURL(file.preview);
+          //   // revoke preview URL for old image
+          //   if (file.preview) URL.revokeObjectURL(file.preview);
 
-            // set new preview URL
-            Object.assign(output, {
-              preview: URL.createObjectURL(output)
-            });
+          //   // set new preview URL
+          //   Object.assign(output, {
+          //     preview: URL.createObjectURL(output)
+          //   });
 
-            // update view
-            setFiles(updatedFiles);
-          })
+          //   // update view
+          //   setFiles(updatedFiles);
+          // })
         }
       >
-        edit
+        X
       </button>
     </div>
   ));
