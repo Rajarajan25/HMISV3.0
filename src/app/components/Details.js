@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import { Formik, Field } from 'formik';
 import { ColorPaletteFormik } from "./ColorPalette";
-import { UploadAvatar } from "./UploadAvatar"
+import { UploadAvatar, UploadAvatarFormik } from "./UploadAvatar"
 import Visiblity from './Visiblity'
 import Grid from '@material-ui/core/Grid';
 import { DatePickersUtil } from './DateAndTimePicker'
@@ -131,7 +131,7 @@ export function Details(props) {
               </div>}
               {fields.avatar && <div className="form-group">
                 <div className="d-flex pb-2">
-                  <UploadAvatar classes={classes} />
+                  <UploadAvatarFormik classes={classes} />
                   <div className="col-9 pr-0">
                     <ColorPaletteFormik  name="color_code"/>
                   </div>

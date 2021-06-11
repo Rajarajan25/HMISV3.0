@@ -190,6 +190,3 @@ export default function ServiceProviderContainer() {
     </div>
   );
 }
-
-
-
