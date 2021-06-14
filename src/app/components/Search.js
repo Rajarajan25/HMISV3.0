@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { toAbsoluteUrl } from '../../_metronic/_helpers';
 
 export default function Search(props) {
-    const { data, handleSearch, placeholder } = props;
+    const { data, handleSearch, placeholder, uiType } = props;
     const [textValue, setTextValue] = React.useState("");
     const [dataSource, setSource] = React.useState(data || []);
 
@@ -13,8 +13,19 @@ export default function Search(props) {
 
     const onHandleSearch = (event) => {
         let value = event.target.value;
-        let arr = dataSource.filter((e) => { return e.name.toLowerCase().match(new RegExp(value.toLowerCase(), "g")) });
-        handleSearch(arr);
+        let searchedVal = dataSource.filter((e) => { return e.name.toLowerCase().match(new RegExp(value.toLowerCase(), "g")) });
+        console.log(searchedVal);
+        handleSearch(searchedVal);
+    }
+    if (uiType === "small") {
+        return (<>
+            <div className="service_search position-relative">
+                <img src={toAbsoluteUrl("/media/patients/drop_search.svg")} alt="search" className="drop_search" />
+                <input type="text" placeholder="Search" className="form-control" value={textValue}
+                    onChange={(e) => setTextValue(e.target.value)}
+                    onKeyUp={(e) => onHandleSearch(e)} />
+            </div>
+        </>)
     }
     return <>
         <div className="searchbar d-flex justify-items-center">

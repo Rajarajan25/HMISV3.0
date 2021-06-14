@@ -1,7 +1,10 @@
 import { Dropdown } from "react-bootstrap";
-import React from 'react';
+import React,{ useEffect }  from 'react';
 import { DropdownItemToggler } from "../../_metronic/_partials/dropdowns";
 import { toAbsoluteUrl } from "../../_metronic/_helpers";
+import { useQuery,gql } from "@apollo/client";
+import { queries } from "../modules/Staffs/graphql";
+import Search from "./Search"
 export function ServicesDropDown(props) {
     return(<Dropdown drop="down" aligncenter="true"  className="dropdown h-100">
         <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle1" className="h-100">
@@ -23,17 +26,21 @@ export function ServicesDropDown(props) {
 export function ServicesDropdownMenu(props) {
     const {handleChangeDropDown, item} = props;
     const serviceArray=[
-        {type: "Acupunture", color: "#E6511B"},
-        {type: "Dental", color: "#FD7FAB"},
-        {type: "Skin Care", color: "#EA80FC"},
-        {type: "Ambien", color: "#1DBC9C"}];
+        {name: "Acupunture", color: "#E6511B"},
+        {name: "Dental", color: "#FD7FAB"},
+        {name: "Skin Care", color: "#EA80FC"},
+        {name: "Ambien", color: "#1DBC9C"}];
         
-    const [service, setSerivce] = React.useState(serviceArray);
-    let handleSerach = (event) => {
-        let search=event.target.value;
-        let arr=serviceArray.filter((e)=>{return e.type.toLowerCase().match(new RegExp(search.toLowerCase(), "g"))});
-        setSerivce(arr);
+    const { data, loading } = useQuery(gql`${queries.staff}`);
+    const [listData, setListData] = React.useState(serviceArray);
+    let handleSerach = (arr) => {
+        setListData(arr);
     }
+    useEffect(() => {
+        if (listData.length === 0) {
+            setListData(data.getStaffs);
+        }
+    }, [data])
     
     return <>
         {/*begin::Navigation*/}
@@ -69,19 +76,20 @@ export function ServicesDropdownMenu(props) {
                         </span>
                     </div>
                 </div>
-                <div className="service_search position-relative">
+                {/* <div className="service_search position-relative">
                     <img src={toAbsoluteUrl("/media/patients/drop_search.svg")} alt="search" className="drop_search" />
                     <input type="text" placeholder="Search" className="form-control" onChange={handleSerach} />
-                </div>
+                </div> */}
+                <Search handleSearch={handleSerach} data={listData} uiType="small"/>
             </li>
            <li className="navi-item">
                 <div className="dropdown-menu-search-main">
                     <div className="dropdown-menu-search-title">Relevant</div>
                     <div className="service_select">
                         {
-                         service.map((e)=> {
+                         listData.map((e)=> {
                             return <div class="d-flex justify-content-left py-1" key={e.type}>
-                            <span className="specialInfo text-white position-relative" style={{ backgroundColor: e.color }} onClick={()=>handleChangeDropDown(e.type, item._id, "service")}> {e.type}</span>
+                            <span className="specialInfo text-white position-relative" style={{ backgroundColor: e.color }} onClick={()=>handleChangeDropDown(e.type, item._id, "service")}> {e.name}</span>
                         </div>
                         })}
                     </div>
