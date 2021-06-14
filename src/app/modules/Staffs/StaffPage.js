@@ -17,7 +17,6 @@ import { RightSideDrawer } from "../../components/RightSideDrawer";
 import { AddFab } from "../../components/AddFab";
 import { StaffModel } from "../../models/StaffModel";
 import { SpinnerLarge } from "../../components/Spinner";
-import { id } from "date-fns/locale";
 import { DeleteDialog } from "../../components/DeleteDialog";
 
 let newStaff = StaffModel;
@@ -68,6 +67,7 @@ class StaffPage extends React.Component {
     }
 
     componentDidMount() {
+      //  BookingURL.zoomMeeting();
     }
 
     componentDidUpdate() {

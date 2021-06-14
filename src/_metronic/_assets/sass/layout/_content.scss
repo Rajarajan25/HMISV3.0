@@ -674,7 +674,7 @@ span.listprofileIcon {
 .topMiddlecontent li {
   /*display: table-cell;
 	min-width: 95px;*/
-  padding: 3px 0px;
+  padding: 0px 0px;
   text-align: center;
   vertical-align: middle;
   color: #343434;
@@ -1652,7 +1652,6 @@ span.listprofileIcon {
   }
 }
 .more_icon {
-  opacity: 0;
   position: absolute;
   top: -5px;
   right: 0;
@@ -1759,26 +1758,26 @@ span.avails {
     }
   }
 }
-.topMiddlecontent li,div {
-  &.active_clr {
+.topMiddlecontent li {
+  .active_clr {
     background-color: #7c4cfc !important;
     &:hover {
       background-color: rgba(124, 76, 252, 0.8) !important;
     }
   }
-  &.inactive_clr {
+  .inactive_clr {
     background-color: #dd0d4b !important;
     &:hover {
       background-color: rgba(221, 13, 75, 0.8) !important;
     }
   }
-  &.male_bg {
+  .male_bg {
     background-color: #0a32e8 !important;
     &:hover {
       background-color: rgba(10, 50, 232, 0.8) !important;
     }
   }
-  &.female_bg {
+  .female_bg {
     background-color: #f062ca !important;
     &:hover {
       background-color: rgba(240, 98, 202, 0.8) !important;
@@ -5778,5 +5777,34 @@ p.setting_color {
   }
   .modal-body {
     padding-top: 0.75rem;
+  }
+}
+.font-style-italic{
+  font-style: italic;
+}
+.more_hover {
+  .navi-item {
+    padding: 0 !important;
+    text-align: left;
+    .navi-link {
+      padding: 0.50rem 1rem;
+      &:hover .more_imgs img {
+          filter: none;
+          -webkit-filter: none;
+          opacity: 1;
+      }
+    }
+   .more_imgs {
+      width: 20px;
+      height: 20px;
+      line-height: 18px;
+      margin-right: 10px;
+      img {
+        filter: brightness(0) invert(0);
+        -webkit-filter: brightness(0) invert(0);
+        opacity: 0.5;
+        height: 15px;
+      }
+    }
   }
 }

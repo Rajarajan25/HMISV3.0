@@ -151,9 +151,9 @@ export function Details(props) {
                             label="Active"
                             name="is_active"
                             value={values.is_active}
-                            checked={values.is_active === "true" ? true : false}
+                            checked={values.is_active}
                             onChange={(event, checked) => {
-                              setFieldValue("is_active", "" + checked);
+                              setFieldValue("is_active",checked);
                             }}
                           />
                         </div>
@@ -171,9 +171,9 @@ export function Details(props) {
                             label="yes"
                             name="is_service_provider"
                             value={values.provider}
-                            checked={values.is_service_provider === "true" ? true : false}
+                            checked={values.is_service_provider}
                             onChange={(event, checked) => {
-                              setFieldValue("is_service_provider", "" + checked);
+                              setFieldValue("is_service_provider",checked);
                             }}
                           />
                         </div>

@@ -133,7 +133,7 @@ export function TableRow(props) {
                                             >
                                               {item.name}
                                             </Link>
-                                            
+
                                           </div>
                                         )}
                                       </span>
@@ -168,16 +168,16 @@ export function TableRow(props) {
                                           />
                                         ) : (
                                           <>
-                                          <Link
-                                            to="#"
-                                            onClick={drawer(true, item, i)}
-                                          >
-                                            {item.name}
-                                          </Link>
-                                          {field.duration&&<div className="d-flex">
+                                            <Link
+                                              to="#"
+                                              onClick={drawer(true, item, i)}
+                                            >
+                                              {item.name}
+                                            </Link>
+                                            {field.duration && <div className="d-flex">
                                               <span className="DurationBg">Duration: 30 Mins</span>
                                             </div>}
-                                            </>
+                                          </>
                                         )}
                                       </span>
                                     </div>
@@ -222,25 +222,25 @@ export function TableRow(props) {
                                     item={item}
                                   />
                                 </li>}
-                               {field.status&& <li className="col-lg-1 p-0">
+                                {field.status && <li className="col-lg-1 p-0">
                                   <StatusDropDown
                                     item={item}
                                     handleChangeDropDown={handleChangeDropDown}
                                   />
                                 </li>}
-                                {field.sex&&<li className="col-lg-1 p-0">
+                                {field.sex && <li className="col-lg-1 p-0">
                                   <SxDropDown
                                     item={item}
                                     handleChangeDropDown={handleChangeDropDown}
                                   />
                                 </li>}
-                               {field.availablity&& <li className="col-lg-1 my-auto">
+                                {field.availablity && <li className="col-lg-1 my-auto">
                                   <AvailableDropDown
                                     item={item}
                                     handleChangeDropDown={handleChangeDropDown}
                                   />
                                 </li>}
-                                {field.email&&<li className="col-lg-2 activeStatuscontent my-auto d-flex justify-content-center">
+                                {field.email && <li className="col-lg-2 activeStatuscontent my-auto d-flex justify-content-center">
                                   {selectedIndexMail === i ? (
                                     <input
                                       type="text"
@@ -263,7 +263,7 @@ export function TableRow(props) {
                                     selectedIndex={selectedIndexMail}
                                   ></ServiceEdit>
                                 </li>}
-                                {field.phone&&<li className="col-lg-2 my-auto d-flex justify-content-center">
+                                {field.phone && <li className="col-lg-2 my-auto d-flex justify-content-center">
                                   <span>
                                     {selectedIndexMobile === i ? (
                                       <input
@@ -287,226 +287,20 @@ export function TableRow(props) {
                                     clickCancel={handleCancel}
                                     selectedIndex={selectedIndexMobile}
                                   ></ServiceEdit>
-
-                                  <>
-                                    <div
-                                      className="d-flex justify-content-end more_icon"
-                                      style={{ marginLeft: "200px" }}
-                                    >
-                                      <OverlayTrigger
-                                        placement="top"
-                                        overlay={
-                                          <Tooltip
-                                            id="quick-search-tooltip"
-                                            className="tool_bg"
-                                          >
-                                            More
-                                          </Tooltip>
-                                        }
-                                      >
-                                        <div className="tab_col mt-0 mb-0">
-                                          <img
-                                            src={toAbsoluteUrl(
-                                              "/media/patients/more_icon.svg"
-                                            )}
-                                            alt="more"
-                                          />
-                                        </div>
-                                      </OverlayTrigger>
-
-                                      <div className="avalib">
-                                        <div className="d-flex justify-content-end">
-                                          <OverlayTrigger
-                                            placement="top"
-                                            overlay={
-                                              <Tooltip
-                                                id="quick-search-tooltip"
-                                                className="tool_bg"
-                                              >
-                                                Edit
-                                              </Tooltip>
-                                            }
-                                          >
-                                            <div
-                                              className="tab_col mt-0 mb-0"
-                                              onClick={drawer(true, item, i)}
-                                            >
-                                              <img
-                                                src={toAbsoluteUrl(
-                                                  "/media/patients/blue_edit_icon.svg"
-                                                )}
-                                                alt="edit"
-                                                className="mai1"
-                                              />
-                                            </div>
-                                          </OverlayTrigger>
-                                          <OverlayTrigger
-                                            placement="top"
-                                            overlay={
-                                              <Tooltip
-                                                id="quick-search-tooltip"
-                                                className="tool_bg"
-                                              >
-                                                Delete
-                                              </Tooltip>
-                                            }
-                                          >
-                                            <div
-                                              className="tab_col mt-0 mb-0"
-                                              onClick={() => handleDelete(item)}
-                                            >
-                                              <img
-                                                src={toAbsoluteUrl(
-                                                  "/media/patients/blue_delete_icon.svg"
-                                                )}
-                                                alt="delete"
-                                                className="mai"
-                                              />
-                                            </div>
-                                          </OverlayTrigger>
-                                          <OverlayTrigger
-                                            placement="top"
-                                            overlay={
-                                              <Tooltip
-                                                id="quick-search-tooltip"
-                                                className="tool_bg"
-                                              >
-                                                Duplicate
-                                              </Tooltip>
-                                            }
-                                          >
-                                            <div
-                                              className="tab_col mt-0 mb-0"
-                                              onClick={() =>
-                                                handleDuplicate(item)
-                                              }
-                                            >
-                                              <img
-                                                src={toAbsoluteUrl(
-                                                  "/media/patients/blue_copy_icon.svg"
-                                                )}
-                                                alt="copy"
-                                              />
-                                            </div>
-                                          </OverlayTrigger>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </>
+                                  <MoreOption {...props} item={item} index={i} />
                                 </li>}
-                                {field.price&& <li className="col-lg-3 my-auto d-flex justify-content-center">
-                                 
-                                    
-                                      <span className="d-inline-flex">
-                                        {item.cost}
-                                      </span>
-                                    
-                                  
+                                {field.price && <li className="col-lg-3 my-auto d-flex justify-content-center">
+
+
+                                  <span className="d-inline-flex">
+                                    {item.cost}
+                                  </span>
+
+
 
                                   <>
-                                    <div
-                                      className="d-flex justify-content-end more_icon"
-                                      style={{ marginLeft: "200px" }}
-                                    >
-                                      <OverlayTrigger
-                                        placement="top"
-                                        overlay={
-                                          <Tooltip
-                                            id="quick-search-tooltip"
-                                            className="tool_bg"
-                                          >
-                                            More
-                                          </Tooltip>
-                                        }
-                                      >
-                                        <div className="tab_col mt-0 mb-0">
-                                          <img
-                                            src={toAbsoluteUrl(
-                                              "/media/patients/more_icon.svg"
-                                            )}
-                                            alt="more"
-                                          />
-                                        </div>
-                                      </OverlayTrigger>
+                                    <MoreOption {...props} item={item} index={i} />
 
-                                      <div className="avalib">
-                                        <div className="d-flex justify-content-end">
-                                          <OverlayTrigger
-                                            placement="top"
-                                            overlay={
-                                              <Tooltip
-                                                id="quick-search-tooltip"
-                                                className="tool_bg"
-                                              >
-                                                Edit
-                                              </Tooltip>
-                                            }
-                                          >
-                                            <div
-                                              className="tab_col mt-0 mb-0"
-                                              onClick={drawer(true, item, i)}
-                                            >
-                                              <img
-                                                src={toAbsoluteUrl(
-                                                  "/media/patients/blue_edit_icon.svg"
-                                                )}
-                                                alt="edit"
-                                                className="mai1"
-                                              />
-                                            </div>
-                                          </OverlayTrigger>
-                                          <OverlayTrigger
-                                            placement="top"
-                                            overlay={
-                                              <Tooltip
-                                                id="quick-search-tooltip"
-                                                className="tool_bg"
-                                              >
-                                                Delete
-                                              </Tooltip>
-                                            }
-                                          >
-                                            <div
-                                              className="tab_col mt-0 mb-0"
-                                              onClick={() => handleDelete(item)}
-
-                                            >
-                                              <img
-                                                src={toAbsoluteUrl(
-                                                  "/media/patients/blue_delete_icon.svg"
-                                                )}
-                                                alt="delete"
-                                                className="mai"
-                                              />
-                                            </div>
-                                          </OverlayTrigger>
-                                          <OverlayTrigger
-                                            placement="top"
-                                            overlay={
-                                              <Tooltip
-                                                id="quick-search-tooltip"
-                                                className="tool_bg"
-                                              >
-                                                Duplicate
-                                              </Tooltip>
-                                            }
-                                          >
-                                            <div
-                                              className="tab_col mt-0 mb-0"
-                                              onClick={() =>
-                                                handleDuplicate(item)
-                                              }                                            >
-                                              <img
-                                                src={toAbsoluteUrl(
-                                                  "/media/patients/blue_copy_icon.svg"
-                                                )}
-                                                alt="copy"
-                                              />
-                                            </div>
-                                          </OverlayTrigger>
-                                        </div>
-                                      </div>
-                                    </div>
                                   </>
                                 </li>}
                               </ul>
@@ -572,4 +366,62 @@ export function AddNewField(props) {
       </li>
     </ul>
   );
+}
+
+export function MoreOption(props) {
+  return (
+    <div className="d-flex justify-content-end more_icon">
+      <Dropdown drop="down" alignCenter className="dropdown h-100">
+        <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
+          <OverlayTrigger
+            placement="top"
+            overlay={
+              <Tooltip id="quick-search-tooltip" className="tool_bg">More</Tooltip>
+            }>
+            <div className="tab_col mt-0 mb-0">
+              <img src={toAbsoluteUrl("/media/patients/more_icon.svg")} alt="more" />
+            </div>
+          </OverlayTrigger>
+        </Dropdown.Toggle>
+        <Dropdown.Menu className="dropdown-menu p-0">
+          <MoreDropdownMenu {...props} />
+        </Dropdown.Menu>
+      </Dropdown>
+    </div>
+
+  );
+}
+
+
+export function MoreDropdownMenu(props) {
+  const { drawer, handleDelete, handleDuplicate, index, item } = props;
+  return <>
+    {/*begin::Navigation*/}
+    <ul className="navi navi-hover more_hover">
+      <li className="navi-item" onClick={drawer(true, item, index)}>
+        <a href="#" className="navi-link">
+          <div className="more_imgs mt-0 mb-0">
+            <img src={toAbsoluteUrl("/media/patients/blue_edit_icon.svg")} alt="Edit" className="mai1" />
+          </div>
+          <span className="navi-text">Edit</span>
+        </a>
+      </li>
+      <li className="navi-item" onClick={() => handleDelete(item)}>
+        <a href="#" className="navi-link">
+          <div className="more_imgs mt-0 mb-0">
+            <img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="Delete" className="mai" />
+          </div>
+          <span className="navi-text">Delete</span>
+        </a>
+      </li>
+      <li className="navi-item" onClick={() => handleDuplicate(item)} >
+        <a href="#" className="navi-link">
+          <div className="more_imgs mt-0 mb-0">
+            <img src={toAbsoluteUrl("/media/patients/blue_copy_icon.svg")} alt="Copy" className="" />
+          </div>
+          <span className="navi-text">Copy</span>
+        </a>
+      </li>
+    </ul>
+  </>
 }

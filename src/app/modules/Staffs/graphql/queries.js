@@ -67,7 +67,7 @@ const timingField = `{
   }
   `;
 const serviceField = `
-services{
+staff_services{
 id 
 ${timingField}
 service_type
@@ -119,13 +119,13 @@ const staff = `
       site_owener
       sorting_id
       workspace_id
-      ${serviceField}
+      
       ${staffTimings}
       ${commission}
   }
 }
 `;
-
+//${serviceField}
 export default {
   staff,
   serviceField,

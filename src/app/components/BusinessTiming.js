@@ -6,6 +6,7 @@ import Switch from '@material-ui/core/Switch';
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 import { TimePickersUtil } from "../components/DateAndTimePicker"
+import { Link } from 'react-router-dom';
 
 const days = [
     { work_day_id: 1, name: "Sunday", start_time: "Week Off", isWorking: false },
@@ -29,14 +30,13 @@ export default function BusinessTiming(props) {
     return (
         <div>
             <div className="text-left  mt-3 pb-2 session_start border-bottom">
-            <label className="staff_title_text p-l-5">Working Days</label>
-                {businessHours.map((value,i) => {
+                <label className="staff_title_text p-l-5">Working Days</label>
+                {businessHours.map((value, i) => {
                     return (
                         <div className="session_part row mb-3" key={i}>
                             <div className="col-4 pr-2 min_width100">
                                 <div className="session_select">
                                     <label className="staff_title_text min_wid">{value.name}</label>
-                                    <div className="switchlabel"><SwitchLabels value={value.name} /></div>
                                 </div>
                             </div>
                             {value.name === "Sunday" || value.name === "Saturday" ?
@@ -47,7 +47,7 @@ export default function BusinessTiming(props) {
                                 </div> :
                                 <div className="col-4 p-0 d-flex">
                                     <div className="tm_area text-left pl-0">
-                                        <span className="st_tm"><TimePickers value={new Date('Fri Apr 20 2020 ' + value.start_time)} disabled={true}/></span> <span className="se_to">to</span> <span className="end_tm"><EndTimePickers value={new Date('Fri Apr 20 2020 ' + value.end_time)} disabled={true}/></span>
+                                        <span className="st_tm"><TimePickers value={new Date('Fri Apr 20 2020 ' + value.start_time)} disabled={true} /></span> <span className="se_to">to</span> <span className="end_tm"><EndTimePickers value={new Date('Fri Apr 20 2020 ' + value.end_time)} disabled={true} /></span>
                                     </div>
                                 </div>
                             }
@@ -55,11 +55,14 @@ export default function BusinessTiming(props) {
                         </div>
                     )
                 })}
-                <div className="form-group mb-0">
+                <div className="d-flex">
+                    <Link to="#" className="ml-auto add_setting">Modify</Link>
+                </div>
+                {/* <div className="form-group mb-0">
                     <div className="d-flex justify-content-end patientButton pos_fix">
                         <button type="submit" className="btn btn-primary">Save</button>
                     </div>
-                </div>
+                </div> */}
 
             </div>
 
@@ -94,7 +97,7 @@ export function SwitchLabels(value) {
 export function TimePickers(props) {
     return (
         <Grid container justify="space-around">
-            <TimePickersUtil {...props}/>
+            <TimePickersUtil {...props} />
         </Grid>
     );
 }
@@ -104,7 +107,7 @@ export function TimePickers(props) {
 export function EndTimePickers(props) {
     return (
         <Grid container justify="space-around">
-            <TimePickersUtil {...props}/>
+            <TimePickersUtil {...props} />
         </Grid>
     );
 }

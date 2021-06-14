@@ -35,7 +35,7 @@ export function ServiceEdit(props) {
             </OverlayTrigger>
             
         </div>
-        <div className="edit_staff">
+        <div className="edit_staff d-none">
         <OverlayTrigger
         placement="top"
         overlay={

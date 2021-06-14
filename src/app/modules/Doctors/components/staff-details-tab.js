@@ -84,7 +84,9 @@ export function StaffDetailsTab(props) {
     console.log("values-->", values);
     if (value === 1) {
       data.staff_timings[0] = values.timings;
-      handleUpdate({ staff_timings: [...data.staff_timings] }, index);
+      let timing=data.staff_timings[0];
+      timing={...timing,...values.timings};
+      handleUpdate({ staff_timings: [timing] }, index);
     }
   }
   return (

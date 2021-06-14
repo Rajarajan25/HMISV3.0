@@ -2,14 +2,14 @@ import { Dropdown } from "react-bootstrap";
 import React from 'react';
 import { DropdownItemToggler } from "../../_metronic/_partials/dropdowns";
 const statusData = [
-  { name: "Active", hover: "", icon: "active_bg", value: "true" },
-  { name: "Inavtive", hover: "ina_hover", icon: "inactive_bg", value: "false" },
+  { name: "Active", hover: "", icon: "active_bg", value: true },
+  { name: "Inavtive", hover: "ina_hover", icon: "inactive_bg", value: false },
 ];
 export function StatusDropDown(props) {
   const { handleChangeDropDown, item } = props;
-  return (<Dropdown drop="down" aligncenter="true" className={`dropdown h-100 activeStatuscontent text-white ${item.is_active === "true" ? "active_clr" : "inactive_clr"}`}>
+  return (<Dropdown drop="down" aligncenter="true" className={`dropdown h-100 activeStatuscontent text-white ${item.is_active? "active_clr" : "inactive_clr"}`}>
     <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-      <div className="d-flex text-white h-100 align-items-center justify-content-center pointer">{item.is_active === "true" ? "Active" : "Inactive"}</div>
+      <div className="d-flex text-white h-100 align-items-center justify-content-center pointer">{item.is_active? "Active" : "Inactive"}</div>
     </Dropdown.Toggle>
     <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav status_hover" >
       <StatusDropdownMenu handleChangeDropDown={handleChangeDropDown} item={item} />
@@ -21,12 +21,12 @@ export function StatusDropdownMenu(props) {
   return <>
     {/*begin::Navigation*/}
     <ul className="navi navi-hover">
-      {statusData.map((gender, index) => {
+      {statusData.map((status, index) => {
         return (
-          <li className={`navi-item ${gender.hover}`} onClick={() => handleChangeDropDown(gender.value, item.id, 'is_active')} key={index}>
+          <li className={`navi-item ${status.hover}`} onClick={() => handleChangeDropDown(status.value, item.id, 'is_active')} key={index}>
             <a href="#" className="navi-link">
-              <span className={`navi-circle  ${gender.icon}`}></span>
-              <span className="navi-text">{gender.name}</span>
+              <span className={`navi-circle  ${status.icon}`}></span>
+              <span className="navi-text">{status.name}</span>
             </a>
           </li>
         );

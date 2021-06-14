@@ -17,7 +17,7 @@ export function StaffServiceList(props) {
         if (listData.length === 0) {
             setListData(data.getStaffs);
         }
-    }, [data])
+    }, [data]);
     const handleSearch = (data) => {
         setListData(data);
     }
