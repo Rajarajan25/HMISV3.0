@@ -5866,3 +5866,62 @@ p.setting_color {
     }
   }
 }
+.patientProfileinfo  {
+  .overflow-auto {
+    overflow: inherit !important;
+  }
+  .availi-border {
+    border: 2px solid #D8DBE1 !important;
+    border-radius: 7px;
+    cursor: pointer;
+    span:first-child {
+      color: #C5C6C9;
+      font-size: 1.1rem;
+    }
+    span:last-child{
+      color: #D8DBE1;
+      font-size: 2.4rem !important;
+      line-height: 20px;
+      font-weight: normal;
+    }
+  }
+  .avail-list {
+    box-shadow: 0px 3px 6px #0000001A;
+    border: 1px solid #E6E6E6;
+    .navi-item {
+      padding: 15px;
+      border-radius: 7px !important;
+    }
+    .availexpan {
+      .MuiPaper-root {
+        box-shadow: none !important;
+        border: 0 !important;
+        border-bottom: 0px solid #EDEEF2 !important;
+        background-color: transparent;
+        &.Mui-expanded {
+          box-shadow: 0px 3px 6px #0000000D !important;
+          border-radius: 7px;
+        }
+      }
+     .MuiExpansionPanelSummary-root {
+        padding: 0px 10px;
+        min-height: 45px;
+        border-bottom: 1px solid #EDEEF2;
+        margin-bottom: 0;
+        background-color: transparent;
+      }
+      span.avails {
+        width: 23px;
+        height: 23px;
+      }
+      span.staff_tab_title {
+        font-size: 1.1rem;
+        color: #0F0F0F;
+        text-transform: capitalize;
+        margin: 0;
+        font-weight: 500;
+        min-width: 32px;
+      }
+    }
+  }
+}
