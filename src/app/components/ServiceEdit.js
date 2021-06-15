@@ -2,60 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { toAbsoluteUrl } from "../../_metronic/_helpers";
-import { DevConsoleLog } from "../SiteUtill";
 
 export function ServiceEdit(props) {
-  const { value, type, index, clickEdit, clickSave, clickCancel, selectedIndex } = props;
-  const handleClick = (type, handleType, index,id) => {
-    if (handleType === "save") props.clickSave(type, index,id);
-    if (handleType === "cancel") props.clickCancel(type, index);
-    if (handleType === "edit") props.clickEdit(type, index);
-  };
-
-  // console.log(props);
+  const { value, type, index, clickEdit, selectedIndex } = props;
   return (
     <div className="d-flex">
-      {selectedIndex === index ? (<div className="row">
+      {selectedIndex === index ? (<div></div>) : (
+        value ? (
         <div className="edit_staff">
-            <OverlayTrigger
-              placement="top"
-              overlay={
-                <Tooltip id="quick-search-tooltip" className="tool_bg">
-                  Save
-              </Tooltip>
-              }
-            >
-              <div className="tab_col mt-0 mb-0">
-                <img
-                  src={toAbsoluteUrl("/media/patients/floppy-disk.svg")}
-                  alt="save"
-                  onClick={() => handleClick(type, "save", index,value.id)}
-                />
-              </div>
-            </OverlayTrigger>
-            
-        </div>
-        <div className="edit_staff d-none">
-        <OverlayTrigger
-        placement="top"
-        overlay={
-          <Tooltip id="quick-search-tooltip" className="tool_bg">
-            Cancel
-        </Tooltip>
-        }
-      >
-        <div className="tab_col mt-0 mb-0 tab-col-left">
-          <img
-            src={toAbsoluteUrl("/media/patients/close_icon.svg")}
-            alt="Close"
-            onClick={() => handleClick(type, "cancel", -1)}
-          />
-        </div>
-      </OverlayTrigger>
-      </div>
-      </div>
-      ) : (
-        value ? (<div className="edit_staff">
           <OverlayTrigger
             placement="top"
             overlay={
@@ -66,7 +20,7 @@ export function ServiceEdit(props) {
           >
             <div
               className="tab_col mt-0 mb-0"
-              onClick={() => handleClick(type, "edit", index)}
+              onClick={() => clickEdit(type, index)}
             >
               <img
                 src={toAbsoluteUrl("/media/patients/blue_edit_icon.svg")}
@@ -76,7 +30,7 @@ export function ServiceEdit(props) {
           </OverlayTrigger>
         </div>) : (<div
           className="pointer mt-0 mb-0"
-          onClick={() => handleClick(type, "edit", index)}
+          onClick={() => clickEdit(type,index)}
         >
           <img
             src={toAbsoluteUrl("/media/patients/add-advanced.svg")}

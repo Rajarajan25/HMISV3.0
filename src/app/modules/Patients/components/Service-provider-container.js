@@ -174,7 +174,7 @@ export default function ServiceProviderContainer() {
 
   ]
   const field = {
-    Name: "Name",
+    name: "Name",
     service_type: "Experience",
     providers: "Services",
     price: "status",
