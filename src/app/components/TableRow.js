@@ -57,8 +57,8 @@ export function TableRow(props) {
     if (type === "phone_no") setSelectedIndexMobile(index);
   };
 
-  const handleSaved = (type, index) => {
-    handleSave(updatedValue.current.value, type, index);
+  const handleSaved = (type, index,id) => {
+    handleSave(updatedValue.current.value, id,type,index);
     handleCancel(type);
   };
   const handleCancel = (type) => {
@@ -73,6 +73,9 @@ export function TableRow(props) {
     props.handleDuplicate(item);
   };
   return (
+    <div className="contentAreaouter">
+
+    <div className="contentArea Ser_Pro">
     <div className="collapse show w-100" id="staffmanagement" data-parent="#accordionExample">
       <div className="row">
         <div className="col-lg-12">
@@ -141,7 +144,7 @@ export function TableRow(props) {
                                     <ServiceEdit
                                       type={"name"}
                                       index={i}
-                                      value={item.name}
+                                      value={item}
                                       clickEdit={handleEdit}
                                       clickSave={handleSaved}
                                       clickCancel={handleCancel}
@@ -184,7 +187,7 @@ export function TableRow(props) {
                                     <ServiceEdit
                                       type={"name"}
                                       index={i}
-                                      value={item.name}
+                                      value={item}
                                       clickEdit={handleEdit}
                                       clickSave={handleSaved}
                                       clickCancel={handleCancel}
@@ -207,7 +210,7 @@ export function TableRow(props) {
                                       <span className="d-flex pointer h-100 align-items-center justify-content-center font_weight_medium">{item.service_type}</span>
                                     </Dropdown.Toggle>
                                     <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav st_hover">
-                                      <STypeDropdownMenu />
+                                      <STypeDropdownMenu item={item} handleChangeDropDown={handleChangeDropDown}/>
                                     </Dropdown.Menu>
                                   </Dropdown>
                                 </li>}
@@ -256,7 +259,7 @@ export function TableRow(props) {
                                   <ServiceEdit
                                     type={"email"}
                                     index={i}
-                                    value={item.email}
+                                    value={item}
                                     clickEdit={handleEdit}
                                     clickSave={handleSaved}
                                     clickCancel={handleCancel}
@@ -281,7 +284,7 @@ export function TableRow(props) {
                                   <ServiceEdit
                                     type={"phone_no"}
                                     index={i}
-                                    value={item.phone_no}
+                                    value={item}
                                     clickEdit={handleEdit}
                                     clickSave={handleSaved}
                                     clickCancel={handleCancel}
@@ -292,9 +295,10 @@ export function TableRow(props) {
                                 {field.price && <li className="col-lg-3 my-auto d-flex justify-content-center">
 
 
-                                  <span className="d-inline-flex">
-                                    {item.cost}
-                                  </span>
+                                <div className="d-flex border-left pl-8">
+                                          <span className="d-flex align-items-center font-size-13">Cost</span>
+                                          <Link to="#" className="pay_amt">Rs. {item.cost}</Link>
+                                        </div>
 
 
 
@@ -328,6 +332,8 @@ export function TableRow(props) {
           {addButton ? <button type="button" className="customNewtaskBTN" onClick={() => setAddNewRow(true)}>+ {addText}</button> : <div></div>}
         </div>
       </div>
+    </div>
+    </div>
     </div>
   );
 }

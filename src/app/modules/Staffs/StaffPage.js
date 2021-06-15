@@ -98,7 +98,7 @@ class StaffPage extends React.Component {
         this.setState({ isDrawerOpen: false, currentStaff: false });
     };
 
-    handleChangeDropDown = (selectedVal, id, type) => {
+    handleChangeDropDown = (selectedVal, id, type,indexes) => {
         let index = 0;
         const currentStaffList = this.state.staffList.map((item, i) => {
             if (id === item.id) {
@@ -311,7 +311,7 @@ class StaffPage extends React.Component {
                         pagename="Staff"
                         isDragDisabled={this.state.isDragDisabled}
                         toggleDrawer={this.toggleDrawer}
-                        handleSave={this.handleSaveSingle}
+                        handleSave={this.handleChangeDropDown}
                         addNew={this.addNewStaff}
                         handleChangeDropDown={this.handleChangeDropDown}
                         handleDataSource={this.handleDataSource}

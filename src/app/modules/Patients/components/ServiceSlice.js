@@ -100,13 +100,13 @@ const initialServiceState = {
              "private_service":true,
              "limit_booking":10
           },
-          "commission":{
-             "Commision":"10",
-             "tax_amount":"100",
-             "tax_percent":"10",
-             "voucher_amount":"20",
-             "voucher_percent":"2"
-          },
+          "commission": [
+            {
+              "amount": 10,
+              "percentage": 2,
+              "commission_type": "Service",
+            }
+          ],
           "timings":{
              
                    
@@ -422,13 +422,13 @@ const initialServiceState = {
              "private_service":true,
              "limit_booking":10
           },
-          "commission":{
-             "Commision":"10",
-             "tax_amount":"100",
-             "tax_percent":"10",
-             "voucher_amount":"20",
-             "voucher_percent":"2"
-          },
+          "commission": [
+            {
+              "amount": 10,
+              "percentage": 2,
+              "commission_type": "Service",
+            }
+          ],
           "timings":{
              
                    
@@ -716,13 +716,13 @@ const initialServiceState = {
              "private_service":true,
              "limit_booking":10
           },
-          "commission":{
-             "Commision":"10",
-             "tax_amount":"100",
-             "tax_percent":"10",
-             "voucher_amount":"20",
-             "voucher_percent":"2"
-          },
+          "commission": [
+            {
+              "amount": 10,
+              "percentage": 2,
+              "commission_type": "Service",
+            }
+          ],
           "timings":{
              
                    
