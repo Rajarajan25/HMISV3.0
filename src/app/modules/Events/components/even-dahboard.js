@@ -34,7 +34,7 @@ const useStyles = makeStyles({
     margin: 5,
   },
   avatartwo: {
-    margin: 5,
+    margin: 7,
     width: 30,
     height: 30,
   },
@@ -310,7 +310,7 @@ export function EventDashboard() {
                           className="listprofileIcon-event"
                           style={{ backgroundColor: `#1EBCD4` }}
                         >
-                          <img
+                           <img
                             src={toAbsoluteUrl("/media/events/heart.svg")}
                             alt="#"
                           />
@@ -367,7 +367,7 @@ export function EventDashboard() {
           </Drawer>
         </div>
 
-                <div className="col-md-6 col-lg-6 col-xl-4">
+          <div className="col-md-6 col-lg-6 col-xl-4">
           <input type="checkbox" id="event_box_03" />
           <label className="event_box" for="event_box_03">
             {/* <Link to="#" onClick={toggleDrawer('bottom', true)}>Anand</Link> */}
@@ -399,12 +399,9 @@ export function EventDashboard() {
                       <div className="card-lable">
                         <span
                           className="listprofileIcon-event"
-                          style={{ backgroundColor: `#1EBCD4` }}
+                          style={{ backgroundColor: `#1D58FF` }}
                         >
-                          <img
-                            src={toAbsoluteUrl("/media/events/heart.svg")}
-                            alt="#"
-                          />
+                          AK
                         </span>
                       </div>
                       <div className="card-summary">
@@ -490,12 +487,9 @@ export function EventDashboard() {
                       <div className="card-lable">
                         <span
                           className="listprofileIcon-event"
-                          style={{ backgroundColor: `#1EBCD4` }}
+                          style={{ backgroundColor: `#0D716A` }}
                         >
-                          <img
-                            src={toAbsoluteUrl("/media/events/heart.svg")}
-                            alt="#"
-                          />
+                         s
                         </span>
                       </div>
                       <div className="card-summary">
@@ -582,11 +576,12 @@ export function EventDashboard() {
                       <div className="card-lable">
                         <span
                           className="listprofileIcon-event"
-                          style={{ backgroundColor: `#1EBCD4` }}
+                          style={{ backgroundColor: `` }}
                         >
                           <img
-                            src={toAbsoluteUrl("/media/events/heart.svg")}
+                            src={toAbsoluteUrl("/media/events/user-ss-one.png")}
                             alt="#"
+                            style={{ width:`100%`}}
                           />
                         </span>
                       </div>
@@ -674,10 +669,10 @@ export function EventDashboard() {
                       <div className="card-lable">
                         <span
                           className="listprofileIcon-event"
-                          style={{ backgroundColor: `#1EBCD4` }}
+                          style={{ backgroundColor: `#00B794` }}
                         >
                           <img
-                            src={toAbsoluteUrl("/media/events/heart.svg")}
+                            src={toAbsoluteUrl("/media/events/home.svg")}
                             alt="#"
                           />
                         </span>
@@ -766,11 +761,12 @@ export function EventDashboard() {
                       <div className="card-lable">
                         <span
                           className="listprofileIcon-event"
-                          style={{ backgroundColor: `#1EBCD4` }}
+                          style={{ backgroundColor: `` }}
                         >
-                          <img
-                            src={toAbsoluteUrl("/media/events/heart.svg")}
+                           <img
+                            src={toAbsoluteUrl("/media/events/user-ss-one.png")}
                             alt="#"
+                            style={{ width:`100%`}}
                           />
                         </span>
                       </div>
@@ -825,7 +821,7 @@ export function EventDashboard() {
           </Drawer>
         </div>
 
-                <div className="col-md-6 col-lg-6 col-xl-4">
+          <div className="col-md-6 col-lg-6 col-xl-4">
           <input type="checkbox" id="event_box_08" />
           <label className="event_box" for="event_box_08">
             {/* <Link to="#" onClick={toggleDrawer('bottom', true)}>Anand</Link> */}
@@ -857,12 +853,9 @@ export function EventDashboard() {
                       <div className="card-lable">
                         <span
                           className="listprofileIcon-event"
-                          style={{ backgroundColor: `#1EBCD4` }}
+                          style={{ backgroundColor: `#1D58FF` }}
                         >
-                          <img
-                            src={toAbsoluteUrl("/media/events/heart.svg")}
-                            alt="#"
-                          />
+                          AK
                         </span>
                       </div>
                       <div className="card-summary">
@@ -948,10 +941,10 @@ export function EventDashboard() {
                       <div className="card-lable">
                         <span
                           className="listprofileIcon-event"
-                          style={{ backgroundColor: `#1EBCD4` }}
+                          style={{ backgroundColor: `` }}
                         >
                           <img
-                            src={toAbsoluteUrl("/media/events/heart.svg")}
+                            src={toAbsoluteUrl("/media/events/user-ss-one.png")}
                             alt="#"
                           />
                         </span>
@@ -1007,7 +1000,7 @@ export function EventDashboard() {
           </Drawer>
         </div>
 
-                <div className="col-md-6 col-lg-6 col-xl-4">
+     <div className="col-md-6 col-lg-6 col-xl-4">
           <input type="checkbox" id="event_box_010" />
           <label className="event_box" for="event_box_010">
             {/* <Link to="#" onClick={toggleDrawer('bottom', true)}>Anand</Link> */}
@@ -1039,12 +1032,9 @@ export function EventDashboard() {
                       <div className="card-lable">
                         <span
                           className="listprofileIcon-event"
-                          style={{ backgroundColor: `#1EBCD4` }}
+                          style={{ backgroundColor: `#5443AC` }}
                         >
-                          <img
-                            src={toAbsoluteUrl("/media/events/heart.svg")}
-                            alt="#"
-                          />
+                         JP
                         </span>
                       </div>
                       <div className="card-summary">
