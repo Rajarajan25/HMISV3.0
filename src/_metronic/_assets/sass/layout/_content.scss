@@ -5564,7 +5564,7 @@ p.setting_color {
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
     &:hover {
-      box-shadow: 0px 5px 12px #7e8eb136, 0px 0px 0px 2px #045bff;
+      box-shadow: 0px 5px 12px #7e8eb136, 0px 0px 0px 3px #045bff;
       -webkit-transform: translateY(-3px);
       transform: translateY(-3px);
       cursor: pointer;
@@ -5603,7 +5603,7 @@ p.setting_color {
         transform: rotate(315deg);
         -webkit-transform: rotate(315deg);
       }
-      box-shadow: 0px 5px 12px #7e8eb136, 0px 0px 0px 2px #047bf8;
+      box-shadow: 0px 5px 12px #7e8eb136, 0px 0px 0px 3px #047bf8;
       -webkit-transform: translateY(-3px);
       transform: translateY(-3px);
       cursor: pointer;
@@ -5856,6 +5856,12 @@ p.setting_color {
           }
         }
       }
+    }
+  }
+    .listprofileIcon-event {
+    img {
+    width: 100%;
+    object-fit: scale-down;
     }
   }
 }
