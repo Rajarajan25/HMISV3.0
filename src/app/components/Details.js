@@ -43,7 +43,7 @@ const getInputClasses = (props,fieldname) => {
 
 export function Details(props) {
   const classes = useStyles();
-  const {current, fields, index, handleUpdate,addNew,isloading} = props;
+  const {current, fields, index, handleUpdate,addNew,isloading ,handleProvider} = props;
   return (
     <Formik
       initialValues={current}
@@ -53,6 +53,7 @@ export function Details(props) {
         values.phone_no = "" + values.phone_no;
         console.log("values", JSON.stringify(values));
         if (index != -1) {
+          delete values.created_at;
           handleUpdate(values, index);
           return;
         }else{
@@ -174,6 +175,7 @@ export function Details(props) {
                             checked={values.is_service_provider}
                             onChange={(event, checked) => {
                               setFieldValue("is_service_provider",checked);
+                              handleProvider(values, checked)
                             }}
                           />
                         </div>

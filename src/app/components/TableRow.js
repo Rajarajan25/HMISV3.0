@@ -73,9 +73,6 @@ export function TableRow(props) {
     props.handleDuplicate(item);
   };
   return (
-    <div className="contentAreaouter">
-
-    <div className="contentArea Ser_Pro">
     <div className="collapse show w-100" id="staffmanagement" data-parent="#accordionExample">
       <div className="row">
         <div className="col-lg-12">
@@ -334,8 +331,6 @@ export function TableRow(props) {
           {addButton ? <button type="button" className="customNewtaskBTN" onClick={() => setAddNewRow(true)}>+ {addText}</button> : <div></div>}
         </div>
       </div>
-    </div>
-    </div>
     </div>
   );
 }

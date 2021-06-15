@@ -54,8 +54,8 @@ const buffertime = [
 
 export function Duration(props) {
   const classes = useStyles();
-  const { data, handleSave, fields,index,handleUpdate ,isloading } = props
-  const { duration,timings, payments } = data;
+  const { current, handleSave, fields,index,handleUpdate ,isloading } = props
+  const { duration,timings, payments } = current;
   const initValue = {
     duration:duration,
     timings: timings,

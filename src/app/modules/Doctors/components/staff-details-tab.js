@@ -39,6 +39,7 @@ export function StaffDetailsTab(props) {
   const [value, setValue] = React.useState(0);
   const [toastOpen, setToast] = React.useState(false);
   const { data, index, handleUpdate } = props;
+  const [isProviderEnable, setIsProviderEnable] = React.useState(data.is_service_provider);
   const { staff_timings } = data;
   const durationData = {
     timings: staff_timings ? staff_timings[0] : {},
@@ -89,6 +90,9 @@ export function StaffDetailsTab(props) {
       handleUpdate({ staff_timings: [timing] }, index);
     }
   }
+  const handleProvider = (values, checked) => {
+    setIsProviderEnable(checked);
+  }
   return (
     
     <Col sm={12} className="bg-white d-flex flex-column p-0">
@@ -108,15 +112,18 @@ export function StaffDetailsTab(props) {
                 scrollButtons="auto"
               >
                 <Tab label={<TabDetails />} />
-                <Tab label={<TabTiming />} />
-                <Tab label={<TabService />} />
+                {isProviderEnable ? <Tab label={<TabTiming />} />
+                  : null}
+
+                {isProviderEnable ? <Tab label={<TabService />} />
+                  : null}
                 <Tab label={<TabSettings />} />
               </Tabs>
             </AppBar>
           </div>
         </div>
         <div className="p-0">
-          {value === 0 && <TabContainer> <Details {...props} current={data} handleSave={editStaff} fields={detail_field} /> </TabContainer>}
+          {value === 0 && <TabContainer> <Details {...props} current={data} handleSave={editStaff} fields={detail_field} handleProvider={handleProvider} /> </TabContainer>}
           {value === 1 && <TabContainer> <Duration {...props} current={durationData} handleSave={editStaff} fields={timing_field} /> </TabContainer>}
           {value === 2 && <TabContainer> <StaffService {...props} current={data}  handleSave={editStaff} fields={service_field}/> </TabContainer>}
           {value === 3 && <TabContainer> <StaffSetting /> </TabContainer>}
