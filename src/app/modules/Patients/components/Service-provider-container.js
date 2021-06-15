@@ -11,11 +11,15 @@ import { ServiceModel } from '../../../models/ServiceModel';
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import {ServiceSlice} from "./ServiceSlice";
 const {actions} = ServiceSlice;
-
 export default function ServiceProviderContainer() {
-  //const [service, setservice] = React.useContext(ServiceContext);
   let newService = ServiceModel;
-  const [fields, setFields] = useState();
+  const dispatch = useDispatch();
+  const { currentState } = useSelector(
+    (state) => ({ currentState: state.service }),
+    shallowEqual
+  );
+
+  const { listService, currentService } = currentState;
   const [state, setState] = React.useState({
     isDrawerOpen: false,
     currentService: false,
@@ -26,20 +30,12 @@ export default function ServiceProviderContainer() {
     newService: ""
   });
 
-  const dispatch = useDispatch();
-  const { currentState } = useSelector(
-    (state) => ({ currentState: state.service }),
-    shallowEqual
-  );
-
-  const { listService, currentService } = currentState;
-
   const handleDuplicate = (duplicatedItem) => {
-    //let tempPickItem = JSON.parse(JSON.stringify(this.state.staffList));
-    let duplicatedIndex = listService.findIndex(
+    let tempPickItem = JSON.parse(JSON.stringify(listService));
+    let duplicatedIndex = tempPickItem.findIndex(
       (elm) => elm.id === duplicatedItem.id
     );
-    delete duplicatedItem.id;
+    //delete duplicatedItem.id;
     let isDuplicateID = 1;
     let duplicateName = duplicatedItem.name;
     let i = 1;
@@ -49,11 +45,8 @@ export default function ServiceProviderContainer() {
       i++;
     }
     duplicatedItem = { ...duplicatedItem, name: duplicateName };
-    actions.addService({payload: duplicatedItem});
-    // setservice({
-    //   type: "ADD_SERVICE",
-    //   payload: duplicatedItem
-    // });
+    dispatch(actions.addService(duplicatedItem));
+
 
   }
   const checkDuplicate = (value) => {
@@ -64,9 +57,40 @@ export default function ServiceProviderContainer() {
   }
   const handleDelete = (deletedItem) => {
     if (window.confirm("Are you sure?")) {
+      let tempPickItem = JSON.parse(JSON.stringify(listService));
       dispatch(actions.deleteService({id:deletedItem.id}));
     }
   };
+  const handleChangeDropDown = (selectedVal, id, type,indexs) => {
+    let index = 0;
+    let tempPickList = JSON.parse(JSON.stringify(listService));
+    const currentServiceList = tempPickList.map((item, i) => {
+        if (id === item.id) {
+            item[type] = selectedVal;
+            index = i;
+        }
+        return item;
+    });
+    // this.setState({ staffList: currentStaffList });
+    // let updateArray = this.state.staffList[index];
+    // this.props
+    //     .updateStaff({
+    //         variables: {
+    //             staffID: updateArray.id,
+    //             staff: {
+    //                 [type]: selectedVal,
+    //             },
+    //         },
+    //     })
+    //     .then(() => {
+    //         //this.props.refetchStaff();
+    //     })
+    //     .catch((error) => {
+    //         DevAlertPopUp(error.message);
+    //     });
+    dispatch(actions.serviceFetched(currentServiceList));
+
+};
   const handleUpdate = (updatedValue, index) => {
     let tempPickList = JSON.parse(JSON.stringify(listService));
     let updatedItem = tempPickList[index];
@@ -74,7 +98,9 @@ export default function ServiceProviderContainer() {
     let item = { ...updatedItem, ...updatedValue };
     console.log("item-->", item);
     items[index] = item;
-    actions.editService({payload: item});
+    dispatch(actions.editService(item));
+
+
     // this.setState({ staffList: items, isloading: true });
     //delete updatedValue.id;
 
@@ -96,10 +122,8 @@ export default function ServiceProviderContainer() {
     //this.setState({ ser: updatedItem });
 
     // let updateArray = this.state.staffList[index];
-    // setservice({
-    //   type: "SETSTATE_SERVICE",
-    //   payload: updatedItem
-    // })
+    dispatch(actions.serviceFetched(currentService));
+
   };
 
 
@@ -109,10 +133,8 @@ export default function ServiceProviderContainer() {
     }
     index = index === undefined ? -1 : index;
     setState({ isDrawerOpen: open, currentService: selectedItem || newService, currentIndex: index });
-    // setservice({
-    //   type: "SET_CURRENT_SERVICE",
-    //   payload: selectedItem || newService
-    // })
+    dispatch(actions.currentService(selectedItem || newService));
+
   };
   const addNewService = (value) => {
     let sfm = { ...ServiceModel };
@@ -120,10 +142,8 @@ export default function ServiceProviderContainer() {
     // delete sfm.id;
 
     let newstaff = {};
-    // setservice({
-    //   type: "ADD_SERVICE",
-    //   payload: sfm
-    // })
+    dispatch(actions.addService(sfm));
+
     //  this.setState({ isloading: true });
     // this.props.addStaff({
     //     variables: {
@@ -161,11 +181,10 @@ export default function ServiceProviderContainer() {
     duration: "duration"
   }
   const handleDataSource = (values) => {
-    // setservice({
-    //   type: "SETSTATE_SERVICE",
-    //   payload: values
-    // })
+    dispatch(actions.serviceFetched(values));
+
   }
+ 
   return (
     <div className="clearfix">
       <RightSideDrawer
@@ -178,15 +197,18 @@ export default function ServiceProviderContainer() {
       </RightSideDrawer>
 
       <Accordion square expanded={expanded} className="w-100 contentArea  elevation-none m-0" style={{ background: "#00000000" }}>
-        <TableHeader column={Column} listCount={listService.length} expand={expanded} countLable="services" toggleList={handleChange} />
+        <TableHeader column={Column} listCount={listService.length} expand={expanded} countLable="listService" toggleList={handleChange} />
         <AccordionDetails className="w-100 p-0">
 
           <TableRow row={listService} drawer={toggleDrawer} addButton={true} addText="New Service" field={field}
-            handleDataSource={handleDataSource} handleDuplicate={handleDuplicate} handleDelete={handleDelete} handleSave={handleSaveSingle}
-            addNew={addNewService}
+            handleDataSource={handleDataSource} handleDuplicate={handleDuplicate} handleDelete={handleDelete} handleSave={handleChangeDropDown}
+            addNew={addNewService} handleChangeDropDown={handleChangeDropDown}
           />
         </AccordionDetails>
       </Accordion>
     </div>
   );
 }
+
+
+

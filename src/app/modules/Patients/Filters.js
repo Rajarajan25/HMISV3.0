@@ -1,10 +1,16 @@
 import React from 'react';
-import {ServiceContext} from './components/ServiceContext';
 import {Filter} from '../../components/Filter'
-
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import {ServiceSlice} from "../Patients/components/ServiceSlice";
+const {actions} = ServiceSlice;
 export  function Filters(){
-    
-    const [service,setService]=React.useContext(ServiceContext);
+  const dispatch = useDispatch();
+  const { currentState } = useSelector(
+    (state) => ({ currentState: state.service }),
+    shallowEqual
+  );
+
+  const { listService, currentService } = currentState;
     const fields = [
         {
          dataField: 'name',
@@ -17,13 +23,11 @@ export  function Filters(){
        }
      ];
     const handleDataSource =(values)=>{
-        setService({
-            type: "SETSTATE_SERVICE",
-            payload: values
-          });
+      dispatch(actions.serviceFetched(values));
+
     }
     return(
-        <Filter value={service.listService} handleDataSource={handleDataSource} fields={fields}/>
+        <Filter value={listService} handleDataSource={handleDataSource} fields={fields} placeholder="Service Search"/>
     )
 }
 

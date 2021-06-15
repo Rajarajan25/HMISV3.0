@@ -14,9 +14,11 @@ export function StaffServiceList(props) {
     const { data, loading } = useQuery(gql`${queries.staff}`);
     const [listData, setListData] = useState([]);
     useEffect(() => {
+        if (loading === false && data) {
         if (listData.length === 0) {
             setListData(data.getStaffs);
         }
+    }
     }, [data]);
     const handleSearch = (data) => {
         setListData(data);

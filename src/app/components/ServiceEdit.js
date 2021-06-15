@@ -5,9 +5,9 @@ import { toAbsoluteUrl } from "../../_metronic/_helpers";
 import { DevConsoleLog } from "../SiteUtill";
 
 export function ServiceEdit(props) {
-  const { value, type, index,selectedIndex } = props;
-  const handleClick = (type, handleType, index) => {
-    if (handleType === "save") props.clickSave(type, index);
+  const { value, type, index, clickEdit, clickSave, clickCancel, selectedIndex } = props;
+  const handleClick = (type, handleType, index,id) => {
+    if (handleType === "save") props.clickSave(type, index,id);
     if (handleType === "cancel") props.clickCancel(type, index);
     if (handleType === "edit") props.clickEdit(type, index);
   };
@@ -29,7 +29,7 @@ export function ServiceEdit(props) {
                 <img
                   src={toAbsoluteUrl("/media/patients/floppy-disk.svg")}
                   alt="save"
-                  onClick={() => handleClick(type, "save", index)}
+                  onClick={() => handleClick(type, "save", index,value.id)}
                 />
               </div>
             </OverlayTrigger>

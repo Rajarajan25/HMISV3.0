@@ -14,7 +14,10 @@ import { ServiceSettings } from "./service-settings";
 import { ServiceContext } from './ServiceContext'
 import { Details } from '../../../components/Details'
 import { Duration } from '../../../components/Duration'
-
+import { StaffService } from "./service-sales";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import {ServiceSlice} from "./ServiceSlice";
+const {actions} = ServiceSlice;
 function TabContainer(props) {
   return (
     <Typography component="div">
@@ -38,8 +41,13 @@ export function ServiceDetailsTab(props) {
   const {handleUpdate,currentIndex}=props
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-  const [service, setservice] = React.useContext(ServiceContext);
-  let currentService=service.currentService
+  const dispatch = useDispatch();
+  const { currentState } = useSelector(
+    (state) => ({ currentState: state.service }),
+    shallowEqual
+  );
+
+  const { listService, currentService } = currentState;
   const field = {
     name: "Service Name",
     gender:"Preferred Genders",
@@ -56,7 +64,13 @@ export function ServiceDetailsTab(props) {
     duration:"Duration",
     daterange:"Date Range"
   };
-
+  const service_field = {
+    service:"Service",
+    staff:"Staff",
+    staffCommission: "Staff Commission",
+    // serviceCommision: "Set Service Commission",
+    // productCommision: "Set Product Commission",
+  }
   // let currentService = service.currentService;
   function handleChange(event, newValue) {
     setValue(newValue);
@@ -65,10 +79,8 @@ export function ServiceDetailsTab(props) {
     currentService.payments=values.payments;
     currentService.duration=values.duration;
     currentService.timings=values.timings;
-    setservice({
-      type: "EDIT_SERVICE",
-      payload: currentService
-    });
+    dispatch(actions.editService(currentService));
+
   }
 
   return (
@@ -102,7 +114,7 @@ export function ServiceDetailsTab(props) {
           {value === 1 && <TabContainer> <Duration data={currentService} handleSave={editService} fields={timing_field}
           /> </TabContainer>}
           {/* {value === 1 && <TabContainer> <ServiceCost/> </TabContainer>} */}
-          {value === 2 && <TabContainer> <ServiceSales /> </TabContainer>}
+          {value === 2 && <TabContainer> <StaffService {...props} current={currentService} index={currentIndex} handleUpdate={handleUpdate} handleSave={editService} fields={service_field}/> </TabContainer>}
           {value === 3 && <TabContainer> <ServiceSettings /> </TabContainer>}
         </div>
       </div>
