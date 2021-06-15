@@ -5,7 +5,7 @@ import { toAbsoluteUrl } from "../../_metronic/_helpers";
 import { DevConsoleLog } from "../SiteUtill";
 
 export function ServiceEdit(props) {
-  const { value, type, index, clickEdit, clickSave, clickCancel, selectedIndex } = props;
+  const { value, type, index,selectedIndex } = props;
   const handleClick = (type, handleType, index) => {
     if (handleType === "save") props.clickSave(type, index);
     if (handleType === "cancel") props.clickCancel(type, index);

@@ -121,8 +121,10 @@ export function TableRow(props) {
                                         {selectedIndexName === i ? (
                                           <input
                                             ref={updatedValue}
+                                            onBlur={()=>handleSaved("name",i)}
                                             type="text"
                                             style={{ width: "100px" }}
+                                            on
                                             defaultValue={item.name}
                                           />
                                         ) : (

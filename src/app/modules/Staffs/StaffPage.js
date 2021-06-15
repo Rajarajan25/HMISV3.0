@@ -55,9 +55,7 @@ class StaffPage extends React.Component {
             isDrawerOpen: false,
             currentStaff: false,
             currentIndex: -1,
-            staffList: [{
-                name:"Agilan"
-            }],
+            staffList: [],
             isUpdate: true,
             isDragDisabled: false,
             isloading: false,

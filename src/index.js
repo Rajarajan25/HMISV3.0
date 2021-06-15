@@ -25,7 +25,8 @@ import {
   MetronicSplashScreenProvider,
   MetronicSubheaderProvider
 } from "./_metronic/layout";
-import {MetronicI18nProvider} from "./_metronic/i18n";
+import { MetronicI18nProvider } from "./_metronic/i18n";
+import {ErrorBoundary} from "react-error-boundary"
 
 
 /**
@@ -61,7 +62,7 @@ _redux.setupAxios(axios, store);
 //   } else {
 //     await app.currentUser.refreshCustomData();
 //   }
- 
+
 //   const { accessToken } = app.currentUser;
 //   return accessToken
 // }
@@ -77,18 +78,31 @@ _redux.setupAxios(axios, store);
 //   }),
 //   cache: new InMemoryCache()
 // });
-console.log("PUBLIC_URL-->",PUBLIC_URL);
+console.log("PUBLIC_URL-->", PUBLIC_URL);
 ReactDOM.render(
-  <MetronicI18nProvider>
-    <MetronicLayoutProvider>
-      <MetronicSubheaderProvider>
-      <ApolloProvider client={client}>
-        <MetronicSplashScreenProvider>
-          <App store={store} persistor={persistor} basename={PUBLIC_URL} />
-        </MetronicSplashScreenProvider>
-        </ApolloProvider>
-      </MetronicSubheaderProvider>
-    </MetronicLayoutProvider>
-  </MetronicI18nProvider>,
+  <ErrorBoundary FallbackComponent={ErrorFallback}>
+    <MetronicI18nProvider>
+      <MetronicLayoutProvider>
+        <MetronicSubheaderProvider>
+          <ApolloProvider client={client}>
+            <MetronicSplashScreenProvider>
+              <App store={store} persistor={persistor} basename={PUBLIC_URL} />
+            </MetronicSplashScreenProvider>
+          </ApolloProvider>
+        </MetronicSubheaderProvider>
+      </MetronicLayoutProvider>
+    </MetronicI18nProvider> 
+    </ErrorBoundary>,
   document.getElementById("root")
 );
+
+function ErrorFallback({error, componentStack, resetErrorBoundary}) {
+  return (
+    <div role="alert">
+      <p>Something went wrongs:</p>
+      <pre>{error.message}</pre>
+      <pre>{componentStack}</pre>
+      <button onClick={resetErrorBoundary}>Try again</button>
+    </div>
+  )
+}
