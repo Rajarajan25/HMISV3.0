@@ -5560,11 +5560,11 @@ p.setting_color {
   }
   .event_box {
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
     &:hover {
-      box-shadow: 0px 5px 12px #7e8eb136, 0px 0px 0px 2px #047bf8;
+      box-shadow: 0px 5px 12px #7e8eb136, 0px 0px 0px 2px #045bff;
       -webkit-transform: translateY(-3px);
       transform: translateY(-3px);
       cursor: pointer;
@@ -5587,7 +5587,7 @@ p.setting_color {
         display: block;
         content: "";
         z-index: 1;
-        border-radius: 5px 0px 5px 0px;
+        border-radius: 10px 0px 0px 0px;
       }
       &::after {
         position: absolute;
@@ -5748,7 +5748,7 @@ p.setting_color {
         background: #ffffff 0% 0% no-repeat padding-box;
         box-shadow: 0px 3px 6px #e1e9f8;
         border-radius: 10px;
-        padding: 1px 10px 10px;
+        padding: 5px 10px 10px;
       }
       .card-swich-button {
         display: flex;
@@ -5812,7 +5812,7 @@ p.setting_color {
       }
       .card-user-details {
         ul {
-          padding: 0px 10px;
+          padding: 8px 10px 5px;
           justify-content: space-between;
           li {
             padding: 0px;
@@ -5946,8 +5946,7 @@ p.setting_color {
       &:hover {
         filter: none;
         span {
-          color: #5e7aec;
-          font-weight: 100;
+          color: #5382FC;
         }
       }
     }
@@ -6062,6 +6061,49 @@ p.setting_color {
         font-weight: 500;
         min-width: 32px;
       }
+    }
+  }
+}
+.device_avail {
+	display: flex;
+	flex-wrap: wrap;
+  .vid_bg {
+      background: #F2F3F5;
+      border-radius: 5px;
+      padding: 8px 8px;
+      margin: 8px 13px 8px 0;
+      cursor: pointer;
+      border: 0;
+      &:hover {
+        transform: scale(1.05);
+        border: 0px solid #1c6afc;
+        animation: shadow-pulse 1s infinite;
+      }
+      img {
+        margin-right: 10px;
+        height: 18px;
+      }
+      .avails {
+        background-color: transparent;
+        &.visit_bg {
+          background: #1caaf4;
+        }
+        &.phone_bg {
+          background: #1caaf4;
+        }
+        &.chat_bg {
+          background: #1caaf4;
+        }
+        img {
+          margin-right: auto;
+          height: auto;
+        }
+      }
+    span {
+      color: #000000;
+      text-transform: capitalize;
+      font-weight: 500;
+      font-size: 12px;
     }
   }
 }

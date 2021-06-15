@@ -96,46 +96,71 @@ export function ContentEventInvite() {
     <div className="clearfix staff_first">
       <div className="event_detail timingavail">
         <label class="staff_title_text mb-3">Availability</label>
-        <div className="clearfix avail_device my-4">
-          <div className="row">
-            <div className="col-4">
-              <input type="radio" name="avail_video" id="video_01" />
-              <label className="d-flex vid_bg" for="video_01">
+        <div className="clearfix">
+          <div className="device_avail">
+            <div className="d-inline-flex">
+              <Dropdown drop="down" alignCenter className="dropdown h-100">
+                <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
+                  <label className="d-flex vid_bg">
+                    <span className="avails visit_bg">
+                      <img src={toAbsoluteUrl("/media/patients/avail_visit.svg")} alt="" className="" />
+                    </span>
+                    <span>In Person</span>
+                  </label>
+                </Dropdown.Toggle>
+                <Dropdown.Menu  className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav avail-list">
+                  <AvailDropdownMenu />
+                </Dropdown.Menu>
+              </Dropdown>
+            </div>
+            <div className="d-inline-flex">
+              <label className="d-flex vid_bg">
+                <span className="avails phone_bg">
+                  <img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="" className="" />
+                </span>
+                <span>In Call</span>
+              </label>
+            </div>
+            <div className="d-inline-flex">
+              <label className="d-flex vid_bg">
+                <span className="avails chat_bg">
+                  <img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="" className="" />
+                </span>
+                <span>Chat</span>
+              </label>
+            </div>
+            <div className="d-inline-flex">
+              <label className="d-flex vid_bg">
                 <img src={toAbsoluteUrl("/media/patients/zoom_icon.png")} alt="" className="" />
                 <span>Zoom</span>
               </label>
             </div>
-            <div className="col-4">
-              <input type="radio" name="avail_video" id="video_02" />
+            <div className="d-inline-flex">
               <label className="d-flex vid_bg" for="video_02">
                 <img src={toAbsoluteUrl("/media/patients/webex_icon.png")} alt="" className="" />
                 <span>Webex</span>
               </label>
             </div>
-            <div className="col-4">
-              <input type="radio" name="avail_video" id="video_03" />
-              <label className="d-flex vid_bg" for="video_03">
+            <div className="d-inline-flex">
+              <label className="d-flex vid_bg">
                 <img src={toAbsoluteUrl("/media/patients/skype_icon.png")} alt="" className="" />
                 <span>Skype</span>
               </label>
             </div>
-            <div className="col-4">
-              <input type="radio" name="avail_video" id="video_04" />
+            <div className="d-inline-flex">
               <label className="d-flex vid_bg" for="video_04">
                 <img src={toAbsoluteUrl("/media/patients/goto_icon.png")} alt="" className="" />
                 <span>Goto Meeting</span>
               </label>
             </div>
-            <div className="col-4">
-              <input type="radio" name="avail_video" id="video_05" />
-              <label className="d-flex vid_bg" for="video_05">
+            <div className="d-inline-flex">
+              <label className="d-flex vid_bg">
                 <img src={toAbsoluteUrl("/media/patients/webex1_icon.png")} alt="" className="" />
                 <span>Webex</span>
               </label>
             </div>
-            <div className="col-4">
-              <input type="radio" name="avail_video" id="video_06" />
-              <label className="d-flex vid_bg" for="video_06">
+            <div className="d-inline-flex">
+              <label className="d-flex vid_bg">
                 <img src={toAbsoluteUrl("/media/patients/google-meet_icon.png")} alt="" className="" />
                 <span>Google Meet</span>
               </label>
@@ -166,7 +191,25 @@ export function AvailDropdownMenu() {
       {/*begin::Navigation*/}
       <ul className="navi navi-hover">
         <li className="navi-item">
-          
+          <label class="staff_title_text mb-3">In Person</label>
+          <div className="clearfix">
+            <div className="event-range">
+              <div className="event-radio">
+                  <input type="radio" id="availperson_01" name="availperson" className="" />
+                  <label className="eprice pr-0" for="availperson_01">
+                      <span className="circle-border"></span>
+                      <span className="chk_txt">My Business Address</span>
+                  </label>
+              </div>
+              <div className="event-radio">
+                  <input type="radio" id="availperson_02" name="availperson" className=""/>
+                  <label className="eprice pr-0" for="availperson_02">
+                      <span className="circle-border"></span>
+                      <span className="chk_txt">Client Address At Booking</span>
+                  </label>
+              </div>
+            </div>
+          </div>
         </li>
       </ul>
   </>
