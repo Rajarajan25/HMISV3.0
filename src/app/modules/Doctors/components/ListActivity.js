@@ -144,25 +144,29 @@ const toggleDrawerClose = () => {
                               </Dropdown.Menu>
                             </Dropdown>
                           </li>
-                          <li className="col-lg-1 activeStatuscontent active_clr text-white">
-                            <Dropdown drop="down" alignCenter className="dropdown h-100">
-                              <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                                  <a href="#" className="d-flex text-white h-100 align-items-center justify-content-center">Active</a>
-                              </Dropdown.Toggle>
-                              <Dropdown.Menu  className="dropdown-menu p-0 mt-1 w-100 drop_nav status_hover">
-                                <StatusDropdownMenu />
-                              </Dropdown.Menu>
-                            </Dropdown>
+                          <li className="col-lg-1 activeStatuscontent">
+                            <div className="active_clr text-white d-block w-100 h-100 align-items-center justify-content-center">
+                              <Dropdown drop="down" alignCenter className="dropdown h-100">
+                                <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
+                                    <a href="#" className="d-flex text-white h-100 align-items-center justify-content-center">Active</a>
+                                </Dropdown.Toggle>
+                                <Dropdown.Menu  className="dropdown-menu p-0 mt-1 w-100 drop_nav status_hover">
+                                  <StatusDropdownMenu />
+                                </Dropdown.Menu>
+                              </Dropdown>
+                            </div>
                           </li>
-                          <li className="col-lg-1 activeStatuscontent male_bg text-white">
-                            <Dropdown drop="down" alignCenter className="dropdown h-100">
-                              <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                                  <a href="#" className="d-flex text-white h-100 align-items-center justify-content-center">Male</a>
-                              </Dropdown.Toggle>
-                              <Dropdown.Menu  className="dropdown-menu p-0 mt-1 w-100 drop_nav sx_hover">
-                                <SxDropdownMenu />
-                              </Dropdown.Menu>
-                            </Dropdown>
+                          <li className="col-lg-1 activeStatuscontent">
+                            <div className="male_bg text-white d-block w-100 h-100 align-items-center justify-content-center">
+                              <Dropdown drop="down" alignCenter className="dropdown h-100">
+                                <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
+                                    <a href="#" className="d-flex text-white h-100 align-items-center justify-content-center">Male</a>
+                                </Dropdown.Toggle>
+                                <Dropdown.Menu  className="dropdown-menu p-0 mt-1 w-100 drop_nav sx_hover">
+                                  <SxDropdownMenu />
+                                </Dropdown.Menu>
+                              </Dropdown>
+                            </div>
                           </li>
                           <li className="col-lg-1 my-auto">
                             <Dropdown drop="down" alignCenter className="dropdown h-100">
@@ -207,46 +211,23 @@ const toggleDrawerClose = () => {
                               </OverlayTrigger>
                             </Link >
                             <div className="d-flex justify-content-end more_icon">
-                              <OverlayTrigger 
-                                placement="top"
-                                overlay={
-                                <Tooltip id="quick-search-tooltip" className="tool_bg">More</Tooltip>
-                                }>
-                                <div className="tab_col mt-0 mb-0">
-                                  <img src={toAbsoluteUrl("/media/patients/more_icon.svg")} alt="more" />
-                                </div>
-                              </OverlayTrigger>
-                              <div className="avalib">
-                                <div className="d-flex justify-content-end">
+                              <Dropdown drop="down" alignCenter className="dropdown h-100">
+                                <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
                                   <OverlayTrigger 
-                                      placement="top"
-                                      overlay={
-                                      <Tooltip id="quick-search-tooltip" className="tool_bg">Edit</Tooltip>
-                                      }>
+                                  placement="top"
+                                  overlay={
+                                  <Tooltip id="quick-search-tooltip" className="tool_bg">More</Tooltip>
+                                  }>
                                     <div className="tab_col mt-0 mb-0">
-                                      <img src={toAbsoluteUrl("/media/patients/blue_edit_icon.svg")} alt="edit" className="mai1" />
+                                      <img src={toAbsoluteUrl("/media/patients/more_icon.svg")} alt="more" />
                                     </div>
-                                  </OverlayTrigger>
-                                  <OverlayTrigger 
-                                      placement="top"
-                                      overlay={
-                                      <Tooltip id="quick-search-tooltip" className="tool_bg">Delete</Tooltip>
-                                      }>
-                                    <div className="tab_col mt-0 mb-0">
-                                      <img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="delete" className="mai" />
-                                    </div>
-                                  </OverlayTrigger>
-                                  <OverlayTrigger 
-                                      placement="top"
-                                      overlay={
-                                      <Tooltip id="quick-search-tooltip" className="tool_bg">Duplicate</Tooltip>
-                                      }>
-                                    <div className="tab_col mt-0 mb-0">
-                                      <img src={toAbsoluteUrl("/media/patients/blue_copy_icon.svg")} alt="copy" />
-                                    </div>
-                                  </OverlayTrigger>
-                                </div>
-                              </div>
+                                </OverlayTrigger>
+                                </Dropdown.Toggle>
+                                <Dropdown.Menu  className="dropdown-menu p-0">
+                                  <MoreDropdownMenu />
+                                </Dropdown.Menu>
+                              </Dropdown>
+                              
                             </div>
                           </li>
                         </ul>
@@ -1814,8 +1795,6 @@ export function StatusDropdownMenu() {
               </a>
           </li>
       </ul>
-      {/*end::Navigation*/}
-
   </>
 }
 
@@ -1834,8 +1813,6 @@ export function SxDropdownMenu() {
               </a>
           </li>
       </ul>
-      {/*end::Navigation*/}
-
   </>
 }
 
@@ -1870,6 +1847,38 @@ export function AvailDropdownMenu() {
           </li>
       </ul>
       {/*end::Navigation*/}
+  </>
+}
+
+export function MoreDropdownMenu() {
+  return <>
+      {/*begin::Navigation*/}
+      <ul className="navi navi-hover more_hover">
+        <li className="navi-item">
+              <a href="#" className="navi-link">
+                <div className="more_imgs mt-0 mb-0">
+                  <img src={toAbsoluteUrl("/media/patients/blue_edit_icon.svg")} alt="Edit" className="mai1" />
+                </div>
+                <span className="navi-text">Edit</span>
+              </a>
+          </li>
+          <li className="navi-item">
+              <a href="#" className="navi-link">
+                <div className="more_imgs mt-0 mb-0">
+                  <img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="Delete" className="mai" />
+                </div>
+                <span className="navi-text">Delete</span>
+              </a>
+          </li>
+          <li className="navi-item">
+              <a href="#" className="navi-link">
+                <div className="more_imgs mt-0 mb-0">
+                  <img src={toAbsoluteUrl("/media/patients/blue_copy_icon.svg")} alt="Copy" className="" />
+                </div>
+                <span className="navi-text">Copy</span>
+              </a>
+          </li>
+      </ul>
   </>
 }
 
