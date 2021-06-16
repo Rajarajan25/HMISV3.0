@@ -1,9 +1,11 @@
 import { makeStyles } from '@material-ui/core';
-import React, {useEffect, useState} from 'react';
-import {useDropzone} from 'react-dropzone';
+import React, { useEffect, useState } from 'react';
+import { useDropzone } from 'react-dropzone';
 import { toAbsoluteUrl } from '../../_metronic/_helpers';
 import Button from '@material-ui/core/Button';
-
+import uploadFileToBlob, { isStorageConfigured,azureURLConfig } from '../../azure-storage-blob';
+import { DevConsoleLog } from '../SiteUtill';
+const storageConfigured = isStorageConfigured();
 const thumbsContainer = {
   display: "flex",
   flexDirection: "row",
@@ -11,7 +13,7 @@ const thumbsContainer = {
   marginTop: "-98px",
   marginLeft: "-2px",
   padding: 0,
-  position:"absolute"
+  position: "absolute"
 };
 
 const thumb = {
@@ -29,7 +31,7 @@ const thumbInner = {
   display: "flex",
   minWidth: 0,
   overflow: "hidden",
-  
+
 };
 
 const img = {
@@ -82,12 +84,18 @@ const editImage = (image, done) => {
   // });
 };
 
-export function Upload() {
+export function Upload(props) {
+  const {url} =props;
   const classes = useStyles();
   const [files, setFiles] = useState([]);
+  const [imgPath, setPath] = useState(null);
+  const [blobList, setBlobList] = useState([]);
   const { getRootProps, getInputProps } = useDropzone({
     accept: "image/*",
     onDrop: (acceptedFiles) => {
+      setPath(acceptedFiles[0].path);
+      onFileUpload(acceptedFiles[0]);
+      DevConsoleLog("acceptedFiles-->",acceptedFiles[0].path);
       setFiles(
         acceptedFiles.map((file) =>
           Object.assign(file, {
@@ -98,6 +106,17 @@ export function Upload() {
     }
   });
 
+  const onFileUpload = async (fileSelected) => {
+    if (storageConfigured) {
+      await uploadFileToBlob(fileSelected).then((blobsInContainer)=>{
+        DevConsoleLog("blobsInContainer-->",blobsInContainer);
+        props.setFieldValue(props.key,imgPath);
+        setBlobList(blobsInContainer);
+      });
+      
+    }
+  };
+
   const thumbs = files.map((file, index) => (
     <div style={thumb} key={file.name}>
       <div style={thumbInner}>
@@ -105,10 +124,9 @@ export function Upload() {
       </div>
       <button
         style={thumbButton}
-        onClick={(event) =>
-         { 
-           event.stopPropagation();
-           setFiles([]);
+        onClick={(event) => {
+          event.stopPropagation();
+          setFiles([]);
         }
           // editImage(file, (output) => {
           //   
@@ -148,13 +166,13 @@ export function Upload() {
       <div {...getRootProps({ className: "dropzone" })}>
         <input {...getInputProps()} />
         <label htmlFor="raised-button-file" className="up_avatar">
-                    <Button variant="outlined" component="span" className={classes.button||""}>
-                        <img src={toAbsoluteUrl("/media/patients/avatar_icon.svg")} alt="" className="d-block mb-2" />
-                        <span className="d-block">Upload Avatar</span>
-                    </Button>
-                </label>
+          <Button variant="outlined" component="span" className={classes.button || ""}>
+            <img src={toAbsoluteUrl("/media/patients/avatar_icon.svg")} alt="" className="d-block mb-2" />
+            <span className="d-block">Upload Avatar</span>
+          </Button>
+        </label>
       </div>
       <aside style={thumbsContainer}>{thumbs}</aside>
     </section>
   );
-}
+}       

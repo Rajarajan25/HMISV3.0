@@ -132,7 +132,7 @@ export function Details(props) {
               </div>}
               {fields.avatar && <div className="form-group">
                 <div className="d-flex pb-2">
-                  <UploadAvatarFormik classes={classes} />
+                  <UploadAvatarFormik classes={classes} key="booking_url" url={values.booking_url} setFieldValue={setFieldValue}/>
                   <div className="col-9 pr-0">
                     <ColorPaletteFormik  name="color_code"/>
                   </div>

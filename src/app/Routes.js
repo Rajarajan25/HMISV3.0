@@ -12,7 +12,7 @@ import {Layout} from "../_metronic/layout";
 import BasePage from "./BasePage";
 import { Logout, AuthPage } from "./modules/Auth";
 import ErrorsPage from "./modules/ErrorsExamples/ErrorsPage";
-
+import WorkSpace1 from "./modules/Auth/pages/workspace1"
 export function Routes() {
     const {isAuthorized} = useSelector(
         ({auth}) => ({
@@ -35,7 +35,7 @@ export function Routes() {
 
             <Route path="/error" component={ErrorsPage}/>
             <Route path="/logout" component={Logout}/>
-
+            <Route path="/manage/workspace1" component={WorkSpace1}/>
 
             {!isAuthorized ? (
                 /*Redirect to `/auth` when user is not authorized*/
