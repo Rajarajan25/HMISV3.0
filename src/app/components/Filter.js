@@ -1,13 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect } from "react";
 import { shallowEqual, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { toAbsoluteUrl } from "../../_metronic/_helpers";
-import Select from 'react-select';
 import { Dropdown } from "react-bootstrap";
 import { DropdownItemToggler } from "../../_metronic/_partials/dropdowns";
 import { FilterDropDown } from './FilterDropDown';
 import Search from '../components/Search';
+import SortBy from '../components/SortBy';
 const options = [
   { value: 'newest', label: 'Newest' },
   { value: 'oldest', label: 'Oldest' },
@@ -15,7 +13,7 @@ const options = [
 
 export function Filter(props) {
   const user = useSelector(({ auth }) => auth.user, shallowEqual);
-  const { value, handleDataSource, fields } = props;
+  const { value, handleDataSource, fields , handleSort } = props;
   useEffect(() => {
     return () => { };
   }, [user]);
@@ -46,8 +44,9 @@ export function Filter(props) {
                       </div>
                         <Search handleSearch={handleDataSource} data={value}></Search>
                     </div>
-                    <div className="d-flex ml-auto align-items-center">
-                      <div className="sort-text">Sort By:</div>
+                    <SortBy data={value} handleSort={handleSort}/>
+                    {/* <div className="d-flex ml-auto align-items-center">
+                      <div className="sort-text">Sort Byh:</div>
                       <div className="select-box p-3">
                         <Select className="form-control-select" options={options} />
                       </div>
@@ -58,7 +57,7 @@ export function Filter(props) {
                         <Link to="#" className="d-block p-3 active"><img src={toAbsoluteUrl("/media/health/listview.svg")} alt="" className="mx-auto" /></Link>
                       </div>
 
-                    </div>
+                    </div> */}
                   </form>
                 </div>
               </div>
