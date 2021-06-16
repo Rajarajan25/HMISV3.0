@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useMemo, useState } from "react";
 import objectPath from "object-path";
-import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import SVG from "react-inlinesvg";
 import { useHtmlClassService } from "../../_core/MetronicLayout";
 import { toAbsoluteUrl } from "../../../_helpers";
@@ -12,6 +11,7 @@ import { LanguageSelectorDropdown } from "../extras/dropdowns/LanguageSelectorDr
 import { QuickUserToggler } from "../extras/QuickUserToggler";
 import { Brand } from "../brand/Brand";
 import { KTUtil } from "./../../../_assets/js/components/util";
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
 export function Aside() {
   const uiService = useHtmlClassService();
@@ -60,9 +60,9 @@ export function Aside() {
     tabId3: "kt_aside_tab_3",
     tabId4: "kt_aside_tab_4", 
   };
-  const [activeTab, setActiveTab] = useState(tabs.tabId4);
+  const [activeTab, setActiveTab] = useState(tabs.tabId2);
   const handleTabChange = (id) => {
-    setActiveTab(tabs.tabId4);
+    setActiveTab(id);
     const asideWorkspace = KTUtil.find(
       document.getElementById("kt_aside"),
       ".aside-secondary .aside-workspace"
@@ -89,7 +89,14 @@ export function Aside() {
             <ul className="list-unstyled flex-column asideTopleftfixedmenu" role="tablist">
               {/* begin::Item */}
               
-              <li className="nav-item">
+              <li
+                className="nav-item"
+                data-toggle="tooltip"
+                data-placement="rigth"
+                data-container="body"
+                data-boundary="window"
+               
+              >
               <OverlayTrigger
                   placement="right"
                   overlay={
@@ -99,11 +106,11 @@ export function Aside() {
                   <a
                     href="#"
                     className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===
-                    tabs.tabId4 && "active"}`}
+                    tabs.tabId2 && "active"}`}
                     data-toggle="tab"
-                    data-target={`#${tabs.tabId4}`}
+                    data-target={`#${tabs.tabId2}`}
                     role="tab"
-                    onClick={() => handleTabChange(tabs.tabId4)}
+                    onClick={() => handleTabChange(tabs.tabId2)}
                   >
                     <span className="svg-icon svg-icon-md d-inline-flex">
                       <SVG
@@ -125,7 +132,7 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-                title="Calendar"
+
               >
                 <OverlayTrigger
                   placement="right"
@@ -136,10 +143,10 @@ export function Aside() {
                   <a
                     href="#"
                     className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===
-                      tabs.tabId2 && "active"}`}
+                      tabs.tabId4 && "active"}`}
                     data-toggle="tab"
-                    data-target={`#${tabs.tabId2}`}
-                    onClick={() => handleTabChange(tabs.tabId2)}
+                    data-target={`#${tabs.tabId4}`}
+                    onClick={() => handleTabChange(tabs.tabId4)}
                     role="tab"
                   >
                     <span className="svg-icon svg-icon-md d-inline-flex">
@@ -161,7 +168,7 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-                title="Manage"
+           
               >
                 <OverlayTrigger
                   placement="right"
@@ -171,11 +178,9 @@ export function Aside() {
                 >
                   <a
                     href="#"
-                    className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===
-                      tabs.tabId3 && "active"}`}
+                    className="nav-link btn btn-icon btn-clean btn-lg"
                     data-toggle="tab"
-                    data-target={`#${tabs.tabId3}`}
-                    onClick={() => handleTabChange(tabs.tabId3)}
+                    data-target="#kt_aside_tab_3"
                     role="tab"
                   >
                     <span className="svg-icon svg-icon-md d-inline-flex">
@@ -204,7 +209,7 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-                title="Payments"
+         
               >
                 <OverlayTrigger
                   placement="right"
@@ -214,12 +219,10 @@ export function Aside() {
                 >
                   <a
                     href="#"
-                    className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===
-                      tabs.tabId1 && "active"}`}
+                    className="nav-link btn btn-icon btn-clean btn-lg"
                     data-toggle="tab"
-                    data-target={`#${tabs.tabId1}`}
+                    data-target="#kt_aside_tab_3"
                     role="tab"
-                    onClick={() => handleTabChange(tabs.tabId1)}
                   >
                     <span className="svg-icon svg-icon-md d-inline-flex">
                       <SVG
@@ -240,7 +243,7 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-                title="Marketing"
+       
               >
                 <OverlayTrigger
                   placement="right"
@@ -250,11 +253,9 @@ export function Aside() {
                 >
                   <a
                     href="#"
-                    className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===
-                      tabs.tabId2 && "active"}`}
+                    className="nav-link btn btn-icon btn-clean btn-lg"
                     data-toggle="tab"
-                    data-target={`#${tabs.tabId2}`}
-                    onClick={() => handleTabChange(tabs.tabId2)}
+                    data-target="#kt_aside_tab_3"
                     role="tab"
                   >
                     <span className="svg-icon svg-icon-md d-inline-flex">
@@ -276,7 +277,7 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-                title="Products"
+      
               >
                 <OverlayTrigger
                   placement="right"
@@ -310,7 +311,7 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-                title="Reports"
+           
               >
                 <OverlayTrigger
                   placement="right"
@@ -540,11 +541,7 @@ export function Aside() {
                   id="kt_quick_actions_toggle"
                 >
                   <span className="svg-icon svg-icon-md d-inline-flex">
-                    <SVG
-                      src={toAbsoluteUrl(
-                        "/media/svg/left-menu/Thunder.svg"
-                      )}
-                    />
+                  <img src={toAbsoluteUrl("/media/svg/left-menu/Thunder.png")} alt="Thunder" />
                   </span>
                 </a>
               </OverlayTrigger>

@@ -15,7 +15,7 @@ export function AsideMenu({ isActive }) {
 
   return (
     <div className={`tab-pane fade ${isActive && "show active"}`}>
-      <div className="aside-menu-wrapper flex-column-fluid px-10 py-5">
+      <div className="aside-menu-wrapper flex-column-fluid  py-5">
         {/* begin::Menu Container */}
         <div
           id="kt_aside_menu"

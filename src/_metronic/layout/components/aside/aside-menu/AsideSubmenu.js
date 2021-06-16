@@ -15,7 +15,7 @@ export function AsideSubmenu({ isActive }) {
 
   return (
     <div className={`tab-pane fade ${isActive && "show active"}`}>
-      <div className="aside-menu-wrapper flex-column-fluid">
+      <div className="aside-menu-wrapper flex-column-fluid py-5">
         {/* begin::Menu Container */}
         <div
           id="kt_aside_menu"
@@ -23,8 +23,8 @@ export function AsideSubmenu({ isActive }) {
           className={`aside-menu  min-h-lg-800px ${layoutProps.asideClassesFromConfig}`}
           {...layoutProps.asideMenuAttr}
         >
-          <div className="favoriteLink">
-            HMIS
+          <div className="favoriteLink d-none">
+              HMIS
           </div>
           <AsideSubMenuList layoutProps={layoutProps} />
         </div>
