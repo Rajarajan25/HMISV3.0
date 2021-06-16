@@ -109,17 +109,24 @@ export function ContentEventInvite() {
                   </label>
                 </Dropdown.Toggle>
                 <Dropdown.Menu  className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav avail-list">
-                  <AvailDropdownMenu />
+                  <PersonDropdownMenu />
                 </Dropdown.Menu>
               </Dropdown>
             </div>
             <div className="d-inline-flex">
-              <label className="d-flex vid_bg">
-                <span className="avails phone_bg">
-                  <img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="" className="" />
-                </span>
-                <span>In Call</span>
-              </label>
+              <Dropdown drop="down" alignCenter className="dropdown h-100">
+                <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
+                  <label className="d-flex vid_bg">
+                    <span className="avails phone_bg">
+                      <img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="" className="" />
+                    </span>
+                    <span>In Call</span>
+                  </label>
+                </Dropdown.Toggle>
+                <Dropdown.Menu  className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav avail-list">
+                  <PhoneDropdownMenu />
+                </Dropdown.Menu>
+              </Dropdown>
             </div>
             <div className="d-inline-flex">
               <label className="d-flex vid_bg">
@@ -176,7 +183,7 @@ export function ContentEventInvite() {
               </div>
             </Dropdown.Toggle>
             <Dropdown.Menu  className="dropdown-menu p-0 mt-1 w-100 drop_nav avail-list">
-              <AvailDropdownMenu />
+              <PersonDropdownMenu />
             </Dropdown.Menu>
           </Dropdown>
          
@@ -186,7 +193,7 @@ export function ContentEventInvite() {
   );
 }
 
-export function AvailDropdownMenu() {
+export function PersonDropdownMenu() {
   return <>
       {/*begin::Navigation*/}
       <ul className="navi navi-hover">
@@ -207,6 +214,35 @@ export function AvailDropdownMenu() {
                       <span className="circle-border"></span>
                       <span className="chk_txt">Client Address At Booking</span>
                   </label>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+  </>
+}
+
+export function PhoneDropdownMenu() {
+  return <>
+      {/*begin::Navigation*/}
+      <ul className="navi navi-hover">
+        <li className="navi-item">
+          <label class="staff_title_text mb-3">In Call</label>
+          <div className="clearfix">
+            <div className="event-range">
+              <div className="event-radio">
+                <input type="radio" id="availcall_01" name="availcall" className="" />
+                <label className="eprice pr-0" for="availcall_01">
+                  <span className="circle-border"></span>
+                  <span className="chk_txt">Client will call you</span>
+                </label>
+              </div>
+              <div className="event-radio">
+                <input type="radio" id="availcall_02" name="availcall" className=""/>
+                <label className="eprice pr-0" for="availcall_02">
+                  <span className="circle-border"></span>
+                  <span className="chk_txt">You will call the client</span>
+                </label>
               </div>
             </div>
           </div>
