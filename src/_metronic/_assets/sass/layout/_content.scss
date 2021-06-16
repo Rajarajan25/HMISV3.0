@@ -322,7 +322,7 @@ $breakpoint-mobile: 375px;
 
 .toggleLefticon,
 .toggleLeftHeadericon {
-  a {
+  a,div {
     display: inline-block;
     width: 100%;
     height: 100%;
@@ -3884,7 +3884,7 @@ p.setting_color {
 		color: #1D6AFF;
 	}*/
   .topMiddlecontent li {
-    padding: 10px 0px;
+    padding: 5px 0px;
     .drop_nav ul li {
       padding: 0;
     }
@@ -5970,9 +5970,9 @@ p.setting_color {
 .MuiPopover-root {
   z-index: 1500 !important;
 }
-.modal-backdrop {
-  z-index: 1440;
-}
+// .modal-backdrop {
+//   z-index: 1440;
+// }
 .timemodal {
   z-index: 1450;
   .modal-dialog {
@@ -5984,6 +5984,9 @@ p.setting_color {
   .modal-body {
     padding-top: 0.75rem;
   }
+}
+.font-style-italic{
+  font-style: italic;
 }
 .more_hover {
   .navi-item {
