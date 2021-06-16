@@ -30,7 +30,7 @@ export default function WorkSpace1() {
               <div className="ml-10 mt-5 workspace-con">
                 <h1>Workspace Name</h1>
                 <div className="input-contain">
-                  <input type="text" placeholder="Email" name="" className="" />
+                  <input type="text" placeholder="Name" name="" className="" />
                 </div>
                 <div className="space-btn">
                   <button type="submit" className="btn btn-btn-primary">Next</button>

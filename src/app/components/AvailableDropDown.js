@@ -78,9 +78,9 @@ export function AvailableDropDown(props) {
     <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle2" className="h-100">
       <div className="d-flex flex-wrap h-100 justify-content-center flex-column flex-column avail_wid">
         {/* <div className="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column flex-column avail_wid"> */}
-        {selectOpt.map((item, index) => {
+        {selectOpt.map((item, i) => {
           return (
-           <> { item }</>
+           <div key={i}> { item }</div>
           );
         })}
       </div>

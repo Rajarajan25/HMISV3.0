@@ -15,6 +15,7 @@ import { STypeDropdownMenu } from './STypeDropdownMenu'
 import { Dropdown } from "react-bootstrap";
 import { DropdownItemToggler } from "../../_metronic/_partials/dropdowns";
 import { ProviderDropDown } from './ProviderDropdownMenu'
+import { DevConsoleLog } from "../SiteUtill";
 export function TableRow(props) {
   const {
     row,
@@ -36,10 +37,11 @@ export function TableRow(props) {
   const [selectedIndexMobile, setSelectedIndexMobile] = React.useState(-1);
   const updatedValue = React.useRef("");
   const newName = React.useRef("");
-  // useEffect(()=>{
-  //   console.log(props.searchValue);
-  // },[searchValue])
-
+  useEffect(()=>{
+    if (updatedValue && updatedValue.current) {
+    updatedValue.current.addEventListener('blur', onBlur);
+    }
+  })
   function handleOnDragEnd(result) {
     if (!result.destination) return;
     const items = Array.from(row);
@@ -57,8 +59,8 @@ export function TableRow(props) {
     if (type === "phone_no") setSelectedIndexMobile(index);
   };
 
-  const handleSaved = (type, index,id) => {
-    handleSave(updatedValue.current.value, id,type,index);
+  const handleSaved = (type, index, id) => {
+    handleSave(updatedValue.current.value, id, type,index);
     handleCancel(type);
   };
   const handleCancel = (type) => {
@@ -66,16 +68,27 @@ export function TableRow(props) {
     if (type === "email") setSelectedIndexMail(-1);
     if (type === "phone_no") setSelectedIndexMobile(-1);
   };
-  const handleDelete = (item) => {
-    props.handleDelete(item);
-  };
-  const handleDuplicate = (item) => {
-    props.handleDuplicate(item);
-  };
+
+  const onBlur=(event)=>{
+    let id=event.target.id;
+    let name=event.target.name;
+    let newValue=event.target.value;
+    let oldValue=event.target.defaultValue;
+    DevConsoleLog("New onBlur-->",id);
+    DevConsoleLog("New onBlur-->",name);
+    DevConsoleLog("New onBlur-->",newValue);
+    DevConsoleLog("New onBlur-->",oldValue);
+    if(newValue!==oldValue){
+      handleSave(newValue,id,name,0);
+    }
+    handleCancel(name);
+    
+  }
+
   return (
-    <div className="collapse show w-100" id="staffmanagement" data-parent="#accordionExample">
+    <div className="w-100" data-parent="#accordionExample">
       <div className="row">
-        <div className="col-lg-12">
+        <div className="col-lg-12 Ser_Pro">
           <div className="topMiddlecontent">
             <DragDropContext onDragEnd={handleOnDragEnd}>
               <Droppable droppableId="characters">
@@ -108,92 +121,52 @@ export function TableRow(props) {
                                 />
                               </div>
                               <ul className="list-inline w-100 row">
-                                {field.name && <li className="col-lg-3 my-auto">
-                                  <div className="userLogoicon align-content-center">
-                                    <ColorAndAvatarDropDown
-                                      item={item}
-                                      handleChangeDropDown={
-                                        handleChangeDropDown
-                                      }
-                                    />
-                                    <div className="d-flex">
-                                      <span>
-                                        {selectedIndexName === i ? (
-                                          <input
-                                            ref={updatedValue}
-                                            onBlur={()=>handleSaved("name",i)}
-                                            type="text"
-                                            style={{ width: "100px" }}
-                                            on
-                                            defaultValue={item.name}
-                                          />
-                                        ) : (
-                                          <div>
-                                            <Link
-                                              to="#"
-                                              onClick={drawer(true, item, i)}
-                                            >
-                                              {item.name}
-                                            </Link>
-
-                                          </div>
-                                        )}
-                                      </span>
+                                {field.name &&
+                                  <li className="col-lg-3 my-auto">
+                                    <div className="userLogoicon align-content-center align-items-center">
+                                      <ColorAndAvatarDropDown
+                                        item={item}
+                                        handleChangeDropDown={
+                                          handleChangeDropDown
+                                        }
+                                      />
+                                      <div className="">
+                                        <div className="d-flex">
+                                          <span  className="serv_title">
+                                            {selectedIndexName === i ? (
+                                              <input
+                                                ref={updatedValue}
+                                                autoFocus
+                                                id={item.id}
+                                                name="name"
+                                                className="edit_name"
+                                                type="text"
+                                                style={{ width: "100%" }}
+                                                defaultValue={item.name}
+                                              />
+                                            ) : (
+                                                <Link
+                                                  to="#"
+                                                  onClick={drawer(true, item, i)}
+                                                >
+                                                  {item.name}
+                                                </Link>
+                                            )}
+                                          </span>
+                                          <ServiceEdit
+                                            type={"name"}
+                                            index={i}
+                                            value={item.name}
+                                            clickEdit={handleEdit}
+                                            selectedIndex={selectedIndexName}
+                                          ></ServiceEdit>
+                                        </div>
+                                        {field.duration && <div className="d-flex">
+                                          <span className="DurationBg">Duration: 30 Mins</span>
+                                        </div>}
+                                      </div>
                                     </div>
-                                    <ServiceEdit
-                                      type={"name"}
-                                      index={i}
-                                      value={item}
-                                      clickEdit={handleEdit}
-                                      clickSave={handleSaved}
-                                      clickCancel={handleCancel}
-                                      selectedIndex={selectedIndexName}
-                                    ></ServiceEdit>
-                                  </div>
-                                </li>}
-                                {field.Name && <li className="col-lg-5 my-auto">
-                                  <div className="userLogoicon align-content-center">
-                                    <ColorAndAvatarDropDown
-                                      item={item}
-                                      handleChangeDropDown={
-                                        handleChangeDropDown
-                                      }
-                                    />
-                                    <div className="d-flex">
-                                      <span>
-                                        {selectedIndexName === i ? (
-                                          <input
-                                            ref={updatedValue}
-                                            type="text"
-                                            style={{ width: "100px" }}
-                                            defaultValue={item.name}
-                                          />
-                                        ) : (
-                                          <>
-                                            <Link
-                                              to="#"
-                                              onClick={drawer(true, item, i)}
-                                            >
-                                              {item.name}
-                                            </Link>
-                                            {field.duration && <div className="d-flex">
-                                              <span className="DurationBg">Duration: 30 Mins</span>
-                                            </div>}
-                                          </>
-                                        )}
-                                      </span>
-                                    </div>
-                                    <ServiceEdit
-                                      type={"name"}
-                                      index={i}
-                                      value={item}
-                                      clickEdit={handleEdit}
-                                      clickSave={handleSaved}
-                                      clickCancel={handleCancel}
-                                      selectedIndex={selectedIndexName}
-                                    ></ServiceEdit>
-                                  </div>
-                                </li>}
+                                  </li>}
                                 {field.experience && <li className="col-lg-1 my-auto">
                                   <div className="d-flex justify-content-center">
                                     <span className="f-12 font-weight-500">
@@ -209,7 +182,7 @@ export function TableRow(props) {
                                       <span className="d-flex pointer h-100 align-items-center justify-content-center font_weight_medium">{item.service_type}</span>
                                     </Dropdown.Toggle>
                                     <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav st_hover">
-                                      <STypeDropdownMenu item={item} handleChangeDropDown={handleChangeDropDown}/>
+                                      <STypeDropdownMenu item={item} handleChangeDropDown={handleChangeDropDown} />
                                     </Dropdown.Menu>
                                   </Dropdown>
                                 </li>}
@@ -245,11 +218,16 @@ export function TableRow(props) {
                                 {field.email && <li className="col-lg-2 activeStatuscontent my-auto d-flex justify-content-center">
                                   {selectedIndexMail === i ? (
                                     <input
-                                      type="text"
-                                      ref={updatedValue}
-                                      style={{ width: "100px" }}
-                                      defaultValue={item.email}
-                                    />
+                                    ref={updatedValue}
+                                    autoFocus
+                                    id={item.id}
+                                    name="email"
+                                    className="edit_mail"
+                                    type="text"
+                                    style={{ width: "100%" }}
+                                    defaultValue={item.email}
+                                  />
+                                    
                                   ) : (
                                     <span className="d-inline-flex">
                                       {item.email}
@@ -258,10 +236,8 @@ export function TableRow(props) {
                                   <ServiceEdit
                                     type={"email"}
                                     index={i}
-                                    value={item}
+                                    value={item.email}
                                     clickEdit={handleEdit}
-                                    clickSave={handleSaved}
-                                    clickCancel={handleCancel}
                                     selectedIndex={selectedIndexMail}
                                   ></ServiceEdit>
                                 </li>}
@@ -269,11 +245,15 @@ export function TableRow(props) {
                                   <span>
                                     {selectedIndexMobile === i ? (
                                       <input
-                                        type="text"
-                                        ref={updatedValue}
-                                        style={{ width: "100px" }}
-                                        defaultValue={item.phone_no}
-                                      />
+                                      ref={updatedValue}
+                                      autoFocus
+                                      id={item.id}
+                                      name="phone_no"
+                                      className="edit_mobile"
+                                      type="text"
+                                      style={{ width: "100%" }}
+                                      defaultValue={item.phone_no}
+                                    />
                                     ) : (
                                       <span className="d-inline-flex">
                                         {item.phone_no}
@@ -283,10 +263,8 @@ export function TableRow(props) {
                                   <ServiceEdit
                                     type={"phone_no"}
                                     index={i}
-                                    value={item}
+                                    value={item.phone_no}
                                     clickEdit={handleEdit}
-                                    clickSave={handleSaved}
-                                    clickCancel={handleCancel}
                                     selectedIndex={selectedIndexMobile}
                                   ></ServiceEdit>
                                   <MoreOption {...props} item={item} index={i} />
@@ -294,10 +272,10 @@ export function TableRow(props) {
                                 {field.price && <li className="col-lg-3 my-auto d-flex justify-content-center">
 
 
-                                <div className="d-flex border-left pl-8">
-                                          <span className="d-flex align-items-center font-size-13">Cost</span>
-                                          <Link to="#" className="pay_amt">Rs. {item.cost}</Link>
-                                        </div>
+                                  <div className="d-flex border-left pl-8">
+                                    <span className="d-flex align-items-center font-size-13">Cost</span>
+                                    <Link to="#" className="pay_amt">Rs. {item.cost}</Link>
+                                  </div>
 
 
 
@@ -374,7 +352,7 @@ export function AddNewField(props) {
 export function MoreOption(props) {
   return (
     <div className="d-flex justify-content-end more_icon">
-      <Dropdown drop="down" alignCenter className="dropdown h-100">
+      <Dropdown drop="down"  aligncenter="true" className="dropdown h-100">
         <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
           <OverlayTrigger
             placement="top"

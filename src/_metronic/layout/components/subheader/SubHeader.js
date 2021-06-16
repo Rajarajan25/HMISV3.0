@@ -6,6 +6,8 @@ import SVG from "react-inlinesvg";
 import { toAbsoluteUrl } from "../../../_helpers";
 import { QuickActions } from "./components/QuickActions";
 import { BreadCrumbs } from "./components/BreadCrumbs";
+import Popup from "reactjs-popup";
+
 import Warper from "./Warper";
 
 import {
@@ -13,6 +15,12 @@ import {
   useSubheader,
 } from "../../_core/MetronicSubheader";
 import { useHtmlClassService } from "../../_core/MetronicLayout";
+
+
+const contentStyle = {
+  maxWidth: "600px",
+  width: "90%"
+};
 
 function  SubHeader(){
   const uiService = useHtmlClassService();
@@ -96,7 +104,6 @@ function  SubHeader(){
           {/* Button */}
           <button
             type="button"
-            hidden={true}
             className={`btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2`}
           >
             <span className="svg-icon svg-icon-lg">
@@ -109,7 +116,7 @@ function  SubHeader(){
             {` `}New Member
           </button>
          
-          {/* <QuickActions /> */}
+          <QuickActions />
 
           {/* Button */}
 

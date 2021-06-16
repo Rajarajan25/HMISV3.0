@@ -97,6 +97,7 @@ class StaffPage extends React.Component {
     };
 
     handleChangeDropDown = (selectedVal, id, type,indexes) => {
+        DevConsoleLog("type-->",type);
         let index = 0;
         const currentStaffList = this.state.staffList.map((item, i) => {
             if (id === item.id) {
