@@ -248,6 +248,9 @@ class StaffPage extends React.Component {
     handleSearch = (value) => {
         this.setState({ searchValue: value });
     }
+    handleSort  = (value) => {
+        this.setState({ staffList: value });
+    }
     dragableDisable = (value) => {
         this.setState({ isDragDisabled: value });
     }
@@ -300,6 +303,7 @@ class StaffPage extends React.Component {
                 <Filter value={staffList}
                     handleDataSource={this.handleDataSource}
                     fields={this.fields}
+                    handleSort={this.handleSort}
                     placeholder="Staff Search" />
                 <div className="d-flex flex-row-auto w-100 mt-1">
                     <SpinnerLarge loading={loading} />
