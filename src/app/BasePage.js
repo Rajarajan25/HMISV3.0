@@ -3,6 +3,8 @@ import { Redirect, Switch, Route } from "react-router-dom";
 import { LayoutSplashScreen, ContentRoute } from "../_metronic/layout";
 import { MyPage } from "./pages/MyPage";
 import { DashboardPage } from "./pages/DashboardPage";
+import Schedular from '././modules/Calendar/Schedular'
+import FileUploadDemo from "./components/FileUploadDemo";
 
 const ECommercePage = lazy(() =>
   import("./modules/ECommerce/pages/eCommercePage")
@@ -33,9 +35,11 @@ export default function BasePage() {
           <Redirect exact from="/" to="/dashboard" />
         }
         <ContentRoute path="/dashboard" component={DashboardPage} />
+        <ContentRoute path="/builder" component={Schedular} />
         <ContentRoute path="/my-page" component={MyPage} />
         <Route path="/e-commerce" component={ECommercePage} />
         <Route path="/user-profile" component={UserProfilepage} />
+        <Route path="/image-upload" component={FileUploadDemo} />
         <ContentRoute path="/manage/staff-management" title="Staff Managements" component={StaffPage} />
         <Route path="/manage/patients-details" component={PatientDetailspage} />
         <ContentRoute path="/manage/service-provider" title="Services" component={ServiceProvider} />

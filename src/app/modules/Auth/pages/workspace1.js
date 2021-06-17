@@ -15,6 +15,9 @@ const useStyles = makeStyles(theme => ({
 export default function WorkSpace1() {
   const classes = useStyles();
   return (
+    <div className="d-flex flex-column flex-root">
+    {/*begin::Page*/}
+    <div className="d-flex flex-row flex-column-fluid page">
     <div className="workspace position-relative bg_FAFBFC p-7 col bor-20 h-100">
       <div className="d-flex justify-content-center flex-column col-xl-9 col-lg-11 mx1460 col mb150">
         <Link to="/" className="cancel_clr">Cancel</Link>
@@ -162,6 +165,7 @@ export default function WorkSpace1() {
 
       </div>
     </div>
+ </div></div>
   );
 }
 
