@@ -5563,12 +5563,13 @@ p.setting_color {
     margin-bottom: 30px;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
+    font-family: AvenirNext-W01;
     &:hover {
       box-shadow: 0px 5px 12px #7e8eb136, 0px 0px 0px 3px #045bff;
       -webkit-transform: translateY(-3px);
       transform: translateY(-3px);
       cursor: pointer;
-      border-radius: 10px;
+      border-radius: 6px;
       z-index: 1;
     }
   }
@@ -5647,7 +5648,8 @@ p.setting_color {
     line-height: 50px;
     color: #ffff;
     font-size: 15px;
-    font-weight: 700;
+    font-weight: 500;
+    text-transform: uppercase;
   }
 }
 
@@ -5656,10 +5658,10 @@ p.setting_color {
 .event_box {
   .event-card {
     background-clip: border-box;
-    border-radius: 10px;
+    border-radius: 6px;
     border: 0px;
-    background: #fdfdfd 0% 0% no-repeat padding-box;
-    box-shadow: 0px 3px 6px #e1e9f8;
+    background: #fff;
+    box-shadow: 0px 2px 4px rgba(126, 142, 177, 0.12);
     position: relative;
     &:hover {
       box-shadow: none;
@@ -5746,8 +5748,8 @@ p.setting_color {
       }
       .event-provider {
         background: #ffffff 0% 0% no-repeat padding-box;
-        box-shadow: 0px 3px 6px #e1e9f8;
-        border-radius: 10px;
+        box-shadow: 0px 5px 15px rgba(0,0,0,0.05);
+        border-radius: 6px;
         padding: 5px 10px 10px;
       }
       .card-swich-button {
@@ -5756,10 +5758,13 @@ p.setting_color {
         justify-content: flex-end;
         align-items: center;
         & > span {
-          background-color: #be7ffd;
           border-radius: 5px;
           padding: 5px 10px;
-          color: #fff;
+          background-color: #cce4ff;
+          border: 1px solid #0356ad;
+          color: #0356ad;
+          text-transform: capitalize;
+          font-weight: 300;
         }
         .swich-btn {
           display: inline;
@@ -5798,7 +5803,9 @@ p.setting_color {
         .card-summary {
           padding-left: 10px;
           margin-right: 80px;
-          color: #b5b5c4;
+          color: #adb5bd;
+          font-size: 1.1rem;
+          font-weight: 300;
           span {
             &:first-child {
               font-size: 20px;
@@ -5829,7 +5836,7 @@ p.setting_color {
             }
             &:nth-child(1) {
               span {
-                color: #b5b5c4;
+                color: #adb5bd;
               }
             }
             &:nth-child(2) {
@@ -6080,10 +6087,17 @@ p.setting_color {
       margin: 8px 13px 8px 0;
       cursor: pointer;
       border: 0;
+      &.selected {
+        background: #EAF4FF;
+      }
       &:hover {
         transform: scale(1.05);
         border: 0px solid #1c6afc;
         animation: shadow-pulse 1s infinite;
+        background: #EAF4FF;
+      }
+      &:active, &:focus { 
+        background: #EAF4FF;
       }
       img {
         margin-right: 10px;

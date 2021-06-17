@@ -188,3 +188,25 @@
     font-weight: normal;
     text-rendering: optimizeLegibility;
 }
+@font-face {
+    font-family: 'AvenirNext-W01';
+    src: url('AvenirNext-Light.woff2') format('woff2'),
+		 url('AvenirNext-Light.woff') format('woff');
+    font-style: normal;
+    font-weight: 300;
+}
+@font-face {
+    font-family: 'AvenirNext-W01';
+    src: url('AvenirNext-Regular.woff2') format('woff2'),
+		 url('AvenirNext-Regular.woff') format('woff');
+    font-style: normal;
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'AvenirNext-W01';
+    src: url('AvenirNext-Bold.woff2') format('woff2'),
+		 url('AvenirNext-Bold.woff') format('woff');
+    font-style: normal;
+    font-weight: 500;
+}
+
