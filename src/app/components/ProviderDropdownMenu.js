@@ -8,6 +8,7 @@ const GET_STAFF = gql`
   {
     getStaffs {
       name
+      color_code
     }
   }
 `;
@@ -50,9 +51,10 @@ export function ProviderDropDownMenu() {
               {data.getStaffs.map(staff => {
                 return (
                   <div class="d-flex justify-content-left py-1">
-                    <span className="specialInfo text-white position-relative" style={{ backgroundColor: `rgba(230, 81, 27,0.1)` }}>
-                      <span className="ProviderIcon" style={{ backgroundColor: `#2ecd6f` }}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
-                      <span className="ProviderName" style={{ color: `rgba(230, 81, 27,1)` }}>{staff.name}</span>
+                    <span className="specialInfo text-white position-relative" style={{ backgroundColor: staff.color_code + "1a" }}>
+                      {/* <span className="ProviderIcon" style={{ backgroundColor: staff.color_code }}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span> */}
+                      <span className="ProviderIcon" style={{ backgroundColor: staff.color_code||`#2ecd6f` }}>{staff.avatar ? <img src={toAbsoluteUrl(staff.avatar)} alt="" className="mh-100 d-block rounded-circle" /> : staff.name?staff.name.substr(0,2).toUpperCase():""}</span>
+                      <span className="ProviderName" style={{ color: staff.color_code }}>{staff.name}</span>
                     </span>
                   </div>
                 )

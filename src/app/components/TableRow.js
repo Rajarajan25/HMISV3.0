@@ -167,6 +167,52 @@ export function TableRow(props) {
                                       </div>
                                     </div>
                                   </li>}
+                                  {field.Name &&
+                                  <li className="col-lg-5 my-auto">
+                                    <div className="userLogoicon align-content-center align-items-center">
+                                      <ColorAndAvatarDropDown
+                                        item={item}
+                                        handleChangeDropDown={
+                                          handleChangeDropDown
+                                        }
+                                      />
+                                      <div className="">
+                                        <div className="d-flex">
+                                          <span  className="serv_title">
+                                            {selectedIndexName === i ? (
+                                              <input
+                                                ref={updatedValue}
+                                                autoFocus
+                                                id={item.id}
+                                                name="name"
+                                                className="edit_name"
+                                                type="text"
+                                                style={{ width: "100%" }}
+                                                defaultValue={item.name}
+                                              />
+                                            ) : (
+                                                <Link
+                                                  to="#"
+                                                  onClick={drawer(true, item, i)}
+                                                >
+                                                  {item.name}
+                                                </Link>
+                                            )}
+                                          </span>
+                                          <ServiceEdit
+                                            type={"name"}
+                                            index={i}
+                                            value={item.name}
+                                            clickEdit={handleEdit}
+                                            selectedIndex={selectedIndexName}
+                                          ></ServiceEdit>
+                                        </div>
+                                        {field.duration && <div className="d-flex">
+                                          <span className="DurationBg">Duration: 30 Mins</span>
+                                        </div>}
+                                      </div>
+                                    </div>
+                                  </li>}
                                 {field.experience && <li className="col-lg-1 my-auto">
                                   <div className="d-flex justify-content-center">
                                     <span className="f-12 font-weight-500">
