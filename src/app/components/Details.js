@@ -50,7 +50,7 @@ export function Details(props) {
       enableReinitialize={true}
       validationSchema={detailSchema}
       onSubmit={(values) => {
-        values.phone_no = "" + values.phone_no;
+        //values.phone_no = "" + values.phone_no;
         console.log("values", JSON.stringify(values));
         if (index != -1) {
           delete values.created_at;

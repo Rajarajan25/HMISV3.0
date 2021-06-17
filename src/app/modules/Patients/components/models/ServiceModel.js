@@ -1,0 +1,33 @@
+import {TimingsModel} from '../../../../models/TimingsModel';
+export const ServiceModel={
+    allow_multiple_appointment: false,
+    allow_waitlist: false,
+    booking_url: "",
+    cancel_link: "",
+    category: "",
+    color_code: "",
+    commission_enabled: false,
+    deleted_at: "",
+    description: "",
+    display_booking_page: false,
+    display_name: "",
+    display_order: 0,
+    extra_time_in_seconds: "",
+    extra_time_type: "",
+    is_active: true,
+    is_deleted: false,
+    is_recurring: false,
+    name: "Service name 1",
+    picture: "",
+    picture_sub_path: "",
+    prefered_gender: "",
+    reschedule_link: "",
+    room_required: false,
+    service_excluded: [],
+    service_included: [],
+    service_relationships: {service_duration: [], service_pricing: [], service_staff: [], service_locations: []},
+    service_setting: [],
+    service_type: "",
+    
+  }
+    

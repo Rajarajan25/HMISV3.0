@@ -121,8 +121,8 @@ export function TableRow(props) {
                                 />
                               </div>
                               <ul className="list-inline w-100 row">
-                                {field.name &&
-                                  <li className="col-lg-3 my-auto">
+                                {field[0].name &&
+                                  <li className={`col-lg-${field[0].col_size} my-auto`}>
                                     <div className="userLogoicon align-content-center align-items-center">
                                       <ColorAndAvatarDropDown
                                         item={item}
@@ -161,13 +161,14 @@ export function TableRow(props) {
                                             selectedIndex={selectedIndexName}
                                           ></ServiceEdit>
                                         </div>
-                                        {field.duration && <div className="d-flex">
+                                        {field[8].duration && <div className="d-flex">
                                           <span className="DurationBg">Duration: 30 Mins</span>
                                         </div>}
                                       </div>
                                     </div>
                                   </li>}
-                                {field.experience && <li className="col-lg-1 my-auto">
+                                  
+                                {field[1].experience && <li className="col-lg-1 my-auto">
                                   <div className="d-flex justify-content-center">
                                     <span className="f-12 font-weight-500">
                                       {item.experience_year || "0"}.
@@ -176,7 +177,7 @@ export function TableRow(props) {
                                     </span>
                                   </div>
                                 </li>}
-                                {field.service_type && <li className="col-lg-2 activeStatuscontent">
+                                {field[1].service_type && <li className="col-lg-2 activeStatuscontent">
                                   <Dropdown drop="down" aligncenter="true" className="dropdown h-100 w_130">
                                     <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
                                       <span className="d-flex pointer h-100 align-items-center justify-content-center font_weight_medium">{item.service_type}</span>
@@ -186,36 +187,36 @@ export function TableRow(props) {
                                     </Dropdown.Menu>
                                   </Dropdown>
                                 </li>}
-                                {field.services && <li className="col-lg-1 my-auto">
+                                {field[2].services && <li className="col-lg-1 my-auto">
                                   <ServicesDropDown
                                     item={item}
                                     handleChangeDropDown={handleChangeDropDown}
                                   />
                                 </li>}
-                                {field.providers && <li className="col-lg-2 my-auto">
+                                {field[2].providers && <li className="col-lg-2 my-auto">
                                   <ProviderDropDown
                                     item={item}
                                   />
                                 </li>}
-                                {field.status && <li className="col-lg-1 p-0">
+                                {field[3].status && <li className="col-lg-1 p-0">
                                   <StatusDropDown
                                     item={item}
                                     handleChangeDropDown={handleChangeDropDown}
                                   />
                                 </li>}
-                                {field.sex && <li className="col-lg-1 p-0">
+                                {field[4].sex && <li className="col-lg-1 p-0">
                                   <SxDropDown
                                     item={item}
                                     handleChangeDropDown={handleChangeDropDown}
                                   />
                                 </li>}
-                                {field.availablity && <li className="col-lg-1 my-auto">
+                                {field[5].availablity && <li className="col-lg-1 my-auto">
                                   <AvailableDropDown
                                     item={item}
                                     handleChangeDropDown={handleChangeDropDown}
                                   />
                                 </li>}
-                                {field.email && <li className="col-lg-2 activeStatuscontent my-auto d-flex justify-content-center">
+                                {field[6].email && <li className="col-lg-2 activeStatuscontent my-auto d-flex justify-content-center">
                                   {selectedIndexMail === i ? (
                                     <input
                                     ref={updatedValue}
@@ -241,7 +242,7 @@ export function TableRow(props) {
                                     selectedIndex={selectedIndexMail}
                                   ></ServiceEdit>
                                 </li>}
-                                {field.phone && <li className="col-lg-2 my-auto d-flex justify-content-center">
+                                {field[7].phone && <li className="col-lg-2 my-auto d-flex justify-content-center">
                                   <span>
                                     {selectedIndexMobile === i ? (
                                       <input
@@ -269,7 +270,7 @@ export function TableRow(props) {
                                   ></ServiceEdit>
                                   <MoreOption {...props} item={item} index={i} />
                                 </li>}
-                                {field.price && <li className="col-lg-3 my-auto d-flex justify-content-center">
+                                {field[3].price && <li className="col-lg-3 my-auto d-flex justify-content-center">
 
 
                                   <div className="d-flex border-left pl-8">

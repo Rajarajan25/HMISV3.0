@@ -35,16 +35,17 @@ const Column = [
   { name: "Email", hide: false,col_size:"2" },
   { name: "Phone", hide: false ,col_size:"2"},
 ]
-const field={
-  name:"Name",
-  experience:"Experience",
-  services:"Services",
-  status:"status",
-  sex:"sex",
-  availablity:"availablity",
-  email:"email",
-  phone:"phone"
-}
+const field=[
+  {name:"Name",col_size:"3"},
+  {experience:"Experience",col_size:"1"},
+  {services:"Services",col_size:"1"},
+  {status:"status",col_size:"1"},
+  {sex:"sex",col_size:"1"},
+  {availablity:"availablity",col_size:"1"},
+  {email:"email",col_size:"2"},
+  {phone:"phone",col_size:"2"},
+  {duration:undefined}
+]
 export function ListActivity01(props) {
   const classes = useStyles();
   const { dataList, toggleDrawer,handleDelete, handleDuplicate, loading } = props;

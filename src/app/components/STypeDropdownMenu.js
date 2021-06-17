@@ -9,7 +9,7 @@ export function STypeDropdown(props) {
   const { handleChangeDropDown, item } = props;
   return (<Dropdown drop="down" aligncenter="true" className="dropdown h-100 w_130">
   <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-    <span className="d-flex pointer h-100 align-items-center justify-content-center font_weight_medium">{item.service_type}</span>
+    <span className="d-flex pointer h-100 align-items-center justify-content-center font_weight_medium">{item.service_type||"Select Type"}</span>
   </Dropdown.Toggle>
   <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav st_hover">
     <STypeDropdownMenu item={item} handleChangeDropDown={handleChangeDropDown}/>
