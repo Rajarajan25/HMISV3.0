@@ -44,7 +44,7 @@ export function AvailableDropDown(props) {
   };
 
   const selectOpt = [];
-  if (item.staff_timings && item.staff_timings.length != 0) {
+  if (item.staff_timings && item.staff_timings.length !== 0) {
     const { availability_id } = item.staff_timings[0].timing_id;
     //console.log(availability_id);
     if (availability_id) {
@@ -61,7 +61,7 @@ export function AvailableDropDown(props) {
         }
       }
 
-      const video = availability_id.video && availability_id.video.length != 0;
+      const video = availability_id.video && availability_id.video.length !== 0;
       if (video) {
         selectOpt.push(<VideoUI deleteUI={handleDelete} />);
       }
@@ -118,7 +118,7 @@ export function AvailableDropdownMenu(props) {
   ];
   const handleDropDown = (type) => {
     let ava = { ...AvailabilityModel };
-    let timings = JSON.parse(JSON.stringify(item.staff_timings)) || [];
+    let timings = item.staff_timings || [];
     if (timings.length === 0 || !timings[0].timing_id) timings = [TimingsModel];
     if (timings[0].timing_id.availability_id) {
       ava = { ...timings[0].timing_id.availability_id };
@@ -126,12 +126,21 @@ export function AvailableDropdownMenu(props) {
 
     switch (type) {
       case Type.INPERSON:
+        if(ava.inperson.buinsess_address||ava.inperson.client_address){
+          return;
+        }
         ava.inperson = { ...InpersionModel, buinsess_address: true };
         break;
       case Type.PHONE:
+        if(ava.inperson.buinsess_address||ava.inperson.client_address){
+          return;
+        }
         ava.oncall = { ...OncallModel, client: true };
         break;
       case Type.VIDEO:
+        if(ava.oncall.client||ava.oncall.staff){
+          return;
+        }
         ava.video = [{ ...VideoData, video_type: "Zoom" }];
         break;
       case Type.CHAT:
@@ -141,30 +150,7 @@ export function AvailableDropdownMenu(props) {
         break;
     }
     timings[0].timing_id.availability_id = { ...ava };
-    let currentVal = {
-      video: timings[0].timing_id.availability_id.video,
-      oncall: timings[0].timing_id.availability_id.oncall,
-      inperson: timings[0].timing_id.availability_id.inperson,
-    };
-    let perviousVal = {
-      video: item.staff_timings[0].timing_id.availability_id.video,
-      oncall: item.staff_timings[0].timing_id.availability_id.oncall,
-      inperson: item.staff_timings[0].timing_id.availability_id.inperson,
-    };
-    if (currentVal.video.length !== perviousVal.video.length) {
-      handleChangeDropDown(timings, item.id, "staff_timings");
-    } else if (
-      currentVal.oncall.client !== perviousVal.oncall.client ||
-      currentVal.oncall.staff !== perviousVal.oncall.staff
-    ) {
-      handleChangeDropDown(timings, item.id, "staff_timings");
-    } else if (
-      currentVal.inperson.buinsess_address !==
-        perviousVal.inperson.buinsess_address ||
-      currentVal.inperson.client_address !== perviousVal.inperson.client_address
-    ) {
-      handleChangeDropDown(timings, item.id, "staff_timings");
-    }
+    handleChangeDropDown(timings, item.id, "staff_timings");
   };
   return (
     <>
@@ -173,7 +159,7 @@ export function AvailableDropdownMenu(props) {
         {avaiableArray.map((avItem, index) => {
           return (
             <li className="navi-item" key={index}>
-              <a href="#" className="navi-link">
+              <div className="navi-link">
                 <span className={`avails ${avItem.color_bg}`}>
                   <img
                     src={toAbsoluteUrl(avItem.icon)}
@@ -187,7 +173,7 @@ export function AvailableDropdownMenu(props) {
                 >
                   {avItem.type}
                 </span>
-              </a>
+              </div>
             </li>
           );
         })}
