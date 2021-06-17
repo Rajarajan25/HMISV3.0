@@ -35,17 +35,17 @@ const Column = [
   { name: "Email", hide: false,col_size:"2" },
   { name: "Phone", hide: false ,col_size:"2"},
 ]
-const field=[
-  {name:"Name",col_size:"3"},
-  {experience:"Experience",col_size:"1"},
-  {services:"Services",col_size:"1"},
-  {status:"status",col_size:"1"},
-  {sex:"sex",col_size:"1"},
-  {availablity:"availablity",col_size:"1"},
-  {email:"email",col_size:"2"},
-  {phone:"phone",col_size:"2"},
-  {duration:undefined}
-]
+
+const field={
+  name:{lable:"Name",col_size:"3"},
+  experience:{lable:"Experience",col_size:"1"},
+  services:{lable:"Services",col_size:"1"},
+  status:{lable:"status",col_size:"1"},
+  sex:{lable:"sex",col_size:"1"},
+  availablity:{lable:"availablity",col_size:"1"},
+  email:{lable:"email",col_size:"2"},
+  phone:{lable:"phone",col_size:"2"},
+}
 export function ListActivity01(props) {
   const classes = useStyles();
   const { dataList, toggleDrawer,handleDelete, handleDuplicate, loading } = props;

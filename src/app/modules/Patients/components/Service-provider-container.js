@@ -208,17 +208,14 @@ updateService({
     { name: "PRICE", hide: false, col_size: "3" },
 
   ]
-  const field = [
-    {name: "Name",col_size: "5"},
-    {service_type: "Experience",col_size: "2"},
-    {providers: "Services",col_size: "2"},
-    {price: "status",col_size: "3"},
-    {sex:undefined,col_size:"1"},
-  {availablity:undefined,col_size:"1"},
-  {email:undefined,col_size:"2"},
-  {phone:undefined,col_size:"2"},
-  {duration:"duration"}
-]
+  const field = {
+    name: {label: "Name",col_size: "5"},
+    service_type:{label: "SERVICE TYPE",col_size: "2"},
+    providers: {label: "PROVIDERSE",col_size: "2"},
+    price: {label: "PRICE",col_size: "3"},
+    duration:{duration:"duration"}
+  }
+
   const handleDataSource = (values) => {
     dispatch(actions.serviceFetched(values));
 
