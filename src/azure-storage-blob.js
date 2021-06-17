@@ -5,9 +5,9 @@
 import { BlobServiceClient} from '@azure/storage-blob';
 
 // THIS IS SAMPLE CODE ONLY - DON'T STORE TOKEN IN PRODUCTION CODE
-const sasToken = process.env.storagesastoken || "?sv=2020-02-10&ss=bfqt&srt=sco&sp=rwdlacuptfx&se=2025-06-16T18:14:36Z&st=2021-06-16T10:14:36Z&spr=https&sig=tuI41uAzbiUe3zZJLw5ATdnerKyYWpAdi4tNCsqh1hg%3D"; // Fill string with your SAS token
+const sasToken = process.env.AZURE_STORAGE_NAME || "?sv=2020-02-10&ss=bfqt&srt=sco&sp=rwdlacuptfx&se=2025-06-16T18:14:36Z&st=2021-06-16T10:14:36Z&spr=https&sig=tuI41uAzbiUe3zZJLw5ATdnerKyYWpAdi4tNCsqh1hg%3D"; // Fill string with your SAS token
 const containerName = `hmis`;
-const storageAccountName = process.env.storageresourcename || "hmis"; // Fill string with your Storage resource name
+const storageAccountName = process.env.STORAGE_SAS_TOKEN || "hmis"; // Fill string with your Storage resource name
 // </snippet_package>
 
 // <snippet_isStorageConfigured>
@@ -16,11 +16,12 @@ export const isStorageConfigured = () => {
   return (!storageAccountName || !sasToken) ? false : true;
 }
 
-export const azureURLConfig = () => {
-  return {
-    imgBaseUrl:`https://${storageAccountName}.blob.core.windows.net/${containerName}/`
-  };
+export const azureBaseURL = () => {
+  return `https://${storageAccountName}.blob.core.windows.net/${containerName}/`;
+  
 }
+
+export const toImageUrl = pathname => `https://${storageAccountName}.blob.core.windows.net/${containerName}/` + pathname;
 // </snippet_isStorageConfigured>
 
 // <snippet_getBlobsInContainer>

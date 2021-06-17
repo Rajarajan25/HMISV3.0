@@ -135,3 +135,28 @@
 .cursor-move {
   cursor: move !important;
 }
+
+.image-circle-loading {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.image-circle-loading :after {
+  content: " ";
+  display: block;
+  width: 100px;
+  height: 100px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #03d6fc;
+  border-color: #03d6fc transparent #03d6fc transparent;
+  animation: image-circle-loading 1.2s linear infinite;
+}
+@keyframes image-circle-loading  {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
