@@ -78,7 +78,7 @@ export function TableRow(props) {
     DevConsoleLog("New onBlur-->",name);
     DevConsoleLog("New onBlur-->",newValue);
     DevConsoleLog("New onBlur-->",oldValue);
-    if(newValue!==oldValue){
+    if(newValue!==oldValue&&newValue.length!==0){
       handleSave(newValue,id,name,0);
     }
     handleCancel(name);

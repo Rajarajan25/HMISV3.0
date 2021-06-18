@@ -38,6 +38,7 @@ const useStyles = makeStyles(theme => ({
 export function StaffDetailsTab(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+  const [lengthCount, setLengthCount] = React.useState(3);
   const [toastOpen, setToast] = React.useState(false);
   const { data, index, handleUpdate } = props;
   const [isProviderEnable, setIsProviderEnable] = React.useState(data.is_service_provider);
@@ -93,6 +94,12 @@ export function StaffDetailsTab(props) {
   }
   const handleProvider = (values, checked) => {
     setIsProviderEnable(checked);
+    if(checked) {
+      setLengthCount(3);
+    } else {
+      setLengthCount(1);
+    }
+
   }
   return (
 
@@ -122,9 +129,9 @@ export function StaffDetailsTab(props) {
         </div>
         <div className="p-0">
           {value === 0 && <TabContainer> <Details {...props} current={data} handleSave={editStaff} fields={detail_field} handleProvider={handleProvider} /> </TabContainer>}
-          {value === 1 && <TabContainer> <Duration {...props} current={durationData} handleSave={editStaff} fields={timing_field} /> </TabContainer>}
-          {value === 2 && <TabContainer> <StaffService {...props} current={data} handleSave={editStaff} fields={service_field} /> </TabContainer>}
-          {value === 3 && <TabContainer> <StaffSetting /> </TabContainer>}
+          {(value === 1 && isProviderEnable) && <TabContainer> <Duration {...props} current={durationData} handleSave={editStaff} fields={timing_field} /> </TabContainer>}
+          {(value === 2 && isProviderEnable) && <TabContainer> <StaffService {...props} current={data} handleSave={editStaff} fields={service_field} /> </TabContainer>}
+          {value === lengthCount && <TabContainer> <StaffSetting /> </TabContainer>}
         </div>
       </div>
       <Toast message={"Please fill and save,after move to the tab"} open={toastOpen} handleClose={handleClose} />
