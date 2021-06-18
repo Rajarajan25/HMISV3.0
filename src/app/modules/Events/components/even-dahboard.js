@@ -182,13 +182,13 @@ export function EventDashboard() {
       <div className="row">
         <div className="col-md-6 col-lg-6 col-xl-4">
           <input type="checkbox" id="event_box_01" />
-          <label className="event_box card-box-01" for="event_box_01">
+          <label className="event_box" for="event_box_01">
             {/* <Link to="#" onClick={toggleDrawer('bottom', true)}>Anand</Link> */}
             <Card className="event-card">
               <Card.Body>
                 <div className="event-provider">
                   <div className="card-swich-button">
-                    <span> viral meningitis</span>
+                    <span    style={{ backgroundColor: `#c5f0c0`,border:`1px solid #1b850f`,color:`#166e0c`}} > viral meningitis</span>
                     <Swithces />
                     <Dropdown
                       drop="down"
@@ -262,15 +262,14 @@ export function EventDashboard() {
         </div>
 
         <div className="col-md-6 col-lg-6 col-xl-4">
-          <input type="checkbox" id="event_box_03" className="event_box_003"/>
-          <label className="card-box-02" for="event_box_03" ></label>
-          <div className="event_box card-box-02-sub event_box_003">
+          <input type="checkbox" id="event_box_03" />
+          <label className="event_box" for="event_box_03">
             {/* <Link to="#" onClick={toggleDrawer('bottom', true)}>Anand</Link> */}
             <Card className="event-card">
               <Card.Body>
                 <div className="event-provider">
                   <div className="card-swich-button">
-                    <span> viral meningitis</span>
+                    <span style={{ backgroundColor: `#fdebeb`,border:`1px solid #e02525`,color:`#ce1e1e`}} > viral meningitis</span>
                     <Swithces />
                     <Dropdown
                       drop="down"
@@ -292,7 +291,7 @@ export function EventDashboard() {
 
                   <div className="card-profile-content">
                     <div className="card-lable">
-                      <span
+                    <span
                         className="listprofileIcon-event"
                         style={{ backgroundColor: `#1D58FF` }}
                       >
@@ -339,8 +338,9 @@ export function EventDashboard() {
                 </div>
               </Card.Body>
             </Card>
-          </div>
+          </label>
         </div>
+        
 
         <div className="col-md-6 col-lg-6 col-xl-4">
           <input type="checkbox" id="event_box_04" />
@@ -350,7 +350,7 @@ export function EventDashboard() {
               <Card.Body>
                 <div className="event-provider">
                   <div className="card-swich-button">
-                    <span> viral meningitis</span>
+                    <span style={{ backgroundColor: `#fff`,border:`1px solid #f9d66f`,color:`#f8cf57`}}> viral meningitis</span>
                     <Swithces />
                     <Dropdown
                       drop="down"
@@ -376,7 +376,7 @@ export function EventDashboard() {
                         className="listprofileIcon-event"
                         style={{ backgroundColor: `#0D716A` }}
                       >
-                        s
+                        S
                       </span>
                     </div>
                     <div className="card-summary">
@@ -430,7 +430,7 @@ export function EventDashboard() {
               <Card.Body>
                 <div className="event-provider">
                   <div className="card-swich-button">
-                    <span> viral meningitis</span>
+                    <span > viral meningitis</span>
                     <Swithces />
                     <Dropdown
                       drop="down"
@@ -514,7 +514,7 @@ export function EventDashboard() {
               <Card.Body>
                 <div className="event-provider">
                   <div className="card-swich-button">
-                    <span> viral meningitis</span>
+                    <span style={{ backgroundColor: `#fdebeb`,border:`1px solid #e02525`,color:`#ce1e1e`}}> viral meningitis</span>
                     <Swithces />
                     <Dropdown
                       drop="down"
@@ -681,7 +681,7 @@ export function EventDashboard() {
               <Card.Body>
                 <div className="event-provider">
                   <div className="card-swich-button">
-                    <span> viral meningitis</span>
+                    <span  style={{ backgroundColor: `#c5f0c0`,border:`1px solid #1b850f`,color:`#166e0c`}}> viral meningitis</span>
                     <Swithces />
                     <Dropdown
                       drop="down"
@@ -843,7 +843,7 @@ export function EventDashboard() {
               <Card.Body>
                 <div className="event-provider">
                   <div className="card-swich-button">
-                    <span> viral meningitis</span>
+                    <span style={{ backgroundColor: `#fff`,border:`1px solid #f9d66f`,color:`#f8cf57`}}> viral meningitis</span>
                     <Swithces />
                     <Dropdown
                       drop="down"
