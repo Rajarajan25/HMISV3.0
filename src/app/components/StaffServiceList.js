@@ -9,15 +9,37 @@ const PageName = {
     STAFF: "staff",
     SERVICE: "service"
 };
+const GET_SERVICE = gql`
+  query{
+    getService{
+      id
+      name
+      color_code
+      service_type
+    } 
+    }
+  `;
+
+const GET_STAFF = gql`
+  query{
+   
+    getStaffs{
+        id
+        name
+        color_code
+    }
+    }
+  `;
 export function StaffServiceList(props) {
     const { pagename, selectedItem, setFieldValue } = props;
-    const { data, loading } = useQuery(gql`${queries.staff}`);
+    const queryData = pagename === PageName.STAFF ? GET_SERVICE : GET_STAFF;
+    const { data, loading } = useQuery(queryData);
     const [listData, setListData] = useState([]);
     useEffect(() => {
         if (loading === false && data) {
-        if (listData.length === 0) {
-            setListData(data.getStaffs);
-        }
+            if (listData.length === 0) {
+                setListData(pagename === PageName.STAFF ? data.getService : data.getStaffs);
+            }
     }
     }, [data]);
     const handleSearch = (data) => {
@@ -49,7 +71,11 @@ export function StaffServiceList(props) {
                     <SpinnerLarge loading={loading} />
                     {listData.map((item, i) => {
                         return (
+                            <>
+                            {pagename==="service"?
                             <StaffItems item={item} index={i} key={i} onClick={() => handleItemSelect(item)} />
+                            :<ServiceItems item={item} index={i} key={i} onClick={() => handleItemSelect(item)} />}
+                            </>
                         )
                     })}
                 </div>
@@ -95,20 +121,22 @@ function StaffItems(props) {
 
 }
 function ServiceItems(props) {
+    const { item, index } = props;
+
     return (
         <div className="col-3 px-1">
             <input type="checkbox" id="pet_box_02" />
             <label className="pat_box" for="pet_box_02">
                 <div className="d-flex serve_act">
-                    <span className="publicbg">Public</span>
+                    <span className="publicbg">{item.service_type}</span>
                     <span className="ml-auto"><span>$</span> 100</span>
                 </div>
                 <div className="d-block text-center">
-                    <div className="service_img d-flex" style={{ backgroundColor: `#FEEFF6` }}>
+                    <div className="service_img d-flex" style={{ backgroundColor: item.color_code }}>
                         <img src={toAbsoluteUrl("/media/patients/service_icon_02.svg")} alt="" className="m-auto align-items-center" />
                     </div>
                     <div className="service_title">
-                        <p>Pet Services</p>
+                        <p>{item.name}</p>
                         <p><span>Duration:</span><span>30 Mins</span></p>
                     </div>
                 </div>

@@ -11,10 +11,13 @@ import { ServiceModel } from './models/ServiceModel';
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import {ServiceSlice} from "./ServiceSlice";
 import { GET_SERVICE } from "../graphql/queries";
-import { ADD_SERVICE,UPDATE_SERVICE } from "../graphql/mutation";
+import { ADD_SERVICE,UPDATE_SERVICE,DELETE_SERVICE } from "../graphql/mutation";
 import { useQuery,useMutation } from "@apollo/client";
+import { DeleteDialog } from "../../../components/DeleteDialog";
+
 const {actions} = ServiceSlice;
-export default function ServiceProviderContainer() {
+
+export default function ServiceProviderContainer(props) {
   let newService = ServiceModel;
   const {data,loading}=useQuery(GET_SERVICE);
   const dispatch = useDispatch();
@@ -26,6 +29,7 @@ export default function ServiceProviderContainer() {
   const { listService, currentService } = currentState;
   const [addService]=useMutation(ADD_SERVICE);
   const [updateService]=useMutation(UPDATE_SERVICE);
+  const [deleteService]=useMutation(DELETE_SERVICE);
   const [state, setState] = React.useState({
     isDrawerOpen: false,
     currentService: false,
@@ -33,13 +37,16 @@ export default function ServiceProviderContainer() {
     isUpdate: true,
     isloading: false,
     searchValue: "",
-    newService: ""
+    newService: "",
+    showDialog: false,
+    dialogContent: false,
+    deletedItem: false,
   });
   useEffect(() => {
-    if (loading === false && data) {
+    if (loading === false && data ) {
       dispatch(actions.serviceFetched(data.getService));
 }
-}, [data]);
+}, [loading]);
   const handleDuplicate = (duplicatedItem) => {
     let duplicate=JSON.parse(JSON.stringify(duplicatedItem));
     let tempPickItem = JSON.parse(JSON.stringify(listService));
@@ -75,11 +82,23 @@ export default function ServiceProviderContainer() {
       (elm) => elm.name === value
     );
   }
-  const handleDelete = (deletedItem) => {
-    if (window.confirm("Are you sure?")) {
+  const handleDelete = () => {
       let tempPickItem = JSON.parse(JSON.stringify(listService));
-      dispatch(actions.deleteService({id:deletedItem.id}));
-    }
+      setState({isloading:true});
+      deletePopUp();
+      deleteService({
+        variables: {
+          serviceID:state.deletedItem.id
+        }
+      })
+        .then(res => {
+  
+          console.log(res.data.deleteService);
+            dispatch(actions.deleteService({id:res.data.deleteService.id}));
+            dialogHide();
+
+        })
+    
   };
   const handleChangeDropDown = (selectedVal, id, type,indexs) => {
     let index = 0;
@@ -158,7 +177,13 @@ updateService({
       return;
     }
     index = index === undefined ? -1 : index;
-    setState({ isDrawerOpen: open, currentService: selectedItem || newService, currentIndex: index });
+    setState({ isDrawerOpen: open, currentService: selectedItem || newService, currentIndex: index, isUpdate: true,
+      isDragDisabled: false,
+      isloading: false,
+      searchValue: "",
+      showDialog: false,
+      dialogContent: false,
+      deletedItem: false,});
     dispatch(actions.currentService(selectedItem || newService));
 
   };
@@ -168,7 +193,7 @@ updateService({
     // delete sfm.id;
 
     let newstaff = {};
-    let add_Service = addService({
+    addService({
       variables: {
         service: sfm
       }
@@ -178,7 +203,6 @@ updateService({
         console.log(res.data.addService);
         dispatch(actions.addService(res.data.addService));
       })
-    
     //  this.setState({ isloading: true });
     // this.props.addStaff({
     //     variables: {
@@ -195,7 +219,14 @@ updateService({
     //     DevAlertPopUp(error.message);
     // });
   }
-
+  const dialogHide = () => {
+    setState({
+        deletedItem: false,
+        showDialog: false,
+        isloading: false,
+        dialogContent: false
+    });
+}
 
   const [expanded, setExpanded] = React.useState(true);
   const handleChange = () => {
@@ -208,21 +239,33 @@ updateService({
     { name: "PRICE", hide: false, col_size: "3" },
 
   ]
-  const field = [
-    {name: "Name",col_size: "5"},
-    {service_type: "Experience",col_size: "2"},
-    {providers: "Services",col_size: "2"},
-    {price: "status",col_size: "3"},
-    {sex:undefined,col_size:"1"},
-  {availablity:undefined,col_size:"1"},
-  {email:undefined,col_size:"2"},
-  {phone:undefined,col_size:"2"},
-  {duration:"duration"}
-]
+  const field = {
+    name: {label: "Name",col_size: "5"},
+    service_type:{label: "SERVICE TYPE",col_size: "2"},
+    providers: {label: "PROVIDERSE",col_size: "2"},
+    price: {label: "PRICE",col_size: "3"},
+    duration:{duration:"duration"}
+  }
+
   const handleDataSource = (values) => {
     dispatch(actions.serviceFetched(values));
 
   }
+  const deletePopUp = (item) => {
+    setState({
+        deletedItem: item,
+        showDialog: true,
+        isloading:true,
+        dialogContent: {
+            title: "Service Delete",
+            message: "Are you sure to permanently delete this service?",
+            loadingMsg: "Service Deleting...",
+            cancelLable: "Cancel",
+            okLable: "Delete"
+        }
+    });
+
+};
  
   return (
     <div className="clearfix">
@@ -234,14 +277,20 @@ updateService({
           currentIndex={state.currentIndex}
         />
       </RightSideDrawer>
+      <DeleteDialog 
+                    show={state.showDialog}
+                    onHide={dialogHide}
+                    deleteAction={handleDelete}
+                    content={state.dialogContent}
+                    isloading={state.isloading} />
 
       <Accordion square expanded={expanded} className="w-100 contentArea  elevation-none m-0" style={{ background: "#00000000" }}>
         <TableHeader column={Column} listCount={listService.length} expand={expanded} countLable="Service" toggleList={handleChange} />
         <AccordionDetails className="w-100 p-0">
 
           <TableRow row={listService} drawer={toggleDrawer} addButton={true} addText="New Service" field={field}
-            handleDataSource={handleDataSource} handleDuplicate={handleDuplicate} handleDelete={handleDelete} handleSave={handleChangeDropDown}
-            addNew={addNewService} handleChangeDropDown={handleChangeDropDown}
+            handleDataSource={handleDataSource} handleDuplicate={handleDuplicate} handleDelete={deletePopUp} handleSave={handleChangeDropDown}
+            addNew={addNewService} handleChangeDropDown={handleChangeDropDown} service={props.staff} pagename="service"
           />
         </AccordionDetails>
       </Accordion>

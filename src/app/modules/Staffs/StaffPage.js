@@ -280,7 +280,6 @@ class StaffPage extends React.Component {
 
     handleDelete = () => {
         let tempPickItem = JSON.parse(JSON.stringify(this.state.staffList));
-        this.setState({isloading:true});
         this.props
             .deleteStaff({
                 variables: {

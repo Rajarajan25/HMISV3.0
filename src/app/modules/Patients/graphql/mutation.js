@@ -26,3 +26,16 @@ export const UPDATE_SERVICE = gql`
     }
   }
 `;
+
+export const DELETE_SERVICE = gql`
+  mutation deleteService($serviceID: ID!) {
+    deleteService(serviceID:$serviceID) {
+      id
+      name
+      description
+      color_code
+      prefered_gender
+      service_type
+    }
+  }
+`;

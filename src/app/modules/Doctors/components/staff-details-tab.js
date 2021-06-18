@@ -12,6 +12,7 @@ import { StaffSetting } from "./staff-setting";
 import { Details } from '../../../components/Details'
 import { Duration } from '../../../components/Duration'
 import Toast from '../../../components/Toast';
+import { AzureImageview } from '../../../components/AzureImageview';
 
 function TabContainer(props) {
   return (
@@ -52,7 +53,7 @@ export function StaffDetailsTab(props) {
     daterange: "Employment",
     experience: "month year",
     avatar: "avatar",
-    gender: "Gender",
+    gender: {label:"Gender",name:"gender"},
     status: "status",
     provider: "Provider",
     syncwith: "Sync With",
@@ -63,8 +64,8 @@ export function StaffDetailsTab(props) {
   };
 
   const service_field = {
-    service:"Service",
-    staff:"Staff",
+    service: "Service",
+    staff: "Staff",
     staffCommission: "Staff Commission",
     // serviceCommision: "Set Service Commission",
     // productCommision: "Set Product Commission",
@@ -72,21 +73,21 @@ export function StaffDetailsTab(props) {
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
-        return;
+      return;
     }
     setToast(false);
-};
+  };
   function handleChange(event, newValue) {
-    if(data.name)
-    setValue(newValue);
+    if (data.name)
+      setValue(newValue);
     else setToast(true);
   }
   function editStaff(values) {
     console.log("values-->", values);
     if (value === 1) {
       data.staff_timings[0] = values.timings;
-      let timing=data.staff_timings[0];
-      timing={...timing,...values.timings};
+      let timing = data.staff_timings[0];
+      timing = { ...timing, ...values.timings };
       handleUpdate({ staff_timings: [timing] }, index);
     }
   }
@@ -94,7 +95,7 @@ export function StaffDetailsTab(props) {
     setIsProviderEnable(checked);
   }
   return (
-    
+
     <Col sm={12} className="bg-white d-flex flex-column p-0">
       <div className={classes.root}>
         <div className="d-flex BoxShade">
@@ -112,11 +113,8 @@ export function StaffDetailsTab(props) {
                 scrollButtons="auto"
               >
                 <Tab label={<TabDetails />} />
-                {isProviderEnable ? <Tab label={<TabTiming />} />
-                  : null}
-
-                {isProviderEnable ? <Tab label={<TabService />} />
-                  : null}
+                {isProviderEnable && <Tab label={<TabTiming />} />}
+                {isProviderEnable && <Tab label={<TabService />} />}
                 <Tab label={<TabSettings />} />
               </Tabs>
             </AppBar>
@@ -125,11 +123,11 @@ export function StaffDetailsTab(props) {
         <div className="p-0">
           {value === 0 && <TabContainer> <Details {...props} current={data} handleSave={editStaff} fields={detail_field} handleProvider={handleProvider} /> </TabContainer>}
           {value === 1 && <TabContainer> <Duration {...props} current={durationData} handleSave={editStaff} fields={timing_field} /> </TabContainer>}
-          {value === 2 && <TabContainer> <StaffService {...props} current={data}  handleSave={editStaff} fields={service_field}/> </TabContainer>}
+          {value === 2 && <TabContainer> <StaffService {...props} current={data} handleSave={editStaff} fields={service_field} /> </TabContainer>}
           {value === 3 && <TabContainer> <StaffSetting /> </TabContainer>}
         </div>
       </div>
-      <Toast message={"Please fill and save,after move to the tab"} open={toastOpen} handleClose={handleClose}/>
+      <Toast message={"Please fill and save,after move to the tab"} open={toastOpen} handleClose={handleClose} />
     </Col>
   );
 }
@@ -140,8 +138,7 @@ export function StaffName(props) {
   const { data } = props;
   return (
     <div className="d-flex">
-      <span className="listprofileIcon my-auto" style={{ backgroundColor: `#2ecd6f` }}>
-        <img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+      <AzureImageview {...props}/>
       <div className="select_staff_name my-auto">
         <p className="m-0">{data.name || "name"}</p>
         <span>{data.description || "Description"}</span>

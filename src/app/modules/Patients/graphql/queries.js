@@ -9,6 +9,18 @@ export const GET_SERVICE = gql`
       prefered_gender
       color_code
       service_type
-      }    
+      service_relationships{
+        service_duration{
+          duration_id{
+            time_zone
+            status
+            duration_hours
+            duration_minutes
+            buffer_before_min
+            buffer_after_min
+            
+          }
+        }
+      }      }    
     }
   `;

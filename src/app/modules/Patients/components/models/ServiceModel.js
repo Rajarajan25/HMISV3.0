@@ -1,3 +1,4 @@
+import { duration } from '@material-ui/core';
 import {TimingsModel} from '../../../../models/TimingsModel';
 export const ServiceModel={
     allow_multiple_appointment: false,
@@ -25,9 +26,27 @@ export const ServiceModel={
     room_required: false,
     service_excluded: [],
     service_included: [],
-    service_relationships: {service_duration: [], service_pricing: [], service_staff: [], service_locations: []},
+    service_relationships: {service_duration: [{
+      duration_id:{
+        time_zone: "",
+    duration_hours: 0,
+    duration_minutes: 0,
+    buffer_before_min: 0,
+    buffer_after_min : 0,
+    latest_appointment : 0,
+    advanced_appointment: 0,
+    hide_duration_on_booking_page: false,
+    enable_appointment_at_fixed_time: false,
+    multiple_duration: false,
+    max_duration_in_seconds:  0,
+    min_duration_in_seconds: 0,
+    site_id: "",
+    workspace_id: "",
+    status: false
+      }
+    }], service_pricing: [], service_staff: [], service_locations: []},
     service_setting: [],
-    service_type: "",
+    service_type: "Private",
     
   }
     

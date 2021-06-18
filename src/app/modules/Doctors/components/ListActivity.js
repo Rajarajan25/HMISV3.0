@@ -8,7 +8,6 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
@@ -35,17 +34,17 @@ const Column = [
   { name: "Email", hide: false,col_size:"2" },
   { name: "Phone", hide: false ,col_size:"2"},
 ]
-const field=[
-  {name:"Name",col_size:"3"},
-  {experience:"Experience",col_size:"1"},
-  {services:"Services",col_size:"1"},
-  {status:"status",col_size:"1"},
-  {sex:"sex",col_size:"1"},
-  {availablity:"availablity",col_size:"1"},
-  {email:"email",col_size:"2"},
-  {phone:"phone",col_size:"2"},
-  {duration:undefined}
-]
+
+const field={
+  name:{lable:"Name",col_size:"3"},
+  experience:{lable:"Experience",col_size:"1"},
+  services:{lable:"providers",col_size:"1"},
+  status:{lable:"status",col_size:"1"},
+  sex:{lable:"sex",col_size:"1"},
+  availablity:{lable:"availablity",col_size:"1"},
+  email:{lable:"email",col_size:"2"},
+  phone:{lable:"phone",col_size:"2"},
+}
 export function ListActivity01(props) {
   const classes = useStyles();
   const { dataList, toggleDrawer,handleDelete, handleDuplicate, loading } = props;
@@ -62,7 +61,7 @@ export function ListActivity01(props) {
       <TableHeader column={Column} listCount={dataList.length} expand={expanded} countLable="staff" toggleList={handleChange} />
       <AccordionDetails className="w-100 p-0">
         <TableRow {...props} row={dataList} drawer={toggleDrawer} handleDuplicate={handleDuplicate} 
-        addButton={true} addText="New Staff" field={field}/>
+        addButton={true} addText="New Staff" field={field} pagename="staff"/>
       </AccordionDetails>
     </Accordion>
   );

@@ -132,13 +132,13 @@ export function Details(props) {
               </div>}
               {fields.avatar && <div className="form-group">
                 <div className="d-flex pb-2">
-                  <UploadAvatarFormik classes={classes} key="booking_url" url={values.booking_url} setFieldValue={setFieldValue}/>
+                  <UploadAvatarFormik classes={classes} name="booking_url" imageURL={values.booking_url} setFieldValue={setFieldValue}/>
                   <div className="col-9 pr-0">
                     <ColorPaletteFormik  name="color_code"/>
                   </div>
                 </div>
               </div>}
-              {fields.gender && <GenderFormik label={fields.gender} name="gender" />}
+              {fields.gender && <GenderFormik label={fields.gender.lable} name={fields.gender.name} />}
               {fields.status && <div className="form-group">
                 <div className="row">
                   <div className="col-6">
