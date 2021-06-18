@@ -12,7 +12,7 @@ import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import {ServiceSlice} from "./ServiceSlice";
 import { GET_SERVICE } from "../graphql/queries";
 import { ADD_SERVICE,UPDATE_SERVICE,DELETE_SERVICE } from "../graphql/mutation";
-import { gql,useQuery,useMutation } from "@apollo/client";
+import { useQuery,useMutation } from "@apollo/client";
 import { DeleteDialog } from "../../../components/DeleteDialog";
 
 const {actions} = ServiceSlice;

@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { DropdownItemToggler } from "../../_metronic/_partials/dropdowns";
 import { toAbsoluteUrl } from "../../_metronic/_helpers";
 import { useQuery, gql } from "@apollo/client";
-import { queries } from "../modules/Staffs/graphql";
 import Search from "./Search"
 const PageName = {
     STAFF: "staff",

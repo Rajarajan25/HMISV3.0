@@ -82,7 +82,7 @@ export function StaffService(props) {
       }) => (
         <form onSubmit={handleSubmit} className="form fv-plugins-framework">
           <div className="staff_first staff_third w-100 p-6">
-            <StaffServiceList selectedItem={values.staff} pagename="staff"/>
+            <StaffServiceList selectedItem={values.staff} pagename="service"/>
             <StaffCommission fields={fields} formikValues={values} setFieldValue={setFieldValue} />
             <div className="form-group mb-0">
               <div className="d-flex justify-content-end patientButton pos_fix">
