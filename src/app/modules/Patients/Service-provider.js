@@ -5,6 +5,9 @@ import ServiceProviderHeader from "./components/service-provider-header";
 import  ServiceProviderContainer  from "./components/Service-provider-container";
 import { useSubheader } from "../../../_metronic/layout";
 import {ServiceProviders} from './components/ServiceContext'
+
+
+
 export default function ServiceProvider() {
   const suhbeader = useSubheader();
   suhbeader.setTitle("Services");
@@ -16,7 +19,7 @@ export default function ServiceProvider() {
       </div>
       <div className="d-flex flex-column mt-1"> 
         <div className="contentSection collapse show w-100">
-          <ServiceProviderContainer />
+         <ServiceProviderContainer/> 
         </div>
       </div>
     </div>

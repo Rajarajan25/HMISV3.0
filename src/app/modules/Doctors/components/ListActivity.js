@@ -8,7 +8,6 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
@@ -39,7 +38,7 @@ const Column = [
 const field={
   name:{lable:"Name",col_size:"3"},
   experience:{lable:"Experience",col_size:"1"},
-  services:{lable:"Services",col_size:"1"},
+  services:{lable:"providers",col_size:"1"},
   status:{lable:"status",col_size:"1"},
   sex:{lable:"sex",col_size:"1"},
   availablity:{lable:"availablity",col_size:"1"},
@@ -62,7 +61,7 @@ export function ListActivity01(props) {
       <TableHeader column={Column} listCount={dataList.length} expand={expanded} countLable="staff" toggleList={handleChange} />
       <AccordionDetails className="w-100 p-0">
         <TableRow {...props} row={dataList} drawer={toggleDrawer} handleDuplicate={handleDuplicate} 
-        addButton={true} addText="New Staff" field={field}/>
+        addButton={true} addText="New Staff" field={field} pagename="staff"/>
       </AccordionDetails>
     </Accordion>
   );

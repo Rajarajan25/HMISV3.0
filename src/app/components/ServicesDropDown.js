@@ -1,46 +1,76 @@
 import { Dropdown } from "react-bootstrap";
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import { DropdownItemToggler } from "../../_metronic/_partials/dropdowns";
 import { toAbsoluteUrl } from "../../_metronic/_helpers";
 import { useQuery, gql } from "@apollo/client";
-import { GET_SERVICE } from "../modules/Patients/graphql/queries";
+import { queries } from "../modules/Staffs/graphql";
+import {GET_SERVICE, GET_SERVICES} from '../modules/Patients/graphql/queries';
 import Search from "./Search"
+const PageName = {
+    STAFF: "staff",
+    SERVICE: "service"
+};
+const GET_SERVICE_GET_STAFF = gql`
+  query{
+    getService{
+      id
+      name
+      color_code
+    } 
+    getStaffs{
+        id
+        name
+        color_code
+    }
+    }
+  `;
 export function ServicesDropDown(props) {
-    return (<Dropdown drop="down" aligncenter="true" className="dropdown h-100">
+    const {data,loading}=useQuery(GET_SERVICE_GET_STAFF)
+    const [listData, setListData] = useState([]);
+    React.useEffect(() => {
+        if (loading === false && data) {
+        if (listData.length === 0) {
+            setListData(data);
+        }
+    }
+    }, [data]);
+    return (
+        <Dropdown drop="down" aligncenter="true" className="dropdown h-100">
         <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle1" className="h-100">
             <div className="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column pointer">
                 <div className="d-flex mt-1 mb-1 justify-content-center">
-                    <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#E6511B` }}>{props.item.services || "Select service"}
+                    {props.pagename==="staff"?<span className="specialInfo text-white position-relative" style={{ backgroundColor: `#E6511B` }}>{props.item.services || "Select service"}
                         <span className="dropdown_label_remove" style={{ backgroundColor: `#E6511B` }}>
                             <span className="dropdown_label_remove_icon">x</span>
                         </span>
-                    </span>
+                    </span>:
+                    <>
+                                <span className="ProviderIcon" style={{ backgroundColor: `#2ecd6f` }}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+            <span className="ProviderIcon" style={{ backgroundColor: `#1D58FF` }}>GM</span>
+            <span className="ProviderIcon" style={{ backgroundColor: `#2ecd6f` }}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+            <span className="ProviderIcon" style={{ backgroundColor: `#2ecd6f` }}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+            <span className="ProviderIcon" style={{ backgroundColor: `#A2A2A2` }}>+5</span>
+            </>}
                 </div>
             </div>
         </Dropdown.Toggle>
         <Dropdown.Menu className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
-            <ServicesDropdownMenu handleChangeDropDown={props.handleChangeDropDown} item={props.item} />
+            <ServicesDropdownMenu handleChangeDropDown={props.handleChangeDropDown} item={props.item} service={data} pagename={props.pagename}/>
         </Dropdown.Menu>
-    </Dropdown>)
+    </Dropdown>
+    )
 }
 export function ServicesDropdownMenu(props) {
-    const { handleChangeDropDown, item } = props;
-    const serviceArray = [
-        { name: "Acupunture", color: "#E6511B" },
-        { name: "Dental", color: "#FD7FAB" },
-        { name: "Skin Care", color: "#EA80FC" },
-        { name: "Ambien", color: "#1DBC9C" }];
-
-    const { data, loading } = useQuery(GET_SERVICE);
-    const [listData, setListData] = React.useState(serviceArray);
+    const { handleChangeDropDown, item ,service} = props;
+    const [listData, setListData] = React.useState(service);
     let handleSerach = (arr) => {
         setListData(arr);
     }
     useEffect(() => {
-        if (loading === false && data) {
-            setListData(data.getService);
+        if (service) {
+            setListData(service);
         }
-    }, [data])
+    }, [service])
 
     return <>
         {/*begin::Navigation*/}
@@ -92,22 +122,32 @@ export function ServicesDropdownMenu(props) {
                 </div> */}
                 <Search handleSearch={handleSerach} data={listData} uiType="small" />
             </li>
-            {data &&
+            
                 <li className="navi-item">
                     <div className="dropdown-menu-search-main">
                         <div className="dropdown-menu-search-title">Relevant</div>
-                        <div className="service_select">
+                        {props.pagename==="service"&&<div className="service_select">
                             {
-                                data.getService.map((e) => {
+                                listData.getService.map((e) => {
                                     return <div class="d-flex justify-content-left py-1" key={e.type}>
                                         <span className="specialInfo text-white position-relative" style={{ backgroundColor: e.color_code + "1a" }}>
-                                            {/* <span className="ProviderIcon" style={{ backgroundColor: staff.color_code }}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span> */}
+                                        <span className="ProviderIcon" style={{ backgroundColor: e.color_code||`#2ecd6f` }}>{e.avatar ? <img src={toAbsoluteUrl(e.avatar)} alt="" className="mh-100 d-block rounded-circle" /> : e.name?e.name.substr(0,2).toUpperCase():""}</span>
                                             <span className="ProviderName" style={{ color: e.color_code }}>{e.name}</span>
                                         </span>                        </div>
                                 })}
-                        </div>
+                        </div>}
+                        {props.pagename==="staff"&&<div className="service_select">
+                            {
+                                listData.getStaffs.map((e) => {
+                                    return <div class="d-flex justify-content-left py-1" key={e.type}>
+                                        <span className="specialInfo text-white position-relative" style={{ backgroundColor: e.color_code + "1a" }}>
+                                            <span className="ProviderName" style={{ color: e.color_code }}>{e.name}</span>
+                                        </span>                        </div>
+                                })}
+                        </div>}
+                        
                     </div>
-                </li>}
+                </li>
         </ul>
         {/*end::Navigation*/}
 

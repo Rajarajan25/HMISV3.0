@@ -29,7 +29,7 @@ export function TableRow(props) {
     handleDataSource,
     isDragDisabled,
     searchValue,
-    field
+    field,
   } = props;
   const [addNewRow, setAddNewRow] = useState(false);
   const [selectedIndexName, setSelectedIndexName] = React.useState(-1);
@@ -191,11 +191,14 @@ export function TableRow(props) {
                                   <ServicesDropDown
                                     item={item}
                                     handleChangeDropDown={handleChangeDropDown}
+                                    pagename={props.pagename} service={props.service}
                                   />
                                 </li>}
                                 {field.providers && <li className="col-lg-2 my-auto">
-                                  <ProviderDropDown
+                                  <ServicesDropDown
                                     item={item}
+                                    pagename={props.pagename} service={props.service}
+
                                   />
                                 </li>}
                                 {field.status && <li className="col-lg-1 p-0">
