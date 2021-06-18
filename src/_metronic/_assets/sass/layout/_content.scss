@@ -5571,7 +5571,6 @@ p.setting_color {
       transform: translateY(-3px);
       cursor: pointer;
       border-radius: 6px;
-      z-index: 1;
     }
   }
   .avather-icon-edit {
@@ -5606,8 +5605,8 @@ p.setting_color {
         -webkit-transform: rotate(315deg);
       }
       box-shadow: 0px 5px 12px #7e8eb136, 0px 0px 0px 3px #047bf8;
-      -webkit-transform: translateY(-3px);
-      transform: translateY(-3px);
+      /*-webkit-transform: translateY(-3px);
+      transform: translateY(-3px);*/
       cursor: pointer;
       border-radius: 6px;
       z-index: 2;
@@ -5616,6 +5615,9 @@ p.setting_color {
       }
       .card.event-table-pro {
         box-shadow: none;
+      }
+      .event-card .card-body .card-profile-content .card-summary span:first-child {
+        color: #1d6aff;
       }
       .avather-icon-edit {
         visibility: visible;
@@ -5803,7 +5805,7 @@ p.setting_color {
         align-items: flex-start;
         .card-summary {
           padding-left: 10px;
-          margin-right: 80px;
+          margin-right: 30px;
           color: #adb5bd;
           font-size: 1.1rem;
           font-weight: 300;
@@ -5882,6 +5884,10 @@ p.setting_color {
     }
   }
 }
+@keyframes slideIn {
+  0% {transform: translate3d(0px, 76px, 0px); }
+  100% {transform: translate3d(0px, 0px, 0px); } 
+}
 .drawer-icons-bottom-content {
   display: flex;
   flex-wrap: nowrap;
@@ -5899,6 +5905,10 @@ p.setting_color {
   left: 0;
   z-index: 99;
   right: 0;
+  transform: translate3d(0px, 0px, 0px);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  animation: slideIn 0.2s ease-in-out;
   span.close-icon {
     color: #2c6eb5;
     font-weight: bold;
@@ -5984,11 +5994,11 @@ p.setting_color {
   }
 
   .drop_nav {
-    width: 70px !important;
-    margin: 0 auto !important;
-    margin-right: auto;
-    margin-right: 1px !important;
-    transform: translate(-100px, 27px);
+    right: -5px !important;
+    left: auto !important;
+    transform: none !important;
+    max-width: 100%;
+    top: 25px !important;
   }
 }
 
