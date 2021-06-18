@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import { Formik, Field } from 'formik';
 import { ColorPaletteFormik } from "./ColorPalette";
@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const getInputClasses = (props,fieldname) => {
+const getInputClasses = (props, fieldname) => {
   if (props.touched[fieldname] && props.errors[fieldname]) {
     return "is-invalid";
   }
@@ -43,7 +43,7 @@ const getInputClasses = (props,fieldname) => {
 
 export function Details(props) {
   const classes = useStyles();
-  const {current, fields, index, handleUpdate,addNew,isloading ,handleProvider} = props;
+  const { current, fields, index, handleUpdate, addNew, isloading, handleProvider } = props;
   return (
     <Formik
       initialValues={current}
@@ -56,34 +56,34 @@ export function Details(props) {
           delete values.created_at;
           handleUpdate(values, index);
           return;
-        }else{
+        } else {
           addNew(values);
         }
         //handleSave(values);
       }}
     >
       {({
-        handleSubmit, setFieldValue,getFieldProps,values, touched, errors,
+        handleSubmit, setFieldValue, getFieldProps, values, touched, errors,
       }) => (
         <form onSubmit={handleSubmit} className="form fv-plugins-framework">
           <div className="clearfix">
             <div className="staff_first w-100 p-5">
-              {fields.name && 
-              <div className="form-group fv-plugins-icon-container">
-                <label className="form-label d-block">Name *</label>
-                <div className="d-flex">
-                  <Field placeholder={fields.name} 
-                  {...getFieldProps("name")}
-                  type="text"  
-                  className={`form-control py-5 px-6 ${getInputClasses({touched,errors},"name")}`}
-                  name="name" value={values.name || ""} />
+              {fields.name &&
+                <div className="form-group fv-plugins-icon-container">
+                  <label className="form-label d-block">Name *</label>
+                  <div className="d-flex">
+                    <Field placeholder={fields.name}
+                      {...getFieldProps("name")}
+                      type="text"
+                      className={`form-control py-5 px-6 ${getInputClasses({ touched, errors }, "name")}`}
+                      name="name" value={values.name || ""} />
+                  </div>
+                  {touched.name && errors.name ? (
+                    <div className="fv-plugins-message-container invalid-feedback d-block">
+                      <div className="fv-help-block">{errors.name}</div>
+                    </div>
+                  ) : null}
                 </div>
-                {touched.name && errors.name ? (
-                      <div className="fv-plugins-message-container invalid-feedback d-block">
-                        <div className="fv-help-block">{errors.name}</div>
-                      </div>
-                    ) : null}
-              </div>
               }
               {fields.visiblity && <Visiblity name="Visiblity" />}
               {fields.description && <div className="form-group">
@@ -132,13 +132,22 @@ export function Details(props) {
               </div>}
               {fields.avatar && <div className="form-group">
                 <div className="d-flex pb-2">
-                  <UploadAvatarFormik classes={classes} name="booking_url" imageURL={values.booking_url} setFieldValue={setFieldValue}/>
+                  <UploadAvatarFormik classes={classes} name="booking_url" imageURL={values.booking_url} setFieldValue={setFieldValue} />
                   <div className="col-9 pr-0">
-                    <ColorPaletteFormik  name="color_code"/>
+                    <ColorPaletteFormik name="color_code" />
                   </div>
                 </div>
               </div>}
               {fields.gender && <GenderFormik label={fields.gender.lable} name={fields.gender.name} />}
+              {/* {
+                [1, 2].map((id) => {
+                  return (
+                    <React.Fragment key={id}>
+                    <GenderFormik  label={fields.gender.lable} name={fields.gender.name+id} />
+                    </React.Fragment>
+                  )
+                })
+              } */}
               {fields.status && <div className="form-group">
                 <div className="row">
                   <div className="col-6">
@@ -154,7 +163,7 @@ export function Details(props) {
                             value={values.is_active}
                             checked={values.is_active}
                             onChange={(event, checked) => {
-                              setFieldValue("is_active",checked);
+                              setFieldValue("is_active", checked);
                             }}
                           />
                         </div>
@@ -174,7 +183,7 @@ export function Details(props) {
                             value={values.provider}
                             checked={values.is_service_provider}
                             onChange={(event, checked) => {
-                              setFieldValue("is_service_provider",checked);
+                              setFieldValue("is_service_provider", checked);
                               handleProvider(values, checked)
                             }}
                           />
@@ -193,7 +202,7 @@ export function Details(props) {
                 </div>
               </div>}
               {fields.syncwith && <Syncwith />}
-              <ButtonLoading label="Save" loading={isloading}/>
+              <ButtonLoading label="Save" loading={isloading} />
               {/* <div className="form-group mb-0">
                 <div className="d-flex justify-content-end patientButton pos_fix">
                   <button type="submit" className="btn btn-primary">Save <SpinnerSmall loading={isloading}/> </button>

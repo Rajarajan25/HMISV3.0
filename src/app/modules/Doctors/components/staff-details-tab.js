@@ -38,7 +38,6 @@ const useStyles = makeStyles(theme => ({
 export function StaffDetailsTab(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-  const [lengthCount, setLengthCount] = React.useState(3);
   const [toastOpen, setToast] = React.useState(false);
   const { data, index, handleUpdate } = props;
   const [isProviderEnable, setIsProviderEnable] = React.useState(data.is_service_provider);
@@ -54,7 +53,7 @@ export function StaffDetailsTab(props) {
     daterange: "Employment",
     experience: "month year",
     avatar: "avatar",
-    gender: {label:"Gender",name:"gender"},
+    gender: { label: "Gender", name: "gender" },
     status: "status",
     provider: "Provider",
     syncwith: "Sync With",
@@ -94,12 +93,7 @@ export function StaffDetailsTab(props) {
   }
   const handleProvider = (values, checked) => {
     setIsProviderEnable(checked);
-    if(checked) {
-      setLengthCount(3);
-    } else {
-      setLengthCount(1);
-    }
-
+    data.is_service_provider=checked;
   }
   return (
 
@@ -129,9 +123,12 @@ export function StaffDetailsTab(props) {
         </div>
         <div className="p-0">
           {value === 0 && <TabContainer> <Details {...props} current={data} handleSave={editStaff} fields={detail_field} handleProvider={handleProvider} /> </TabContainer>}
-          {(value === 1 && isProviderEnable) && <TabContainer> <Duration {...props} current={durationData} handleSave={editStaff} fields={timing_field} /> </TabContainer>}
-          {(value === 2 && isProviderEnable) && <TabContainer> <StaffService {...props} current={data} handleSave={editStaff} fields={service_field} /> </TabContainer>}
-          {value === lengthCount && <TabContainer> <StaffSetting /> </TabContainer>}
+          {value === 1 && <TabContainer>
+            {isProviderEnable ? <Duration {...props} current={durationData} handleSave={editStaff} fields={timing_field} /> :
+              <StaffSetting />}
+          </TabContainer>}
+          {value === 2 && <TabContainer> <StaffService {...props} current={data} handleSave={editStaff} fields={service_field} /> </TabContainer>}
+          {value === 3 && <TabContainer> <StaffSetting/> </TabContainer>}
         </div>
       </div>
       <Toast message={"Please fill and save,after move to the tab"} open={toastOpen} handleClose={handleClose} />
@@ -145,7 +142,7 @@ export function StaffName(props) {
   const { data } = props;
   return (
     <div className="d-flex">
-      <AzureImageview {...props}/>
+      <AzureImageview {...props} />
       <div className="select_staff_name my-auto">
         <p className="m-0">{data.name || "name"}</p>
         <span>{data.description || "Description"}</span>

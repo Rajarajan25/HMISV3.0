@@ -24,7 +24,7 @@ import Tab from '@material-ui/core/Tab';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { Field } from 'formik'
 import Availability from './Availability'
-
+import { Modal } from "react-bootstrap";
 const ExpansionPanel = withStyles({
   root: {
     border: '1px solid rgba(0, 0, 0, .125)',
@@ -163,7 +163,7 @@ export default function CustomTiming(props) {
     setValue(newValue);
   }
   const { formikValues, setFieldValue } = props;
- 
+
   const handleToggle = value => () => {
     const seletedItem = seletedDays.includes(value)
       ? seletedDays.filter(i => i !== value) // remove item
@@ -173,13 +173,9 @@ export default function CustomTiming(props) {
   return (
     <div >
       <div className="border-bottom p-6">
-        <div className="busi_cus mt-3 mb-3 clearfix d-none">
-          <SelectHours />
-        </div>
         <div className="day_select py-6">
           <div className="d-flex">
             <label className="staff_title_text">Working Days</label>
-            <Link to="#" className="ml-auto add_setting">+ Additional Settings</Link>
           </div>
           <div className="d-flex mt-3">
             <div className="day_input">
@@ -325,9 +321,7 @@ export default function CustomTiming(props) {
           </div>
         </div>
         <div className="form-group mt-6 mb-0">
-          <div className="d-flex justify-content-end patientButton add_timing">
-            <button type="button" className="btn btn-primary m-0">+ Add Timings</button>
-          </div>
+          <MoreTiming {...props} />
         </div>
       </div>
 
@@ -455,46 +449,6 @@ export function TimeExpansionPanels() {
   );
 }
 
-function SelectHours() {
-
-  const useStyles = makeStyles(theme => ({
-    root: {
-      display: 'flex',
-    },
-    formControl: {
-      margin: theme.spacing(3),
-    },
-    group: {
-      margin: theme.spacing(1, 0),
-    },
-  }));
-
-  const classes = useStyles();
-  const [value, setValue] = React.useState('female');
-
-  function handleChange(event) {
-    setValue(event.target.value);
-  }
-
-  return (
-    <div className={classes.root}>
-      <FormControl component="fieldset" className={classes.formControl}>
-        <RadioGroup
-          name="business"
-          className={classes.group}
-          value={value}
-          onChange={handleChange}
-        >
-          <FormControlLabel value="business" control={<Radio />} label="Business hours" />
-          <FormControlLabel value="custom" control={<Radio />} label="Custom" />
-
-        </RadioGroup>
-      </FormControl>
-
-    </div>
-  );
-}
-
 function SelectWeekTime() {
 
   return (
@@ -607,6 +561,220 @@ function SelectWeekTime() {
       </div>
     </div>
   );
+}
+
+
+
+
+export function WorkingDay() {
+  return (
+    <div className="staff_first staff_second">
+      <div className="event-tab">
+        <div className="day_select pt-0 pb-5">
+          <div className="d-flex">
+            <label className="staff_title_text">Working Days</label>
+          </div>
+          <div className="d-flex mt-3">
+            <div className="day_input">
+              <input type="checkbox" id="day_select01" name="" className="" />
+              <label className="date_bx sun_d" for="day_select01">Sun</label>
+            </div>
+            <div className="day_input">
+              <input type="checkbox" id="day_select02" name="" className="" />
+              <label className="date_bx mon_d" for="day_select02">Mon</label>
+            </div>
+            <div className="day_input">
+              <input type="checkbox" id="day_select03" name="" className="" />
+              <label className="date_bx tue_d" for="day_select03">Tue</label>
+            </div>
+            <div className="day_input">
+              <input type="checkbox" id="day_select04" name="" className="" />
+              <label className="date_bx wed_d" for="day_select04">Wed</label>
+            </div>
+            <div className="day_input">
+              <input type="checkbox" id="day_select05" name="" className="" />
+              <label className="date_bx thu_d" for="day_select05">Thu</label>
+            </div>
+            <div className="day_input">
+              <input type="checkbox" id="day_select06" name="" className="" />
+              <label className="date_bx fri_d" for="day_select06">Fri</label>
+            </div>
+            <div className="day_input">
+              <input type="checkbox" id="day_select07" name="" className="" />
+              <label className="date_bx sat_d" for="day_select07">Sat</label>
+            </div>
+          </div>
+        </div>
+        <div className="text-left  mt-3 pb-2 session_start border-bottom ">
+          <div className="session_part row mb-2">
+            <div className="col-3 pr-2 min_width100">
+              <div className="session_select">
+                <input type="checkbox" id="session_01" name="" className="" />
+                <label className="" for="session_01">Session 1</label>
+              </div>
+            </div>
+            <div className="col-4 p-0 d-flex">
+              <div className="tm_area text-left pl-0">
+                <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+              </div>
+            </div>
+            <div className="col-5 d-flex justify-content-start align-items-center pl-2 pr-2">
+              <span className="add_session pointer">+ Add Session</span>
+              <span className="add_line">|</span>
+              <span className="add_break pointer">+ Add Break</span>
+              <span className="add_line">|</span>
+              <span className="remove_line"><img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="d-block" /></span>
+            </div>
+          </div>
+          <div className="break_part row mb-2">
+            <div className="col-3 pr-3">
+              <div className="break_select position-relative">
+                <img src={toAbsoluteUrl("/media/patients/break_line.svg")} alt="" className="break_line" />
+                <input type="checkbox" id="break_01" name="" className="" />
+                <label className="" for="break_01">Break</label>
+              </div>
+            </div>
+            <div className="col-4 p-0 d-flex">
+              <div className="tm_area text-left pl-0">
+                <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+              </div>
+            </div>
+            <div className="col-5 d-flex justify-content-start align-items-center pl-2 pr-2">
+              <span className="remove_line"><img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="d-block" /></span>
+            </div>
+          </div>
+          <div className="break_part row mb-2">
+            <div className="col-3 pr-3">
+              <div className="break_select position-relative">
+                <img src={toAbsoluteUrl("/media/patients/break_line.svg")} alt="" className="break_line" />
+                <input type="checkbox" id="break_02" name="" className="" />
+                <label className="" for="break_02">Break</label>
+              </div>
+            </div>
+            <div className="col-4 p-0 d-flex">
+              <div className="tm_area text-left pl-0">
+                <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+              </div>
+            </div>
+            <div className="col-5 d-flex justify-content-start align-items-center pl-2 pr-2">
+              <span className="remove_line"><img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="d-block" /></span>
+            </div>
+          </div>
+        </div>
+        <div className="text-left  mt-3 pb-2 session_start border-bottom ">
+          <div className="session_part row mb-2">
+            <div className="col-3 pr-2 min_width100">
+              <div className="session_select">
+                <input type="checkbox" id="session_02" name="" className="" />
+                <label className="" for="session_02">Session 2</label>
+              </div>
+            </div>
+            <div className="col-4 p-0 d-flex">
+              <div className="tm_area text-left pl-0">
+                <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+              </div>
+            </div>
+            <div className="col-5 d-flex justify-content-start align-items-center pl-2 pr-2">
+              <span className="add_session pointer">+ Add Session</span>
+              <span className="add_line">|</span>
+              <span className="add_break pointer">+ Add Break</span>
+              <span className="add_line">|</span>
+              <span className="remove_line"><img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="d-block" /></span>
+            </div>
+          </div>
+          <div className="break_part row mb-2">
+            <div className="col-3 pr-3">
+              <div className="break_select position-relative">
+                <img src={toAbsoluteUrl("/media/patients/break_line.svg")} alt="" className="break_line" />
+                <input type="checkbox" id="break_03" name="" className="" />
+                <label className="" for="break_03">Break</label>
+              </div>
+            </div>
+            <div className="col-4 p-0 d-flex">
+              <div className="tm_area text-left pl-0">
+                <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+              </div>
+            </div>
+            <div className="col-5 d-flex justify-content-start align-items-center pl-2 pr-2">
+              <span className="remove_line"><img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="d-block" /></span>
+            </div>
+          </div>
+          <div className="break_part row mb-2">
+            <div className="col-3 pr-3">
+              <div className="break_select position-relative">
+                <img src={toAbsoluteUrl("/media/patients/break_line.svg")} alt="" className="break_line" />
+                <input type="checkbox" id="break_04" name="" className="" />
+                <label className="" for="break_04">Break</label>
+              </div>
+            </div>
+            <div className="col-4 p-0 d-flex">
+              <div className="tm_area text-left pl-0">
+                <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+              </div>
+            </div>
+            <div className="col-5 d-flex justify-content-start align-items-center pl-2 pr-2">
+              <span className="remove_line"><img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="d-block" /></span>
+            </div>
+          </div>
+        </div>
+        <div className="form-group mt-6 mb-0">
+          <div className="d-flex justify-content-end patientButton add_timing" >
+            <span type="button" className="btn btn-primary m-0">+ Add Timings</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+export class MoreTiming extends React.Component {
+
+  constructor(props, context) {
+    super(props, context);
+
+    this.state = {
+      show: false,
+    };
+
+    this.handleShow = () => {
+      this.setState({ show: true });
+    };
+
+    this.handleHide = () => {
+      this.setState({ show: false });
+    };
+  }
+
+  render() {
+    return (
+      <>
+
+        <div className="d-flex justify-content-end patientButton add_timing" >
+          <span type="button" className="btn btn-primary m-0" onClick={this.handleShow}>+ More Timings</span>
+        </div>
+
+        <Modal
+          className="timemodal"
+          show={this.state.show}
+          onHide={this.handleHide}
+          dialogClassName="modal-90w"
+          aria-labelledby="example-custom-modal-styling-title"
+        >
+          <Modal.Header closeButton>
+            <label class="staff_title_text m-0">More Timings</label>
+          </Modal.Header>
+          <Modal.Body>
+            <div className="staff_first">
+              <div className="event-tab">
+                <Availability {...this.props} />
+              </div>
+            </div>
+            <WorkingDay />
+          </Modal.Body>
+        </Modal>
+
+      </>
+    );
+  }
 }
 
 

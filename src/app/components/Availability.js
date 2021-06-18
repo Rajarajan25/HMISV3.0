@@ -103,7 +103,7 @@ export function TabPerson() {
     }
     return (
       <div className="clearfix my-4">
-        <Field component={RadioGroup} name="timings.timing_id.availability_id.inperson.buinsess_address" onChange={handleAvailableChanges}>
+        <Field className="d-flex event-range" component={RadioGroup} name="timings.timing_id.availability_id.inperson.buinsess_address" onChange={handleAvailableChanges}>
           <FormControlLabel value={true} checked={formikValues.timings.timing_id.availability_id.inperson.buinsess_address} control={<Radio />} label="My Business Address" />
           <FormControlLabel value={false} checked={formikValues.timings.timing_id.availability_id.inperson.client_address} control={<Radio />} label="Client Address At Booking" />
         </Field>
