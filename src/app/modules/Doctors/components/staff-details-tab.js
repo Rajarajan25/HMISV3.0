@@ -53,7 +53,7 @@ export function StaffDetailsTab(props) {
     daterange: "Employment",
     experience: "month year",
     avatar: "avatar",
-    gender: "Gender",
+    gender: {label:"Gender",name:"gender"},
     status: "status",
     provider: "Provider",
     syncwith: "Sync With",

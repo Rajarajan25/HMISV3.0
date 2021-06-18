@@ -138,7 +138,7 @@ export function Details(props) {
                   </div>
                 </div>
               </div>}
-              {fields.gender && <GenderFormik label={fields.gender} name="gender" />}
+              {fields.gender && <GenderFormik label={fields.gender.lable} name={fields.gender.name} />}
               {fields.status && <div className="form-group">
                 <div className="row">
                   <div className="col-6">

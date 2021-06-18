@@ -50,7 +50,7 @@ export function ServiceDetailsTab(props) {
   const { listService, currentService } = currentState;
   const field = {
     name: "Service Name",
-    gender:"Preferred Genders",
+    gender: {label:"Preferred Genders",name:"prefered_gender"},
     description: "Description",
     avatar: "avatar",
     link: "Service URL"
