@@ -17,7 +17,7 @@ const useStyles = makeStyles({
 
 export function StaffService(props) {
   const classes = useStyles();
-  const { current, fields, index, handleUpdate, addNew } = props;
+  const { current, fields, index, handleUpdate, addNew,handleChangeStaff } = props;
   const [loading, setLoading] = useState(false);
   const { commission } = current;
   const initValue = {
@@ -82,7 +82,7 @@ export function StaffService(props) {
       }) => (
         <form onSubmit={handleSubmit} className="form fv-plugins-framework">
           <div className="staff_first staff_third w-100 p-6">
-            <StaffServiceList selectedItem={values.staff} pagename="service"/>
+            <StaffServiceList selectedItem={values.staff} pagename="service" handleChangeStaff={handleChangeStaff}/>
             <StaffCommission fields={fields} formikValues={values} setFieldValue={setFieldValue} />
             <div className="form-group mb-0">
               <div className="d-flex justify-content-end patientButton pos_fix">

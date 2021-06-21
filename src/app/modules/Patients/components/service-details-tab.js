@@ -37,8 +37,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+
 export function ServiceDetailsTab(props) {
-  const {handleUpdate,currentIndex}=props
+  const {handleUpdate,currentIndex,handleChangeStaff}=props
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
   const dispatch = useDispatch();
@@ -110,11 +111,11 @@ export function ServiceDetailsTab(props) {
         </div>
         <div className="p-0">
           {value === 0 && <TabContainer> <Details current={currentService} handleSave={editService} fields={field}
-          index={currentIndex} handleUpdate={handleUpdate} /> </TabContainer>}
+          index={currentIndex} handleUpdate={handleUpdate}  /> </TabContainer>}
           {value === 1 && <TabContainer> <Duration data={currentService} handleSave={editService} fields={timing_field}
           /> </TabContainer>}
           {/* {value === 1 && <TabContainer> <ServiceCost/> </TabContainer>} */}
-          {value === 2 && <TabContainer> <StaffService {...props} current={currentService} index={currentIndex} handleUpdate={handleUpdate} handleSave={editService} fields={service_field}/> </TabContainer>}
+          {value === 2 && <TabContainer> <StaffService handleChangeStaff={handleChangeStaff} {...props} current={currentService} index={currentIndex} handleUpdate={handleUpdate} handleSave={editService} fields={service_field}/> </TabContainer>}
           {value === 3 && <TabContainer> <ServiceSettings /> </TabContainer>}
         </div>
       </div>

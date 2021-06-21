@@ -21,6 +21,14 @@ export const GET_SERVICE = gql`
             
           }
         }
-      }      }    
+        service_staff{
+          staff_id{
+            id
+            name
+            
+          }
+        }
+      }     
+     }    
     }
   `;
