@@ -2398,10 +2398,10 @@ span.avails {
   border: 0;
   outline: 0;
   background: none;
-  width: 0;
+  width: 200px;
   line-height: 30px;
   transition: width 0.4s linear;
-  padding: 0;
+  padding: 0px 10px 0px 0px;
   margin: 0;
 }
 .search_icon {
@@ -2418,11 +2418,6 @@ span.avails {
     opacity: 0.5;
     height: 16px;
   }
-}
-.searchbar:hover > .search_input {
-  padding: 0px 10px 0px 0px;
-  width: 300px;
-  transition: width 0.4s linear;
 }
 input.edit_year[type="text"] {
   border: 0;
@@ -4861,7 +4856,7 @@ p.setting_color {
   .filter-icon {
     font-size: 16px;
     margin-right: 15px;
-    margin-top: 8px;
+    margin-top: 4px;
     cursor: pointer;
     color: #808080;
   }
