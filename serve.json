@@ -3,13 +3,13 @@
   "redirects": [
     {
       "source": "/",
-      "destination": "/hmis"
+      "destination": "/"
     }
   ],
   "rewrites": [
     {
-      "source": "/hmis/**",
-      "destination": "/hmis/index.html"
+      "source": "/**",
+      "destination": "/index.html"
     }
   ]
 }
