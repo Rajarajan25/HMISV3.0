@@ -1022,6 +1022,9 @@ span.listprofileIcon {
   max-width: 360px;
 }
 .patientProfileinfo {
+  .MuiBackdrop-root {
+    background: rgba(0, 0, 0, 0.4) !important;
+}
   .MuiDrawer-paper {
     top: 0;
     bottom: 0;
