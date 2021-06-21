@@ -503,8 +503,13 @@ export function Availability() {
             <div className="session_part row mb-2">
               <div className="col-3 pr-2 min_width100">
                 <div className="session_select">
-                  <input type="checkbox" id="session_01" name="" className="" />
-                  <label className="" for="session_01">Session 1</label>
+                  <div className="hm-checkbox">
+                    <input type="checkbox" id="session_01" name="" className="" />
+                    <label className="eprice" for="session_01">
+                      <span className="circle-border"></span>
+                      <span className="chk_txt">Session 1</span>
+                    </label>
+                  </div>
                 </div>
               </div>
               <div className="col-4 p-0 d-flex">
