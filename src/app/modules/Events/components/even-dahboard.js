@@ -206,7 +206,8 @@ export function EventDashboard() {
       <div className="row">
         <div className="col-md-6 col-lg-6 col-xl-4">
           <input type="checkbox" id="event_box_01" />
-          <label className="event_box" for="event_box_01">
+          <label className="card-box-02" for="event_box_01" ></label>
+          <div className="event_box card-box-02-sub event_box_003">
             {/* <Link to="#" onClick={toggleDrawer('bottom', true)}>Anand</Link> */}
             <Card className="event-card">
               <Card.Body>
@@ -282,7 +283,7 @@ export function EventDashboard() {
                 </div>
               </Card.Body>
             </Card>
-          </label>
+          </div>
           <Drawer variant="temporary" className="patientProfileinfo EventDrawer StaffInfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
           <div className="p-0 overflow-auto">
             <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}>
@@ -297,7 +298,8 @@ export function EventDashboard() {
 
         <div className="col-md-6 col-lg-6 col-xl-4">
           <input type="checkbox" id="event_box_03" />
-          <label className="event_box" for="event_box_03">
+          <label className="card-box-02" for="event_box_03" ></label>
+          <div className="event_box card-box-02-sub event_box_003" >
             {/* <Link to="#" onClick={toggleDrawer('bottom', true)}>Anand</Link> */}
             <Card className="event-card">
               <Card.Body>
@@ -372,13 +374,14 @@ export function EventDashboard() {
                 </div>
               </Card.Body>
             </Card>
-          </label>
+          </div>
         </div>
         
 
         <div className="col-md-6 col-lg-6 col-xl-4">
           <input type="checkbox" id="event_box_04" />
-          <label className="event_box" for="event_box_04">
+          <label className="card-box-02" for="event_box_04" ></label>
+          <div className="event_box card-box-02-sub event_box_003" >
             {/* <Link to="#" onClick={toggleDrawer('bottom', true)}>Anand</Link> */}
             <Card className="event-card">
               <Card.Body>
@@ -453,12 +456,13 @@ export function EventDashboard() {
                 </div>
               </Card.Body>
             </Card>
-          </label>
+          </div>
         </div>
 
         <div className="col-md-6 col-lg-6 col-xl-4">
           <input type="checkbox" id="event_box_05" />
-          <label className="event_box" for="event_box_05">
+          <label className="card-box-02" for="event_box_05" ></label>
+          <div className="event_box card-box-02-sub event_box_003" >
             {/* <Link to="#" onClick={toggleDrawer('bottom', true)}>Anand</Link> */}
             <Card className="event-card">
               <Card.Body>
@@ -537,12 +541,13 @@ export function EventDashboard() {
                 </div>
               </Card.Body>
             </Card>
-          </label>
+          </div>
         </div>
 
         <div className="col-md-6 col-lg-6 col-xl-4">
           <input type="checkbox" id="event_box_06" />
-          <label className="event_box" for="event_box_06">
+          <label className="card-box-02" for="event_box_06" ></label>
+          <div className="event_box card-box-02-sub event_box_003">
             {/* <Link to="#" onClick={toggleDrawer('bottom', true)}>Anand</Link> */}
             <Card className="event-card">
               <Card.Body>
@@ -620,12 +625,13 @@ export function EventDashboard() {
                 </div>
               </Card.Body>
             </Card>
-          </label>
+          </div>
         </div>
 
         <div className="col-md-6 col-lg-6 col-xl-4">
           <input type="checkbox" id="event_box_07" />
-          <label className="event_box" for="event_box_07">
+          <label className="card-box-02" for="event_box_07" ></label>
+          <div className="event_box card-box-02-sub event_box_003" for="event_box_07">
             {/* <Link to="#" onClick={toggleDrawer('bottom', true)}>Anand</Link> */}
             <Card className="event-card">
               <Card.Body>
@@ -704,12 +710,13 @@ export function EventDashboard() {
                 </div>
               </Card.Body>
             </Card>
-          </label>
+          </div>
         </div>
 
         <div className="col-md-6 col-lg-6 col-xl-4">
           <input type="checkbox" id="event_box_08" />
-          <label className="event_box" for="event_box_08">
+          <label className="card-box-02" for="event_box_08" ></label>
+          <div className="event_box card-box-02-sub event_box_003">
             {/* <Link to="#" onClick={toggleDrawer('bottom', true)}>Anand</Link> */}
             <Card className="event-card">
               <Card.Body>
@@ -784,12 +791,13 @@ export function EventDashboard() {
                 </div>
               </Card.Body>
             </Card>
-          </label>
+          </div>
         </div>
 
         <div className="col-md-6 col-lg-6 col-xl-4">
           <input type="checkbox" id="event_box_09" />
-          <label className="event_box" for="event_box_09">
+          <label className="card-box-02" for="event_box_09" ></label>
+          <div className="event_box card-box-02-sub event_box_003">
             <Card className="event-card">
               <Card.Body>
                 <div className="event-provider">
@@ -866,12 +874,13 @@ export function EventDashboard() {
                 </div>
               </Card.Body>
             </Card>
-          </label>
+          </div>
         </div>
 
         <div className="col-md-6 col-lg-6 col-xl-4">
           <input type="checkbox" id="event_box_010" />
-          <label className="event_box" for="event_box_010">
+          <label className="card-box-02" for="event_box_010" ></label>
+          <div className="event_box card-box-02-sub event_box_003">
             {/* <Link to="#" onClick={toggleDrawer('bottom', true)}>Anand</Link> */}
             <Card className="event-card">
               <Card.Body>
@@ -946,7 +955,7 @@ export function EventDashboard() {
                 </div>
               </Card.Body>
             </Card>
-          </label>
+          </div>
         </div>
       </div>
       <Bottomeventselector />
