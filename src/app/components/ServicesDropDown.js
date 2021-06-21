@@ -131,9 +131,9 @@ export function ServicesDropdownMenu(props) {
                         {
                             listData.map((e) => {
                                 return <div class="d-flex justify-content-left py-1" key={e.type}>
-                                    <span className="specialInfo text-white position-relative" style={{ backgroundColor: e.color_code + "1a" }}>
+                                    <span className="specialInfo text-white position-relative" style={{ backgroundColor: e.color_code + "1a" ||`#2ecd6f1a` }}>
                                         <span className="ProviderIcon" style={{ backgroundColor: e.color_code || `#2ecd6f` }}>{e.avatar ? <img src={toAbsoluteUrl(e.avatar)} alt="" className="mh-100 d-block rounded-circle" /> : e.name ? e.name.substr(0, 2).toUpperCase() : ""}</span>
-                                        <span className="ProviderName" style={{ color: e.color_code }}>{e.name}</span>
+                                        <span className="ProviderName" style={{ color: e.color_code || `#2ecd6f`}}>{e.name}</span>
                                     </span>                        </div>
                             })}
                     </div>

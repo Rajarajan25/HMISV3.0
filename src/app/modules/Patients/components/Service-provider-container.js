@@ -266,6 +266,24 @@ updateService({
     });
 
 };
+
+  const handleChangeStaff =(id)=>{
+    let currentList = JSON.parse(JSON.stringify(currentService));
+
+    // currentList.service_relationships.service_staff.staff_id=id;
+    // updateService({
+    //   variables: {
+    //     serviceID:currentList.id,
+    //     service:currentList
+    //   }
+    // })
+    //   .then(res => {
+
+    //     console.log(res.data.updateService);
+    //     dispatch(actions.editService(res.data.updateService));
+    //   })
+
+  }
  
   return (
     <div className="clearfix">
@@ -274,6 +292,7 @@ updateService({
         toggleDrawer={toggleDrawer}>
         <ServiceDetailsTab
           handleUpdate={handleUpdate}
+          handleChangeStaff={handleChangeStaff}
           currentIndex={state.currentIndex}
         />
       </RightSideDrawer>

@@ -31,7 +31,7 @@ const GET_STAFF = gql`
     }
   `;
 export function StaffServiceList(props) {
-    const { pagename, selectedItem, setFieldValue } = props;
+    const { pagename, selectedItem, setFieldValue,handleChangeStaff } = props;
     const queryData = pagename === PageName.STAFF ? GET_SERVICE : GET_STAFF;
     const { data, loading } = useQuery(queryData);
     const [listData, setListData] = useState([]);
@@ -53,12 +53,8 @@ export function StaffServiceList(props) {
         } else {
             selectedItem.push(item.id);
         }
-
-        if (PageName.STAFF === pagename)
-            setFieldValue(`staff`, selectedItem);
-
-        if (PageName.SERVICE === pagename)
-            setFieldValue(`service`, selectedItem);
+        handleChangeStaff(item)
+        
     }
     return (
         <div className="form-group">
@@ -73,7 +69,7 @@ export function StaffServiceList(props) {
                         return (
                             <>
                             {pagename==="service"?
-                            <StaffItems item={item} index={i} key={i} onClick={() => handleItemSelect(item)} />
+                            <StaffItems item={item} index={i} key={i} handleItemSelect={ handleItemSelect} />
                             :<ServiceItems item={item} index={i} key={i} onClick={() => handleItemSelect(item)} />}
                             </>
                         )
@@ -86,9 +82,9 @@ export function StaffServiceList(props) {
 
 
 function StaffItems(props) {
-    const { item, index } = props;
+    const { item, index ,handleItemSelect} = props;
     return (
-        <div className="col-4 px-1">
+        <div className="col-4 px-1" onClick={()=>handleItemSelect(item)}>
             <input type="checkbox" id={"pet_box_" + index} />
             <label className="pat_box staff_sales" htmlFor={"pet_box_" + index} >
                 <div className="d-flex align-items-center mb-3">
