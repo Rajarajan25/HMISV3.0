@@ -3,7 +3,7 @@ import { TimingsModel } from "./TimingsModel";
 export const StaffModel={
 id:undefined,//Int
 booking_url:"",//String
-color_code: "#000000",//Int
+color_code: "#41bc87",//Int
 description:"",//String,
 display_name:"",//String,
 display_order:0,//Integer,
