@@ -1,5 +1,6 @@
 import React from "react";
 import { NewEvent } from "./components/new-event";
+import {EventDashboard} from "./components/even-dahboard";
 import { useSubheader } from "../../../_metronic/layout";
 
 export default function EventDetails() {
@@ -8,7 +9,7 @@ export default function EventDetails() {
   return (
   <div className="event-management">
     <div className="d-block">
-      <NewEvent />
+      <EventDashboard />
     </div>
   </div>
   );

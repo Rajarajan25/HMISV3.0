@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
 import Dropdown from "react-bootstrap/Dropdown";
 import Switch from "@material-ui/core/Switch";
@@ -12,7 +13,8 @@ import CloseIcon from "@material-ui/icons/Close";
 import { DropdownItemToggler } from "../../../../_metronic/_partials/dropdowns";
 import Menu from "@material-ui/core/Menu";
 import { styled, alpha } from "@material-ui/core/styles";
-
+import { EventTab } from "./event-tab";
+import Drawer from '@material-ui/core/Drawer';
 
 const useStyles = makeStyles({
   avatar: {
@@ -177,6 +179,28 @@ export function Bottomeventselector() {
 
 export function EventDashboard() {
   const classes = useStyles();
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
+  const styles = {
+    BackdropProps: {
+      background: 'transparent'
+    }
+  };
+  
+  const toggleDrawer = (side, open) => event => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+    setState({ ...state, [side]: open });
+  };
+  
+  const toggleDrawerClose = () => {
+    setState(false);
+  };
   return (
     <div className="clearfix event-selector">
       <div className="row">
@@ -220,8 +244,7 @@ export function EventDashboard() {
                       </span>
                     </div>
                     <div className="card-summary">
-                      <span>
-New Event For Medicine</span>
+                      <span onClick={toggleDrawer('right', true)}>New Event For Medicine</span>
                       <span>
                         Some quick example text to build on the card title and
                         make up the bulk of the card's content.
@@ -260,6 +283,16 @@ New Event For Medicine</span>
               </Card.Body>
             </Card>
           </label>
+          <Drawer variant="temporary" className="patientProfileinfo EventDrawer StaffInfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
+          <div className="p-0 overflow-auto">
+            <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}>
+              <span className="my-auto font-weight-500">
+                <img src={toAbsoluteUrl("/media/patients/drawer_close.svg")} alt="" className="d-block" />
+              </span>
+            </Link>
+            <EventTab />
+          </div>
+        </Drawer>
         </div>
 
         <div className="col-md-6 col-lg-6 col-xl-4">
@@ -920,3 +953,4 @@ New Event For Medicine</span>
     </div>
   );
 }
+
