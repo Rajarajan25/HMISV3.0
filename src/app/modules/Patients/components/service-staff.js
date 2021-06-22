@@ -53,11 +53,9 @@ export function ServiceStaff() {
           </div>
         </div>
       </div>
-      <div className="form-group border-bottom">
-        <label className="d-block staff_title_text mr-auto">Staff</label>
-      </div>
       <div className="form-group">
         <div className="d-flex mb-3">
+          <label className="d-block staff_title_text mt-2 mr-auto">Staff</label>
           <div className="d-flex justify-items-center service_search">
             <button type="button" className="service_search_icon">
               <img src="/media/patients/cat_search.svg" alt="" className="" />
@@ -65,6 +63,8 @@ export function ServiceStaff() {
             <input className="service_search_input" type="text" name="" placeholder="Search" />
           </div>
         </div>
+      </div>
+      <div className="form-group">
         <div className="serve_sec overflow-service03">
           <div className="row">
             <div className="col-4 px-1">
@@ -330,7 +330,7 @@ export function ServiceStaff() {
           </div>
         </div>
       </div>
-      <div className="form-group border-bottom">
+      <div className="form-group">
         <div className="d-flex">
           <label class="staff_title_text">staff commission</label>
           <div className="pre_status staff_commission">
@@ -338,40 +338,7 @@ export function ServiceStaff() {
           </div>
         </div>
       </div>
-      <div className="form-group">
-        <div className="d-flex row">
-          <div className="col-6">
-            <label class="form-label d-block">Commission</label>
-            <input placeholder="100" type="text" className={`form-control`} name=""/>
-          </div>
-        </div>
-      </div>
-      <div className="form-group">
-        <label class="d-block staff_title_text pb-2">Set Service tax</label>
-        <div className="d-flex row">
-          <div className="col-6">
-            <label class="form-label d-block">Amount (&#2352;)</label>
-            <input placeholder="100" type="text" className={`form-control`} name=""/>
-          </div>
-          <div className="col-6">
-            <label class="form-label d-block">Percentage (%)</label>
-            <input placeholder="10%" type="text" className={`form-control`} name=""/>
-          </div>
-        </div>
-      </div>
-      <div className="form-group">
-        <label class="d-block staff_title_text pb-2">Set Voucher/Coupon Sales</label>
-        <div className="d-flex row">
-          <div className="col-6">
-          <label class="form-label d-block">Amount (&#2352;)</label>
-            <input placeholder="100" type="text" className={`form-control`} name=""/>
-          </div>
-          <div className="col-6">
-          <label class="form-label d-block">Percentage (%)</label>
-            <input placeholder="10%" type="text" className={`form-control`} name=""/>
-          </div>
-        </div>
-      </div>
+
       <div className="form-group mb-0">
         <div className="d-flex justify-content-end patientButton pos_fix">
           <button type="button" className="btn btn-primary">Save</button>

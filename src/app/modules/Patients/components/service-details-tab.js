@@ -140,7 +140,7 @@ export function TabSales() {
   return (
     <div className="clearfix">
       <div className="d-flex">
-        <span className="staff_tab_img"><img src={toAbsoluteUrl("/media/patients/TabService.svg")} alt="" className="d-inline-flex" /></span>
+        <span className="staff_tab_img"><img src={toAbsoluteUrl("/media/patients/TabSales.svg")} alt="" className="d-inline-flex" /></span>
         <span className="staff_tab_title">Sales</span>
       </div>
     </div>

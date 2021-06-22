@@ -88,24 +88,6 @@ export function ServiceCost() {
             </div>
           </div>
           <div className="col-4">
-            <label class="form-label d-block">Price Type</label>
-            <div className="re_select">
-              <Select options={pricetype} />
-            </div>
-          </div>
-          <div className="col-4">
-            <label class="form-label d-block">Price (&#2352;)</label>
-            <input placeholder="500" type="text" className={`form-control`} name=""/>
-          </div>
-        </div>
-      </div>
-      <div className="form-group">
-        <div className="d-flex row">
-          <div className="col-4">
-            <label class="form-label d-block">Special Price (&#2352;)</label>
-            <input placeholder="500" type="text" className={`form-control`} name=""/>
-          </div>
-          <div className="col-4">
             <label class="form-label d-block">Buffer Time Before</label>
             <div className="re_select">
               <Select options={buffertime} />
@@ -117,6 +99,28 @@ export function ServiceCost() {
               <Select options={buffertime} />
             </div>
           </div>
+        </div>
+      </div>
+      <div className="form-group">
+        <label className="d-block staff_title_text mt-2 mr-auto">Cost</label>
+      </div>
+      <div className="form-group">
+        <div className="d-flex row">
+          <div className="col-4">
+            <label class="form-label d-block">Price Type</label>
+            <div className="re_select">
+              <Select options={pricetype} />
+            </div>
+          </div>
+          <div className="col-4">
+            <label class="form-label d-block">Price (&#2352;)</label>
+            <input placeholder="500" type="text" className={`form-control`} name=""/>
+          </div>
+          <div className="col-4">
+            <label class="form-label d-block">Special Price (&#2352;)</label>
+            <input placeholder="500" type="text" className={`form-control`} name=""/>
+          </div>
+          
         </div>
       </div>
       <div className="form-group">
@@ -164,103 +168,7 @@ export function ServiceCost() {
           </Link>
         </div>
       </div>
-      <div className="form-group border-bottom">
-        <div className="d-flex align-items-center">
-          <label class="staff_title_text">Timings</label>
-        </div>
-      </div>
-      <div className="busi_cus ser_tme mt-3 mb-5 clearfix">
-        <SelectHours />
-      </div>
-      <div className="text-left  mt-3 pb-2 session_start border-bottom">
-        <div className="session_part row mb-3">
-          <div className="col-4 pr-2 min_width100">
-            <div className="session_select">
-              <label className="staff_title_text min_wid">Sunday</label>
-            </div>
-          </div>
-          <div className="col-4 p-0 d-flex">
-            <div className="tm_area text-left pl-0 my-auto">
-              <span className="day_off">Week Off</span>
-            </div>
-          </div>
-        </div>
-        <div className="session_part row mb-3">
-          <div className="col-4 pr-2 min_width100">
-            <div className="session_select">
-              <label className="staff_title_text min_wid">Monday</label>
-            </div>
-          </div>
-          <div className="col-4 p-0 d-flex">
-            <div className="tm_area text-left pl-0">
-              <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-            </div>
-          </div>
-        </div>
-        <div className="session_part row mb-3">
-          <div className="col-4 pr-2 min_width100">
-            <div className="session_select">
-              <label className="staff_title_text min_wid">Tuesday</label>
-            </div>
-          </div>
-          <div className="col-4 p-0 d-flex">
-            <div className="tm_area text-left pl-0">
-              <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-            </div>
-          </div>
-        </div>
-        <div className="session_part row mb-3">
-          <div className="col-4 pr-2 min_width100">
-            <div className="session_select">
-              <label className="staff_title_text min_wid">Wednesday</label>
-            </div>
-          </div>
-          <div className="col-4 p-0 d-flex">
-            <div className="tm_area text-left pl-0">
-              <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-            </div>
-          </div>
-        </div>
-        <div className="session_part row mb-3">
-          <div className="col-4 pr-2 min_width100">
-            <div className="session_select">
-              <label className="staff_title_text min_wid">Thursday</label>
-            </div>
-          </div>
-          <div className="col-4 p-0 d-flex">
-            <div className="tm_area text-left pl-0">
-              <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-            </div>
-          </div>
-        </div>
-        <div className="session_part row mb-3">
-          <div className="col-4 pr-2 min_width100">
-            <div className="session_select">
-              <label className="staff_title_text min_wid">Friday</label>
-            </div>
-          </div>
-          <div className="col-4 p-0 d-flex">
-            <div className="tm_area text-left pl-0">
-              <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
-            </div>
-          </div>
-        </div>
-        <div className="session_part row mb-3">
-          <div className="col-4 pr-2 min_width100">
-            <div className="session_select">
-              <label className="staff_title_text min_wid">Saturday</label>
-            </div>
-          </div>
-          <div className="col-4 p-0 d-flex">
-            <div className="tm_area text-left pl-0 my-auto">
-              <span className="day_off">Week Off</span>
-            </div>
-          </div>
-        </div>
-        <div className="d-flex">
-          <Link to="#" className="ml-auto add_setting">Modify</Link>
-        </div>
-      </div>
+      
       <div className="form-group mb-0">
         <div className="d-flex justify-content-end patientButton pos_fix">
           <button type="button" className="btn btn-primary">Save</button>
