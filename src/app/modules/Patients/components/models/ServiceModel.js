@@ -42,7 +42,6 @@ export const ServiceModel={
     min_duration_in_seconds: 0,
     site_id: "",
     workspace_id: "",
-    status: false
       }
     }], service_pricing: [], 
     service_staff: [{
