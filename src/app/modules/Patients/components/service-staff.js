@@ -65,7 +65,7 @@ export function ServiceStaff() {
             <input className="service_search_input" type="text" name="" placeholder="Search" />
           </div>
         </div>
-        <div className="serve_sec">
+        <div className="serve_sec overflow-service03">
           <div className="row">
             <div className="col-4 px-1">
               <input type="checkbox" id="pet_box_01" />
@@ -174,6 +174,110 @@ export function ServiceStaff() {
             <div className="col-4 px-1">
               <input type="checkbox" id="pet_box_05" />
               <label className="pat_box staff_sales" for="pet_box_05">
+                <div className="d-flex align-items-center mb-3">
+                  <span className="staff_sales_icon my-auto"><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+                  <div className="my-auto">
+                    <p className="staff_sales_name m-0">Gopinath Rajendran</p>
+                    <span className="staff_sales_desc d-block">9876543210</span>
+                  </div>
+                </div>
+                <div className="d-flex">
+                  <span className="avails chat_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="Chat" className="m-0" />
+                  </span>
+                  <span className="avails phone_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="Phone" className="m-0" />
+                  </span>
+                  <span className="avails video_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_video.svg")} alt="Video" className="m-0" />
+                  </span>
+                  <span className="avails visit_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_visit.svg")} alt="In Person" className="m-0" />
+                  </span>
+                </div>
+              </label>
+            </div>
+            <div className="col-4 px-1">
+              <input type="checkbox" id="pet_box_06" />
+              <label className="pat_box staff_sales" for="pet_box_06">
+                <div className="d-flex align-items-center mb-3">
+                  <span className="staff_sales_icon my-auto"><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+                  <div className="my-auto">
+                    <p className="staff_sales_name m-0">Gopinath Rajendran</p>
+                    <span className="staff_sales_desc d-block">9876543210</span>
+                  </div>
+                </div>
+                <div className="d-flex">
+                  <span className="avails chat_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="Chat" className="m-0" />
+                  </span>
+                  <span className="avails phone_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="Phone" className="m-0" />
+                  </span>
+                  <span className="avails video_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_video.svg")} alt="Video" className="m-0" />
+                  </span>
+                  <span className="avails visit_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_visit.svg")} alt="In Person" className="m-0" />
+                  </span>
+                </div>
+              </label>
+            </div>
+            <div className="col-4 px-1">
+              <input type="checkbox" id="pet_box_06" />
+              <label className="pat_box staff_sales" for="pet_box_06">
+                <div className="d-flex align-items-center mb-3">
+                  <span className="staff_sales_icon my-auto"><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+                  <div className="my-auto">
+                    <p className="staff_sales_name m-0">Gopinath Rajendran</p>
+                    <span className="staff_sales_desc d-block">9876543210</span>
+                  </div>
+                </div>
+                <div className="d-flex">
+                  <span className="avails chat_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="Chat" className="m-0" />
+                  </span>
+                  <span className="avails phone_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="Phone" className="m-0" />
+                  </span>
+                  <span className="avails video_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_video.svg")} alt="Video" className="m-0" />
+                  </span>
+                  <span className="avails visit_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_visit.svg")} alt="In Person" className="m-0" />
+                  </span>
+                </div>
+              </label>
+            </div>
+            <div className="col-4 px-1">
+              <input type="checkbox" id="pet_box_06" />
+              <label className="pat_box staff_sales" for="pet_box_06">
+                <div className="d-flex align-items-center mb-3">
+                  <span className="staff_sales_icon my-auto"><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+                  <div className="my-auto">
+                    <p className="staff_sales_name m-0">Gopinath Rajendran</p>
+                    <span className="staff_sales_desc d-block">9876543210</span>
+                  </div>
+                </div>
+                <div className="d-flex">
+                  <span className="avails chat_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="Chat" className="m-0" />
+                  </span>
+                  <span className="avails phone_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="Phone" className="m-0" />
+                  </span>
+                  <span className="avails video_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_video.svg")} alt="Video" className="m-0" />
+                  </span>
+                  <span className="avails visit_bg">
+                    <img src={toAbsoluteUrl("/media/patients/avail_visit.svg")} alt="In Person" className="m-0" />
+                  </span>
+                </div>
+              </label>
+            </div>
+            <div className="col-4 px-1">
+              <input type="checkbox" id="pet_box_06" />
+              <label className="pat_box staff_sales" for="pet_box_06">
                 <div className="d-flex align-items-center mb-3">
                   <span className="staff_sales_icon my-auto"><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
                   <div className="my-auto">
