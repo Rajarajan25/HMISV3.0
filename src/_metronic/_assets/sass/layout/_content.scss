@@ -6382,3 +6382,23 @@ p.setting_color {
     }
   }
 }
+
+.group-staff{
+  .infos{
+    line-height: 20px;
+    margin-top: 4px;
+    font-family: 'Proxima Nova';
+    .group-name{
+      span {
+        display: inline !important;
+        padding: 0px 5px 0px 0px;
+        color: #171B1C;       
+        font-family: ProximaNova_Bold !important;
+      }
+    }
+    &>span{
+      font-size: 13px;
+      color: #424D51;
+    }
+  }
+}
