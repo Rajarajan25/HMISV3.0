@@ -166,6 +166,7 @@ export default function CustomTiming(props) {
   const [seletedDays, setSelectedDays] = useState([]);
   const [Break, setBreak] = React.useState(Break);
   const [customHours, setCustomHours] = useState(days);
+  const [addsession, setAddSession] = useState([]);
   const [value, setValue] = React.useState(0);
 
   const getActive = (id) => {
@@ -181,6 +182,14 @@ export default function CustomTiming(props) {
       seletedItem = [...seletedDays, { ...CommonTiming, work_day_id: item.work_day_id, work_day_name: item.short_name }];
     }
     setSelectedDays(seletedItem);
+    if(addsession.length===0){
+      handleAddSession(0);
+    }
+  }
+  const handleAddSession = (indexId) =>{
+    var seletedItem = [];
+    seletedItem = [...seletedItem, { ...CommonTiming, index: indexId}];
+    setAddSession(seletedItem);
   }
 
   return (
@@ -201,7 +210,7 @@ export default function CustomTiming(props) {
             })}
           </div>
         </div>
-        {seletedDays.map((item, index) => {
+        {addsession.map((item, index) => {
           return (
             <div className="text-left  mt-3 pb-2 session_start border-bottom ">
               <div className="session_part row mb-2">
@@ -217,7 +226,7 @@ export default function CustomTiming(props) {
                   </div>
                 </div>
                 <div className="col-5 d-flex justify-content-start align-items-center pl-2 pr-2">
-                  <span className="add_session pointer">+ Add Session</span>
+                  <span className="add_session pointer" onClick={()=>handleAddSession(1)}>+ Add Session</span>
                   <span className="add_line">|</span>
                   <span className="add_break pointer">+ Add Break</span>
                   <span className="add_line">|</span>
