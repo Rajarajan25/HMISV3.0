@@ -9,8 +9,10 @@ import {ServiceProviders} from './components/ServiceContext'
 
 
 export default function ServiceProvider() {
+  const [filterListService,setFilterListService] = React.useState({});
   const suhbeader = useSubheader();
   suhbeader.setTitle("Services");
+ 
   return (
     <ServiceProviders>
     <div className="d-block">
@@ -19,7 +21,7 @@ export default function ServiceProvider() {
       </div>
       <div className="d-flex flex-column mt-1"> 
         <div className="contentSection collapse show w-100">
-         <ServiceProviderContainer/> 
+         <ServiceProviderContainer filterListService={filterListService}/> 
         </div>
       </div>
     </div>

@@ -35,7 +35,7 @@ export default function SortBy(props) {
   const onHandleSort = (e) => {
     let sortedArr = [];
     if (e.value === "oldest") {
-      sortedArr = data.sort((fVal, sVal) => {
+      sortedArr = data.slice().sort((fVal, sVal) => {
         //if(firstValue.created_at && secondValue.created_at){
         return (
           new Date(Number(fVal.created_at)) -
@@ -44,14 +44,14 @@ export default function SortBy(props) {
         //}
       });
     } else if (e.value === "newest") {
-      sortedArr = data.sort((fVal, sVal) => {
+      sortedArr = data.slice().sort((fVal, sVal) => {
         return (
           new Date(Number(sVal.created_at)) -
           new Date(Number(fVal.created_at))
         );
       });
     } else if (e.value === "ascending") {
-      sortedArr = data.sort((fVal, sVal) =>
+      sortedArr = data.slice().sort((fVal, sVal) =>
         sVal.name.toLowerCase() > fVal.name.toLowerCase()
           ? -1
           : fVal.name.toLowerCase() > sVal.name.toLowerCase()
@@ -59,7 +59,7 @@ export default function SortBy(props) {
           : 0
       );
     } else if (e.value === "descending") {
-      sortedArr = data.sort((fVal, sVal) =>
+      sortedArr = data.slice().sort((fVal, sVal) =>
         fVal.name.toLowerCase() > sVal.name.toLowerCase()
           ? -1
           : sVal.name.toLowerCase() > fVal.name.toLowerCase()

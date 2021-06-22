@@ -4,6 +4,7 @@ export const GET_SERVICE = gql`
   query{
     getService{
       id
+      created_at
       name
       description
       prefered_gender
