@@ -5,6 +5,9 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import {DatePickersUtil} from '../../Components/DateAndTimePicker'
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Switch from '@material-ui/core/Switch';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -38,6 +41,16 @@ export function ServiceDetail() {
         <div className="d-flex">
           <div className="col-12">
             <textarea placeholder="Description" type="text" className={`form-control`} name="description"> </textarea>
+          </div>
+        </div>
+      </div>
+      <div className="form-group">
+        <div className="col-12">
+          <label class="form-label d-block">Category</label>
+        </div>
+        <div className="d-flex">
+          <div className="col-12">
+          <input placeholder="Category" type="text" className={`form-control`} name=""/>
           </div>
         </div>
       </div>
@@ -197,6 +210,29 @@ export function ServiceDetail() {
       </div>
       <div className="form-group">
         <div className="col-12">
+          <label class="form-label d-block">Service Type</label>
+        </div>
+        <div className="col-12">
+          <div className="d-flex event-range">
+            <div className="event-radio">
+              <input type="radio" id="service_type_01" name="service_type" className="" />
+              <label className="eprice" for="service_type_01">
+                  <span className="circle-border"></span>
+                  <span className="chk_txt">Public</span>
+              </label>
+            </div>
+            <div className="event-radio">
+              <input type="radio" id="service_type_02" name="service_type" className=""/>
+              <label className="eprice" for="service_type_02">
+                  <span className="circle-border"></span>
+                  <span className="chk_txt">Private</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="form-group">
+        <div className="col-12">
           <label class="form-label d-block">Service URL</label>
         </div>
         <div className="d-flex">
@@ -204,6 +240,26 @@ export function ServiceDetail() {
             <a href="https://www.lookman.in/" className="booking_link" target="blank">
             https://www.lookman.in/
             </a>
+          </div>
+        </div>
+      </div>
+      <div className="form-group">
+        <div className="col-12">
+          <div className="d-flex">
+            <label class="staff_title_text mx-210">Recurring Service</label>
+            <div className="pre_status staff_commission">
+                <SwitchLabels />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="form-group">
+        <div className="col-12">
+          <div className="d-flex">
+            <label class="staff_title_text mx-210">Limit booking</label>
+            <div className="pre_status staff_commission">
+                <SwitchLabels />
+            </div>
           </div>
         </div>
       </div>
@@ -216,17 +272,23 @@ export function ServiceDetail() {
   );
 }
 
-export function DatePicker() {
-  // The first commit of Material-UI
-  const [selectedDate, setSelectedDate] = React.useState(new Date());
+export default function SwitchLabels() {
+  
+  const [state, setState] = React.useState({
+    checkedA: true,
+  });
 
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
+  const handleChange = name => event => {
+    setState({ ...state, [name]: event.target.checked });
   };
 
   return (
-      <Grid container justify="space-around">
-      <DatePickersUtil /> 
-      </Grid>
+    <FormGroup row>
+      <FormControlLabel
+        control={
+          <Switch checked={state.checkedA} onChange={handleChange('checkedA')} value="checkedA" />
+        }
+      />
+    </FormGroup>
   );
 }
