@@ -14,6 +14,7 @@ import { GET_SERVICE } from "../graphql/queries";
 import { ADD_SERVICE,UPDATE_SERVICE,DELETE_SERVICE } from "../graphql/mutation";
 import { useQuery,useMutation } from "@apollo/client";
 import { DeleteDialog } from "../../../components/DeleteDialog";
+import { SpinnerLarge } from "../../../components/Spinner";
 
 const {actions} = ServiceSlice;
 
@@ -134,6 +135,7 @@ export default function ServiceProviderContainer(props) {
     console.log("item-->", item);
     items[index] = item;
     delete item.id
+    state.isloading=true;
 updateService({
       variables: {
         serviceID:updatedValue.id,
@@ -141,7 +143,7 @@ updateService({
       }
     })
       .then(res => {
-
+        state.isloading=false;
         console.log(res.data.updateService);
         dispatch(actions.editService(res.data.updateService));
       })
@@ -190,6 +192,7 @@ updateService({
   const addNewService = (value) => {
     let sfm = { ...ServiceModel };
     sfm = { ...sfm, ...value };
+    state.isloading=true
     // delete sfm.id;
 
     let newstaff = {};
@@ -199,7 +202,7 @@ updateService({
       }
     })
       .then(res => {
-
+        state.isloading=false;
         console.log(res.data.addService);
         dispatch(actions.addService(res.data.addService));
       })
@@ -287,6 +290,7 @@ updateService({
  
   return (
     <div className="clearfix">
+              <SpinnerLarge loading={loading} />
       <RightSideDrawer
         isOpen={state.isDrawerOpen}
         toggleDrawer={toggleDrawer}>
@@ -294,6 +298,8 @@ updateService({
           handleUpdate={handleUpdate}
           handleChangeStaff={handleChangeStaff}
           currentIndex={state.currentIndex}
+          currentService={currentService}
+          isloading={state.isloading}
         />
       </RightSideDrawer>
       <DeleteDialog 

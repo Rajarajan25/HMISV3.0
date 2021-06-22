@@ -9,7 +9,15 @@ export const ADD_SERVICE = gql`
       description
       color_code
       prefered_gender
+      booking_url
       service_type
+      service_relationships{
+        service_staff{
+          staff_id{
+            id
+          }
+        }
+      }
     }
   }
 `;
@@ -21,8 +29,16 @@ export const UPDATE_SERVICE = gql`
       name
       description
       color_code
+      booking_url
       prefered_gender
       service_type
+      service_relationships{
+        service_staff{
+          staff_id{
+            id
+          }
+        }
+      }
     }
   }
 `;

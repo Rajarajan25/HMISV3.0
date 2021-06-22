@@ -25,8 +25,16 @@ export const GET_SERVICE = gql`
       prefered_gender
       color_code
       service_type
+      booking_url
       avatar_or_icon
       avatar_or_icon_path
+      service_relationships{
+        service_staff{
+          staff_id{
+            id
+          }
+        }
+      }
     }    
   }
   `;

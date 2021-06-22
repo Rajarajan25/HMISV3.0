@@ -17,6 +17,8 @@ import { Duration } from '../../../components/Duration'
 import { StaffService } from "./service-sales";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import {ServiceSlice} from "./ServiceSlice";
+import { AzureImageview } from '../../../components/AzureImageview';
+
 const {actions} = ServiceSlice;
 function TabContainer(props) {
   return (
@@ -39,16 +41,16 @@ const useStyles = makeStyles(theme => ({
 
 
 export function ServiceDetailsTab(props) {
-  const {handleUpdate,currentIndex,handleChangeStaff}=props
+  const {handleUpdate,currentIndex,handleChangeStaff,currentService,isloading}=props
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
   const dispatch = useDispatch();
-  const { currentState } = useSelector(
-    (state) => ({ currentState: state.service }),
-    shallowEqual
-  );
+  // const { currentState } = useSelector(
+  //   (state) => ({ currentState: state.service }),
+  //   shallowEqual
+  // );
 
-  const { listService, currentService } = currentState;
+  // const { listService, currentService } = currentState;
   const field = {
     name: "Service Name",
     gender: {label:"Preferred Genders",name:"prefered_gender"},
@@ -89,7 +91,7 @@ export function ServiceDetailsTab(props) {
       <div className={classes.root}>
         <div className="d-flex BoxShade">
           <div className="col mx-210 pr-2 my-auto">
-            <StaffName />
+            <StaffName currentService={currentService}/>
           </div>
           <div className="col p-0">
             <AppBar position="static" color="default">
@@ -111,7 +113,7 @@ export function ServiceDetailsTab(props) {
         </div>
         <div className="p-0">
           {value === 0 && <TabContainer> <Details current={currentService} handleSave={editService} fields={field}
-          index={currentIndex} handleUpdate={handleUpdate}  /> </TabContainer>}
+          index={currentIndex} handleUpdate={handleUpdate} isloading={isloading} /> </TabContainer>}
           {value === 1 && <TabContainer> <Duration data={currentService} handleSave={editService} fields={timing_field}
           /> </TabContainer>}
           {/* {value === 1 && <TabContainer> <ServiceCost/> </TabContainer>} */}
@@ -123,13 +125,14 @@ export function ServiceDetailsTab(props) {
   );
 }
 
-export function StaffName() {
+export function StaffName(props) {
+  const {currentService}=props
   return (
     <div class="d-flex">
-      <span className="listprofileIcon my-auto" style={{ backgroundColor: `#2ecd6f` }}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
+      <AzureImageview data={currentService} />
       <div className="select_staff_name my-auto">
-        <p className="m-0">Service Name</p>
-        <span>Add Description</span>
+        <p className="m-0">{currentService.name}</p>
+        <span>{currentService.description}</span>
       </div>
     </div>
   );
