@@ -80,40 +80,32 @@ export function StaffAvailablity(props) {
 
 export function InpersonUI(props) {
   return (
-    <>
       <div className="d-flex mt-1 mb-1 pl-5 py-1 pr-1 avail_hover">
         <span className="avails visit_bg"><img src={toAbsoluteUrl("/media/patients/avail_visit.svg")} alt="" className="" /></span>
       </div>
-    </>
   )
 }
 
 export function PhoneUI(props) {
   return (
-    <>
       <div className="d-flex mt-1 mb-1 pl-5 py-1 pr-1 avail_hover">
         <span className="avails phone_bg"><img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="" className="" /></span>
       </div>
-    </>
   )
 }
 
 export function VideoUI(props) {
   return (
-    <>
       <div className="d-flex mt-1 mb-1 pl-5 py-1 pr-1 avail_hover">
         <span className="avails video_bg"><img src={toAbsoluteUrl("/media/patients/avail_video.svg")} alt="" className="" /></span>
      </div>
-    </>
   )
 }
 export function ChatUI(props) {
   return (
-    <>
       <div className="d-flex mt-1 mb-1 pl-5 py-1 pr-1 avail_hover">
         <span className="avails chat_bg"><img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="" className="" /></span>
       </div>
-    </>
   )
 }
 
