@@ -20,7 +20,7 @@ const {actions} = ServiceSlice;
 
 export default function ServiceProviderContainer(props) {
   let newService = ServiceModel;
-  const {data,loading}=useQuery(GET_SERVICE,{    pollInterval: 500,
+  const {data,loading}=useQuery(GET_SERVICE,{    pollInterval: 500000,
   });
   const dispatch = useDispatch();
   const { currentState } = useSelector(
