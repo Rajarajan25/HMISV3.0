@@ -9,9 +9,10 @@ class ResourceCell extends React.PureComponent {
           <div className="avatar">
             <img src={avatar} />
           </div>
-          <div className="infos" style={{ color: color }}>
-            <span>{text}</span>
-            <span>Age: {age}</span>
+          <div className="infos">
+            <div className="group-name">
+              <span>{text}</span><span>, Age: {age}</span>
+            </div>
             <span>{discipline}</span>
           </div>
         </div>

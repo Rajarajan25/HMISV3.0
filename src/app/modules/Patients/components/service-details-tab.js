@@ -9,6 +9,8 @@ import Typography from '@material-ui/core/Typography';
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { ServiceDetail } from "./service-detail";
 import { ServiceCost } from "./service-cost";
+import { ServiceStaff } from "./service-staff";
+import { ServiceTiming } from "./service-timing";
 import { ServiceSales } from "./service-sales";
 import { ServiceSettings } from "./service-settings";
 
@@ -57,6 +59,8 @@ export function ServiceDetailsTab() {
                 >
                   <Tab label={<TabServiceDetails />} />
                   <Tab label={<TabCost />} />
+                  <Tab label={<TabStaff />} />
+                  <Tab label={<TabTiming />} />
                   <Tab label={<TabSales />} />
                   <Tab label={<TabServiceSettings />} />
                 </Tabs>
@@ -66,8 +70,10 @@ export function ServiceDetailsTab() {
           <div className="p-0">
             {value === 0 && <TabContainer> <ServiceDetail /> </TabContainer>}
             {value === 1 && <TabContainer> <ServiceCost /> </TabContainer>}
-            {value === 2 && <TabContainer> <ServiceSales /> </TabContainer>}
-            {value === 3 && <TabContainer> <ServiceSettings /> </TabContainer>}
+            {value === 2 && <TabContainer> <ServiceStaff /> </TabContainer>}
+            {value === 3 && <TabContainer> <ServiceTiming /> </TabContainer>}
+            {value === 4 && <TabContainer> <ServiceSales /> </TabContainer>}
+            {value === 5 && <TabContainer> <ServiceSettings /> </TabContainer>}
           </div>
         </div>
       </Col>
@@ -101,8 +107,30 @@ export function TabCost() {
   return (
     <div className="clearfix">
       <div className="d-flex">
-        <span className="staff_tab_img"><img src={toAbsoluteUrl("/media/patients/TabTiming.svg")} alt="" className="d-inline-flex" /></span>
+        <span className="staff_tab_img"><img src={toAbsoluteUrl("/media/patients/TabCost.svg")} alt="" className="d-inline-flex" /></span>
         <span className="staff_tab_title">Cost & Duration</span>
+      </div>
+    </div>
+  );
+}
+
+export function TabStaff() {
+  return (
+    <div className="clearfix">
+      <div className="d-flex">
+        <span className="staff_tab_img"><img src={toAbsoluteUrl("/media/patients/TabStaff.svg")} alt="" className="d-inline-flex" /></span>
+        <span className="staff_tab_title">Staff</span>
+      </div>
+    </div>
+  );
+}
+
+export function TabTiming() {
+  return (
+    <div className="clearfix">
+      <div className="d-flex">
+        <span className="staff_tab_img"><img src={toAbsoluteUrl("/media/patients/TabTiming.svg")} alt="" className="d-inline-flex" /></span>
+        <span className="staff_tab_title">Timing</span>
       </div>
     </div>
   );
@@ -113,7 +141,7 @@ export function TabSales() {
     <div className="clearfix">
       <div className="d-flex">
         <span className="staff_tab_img"><img src={toAbsoluteUrl("/media/patients/TabService.svg")} alt="" className="d-inline-flex" /></span>
-        <span className="staff_tab_title">Staff & Sales</span>
+        <span className="staff_tab_title">Sales</span>
       </div>
     </div>
   );
