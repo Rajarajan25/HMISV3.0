@@ -28,7 +28,7 @@ export default function WorkSpace3() {
         </Link>
         <div className="ml-10 mt-5 workspace-con">
           <h1>Select your business type</h1>
-          <div className="serve_sec">
+          <div className="serve_sec overflow-service01">
             <div className="row">
               <div className="col px-1">
                 <input type="radio" name="busi_type" id="pet_box_01" />

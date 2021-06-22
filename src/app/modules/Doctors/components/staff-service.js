@@ -65,7 +65,7 @@ export function StaffService() {
             <input className="service_search_input" type="text" name="" placeholder="Search" />
           </div>
         </div>
-        <div className="serve_sec">
+        <div className="serve_sec overflow-service02">
           <div className="row">
             <div className="col-3 px-1">
               <input type="checkbox" id="pet_box_01" />
