@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function WorkSpace1() {
+export default function WorkSpace1(disabled) {
   const [obj, setObj] = React.useState({
     name: "",
     colors: "",
@@ -38,7 +38,7 @@ export default function WorkSpace1() {
     >
       {({ handleSubmit }) => (
         <form onSubmit={handleSubmit}>
-          <div className="d-flex flex-column flex-root">
+          <div className="d-flex flex-column flex-root" style={disabled ? {pointerEvents: "none", opacity: "0.4"} : {}}>
             {/*begin::Page*/}
             <div className="d-flex flex-row flex-column-fluid page">
               <div className="workspace staff_first position-relative bg_FAFBFC p-7 col bor-20 h-100">
@@ -48,6 +48,7 @@ export default function WorkSpace1() {
                   </Link>
                 </div>
                 <div className="d-flex justify-content-center flex-column col-xl-9 col-lg-11 wid col h-100 ml-35">
+                 
                   <div className="space1 mb150">
                     <div className="d-flex w-100 loginMaincontent min-heis">
                       <div className="d-flex w-100">
@@ -80,19 +81,19 @@ export default function WorkSpace1() {
                     </div>
                   </div>
 
-                  <div className="space2 mb150">
-                    <div className="d-flex w-100 loginMaincontent min-heis">
-                      <div className="d-flex w-100">
-                        <Link to="/" className="flex-column-auto logo-tb mb-5">
+                  <div className="space2 mb150" >
+                    <div className="d-flex w-100 loginMaincontent min-heis" >
+                      <div className="d-flex w-100" >
+                        <Link to="/" className="flex-column-auto logo-tb mb-5" >
                           <img
                             alt="Logo"
                             src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
                           />
                         </Link>
-                        <div className="ml-10 mt-5 workspace-con">
+                        <div className="ml-10 mt-5 workspace-con" >
                           <h1>Choose your Logo and Colour</h1>
-                          <div className="form-group">
-                            <div className="d-flex pb-2">
+                          <div className="form-group" >
+                            <div className="d-flex pb-2" >
                               {/* <div className="col-4">
                       <input accept="image/*" className={classes.input} style={{ display: 'none' }} id="raised-button-file" multiple type="file"/>
                       <label htmlFor="raised-button-file" className="up_avatar">img
@@ -102,7 +103,7 @@ export default function WorkSpace1() {
                      
                     </div> */}
                               <Upload />
-                              <div className="col-8 pr-0">
+                              <div className="col-8 pr-0" >
                                 {/* <ColorCode /> */}
                                 <ColorPalette
                                   handleChangeDropDown={handleChangeDropDown}
@@ -114,8 +115,10 @@ export default function WorkSpace1() {
                           </div>
                           <div className="space-btn">
                             <button
+                            
                               type="submit"
-                              lcassName="btn btn-btn-primary"
+                              className="btn btn-btn-primary"
+                              
                             >
                               Next
                             </button>
