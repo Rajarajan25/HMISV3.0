@@ -25,7 +25,7 @@ const { actions } = ServiceSlice;
 export default function ServiceProviderContainer(props) {
   const { filterListService } = props;
   let newService = ServiceModel;
-  const {data,loading}=useQuery(GET_SERVICE,{    pollInterval: 500,
+  const {data,loading}=useQuery(GET_SERVICE,{    pollInterval: 1000,
   });
   const dispatch = useDispatch();
   const { currentState } = useSelector(
@@ -116,6 +116,7 @@ export default function ServiceProviderContainer(props) {
       return item;
     });
     let updateArray = currentServiceList[index];
+    delete updateArray.created_at
     updateService({
       variables: {
         serviceID: updateArray.id,
@@ -129,6 +130,7 @@ export default function ServiceProviderContainer(props) {
     });
   };
   const handleUpdate = (updatedValue, index) => {
+    state.isloading=true;
     let tempPickList = JSON.parse(JSON.stringify(listService));
     let updatedItem = tempPickList[index];
     let items = [...tempPickList];
@@ -136,7 +138,6 @@ export default function ServiceProviderContainer(props) {
     console.log("item-->", item);
     items[index] = item;
     delete item.id
-    state.isloading=true;
 updateService({
       variables: {
         serviceID:updatedValue.id,
