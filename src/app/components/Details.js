@@ -15,6 +15,8 @@ import * as Yup from 'yup';
 import { SpinnerSmall } from "./Spinner";
 import { DevAlertPopUp } from "../SiteUtill";
 import { ButtonLoading } from "./ButtonLoading";
+import { Editor } from "@tinymce/tinymce-react";
+
 
 const detailSchema = Yup.object().shape({
   name: Yup.string()
@@ -44,6 +46,10 @@ const getInputClasses = (props, fieldname) => {
 export function Details(props) {
   const { current, fields, index, handleUpdate, addNew, isloading, handleProvider, type } = props;
   const [providerEnable, setProviderEnable] = React.useState(current.is_service_provider);
+  const [editor, setEditor] = React.useState({ content: current.description || "" });
+  function handleChange(content) {
+    setEditor({ content });
+  }
   const classes = useStyles();
   return (
     <Formik
@@ -52,6 +58,7 @@ export function Details(props) {
       validationSchema={detailSchema}
       onSubmit={(values) => {
         //values.phone_no = "" + values.phone_no;
+        values.description = "" + editor.content
         console.log("values", JSON.stringify(values));
         if (index != -1) {
           delete values.created_at;
@@ -90,8 +97,10 @@ export function Details(props) {
               {fields.description && <div className="form-group">
                 <label className="form-label d-block">{fields.description}</label>
                 <div className="d-flex">
-                  <Field as="textarea" placeholder={fields.description} type="text" className={`form-control`} name="description" value={values.description || ""}> </Field>
+                  <Editor apiKey="qagffr3pkuv17a8on1afax661irst1hbr4e6tbv888sz91jc" value={editor.content}
+                    init={{ height: 200, menubar: false }} onEditorChange={handleChange} />
                 </div>
+                <div dangerouslySetInnerHTML={{ __html: values.description }} />
               </div>}
               <div className="form-group">
                 <div className="d-flex">
