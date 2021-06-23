@@ -35,6 +35,11 @@ export const GET_SERVICE = gql`
             id
           }
         }
+        service_duration{
+          duration_id{
+            id
+          }
+        }
       }
     }    
   }
