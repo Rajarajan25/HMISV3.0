@@ -84,48 +84,48 @@ export function GenderFormik(props) {
         <div className="d-flex">
           <div className="col-12">
             <div className="pre_gender d-flex">
-              <div>
-                <div className="gender_col">
-                  <Field
-                    type="radio"
-                    id="gender_01"
-                    name={props.name}
-                    className=""
-                    value="Male"
-                  />
-                  <label className="avatar_col" htmlFor="gender_01">
-                    <span className="gen_img male">
-                      <img
-                        src={toAbsoluteUrl("/media/patients/male_icon.svg")}
-                        alt=""
-                        className="d-inline-flex"
-                      />
-                    </span>
-                    <span className="d-flex justify-content-center">Male</span>
-                  </label>
-                </div>
-                <div className="gender_col">
-                  <Field
-                    type="radio"
-                    id="gender_02"
-                    name={props.name}
-                    className=""
-                    value="Female"
-                  />
-                  <label className="avatar_col" htmlFor="gender_02">
-                    <span className="gen_img female">
-                      <img
-                        src={toAbsoluteUrl("/media/patients/female_icon.svg")}
-                        alt=""
-                        className="d-inline-flex"
-                      />
-                    </span>
-                    <span className="d-flex justify-content-center">
-                      Female
-                    </span>
-                  </label>
-                </div>
+
+              <div className="gender_col">
+                <Field
+                  type="radio"
+                  id="gender_01"
+                  name={props.name}
+                  className=""
+                  value="Male"
+                />
+                <label className="avatar_col" htmlFor="gender_01">
+                  <span className="gen_img male">
+                    <img
+                      src={toAbsoluteUrl("/media/patients/male_icon.svg")}
+                      alt=""
+                      className="d-inline-flex"
+                    />
+                  </span>
+                  <span className="d-flex justify-content-center">Male</span>
+                </label>
               </div>
+              <div className="gender_col">
+                <Field
+                  type="radio"
+                  id="gender_02"
+                  name={props.name}
+                  className=""
+                  value="Female"
+                />
+                <label className="avatar_col" htmlFor="gender_02">
+                  <span className="gen_img female">
+                    <img
+                      src={toAbsoluteUrl("/media/patients/female_icon.svg")}
+                      alt=""
+                      className="d-inline-flex"
+                    />
+                  </span>
+                  <span className="d-flex justify-content-center">
+                    Female
+                  </span>
+                </label>
+              </div>
+
               {props.type === "service" ? (
                 <div className="gender_col">
                   <Field
