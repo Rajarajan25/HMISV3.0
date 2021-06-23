@@ -52,7 +52,7 @@ export default function Timings(props) {
           </Field>
         </div>
         <Availability {...props}/>
-        {formikValues.timings.timing_id.sessions.business_hour ? <BusinessTiming {...props} /> : <CustomTiming {...props} />}
+        {formikValues.timings.timing_id.sessions.business_hour ? <BusinessTiming {...props} /> : <CustomTiming {...props} addTiming={false}/>}
       </div>
     </div>
   )

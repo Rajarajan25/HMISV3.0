@@ -19,8 +19,8 @@ export const ServiceModel={
     is_deleted: false,
     is_recurring: false,
     name: "Service name 1",
-    picture: "",
-    picture_sub_path: "",
+    avatar_or_icon: "",
+    avatar_or_icon_path: "",
     prefered_gender: "",
     reschedule_link: "",
     room_required: false,
@@ -42,9 +42,11 @@ export const ServiceModel={
     min_duration_in_seconds: 0,
     site_id: "",
     workspace_id: "",
-    status: false
       }
-    }], service_pricing: [], service_staff: [], service_locations: []},
+    }], service_pricing: [], 
+    service_staff: [{
+      staff_id:"60c76fccfbc25a15c4e7a10a"
+    }], service_locations: []},
     service_setting: [],
     service_type: "Private",
     

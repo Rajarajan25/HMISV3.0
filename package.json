@@ -2,7 +2,7 @@
     "name": "hmis",
     "version": "7.1.7",
     "private": true,
-    "homepage": "/hmis",
+    "homepage": "/",
     "scripts": {
         "start": "react-scripts start -o",
         "build": "react-scripts build",

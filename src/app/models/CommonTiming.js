@@ -9,6 +9,6 @@ export const CommonTiming={
     end_time: "",
     is_day_off: 0,
     is_special_day: 0,
-    breaktime: [BreakTimeModel],
+    breaktime: [],//BreakTimeModel
     work_day_duration: 0,
 }

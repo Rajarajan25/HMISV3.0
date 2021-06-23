@@ -18,13 +18,15 @@ import {
 } from "../graphql/mutation";
 import { useQuery, useMutation } from "@apollo/client";
 import { DeleteDialog } from "../../../components/DeleteDialog";
+import { SpinnerLarge } from "../../../components/Spinner";
 
 const { actions } = ServiceSlice;
 
 export default function ServiceProviderContainer(props) {
   const { filterListService } = props;
   let newService = ServiceModel;
-  const { data, loading } = useQuery(GET_SERVICE);
+  const {data,loading}=useQuery(GET_SERVICE,{    pollInterval: 500,
+  });
   const dispatch = useDispatch();
   const { currentState } = useSelector(
     (state) => ({ currentState: state.service }),
@@ -133,16 +135,19 @@ export default function ServiceProviderContainer(props) {
     let item = { ...updatedItem, ...updatedValue };
     console.log("item-->", item);
     items[index] = item;
-    delete item.id;
-    updateService({
+    delete item.id
+    state.isloading=true;
+updateService({
       variables: {
-        serviceID: updatedValue.id,
-        service: item,
-      },
-    }).then((res) => {
-      console.log(res.data.updateService);
-      dispatch(actions.editService(res.data.updateService));
-    });
+        serviceID:updatedValue.id,
+        service:item
+      }
+    })
+      .then(res => {
+        state.isloading=false;
+        console.log(res.data.updateService);
+        dispatch(actions.editService(res.data.updateService));
+      })
 
     // this.setState({ staffList: items, isloading: true });
     //delete updatedValue.id;
@@ -192,17 +197,20 @@ export default function ServiceProviderContainer(props) {
   const addNewService = (value) => {
     let sfm = { ...ServiceModel };
     sfm = { ...sfm, ...value };
+    state.isloading=true
     // delete sfm.id;
 
     let newstaff = {};
     addService({
       variables: {
-        service: sfm,
-      },
-    }).then((res) => {
-      console.log(res.data.addService);
-      dispatch(actions.addService(res.data.addService));
-    });
+        service: sfm
+      }
+    })
+      .then(res => {
+        state.isloading=false;
+        console.log(res.data.addService);
+        dispatch(actions.addService(res.data.addService));
+      })
     //  this.setState({ isloading: true });
     // this.props.addStaff({
     //     variables: {
@@ -264,12 +272,33 @@ export default function ServiceProviderContainer(props) {
     });
   };
 
+  const handleChangeStaff =(id)=>{
+    let currentList = JSON.parse(JSON.stringify(currentService));
+
+    // currentList.service_relationships.service_staff.staff_id=id;
+    // updateService({
+    //   variables: {
+    //     serviceID:currentList.id,
+    //     service:currentList
+    //   }
+    // })
+    //   .then(res => {
+
+    //     console.log(res.data.updateService);
+    //     dispatch(actions.editService(res.data.updateService));
+    //   })
+
+  }
+
   return (
     <div className="clearfix">
       <RightSideDrawer isOpen={state.isDrawerOpen} toggleDrawer={toggleDrawer}>
         <ServiceDetailsTab
           handleUpdate={handleUpdate}
+          handleChangeStaff={handleChangeStaff}
           currentIndex={state.currentIndex}
+          currentService={currentService}
+          isloading={state.isloading}
         />
       </RightSideDrawer>
       <DeleteDialog
