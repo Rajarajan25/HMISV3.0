@@ -3,9 +3,13 @@ import React, { useEffect, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { toAbsoluteUrl } from '../../_metronic/_helpers';
 import Button from '@material-ui/core/Button';
-import uploadFileToBlob, { isStorageConfigured, azureBaseURL } from '../../azure-storage-blob';
+import uploadFileToBlob, { isStorageConfigured, azureBaseURL,uploadFileToBlobWithSite } from '../../azure-storage-blob';
 import { DevConsoleLog } from '../SiteUtill';
 const storageConfigured = isStorageConfigured();
+const Type = {
+  "image/png": "png",
+  "image/jpeg": "jpeg",
+};
 const baseURL = azureBaseURL();
 const thumbsContainer = {
   display: "flex",
@@ -88,8 +92,8 @@ const editImage = (image, done) => {
 };
 
 export function Upload(props) {
-  const { imageURL, name } = props;
-  const previewURL = baseURL + imageURL;
+  const { imageURL,name,path,setFieldValue,subName,upload_type } = props;
+  const previewURL = baseURL+path+imageURL;
   const imagePreview = {
     name: imageURL,
     preview: previewURL
@@ -110,10 +114,12 @@ export function Upload(props) {
     let fileSelected=files[0]
     if (storageConfigured) {
       setUploading(true);
-      await uploadFileToBlob(fileSelected).then((blobs) => {
+      const image=upload_type+"."+Type[fileSelected.type];
+      await uploadFileToBlobWithSite(fileSelected,"siteid_900","workid_900","userid_900",image).then((blobs) => {
         DevConsoleLog("name-->", name);
         DevConsoleLog("fileSelected.path-->", fileSelected.path);
-        props.setFieldValue(name, fileSelected.path);
+        setFieldValue(name, fileSelected.path);
+        setFieldValue(subName, "siteid_900/workid_900/userid_900");
         setUploading(false);
         setFiles(
           files.map((file) =>

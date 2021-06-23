@@ -45,12 +45,13 @@ const getInputClasses = (props, fieldname) => {
 };
 
 export function Details(props) {
-  const classes = useStyles();
   const { current, fields, index, handleUpdate, addNew, isloading, handleProvider, type } = props;
+  const [providerEnable, setProviderEnable] = React.useState(current.is_service_provider);
   const [editor, setEditor] = React.useState({ content: current.description || "" });
   function handleChange(content) {
     setEditor({ content });
   }
+  const classes = useStyles();
   return (
     <Formik
       initialValues={current}
@@ -146,7 +147,15 @@ export function Details(props) {
               </div>}
               {fields.avatar && <div className="form-group">
                 <div className="d-flex pb-2">
-                  <UploadAvatarFormik classes={classes} name="booking_url" imageURL={values.booking_url} setFieldValue={setFieldValue} />
+                  <UploadAvatarFormik 
+                  classes={classes} 
+                  name="avatar_or_icon"
+                  subName="avatar_or_icon_path"
+                  imageURL={values.avatar_or_icon}
+                  path={values.avatar_or_icon_path}
+                  upload_type="profile_image" 
+                  setFieldValue={setFieldValue} 
+                  />
                   <div className="col-9 pr-0">
                     <ColorPaletteFormik name="color_code" />
                   </div>
@@ -198,7 +207,9 @@ export function Details(props) {
                             checked={values.is_service_provider}
                             onChange={(event, checked) => {
                               setFieldValue("is_service_provider", checked);
-                              handleProvider(values, checked)
+                              handleProvider(values, checked);
+                              setProviderEnable(checked);
+
                             }}
                           />
                         </div>
@@ -215,7 +226,7 @@ export function Details(props) {
                   </a>
                 </div>
               </div>}
-              {fields.syncwith && <Syncwith />}
+              {fields.syncwith && <Syncwith providerEnable={providerEnable} />}
               <ButtonLoading label="Save" loading={isloading} />
               {/* <div className="form-group mb-0">
                 <div className="d-flex justify-content-end patientButton pos_fix">
