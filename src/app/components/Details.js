@@ -42,8 +42,9 @@ const getInputClasses = (props, fieldname) => {
 };
 
 export function Details(props) {
+  const { current, fields, index, handleUpdate, addNew, isloading, handleProvider, type } = props;
+  const [providerEnable, setProviderEnable] = React.useState(current.is_service_provider);
   const classes = useStyles();
-  const { current, fields, index, handleUpdate, addNew, isloading, handleProvider,type } = props;
   return (
     <Formik
       initialValues={current}
@@ -184,7 +185,9 @@ export function Details(props) {
                             checked={values.is_service_provider}
                             onChange={(event, checked) => {
                               setFieldValue("is_service_provider", checked);
-                              handleProvider(values, checked)
+                              handleProvider(values, checked);
+                              setProviderEnable(checked);
+
                             }}
                           />
                         </div>
@@ -201,7 +204,7 @@ export function Details(props) {
                   </a>
                 </div>
               </div>}
-              {fields.syncwith && <Syncwith />}
+              {fields.syncwith && <Syncwith providerEnable={providerEnable} />}
               <ButtonLoading label="Save" loading={isloading} />
               {/* <div className="form-group mb-0">
                 <div className="d-flex justify-content-end patientButton pos_fix">

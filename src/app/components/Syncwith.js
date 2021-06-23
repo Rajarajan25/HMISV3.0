@@ -11,7 +11,10 @@ const SynwithOption = [
 ];
 
 export function Syncwith(props) {
-  return (<div className="form-group m-0">
+ const {providerEnable} = props;
+  return (
+    <>
+    {providerEnable ? <div className="form-group m-0">
     <div className="col-12">
       <label className="form-label d-block">Sync with</label>
     </div>
@@ -34,5 +37,8 @@ export function Syncwith(props) {
         </div>
       </div>
     </div>
-  </div>)
+  </div>:null}
+  </>
+  )
+  
 }
