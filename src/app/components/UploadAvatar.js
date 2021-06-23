@@ -3,7 +3,6 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import { toAbsoluteUrl } from "../../_metronic/_helpers";
 import { Upload } from './Upload';
-import uploadFileToBlob, { isStorageConfigured } from '../../azure-storage-blob';
 export function UploadAvatar(props) {
     return (
         <>
