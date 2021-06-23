@@ -43,7 +43,7 @@ const getInputClasses = (props, fieldname) => {
 
 export function Details(props) {
   const classes = useStyles();
-  const { current, fields, index, handleUpdate, addNew, isloading, handleProvider } = props;
+  const { current, fields, index, handleUpdate, addNew, isloading, handleProvider,type } = props;
   return (
     <Formik
       initialValues={current}
@@ -138,7 +138,7 @@ export function Details(props) {
                   </div>
                 </div>
               </div>}
-              {fields.gender && <GenderFormik label={fields.gender.lable} name={fields.gender.name} />}
+              {fields.gender && <GenderFormik type={type} label={fields.gender.lable} name={fields.gender.name} />}
               {/* {
                 [1, 2].map((id) => {
                   return (
