@@ -3,9 +3,8 @@
 // <snippet_package>
 // THIS IS SAMPLE CODE ONLY - NOT MEANT FOR PRODUCTION USE
 import { BlobServiceClient} from '@azure/storage-blob';
-
 // THIS IS SAMPLE CODE ONLY - DON'T STORE TOKEN IN PRODUCTION CODE
-const sasToken = process.env.AZURE_STORAGE_NAME || "?sv=2020-02-10&ss=bfqt&srt=sco&sp=rwdlacuptfx&se=2025-06-16T18:14:36Z&st=2021-06-16T10:14:36Z&spr=https&sig=tuI41uAzbiUe3zZJLw5ATdnerKyYWpAdi4tNCsqh1hg%3D"; // Fill string with your SAS token
+const sasToken = process.env.AZURE_STORAGE_NAME || "?sv=2020-02-10&ss=bfqt&srt=sco&sp=rwdlacuptfx&se=2025-06-23T16:02:37Z&st=2021-06-23T08:02:37Z&spr=https&sig=6uavIoxwDjzfdKyCKZb6w6XBUOyRvTB6QdbZn1jQeRY%3D"; // Fill string with your SAS token
 const containerName = `hmis`;
 const storageAccountName = process.env.STORAGE_SAS_TOKEN || "hmis"; // Fill string with your Storage resource name
 // </snippet_package>
@@ -18,7 +17,6 @@ export const isStorageConfigured = () => {
 
 export const azureBaseURL = () => {
   return `https://${storageAccountName}.blob.core.windows.net/${containerName}/`;
-  
 }
 
 export const toImageUrl = pathname => `https://${storageAccountName}.blob.core.windows.net/${containerName}/` + pathname;
@@ -77,7 +75,45 @@ const uploadFileToBlob = async (file) => {
   // get list of blobs in container
   return getBlobsInContainer(containerClient);
 };
+
 // </snippet_uploadFileToBlob>
+
+// <snippet_uploadFileToBlob>
+export const uploadFileToBlobWithSite = async (file,site_id,workspace_id,user_id,image_name) => {
+  if (!file) return [];
+
+  // get BlobService = notice `?` is pulled out of sasToken - if created in Azure portal
+  const blobService = new BlobServiceClient(
+    `https://${storageAccountName}.blob.core.windows.net/?${sasToken}`
+  );
+
+  // get Container - full public read access
+  const containerClient = blobService.getContainerClient(containerName);
+  await containerClient.createIfNotExists({
+    access: 'container',
+  });
+  
+
+  // upload file
+  await createBlobInContainerSite(containerClient,file,site_id,workspace_id,user_id,image_name);
+
+  // get list of blobs in container
+  return getBlobsInContainer(containerClient);
+};
+
+// <snippet_createBlobInContainer>
+const createBlobInContainerSite = async (containerClient,file,site_id,workspace_id,user_id,image_name) => {
+  
+  // create blobClient for container
+  const blobClient = containerClient.getBlockBlobClient(site_id+"/"+workspace_id+"/"+user_id+"/"+image_name);
+  
+
+  // set mimetype as determined from browser with file upload control
+  const options = { blobHTTPHeaders: { blobContentType: file.type } };
+
+  // upload file
+  await blobClient.uploadBrowserData(file, options);
+}
 
 export default uploadFileToBlob;
 
