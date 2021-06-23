@@ -38,7 +38,7 @@ export default function WorkSpace1(disabled) {
     >
       {({ handleSubmit }) => (
         <form onSubmit={handleSubmit}>
-          <div className="d-flex flex-column flex-root" style={disabled ? {pointerEvents: "none", opacity: "0.4"} : {}}>
+          <div className="d-flex flex-column flex-root" >
             {/*begin::Page*/}
             <div className="d-flex flex-row flex-column-fluid page">
               <div className="workspace staff_first position-relative bg_FAFBFC p-7 col bor-20 h-100">
@@ -58,7 +58,7 @@ export default function WorkSpace1(disabled) {
                             src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
                           />
                         </Link>
-                        <div className="ml-10 mt-5 workspace-con">
+                        <div className="ml-10 mt-5 workspace-con" style={disabled ? {pointerEvents: "none", opacity: "0.4"} : {}}>
                           <h1>Workspace Name</h1>
                           <div className="input-contain">
                             <Field
@@ -81,7 +81,7 @@ export default function WorkSpace1(disabled) {
                     </div>
                   </div>
 
-                  <div className="space2 mb150" >
+                  <div className="space2 mb150" style={disabled ? {pointerEvents: "none", opacity: "0.4"} : {}}>
                     <div className="d-flex w-100 loginMaincontent min-heis" >
                       <div className="d-flex w-100" >
                         <Link to="/" className="flex-column-auto logo-tb mb-5" >
@@ -128,7 +128,7 @@ export default function WorkSpace1(disabled) {
                     </div>
                   </div>
 
-                  <div className="space3 mb150">
+                  <div className="space3 mb150" style={disabled ? {pointerEvents: "none", opacity: "0.4"} : {}}>
                     <div className="d-flex w-100 loginMaincontent min-heis">
                       <div className="d-flex w-100">
                         <Link to="/" className="flex-column-auto logo-tb mb-5">
@@ -142,7 +142,7 @@ export default function WorkSpace1(disabled) {
                     </div>
                   </div>
 
-                  <div className="space4 mb150">
+                  <div className="space4 mb150" style={disabled ? {pointerEvents: "none", opacity: "0.4"} : {}}>
                     <div className="d-flex w-100 loginMaincontent min-heis">
                       <div className="d-flex w-100">
                         <Link to="/" className="flex-column-auto logo-tb mb-5">
