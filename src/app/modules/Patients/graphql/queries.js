@@ -20,6 +20,7 @@ export const GET_SERVICE = gql`
   query{
     getService{
       id
+      
       name
       description
       prefered_gender
@@ -31,6 +32,11 @@ export const GET_SERVICE = gql`
       service_relationships{
         service_staff{
           staff_id{
+            id
+          }
+        }
+        service_duration{
+          duration_id{
             id
           }
         }

@@ -51,6 +51,7 @@ export function ServiceDetailsTab(props) {
   // );
 
   // const { listService, currentService } = currentState;
+  let currentservice=JSON.parse(JSON.stringify(currentService));
   const field = {
     name: "Service Name",
     gender: {label:"Preferred Genders",name:"prefered_gender"},
@@ -111,13 +112,14 @@ export function ServiceDetailsTab(props) {
             </AppBar>
           </div>
         </div>
+       
         <div className="p-0">
-          {value === 0 && <TabContainer> <Details current={currentService} handleSave={editService} fields={field}
+          {value === 0 && <TabContainer> <Details current={currentservice}  type={"service"} handleSave={editService} fields={field}
           index={currentIndex} handleUpdate={handleUpdate} isloading={isloading} /> </TabContainer>}
-          {value === 1 && <TabContainer> <Duration data={currentService} handleSave={editService} fields={timing_field}
+          {value === 1 && <TabContainer> <Duration data={currentservice} handleSave={editService} fields={timing_field}
           /> </TabContainer>}
           {/* {value === 1 && <TabContainer> <ServiceCost/> </TabContainer>} */}
-          {value === 2 && <TabContainer> <StaffService handleChangeStaff={handleChangeStaff} {...props} current={currentService} index={currentIndex} handleUpdate={handleUpdate} handleSave={editService} fields={service_field}/> </TabContainer>}
+          {value === 2 && <TabContainer> <StaffService handleChangeStaff={handleChangeStaff} {...props} current={currentservice} index={currentIndex} handleUpdate={handleUpdate} handleSave={editService} fields={service_field}/> </TabContainer>}
           {value === 3 && <TabContainer> <ServiceSettings /> </TabContainer>}
         </div>
       </div>

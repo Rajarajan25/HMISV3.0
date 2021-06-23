@@ -42,12 +42,9 @@ export const ServiceModel={
     min_duration_in_seconds: 0,
     site_id: "",
     workspace_id: "",
-    status: false
       }
     }], service_pricing: [], 
-    service_staff: [{
-      staff_id:"60c76fccfbc25a15c4e7a10a"
-    }], service_locations: []},
+    service_staff: [], service_locations: []},
     service_setting: [],
     service_type: "Private",
     

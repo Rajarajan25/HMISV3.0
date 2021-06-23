@@ -3,7 +3,7 @@ import {Filter} from '../../components/Filter'
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import {ServiceSlice} from "../Patients/components/ServiceSlice";
 const {actions} = ServiceSlice;
-export  function Filters(){
+export  function Filters(props){
   const dispatch = useDispatch();
   const { currentState } = useSelector(
     (state) => ({ currentState: state.service }),
@@ -24,10 +24,15 @@ export  function Filters(){
      ];
     const handleDataSource =(values)=>{
       dispatch(actions.serviceFetched(values));
-
     }
+   
     return(
-        <Filter value={listService} handleDataSource={handleDataSource} fields={fields} placeholder="Service Search"/>
+        // <Filter value={listService} handleDataSource={handleDataSource} fields={fields} placeholder="Service Search"/>
+        <Filter value={listService}
+        handleDataSource={handleDataSource}
+        fields={fields}
+        handleSort={handleDataSource}
+        placeholder="Service Search" />
     )
 }
 

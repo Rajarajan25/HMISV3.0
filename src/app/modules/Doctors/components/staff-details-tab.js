@@ -122,7 +122,7 @@ export function StaffDetailsTab(props) {
           </div>
         </div>
         <div className="p-0">
-          {value === 0 && <TabContainer> <Details {...props} current={data} handleSave={editStaff} fields={detail_field} handleProvider={handleProvider} /> </TabContainer>}
+          {value === 0 && <TabContainer> <Details {...props} type={"staff"} current={data} handleSave={editStaff} fields={detail_field} handleProvider={handleProvider} /> </TabContainer>}
           {value === 1 && <TabContainer>
             {isProviderEnable ? <Duration {...props} current={durationData} handleSave={editStaff} fields={timing_field} /> :
               <StaffSetting />}

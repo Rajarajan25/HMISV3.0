@@ -17,6 +17,11 @@ export const ADD_SERVICE = gql`
             id
           }
         }
+        service_duration{
+          duration_id{
+            id
+          }
+        }
       }
     }
   }
@@ -35,6 +40,11 @@ export const UPDATE_SERVICE = gql`
       service_relationships{
         service_staff{
           staff_id{
+            id
+          }
+        }
+        service_duration{
+          duration_id{
             id
           }
         }
