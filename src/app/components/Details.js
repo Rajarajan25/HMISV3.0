@@ -98,13 +98,8 @@ export function Details(props) {
               {fields.description && <div className="form-group">
                 <label className="form-label d-block">{fields.description}</label>
                 <div className="d-flex">
-                  
-                    <ReactQuill
-          value={editor.content}
-          theme="snow"
-          onChange={handleChange}
-          
-        />
+
+                  <ReactQuill value={editor.content} theme="snow" onChange={handleChange} />
                 </div>
               </div>}
               <div className="form-group">
@@ -147,14 +142,14 @@ export function Details(props) {
               </div>}
               {fields.avatar && <div className="form-group">
                 <div className="d-flex pb-2">
-                  <UploadAvatarFormik 
-                  classes={classes} 
-                  name="avatar_or_icon"
-                  subName="avatar_or_icon_path"
-                  imageURL={values.avatar_or_icon}
-                  path={values.avatar_or_icon_path}
-                  upload_type="profile_image" 
-                  setFieldValue={setFieldValue} 
+                  <UploadAvatarFormik
+                    classes={classes}
+                    name="avatar_or_icon"
+                    subName="avatar_or_icon_path"
+                    imageURL={values.avatar_or_icon}
+                    path={values.avatar_or_icon_path}
+                    upload_type="profile_image"
+                    setFieldValue={setFieldValue}
                   />
                   <div className="col-9 pr-0">
                     <ColorPaletteFormik name="color_code" />
