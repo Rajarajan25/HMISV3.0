@@ -20,7 +20,6 @@ export const GET_SERVICE = gql`
   query{
     getService{
       id
-      
       name
       description
       prefered_gender

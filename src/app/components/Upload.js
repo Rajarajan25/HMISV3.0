@@ -92,8 +92,8 @@ const editImage = (image, done) => {
 };
 
 export function Upload(props) {
-  const { imageURL,name,path,setFieldValue,subName,upload_type } = props;
-  const previewURL = baseURL+path+imageURL;
+  const { imageURL,name,path,setFieldValue,subName,upload_type,upload_id } = props;
+  const previewURL = baseURL+imageURL;
   const imagePreview = {
     name: imageURL,
     preview: previewURL
@@ -115,11 +115,11 @@ export function Upload(props) {
     if (storageConfigured) {
       setUploading(true);
       const image=upload_type+"."+Type[fileSelected.type];
-      await uploadFileToBlobWithSite(fileSelected,"siteid_900","workid_900","userid_900",image).then((blobs) => {
+      await uploadFileToBlobWithSite(fileSelected,upload_id,image).then((url) => {
         DevConsoleLog("name-->", name);
         DevConsoleLog("fileSelected.path-->", fileSelected.path);
-        setFieldValue(name, fileSelected.path);
-        setFieldValue(subName, "siteid_900/workid_900/userid_900");
+        setFieldValue(name, url);
+        //setFieldValue(subName, "siteid_900/workid_900/userid_900");
         setUploading(false);
         setFiles(
           files.map((file) =>

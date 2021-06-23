@@ -115,13 +115,13 @@ export function AvailableDropdownMenu(props) {
         ava.inperson = { ...InpersionModel, buinsess_address: true };
         break;
       case Type.PHONE:
-        if(ava.inperson.buinsess_address||ava.inperson.client_address){
+        if(ava.oncall.client||ava.oncall.staff){
           return;
         }
         ava.oncall = { ...OncallModel, client: true };
         break;
       case Type.VIDEO:
-        if(ava.oncall.client||ava.oncall.staff){
+        if(ava.video&&ava.video.length!==0){
           return;
         }
         ava.video = [{ ...VideoData, video_type: "Zoom" }];

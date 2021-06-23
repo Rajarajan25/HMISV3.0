@@ -88,6 +88,8 @@ function Login(props) {
             setSubmitting(false);
             DevConsoleLog("accessToken-->",data.data.loginUser.accessToken);
             localStorage.setItem("authToken",data.data.loginUser.accessToken);
+            localStorage.setItem("site_id","60740ce68a0121235077068e");
+            localStorage.setItem("workspace_id","60814438a874bc0057b6af59");
             props.login(data.data.loginUser.accessToken);
           }).catch((e) => {
             disableLoading();
