@@ -15,8 +15,9 @@ import * as Yup from 'yup';
 import { SpinnerSmall } from "./Spinner";
 import { DevAlertPopUp } from "../SiteUtill";
 import { ButtonLoading } from "./ButtonLoading";
-import { Editor } from "@tinymce/tinymce-react";
-
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css"; // ES6
+import './styles.css'
 
 const detailSchema = Yup.object().shape({
   name: Yup.string()
@@ -97,10 +98,9 @@ export function Details(props) {
               {fields.description && <div className="form-group">
                 <label className="form-label d-block">{fields.description}</label>
                 <div className="d-flex">
-                  <Editor apiKey="qagffr3pkuv17a8on1afax661irst1hbr4e6tbv888sz91jc" value={editor.content}
-                    init={{ height: 200, menubar: false }} onEditorChange={handleChange} />
+
+                  <ReactQuill value={editor.content} theme="snow" onChange={handleChange} />
                 </div>
-                <div dangerouslySetInnerHTML={{ __html: values.description }} />
               </div>}
               <div className="form-group">
                 <div className="d-flex">
@@ -142,14 +142,14 @@ export function Details(props) {
               </div>}
               {fields.avatar && <div className="form-group">
                 <div className="d-flex pb-2">
-                  <UploadAvatarFormik 
-                  classes={classes} 
-                  name="avatar_or_icon"
-                  subName="avatar_or_icon_path"
-                  imageURL={values.avatar_or_icon}
-                  path={values.avatar_or_icon_path}
-                  upload_type="profile_image" 
-                  setFieldValue={setFieldValue} 
+                  <UploadAvatarFormik
+                    classes={classes}
+                    name="avatar_or_icon"
+                    subName="avatar_or_icon_path"
+                    imageURL={values.avatar_or_icon}
+                    path={values.avatar_or_icon_path}
+                    upload_type="profile_image"
+                    setFieldValue={setFieldValue}
                   />
                   <div className="col-9 pr-0">
                     <ColorPaletteFormik name="color_code" />

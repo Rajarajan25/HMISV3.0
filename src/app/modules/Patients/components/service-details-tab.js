@@ -129,12 +129,14 @@ export function ServiceDetailsTab(props) {
 
 export function StaffName(props) {
   const {currentService}=props
+  var strippedHtml = currentService.description.replace(/<[^>]+>/g, '');
+
   return (
     <div class="d-flex">
       <AzureImageview data={currentService} />
       <div className="select_staff_name my-auto">
         <p className="m-0">{currentService.name}</p>
-        <span>{currentService.description}</span>
+        <span>{strippedHtml}</span>
       </div>
     </div>
   );

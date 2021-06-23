@@ -140,12 +140,14 @@ export function StaffDetailsTab(props) {
 
 export function StaffName(props) {
   const { data } = props;
+  var strippedHtml = data.description.replace(/<[^>]+>/g, '');
+
   return (
     <div className="d-flex">
       <AzureImageview {...props} />
       <div className="select_staff_name my-auto">
         <p className="m-0">{data.name || "name"}</p>
-        <span>{data.description || "Description"}</span>
+        <span>{strippedHtml || "Description"}</span>
       </div>
     </div>
   );
