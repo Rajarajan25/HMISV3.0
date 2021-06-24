@@ -1,5 +1,5 @@
 import 'date-fns';
-import React from "react";
+import React ,{ Fragment }from "react";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
@@ -8,6 +8,7 @@ import {DatePickersUtil} from '../../Components/DateAndTimePicker'
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
+import Select, { components } from 'react-select';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -19,6 +20,116 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(1),
   },
 }));
+
+
+const countries = [
+  {
+    value: "NG",
+    label: "Nigeria",
+    flag: "https://www.countryflags.io/NG/shiny/32.png"
+  },
+  {
+    value: "US",
+    label: "United States",
+    flag: "https://www.countryflags.io/US/shiny/32.png"
+  },
+  {
+    value: "IL",
+    label: "Isreal",
+    flag: "https://www.countryflags.io/IL/shiny/32.png"
+  },
+  {
+    value: "RO",
+    label: "Romania",
+    flag: "https://www.countryflags.io/RO/shiny/32.png"
+  },
+  {
+    value: "DE",
+    label: "Germany",
+    flag: "https://www.countryflags.io/DE/shiny/32.png"
+  },
+  {
+    value: "BS",
+    label: "Bahamas",
+    flag: "https://www.countryflags.io/BS/shiny/32.png"
+  },
+  {
+    value: "CN",
+    label: "China",
+    flag: "https://www.countryflags.io/CN/shiny/32.png"
+  },
+  {
+    value: "SO",
+    label: "Somalia",
+    flag: "https://www.countryflags.io/SO/shiny/32.png"
+  },
+  {
+    value: "DE",
+    label: "Germany",
+    flag: "https://www.countryflags.io/DE/shiny/32.png"
+  },
+  {
+    value: "BS",
+    label: "Bahamas",
+    flag: "https://www.countryflags.io/BS/shiny/32.png"
+  },
+  {
+    value: "CN",
+    label: "China",
+    flag: "https://www.countryflags.io/CN/shiny/32.png"
+  },
+  {
+    value: "SO",
+    label: "Somalia",
+    flag: "https://www.countryflags.io/SO/shiny/32.png"
+  },
+  {
+    value: "SO",
+    label: "Somalia",
+    flag: "https://www.countryflags.io/SO/shiny/32.png"
+  },
+  {
+    value: "DE",
+    label: "Germany",
+    flag: "https://www.countryflags.io/DE/shiny/32.png"
+  },
+  {
+    value: "BS",
+    label: "Bahamas",
+    flag: "https://www.countryflags.io/BS/shiny/32.png"
+  },
+  {
+    value: "CN",
+    label: "China",
+    flag: "https://www.countryflags.io/CN/shiny/32.png"
+  },
+  {
+    value: "SO",
+    label: "Somalia",
+    flag: "https://www.countryflags.io/SO/shiny/32.png"
+  }
+];
+const Menu = (props) => {
+  return (
+    <Fragment>
+      <components.Menu {...props}>
+        <div>
+          {props.selectProps.fetchingData ? (
+            <span className="fetching">Fetching data...</span>
+          ) : (
+            <div>{props.children}</div>
+          )}
+          <button
+            className={"change-data"}
+            onClick={props.selectProps.changeOptionsData}
+          >
+            Add
+          </button>
+        </div>
+      </components.Menu>
+    </Fragment>
+  );
+};
 
 export function ServiceDetail() {
   const classes = useStyles();
@@ -34,6 +145,7 @@ export function ServiceDetail() {
           </div>
         </div>
       </div>
+      <Select components={{ Menu }} openModal={()=>{}} options={countries}/>
       <div className="form-group">
         <div className="col-12">
           <label class="form-label d-block">Description</label>
