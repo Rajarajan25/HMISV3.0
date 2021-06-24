@@ -1,5 +1,5 @@
 import 'date-fns';
-import React from "react";
+import React ,{ Fragment }from "react";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
@@ -12,6 +12,10 @@ import { Dropdown } from "react-bootstrap";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import {DropdownItemToggler} from "../../../../_metronic/_partials/dropdowns";
 import { Modal } from "react-bootstrap";
+import Popover from '@material-ui/core/Popover';
+import Typography from '@material-ui/core/Typography';
+
+import Select, { components } from 'react-select';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -22,7 +26,149 @@ const useStyles = makeStyles(theme => ({
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
   },
+  typography: {
+    padding: theme.spacing(2),
+  },
 }));
+
+const countries = [
+  {
+    value: "NG",
+    label: "Nigeria",
+    flag: "https://www.countryflags.io/NG/shiny/32.png"
+  },
+  {
+    value: "US",
+    label: "United States",
+    flag: "https://www.countryflags.io/US/shiny/32.png"
+  },
+  {
+    value: "IL",
+    label: "Isreal",
+    flag: "https://www.countryflags.io/IL/shiny/32.png"
+  },
+  {
+    value: "RO",
+    label: "Romania",
+    flag: "https://www.countryflags.io/RO/shiny/32.png"
+  },
+  {
+    value: "DE",
+    label: "Germany",
+    flag: "https://www.countryflags.io/DE/shiny/32.png"
+  },
+  {
+    value: "BS",
+    label: "Bahamas",
+    flag: "https://www.countryflags.io/BS/shiny/32.png"
+  },
+  {
+    value: "CN",
+    label: "China",
+    flag: "https://www.countryflags.io/CN/shiny/32.png"
+  },
+  {
+    value: "SO",
+    label: "Somalia",
+    flag: "https://www.countryflags.io/SO/shiny/32.png"
+  },
+  {
+    value: "DE",
+    label: "Germany",
+    flag: "https://www.countryflags.io/DE/shiny/32.png"
+  },
+  {
+    value: "BS",
+    label: "Bahamas",
+    flag: "https://www.countryflags.io/BS/shiny/32.png"
+  },
+  {
+    value: "CN",
+    label: "China",
+    flag: "https://www.countryflags.io/CN/shiny/32.png"
+  },
+  {
+    value: "SO",
+    label: "Somalia",
+    flag: "https://www.countryflags.io/SO/shiny/32.png"
+  },
+  {
+    value: "SO",
+    label: "Somalia",
+    flag: "https://www.countryflags.io/SO/shiny/32.png"
+  },
+  {
+    value: "DE",
+    label: "Germany",
+    flag: "https://www.countryflags.io/DE/shiny/32.png"
+  },
+  {
+    value: "BS",
+    label: "Bahamas",
+    flag: "https://www.countryflags.io/BS/shiny/32.png"
+  },
+  {
+    value: "CN",
+    label: "China",
+    flag: "https://www.countryflags.io/CN/shiny/32.png"
+  },
+  {
+    value: "SO",
+    label: "Somalia",
+    flag: "https://www.countryflags.io/SO/shiny/32.png"
+  }
+];
+const Menu = (props) => {
+  const classes = useStyles();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  function handleClick(event) {
+    setAnchorEl(event.currentTarget);
+  }
+
+  function handleClose() {
+    setAnchorEl(null);
+  }
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
+
+  return (
+    <Fragment>
+      <components.Menu {...props}>
+        <div>
+          {props.selectProps.fetchingData ? (
+            <span className="fetching">Fetching data...</span>
+          ) : (
+            <div>{props.children}</div>
+          )}
+    
+          <button
+            className={"change-data"} aria-describedby={id} variant="contained" onClick={handleClick}>
+            Add New
+          </button>
+          <Popover
+            id={id}
+            open={open}
+            anchorEl={anchorEl}
+            onClose={handleClose}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'center',
+            }}
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'center',
+            }}
+          >
+            <Typography className={classes.typography}>The content of the Popover.</Typography>
+          </Popover>
+        </div>
+
+      </components.Menu>
+    </Fragment>
+  );
+};
 
 export function ServiceDetail() {
   const classes = useStyles();
@@ -38,6 +184,7 @@ export function ServiceDetail() {
           </div>
         </div>
       </div>
+      <Select components={{ Menu }} openModal={()=>{}} options={countries}/>
       <div className="form-group">
         <div className="col-12">
           <label class="form-label d-block">Description</label>
