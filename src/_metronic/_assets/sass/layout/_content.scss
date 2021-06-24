@@ -5554,13 +5554,12 @@ p.setting_color {
 
 .event-selector {
   margin-top: 40px;
-  padding: 0 20px;
+  padding: 0 10px;
   input[type="checkbox"] {
     display: none;
   }
   .event_box {
-    width: 100%;
-    margin-bottom: 30px;
+    width: 100%;    
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
     font-family: AvenirNext-W01;
@@ -6207,8 +6206,8 @@ p.setting_color {
     width: 20px;
     height: 20px;
     background-color: #fff;
-    top: 5px;
-    left: 20px;
+    top: 7px;
+    left: 7px;
     display: block;
     content: "";
     z-index: 2;
@@ -6222,8 +6221,8 @@ p.setting_color {
       width: 20px;
       height: 20px;
       background-color: #045bff;
-      top: 5px;
-      left: 20px;
+      top: 7px;
+      left: 7px;
       display: block;
       content: "";
       z-index: 2;
@@ -6402,4 +6401,41 @@ p.setting_color {
       color: #424D51;
     }
   }
+}
+
+
+// media query  even section edit 
+$tablets: 992px;
+$Medium-desktops: 1729px;
+$large-desktops: 1730px;
+
+
+.event-selector{
+  .event-selector-sub {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+    .even-box-selector {
+      max-width: 420px;
+      flex: 0 0 420px;
+      margin: 0px 15px 30px 15px;
+      position: relative;
+  }
+}
+
+
+  // @media screen and (max-width: $Medium-desktops) {
+  //   .col-lg-6{
+  //     flex: 0 0 50%;
+  //     max-width: 50%;
+  //   }
+  // }
+  // @media screen and (max-width: $tablets) {
+  //   .col-lg-6{
+  //     flex: 0 0 100%;
+  //     max-width: 100%;
+  //   }
+  // }
 }
