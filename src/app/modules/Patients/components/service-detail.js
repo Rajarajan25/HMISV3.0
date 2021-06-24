@@ -8,6 +8,13 @@ import {DatePickersUtil} from '../../Components/DateAndTimePicker'
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
+import { Dropdown } from "react-bootstrap";
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
+import {DropdownItemToggler} from "../../../../_metronic/_partials/dropdowns";
+import { Modal } from "react-bootstrap";
+import Popover from '@material-ui/core/Popover';
+import Typography from '@material-ui/core/Typography';
+
 import Select, { components } from 'react-select';
 
 const useStyles = makeStyles(theme => ({
@@ -19,8 +26,10 @@ const useStyles = makeStyles(theme => ({
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
   },
+  typography: {
+    padding: theme.spacing(2),
+  },
 }));
-
 
 const countries = [
   {
@@ -110,6 +119,20 @@ const countries = [
   }
 ];
 const Menu = (props) => {
+  const classes = useStyles();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  function handleClick(event) {
+    setAnchorEl(event.currentTarget);
+  }
+
+  function handleClose() {
+    setAnchorEl(null);
+  }
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
+
   return (
     <Fragment>
       <components.Menu {...props}>
@@ -119,13 +142,29 @@ const Menu = (props) => {
           ) : (
             <div>{props.children}</div>
           )}
+    
           <button
-            className={"change-data"}
-            onClick={props.selectProps.changeOptionsData}
-          >
-            Add
+            className={"change-data"} aria-describedby={id} variant="contained" onClick={handleClick}>
+            Add New
           </button>
+          <Popover
+            id={id}
+            open={open}
+            anchorEl={anchorEl}
+            onClose={handleClose}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'center',
+            }}
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'center',
+            }}
+          >
+            <Typography className={classes.typography}>The content of the Popover.</Typography>
+          </Popover>
         </div>
+
       </components.Menu>
     </Fragment>
   );
@@ -162,7 +201,15 @@ export function ServiceDetail() {
         </div>
         <div className="d-flex">
           <div className="col-12">
-          <input placeholder="Category" type="text" className={`form-control`} name=""/>
+            <Dropdown drop="down" alignCenter className="dropdown h-100">
+                <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
+                  <input placeholder="Category" type="text" className={`form-control`} name=""/>
+                </Dropdown.Toggle>
+                <Dropdown.Menu  className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
+                  <ProviderDropdownMenu />
+                </Dropdown.Menu>
+            </Dropdown>
+          
           </div>
         </div>
       </div>
@@ -343,6 +390,27 @@ export function ServiceDetail() {
           </div>
         </div>
       </div>
+      
+      <div className="form-group">
+        <div className="col-12">
+          <div className="d-flex">
+            <label class="form-label d-block">Recurring Service</label>
+            <div className="pre_status staff_commission">
+                <SwitchLabels />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="form-group">
+        <div className="col-12">
+          <div className="d-flex">
+            <label class="form-label d-block">Limit booking</label>
+            <div className="pre_status staff_commission">
+                <SwitchLabels />
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="form-group">
         <div className="col-12">
           <label class="form-label d-block">Service URL</label>
@@ -355,26 +423,6 @@ export function ServiceDetail() {
           </div>
         </div>
       </div>
-      <div className="form-group">
-        <div className="col-12">
-          <div className="d-flex">
-            <label class="staff_title_text mx-210">Recurring Service</label>
-            <div className="pre_status staff_commission">
-                <SwitchLabels />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="form-group">
-        <div className="col-12">
-          <div className="d-flex">
-            <label class="staff_title_text mx-210">Limit booking</label>
-            <div className="pre_status staff_commission">
-                <SwitchLabels />
-            </div>
-          </div>
-        </div>
-      </div>
       <div className="form-group mb-0">
         <div className="d-flex justify-content-end patientButton pos_fix">
           <button type="button" className="btn btn-primary">Save</button>
@@ -383,6 +431,8 @@ export function ServiceDetail() {
     </div>
   );
 }
+
+
 
 export default function SwitchLabels() {
   
@@ -404,3 +454,89 @@ export default function SwitchLabels() {
     </FormGroup>
   );
 }
+
+export function ProviderDropdownMenu() {
+  return <>
+      {/*begin::Navigation*/}
+        <ul className="navi navi-hover">
+           <li className="navi-item">
+              <div className="service_search position-relative">
+                 <img src={toAbsoluteUrl("/media/patients/drop_search.svg")} alt="search" className="drop_search" />
+                 <input type="text" placeholder="Search" className="form-control" />
+              </div>
+              <PopEvent />
+           </li>
+           <li className="navi-item">
+              <div className="dropdown-menu-search-main">
+                 <div className="service_select">
+                    <div class="d-flex justify-content-left py-1">
+                       <span className="specialInfo text-white position-relative" style={{backgroundColor: `rgba(230, 81, 27,0.1)`}}>
+                          <span className="ProviderName" style={{color: `rgba(230, 81, 27,1)`}}>Gopinath</span> 
+                       </span>
+                    </div>
+                    <div class="d-flex justify-content-left py-1">
+                       <span className="specialInfo text-white position-relative" style={{backgroundColor: `rgba(10, 49, 232,0.1)`}}>
+                          <span className="ProviderName" style={{color: `rgba(10, 49, 232,1)`}}>Mani</span> 
+                       </span>
+                    </div>
+                    <div class="d-flex justify-content-left py-1">
+                       <span className="specialInfo text-white position-relative" style={{backgroundColor: `rgba(29, 188, 156,0.1)`}}>
+                          <span className="ProviderName" style={{color: `rgba(29, 188, 156,1)`}}>Sankar</span> 
+                       </span>
+                    </div>
+                    <div class="d-flex justify-content-left py-1">
+                       <span className="specialInfo text-white position-relative" style={{backgroundColor: `rgba(234, 128, 252,0.1)`}}>
+                          <span className="ProviderName" style={{color: `rgba(234, 128, 252,1)`}}>Kavinesh</span> 
+                       </span>
+                    </div>
+                 </div>
+              </div>
+           </li>
+        </ul>
+     {/*end::Navigation*/}
+  </>
+}
+
+export class PopEvent extends React.Component {
+
+  constructor(props, context) {
+    super(props, context);
+
+    this.state = {
+      show: false,
+    };
+
+    this.handleShow = () => {
+      this.setState({ show: true });
+    };
+
+    this.handleHide = () => {
+      this.setState({ show: false });
+    };
+  }
+
+  render() {
+    return (
+      <>
+        <div className="d-flex justify-content-end patientButton add_timing" >
+          <span type="button" className="btn btn-primary m-0" onClick={this.handleShow}>+ Add New</span>
+        </div>
+
+        <Modal
+          className="timemodal"
+          show={this.state.show}
+          onHide={this.handleHide}
+          dialogClassName="modal-90w"
+          aria-labelledby="example-custom-modal-styling-title"
+        >
+          <Modal.Header closeButton></Modal.Header>
+          <Modal.Body>
+            Add New
+          </Modal.Body>
+        </Modal>
+
+      </>
+    );
+  }
+}
+

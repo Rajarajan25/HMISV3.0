@@ -74,6 +74,12 @@ const availability = [
   { value: 'video', label: 'Video' },
   { value: 'inperson', label: 'In Person' }
 ]
+const addons = [
+  { value: 'gopi', label: 'Gopi' },
+  { value: 'mani', label: 'Mani' },
+  { value: 'kavin', label: 'Kavin' },
+  { value: 'sankar', label: 'Sankar' }
+]
 
 export function ServiceCost() {
   const classes = useStyles();
@@ -168,7 +174,31 @@ export function ServiceCost() {
           </Link>
         </div>
       </div>
-      
+
+      <div className="form-group">
+        <div className="d-flex row">
+          <div className="col-4">
+            <label class="form-label d-block">Add On</label>
+            <div className="re_select">
+              <Select options={addons} />
+            </div>
+          </div>
+        </div>
+        <div className="add-ons">
+          <div className="clearfix">
+            <div className="row">
+              <div className="col-xl-6">
+                <div className="border-bottom">Gopi</div>
+              </div>
+              <div className="col-xl-4">
+                <div className="border-bottom">100</div>
+              </div>
+              <div className="col-xl-2">x</div>
+            </div>
+          </div>
+        </div>
+      </div>
+            
       <div className="form-group mb-0">
         <div className="d-flex justify-content-end patientButton pos_fix">
           <button type="button" className="btn btn-primary">Save</button>

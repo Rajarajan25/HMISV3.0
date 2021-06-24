@@ -12,6 +12,7 @@ import { ServiceCost } from "./service-cost";
 import { ServiceStaff } from "./service-staff";
 import { ServiceTiming } from "./service-timing";
 import { ServiceSales } from "./service-sales";
+import { ServiceNotify } from "./service-notify";
 import { ServiceSettings } from "./service-settings";
 
 function TabContainer(props) {
@@ -62,6 +63,7 @@ export function ServiceDetailsTab() {
                   <Tab label={<TabStaff />} />
                   <Tab label={<TabTiming />} />
                   <Tab label={<TabSales />} />
+                  <Tab label={<TabNotify />} />
                   <Tab label={<TabServiceSettings />} />
                 </Tabs>
               </AppBar>
@@ -73,7 +75,8 @@ export function ServiceDetailsTab() {
             {value === 2 && <TabContainer> <ServiceStaff /> </TabContainer>}
             {value === 3 && <TabContainer> <ServiceTiming /> </TabContainer>}
             {value === 4 && <TabContainer> <ServiceSales /> </TabContainer>}
-            {value === 5 && <TabContainer> <ServiceSettings /> </TabContainer>}
+            {value === 5 && <TabContainer> <ServiceNotify /> </TabContainer>}
+            {value === 6 && <TabContainer> <ServiceSettings /> </TabContainer>}
           </div>
         </div>
       </Col>
@@ -95,7 +98,7 @@ export function StaffName() {
 export function TabServiceDetails() {
   return (
     <div className="clearfix">
-      <div className="d-flex">
+      <div className="d-flex align-items-center">
         <span className="staff_tab_img"><img src={toAbsoluteUrl("/media/patients/TabDetails.svg")} alt="" className="d-inline-flex" /></span>
         <span className="staff_tab_title">Details</span>
       </div>
@@ -106,7 +109,7 @@ export function TabServiceDetails() {
 export function TabCost() {
   return (
     <div className="clearfix">
-      <div className="d-flex">
+      <div className="d-flex align-items-center">
         <span className="staff_tab_img"><img src={toAbsoluteUrl("/media/patients/TabCost.svg")} alt="" className="d-inline-flex" /></span>
         <span className="staff_tab_title">Cost & Duration</span>
       </div>
@@ -117,7 +120,7 @@ export function TabCost() {
 export function TabStaff() {
   return (
     <div className="clearfix">
-      <div className="d-flex">
+      <div className="d-flex align-items-center">
         <span className="staff_tab_img"><img src={toAbsoluteUrl("/media/patients/TabStaff.svg")} alt="" className="d-inline-flex" /></span>
         <span className="staff_tab_title">Staff</span>
       </div>
@@ -128,7 +131,7 @@ export function TabStaff() {
 export function TabTiming() {
   return (
     <div className="clearfix">
-      <div className="d-flex">
+      <div className="d-flex align-items-center">
         <span className="staff_tab_img"><img src={toAbsoluteUrl("/media/patients/TabTiming.svg")} alt="" className="d-inline-flex" /></span>
         <span className="staff_tab_title">Timing</span>
       </div>
@@ -139,9 +142,20 @@ export function TabTiming() {
 export function TabSales() {
   return (
     <div className="clearfix">
-      <div className="d-flex">
+      <div className="d-flex align-items-center">
         <span className="staff_tab_img"><img src={toAbsoluteUrl("/media/patients/TabSales.svg")} alt="" className="d-inline-flex" /></span>
         <span className="staff_tab_title">Sales</span>
+      </div>
+    </div>
+  );
+}
+
+export function TabNotify() {
+  return (
+    <div className="clearfix">
+      <div className="d-flex align-items-center">
+        <span className="staff_tab_img"><img src={toAbsoluteUrl("/media/events/event-notify.svg")} alt="" className="d-inline-flex" /></span>
+        <span className="staff_tab_title">Notification</span>
       </div>
     </div>
   );
@@ -150,10 +164,11 @@ export function TabSales() {
 export function TabServiceSettings() {
   return (
     <div className="clearfix">
-      <div className="d-flex">
+      <div className="d-flex align-items-center">
         <span className="staff_tab_img"><img src={toAbsoluteUrl("/media/patients/TabSettings.svg")} alt="" className="d-inline-flex" /></span>
         <span className="staff_tab_title">Settings</span>
       </div>
     </div>
   );
 }
+

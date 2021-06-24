@@ -2546,15 +2546,16 @@ input.edit_mobile[type="text"] {
     }
     .staff_tab_img {
       background: #f4f5f7;
-      width: 25px;
-      height: 25px;
-      line-height: 22px;
+      width: 30px;
+      height: 30px;
+      line-height: 25px;
       border-radius: 50%;
       margin-right: 8px;
       img {
         opacity: 0.3;
         filter: brightness(0) invert(0);
         -webkit-filter: brightness(0) invert(0);
+        width: 15px;
       }
     }
     .Mui-selected {
@@ -4474,6 +4475,7 @@ p.setting_color {
   .pre_status {
     .MuiFormControlLabel-root {
       margin: 0;
+      margin-left: 15px;
     }
     .MuiSwitch-track {
       width: 40px;
@@ -6431,7 +6433,6 @@ $large-desktops: 1730px;
 $tablets: 992px;
 $Medium-desktops: 1729px;
 $large-desktops: 1730px;
-
 .event-selector {
   .event-selector-sub {
     display: flex;
@@ -6447,9 +6448,7 @@ $large-desktops: 1730px;
     }
   }
 }
-
 // event day counting time design 24-06-2021
-
 .event-working-time-count {
   .day_select {
     .day_input {
@@ -6462,7 +6461,7 @@ $large-desktops: 1730px;
           position: absolute;
           width: 12px;
           height: 12px;
-          border: 1px solid #e9e9e9;
+          border: 1px solid #E9E9E9;
           border-radius: 3px;
           display: block;
           text-align: center;
@@ -6470,39 +6469,37 @@ $large-desktops: 1730px;
           top: 52px;
         }
       }
-
       input[type="checkbox"] ~ .sun_d {
       }
       input[type="checkbox"] ~ .mon_d {
         &::before {
-          border-color: #ef5ab3;
+          border-color: #EF5AB3;
         }
       }
       input[type="checkbox"] ~ .tue_d {
         &::before {
-          border-color: #1fbbfa;
+          border-color: #1FBBFA;
         }
       }
       input[type="checkbox"] ~ .wed_d {
         &::before {
-          border-color: #150d85;
+          border-color: #150D85;
         }
       }
       input[type="checkbox"] ~ .thu_d {
         &::before {
-          border-color: #0d716a;
+          border-color: #0D716A;
         }
       }
       input[type="checkbox"] ~ .fri_d {
         &::before {
-          border-color: #cb3a27;
+          border-color: #CB3A27;
         }
       }
       input[type="checkbox"] ~ .sat_d {
         &::before {
         }
       }
-
       input[type="checkbox"] {
         &:checked + label {
           &::before {
@@ -6510,8 +6507,7 @@ $large-desktops: 1730px;
             left: 0;
             right: 0;
             position: absolute;
-            border: 1px solid #e9e9e9;
-
+            border: 1px solid #E9E9E9;
             width: 12px;
             height: 12px;
             display: block;
@@ -6540,42 +6536,42 @@ $large-desktops: 1730px;
         }
         &:checked + .sun_d {
           &::before {
-            background-color: #e9e9e9;
+            background-color: #E9E9E9;
           }
         }
         &:checked + .mon_d {
           &::before {
-            border-color: #ef5ab3;
-            background-color: #ef5ab3;
+            border-color: #EF5AB3;
+            background-color: #EF5AB3;
           }
         }
         &:checked + .tue_d {
           &::before {
-            border-color: #1fbbfa;
-            background-color: #1fbbfa;
+            border-color: #1FBBFA;
+            background-color: #1FBBFA;
           }
         }
         &:checked + .wed_d {
           &::before {
-            border-color: #150d85;
-            background-color: #150d85;
+            border-color: #150D85;
+            background-color: #150D85;
           }
         }
         &:checked + .thu_d {
           &::before {
-            border-color: #0d716a;
-            background-color: #0d716a;
+            border-color: #0D716A;
+            background-color: #0D716A;
           }
         }
         &:checked + .fri_d {
           &::before {
-            border-color: #cb3a27;
-            background-color: #cb3a27;
+            border-color: #CB3A27;
+            background-color: #CB3A27;
           }
         }
         &:checked + .sat_d {
           &::before {
-            background-color: #e9e9e9;
+            background-color: #E9E9E9;
           }
         }
       }
@@ -6605,7 +6601,6 @@ $large-desktops: 1730px;
       content: "";
     }
   }
-
   .event-tab {
     .session_start {
       img {
@@ -6616,7 +6611,7 @@ $large-desktops: 1730px;
       }
     }
     .remove_line {    
-        background-color: #ffcccc;
+        background-color: #FFCCCC;
         border-radius: 50%;
         text-align: center;
         width: 25px;
@@ -6629,4 +6624,9 @@ $large-desktops: 1730px;
       }
     }
   }
+}
+
+.add-ons {
+  min-height: 200px;
+  margin-top: 20px;
 }

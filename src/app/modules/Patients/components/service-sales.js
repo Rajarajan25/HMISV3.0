@@ -19,19 +19,16 @@ export function ServiceSales() {
   const classes = useStyles();
   return (
     <div className="staff_first staff_third w-100 p-6">
+      
       <div className="form-group">
-        <label className="d-block staff_title_text mr-auto">Sales</label>
-      </div>
-      <div className="form-group">
-        <div className="d-flex row">
-          <div className="col-6">
-            <label class="form-label d-block">Commission</label>
-            <input placeholder="100" type="text" className={`form-control`} name=""/>
+        <div className="d-flex">
+          <label class="staff_title_text">Set Service tax</label>
+          <div className="pre_status staff_commission">
+              <SwitchLabels />
           </div>
         </div>
       </div>
       <div className="form-group">
-        <label class="d-block staff_title_text pb-2">Set Service tax</label>
         <div className="d-flex row">
           <div className="col-6">
             <label class="form-label d-block">Percentage (%)</label>
@@ -40,7 +37,14 @@ export function ServiceSales() {
         </div>
       </div>
       <div className="form-group">
-        <label class="d-block staff_title_text pb-2">Set Voucher/Coupon Sales</label>
+        <div className="d-flex">
+          <label class="staff_title_text">Set Voucher/Coupon Sales</label>
+          <div className="pre_status staff_commission">
+              <SwitchLabels />
+          </div>
+        </div>
+      </div>
+      <div className="form-group">
         <div className="d-flex row">
           <div className="col-6">
           <label class="form-label d-block">Percentage (%)</label>

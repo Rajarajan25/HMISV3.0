@@ -1,6 +1,6 @@
 import React from "react";
 import { NewEvent } from "./components/new-event";
-import {EventDashboard} from "./components/even-dahboard";
+import {EventDashboard} from "./components/event-dahboard";
 import { useSubheader } from "../../../_metronic/layout";
 
 export default function EventDetails() {
