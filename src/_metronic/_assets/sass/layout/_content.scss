@@ -2546,15 +2546,16 @@ input.edit_mobile[type="text"] {
     }
     .staff_tab_img {
       background: #f4f5f7;
-      width: 25px;
-      height: 25px;
-      line-height: 22px;
+      width: 30px;
+      height: 30px;
+      line-height: 25px;
       border-radius: 50%;
       margin-right: 8px;
       img {
         opacity: 0.3;
         filter: brightness(0) invert(0);
         -webkit-filter: brightness(0) invert(0);
+        width: 15px;
       }
     }
     .Mui-selected {

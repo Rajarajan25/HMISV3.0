@@ -6,7 +6,7 @@ import {Button} from "react-bootstrap";
 import { EventTab } from "./event-tab";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import Drawer from '@material-ui/core/Drawer';
-import {EventDashboard} from "./even-dahboard";
+import {EventDashboard} from "./event-dahboard";
 
 const useStyles = makeStyles({
   list: {

@@ -168,7 +168,23 @@ export function ServiceCost() {
           </Link>
         </div>
       </div>
-      
+
+      <div className="form-group">
+        <div className="d-flex row">
+          <div className="col-4">
+            <label class="form-label d-block">Add On</label>
+            <div className="re_select">
+              <Select options={durationtime} />
+            </div>
+          </div>
+        </div>
+        <div className="mt-1">
+          <div>Name</div>
+          <div>Price</div>
+          <div>Close</div>
+        </div>
+      </div>
+            
       <div className="form-group mb-0">
         <div className="d-flex justify-content-end patientButton pos_fix">
           <button type="button" className="btn btn-primary">Save</button>
