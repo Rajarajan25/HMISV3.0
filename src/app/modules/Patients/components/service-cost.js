@@ -74,6 +74,12 @@ const availability = [
   { value: 'video', label: 'Video' },
   { value: 'inperson', label: 'In Person' }
 ]
+const addons = [
+  { value: 'gopi', label: 'Gopi' },
+  { value: 'mani', label: 'Mani' },
+  { value: 'kavin', label: 'Kavin' },
+  { value: 'sankar', label: 'Sankar' }
+]
 
 export function ServiceCost() {
   const classes = useStyles();
@@ -174,14 +180,22 @@ export function ServiceCost() {
           <div className="col-4">
             <label class="form-label d-block">Add On</label>
             <div className="re_select">
-              <Select options={durationtime} />
+              <Select options={addons} />
             </div>
           </div>
         </div>
-        <div className="mt-1">
-          <div>Name</div>
-          <div>Price</div>
-          <div>Close</div>
+        <div className="add-ons">
+          <div className="clearfix">
+            <div className="row">
+              <div className="col-xl-6">
+                <div className="border-bottom">Gopi</div>
+              </div>
+              <div className="col-xl-4">
+                <div className="border-bottom">100</div>
+              </div>
+              <div className="col-xl-2">x</div>
+            </div>
+          </div>
         </div>
       </div>
             

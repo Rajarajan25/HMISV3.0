@@ -4475,6 +4475,7 @@ p.setting_color {
   .pre_status {
     .MuiFormControlLabel-root {
       margin: 0;
+      margin-left: 15px;
     }
     .MuiSwitch-track {
       width: 40px;
@@ -6439,4 +6440,9 @@ $large-desktops: 1730px;
   //     max-width: 100%;
   //   }
   // }
+}
+
+.add-ons {
+  min-height: 200px;
+  margin-top: 20px;
 }

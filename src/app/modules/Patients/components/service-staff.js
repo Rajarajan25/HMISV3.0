@@ -338,7 +338,16 @@ export function ServiceStaff() {
           </div>
         </div>
       </div>
-
+      
+      <div className="form-group">
+        <div className="d-flex row">
+          <div className="col-6">
+            <label class="form-label d-block">Commission</label>
+            <input placeholder="100" type="text" className={`form-control`} name=""/>
+          </div>
+        </div>
+      </div>
+      
       <div className="form-group mb-0">
         <div className="d-flex justify-content-end patientButton pos_fix">
           <button type="button" className="btn btn-primary">Save</button>

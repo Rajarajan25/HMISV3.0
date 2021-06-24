@@ -12,6 +12,7 @@ import { ServiceCost } from "./service-cost";
 import { ServiceStaff } from "./service-staff";
 import { ServiceTiming } from "./service-timing";
 import { ServiceSales } from "./service-sales";
+import { ServiceNotify } from "./service-notify";
 import { ServiceSettings } from "./service-settings";
 
 function TabContainer(props) {
@@ -153,7 +154,7 @@ export function TabNotify() {
   return (
     <div className="clearfix">
       <div className="d-flex align-items-center">
-        <span className="staff_tab_img"><img src={toAbsoluteUrl("/media/patients/TabSales.svg")} alt="" className="d-inline-flex" /></span>
+        <span className="staff_tab_img"><img src={toAbsoluteUrl("/media/events/event-notify.svg")} alt="" className="d-inline-flex" /></span>
         <span className="staff_tab_title">Notification</span>
       </div>
     </div>
@@ -171,13 +172,3 @@ export function TabServiceSettings() {
   );
 }
 
-export function ServiceNotify() {
-  return (
-    <div className="clearfix">
-      <div className="d-flex align-items-center">
-        <span className="staff_tab_img"><img src={toAbsoluteUrl("/media/patients/TabSales.svg")} alt="" className="d-inline-flex" /></span>
-        <span className="staff_tab_title">Notification</span>
-      </div>
-    </div>
-  );
-}
