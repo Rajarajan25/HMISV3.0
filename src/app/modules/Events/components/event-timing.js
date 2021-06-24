@@ -464,7 +464,7 @@ export function Availability() {
     return (
       <div className="staff_first staff_second event-working-time-count">
         <div className="event-tab">
-          <div className="day_select pt-0 pb-5">
+          <div className="day_select pt-0 pb-9">
             <div className="d-flex">
               <label className="staff_title_text">Working Days</label>
             </div>

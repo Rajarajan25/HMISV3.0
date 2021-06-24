@@ -204,7 +204,7 @@ export function EventDashboard() {
   return (
     <div className="clearfix event-selector">
       <div className="event-selector-sub">
-        <div className="even-box-selector">
+        <div className="even-box-selector col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
           <input type="checkbox" id="event_box_01" />
           <label className="card-box-02" for="event_box_01" ></label>
           <div className="event_box card-box-02-sub event_box_003">
@@ -296,7 +296,7 @@ export function EventDashboard() {
         </Drawer>
         </div>
 
-        <div className="even-box-selector">
+        <div className="even-box-selector  col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
           <input type="checkbox" id="event_box_03" />
           <label className="card-box-02" for="event_box_03" ></label>
           <div className="event_box card-box-02-sub event_box_003" >
@@ -378,7 +378,7 @@ export function EventDashboard() {
         </div>
         
 
-        <div className="even-box-selector">
+        <div className="even-box-selector  col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
           <input type="checkbox" id="event_box_04" />
           <label className="card-box-02" for="event_box_04" ></label>
           <div className="event_box card-box-02-sub event_box_003" >
@@ -459,7 +459,7 @@ export function EventDashboard() {
           </div>
         </div>
 
-        <div className="even-box-selector">
+        <div className="even-box-selector  col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
           <input type="checkbox" id="event_box_05" />
           <label className="card-box-02" for="event_box_05" ></label>
           <div className="event_box card-box-02-sub event_box_003" >
@@ -544,7 +544,7 @@ export function EventDashboard() {
           </div>
         </div>
 
-        <div className="even-box-selector">
+        <div className="even-box-selector  col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
           <input type="checkbox" id="event_box_06" />
           <label className="card-box-02" for="event_box_06" ></label>
           <div className="event_box card-box-02-sub event_box_003">
@@ -628,7 +628,7 @@ export function EventDashboard() {
           </div>
         </div>
 
-        <div className="even-box-selector">
+        <div className="even-box-selector  col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
           <input type="checkbox" id="event_box_07" />
           <label className="card-box-02" for="event_box_07" ></label>
           <div className="event_box card-box-02-sub event_box_003" for="event_box_07">
@@ -713,7 +713,7 @@ export function EventDashboard() {
           </div>
         </div>
 
-        <div className="even-box-selector">
+        <div className="even-box-selector  col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
           <input type="checkbox" id="event_box_08" />
           <label className="card-box-02" for="event_box_08" ></label>
           <div className="event_box card-box-02-sub event_box_003">
@@ -794,7 +794,7 @@ export function EventDashboard() {
           </div>
         </div>
 
-        <div className="even-box-selector">
+        <div className="even-box-selector  col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
           <input type="checkbox" id="event_box_09" />
           <label className="card-box-02" for="event_box_09" ></label>
           <div className="event_box card-box-02-sub event_box_003">
@@ -877,7 +877,7 @@ export function EventDashboard() {
           </div>
         </div>
 
-        <div className="even-box-selector">
+        <div className="even-box-selector  col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
           <input type="checkbox" id="event_box_010" />
           <label className="card-box-02" for="event_box_010" ></label>
           <div className="event_box card-box-02-sub event_box_003">

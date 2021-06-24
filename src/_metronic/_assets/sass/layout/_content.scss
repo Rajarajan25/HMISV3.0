@@ -6412,42 +6412,40 @@ $tablets: 992px;
 $Medium-desktops: 1729px;
 $large-desktops: 1730px;
 
-
 .event-selector{
-
   @media screen and (max-width: $Medium-desktops) {
-    .col-lg-6{
-      flex: 0 0 50%;
-      max-width: 50%;
+    .col-lg-4{
+      flex: 0 0 50% !important;
+      max-width: 50% !important;
     }
   }
   @media screen and (max-width: $tablets) {
-    .col-lg-6{
-      flex: 0 0 100%;
-      max-width: 100%;
+    .col-lg-4{
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+    }
+    .col-xl-4{
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
     }
   }
 }
 
-// media query  even section edit
-$tablets: 992px;
-$Medium-desktops: 1729px;
-$large-desktops: 1730px;
-.event-selector {
-  .event-selector-sub {
-    display: flex;
-    flex-flow: row wrap;
-    align-content: flex-start;
-    flex-wrap: wrap;
-    justify-content: center;
-    .even-box-selector {
-      max-width: 420px;
-      flex: 0 0 420px;
-      margin: 0px 15px 30px 15px;
-      position: relative;
-    }
-  }
-}
+// .event-selector {
+//   .event-selector-sub {
+//     display: flex;
+//     flex-flow: row wrap;
+//     align-content: flex-start;
+//     flex-wrap: wrap;
+//     justify-content: center;
+//     .even-box-selector {
+//       max-width: 420px;
+//       flex: 0 0 420px;
+//       margin: 0px 15px 30px 15px;
+//       position: relative;
+//     }
+//   }
+// }
 // event day counting time design 24-06-2021
 .event-working-time-count {
   .day_select {
