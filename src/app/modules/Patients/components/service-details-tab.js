@@ -45,7 +45,7 @@ export function ServiceDetailsTab() {
       <Col sm={12} className="bg-white d-flex flex-column p-0">
         <div className={classes.root}>
           <div className="d-flex BoxShade">
-            <div className="col mx-210 pr-2 my-auto">
+            <div className="col mx-180 pr-2 my-auto">
               <StaffName />
             </div>
             <div className="col p-0">

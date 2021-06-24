@@ -3060,7 +3060,9 @@ input.edit_mobile[type="text"] {
 .mx-210 {
   max-width: 210px;
 }
-
+.mx-180 {
+  max-width: 180px;
+}
 .MuiPopover-root {
   .MuiPickersDay-current {
     color: #1d6aff;
@@ -4937,6 +4939,7 @@ p.setting_color {
         padding: 5px 15px 5px 0px;
         display: flex;
         font-size: 1rem;
+        align-items: center;
       }
       label:after {
         content: inherit;
@@ -4972,7 +4975,7 @@ p.setting_color {
             background: #fff;
             position: absolute;
             transform: rotate(45deg);
-            top: 7px;
+            top: 8px;
             left: 4px;
             transform-origin: 0% 0%;
             transition: width 150ms ease 100ms;
@@ -4985,8 +4988,8 @@ p.setting_color {
             background: #fff;
             position: absolute;
             transform: rotate(305deg);
-            top: 11px;
-            left: 6px;
+            top: 12px;
+            left: 5px;
             transition: width 150ms ease 100ms;
             transform-origin: 0% 0%;
           }

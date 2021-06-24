@@ -371,7 +371,7 @@ export function ServiceDetail() {
         <div className="col-12">
           <label class="form-label d-block">Service Type</label>
         </div>
-        <div className="col-12">
+        <div className="col-12 event-tab pb-3">
           <div className="d-flex event-range">
             <div className="event-radio">
               <input type="radio" id="service_type_01" name="service_type" className="" />

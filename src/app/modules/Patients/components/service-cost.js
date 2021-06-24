@@ -75,10 +75,10 @@ const availability = [
   { value: 'inperson', label: 'In Person' }
 ]
 const addons = [
-  { value: 'gopi', label: 'Gopi' },
-  { value: 'mani', label: 'Mani' },
-  { value: 'kavin', label: 'Kavin' },
-  { value: 'sankar', label: 'Sankar' }
+  { value: 'gynaecology', label: 'Gynaecology' },
+  { value: 'sexology', label: 'Sexology' },
+  { value: 'psychiatry', label: 'Psychiatry' },
+  { value: 'pediatrics', label: 'Pediatrics' }
 ]
 
 export function ServiceCost() {
@@ -186,14 +186,25 @@ export function ServiceCost() {
         </div>
         <div className="add-ons">
           <div className="clearfix">
-            <div className="row">
-              <div className="col-xl-6">
-                <div className="border-bottom">Gopi</div>
+            <div className="row mb-3">
+              <div className="col-xl-5">
+                <label class="staff_title_text">Add on Name</label>
+              </div>
+              <div className="col-xl-3">
+                <label class="staff_title_text">Price</label>
+              </div>
+              <div className="col-xl-4"></div>
+            </div>
+            <div className="row mb-2">
+              <div className="col-xl-5">
+                <label class="form-label d-block">Pediatrics</label>
+              </div>
+              <div className="col-xl-3">
+                <label class="form-label d-block">100</label>
               </div>
               <div className="col-xl-4">
-                <div className="border-bottom">100</div>
+                <span className=""><img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="d-block" /></span>
               </div>
-              <div className="col-xl-2">x</div>
             </div>
           </div>
         </div>
