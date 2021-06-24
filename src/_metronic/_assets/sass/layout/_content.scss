@@ -1024,7 +1024,7 @@ span.listprofileIcon {
 .patientProfileinfo {
   .MuiBackdrop-root {
     background: rgba(0, 0, 0, 0.4) !important;
-}
+  }
   .MuiDrawer-paper {
     top: 0;
     bottom: 0;
@@ -3126,7 +3126,6 @@ input.edit_mobile[type="text"] {
   .MuiTypography-h4 {
     font-size: 1.5rem;
   }
-
 }
 label.staff_title_text {
   font-size: 1rem;
@@ -5559,7 +5558,7 @@ p.setting_color {
     display: none;
   }
   .event_box {
-    width: 100%;    
+    width: 100%;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
     font-family: AvenirNext-W01;
@@ -6329,7 +6328,6 @@ p.setting_color {
   }
 }
 
-
 .overflow-service03 {
   height: auto;
   overflow: auto;
@@ -6343,21 +6341,21 @@ p.setting_color {
 
 .overflow-service03::-webkit-scrollbar-track {
   border-radius: 10px;
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 .overflow-service03::-webkit-scrollbar {
   width: 7px;
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 .overflow-service03::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #ccc;
 }
 .dx-scheduler-header-panel .dx-scheduler-group-row {
   box-shadow: 0px 10px 20px #0000000d;
-  border-bottom: 1px solid #ECEEF1;
+  border-bottom: 1px solid #eceef1;
 }
 .dx-template-wrapper {
   .group-staff {
@@ -6383,34 +6381,32 @@ p.setting_color {
   }
 }
 
-.group-staff{
-  .infos{
+.group-staff {
+  .infos {
     line-height: 20px;
     margin-top: 4px;
-    font-family: 'Proxima Nova';
-    .group-name{
+    font-family: "Proxima Nova";
+    .group-name {
       span {
         display: inline !important;
         padding: 0px 5px 0px 0px;
-        color: #171B1C;       
+        color: #171b1c;
         font-family: ProximaNova_Bold !important;
       }
     }
-    &>span{
+    & > span {
       font-size: 13px;
-      color: #424D51;
+      color: #424d51;
     }
   }
 }
 
-
-// media query  even section edit 
+// media query  even section edit
 $tablets: 992px;
 $Medium-desktops: 1729px;
 $large-desktops: 1730px;
 
-
-.event-selector{
+.event-selector {
   .event-selector-sub {
     display: flex;
     flex-flow: row wrap;
@@ -6422,20 +6418,189 @@ $large-desktops: 1730px;
       flex: 0 0 420px;
       margin: 0px 15px 30px 15px;
       position: relative;
+    }
   }
 }
 
+// event day counting time design 24-06-2021
 
-  // @media screen and (max-width: $Medium-desktops) {
-  //   .col-lg-6{
-  //     flex: 0 0 50%;
-  //     max-width: 50%;
-  //   }
-  // }
-  // @media screen and (max-width: $tablets) {
-  //   .col-lg-6{
-  //     flex: 0 0 100%;
-  //     max-width: 100%;
-  //   }
-  // }
+.event-working-time-count {
+  .day_select {
+    .day_input {
+      input[type="checkbox"] ~ label {
+        position: relative;
+        &::before {
+          content: "";
+          left: 0;
+          right: 0;
+          position: absolute;
+          width: 12px;
+          height: 12px;
+          border: 1px solid #e9e9e9;
+          border-radius: 3px;
+          display: block;
+          text-align: center;
+          margin: 0 auto;
+          top: 52px;
+        }
+      }
+
+      input[type="checkbox"] ~ .sun_d {
+      }
+      input[type="checkbox"] ~ .mon_d {
+        &::before {
+          border-color: #ef5ab3;
+        }
+      }
+      input[type="checkbox"] ~ .tue_d {
+        &::before {
+          border-color: #1fbbfa;
+        }
+      }
+      input[type="checkbox"] ~ .wed_d {
+        &::before {
+          border-color: #150d85;
+        }
+      }
+      input[type="checkbox"] ~ .thu_d {
+        &::before {
+          border-color: #0d716a;
+        }
+      }
+      input[type="checkbox"] ~ .fri_d {
+        &::before {
+          border-color: #cb3a27;
+        }
+      }
+      input[type="checkbox"] ~ .sat_d {
+        &::before {
+        }
+      }
+
+      input[type="checkbox"] {
+        &:checked + label {
+          &::before {
+            content: "";
+            left: 0;
+            right: 0;
+            position: absolute;
+            border: 1px solid #e9e9e9;
+
+            width: 12px;
+            height: 12px;
+            display: block;
+            text-align: center;
+            margin: 0 auto;
+            top: 52px;
+          }
+        }
+        &:checked + label {
+          &::after {
+            position: absolute;
+            content: "";
+            width: 6px;
+            height: 3px;
+            display: block;
+            text-align: center;
+            margin: 0 auto;
+            top: 56px;
+            left: 0;
+            right: 0;
+            border-left: 1px solid #fff;
+            border-bottom: 1px solid #fff;
+            transform: rotate(316deg);
+            -webkit-transform: rotate(316deg);
+          }
+        }
+        &:checked + .sun_d {
+          &::before {
+            background-color: #e9e9e9;
+          }
+        }
+        &:checked + .mon_d {
+          &::before {
+            border-color: #ef5ab3;
+            background-color: #ef5ab3;
+          }
+        }
+        &:checked + .tue_d {
+          &::before {
+            border-color: #1fbbfa;
+            background-color: #1fbbfa;
+          }
+        }
+        &:checked + .wed_d {
+          &::before {
+            border-color: #150d85;
+            background-color: #150d85;
+          }
+        }
+        &:checked + .thu_d {
+          &::before {
+            border-color: #0d716a;
+            background-color: #0d716a;
+          }
+        }
+        &:checked + .fri_d {
+          &::before {
+            border-color: #cb3a27;
+            background-color: #cb3a27;
+          }
+        }
+        &:checked + .sat_d {
+          &::before {
+            background-color: #e9e9e9;
+          }
+        }
+      }
+    }
+  }
+  .date_bx {
+    cursor: pointer;
+    margin-bottom: 0;
+    margin-right: 25px;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 150ms 200ms,
+      transform 350ms cubic-bezier(0.78, -1.22, 0.17, 1.89) !important;
+    &::before {
+      content: inherit;
+    }
+    &:hover {
+      transform: scale(1) !important;
+    }
+  }
+  input[type="checkbox"]:checked + label.date_bx {
+    transform: scale(1) !important;
+    &::before {
+      content: "";
+    }
+  }
+
+  .event-tab {
+    .session_start {
+      img {
+        display: none;
+      }
+      .break_select {
+        margin-left: 0px;
+      }
+    }
+    .remove_line {    
+        background-color: #ffcccc;
+        border-radius: 50%;
+        text-align: center;
+        width: 25px;
+        height: 25px;
+        padding: 7px;
+        padding-top: 6px;      
+      img {
+        filter: none;
+        -webkit-filter: none;
+      }
+    }
+  }
 }

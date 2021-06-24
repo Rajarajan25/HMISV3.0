@@ -462,7 +462,7 @@ export function Availability() {
 
   export function WorkingDay() {
     return (
-      <div className="staff_first staff_second">
+      <div className="staff_first staff_second event-working-time-count">
         <div className="event-tab">
           <div className="day_select pt-0 pb-5">
             <div className="d-flex">
@@ -522,7 +522,7 @@ export function Availability() {
                 <span className="add_line">|</span>
                 <span className="add_break pointer">+ Add Break</span>
                 <span className="add_line">|</span>
-                <span className="remove_line"><img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="d-block" /></span>
+                <span className="remove_line"><img src={toAbsoluteUrl("/media/events/delete-pink.svg")} alt="" className="d-block" /></span>
               </div>
             </div>
             <div className="break_part row mb-2">
@@ -545,7 +545,7 @@ export function Availability() {
                 </div>
               </div>
               <div className="col-5 d-flex justify-content-start align-items-center pl-2 pr-2">
-                <span className="remove_line"><img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="d-block" /></span>
+                <span className="remove_line"><img src={toAbsoluteUrl("/media/events/delete-pink.svg")} alt="" className="d-block" /></span>
               </div>
             </div>
             <div className="break_part row mb-2">
@@ -567,7 +567,7 @@ export function Availability() {
                 </div>
               </div>
               <div className="col-5 d-flex justify-content-start align-items-center pl-2 pr-2">
-                <span className="remove_line"><img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="d-block" /></span>
+                <span className="remove_line"><img src={toAbsoluteUrl("/media/events/delete-pink.svg")} alt="" className="d-block" /></span>
               </div>
             </div>
           </div>
@@ -594,7 +594,7 @@ export function Availability() {
                 <span className="add_line">|</span>
                 <span className="add_break pointer">+ Add Break</span>
                 <span className="add_line">|</span>
-                <span className="remove_line"><img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="d-block" /></span>
+                <span className="remove_line"><img src={toAbsoluteUrl("/media/events/delete-pink.svg")} alt="" className="d-block" /></span>
               </div>
             </div>
             <div className="break_part row mb-2">
@@ -616,7 +616,7 @@ export function Availability() {
                 </div>
               </div>
               <div className="col-5 d-flex justify-content-start align-items-center pl-2 pr-2">
-                <span className="remove_line"><img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="d-block" /></span>
+                <span className="remove_line"><img src={toAbsoluteUrl("/media/events/delete-pink.svg")} alt="" className="d-block" /></span>
               </div>
             </div>
             <div className="break_part row mb-2">
@@ -639,7 +639,7 @@ export function Availability() {
                 </div>
               </div>
               <div className="col-5 d-flex justify-content-start align-items-center pl-2 pr-2">
-                <span className="remove_line"><img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="d-block" /></span>
+                <span className="remove_line"><img src={toAbsoluteUrl("/media/events/delete-pink.svg")} alt="" className="d-block" /></span>
               </div>
             </div>
           </div>
