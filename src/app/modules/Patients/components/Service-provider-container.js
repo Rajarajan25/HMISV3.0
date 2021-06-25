@@ -19,19 +19,27 @@ import {
 import { useQuery, useMutation } from "@apollo/client";
 import { DeleteDialog } from "../../../components/DeleteDialog";
 import { SpinnerLarge } from "../../../components/Spinner";
+import { NetworkStatus } from '@apollo/client';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Toast } from "react-bootstrap";
+
+
 
 const { actions } = ServiceSlice;
 
 export default function ServiceProviderContainer(props) {
   const { filterListService } = props;
   let newService = ServiceModel;
-  const {data,loading}=useQuery(GET_SERVICE,{    pollInterval: 500,
-  });
+  const { data, loading, refetch, networkStatus,error } = useQuery(GET_SERVICE, { notifyOnNetworkStatusChange: true, }
+  );
   const dispatch = useDispatch();
   const { currentState } = useSelector(
     (state) => ({ currentState: state.service }),
     shallowEqual
   );
+  const [show, setShow] = useState(true);
+  const handleClose = () => setShow(false);
 
   const { listService: serviceList, currentService } = currentState;
   const [addService] = useMutation(ADD_SERVICE);
@@ -51,17 +59,19 @@ export default function ServiceProviderContainer(props) {
     deletedItem: false,
   });
   useEffect(() => {
-    if (loading === false && data) {
+    if ((loading === false && data) || networkStatus === NetworkStatus.refetch) {
       dispatch(actions.serviceFetched(data.getService));
+      refetch()
+
     }
-  }, [loading]);
+  }, [data]);
   useEffect(() => {
     setListService(filterListService);
   }, [filterListService]);
   useEffect(() => {
     setListService(serviceList);
   }, [serviceList]);
-  
+
   const handleDuplicate = (duplicatedItem) => {
     let duplicate = JSON.parse(JSON.stringify(duplicatedItem));
     let tempPickItem = JSON.parse(JSON.stringify(listService));
@@ -130,7 +140,7 @@ export default function ServiceProviderContainer(props) {
     });
   };
   const handleUpdate = (updatedValue, index) => {
-    state.isloading=true;
+    state.isloading = true;
     let tempPickList = JSON.parse(JSON.stringify(listService));
     let updatedItem = tempPickList[index];
     let items = [...tempPickList];
@@ -138,14 +148,14 @@ export default function ServiceProviderContainer(props) {
     console.log("item-->", item);
     items[index] = item;
     delete item.id
-updateService({
+    updateService({
       variables: {
-        serviceID:updatedValue.id,
-        service:item
+        serviceID: updatedValue.id,
+        service: item
       }
     })
       .then(res => {
-        state.isloading=false;
+        state.isloading = false;
         console.log(res.data.updateService);
         dispatch(actions.editService(res.data.updateService));
       })
@@ -198,7 +208,7 @@ updateService({
   const addNewService = (value) => {
     let sfm = { ...ServiceModel };
     sfm = { ...sfm, ...value };
-    state.isloading=true
+    state.isloading = true
     // delete sfm.id;
 
     let newstaff = {};
@@ -208,7 +218,7 @@ updateService({
       }
     })
       .then(res => {
-        state.isloading=false;
+        state.isloading = false;
         console.log(res.data.addService);
         dispatch(actions.addService(res.data.addService));
       })
@@ -273,7 +283,7 @@ updateService({
     });
   };
 
-  const handleChangeStaff =(id)=>{
+  const handleChangeStaff = (id) => {
     let currentList = JSON.parse(JSON.stringify(currentService));
 
     // currentList.service_relationships.service_staff.staff_id=id;
@@ -290,9 +300,30 @@ updateService({
     //   })
 
   }
-
+  if(error){
+    return(<div
+      aria-live="polite"
+      aria-atomic="true"
+      style={{
+        position: 'relative',
+        minHeight: '600px',
+      }}
+    >
+      <Toast
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+        }}
+      >
+        
+        <Toast.Body>Network issue... Please check your connection</Toast.Body>
+      </Toast>
+    </div>)}
   return (
     <div className="clearfix">
+      <SpinnerLarge loading={loading} />
+
       <RightSideDrawer isOpen={state.isDrawerOpen} toggleDrawer={toggleDrawer}>
         <ServiceDetailsTab
           handleUpdate={handleUpdate}

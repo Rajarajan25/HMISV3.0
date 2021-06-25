@@ -1,8 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect, useState } from "react";
+import React, { useEffect,useState } from "react";
 import { shallowEqual, useSelector } from "react-redux";
-import { Dropdown } from "react-bootstrap";
-import { DropdownItemToggler } from "../../_metronic/_partials/dropdowns";
+import { Modal } from "react-bootstrap";
 import { FilterDropDown } from './FilterDropDown';
 import Search from '../components/Search';
 import SortBy from '../components/SortBy';
