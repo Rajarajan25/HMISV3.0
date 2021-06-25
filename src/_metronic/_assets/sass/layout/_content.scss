@@ -6113,3 +6113,14 @@ p.setting_color {
     }
   }
 }
+.quill-ui {
+  .ql-toolbar, .ql-container {
+      &.ql-snow {
+          border-color: #eee;
+      }
+  }
+  .ql-container {
+      height: 100px;
+      overflow: hidden;
+  }
+}

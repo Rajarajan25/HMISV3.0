@@ -79,26 +79,30 @@ export function Details(props) {
             <div className="staff_first w-100 p-5">
               {fields.name &&
                 <div className="form-group fv-plugins-icon-container">
-                  <label className="form-label d-block">Name *</label>
-                  <div className="d-flex">
-                    <Field placeholder={fields.name}
-                      {...getFieldProps("name")}
-                      type="text"
-                      className={`form-control py-5 px-6 ${getInputClasses({ touched, errors }, "name")}`}
-                      name="name" value={values.name || ""} />
-                  </div>
-                  {touched.name && errors.name ? (
-                    <div className="fv-plugins-message-container invalid-feedback d-block">
-                      <div className="fv-help-block">{errors.name}</div>
+                  <div className="col-12">
+                    <label className="form-label d-block">Name *</label>
+                    <div className="d-flex">
+                      <Field placeholder={fields.name}
+                        {...getFieldProps("name")}
+                        type="text"
+                        className={`form-control ${getInputClasses({ touched, errors }, "name")}`}
+                        name="name" value={values.name || ""} />
                     </div>
-                  ) : null}
+                    {touched.name && errors.name ? (
+                      <div className="fv-plugins-message-container invalid-feedback d-block">
+                        <div className="fv-help-block">{errors.name}</div>
+                      </div>
+                    ) : null}
+                  </div>
                 </div>
               }
               {fields.visiblity && <Visiblity name="Visiblity" />}
               {fields.description && <div className="form-group">
-                <label className="form-label d-block">{fields.description}</label>
-                <div className="d-flex">
-                  <ReactQuill value={editor.content} theme="snow" onChange={handleChange}/>
+                <div className="col-12">
+                  <label className="form-label d-block">{fields.description}</label>
+                  <div className="w-100 quill-ui">
+                    <ReactQuill value={editor.content} theme="snow" onChange={handleChange}/>
+                  </div>
                 </div>
               </div>}
               <div className="form-group">
