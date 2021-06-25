@@ -48,7 +48,7 @@ export function ColorPalette(props) {
               </div>
             );
           })}
-          <div className="d-inline-flex color_col p-3 plus_btn">
+          {/* <div className="d-inline-flex color_col p-3 plus_btn">
             <span className="color_add">
               <ColorPicker
                 onChangeComplete={(e) => handleColorChange(e, item.id)}
@@ -63,6 +63,7 @@ export function ColorPalette(props) {
               >
                 Ok
               </button>
+         */}
         </div>
       </div>
     </>
