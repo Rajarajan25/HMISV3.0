@@ -6,7 +6,9 @@ import { Upload } from "../../../components/Upload";
 import { Formik, Field } from "formik";
 import { ColorPalette } from "../../../components/ColorPalette";
 import { colors } from "@material-ui/core";
-import { values } from "lodash";
+import { findLastKey, values } from "lodash";
+import { scroller, animateScroll as scroll, Events } from "react-scroll";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -16,29 +18,52 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function WorkSpace1(disabled) {
+export default function WorkSpace1(props) {
   const [obj, setObj] = React.useState({
-    name: "",
     colors: "",
-    bussinesType: "",
   });
-  const classes = useStyles();
+  const [formActions, setFormActions] = React.useState({
+    enableName: true,
+    enableColor: false,
+    enableBusiness: false,
+    enableGo: false,
+  });
+
+  React.useEffect(() => {
+    handleScroll("enableName");
+  }, []);
+
+  const handleScroll = (enableType) => {
+    scroller.scrollTo(enableType, {
+      duration: 800,
+      delay: 0,
+      smooth: "easeInOutQuart",
+    });
+  };
+
+  const scrollTo = (disableType, enableType) => {
+    handleScroll(enableType);
+    setFormActions((oldObj) => {
+      const value = { [disableType]: false, [enableType]: true };
+      const newObj = { ...oldObj, ...value };
+      return newObj;
+    });
+  };
   const handleChangeDropDown = (colors) => {
     setObj({ colors: colors });
-    console.log(obj);
   };
-  const handleClick = () => { };
+
   return (
     <Formik
-      initialValues={{ name: "", colors: "" }}
+      initialValues={{ name: "", colors: "", bussiness_type: "" }}
       onSubmit={(values) => {
         values.colors = obj.colors;
-        window.alert(JSON.stringify(values));
+        console.log(JSON.stringify(values));
       }}
     >
-      {({ handleSubmit }) => (
+      {({ handleSubmit, values }) => (
         <form onSubmit={handleSubmit}>
-          <div className="d-flex flex-column flex-root" >
+          <div className="d-flex flex-column flex-root">
             {/*begin::Page*/}
             <div className="d-flex flex-row flex-column-fluid page">
               <div className="workspace staff_first position-relative bg_FAFBFC p-7 col bor-20 h-100">
@@ -48,9 +73,18 @@ export default function WorkSpace1(disabled) {
                   </Link>
                 </div>
                 <div className="d-flex justify-content-center flex-column col-xl-9 col-lg-11 wid col h-100 ml-35">
-                 
-                  <div className="space1 mb150">
-                    <div className="d-flex w-100 loginMaincontent min-heis">
+                  <div
+                    className="space1 mb150"
+                    style={
+                      formActions.enableName
+                        ? {}
+                        : { pointerEvents: "none", opacity: "0.4" }
+                    }
+                  >
+                    <div
+                      className="d-flex w-100 loginMaincontent min-heis"
+                      name="enableName"
+                    >
                       <div className="d-flex w-100">
                         <Link to="/" className="flex-column-auto logo-tb mb-5">
                           <img
@@ -58,7 +92,7 @@ export default function WorkSpace1(disabled) {
                             src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
                           />
                         </Link>
-                        <div className="ml-10 mt-5 workspace-con" style={disabled ? {pointerEvents: "none", opacity: "0.4"} : {}}>
+                        <div className="ml-10 mt-5 workspace-con">
                           <h1>Workspace Name</h1>
                           <div className="input-contain">
                             <Field
@@ -66,12 +100,20 @@ export default function WorkSpace1(disabled) {
                               placeholder="Name"
                               name="name"
                               className=""
+                              value={values.name || ""}
                             />
                           </div>
                           <div className="space-btn">
                             <button
-                              onClick={() => handleClick()}
+                              onClick={() =>
+                                scrollTo("enableName", "enableColor")
+                              }
                               className="btn btn-btn-primary"
+                              style={
+                                values.name
+                                  ? {}
+                                  : { pointerEvents: "none", opacity: "0.4" }
+                              }
                             >
                               Next
                             </button>
@@ -81,30 +123,31 @@ export default function WorkSpace1(disabled) {
                     </div>
                   </div>
 
-                  <div className="space2 mb150" style={disabled ? {pointerEvents: "none", opacity: "0.4"} : {}}>
-                    <div className="d-flex w-100 loginMaincontent min-heis" >
-                      <div className="d-flex w-100" >
-                        <Link to="/" className="flex-column-auto logo-tb mb-5" >
+                  <div
+                    className="space2 mb150"
+                    style={
+                      formActions.enableColor
+                        ? {}
+                        : { pointerEvents: "none", opacity: "0.4" }
+                    }
+                  >
+                    <div
+                      className="d-flex w-100 loginMaincontent min-heis"
+                      name="enableColor"
+                    >
+                      <div className="d-flex w-100">
+                        <Link to="/" className="flex-column-auto logo-tb mb-5">
                           <img
                             alt="Logo"
                             src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
                           />
                         </Link>
-                        <div className="ml-10 mt-5 workspace-con" >
+                        <div className="ml-10 mt-5 workspace-con">
                           <h1>Choose your Logo and Colour</h1>
-                          <div className="form-group" >
-                            <div className="d-flex pb-2" >
-                              {/* <div className="col-4">
-                      <input accept="image/*" className={classes.input} style={{ display: 'none' }} id="raised-button-file" multiple type="file"/>
-                      <label htmlFor="raised-button-file" className="up_avatar">img
-                          < src={toAbsoluteUrl("/media/auth-screen/avatar_icon.svg")} alt="" className="mt-3 mb-2" />
-                          <span className="d-block">Upload image or browse</span>
-                      </label> 
-                     
-                    </div> */}
+                          <div className="form-group">
+                            <div className="d-flex pb-2">
                               <Upload />
-                              <div className="col-8 pr-0" >
-                                {/* <ColorCode /> */}
+                              <div className="col-8 pr-0">
                                 <ColorPalette
                                   handleChangeDropDown={handleChangeDropDown}
                                   name={colors}
@@ -115,10 +158,15 @@ export default function WorkSpace1(disabled) {
                           </div>
                           <div className="space-btn">
                             <button
-                            
-                              type="submit"
+                              onClick={() =>
+                                scrollTo("enableColor", "enableBussines")
+                              }
                               className="btn btn-btn-primary"
-                              
+                              style={
+                                obj.colors
+                                  ? {}
+                                  : { pointerEvents: "none", opacity: "0.4" }
+                              }
                             >
                               Next
                             </button>
@@ -128,8 +176,18 @@ export default function WorkSpace1(disabled) {
                     </div>
                   </div>
 
-                  <div className="space3 mb150" style={disabled ? {pointerEvents: "none", opacity: "0.4"} : {}}>
-                    <div className="d-flex w-100 loginMaincontent min-heis">
+                  <div
+                    className="space3 mb150"
+                    style={
+                      formActions.enableBussines
+                        ? {}
+                        : { pointerEvents: "none", opacity: "0.4" }
+                    }
+                  >
+                    <div
+                      className="d-flex w-100 loginMaincontent min-heis"
+                      name="enableBussines"
+                    >
                       <div className="d-flex w-100">
                         <Link to="/" className="flex-column-auto logo-tb mb-5">
                           <img
@@ -137,13 +195,26 @@ export default function WorkSpace1(disabled) {
                             src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
                           />
                         </Link>
-                        <Bussinessformik name="bussiness_type" />
+                        <Bussinessformik
+                          name="bussiness_type"
+                          handleScrollTo={scrollTo}
+                        />
                       </div>
                     </div>
                   </div>
 
-                  <div className="space4 mb150" style={disabled ? {pointerEvents: "none", opacity: "0.4"} : {}}>
-                    <div className="d-flex w-100 loginMaincontent min-heis">
+                  <div
+                    className="space4 mb150"
+                    style={
+                      formActions.enableGo
+                        ? {}
+                        : { pointerEvents: "none", opacity: "0.4" }
+                    }
+                  >
+                    <div
+                      className="d-flex w-100 loginMaincontent min-heis"
+                      name="enableGo"
+                    >
                       <div className="d-flex w-100">
                         <Link to="/" className="flex-column-auto logo-tb mb-5">
                           <img
@@ -299,142 +370,80 @@ export function ColorCode() {
   );
 }
 export function Bussinessformik(props) {
+  const { handleScrollTo } = props;
+  const scrollTo = (disableType, enableType) => {
+    handleScrollTo(disableType, enableType);
+  };
+
   const bussiness = [
     {
-      
-      id:"pet_box_01",
-      value:"Service provider",
-      ulr:toAbsoluteUrl("/media/auth-screen/service_provider.svg")
-  },
-  {
-      
-    id:"pet_box_02",
-    value:"Meetings",
-    ulr:toAbsoluteUrl("/media/auth-screen/meetings.svg")
-},
-{
-      
-  id:"pet_box_03",
-  value:"Events",
-  ulr:toAbsoluteUrl("/media/auth-screen/events.svg")
-},
-{
-      
-  id:"pet_box_04",
-  value:"Classes",
-  ulr:toAbsoluteUrl("/media/auth-screen/classes.svg")
-}
-]
+      id: "pet_box_01",
+      value: "Service provider",
+      ulr: toAbsoluteUrl("/media/auth-screen/service_provider.svg"),
+    },
+    {
+      id: "pet_box_02",
+      value: "Meetings",
+      ulr: toAbsoluteUrl("/media/auth-screen/meetings.svg"),
+    },
+    {
+      id: "pet_box_03",
+      value: "Events",
+      ulr: toAbsoluteUrl("/media/auth-screen/events.svg"),
+    },
+    {
+      id: "pet_box_04",
+      value: "Classes",
+      ulr: toAbsoluteUrl("/media/auth-screen/classes.svg"),
+    },
+  ];
   return (
     <div className="ml-10 mt-5 workspace-con">
       <h1>Select your business type</h1>
-     
+
       <div className="serve_sec">
         <div className="row">
-        {bussiness.map((item)=>{
-        return(
-          <div className="col px-1"  key={item.id}>
-            <Field
-              type="radio"
-              id={item.id}
-              name={props.name}
-              className=""
-              value={item.value}
-            />
-            <label className="pat_box" htmlFor={item.id}>
-              <div className="d-block text-center">
-                <div className="service_img d-flex">
-                  <img
-                    src={item.ulr}
-                    alt=""
-                    className="m-auto align-items-center"
-                  />
-                </div>
-                <div className="service_title">
-                  <p>{item.value}</p>
-                </div>
+          {bussiness.map((item) => {
+            return (
+              <div className="col px-1" key={item.id}>
+                <Field
+                  type="radio"
+                  id={item.id}
+                  name={props.name}
+                  className=""
+                  value={item.value}
+                />
+                <label className="pat_box" htmlFor={item.id}>
+                  <div className="d-block text-center">
+                    <div className="service_img d-flex">
+                      <img
+                        src={item.ulr}
+                        alt=""
+                        className="m-auto align-items-center"
+                      />
+                    </div>
+                    <div className="service_title">
+                      <p>{item.value}</p>
+                    </div>
+                  </div>
+                </label>
               </div>
-            </label>
-          </div>
-          )})}
-          {/* <div className="col px-1">
-            <Field
-              type="radio"
-              id="pet_box_02"
-              name={props.name}
-              className=""
-              value="Meetings"
-            />
-            <label className="pat_box" htmlFor="pet_box_02">
-              <div className="d-block text-center">
-                <div className="service_img d-flex">
-                  <img
-                    src={toAbsoluteUrl("/media/auth-screen/meetings.svg")}
-                    alt=""
-                    className="m-auto align-items-center"
-                  />
-                </div>
-                <div className="service_title">
-                  <p>Meetings</p>
-                </div>
-              </div>
-            </label>
-          </div>
-          <div className="col px-1">
-            <Field
-              type="radio"
-              id="pet_box_03"
-              name={props.name}
-              className=""
-              value="Events"
-            />
-            <label className="pat_box" htmlFor="pet_box_03">
-              <div className="d-block text-center">
-                <div className="service_img d-flex">
-                  <img
-                    src={toAbsoluteUrl("/media/auth-screen/events.svg")}
-                    alt=""
-                    className="m-auto align-items-center"
-                  />
-                </div>
-                <div className="service_title">
-                  <p>Events</p>
-                </div>
-              </div>
-            </label>
-          </div>
-          <div className="col px-1">
-            <Field
-              type="radio"
-              id="pet_box_04"
-              name={props.name}
-              className=""
-              value="Classes"
-            />
-            <label className="pat_box" htmlFor="pet_box_04">
-              <div className="d-block text-center">
-                <div className="service_img d-flex">
-                  <img
-                    src={toAbsoluteUrl("/media/auth-screen/classes.svg")}
-                    alt=""
-                    className="m-auto align-items-center"
-                  />
-                </div>
-                <div className="service_title">
-                  <p>Classes</p>
-                </div>
-              </div>
-            </label>
-          </div> */}
+            );
+          })}
         </div>
-      
       </div>
-      
-        <div className="space-btn">
-          <button type="submit" className="btn btn-btn-primary">
-            Create
-          </button>
-        </div>
+
+      <div className="space-btn">
+        <button
+          onClick={() => {
+            scrollTo("enableBussines", "enableGo");
+            // handleBusinessType(businessType)
+          }}
+          className="btn btn-btn-primary"
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 }
