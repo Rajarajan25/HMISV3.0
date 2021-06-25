@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { shallowEqual, useSelector } from "react-redux";
 import { Dropdown } from "react-bootstrap";
 import { DropdownItemToggler } from "../../_metronic/_partials/dropdowns";
@@ -13,11 +13,15 @@ const options = [
 
 export function Filter(props) {
   const user = useSelector(({ auth }) => auth.user, shallowEqual);
-  const { value, handleDataSource, fields , handleSort } = props;
+  const { value, handleDataSource, fields, handleSort } = props;
+  const [isdropOpen,setDropOpen]=useState(false);
   useEffect(() => {
     return () => { };
   }, [user]);
 
+  const handleClose=(values)=>{
+    setDropOpen(values);
+  }
   return (
     <>
       {user && (
@@ -29,22 +33,17 @@ export function Filter(props) {
                   <form autoComplete="off" className="filterForm w-100">
                     <div className="d-flex">
                       <div className="filters">
-                        <Dropdown drop="down" aligncenter="true" className="dropdown h-100">
-                          <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                            <div className="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column pointer">
-                              <div className="d-flex mt-1 mb-1 justify-content-center">
-                                <span className="fas fa-filter filter-icon"></span>
-                              </div>
-                            </div>
-                          </Dropdown.Toggle>
-                          <Dropdown.Menu className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
-                            <FilterDropDown value={value} handleDataSource={handleDataSource} fields={fields} />
-                          </Dropdown.Menu>
-                        </Dropdown>
+                        <div className="d-flex mt-1 mb-1" onClick={()=>handleClose(!isdropOpen)}>
+                          <span className="fas fa-filter filter-icon"></span>
+                        </div>
+
+                        {isdropOpen && <div className="filter-popup">
+                          <FilterDropDown value={value} handleDataSource={handleDataSource} fields={fields}/>
+                        </div>}
                       </div>
-                        <Search handleSearch={handleDataSource} data={value}></Search>
+                      <Search handleSearch={handleDataSource} data={value}></Search>
                     </div>
-                    <SortBy data={value} handleSort={handleSort}/>
+                    <SortBy data={value} handleSort={handleSort} />
                     {/* <div className="d-flex ml-auto align-items-center">
                       <div className="sort-text">Sort Byh:</div>
                       <div className="select-box p-3">

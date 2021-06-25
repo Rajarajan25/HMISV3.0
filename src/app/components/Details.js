@@ -12,12 +12,10 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import * as Yup from 'yup';
-import { SpinnerSmall } from "./Spinner";
 import { DevAlertPopUp } from "../SiteUtill";
 import { ButtonLoading } from "./ButtonLoading";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css"; // ES6
-import './styles.css'
 
 const detailSchema = Yup.object().shape({
   name: Yup.string()
