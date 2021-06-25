@@ -79,7 +79,7 @@ const uploadFileToBlob = async (file) => {
 // </snippet_uploadFileToBlob>
 
 // <snippet_uploadFileToBlob>
-export const uploadFileToBlobWithSite = async (file,site_id,workspace_id,user_id,image_name) => {
+export const uploadFileToBlobWithSite = async (file,user_id,image_name) => {
   if (!file) return [];
 
   // get BlobService = notice `?` is pulled out of sasToken - if created in Azure portal
@@ -92,21 +92,25 @@ export const uploadFileToBlobWithSite = async (file,site_id,workspace_id,user_id
   await containerClient.createIfNotExists({
     access: 'container',
   });
-  
+
+  const site_id=localStorage.getItem("site_id");
+  const workspace_id=localStorage.getItem("workspace_id");
+
+  const URL=site_id+"/"+workspace_id+"/"+user_id+"/"+image_name;
 
   // upload file
-  await createBlobInContainerSite(containerClient,file,site_id,workspace_id,user_id,image_name);
+  await createBlobInContainerSite(containerClient,file,URL);
 
   // get list of blobs in container
-  return getBlobsInContainer(containerClient);
+  return URL;//getBlobsInContainer(containerClient);
 };
 
 // <snippet_createBlobInContainer>
-const createBlobInContainerSite = async (containerClient,file,site_id,workspace_id,user_id,image_name) => {
+const createBlobInContainerSite = async (containerClient,file,upload_url) => {
+  
   
   // create blobClient for container
-  const blobClient = containerClient.getBlockBlobClient(site_id+"/"+workspace_id+"/"+user_id+"/"+image_name);
-  
+  const blobClient = containerClient.getBlockBlobClient(upload_url);
 
   // set mimetype as determined from browser with file upload control
   const options = { blobHTTPHeaders: { blobContentType: file.type } };

@@ -68,44 +68,46 @@ export function StaffAvailablity(props) {
     }
   }
 
-  return (<> 
-        {selectOpt.map((item, i) => {
-          return (
-           <div > { item }</div>
-          );
-        })}
-      </>)
+  return (<>
+    {selectOpt.map((item, i) => {
+      return (
+        <div className="d-flex" key={i}>
+          {item}
+        </div>
+      );
+    })}
+  </>)
 }
 
 
 export function InpersonUI(props) {
   return (
-      <div className="d-flex mt-1 mb-1 pl-5 py-1 pr-1 avail_hover">
-        <span className="avails visit_bg"><img src={toAbsoluteUrl("/media/patients/avail_visit.svg")} alt="" className="" /></span>
-      </div>
+    <span className="avails visit_bg">
+      <img src={toAbsoluteUrl("/media/patients/avail_visit.svg")} alt="In Person" className="m-0" />
+    </span>
   )
 }
 
 export function PhoneUI(props) {
   return (
-      <div className="d-flex mt-1 mb-1 pl-5 py-1 pr-1 avail_hover">
-        <span className="avails phone_bg"><img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="" className="" /></span>
-      </div>
+    <span className="avails phone_bg">
+      <img src={toAbsoluteUrl("/media/patients/avail_phone.svg")} alt="Phone" className="m-0" />
+    </span>
   )
 }
 
 export function VideoUI(props) {
   return (
-      <div className="d-flex mt-1 mb-1 pl-5 py-1 pr-1 avail_hover">
-        <span className="avails video_bg"><img src={toAbsoluteUrl("/media/patients/avail_video.svg")} alt="" className="" /></span>
-     </div>
+    <span className="avails video_bg">
+      <img src={toAbsoluteUrl("/media/patients/avail_video.svg")} alt="Video" className="m-0" />
+    </span>
   )
 }
 export function ChatUI(props) {
   return (
-      <div className="d-flex mt-1 mb-1 pl-5 py-1 pr-1 avail_hover">
-        <span className="avails chat_bg"><img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="" className="" /></span>
-      </div>
+    <span className="avails chat_bg">
+      <img src={toAbsoluteUrl("/media/patients/avail_chat.svg")} alt="Chat" className="m-0" />
+    </span>
   )
 }
 

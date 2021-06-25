@@ -98,8 +98,7 @@ export function Details(props) {
               {fields.description && <div className="form-group">
                 <label className="form-label d-block">{fields.description}</label>
                 <div className="d-flex">
-
-                  <ReactQuill value={editor.content} theme="snow" onChange={handleChange} />
+                  <ReactQuill value={editor.content} theme="snow" onChange={handleChange}/>
                 </div>
               </div>}
               <div className="form-group">
@@ -148,6 +147,7 @@ export function Details(props) {
                     subName="avatar_or_icon_path"
                     imageURL={values.avatar_or_icon}
                     path={values.avatar_or_icon_path}
+                    upload_id={values.id}
                     upload_type="profile_image"
                     setFieldValue={setFieldValue}
                   />
@@ -157,15 +157,6 @@ export function Details(props) {
                 </div>
               </div>}
               {fields.gender && <GenderFormik type={type} label={fields.gender.lable} name={fields.gender.name} />}
-              {/* {
-                [1, 2].map((id) => {
-                  return (
-                    <React.Fragment key={id}>
-                    <GenderFormik  label={fields.gender.lable} name={fields.gender.name+id} />
-                    </React.Fragment>
-                  )
-                })
-              } */}
               {fields.status && <div className="form-group">
                 <div className="row">
                   <div className="col-6">

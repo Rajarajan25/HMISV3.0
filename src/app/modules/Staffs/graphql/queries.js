@@ -95,6 +95,8 @@ const staff = `
       id
       booking_url
       color_code
+      avatar_or_icon
+      avatar_or_icon_path
       created_at
       description
       display_name
