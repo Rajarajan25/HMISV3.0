@@ -46,7 +46,7 @@ export function EventTab() {
   return (
     <div className="event-tab clearfix">
         <div className="d-flex BoxShade">
-          <div className="col mx-210 pr-2 my-auto">
+          <div className="col mx-180 pr-2 my-auto">
             <EventName />
           </div>
           <div className="col p-0">
