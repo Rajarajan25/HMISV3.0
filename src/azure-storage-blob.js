@@ -108,12 +108,11 @@ export const uploadFileToBlobWithSite = async (file,user_id,image_name) => {
 // <snippet_createBlobInContainer>
 const createBlobInContainerSite = async (containerClient,file,upload_url) => {
   
-  
   // create blobClient for container
   const blobClient = containerClient.getBlockBlobClient(upload_url);
 
   // set mimetype as determined from browser with file upload control
-  const options = { blobHTTPHeaders: { blobContentType: "image/blob" } };
+  const options = { blobHTTPHeaders: { blobContentType: "image/png" } };
 
   // upload file
   await blobClient.uploadBrowserData(file, options);

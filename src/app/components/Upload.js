@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core';
-import React, { useEffect, useState,useCallback } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { toAbsoluteUrl } from '../../_metronic/_helpers';
 import Button from '@material-ui/core/Button';
@@ -9,6 +9,7 @@ import { Modal } from "react-bootstrap";
 import Cropper from 'react-easy-crop'
 import { stubTrue } from 'lodash';
 import { getCroppedImg } from '../canvasUtils';
+import CropImage from './CropImage';
 const storageConfigured = isStorageConfigured();
 const Type = {
   "image/png": "png",
@@ -139,31 +140,31 @@ export function Upload(props) {
       let imageDataUrl = await readFile(fileSelected);
       setImageSrc(imageDataUrl);
       setModalOpen(true);
+
     }
   };
-  const blobToFile=(theBlob, fileName,imgType)=>{       
+  const blobToFile = (theBlob, fileName, imgType) => {
     return new File([theBlob], fileName, { lastModified: new Date().getTime(), type: imgType })
-}
+  }
   const onFileUpload = async (files) => {
-    DevConsoleLog("files-filesfiles->", files);
-    let fileSelected = files;
     if (storageConfigured) {
-      setUploading(true);
-      const image = upload_type + "." + "blob";
-
-      await uploadFileToBlobWithSite(fileSelected, upload_id, image).then((url) => {
+      //setUploading(true);
+      const image = upload_type + ".png";
+      const blobToFile = new File([files], 'imageCrop.png', {
+        lastModified: new Date().getTime(),
+        type: files.type,
+      })
+      const imagePreview = {
+        name: 'imageCrop.png',
+        preview: files
+      }
+      setFiles([imagePreview]);
+      await uploadFileToBlobWithSite(files, upload_id, image).then((url) => {
         DevConsoleLog("name-->", name);
-        DevConsoleLog("fileSelected.path-->", fileSelected.path);
+        DevConsoleLog("fileSelected.path-->", url);
         setFieldValue(name, url);
         //setFieldValue(subName, "siteid_900/workid_900/userid_900");
         setUploading(false);
-        setFiles(
-          files.map((file) =>
-            Object.assign(file, {
-              preview: URL.createObjectURL(file)
-            })
-          )
-        );
       });
 
     }
@@ -224,14 +225,14 @@ export function Upload(props) {
         imageSrc,
         croppedAreaPixels,
       )
-      console.log('donee', { croppedImage })
+      console.log('donee', croppedImage)
       setCroppedImage(croppedImage);
       onFileUpload(croppedImage);
       setModalOpen(false);
     } catch (e) {
       console.error(e)
     }
-  }, [imageSrc,croppedAreaPixels])
+  }, [imageSrc, croppedAreaPixels])
   return (
     <>
       <section className="container">
@@ -258,12 +259,12 @@ export function Upload(props) {
         <Modal.Header closeButton>
           Crop your image then click Save
           <Button
-              onClick={showCroppedImage}
-              variant="contained"
-              color="primary"
-            >
-              Save
-            </Button>
+            onClick={showCroppedImage}
+            variant="contained"
+            color="primary"
+          >
+            Save
+          </Button>
         </Modal.Header>
         <Modal.Body>
           <Cropper
@@ -277,6 +278,8 @@ export function Upload(props) {
             onCropComplete={onCropComplete}
             onZoomChange={setZoom}
           />
+
+{/* <CropImage/> */}
         </Modal.Body>
       </Modal>
     </>
