@@ -1,8 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect,useState } from "react";
 import { shallowEqual, useSelector } from "react-redux";
-import { Dropdown,Modal } from "react-bootstrap";
-import { DropdownItemToggler } from "../../_metronic/_partials/dropdowns";
+import { Modal } from "react-bootstrap";
 import { FilterDropDown } from './FilterDropDown';
 import Search from '../components/Search';
 import SortBy from '../components/SortBy';
@@ -32,18 +31,6 @@ export function Filter(props) {
                   <form autoComplete="off" className="filterForm w-100">
                     <div className="d-flex">
                       <div className="filters">
-                        {/* <Dropdown drop="down" aligncenter="true" className="dropdown h-100">
-                          <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                            <div className="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column pointer">
-                              <div className="d-flex mt-1 mb-1 justify-content-center">
-                                <span className="fas fa-filter filter-icon"></span>
-                              </div>
-                            </div>
-                          </Dropdown.Toggle>
-                          <Dropdown.Menu className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
-                            <FilterDropDown value={value} handleDataSource={handleDataSource} fields={fields} />
-                          </Dropdown.Menu>
-                        </Dropdown> */}
                         <span className="fas fa-filter filter-icon" onClick={handleShow}></span>
 
                         <Modal show={show} onHide={handleClose}>
