@@ -6630,3 +6630,22 @@ $large-desktops: 1730px;
   min-height: 200px;
   margin-top: 20px;
 }
+
+
+
+  .menu-submenu{
+    .menu-subnav{
+      .menu-bullet{
+        flex: 0 0 37px !important;
+        margin: 5px 0px;
+        .menu-sub-icons{
+          height: 30px;
+          width: 30px;
+          border-radius: 5px;
+          text-align: center;
+          line-height: 27px;
+          display: block;
+        }
+      }
+    }
+  }

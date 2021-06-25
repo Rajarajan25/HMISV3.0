@@ -93,7 +93,7 @@ export function StaffName() {
 export function TabDetails() {
   return (
     <div className="clearfix">
-      <div className="d-flex">
+      <div className="d-flex align-items-center ">
         <span className="staff_tab_img"><img src={toAbsoluteUrl("/media/patients/TabDetails.svg")} alt="" className="d-inline-flex" /></span>
         <span className="staff_tab_title">Details</span>
       </div>
@@ -104,7 +104,7 @@ export function TabDetails() {
 export function TabTiming() {
   return (
     <div className="clearfix">
-      <div className="d-flex">
+      <div className="d-flex align-items-center ">
         <span className="staff_tab_img"><img src={toAbsoluteUrl("/media/patients/TabTiming.svg")} alt="" className="d-inline-flex" /></span>
         <span className="staff_tab_title">Timing & Location</span>
       </div>
@@ -114,7 +114,7 @@ export function TabTiming() {
 
 export function TabService() {
   return (
-    <div className="clearfix">
+    <div className="clearfix align-items-center ">
       <div className="d-flex">
         <span className="staff_tab_img"><img src={toAbsoluteUrl("/media/patients/TabService.svg")} alt="" className="d-inline-flex" /></span>
         <span className="staff_tab_title">Service & Sales</span>
@@ -126,7 +126,7 @@ export function TabService() {
 export function TabSettings() {
   return (
     <div className="clearfix">
-      <div className="d-flex">
+      <div className="d-flex align-items-center ">
         <span className="staff_tab_img"><img src={toAbsoluteUrl("/media/patients/TabSettings.svg")} alt="" className="d-inline-flex" /></span>
         <span className="staff_tab_title">Settings</span>
       </div>
