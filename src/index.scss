@@ -44,20 +44,19 @@
 .example-highlight > pre {
   background: none transparent !important;
   margin: 0 !important;
-  padding-top: 0.5rem; 
-  code { 
-      overflow-y: auto;
-      display: block;
+  padding-top: 0.5rem;
+  code {
+    overflow-y: auto;
+    display: block;
 
-      span {
-        background: none transparent !important;
-      }
+    span {
+      background: none transparent !important;
+    }
   }
 }
 
 .json > pre {
   background: none #fff !important;
-
 }
 
 .example-code > .json {
@@ -77,12 +76,12 @@
 .react-bootstrap-table {
   th {
     outline: none;
-   
-    &.sortable {  
+
+    &.sortable {
       .svg-icon-sort {
         opacity: 0;
       }
-  
+
       &:hover {
         cursor: pointer;
 
@@ -90,12 +89,12 @@
           opacity: 1;
         }
       }
-    }    
+    }
   }
 
   .table.table-head-custom thead tr {
     .sortable-active {
-        color: $primary !important;
+      color: $primary !important;
     }
   }
 }
@@ -108,7 +107,7 @@
   display: block;
 }
 
-.react-google-flight-datepicker .dialog-date-picker{
+.react-google-flight-datepicker .dialog-date-picker {
   width: 400px !important;
   max-width: 400px !important;
 }
@@ -125,10 +124,10 @@
   display: none !important;
 }
 
-.MuiAccordionSummary-root{
+.MuiAccordionSummary-root {
   min-height: 0px !important;
 }
-.elevation-none{
+.elevation-none {
   box-shadow: none !important;
 }
 
@@ -152,13 +151,35 @@
   border-color: #03d6fc transparent #03d6fc transparent;
   animation: image-circle-loading 1.2s linear infinite;
 }
-@keyframes image-circle-loading  {
+@keyframes image-circle-loading {
   0% {
     transform: rotate(0deg);
   }
   100% {
     transform: rotate(360deg);
   }
+}
+
+.crop-container {
+  position: absolute;
+  height: 500px;
+  width: 800px;
+  bottom: 80px;
+}
+
+.controls {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 50%;
+  transform: translateX(-50%);
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.slider {
+  padding: 22px 0px;
 }
 
 // .ql-container{
