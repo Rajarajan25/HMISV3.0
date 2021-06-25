@@ -93,7 +93,7 @@ export function EventName() {
 export function TabEventDetails() {
   return (
     <div className="clearfix">
-      <div className="d-flex evn_bg">
+      <div className="d-flex  evn_bg">
       <span class="staff_tab_img">
         <img src={toAbsoluteUrl("/media/events/event-details.svg")} alt="" className="" />
       </span>
@@ -171,7 +171,7 @@ export function ContentEventAdditional() {
 export function TabEventBook() {
   return (
     <div className="clearfix">
-      <div className="d-flex evn_bg">
+      <div className="d-flex align-items-center evn_bg">
         <span class="staff_tab_img">
           <img src={toAbsoluteUrl("/media/events/event-booking.svg")} alt="" className="" />
         </span>
@@ -184,7 +184,7 @@ export function TabEventBook() {
 export function TabEventInvite() {
   return (
     <div className="clearfix">
-      <div className="d-flex evn_bg">
+      <div className="d-flex align-items-center  evn_bg">
         <span class="staff_tab_img">
           <img src={toAbsoluteUrl("/media/events/event-invite.svg")} alt="" className="" />
         </span>
@@ -197,7 +197,7 @@ export function TabEventInvite() {
 export function TabEventPay() {
   return (
     <div className="clearfix">
-      <div className="d-flex evn_bg">
+      <div className="d-flex align-items-center  evn_bg">
         <span class="staff_tab_img">
           <img src={toAbsoluteUrl("/media/events/event-payment.svg")} alt="" className="" />
         </span>
@@ -210,7 +210,7 @@ export function TabEventPay() {
 export function TabEventNotify() {
   return (
     <div className="clearfix">
-      <div className="d-flex evn_bg">
+      <div className="d-flex align-items-center  evn_bg">
         <span class="staff_tab_img">
           <img src={toAbsoluteUrl("/media/events/event-notify.svg")} alt="" className="" />
         </span>

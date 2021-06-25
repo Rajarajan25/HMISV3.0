@@ -21,7 +21,6 @@ export function AsideMenuList({ layoutProps }) {
 
   return (
     <div className="pt-2">
-     
       <div className="d-flex position-relative customSearch">
         <span className="my-auto">HMIS</span>
         <div className="menuquickIconset d-flex ml-auto my-auto">
@@ -33,16 +32,17 @@ export function AsideMenuList({ layoutProps }) {
               <OverlayTrigger
                 placement="left"
                 overlay={
-                  <Tooltip id="quick-search-tooltip" className="tool_bg">Quick search</Tooltip>
+                  <Tooltip id="quick-search-tooltip" className="tool_bg">
+                    Quick search
+                  </Tooltip>
                 }
               >
-                <a
-                  href="#"
-                  className="h-40px w-40px flex-shrink-0"
-                >
+                <a href="#" className="h-40px w-40px flex-shrink-0">
                   <span className="svg-icon svg-icon-sm">
                     <SVG
-                      src={toAbsoluteUrl("/media/svg/icons/Custom/Settings.svg")}
+                      src={toAbsoluteUrl(
+                        "/media/svg/icons/Custom/Settings.svg"
+                      )}
                     />
                   </span>
                 </a>
@@ -53,18 +53,13 @@ export function AsideMenuList({ layoutProps }) {
               <DropdownMenu4 />
             </Dropdown.Menu>
           </Dropdown>
-          <a
-            href="#"
-            className="mx-3  flex-shrink-0"
-          >
+          <a href="#" className="mx-3  flex-shrink-0">
             <span className="svg-icon svg-icon-sm searchIcon">
-              <SVG
-                src={toAbsoluteUrl("/media/svg/icons/Custom/Search.svg")}
-              />
+              <SVG src={toAbsoluteUrl("/media/svg/icons/Custom/Search.svg")} />
             </span>
           </a>
         </div>
-     
+
         {/* begin::Form */}
         <div className="searchInput d-none">
           <form>
@@ -85,15 +80,13 @@ export function AsideMenuList({ layoutProps }) {
                   </span>
                 </span>
               </div>
-
-              
             </div>
           </form>
         </div>
         {/* end::Form */}
       </div>
-      
-       {/* begin::Menu Nav */}
+
+      {/* begin::Menu Nav */}
       <ul className={`menu-nav ${layoutProps.ulClasses}`}>
         {/*begin::1 Level*/}
         <li
@@ -140,13 +133,15 @@ export function AsideMenuList({ layoutProps }) {
           aria-haspopup="true"
           data-menu-toggle="hover"
         >
-          <NavLink className="menu-link menu-toggle" to="/manage/staff-management">
+          <NavLink
+            className="menu-link menu-toggle"
+            to="/manage/staff-management"
+          >
             <i className="fas fa-caret-right" />
             <span className="svg-icon menu-icon d-flex flex-column rounded customMenutexticon bgCustom1">
               M
             </span>
             <span className="menu-text">Manage</span>
-            
           </NavLink>
           <div className="menu-submenu ">
             <i className="menu-arrow" />
@@ -162,8 +157,16 @@ export function AsideMenuList({ layoutProps }) {
                   className="menu-link"
                   to="/manage/staff-management/profile-overview"
                 >
-                  <i className="menu-bullet menu-bullet-dot">
-                    <span />
+                  <i className="menu-bullet">
+                    <span
+                      className="menu-sub-icons"
+                      style={{ backgroundColor: `#FD5D81` }}
+                    >
+                      <img
+                        src={toAbsoluteUrl("/media/events/cogwheel.svg")}
+                        alt="staff"
+                      />
+                    </span>
                   </i>
                   <span className="menu-text">Staff</span>
                 </NavLink>
@@ -178,12 +181,17 @@ export function AsideMenuList({ layoutProps }) {
                 aria-haspopup="true"
                 data-menu-toggle="hover"
               >
-                 <NavLink
-                  className="menu-link"
-                  to="/manage/patients-details"
-                >
-                  <i className="menu-bullet menu-bullet-dot">
-                    <span />
+                <NavLink className="menu-link" to="/manage/patients-details">
+                <i className="menu-bullet">
+                    <span
+                      className="menu-sub-icons"
+                      style={{ backgroundColor: `#FEC55D` }}
+                    >
+                      <img
+                        src={toAbsoluteUrl("/media/events/patient.svg")}
+                        alt="customers"
+                      />
+                    </span>
                   </i>
                   <span className="menu-text">Customers</span>
                 </NavLink>
@@ -197,17 +205,22 @@ export function AsideMenuList({ layoutProps }) {
                 aria-haspopup="true"
                 data-menu-toggle="hover"
               >
-                 <NavLink
-                  className="menu-link"
-                  to="/manage/service-provider"
-                >
-                  <i className="menu-bullet menu-bullet-dot">
-                    <span />
+                <NavLink className="menu-link" to="/manage/service-provider">
+                <i className="menu-bullet">
+                    <span
+                      className="menu-sub-icons"
+                      style={{ backgroundColor: `#7F5DFC` }}
+                    >
+                      <img
+                        src={toAbsoluteUrl("/media/events/customer.svg")}
+                        alt="service"
+                      />
+                    </span>
                   </i>
                   <span className="menu-text">Service</span>
                 </NavLink>
               </li>
-           
+
               {/*begin::4 Level*/}
               <li
                 className={`menu-item ${getMenuItemActive(
@@ -215,12 +228,17 @@ export function AsideMenuList({ layoutProps }) {
                 )}`}
                 aria-haspopup="true"
               >
-                <NavLink
-                  className="menu-link"
-                  to="/manage/event-details"
-                >
-                  <i className="menu-bullet menu-bullet-dot">
-                    <span />
+                <NavLink className="menu-link" to="/manage/event-details">
+                <i className="menu-bullet">
+                    <span
+                      className="menu-sub-icons"
+                      style={{ backgroundColor: `#FD905D` }}
+                    >
+                      <img
+                        src={toAbsoluteUrl("/media/events/doctor.svg")}
+                        alt="events"
+                      />
+                    </span>
                   </i>
                   <span className="menu-text">Events</span>
                 </NavLink>
@@ -263,12 +281,12 @@ export function AsideMenuList({ layoutProps }) {
                   <span className="menu-text">Leave</span>
                 </NavLink>
               </li>
-              {/*end::5 Level*/}              
+              {/*end::5 Level*/}
             </ul>
           </div>
         </li>
 
-        {/* Payment-UI */}  
+        {/* Payment-UI */}
         {/*begin::1 Level*/}
         <li
           className={`menu-item menu-item-submenu ${getMenuItemActive(
@@ -284,7 +302,6 @@ export function AsideMenuList({ layoutProps }) {
               P
             </span>
             <span className="menu-text">Payments</span>
-            
           </NavLink>
           <div className="menu-submenu ">
             <i className="menu-arrow" />
@@ -306,11 +323,11 @@ export function AsideMenuList({ layoutProps }) {
                   <span className="menu-text">Billing & Invoices</span>
                 </NavLink>
               </li>
-              {/*end::1 Level*/}      
+              {/*end::1 Level*/}
             </ul>
           </div>
         </li>
-        {/*end::1 Level*/}  
+        {/*end::1 Level*/}
 
         {/* Marketing */}
         {/*begin::1 Level*/}
@@ -328,7 +345,6 @@ export function AsideMenuList({ layoutProps }) {
               M
             </span>
             <span className="menu-text">Marketing</span>
-            
           </NavLink>
           <div className="menu-submenu ">
             <i className="menu-arrow" />
@@ -350,7 +366,7 @@ export function AsideMenuList({ layoutProps }) {
                   <span className="menu-text">Coupons</span>
                 </NavLink>
               </li>
-              {/*end::1 Level*/}      
+              {/*end::1 Level*/}
               {/*begin::1 Level*/}
               <li
                 className={`menu-item  ${getMenuItemActive(
@@ -368,11 +384,11 @@ export function AsideMenuList({ layoutProps }) {
                   <span className="menu-text">SMS</span>
                 </NavLink>
               </li>
-              {/*end::1 Level*/}      
+              {/*end::1 Level*/}
             </ul>
           </div>
         </li>
-              
+
         <li
           className={`menu-item menu-item-submenu ${getMenuItemActive(
             "/google-material",
@@ -1894,6 +1910,5 @@ export function AsideMenuList({ layoutProps }) {
       </ul>
       {/* end::Menu Nav */}
     </div>
-    
   );
 }
