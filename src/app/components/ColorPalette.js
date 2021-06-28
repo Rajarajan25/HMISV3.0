@@ -23,11 +23,14 @@ const colorDropDown = [
   "#199EC7",
 ];
 export function ColorPalette(props) {
-  const { handleChangeDropDown, item } = props;
-  const [colors,setColors] = React.useState("#FFFFFF");
-  const handleColorChange = (eve, id) => {
-    setColors(eve.hex);
-    handleChangeDropDown(eve.hex, id, "color_code");
+  const { handleChangeDropDown, item, colorsCode } = props;
+  React.useEffect(() => {
+    handleChangeDropDown(colorsCode);
+  }, []);
+  const [color, setColor] = React.useState(colorsCode);
+  const handleColorChange = (color) => {
+    setColor(color);
+    //handleChangeDropDown(eve.hex, id, "color_code");
   };
   return (
     <>
@@ -36,12 +39,16 @@ export function ColorPalette(props) {
           {colorDropDown.map((colors, index) => {
             return (
               <div className="d-inline-flex color_col p-3" key={index}>
-                <input type="radio" id={"color_" + index} name="color-code" />
+
+                <input type="radio" id={"color_" + index} name="color-code" checked={colors === color ? true : false} />
+
                 <label htmlFor={"color_" + index}>
                   <span
                     style={{ backgroundColor: colors }}
-                    onClick={() =>
-                      handleChangeDropDown(colors, item.id, "color_code")
+                    onClick={() => {
+                      handleChangeDropDown(colors, item.id, "color_code");
+                      handleColorChange(colors);
+                    }
                     }
                   ></span>
                 </label>

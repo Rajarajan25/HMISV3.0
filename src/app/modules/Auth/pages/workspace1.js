@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function WorkSpace1(props) {
+
   const [obj, setObj] = React.useState({
     name: "",
     colors: "",
@@ -90,7 +91,7 @@ export default function WorkSpace1(props) {
 
   return (
     <Formik
-      initialValues={{ name: "", colors: "", bussiness_type: "" }}
+      initialValues={{ name: props.location.hasOwnProperty("aboutProps") ? props.location.aboutProps.item.name : "", colors: props.location.hasOwnProperty("aboutProps") ? props.location.aboutProps.item.bg_color : "", bussiness_type: props.location.hasOwnProperty("aboutProps") ? props.location.aboutProps.item.bussiness_type : "" }}
       onSubmit={(values) => {
         values.colors = obj.colors;
         setObj(values)
@@ -107,6 +108,7 @@ export default function WorkSpace1(props) {
                   <Link to="/" className="cancel_clr">
                     Cancel
                   </Link>
+
                 </div>
                 <div className="d-flex justify-content-center flex-column col-xl-9 col-lg-11 wid col h-100 ml-35">
                   <Scrollspy
@@ -199,7 +201,7 @@ export default function WorkSpace1(props) {
                               <div className="col-8 pr-0">
                                 <ColorPalette
                                   handleChangeDropDown={handleChangeDropDown}
-                                  name={colors}
+                                  colorsCode={values.colors}
                                   item={{ id: 1 }}
                                 />
                               </div>
