@@ -140,6 +140,7 @@ export default function ServiceProviderContainer(props) {
   };
   const handleChangeServices = (selectedVal, type, id) => {
     let index = 0;
+    state.isloading = true
     let tempPickList = JSON.parse(JSON.stringify(listService));
     let currentServiceList = JSON.parse(JSON.stringify(currentService));
     const currentServiceLists = tempPickList.map((item, i) => {
@@ -160,6 +161,7 @@ export default function ServiceProviderContainer(props) {
         },
       },
     }).then((res) => {
+      state.isloading = false;
       console.log(res.data.updateService);
       dispatch(actions.editService(res.data.updateService));
     });

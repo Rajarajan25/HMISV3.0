@@ -5,6 +5,8 @@ import Search from '../../../components/Search';
 import StaffCommission from "../../../components/StaffCommission"
 import { Formik } from 'formik';
 import { StaffServiceList } from "../../../components/StaffServiceList";
+import { ButtonLoading } from "../../../components/ButtonLoading";
+
 const useStyles = makeStyles({
   list: {
     width: 650,
@@ -17,7 +19,7 @@ const useStyles = makeStyles({
 
 export function StaffService(props) {
   const classes = useStyles();
-  const { current, fields, index, handleUpdate, addNew ,handleChangeServices} = props;
+  const { current, fields, index, handleUpdate, addNew ,handleChangeServices,isloading} = props;
   const [loading, setLoading] = useState(false);
   const { commission,staff_services } = current;
   const initValue = {
@@ -84,11 +86,8 @@ export function StaffService(props) {
           <div className="staff_first staff_third w-100 p-6">
             <StaffServiceList selectedItem={values.staff} pagename="staff"/>
             <StaffCommission fields={fields} formikValues={values} setFieldValue={setFieldValue} />
-            <div className="form-group mb-0">
-              <div className="d-flex justify-content-end patientButton pos_fix">
-                <button type="submit" className="btn btn-primary">Save</button>
-              </div>
-            </div>
+            <ButtonLoading label="Save" loading={isloading} />
+
           </div>
         </form>
       )}

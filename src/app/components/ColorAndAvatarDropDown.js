@@ -3,8 +3,6 @@ import { AvatarDropDown } from './AvatarDropDown';
 import { ColorPalette } from './ColorPalette';
 import { Dropdown } from "react-bootstrap";
 import { DropdownItemToggler } from "../../_metronic/_partials/dropdowns";
-import { toAbsoluteUrl } from "../../_metronic/_helpers";
-import { toImageUrl } from '../../azure-storage-blob';
 import { AzureImageview } from './AzureImageview';
 export function ColorAndAvatarDropDown(props) {
     const { item, handleChangeDropDown } = props;

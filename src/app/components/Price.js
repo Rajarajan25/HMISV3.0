@@ -6,7 +6,7 @@ import FormControl from '@material-ui/core/FormControl';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import Radio from '@material-ui/core/Radio';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import { Field, Formik, FieldArray } from 'formik'
+import { Field, FieldArray } from 'formik'
 import SelectDropDown from './SelectDropDown'
 import { DevConsoleLog } from "../SiteUtill";
 import {AdvanceServicePriceModel} from "../models/AdvanceServicePriceModel"
@@ -34,7 +34,7 @@ export function Price(props) {
   const { formikValues, setFieldValue } = props
   DevConsoleLog("formikValues-->", formikValues);
   const expandServiceField = () => {
-    if(formikValues.payments.service_pricing_by_staff.length==0){
+    if(formikValues.payments.service_pricing_by_staff.length===0){
       formikValues.payments.service_pricing_by_staff.push(AdvanceServicePriceModel);
     }
     setFieldValue("payments.isAdvancedPrice",!formikValues.payments.isAdvancedPrice);
@@ -152,38 +152,3 @@ export function Price(props) {
 }
 
 
-function SelectPrice() {
-  const useStyles = makeStyles(theme => ({
-    root: {
-      display: 'flex',
-    },
-    formControl: {
-      margin: theme.spacing(3),
-    },
-    group: {
-      margin: theme.spacing(1, 0),
-    },
-  }));
-  const classes = useStyles();
-  const [value, setValue] = React.useState('female');
-  function handleChange(event) {
-    setValue(event.target.value);
-  }
-  return (
-    <div className={classes.root}>
-      <FormControl component="fieldset" className={classes.formControl}>
-        <RadioGroup
-          name="business"
-          className={classes.group}
-          value={value}
-          onChange={handleChange}
-        >
-          <FormControlLabel value="free" control={<Radio />} label="Free" />
-          <FormControlLabel value="paid" control={<Radio />} label="Paid" />
-
-        </RadioGroup>
-      </FormControl>
-
-    </div>
-  );
-}

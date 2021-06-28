@@ -4,6 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Search from '../../../components/Search';
 import { Formik } from 'formik';
 import { StaffServiceList } from "../../../components/StaffServiceList";
+import { ButtonLoading } from "../../../components/ButtonLoading";
+
 const useStyles = makeStyles({
   list: {
     width: 650,
@@ -16,7 +18,7 @@ const useStyles = makeStyles({
 
 export function StaffService(props) {
   const classes = useStyles();
-  const { current, fields, index, handleUpdate, addNew,handleChangeServices } = props;
+  const { current, fields, index, handleUpdate, addNew,handleChangeServices,isloading } = props;
   const [loading, setLoading] = useState(false);
   const currentService=JSON.parse(JSON.stringify(current))
   const initValue = {
@@ -81,11 +83,8 @@ export function StaffService(props) {
         <form onSubmit={handleSubmit} className="form fv-plugins-framework">
           <div className="staff_first staff_third w-100 p-6">
             <StaffServiceList selectedItem={values.staff} pagename="service" />
-            <div className="form-group mb-0">
-              <div className="d-flex justify-content-end patientButton pos_fix">
-                <button type="submit" className="btn btn-primary">Save</button>
-              </div>
-            </div>
+            <ButtonLoading label="Save" loading={isloading} />
+
           </div>
         </form>
       )}

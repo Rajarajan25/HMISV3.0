@@ -119,7 +119,9 @@ export function ServiceDetailsTab(props) {
           {value === 1 && <TabContainer> <Duration data={currentservice} handleSave={editService} fields={timing_field}
           /> </TabContainer>}
           {/* {value === 1 && <TabContainer> <ServiceCost/> </TabContainer>} */}
-          {value === 2 && <TabContainer> <StaffService handleChangeServices={handleChangeServices} {...props} current={currentservice} index={currentIndex} handleUpdate={handleUpdate} handleSave={editService} fields={service_field}/> </TabContainer>}
+          {value === 2 && <TabContainer> <StaffService handleChangeServices={handleChangeServices} {...props} current={currentservice} 
+          index={currentIndex} handleUpdate={handleUpdate} handleSave={editService} fields={service_field} isloading={isloading}
+          /> </TabContainer>}
           {value === 3 && <TabContainer> <ServiceSettings /> </TabContainer>}
         </div>
       </div>
