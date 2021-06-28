@@ -6113,3 +6113,31 @@ p.setting_color {
     }
   }
 }
+
+.quill-ui {
+  .ql-toolbar, .ql-container {
+      &.ql-snow {
+          border-color: #eee;
+      }
+  }
+  .ql-container {
+      height: 80px;
+      overflow: hidden;
+  }
+}
+.croppingmodal {
+  z-index: 1450;
+  .modal-dialog {
+    max-width: 600px;
+  }
+  .modal-header .close span {
+    display: block;
+  }
+  .modal-body {
+    padding-top: 0.75rem;
+  }
+  .modal-content{
+    height: 500px;
+    width: 800px;
+  }
+}
