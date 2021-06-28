@@ -11,8 +11,9 @@ export default function Toast(props) {
                 horizontal: 'right',
             }}
             open={open}
-            autoHideDuration={2000}
+            autoHideDuration={60000}
             onClose={handleClose}
+            style={{background:"#000"}}
             message={message}
             action={
                 <React.Fragment>

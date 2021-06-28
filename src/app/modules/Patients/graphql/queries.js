@@ -32,6 +32,9 @@ export const GET_SERVICE = gql`
         service_staff{
           staff_id{
             id
+            name
+            color_code
+            booking_url
           }
         }
         service_duration{

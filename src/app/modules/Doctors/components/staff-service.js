@@ -5,6 +5,8 @@ import Search from '../../../components/Search';
 import StaffCommission from "../../../components/StaffCommission"
 import { Formik } from 'formik';
 import { StaffServiceList } from "../../../components/StaffServiceList";
+import { ButtonLoading } from "../../../components/ButtonLoading";
+
 const useStyles = makeStyles({
   list: {
     width: 650,
@@ -17,12 +19,12 @@ const useStyles = makeStyles({
 
 export function StaffService(props) {
   const classes = useStyles();
-  const { current, fields, index, handleUpdate, addNew } = props;
+  const { current, fields, index, handleUpdate, addNew ,handleChangeServices,isloading} = props;
   const [loading, setLoading] = useState(false);
-  const { commission } = current;
+  const { commission,staff_services } = current;
   const initValue = {
     commission: commission,
-    staff:[],
+    staff:staff_services,
   }
   
   return (<>
@@ -70,7 +72,7 @@ export function StaffService(props) {
       onSubmit={(values) => {
         console.log("values", JSON.stringify(values));
         if (index != -1) {
-          handleUpdate(values, index);
+          handleChangeServices(values.staff,"staff_services", index);
           return;
         } else {
           setLoading(true);
@@ -84,11 +86,8 @@ export function StaffService(props) {
           <div className="staff_first staff_third w-100 p-6">
             <StaffServiceList selectedItem={values.staff} pagename="staff"/>
             <StaffCommission fields={fields} formikValues={values} setFieldValue={setFieldValue} />
-            <div className="form-group mb-0">
-              <div className="d-flex justify-content-end patientButton pos_fix">
-                <button type="submit" className="btn btn-primary">Save</button>
-              </div>
-            </div>
+            <ButtonLoading label="Save" loading={isloading} />
+
           </div>
         </form>
       )}

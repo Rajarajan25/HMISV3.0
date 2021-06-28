@@ -20,18 +20,13 @@ import { useQuery, useMutation } from "@apollo/client";
 import { DeleteDialog } from "../../../components/DeleteDialog";
 import { SpinnerLarge } from "../../../components/Spinner";
 import { NetworkStatus } from '@apollo/client';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { Toast } from "react-bootstrap";
-
-
-
+import Toast from '../../../components/Toast';
 const { actions } = ServiceSlice;
 
 export default function ServiceProviderContainer(props) {
   const { filterListService } = props;
   let newService = ServiceModel;
-  const { data, loading, refetch, networkStatus,error } = useQuery(GET_SERVICE, { notifyOnNetworkStatusChange: true, }
+  const { data, loading, refetch, networkStatus, error } = useQuery(GET_SERVICE, { notifyOnNetworkStatusChange: true, }
   );
   const dispatch = useDispatch();
   const { currentState } = useSelector(
@@ -39,8 +34,13 @@ export default function ServiceProviderContainer(props) {
     shallowEqual
   );
   const [show, setShow] = useState(true);
-  const handleClose = () => setShow(false);
-
+  const [toastOpen, setToast] = React.useState(true);
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setToast(false);
+  };
   const { listService: serviceList, currentService } = currentState;
   const [addService] = useMutation(ADD_SERVICE);
   const [updateService] = useMutation(UPDATE_SERVICE);
@@ -102,7 +102,6 @@ export default function ServiceProviderContainer(props) {
     return (checkIndex = listService.findIndex((elm) => elm.name === value));
   };
   const handleDelete = () => {
-    let tempPickItem = JSON.parse(JSON.stringify(listService));
     setState({ isloading: true });
     deletePopUp();
     deleteService({
@@ -139,6 +138,34 @@ export default function ServiceProviderContainer(props) {
       dispatch(actions.editService(res.data.updateService));
     });
   };
+  const handleChangeServices = (selectedVal, type, id) => {
+    let index = 0;
+    state.isloading = true
+    let tempPickList = JSON.parse(JSON.stringify(listService));
+    let currentServiceList = JSON.parse(JSON.stringify(currentService));
+    const currentServiceLists = tempPickList.map((item, i) => {
+      if (id === item.id) {
+        currentServiceList = item
+      }
+      return item;
+    });
+    delete currentServiceList.created_at
+    updateService({
+      variables: {
+        serviceID: currentServiceList.id,
+        service: {
+          service_relationships: {
+            [type]: selectedVal,
+          }
+
+        },
+      },
+    }).then((res) => {
+      state.isloading = false;
+      console.log(res.data.updateService);
+      dispatch(actions.editService(res.data.updateService));
+    });
+  };
   const handleUpdate = (updatedValue, index) => {
     state.isloading = true;
     let tempPickList = JSON.parse(JSON.stringify(listService));
@@ -160,27 +187,12 @@ export default function ServiceProviderContainer(props) {
         dispatch(actions.editService(res.data.updateService));
       })
 
-    // this.setState({ staffList: items, isloading: true });
-    //delete updatedValue.id;
   };
 
   const handleCancel = (props) => {
     this.setState({
       isDrawerOpen: !this.state.isDrawerOpen,
     });
-  };
-  const handleSaveSingle = (updatedValue, type, index) => {
-    let tempPickList = JSON.parse(JSON.stringify(listService));
-    let updatedItem = tempPickList.map((e, i) => {
-      if (i === index) {
-        e[type] = updatedValue;
-      }
-      return e;
-    });
-    //this.setState({ ser: updatedItem });
-
-    // let updateArray = this.state.staffList[index];
-    dispatch(actions.serviceFetched(currentService));
   };
 
   const toggleDrawer = (open, selectedItem, index) => (event) => {
@@ -209,9 +221,6 @@ export default function ServiceProviderContainer(props) {
     let sfm = { ...ServiceModel };
     sfm = { ...sfm, ...value };
     state.isloading = true
-    // delete sfm.id;
-
-    let newstaff = {};
     addService({
       variables: {
         service: sfm
@@ -222,21 +231,7 @@ export default function ServiceProviderContainer(props) {
         console.log(res.data.addService);
         dispatch(actions.addService(res.data.addService));
       })
-    //  this.setState({ isloading: true });
-    // this.props.addStaff({
-    //     variables: {
-    //         staff: sfm
-    //     }
-    // }).then(({ data: { addStaff } }) => {
-    //     newstaff = { ...sfm, id: addStaff.id };
-    //     this.setState({
-    //         currentStaff: { ...newstaff },
-    //         staffList: [...this.state.staffList, newstaff],
-    //         isloading: false
-    //     });
-    // }).catch(error => {
-    //     DevAlertPopUp(error.message);
-    // });
+
   };
   const dialogHide = () => {
     setState({
@@ -283,43 +278,13 @@ export default function ServiceProviderContainer(props) {
     });
   };
 
-  const handleChangeStaff = (id) => {
-    let currentList = JSON.parse(JSON.stringify(currentService));
 
-    // currentList.service_relationships.service_staff.staff_id=id;
-    // updateService({
-    //   variables: {
-    //     serviceID:currentList.id,
-    //     service:currentList
-    //   }
-    // })
-    //   .then(res => {
+  if (error) {
+    return (
+      <Toast message={"Network Issue... Please check your connection"} open={toastOpen} handleClose={handleClose} />
 
-    //     console.log(res.data.updateService);
-    //     dispatch(actions.editService(res.data.updateService));
-    //   })
-
+    )
   }
-  if(error){
-    return(<div
-      aria-live="polite"
-      aria-atomic="true"
-      style={{
-        position: 'relative',
-        minHeight: '600px',
-      }}
-    >
-      <Toast
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-        }}
-      >
-        
-        <Toast.Body>Network issue... Please check your connection</Toast.Body>
-      </Toast>
-    </div>)}
   return (
     <div className="clearfix">
       <SpinnerLarge loading={loading} />
@@ -327,7 +292,7 @@ export default function ServiceProviderContainer(props) {
       <RightSideDrawer isOpen={state.isDrawerOpen} toggleDrawer={toggleDrawer}>
         <ServiceDetailsTab
           handleUpdate={handleUpdate}
-          handleChangeStaff={handleChangeStaff}
+          handleChangeServices={handleChangeServices}
           currentIndex={state.currentIndex}
           currentService={currentService}
           isloading={state.isloading}
@@ -367,6 +332,7 @@ export default function ServiceProviderContainer(props) {
             handleSave={handleChangeDropDown}
             addNew={addNewService}
             handleChangeDropDown={handleChangeDropDown}
+            handleChangeServices={handleChangeServices}
             service={props.staff}
             pagename="service"
           />

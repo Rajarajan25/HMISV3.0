@@ -15,6 +15,8 @@ export const ADD_SERVICE = gql`
         service_staff{
           staff_id{
             id
+            name
+            color_code
           }
         }
         service_duration{
@@ -41,6 +43,9 @@ export const UPDATE_SERVICE = gql`
         service_staff{
           staff_id{
             id
+            name
+            color_code
+            booking_url
           }
         }
         service_duration{

@@ -29,7 +29,11 @@ const GET_STAFF = gql`
     }
   `;
 export function ServicesDropDown(props) {
-    const { pagename } = props;
+    const { pagename, item } = props;
+    const current = JSON.parse(JSON.stringify(item))
+    const initValue = pagename === PageName.SERVICE ? {
+        staff: current.service_relationships.service_staff
+    } : { staff: current.staff_services }
     const queryData = pagename === PageName.STAFF ? GET_SERVICE : GET_STAFF;
     const { data, loading } = useQuery(queryData);
     const [listData, setListData] = useState([]);
@@ -40,6 +44,32 @@ export function ServicesDropDown(props) {
             }
         }
     }, [data]);
+    const handleItemSelect = (item) => {
+        // let selectedVal=JSON.parse(JSON.stringify(selectedItem))
+        let selectedItem = JSON.parse(JSON.stringify(initValue.staff))
+        if (pagename === PageName.SERVICE) {
+            let index = selectedItem.findIndex(value => value.staff_id.id === item.id);
+            if (index != -1) {
+                selectedItem = selectedItem.filter(el => el.staff_id.id !== item.id);
+            } else {
+                let id = { "staff_id": item.id }
+                selectedItem.push(id);
+            }
+            props.handleChangeServices(selectedItem, "service_staff", props.item.id);
+        }
+        else {
+            let index = selectedItem.findIndex(value => value.service_id.id === item.id);
+            if (index != -1) {
+                selectedItem = selectedItem.filter(el => el.service_id.id !== item.id);
+            } else {
+                let id = { "service_id": item.id }
+                selectedItem.push(id);
+            }
+            props.handleChangeServices(selectedItem, "staff_services", props.item.id);
+        }
+
+
+    }
     return (
         <Dropdown drop="down" aligncenter="true" className="dropdown h-100">
             <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle1" className="h-100">
@@ -51,70 +81,61 @@ export function ServicesDropDown(props) {
                             </span>
                         </span> :
                             <>
-                                <span className="ProviderIcon" style={{ backgroundColor: `#2ecd6f` }}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
-                                <span className="ProviderIcon" style={{ backgroundColor: `#1D58FF` }}>GM</span>
-                                <span className="ProviderIcon" style={{ backgroundColor: `#2ecd6f` }}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
-                                <span className="ProviderIcon" style={{ backgroundColor: `#2ecd6f` }}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span>
-                                <span className="ProviderIcon" style={{ backgroundColor: `#A2A2A2` }}>+5</span>
+                                {item.service_relationships.service_staff.map(val => {
+                                    return (
+                                        <>
+                                            <span className="ProviderIcon" style={{ backgroundColor: val.staff_id.color_code || `#2ecd6f` }}>{val.staff_id.booking_url ? <img src={toAbsoluteUrl(val.staff_id.booking_url)} alt="" className="mh-100 d-block rounded-circle" /> : val.staff_id.name ? val.staff_id.name.substr(0, 2).toUpperCase() : ""}</span>
+
+
+                                        </>
+                                    )
+                                })}
+
                             </>}
                     </div>
                 </div>
             </Dropdown.Toggle>
             <Dropdown.Menu className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
-                <ServicesDropdownMenu handleChangeDropDown={props.handleChangeDropDown} item={props.item} data={listData} pagename={props.pagename} />
+                <ServicesDropdownMenu handleItemSelect={handleItemSelect} item={props.item} data={listData} pagename={props.pagename} />
             </Dropdown.Menu>
         </Dropdown>
     )
 }
 export function ServicesDropdownMenu(props) {
-    const { handleChangeDropDown, item, data } = props;
+    const { handleItemSelect, item, data, pagename } = props;
     const [listData, setListData] = React.useState(data);
     let handleSerach = (arr) => {
         setListData(arr);
     }
+    let itemData = pagename === PageName.SERVICE ? item.service_relationships.service_staff : item.staff_services
 
     return <>
         {/*begin::Navigation*/}
         <ul className="navi navi-hover">
             <li className="navi-item">
                 <div className="service_select p-4">
-                    <div className="d-inline-flex justify-content-center">
-                        <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#E6511B1a` }}>
-                            {/* <span className="ProviderIcon" style={{ backgroundColor: staff.color_code }}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span> */}
-                            <span className="ProviderName" style={{ color: `#E6511B` }}>Dental</span>
-                            <span className="dropdown_label_remove" style={{ backgroundColor: `#E6511B` }}>
-                                <span className="dropdown_label_remove_icon">x</span>
-                            </span>
-                        </span>
-                    </div>
-                    <div className="d-inline-flex justify-content-center">
-                        <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#E6511B1a` }}>
-                            {/* <span className="ProviderIcon" style={{ backgroundColor: staff.color_code }}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span> */}
-                            <span className="ProviderName" style={{ color: `#E6511B` }}>Dental</span>
-                            <span className="dropdown_label_remove" style={{ backgroundColor: `#E6511B` }}>
-                                <span className="dropdown_label_remove_icon">x</span>
-                            </span>
-                        </span>
-                    </div>
-                    <div className="d-inline-flex justify-content-center">
-                        <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#EA80FC1a` }}>
-                            {/* <span className="ProviderIcon" style={{ backgroundColor: staff.color_code }}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span> */}
-                            <span className="ProviderName" style={{ color: `#EA80FC` }}>Skin Care</span>
-                            <span className="dropdown_label_remove" style={{ backgroundColor: `#EA80FC` }}>
-                                <span className="dropdown_label_remove_icon">x</span>
-                            </span>
-                        </span>
 
-                    </div>
-                    <div className="d-inline-flex justify-content-center">
-                        <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#1DBC9C1a` }}>
-                            {/* <span className="ProviderIcon" style={{ backgroundColor: staff.color_code }}><img src={toAbsoluteUrl("/media/users/300_20.jpg")} alt="" className="mh-100 d-block rounded-circle" /></span> */}
-                            <span className="ProviderName" style={{ color: `#1DBC9C` }}>Ambian</span>
-                            <span className="dropdown_label_remove" style={{ backgroundColor: `#1DBC9C` }}>
-                                <span className="dropdown_label_remove_icon">x</span>
-                            </span>
-                        </span>
-                    </div>
+                    {itemData.map(val => {
+                        return (
+                            <div className="d-inline-flex justify-content-center">
+                                {pagename === PageName.SERVICE && <span className="specialInfo text-white position-relative" style={{ backgroundColor: val.staff_id.color_code + "1a" || `#2ecd6f1a` }}>
+                                    <span className="ProviderName" style={{ color: val.staff_id.color_code || `#2ecd6f` }}>{val.staff_id.name}</span>
+                                    <span className="dropdown_label_remove" style={{ backgroundColor: val.staff_id.color_code }}>
+                                        <span className="dropdown_label_remove_icon">x</span>
+                                    </span>
+                                </span>}
+                                {pagename === PageName.STAFF && <span className="specialInfo text-white position-relative" style={{ backgroundColor: val.service_id.color_code + "1a" || `#2ecd6f1a` }}>
+                                    <span className="ProviderName" style={{ color: val.service_id.color_code || `#2ecd6f` }}>{val.service_id.name}</span>
+                                    <span className="dropdown_label_remove" style={{ backgroundColor: val.service_id.color_code }}>
+                                        <span className="dropdown_label_remove_icon">x</span>
+                                    </span>
+                                </span>}
+                            </div>
+                        )
+                    })}
+
+
+
 
                 </div>
                 {/* <div className="service_search position-relative">
@@ -130,10 +151,10 @@ export function ServicesDropdownMenu(props) {
                     <div className="service_select">
                         {
                             listData.map((e) => {
-                                return <div class="d-flex justify-content-left py-1" key={e.type}>
-                                    <span className="specialInfo text-white position-relative" style={{ backgroundColor: e.color_code + "1a" ||`#2ecd6f1a` }}>
-                                        <span className="ProviderIcon" style={{ backgroundColor: e.color_code || `#2ecd6f` }}>{e.avatar ? <img src={toAbsoluteUrl(e.avatar)} alt="" className="mh-100 d-block rounded-circle" /> : e.name ? e.name.substr(0, 2).toUpperCase() : ""}</span>
-                                        <span className="ProviderName" style={{ color: e.color_code || `#2ecd6f`}}>{e.name}</span>
+                                return <div class="d-flex justify-content-left py-1" key={e.type} onClick={() => handleItemSelect(e)}>
+                                    <span className="specialInfo text-white position-relative" style={{ backgroundColor: e.color_code + "1a" || `#2ecd6f1a` }}>
+                                        <span className="ProviderIcon" style={{ backgroundColor: e.color_code || `#2ecd6f` }}>{e.booking_url ? <img src={toAbsoluteUrl(e.booking_url)} alt="" className="mh-100 d-block rounded-circle" /> : e.name ? e.name.substr(0, 2).toUpperCase() : ""}</span>
+                                        <span className="ProviderName" style={{ color: e.color_code || `#2ecd6f` }}>{e.name}</span>
                                     </span>                        </div>
                             })}
                     </div>

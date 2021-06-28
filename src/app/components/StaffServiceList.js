@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { SpinnerLarge, SpinnerSmall } from "./Spinner";
-import { queries } from "../modules/Staffs/graphql";
 import Search from "./Search";
 import { gql, useQuery } from "@apollo/client";
 import { toAbsoluteUrl } from "../../_metronic/_helpers";
@@ -58,11 +57,10 @@ const GET_STAFF = gql`
     }
   `;
 export function StaffServiceList(props) {
-    const { pagename, setFieldValue, handleChangeStaff } = props;
+    const { pagename,selectedItem } = props;
     const queryData = pagename === PageName.STAFF ? GET_SERVICE : GET_STAFF;
     const { data, loading } = useQuery(queryData);
     const [listData, setListData] = useState([]);
-    let selectedItem = [];
     useEffect(() => {
         if (loading === false && data) {
             if (listData.length === 0) {
@@ -73,48 +71,23 @@ export function StaffServiceList(props) {
     const handleSearch = (data) => {
         setListData(data);
     }
-    //     const selectOpt = [];
-    //     if (pagename === PageName.SERVICE) {
-
-
-    //             listData.map(list => {
-    //                 if (list.staff_timings && list.staff_timings.length !== 0) {
-    //                     const { availability_id } = list.staff_timings[0].timing_id;
-    //                     if (availability_id) {
-    //                         if (availability_id.inperson) {
-    //                             const { buinsess_address, client_address } = availability_id.inperson;
-    //                             if (buinsess_address || client_address) {
-    //                                 selectOpt.push(<InpersonUI  />);
-    //                             }
-    //                         }
-    //                         if (availability_id.oncall) {
-    //                             const { client, staff } = availability_id.oncall;
-    //                             if (client || staff) {
-    //                                 selectOpt.push(<PhoneUI  />);
-    //                             }
-    //                         }
-
-    //                         const video = availability_id.video && availability_id.video.length !== 0;
-    //                         if (video) {
-    //                             selectOpt.push(<VideoUI />);
-    //                         }
-    //                     }
-    //                 }
-    //             }
-    // )
-    //     }
-
-
-    function handleItemSelect(item) {
-        let index = selectedItem.findIndex(value => value === item.id);
+    const handleItemSelect=(item) =>{
+        let selectedVal=JSON.parse(JSON.stringify(selectedItem))
+        let index = selectedVal.findIndex(value => value.staff_id.id === item.id);
         if (index != -1) {
-            selectedItem = selectedItem.filter(el => el !== item.id);
+            selectedVal = selectedVal.filter(el => el.staff_id.id !== item.id);
         } else {
-            selectedItem.push(item.id);
+            let id={"staff_id":item.id}
+            selectedItem.push(id);
         }
-        // handleChangeStaff(item)
 
     }
+    const getActive = (id) => {
+        if(selectedItem.length===0)return
+        if(pagename===PageName.SERVICE) return !!selectedItem.find(value =>value.staff_id.id===id);
+        else return !!selectedItem.find(value =>value.service_id.id===id);
+      };
+    
     return (
         <div className="form-group">
             <div className="d-flex mb-3">
@@ -128,8 +101,8 @@ export function StaffServiceList(props) {
                         return (
                             <>
                                 {pagename === "service" ?
-                                    <StaffItems item={item} index={i} key={i} handleItemSelect={() => handleItemSelect(item)} />
-                                    : <ServiceItems item={item} index={i} key={i} handleItemSelect={() => handleItemSelect(item)} />}
+                                    <StaffItems item={item} index={i} key={i} handleItemSelect={ handleItemSelect} getActive={getActive}/>
+                                     : <ServiceItems item={item} index={i} key={i} handleItemSelect={() => handleItemSelect(item)} />} 
                             </>
                         )
                     })}
@@ -141,10 +114,10 @@ export function StaffServiceList(props) {
 
 
 function StaffItems(props) {
-    const { item, index, handleItemSelect } = props;
+    const { item, index, handleItemSelect,getActive } = props;
     return (
-        <div className="col-4 px-1" onClick={() => handleItemSelect(item)}>
-            <input type="checkbox" id={"pet_box_" + index} />
+        <div className="col-4 px-1" >
+            <input type="checkbox" id={"pet_box_" + index} onClick={() => handleItemSelect(item)} checked={getActive(item.id)}/>
             <label className="pat_box staff_sales" htmlFor={"pet_box_" + index} >
                 <div className="d-flex align-items-center mb-3">
                     <span className="staff_sales_icon my-auto">

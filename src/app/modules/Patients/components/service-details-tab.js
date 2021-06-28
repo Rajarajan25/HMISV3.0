@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
 
 
 export function ServiceDetailsTab(props) {
-  const {handleUpdate,currentIndex,handleChangeStaff,currentService,isloading}=props
+  const {handleUpdate,currentIndex,handleChangeServices,currentService,isloading}=props
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
   const dispatch = useDispatch();
@@ -119,7 +119,9 @@ export function ServiceDetailsTab(props) {
           {value === 1 && <TabContainer> <Duration data={currentservice} handleSave={editService} fields={timing_field}
           /> </TabContainer>}
           {/* {value === 1 && <TabContainer> <ServiceCost/> </TabContainer>} */}
-          {value === 2 && <TabContainer> <StaffService handleChangeStaff={handleChangeStaff} {...props} current={currentservice} index={currentIndex} handleUpdate={handleUpdate} handleSave={editService} fields={service_field}/> </TabContainer>}
+          {value === 2 && <TabContainer> <StaffService handleChangeServices={handleChangeServices} {...props} current={currentservice} 
+          index={currentIndex} handleUpdate={handleUpdate} handleSave={editService} fields={service_field} isloading={isloading}
+          /> </TabContainer>}
           {value === 3 && <TabContainer> <ServiceSettings /> </TabContainer>}
         </div>
       </div>
@@ -129,8 +131,8 @@ export function ServiceDetailsTab(props) {
 
 export function StaffName(props) {
   const {currentService}=props
-  var strippedHtml = currentService.description.replace(/<[^>]+>/g, '');
-
+  if(currentService.description)var strippedHtml = currentService.description.replace(/<[^>]+>/g, '');
+  else var strippedHtml =""
   return (
     <div class="d-flex">
       <AzureImageview data={currentService} />
