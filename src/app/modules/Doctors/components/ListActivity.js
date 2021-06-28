@@ -47,7 +47,7 @@ const field={
 }
 export function ListActivity01(props) {
   const classes = useStyles();
-  const { dataList, toggleDrawer,handleDelete, handleDuplicate, loading } = props;
+  const { dataList, toggleDrawer,handleDelete, handleDuplicate, loading,handleChangeServices} = props;
   const [expanded, setExpanded] = React.useState(true);
   const handleChange = () => {
     setExpanded(!expanded);
@@ -61,7 +61,8 @@ export function ListActivity01(props) {
       <TableHeader column={Column} listCount={dataList.length} expand={expanded} countLable="staff" toggleList={handleChange} />
       <AccordionDetails className="w-100 p-0">
         <TableRow {...props} row={dataList} drawer={toggleDrawer} handleDuplicate={handleDuplicate} 
-        addButton={true} addText="New Staff" field={field} pagename="staff"/>
+        addButton={true} addText="New Staff" field={field} pagename="staff" handleChangeServices={handleChangeServices}/>
+
       </AccordionDetails>
     </Accordion>
   );

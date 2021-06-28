@@ -17,12 +17,12 @@ const useStyles = makeStyles({
 
 export function StaffService(props) {
   const classes = useStyles();
-  const { current, fields, index, handleUpdate, addNew } = props;
+  const { current, fields, index, handleUpdate, addNew ,handleChangeServices} = props;
   const [loading, setLoading] = useState(false);
-  const { commission } = current;
+  const { commission,staff_services } = current;
   const initValue = {
     commission: commission,
-    staff:[],
+    staff:staff_services,
   }
   
   return (<>
@@ -70,7 +70,7 @@ export function StaffService(props) {
       onSubmit={(values) => {
         console.log("values", JSON.stringify(values));
         if (index != -1) {
-          handleUpdate(values, index);
+          handleChangeServices(values.staff,"staff_services", index);
           return;
         } else {
           setLoading(true);

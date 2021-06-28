@@ -124,6 +124,33 @@ class StaffPage extends React.Component {
                 DevAlertPopUp(error.message);
             });
     };
+     handleChangeServices = (selectedVal, type,id) => {
+        let index = 0;
+        let currentStaff=[];
+        // let currentStaffList = JSON.parse(JSON.stringify(currentStaff));
+        const currentStaffLists = this.state.staffList.map((item, i) => {
+          if (id === item.id) {
+            currentStaff=item
+          }
+          return item;
+        });
+        delete currentStaff.created_at
+        this.props
+            .updateStaff({
+                variables: {
+                    staffID: currentStaff.id,
+                    staff: {
+                        [type]: selectedVal,
+                    },
+                },
+            })
+            .then(() => {
+                //this.props.refetchStaff();
+            })
+            .catch((error) => {
+                DevAlertPopUp(error.message);
+            });
+      };
     handleUpdate = (updatedValue, index) => {
         let tempPickList = JSON.parse(JSON.stringify(this.state.staffList));
         let updatedItem = tempPickList[index];
@@ -320,7 +347,9 @@ class StaffPage extends React.Component {
                         handleDelete={this.deletePopUp}
                         handleDuplicate={this.handleDuplicate}
                         searchValue={this.state.searchValue}
-                    />
+                        handleChangeServices={this.handleChangeServices}/>
+
+                    
                 </div>
                 <AddFab onClick={this.toggleDrawer(true)} />
                 <RightSideDrawer

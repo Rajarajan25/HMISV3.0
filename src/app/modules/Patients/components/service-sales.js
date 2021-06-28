@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { makeStyles } from '@material-ui/core/styles';
 import Search from '../../../components/Search';
-import StaffCommission from "../../../components/StaffCommission"
 import { Formik } from 'formik';
 import { StaffServiceList } from "../../../components/StaffServiceList";
 const useStyles = makeStyles({
@@ -17,12 +16,11 @@ const useStyles = makeStyles({
 
 export function StaffService(props) {
   const classes = useStyles();
-  const { current, fields, index, handleUpdate, addNew,handleChangeStaff } = props;
+  const { current, fields, index, handleUpdate, addNew,handleChangeServices } = props;
   const [loading, setLoading] = useState(false);
-  const { commission } = current;
+  const currentService=JSON.parse(JSON.stringify(current))
   const initValue = {
-    commission: commission,
-    staff:[],
+    staff:currentService.service_relationships.service_staff,
   }
   
   return (<>
@@ -70,7 +68,7 @@ export function StaffService(props) {
       onSubmit={(values) => {
         console.log("values", JSON.stringify(values));
         if (index != -1) {
-          handleUpdate(values, index);
+          handleChangeServices(values.staff,"service_staff", index);
           return;
         } else {
           setLoading(true);
@@ -82,8 +80,7 @@ export function StaffService(props) {
       }) => (
         <form onSubmit={handleSubmit} className="form fv-plugins-framework">
           <div className="staff_first staff_third w-100 p-6">
-            <StaffServiceList selectedItem={values.staff} pagename="service" handleChangeStaff={handleChangeStaff}/>
-            <StaffCommission fields={fields} formikValues={values} setFieldValue={setFieldValue} />
+            <StaffServiceList selectedItem={values.staff} pagename="service" />
             <div className="form-group mb-0">
               <div className="d-flex justify-content-end patientButton pos_fix">
                 <button type="submit" className="btn btn-primary">Save</button>

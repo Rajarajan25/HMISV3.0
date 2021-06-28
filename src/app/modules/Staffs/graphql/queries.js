@@ -121,7 +121,13 @@ const staff = `
       site_owener
       sorting_id
       workspace_id
-      
+      staff_services{
+        service_id{
+          name
+          id
+          color_code
+        }
+      }
       ${staffTimings}
       ${commission}
   }
