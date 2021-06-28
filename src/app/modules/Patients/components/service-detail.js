@@ -184,7 +184,6 @@ export function ServiceDetail() {
           </div>
         </div>
       </div>
-      <Select components={{ Menu }} openModal={()=>{}} options={countries}/>
       <div className="form-group">
         <div className="col-12">
           <label class="form-label d-block">Description</label>
@@ -203,10 +202,10 @@ export function ServiceDetail() {
           <div className="col-12">
             <Dropdown drop="down" alignCenter className="dropdown h-100">
                 <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-                  <input placeholder="Category" type="text" className={`form-control`} name=""/>
+                  <input placeholder="Category List" type="text" className={`form-control`} name=""/>
                 </Dropdown.Toggle>
                 <Dropdown.Menu  className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav">
-                  <ProviderDropdownMenu />
+                  <CategoryDropdownMenu />
                 </Dropdown.Menu>
             </Dropdown>
           
@@ -455,43 +454,33 @@ export default function SwitchLabels() {
   );
 }
 
-export function ProviderDropdownMenu() {
+export function CategoryDropdownMenu() {
   return <>
       {/*begin::Navigation*/}
         <ul className="navi navi-hover">
-           <li className="navi-item">
-              <div className="service_search position-relative">
-                 <img src={toAbsoluteUrl("/media/patients/drop_search.svg")} alt="search" className="drop_search" />
-                 <input type="text" placeholder="Search" className="form-control" />
+          <li className="navi-item">
+            <div className="catgry_srh position-relative">
+              <img src={toAbsoluteUrl("/media/patients/drop_search.svg")} alt="search" className="drop_search" />
+              <input type="text" placeholder="Search" className="form-control" />
+            </div>
+          </li>
+          <li className="navi-item">
+            <div className="dropdown-menu-catgry-srh">
+              <div className="lst-detail">
+                <span>List 1</span> 
+                <span>List 2</span>
+                <span>List 3</span> 
               </div>
-              <PopEvent />
-           </li>
-           <li className="navi-item">
-              <div className="dropdown-menu-search-main">
-                 <div className="service_select">
-                    <div class="d-flex justify-content-left py-1">
-                       <span className="specialInfo text-white position-relative" style={{backgroundColor: `rgba(230, 81, 27,0.1)`}}>
-                          <span className="ProviderName" style={{color: `rgba(230, 81, 27,1)`}}>Gopinath</span> 
-                       </span>
-                    </div>
-                    <div class="d-flex justify-content-left py-1">
-                       <span className="specialInfo text-white position-relative" style={{backgroundColor: `rgba(10, 49, 232,0.1)`}}>
-                          <span className="ProviderName" style={{color: `rgba(10, 49, 232,1)`}}>Mani</span> 
-                       </span>
-                    </div>
-                    <div class="d-flex justify-content-left py-1">
-                       <span className="specialInfo text-white position-relative" style={{backgroundColor: `rgba(29, 188, 156,0.1)`}}>
-                          <span className="ProviderName" style={{color: `rgba(29, 188, 156,1)`}}>Sankar</span> 
-                       </span>
-                    </div>
-                    <div class="d-flex justify-content-left py-1">
-                       <span className="specialInfo text-white position-relative" style={{backgroundColor: `rgba(234, 128, 252,0.1)`}}>
-                          <span className="ProviderName" style={{color: `rgba(234, 128, 252,1)`}}>Kavinesh</span> 
-                       </span>
-                    </div>
-                 </div>
-              </div>
-           </li>
+            </div>
+          </li>
+          <li className="navi-item">
+            <div className="d-flex catgry_add align-items-center">
+              <span type="button" className="font-size-12">+ Add New</span>
+            </div>
+            <div className="catgry_lst">
+              <input type="text" placeholder="Enter Category" className="form-control" />
+            </div>
+          </li>
         </ul>
      {/*end::Navigation*/}
   </>
@@ -518,8 +507,8 @@ export class PopEvent extends React.Component {
   render() {
     return (
       <>
-        <div className="d-flex justify-content-end patientButton add_timing" >
-          <span type="button" className="btn btn-primary m-0" onClick={this.handleShow}>+ Add New</span>
+        <div className="d-flex justify-content-center align-items-center">
+          <span type="button" className="" onClick={this.handleShow}>+ Add New</span>
         </div>
 
         <Modal
@@ -539,4 +528,3 @@ export class PopEvent extends React.Component {
     );
   }
 }
-

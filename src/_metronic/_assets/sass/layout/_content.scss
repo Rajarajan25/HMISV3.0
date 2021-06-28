@@ -6650,17 +6650,17 @@ $large-desktops: 1730px;
     }
   }
 
-  .quill-ui {
-    .ql-toolbar, .ql-container {
-        &.ql-snow {
-            border-color: #eee;
-        }
-    }
-    .ql-container {
-        height: 80px;
-        overflow: hidden;
-    }
+.quill-ui {
+  .ql-toolbar, .ql-container {
+      &.ql-snow {
+          border-color: #eee;
+      }
   }
+  .ql-container {
+      height: 80px;
+      overflow: hidden;
+  }
+}
 
 .group-by {
   img {
@@ -6668,5 +6668,77 @@ $large-desktops: 1730px;
     filter: brightness(0) invert(0);
     -webkit-filter: brightness(0) invert(0);
     opacity: 0.5;
+  }
+}
+
+.staff_first {
+  .catgry_srh .drop_search {
+    position: absolute;
+    top: 11px;
+    left: 10px;
+  }
+  .catgry_srh .form-control {
+    border: 0;
+    border-bottom: 1px solid #e9ebf0;
+    padding: 7px 20px 7px 30px;
+    height: auto;
+    font-size: 1rem;
+    font-weight: normal;
+    &:focus {
+      border-bottom: 1px solid #1d6aff;
+    }
+  }
+  .dropdown-menu-catgry-srh {
+    width: 100%;
+    max-height: 100px;
+    padding: 5px 0px;
+    position: relative;
+    overflow: hidden;
+    overflow-anchor: none;
+    -ms-overflow-style: none;
+    touch-action: auto;
+    -ms-touch-action: auto;
+    overflow-y: scroll;
+    border-bottom: 1px solid #e9ebf0;
+    &::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background-color: #F5F5F5;
+    }
+    &::-webkit-scrollbar {
+      width: 7px;
+      background-color: #F5F5F5;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+      background-color: #1d6aff;
+    }
+    
+    .lst-detail {
+      span {
+        display: block;
+        padding: 7px 12px;
+      }
+    }
+  }
+  .catgry_add { 
+    padding: 10px;
+    color: #7c828d;
+    font-size: 1rem;
+  }
+  .catgry_lst { 
+    margin: 0 10px 10px 10px;
+    .form-control {  
+      border: 1px solid #e9ebf0;
+      border-radius: 5px;
+      height: auto;
+      padding: 8px 10px;
+      font-weight: normal;
+      font-size: 1rem;
+      &:focus {
+        border: 1px solid #1d6aff;
+      }
+    }
   }
 }
