@@ -130,29 +130,29 @@ export function ContentEventTiming() {
         <div className="form-group">
           <label className="form-label d-block mr-5 mb-2">Date Range</label>
           <div className="form-group mb-2">
-            <div className="d-flex event-range">
-              <div className="event-radio">
+            <div className="d-flex radio-header">
+              <div className="radio-section">
                 <input type="radio" id="range_01" name="time-range" className=""/>
                 <label className="eprice" for="range_01">
                   <span className="circle-border"></span>
                   <span className="chk_txt">Range</span>
                 </label>
               </div>
-              <div className="event-radio">
+              <div className="radio-section">
                 <input type="radio" id="range_02" name="time-range" className=""/>
                 <label className="eprice" for="range_02">
                   <span className="circle-border"></span>
                   <span className="chk_txt">Indefinitely</span>
                 </label>
               </div>
-              <div className="event-radio">
+              <div className="radio-section">
                 <input type="radio" id="range_03" name="time-range" className=""/>
                 <label className="eprice" for="range_03">
                   <span className="circle-border"></span>
                   <span className="chk_txt">Advance</span>
                 </label>
               </div>
-              <div className="event-radio">
+              <div className="radio-section">
                 <input type="radio" id="range_04" name="time-range" className=""/>
                 <label className="eprice" for="range_04">
                   <span className="circle-border"></span>
@@ -202,15 +202,15 @@ export function ContentEventTiming() {
           <label className="staff_title_text m-0">Timings</label>
         </div>
         <div className="clearfix mt-4 mb-2">
-          <div className="d-flex event-range">
-            <div className="event-radio">
+          <div className="d-flex radio-header">
+            <div className="radio-section">
                 <input type="radio" id="timings_01" name="timings" className="" />
                 <label className="eprice" for="timings_01">
                     <span className="circle-border"></span>
                     <span className="chk_txt">Business Hours</span>
                 </label>
             </div>
-            <div className="event-radio">
+            <div className="radio-section">
                 <input type="radio" id="timings_02" name="timings" className=""/>
                 <label className="eprice" for="timings_02">
                     <span className="circle-border"></span>
@@ -277,15 +277,15 @@ export function TabChat() {
 export function AvailPerson() {
   return (
     <div className="clearfix my-4">
-      <div className="d-flex event-range">
-        <div className="event-radio">
+      <div className="d-flex radio-header">
+        <div className="radio-section">
             <input type="radio" id="availperson_01" name="availperson" className="" />
             <label className="eprice" for="availperson_01">
                 <span className="circle-border"></span>
                 <span className="chk_txt">My Business Address</span>
             </label>
         </div>
-        <div className="event-radio">
+        <div className="radio-section">
             <input type="radio" id="availperson_02" name="availperson" className=""/>
             <label className="eprice" for="availperson_02">
                 <span className="circle-border"></span>
@@ -301,15 +301,15 @@ export function AvailPerson() {
 export function AvailCall() {
   return (
     <div className="clearfix my-4">
-      <div className="d-flex event-range">
-        <div className="event-radio">
+      <div className="d-flex radio-header">
+        <div className="radio-section">
             <input type="radio" id="availcall_01" name="availcall" className="" />
             <label className="eprice" for="availcall_01">
                 <span className="circle-border"></span>
                 <span className="chk_txt">Client will call you</span>
             </label>
         </div>
-        <div className="event-radio">
+        <div className="radio-section">
             <input type="radio" id="availcall_02" name="availcall" className=""/>
             <label className="eprice" for="availcall_02">
                 <span className="circle-border"></span>
