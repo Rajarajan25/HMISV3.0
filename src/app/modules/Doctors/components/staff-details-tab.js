@@ -114,8 +114,8 @@ export function TabTiming() {
 
 export function TabService() {
   return (
-    <div className="clearfix align-items-center ">
-      <div className="d-flex">
+    <div className="clearfix">
+      <div className="d-flex align-items-center">
         <span className="staff_tab_img"><img src={toAbsoluteUrl("/media/patients/TabService.svg")} alt="" className="d-inline-flex" /></span>
         <span className="staff_tab_title">Service & Sales</span>
       </div>

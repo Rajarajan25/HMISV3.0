@@ -7,6 +7,7 @@ import AppointmentTemplate from './AppointmentTemplate.js';
 import SelectBox from 'devextreme-react/select-box';
 import ResourceCell from './ResourceCell.js';
 import Button from "devextreme/ui/button";
+import { toAbsoluteUrl } from "../../../_metronic/_helpers";
 
 const currentDate = new Date();
 // const views = ['day', 'week','month','workWeek','timelineWeek','agenda'];
@@ -75,8 +76,8 @@ export default function Schedular  () {
   }
     return (
       <React.Fragment>
-       <div className="option">
-          <span>Group By</span>
+       <div className="option align-items-center border-0 group-by">
+          <img src={toAbsoluteUrl("/media/events/group_by.svg")} alt="Group By" className="mr-5" />
           <SelectBox
             items={option}
             onValueChanged={onValueChanged}
