@@ -8,6 +8,7 @@ import { ColorPalette } from "../../../components/ColorPalette";
 import { colors } from "@material-ui/core";
 import { findLastKey, values } from "lodash";
 import { scroller, animateScroll as scroll, Events } from "react-scroll";
+import Scrollspy from "react-scrollspy";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,7 +21,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function WorkSpace1(props) {
   const [obj, setObj] = React.useState({
+    name: "",
     colors: "",
+    bussiness_type: "",
   });
   const [formActions, setFormActions] = React.useState({
     enableName: true,
@@ -30,7 +33,9 @@ export default function WorkSpace1(props) {
   });
 
   React.useEffect(() => {
-    handleScroll("enableName");
+    setTimeout(() => {
+      handleScroll("enableName");
+    });
   }, []);
 
   const handleScroll = (enableType) => {
@@ -52,12 +57,43 @@ export default function WorkSpace1(props) {
   const handleChangeDropDown = (colors) => {
     setObj({ colors: colors });
   };
+  const handleOnScroll = (elem) => {
+    if (elem && elem.id) {
+      let updatedValue = { ...formActions };
+      Object.keys(formActions, {}).forEach((item, i) => {
+        if (item === elem.id) {
+          if (obj.name === "" && elem.id === "enableColor") {
+            handleScroll("enableName");
+          } else if (obj.colors === "" && elem.id === "enableBusiness") {
+            handleScroll("enableColor");
+          } else if (obj.bussiness_type === "" && elem.id === "enableGo") {
+            handleScroll("enableBusiness");
+          }
+
+          if (elem.id === "enableColor" && obj.colors !== "") {
+            updatedValue.enableColor = true;
+          } else if (elem.id === "enableBusiness" && obj.bussiness_type !== "") {
+            updatedValue.enableBusiness = true;
+          } else if (elem.id === "enableGo" && (obj.bussiness_type !== "" && obj.colors !== "" && obj.name !== "")) {
+            updatedValue.enableGo = true;
+          } else {
+            if (elem.id === "enableName") {
+              updatedValue[item] = true;
+            }
+          }
+
+        }
+      });
+      setFormActions(updatedValue);
+    }
+  };
 
   return (
     <Formik
       initialValues={{ name: "", colors: "", bussiness_type: "" }}
       onSubmit={(values) => {
         values.colors = obj.colors;
+        setObj(values)
         console.log(JSON.stringify(values));
       }}
     >
@@ -73,8 +109,20 @@ export default function WorkSpace1(props) {
                   </Link>
                 </div>
                 <div className="d-flex justify-content-center flex-column col-xl-9 col-lg-11 wid col h-100 ml-35">
+                  <Scrollspy
+                    className="scrollspy"
+                    items={[
+                      "enableName",
+                      "enableColor",
+                      "enableBusiness",
+                      "enableGo",
+                    ]}
+                    currentClassName="isCurrent"
+                    onUpdate={handleOnScroll}
+                  ></Scrollspy>
                   <div
                     className="space1 mb150"
+                    id="enableName"
                     style={
                       formActions.enableName
                         ? {}
@@ -125,6 +173,7 @@ export default function WorkSpace1(props) {
 
                   <div
                     className="space2 mb150"
+                    id="enableColor"
                     style={
                       formActions.enableColor
                         ? {}
@@ -159,7 +208,7 @@ export default function WorkSpace1(props) {
                           <div className="space-btn">
                             <button
                               onClick={() =>
-                                scrollTo("enableColor", "enableBussines")
+                                scrollTo("enableColor", "enableBusiness")
                               }
                               className="btn btn-btn-primary"
                               style={
@@ -178,15 +227,16 @@ export default function WorkSpace1(props) {
 
                   <div
                     className="space3 mb150"
+                    id="enableBusiness"
                     style={
-                      formActions.enableBussines
+                      formActions.enableBusiness
                         ? {}
                         : { pointerEvents: "none", opacity: "0.4" }
                     }
                   >
                     <div
                       className="d-flex w-100 loginMaincontent min-heis"
-                      name="enableBussines"
+                      name="enableBusiness"
                     >
                       <div className="d-flex w-100">
                         <Link to="/" className="flex-column-auto logo-tb mb-5">
@@ -205,6 +255,7 @@ export default function WorkSpace1(props) {
 
                   <div
                     className="space4 mb150"
+                    id="enableGo"
                     style={
                       formActions.enableGo
                         ? {}
@@ -436,7 +487,7 @@ export function Bussinessformik(props) {
       <div className="space-btn">
         <button
           onClick={() => {
-            scrollTo("enableBussines", "enableGo");
+            scrollTo("enableBusiness", "enableGo");
             // handleBusinessType(businessType)
           }}
           className="btn btn-btn-primary"
