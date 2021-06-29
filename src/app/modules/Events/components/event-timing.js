@@ -501,20 +501,19 @@ export function Availability() {
           </div>
           <div className="text-left  mt-3 pb-2 session_start border-bottom ">
             <div className="session_part row mb-2">
-              <div className="col-3 pr-2 min_width100">
+              <div className="col-2 pr-2 min_width100">
                 <div className="session_select">
                   <div className="hm-checkbox">
                     <input type="checkbox" id="session_01" name="" className="" />
                     <label className="eprice" for="session_01">
-                      <span className="circle-border"></span>
-                      <span className="chk_txt">Session 1</span>
+                      <span className="chk_txt">Start Time</span>
                     </label>
                   </div>
                 </div>
               </div>
-              <div className="col-4 p-0 d-flex">
+              <div className="col-5 p-0 d-flex">
                 <div className="tm_area text-left pl-0">
-                  <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+                  <span className="st_tm"><TimePickers /></span> <span className="se_to"> End Time</span> <span className="end_tm"><TimePickers /></span>
                 </div>
               </div>
               <div className="col-5 d-flex justify-content-start align-items-center pl-2 pr-2">
@@ -526,7 +525,7 @@ export function Availability() {
               </div>
             </div>
             <div className="break_part row mb-2">
-              <div className="col-3 pr-3">
+              <div className="col-2 pr-3">
                 <div className="break_select position-relative">
                   <img src={toAbsoluteUrl("/media/patients/break_line.svg")} alt="" className="break_line" />
                   <div className="hm-checkbox">
@@ -539,7 +538,7 @@ export function Availability() {
 
                 </div>
               </div>
-              <div className="col-4 p-0 d-flex">
+              <div className="col-5 p-0 d-flex">
                 <div className="tm_area text-left pl-0">
                   <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
                 </div>
@@ -549,7 +548,7 @@ export function Availability() {
               </div>
             </div>
             <div className="break_part row mb-2">
-              <div className="col-3 pr-3">
+              <div className="col-2 pr-3">
                 <div className="break_select position-relative">
                   <img src={toAbsoluteUrl("/media/patients/break_line.svg")} alt="" className="break_line" />
                   <div className="hm-checkbox">
@@ -561,7 +560,7 @@ export function Availability() {
                   </div>
                 </div>
               </div>
-              <div className="col-4 p-0 d-flex">
+              <div className="col-5 p-0 d-flex">
                 <div className="tm_area text-left pl-0">
                   <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
                 </div>
@@ -573,20 +572,19 @@ export function Availability() {
           </div>
           <div className="text-left  mt-3 pb-2 session_start border-bottom ">
             <div className="session_part row mb-2">
-              <div className="col-3 pr-2 min_width100">
+              <div className="col-2 pr-2 min_width100">
                 <div className="session_select">
                   <div className="hm-checkbox">
                     <input type="checkbox" id="session_02" name="" className="" />
-                    <label className="eprice" for="session_02">
-                      <span className="circle-border"></span>
-                      <span className="chk_txt">Session 2</span>
+                    <label className="eprice" for="session_02">                   
+                      <span className="chk_txt">Start Time</span>
                     </label>
                   </div>
                 </div>
               </div>
-              <div className="col-4 p-0 d-flex">
+              <div className="col-5 p-0 d-flex">
                 <div className="tm_area text-left pl-0">
-                  <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
+                  <span className="st_tm"><TimePickers /></span> <span className="se_to">End Time</span> <span className="end_tm"><TimePickers /></span>
                 </div>
               </div>
               <div className="col-5 d-flex justify-content-start align-items-center pl-2 pr-2">
@@ -598,7 +596,7 @@ export function Availability() {
               </div>
             </div>
             <div className="break_part row mb-2">
-              <div className="col-3 pr-3">
+              <div className="col-2 pr-3">
                 <div className="break_select position-relative">
                   <img src={toAbsoluteUrl("/media/patients/break_line.svg")} alt="" className="break_line" />
                   <div className="hm-checkbox">
@@ -610,7 +608,7 @@ export function Availability() {
                   </div>                  
                 </div>
               </div>
-              <div className="col-4 p-0 d-flex">
+              <div className="col-5 p-0 d-flex">
                 <div className="tm_area text-left pl-0">
                   <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
                 </div>
@@ -620,7 +618,7 @@ export function Availability() {
               </div>
             </div>
             <div className="break_part row mb-2">
-              <div className="col-3 pr-3">
+              <div className="col-2 pr-3">
                 <div className="break_select position-relative">
                   <img src={toAbsoluteUrl("/media/patients/break_line.svg")} alt="" className="break_line" />               
 
@@ -633,7 +631,7 @@ export function Availability() {
                   </div>
                  </div>
               </div>
-              <div className="col-4 p-0 d-flex">
+              <div className="col-5 p-0 d-flex">
                 <div className="tm_area text-left pl-0">
                   <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
                 </div>

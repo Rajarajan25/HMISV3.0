@@ -245,13 +245,13 @@ export function StaffTiming() {
         </div>
         <div className="text-left  mt-3 pb-2 session_start border-bottom ">
           <div className="session_part row mb-2">
-            <div className="col-3 pr-2 min_width100">
+            <div className="col-2 pr-2 min_width100">
               <div className="session_select">
                 <input type="checkbox" id="session_01" name="" className="" />
                 <label className="" for="session_01">Session 1</label>
               </div>
             </div>
-            <div className="col-4 p-0 d-flex">
+            <div className="col-5 p-0 d-flex">
               <div className="tm_area text-left pl-0">
                 <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
               </div>
@@ -265,14 +265,14 @@ export function StaffTiming() {
             </div>
           </div>
           <div className="break_part row mb-2">
-            <div className="col-3 pr-3">
+            <div className="col-2 pr-3">
               <div className="break_select position-relative">
                 <img src={toAbsoluteUrl("/media/patients/break_line.svg")} alt="" className="break_line" />
                 <input type="checkbox" id="break_01" name="" className="" />
                 <label className="" for="break_01">Break</label>
               </div>
             </div>
-            <div className="col-4 p-0 d-flex">
+            <div className="col-5 p-0 d-flex">
               <div className="tm_area text-left pl-0">
                 <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
               </div>
@@ -282,14 +282,14 @@ export function StaffTiming() {
             </div>
           </div>
           <div className="break_part row mb-2">
-            <div className="col-3 pr-3">
+            <div className="col-2 pr-3">
               <div className="break_select position-relative">
                 <img src={toAbsoluteUrl("/media/patients/break_line.svg")} alt="" className="break_line" />
                 <input type="checkbox" id="break_02" name="" className="" />
                 <label className="" for="break_02">Break</label>
               </div>
             </div>
-            <div className="col-4 p-0 d-flex">
+            <div className="col-5 p-0 d-flex">
               <div className="tm_area text-left pl-0">
                 <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
               </div>
@@ -301,13 +301,13 @@ export function StaffTiming() {
         </div>
         <div className="text-left  mt-3 pb-2 session_start border-bottom ">
           <div className="session_part row mb-2">
-            <div className="col-3 pr-2 min_width100">
+            <div className="col-2 pr-2 min_width100">
               <div className="session_select">
                 <input type="checkbox" id="session_02" name="" className="" />
                 <label className="" for="session_02">Session 2</label>
               </div>
             </div>
-            <div className="col-4 p-0 d-flex">
+            <div className="col-5 p-0 d-flex">
               <div className="tm_area text-left pl-0">
                 <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
               </div>
@@ -321,14 +321,14 @@ export function StaffTiming() {
             </div>
           </div>
           <div className="break_part row mb-2">
-            <div className="col-3 pr-3">
+            <div className="col-2 pr-3">
               <div className="break_select position-relative">
                 <img src={toAbsoluteUrl("/media/patients/break_line.svg")} alt="" className="break_line" />
                 <input type="checkbox" id="break_03" name="" className="" />
                 <label className="" for="break_03">Break</label>
               </div>
             </div>
-            <div className="col-4 p-0 d-flex">
+            <div className="col-5 p-0 d-flex">
               <div className="tm_area text-left pl-0">
                 <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
               </div>
@@ -338,14 +338,14 @@ export function StaffTiming() {
             </div>
           </div>
           <div className="break_part row mb-2">
-            <div className="col-3 pr-3">
+            <div className="col-2 pr-3">
               <div className="break_select position-relative">
                 <img src={toAbsoluteUrl("/media/patients/break_line.svg")} alt="" className="break_line" />
                 <input type="checkbox" id="break_04" name="" className="" />
                 <label className="" for="break_04">Break</label>
               </div>
             </div>
-            <div className="col-4 p-0 d-flex">
+            <div className="col-5 p-0 d-flex">
               <div className="tm_area text-left pl-0">
                 <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
               </div>

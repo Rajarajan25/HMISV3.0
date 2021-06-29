@@ -333,8 +333,16 @@ export function AsideMenuList({ layoutProps }) {
                   className="menu-link"
                   to="/Payments/staff-management/profile-overview"
                 >
-                  <i className="menu-bullet menu-bullet-dot">
-                    <span />
+                  <i className="menu-bullet">
+                  <span
+                      className="menu-sub-icons"
+                      style={{ backgroundColor: `#fd7fab` }}
+                    >
+                      <img
+                        src={toAbsoluteUrl("/media/events/cogwheel.svg")}
+                        alt="staff"
+                      />
+                    </span>
                   </i>
                   <span className="menu-text">Billing & Invoices</span>
                 </NavLink>
@@ -376,8 +384,16 @@ export function AsideMenuList({ layoutProps }) {
                   className="menu-link"
                   to="/staff-management/profile-overview"
                 >
-                  <i className="menu-bullet menu-bullet-dot">
-                    <span />
+                  <i className="menu-bullet ">
+                  <span
+                      className="menu-sub-icons"
+                      style={{ backgroundColor: `#bf55ec` }}
+                    >
+                      <img
+                        src={toAbsoluteUrl("/media/events/cogwheel.svg")}
+                        alt="staff"
+                      />
+                    </span>
                   </i>
                   <span className="menu-text">Coupons</span>
                 </NavLink>
@@ -394,8 +410,16 @@ export function AsideMenuList({ layoutProps }) {
                   className="menu-link"
                   to="/staff-management/profile-overview"
                 >
-                  <i className="menu-bullet menu-bullet-dot">
-                    <span />
+                  <i className="menu-bullet ">
+                  <span
+                      className="menu-sub-icons"
+                      style={{ backgroundColor: `#0a32e8` }}
+                    >
+                      <img
+                        src={toAbsoluteUrl("/media/events/cogwheel.svg")}
+                        alt="staff"
+                      />
+                    </span>
                   </i>
                   <span className="menu-text">SMS</span>
                 </NavLink>
