@@ -73,27 +73,57 @@ export default function WorkSpace1(props) {
             handleScroll("enableName");
           }, 600);
           updatedValue.enableName = true;
+          updatedValue.enableBusiness = false;
+          updatedValue.enableColor = false;
+          updatedValue.enableGo = false;
+        } else if ((obj.name !== "" && obj.colors === "" && obj.bussiness_type === "") && elem.id === "enableColor") {
+          setTimeout(() => {
+            handleScroll("enableColor");
+          }, 600);
+          updatedValue.enableName = false;
+          updatedValue.enableBusiness = false;
+          updatedValue.enableColor = true;
+          updatedValue.enableGo = false;
         } else if ((obj.name !== "" && obj.colors === "" && obj.bussiness_type === "") && (elem.id === "enableBusiness" || elem.id === "enableGo")) {
           setTimeout(() => {
             handleScroll("enableColor");
           }, 600);
           updatedValue.enableName = false;
+          updatedValue.enableBusiness = false;
           updatedValue.enableColor = true;
+          updatedValue.enableGo = false;
         } else if ((obj.name !== "" && obj.colors !== "" && obj.bussiness_type === "") && elem.id === "enableColor") {
           setTimeout(() => {
             handleScroll("enableColor");
           }, 600);
+          updatedValue.enableName = false;
+          updatedValue.enableBusiness = false;
           updatedValue.enableColor = true;
+          updatedValue.enableGo = false;
         } else if ((obj.name !== "" && obj.colors !== "" && obj.bussiness_type === "") && elem.id === "enableName") {
           setTimeout(() => {
             handleScroll("enableName");
           }, 600);
           updatedValue.enableName = true;
+          updatedValue.enableBusiness = false;
+          updatedValue.enableColor = false;
+          updatedValue.enableGo = false;
+        } else if ((obj.name !== "" && obj.colors !== "" && obj.bussiness_type === "") && elem.id === "enableBusiness") {
+          setTimeout(() => {
+            handleScroll("enableBusiness");
+          }, 600);
+          updatedValue.enableName = false;
+          updatedValue.enableBusiness = true;
+          updatedValue.enableColor = false;
+          updatedValue.enableGo = false;
         } else if ((obj.name !== "" && obj.colors !== "" && obj.bussiness_type === "") && elem.id === "enableGo") {
           setTimeout(() => {
             handleScroll("enableBusiness");
           }, 600);
+          updatedValue.enableName = false;
           updatedValue.enableBusiness = true;
+          updatedValue.enableColor = false;
+          updatedValue.enableGo = false;
         } else if ((obj.name !== "" && obj.colors !== "" && obj.bussiness_type !== "")) {
           if (item === elem.id) {
             updatedValue[item] = true;
