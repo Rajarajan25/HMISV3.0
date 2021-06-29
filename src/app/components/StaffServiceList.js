@@ -57,7 +57,7 @@ const GET_STAFF = gql`
     }
   `;
 export function StaffServiceList(props) {
-    const { pagename,selectedItem } = props;
+    const { pagename, selectedItem,setFieldValue } = props;
     const queryData = pagename === PageName.STAFF ? GET_SERVICE : GET_STAFF;
     const { data, loading } = useQuery(queryData);
     const [listData, setListData] = useState([]);
@@ -71,23 +71,36 @@ export function StaffServiceList(props) {
     const handleSearch = (data) => {
         setListData(data);
     }
-    const handleItemSelect=(item) =>{
-        let selectedVal=JSON.parse(JSON.stringify(selectedItem))
-        let index = selectedVal.findIndex(value => value.staff_id.id === item.id);
-        if (index != -1) {
-            selectedVal = selectedVal.filter(el => el.staff_id.id !== item.id);
+    const handleItemSelect = (item) => {
+        let selectedVal =[...selectedItem];
+        if (pagename === PageName.SERVICE) {
+            let index = selectedVal.findIndex(value => value.staff_id.id === item.id);
+            if (index != -1) {
+                selectedVal = selectedVal.filter(el => el.staff_id.id !== item.id);
+            } else {
+                let id = { staff_id: {id:item.id} }
+                selectedVal.push(id);
+            }
+            setFieldValue("staff",selectedVal);
         } else {
-            let id={"staff_id":item.id}
-            selectedItem.push(id);
+            let index = selectedVal.findIndex(value => value.service_id.id === item.id);
+            if (index != -1) {
+                selectedVal = selectedVal.filter(el => el.service_id.id !== item.id);
+            } else {
+                let id = { service_id: {id:item.id} }
+                selectedVal.push(id);
+            }
+            setFieldValue("service",selectedVal);
         }
+
 
     }
     const getActive = (id) => {
-        if(selectedItem.length===0)return
-        if(pagename===PageName.SERVICE) return !!selectedItem.find(value =>value.staff_id.id===id);
-        else return !!selectedItem.find(value =>value.service_id.id===id);
-      };
-    
+        if (selectedItem.length === 0) return
+        if (pagename === PageName.SERVICE) return !!selectedItem.find(value => value.staff_id.id === id);
+        else return !!selectedItem.find(value => value.service_id.id === id);
+    };
+
     return (
         <div className="form-group">
             <div className="d-flex mb-3">
@@ -98,12 +111,10 @@ export function StaffServiceList(props) {
                 <div className="row">
                     <SpinnerLarge loading={loading} />
                     {listData.map((item, i) => {
-                        return (
-                            <>
-                                {pagename === "service" ?
-                                    <StaffItems item={item} index={i} key={i} handleItemSelect={ handleItemSelect} getActive={getActive}/>
-                                     : <ServiceItems item={item} index={i} key={i} handleItemSelect={() => handleItemSelect(item)} />} 
-                            </>
+                        return (pagename === PageName.SERVICE ?
+                            <StaffItems item={item} index={i} key={i} handleItemSelect={handleItemSelect} getActive={getActive} />
+                            : <ServiceItems item={item} index={i} key={i} handleItemSelect={handleItemSelect} getActive={getActive}/>
+
                         )
                     })}
                 </div>
@@ -114,10 +125,10 @@ export function StaffServiceList(props) {
 
 
 function StaffItems(props) {
-    const { item, index, handleItemSelect,getActive } = props;
+    const { item, index, handleItemSelect, getActive } = props;
     return (
         <div className="col-4 px-1" >
-            <input type="checkbox" id={"pet_box_" + index} onClick={() => handleItemSelect(item)} checked={getActive(item.id)}/>
+            <input type="checkbox" id={"pet_box_" + index} onClick={() => handleItemSelect(item)} checked={getActive(item.id)} />
             <label className="pat_box staff_sales" htmlFor={"pet_box_" + index} >
                 <div className="d-flex align-items-center mb-3">
                     <span className="staff_sales_icon my-auto">
@@ -138,12 +149,12 @@ function StaffItems(props) {
 
 }
 function ServiceItems(props) {
-    const { item, index, handleItemSelect } = props;
+    const { item, index, handleItemSelect,getActive } = props;
 
     return (
-        <div className="col-3 px-1" onClick={handleItemSelect}>
-            <input type="checkbox" id={"pet_box_" + index} />
-            <label className="pat_box" for={"pet_box_" + index}>
+        <div className="col-3 px-1">
+            <input type="checkbox" id={"pet_box_" + index} onClick={() => handleItemSelect(item)} checked={getActive(item.id)}/>
+            <label className="pat_box" htmlFor={"pet_box_" + index}>
                 <div className="d-flex serve_act">
                     <span className="publicbg">{item.service_type}</span>
                     <span className="ml-auto"><span>$</span> 100</span>

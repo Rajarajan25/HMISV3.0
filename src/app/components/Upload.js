@@ -224,8 +224,8 @@ export function Upload(props) {
       const croppedImage = await getCroppedImg(
         imageSrc,
         croppedAreaPixels,
-      )
-      console.log('donee', croppedImage)
+      );
+      console.log('donee', croppedImage);
       setCroppedImage(croppedImage);
       onFileUpload(croppedImage);
       setModalOpen(false);
