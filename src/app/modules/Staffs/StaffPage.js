@@ -126,19 +126,20 @@ class StaffPage extends React.Component {
     };
      handleChangeServices = (selectedVal, type,id) => {
         let index = 0;
-        let currentStaff=[];
-        // let currentStaffList = JSON.parse(JSON.stringify(currentStaff));
-        const currentStaffLists = this.state.staffList.map((item, i) => {
-          if (id === item.id) {
-            currentStaff=item
-          }
-          return item;
+        const currentStaffList = this.state.staffList.map((item, i) => {
+            if (id === item.id) {
+                item[type] = selectedVal;
+                index = i;
+            }
+            return item;
         });
-        delete currentStaff.created_at
+        this.setState({ staffList: currentStaffList, isloading: true });
+        let updateArray = this.state.staffList[index];
+        delete updateArray.created_at
         this.props
             .updateStaff({
                 variables: {
-                    staffID: currentStaff.id,
+                    staffID: updateArray.id,
                     staff: {
                         [type]: selectedVal,
                     },
@@ -346,8 +347,7 @@ class StaffPage extends React.Component {
                         handleDataSource={this.handleDataSource}
                         handleDelete={this.deletePopUp}
                         handleDuplicate={this.handleDuplicate}
-                        searchValue={this.state.searchValue}
-                        handleChangeServices={this.handleChangeServices}/>
+                        searchValue={this.state.searchValue}/>
 
                     
                 </div>
@@ -360,6 +360,7 @@ class StaffPage extends React.Component {
                         handleUpdate={this.handleUpdate}
                         isloading={this.state.isloading}
                         index={this.state.currentIndex}
+                        handleChangeServices={this.handleChangeServices}
                         addNew={this.addNewStaff} />
                 </RightSideDrawer>
 

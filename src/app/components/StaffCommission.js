@@ -10,7 +10,7 @@ export default function StaffCommission(props) {
     <div>
       <div className="form-group border-bottom">
         <div className="d-flex">
-          <label class="staff_title_text">{fields.staffCommission}</label>
+          <label className="staff_title_text">{fields.staffCommission}</label>
           <div className="pre_status staff_commission">
             <SwitchLabels
               label="Active"
@@ -41,14 +41,14 @@ export default function StaffCommission(props) {
         {() => (formikValues.commission.map((item, i) => {
           return (
             <div className="form-group" key={i}>
-              <label class="d-block staff_title_text pb-2">{formikValues.commission[i].commission_type}</label>
+              <label className="d-block staff_title_text pb-2">{formikValues.commission[i].commission_type}</label>
               <div className="d-flex row">
                 <div className="col-6">
-                  <label class="form-label d-block">Amount (र)</label>
+                  <label className="form-label d-block">Amount (र)</label>
                   <Field placeholder="100" type="number" className={`form-control`} name={`commission.${i}.amount`} />
                 </div>
                 <div className="col-6">
-                  <label class="form-label d-block">Percentage (%)</label>
+                  <label className="form-label d-block">Percentage (%)</label>
                   <Field placeholder="10%" type="number" className={`form-control`} name={`commission.${i}.percentage`} />
                 </div>
               </div>

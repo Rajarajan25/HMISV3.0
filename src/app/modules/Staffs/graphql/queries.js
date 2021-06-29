@@ -123,9 +123,7 @@ const staff = `
       workspace_id
       staff_services{
         service_id{
-          name
           id
-          color_code
         }
       }
       ${staffTimings}

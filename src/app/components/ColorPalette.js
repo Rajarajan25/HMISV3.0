@@ -93,11 +93,10 @@ export function ColorPaletteFormik(props) {
                   type="radio"
                   id={"color_" + index}
                   name={props.name}
-                  className=""
                   name="color_code"
                   value={colors}
                 />
-                <label className="" for={"color_" + index}>
+                <label className="" htmlFor={"color_" + index}>
                   <span
                     style={{ backgroundColor: colors }}
                   ></span>
