@@ -37,6 +37,8 @@ export default function WorkSpace1(props) {
     setTimeout(() => {
       handleScroll("enableName");
     });
+    let updateObj = { name: props.location.hasOwnProperty("aboutProps") ? props.location.aboutProps.item.name : "", colors: props.location.hasOwnProperty("aboutProps") ? props.location.aboutProps.item.bg_color : "", bussiness_type: props.location.hasOwnProperty("aboutProps") ? props.location.aboutProps.item.bussiness_type : "" };
+    setObj(updateObj);
   }, []);
 
   const handleScroll = (enableType) => {
@@ -56,34 +58,81 @@ export default function WorkSpace1(props) {
     });
   };
   const handleChangeDropDown = (colors) => {
-    setObj({ colors: colors });
+    setObj({ ...obj, colors: colors });
   };
   const handleOnScroll = (elem) => {
     if (elem && elem.id) {
       let updatedValue = { ...formActions };
       Object.keys(formActions, {}).forEach((item, i) => {
-        if (item === elem.id) {
-          if (obj.name === "" && elem.id === "enableColor") {
+        if (obj.name === "" && obj.colors === "" && obj.bussiness_type === "") {
+          setTimeout(() => {
             handleScroll("enableName");
-          } else if (obj.colors === "" && elem.id === "enableBusiness") {
+          }, 600);
+        } else if ((obj.name !== "" && obj.colors === "" && obj.bussiness_type === "") && elem.id === "enableName") {
+          setTimeout(() => {
+            handleScroll("enableName");
+          }, 600);
+          updatedValue.enableName = true;
+        } else if ((obj.name !== "" && obj.colors === "" && obj.bussiness_type === "") && (elem.id === "enableBusiness" || elem.id === "enableGo")) {
+          setTimeout(() => {
             handleScroll("enableColor");
-          } else if (obj.bussiness_type === "" && elem.id === "enableGo") {
+          }, 600);
+          updatedValue.enableName = false;
+          updatedValue.enableColor = true;
+        } else if ((obj.name !== "" && obj.colors !== "" && obj.bussiness_type === "") && elem.id === "enableColor") {
+          setTimeout(() => {
+            handleScroll("enableColor");
+          }, 600);
+          updatedValue.enableColor = true;
+        } else if ((obj.name !== "" && obj.colors !== "" && obj.bussiness_type === "") && elem.id === "enableName") {
+          setTimeout(() => {
+            handleScroll("enableName");
+          }, 600);
+          updatedValue.enableName = true;
+        } else if ((obj.name !== "" && obj.colors !== "" && obj.bussiness_type === "") && elem.id === "enableGo") {
+          setTimeout(() => {
             handleScroll("enableBusiness");
-          }
-
-          if (elem.id === "enableColor" && obj.colors !== "") {
-            updatedValue.enableColor = true;
-          } else if (elem.id === "enableBusiness" && obj.bussiness_type !== "") {
-            updatedValue.enableBusiness = true;
-          } else if (elem.id === "enableGo" && (obj.bussiness_type !== "" && obj.colors !== "" && obj.name !== "")) {
-            updatedValue.enableGo = true;
+          }, 600);
+          updatedValue.enableBusiness = true;
+        } else if ((obj.name !== "" && obj.colors !== "" && obj.bussiness_type !== "")) {
+          if (item === elem.id) {
+            updatedValue[item] = true;
           } else {
-            if (elem.id === "enableName") {
-              updatedValue[item] = true;
-            }
+            updatedValue[item] = false;
           }
+          // setTimeout(() => {
+          //   handleScroll("enableBusiness");
+          // }, 600);
 
         }
+        //  else if (obj.name !== "" && obj.colors === "" && obj.bussiness_type === "") {
+        //   setTimeout(() => {
+        //     handleScroll("enableColor");
+        //   }, 600);
+        // } else if (obj.name !== "" && obj.colors !== "" && obj.bussiness_type === "") {
+        //   setTimeout(() => {
+        //     handleScroll("enableBusiness");
+        //   }, 600);
+        // }
+        // if (obj.name === "" && elem.id === "enableColor") {
+        //   handleScroll("enableName");
+        // } else if (obj.colors === "" && elem.id === "enableBusiness") {
+        //   handleScroll("enableColor");
+        // } else if (obj.bussiness_type === "" && elem.id === "enableGo") {
+        //   handleScroll("enableBusiness");
+        // }
+
+        // if (elem.id === "enableColor" && obj.colors !== "") {
+        //   updatedValue.enableColor = true;
+        // } else if (elem.id === "enableBusiness" && obj.bussiness_type !== "") {
+        //   updatedValue.enableBusiness = true;
+        // } else if (elem.id === "enableGo" && (obj.bussiness_type !== "" && obj.colors !== "" && obj.name !== "")) {
+        //   updatedValue.enableGo = true;
+        // } else {
+        //   if (elem.id === "enableName") {
+        //     updatedValue[item] = true;
+        //   }
+        // }
       });
       setFormActions(updatedValue);
     }
