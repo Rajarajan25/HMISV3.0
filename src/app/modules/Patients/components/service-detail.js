@@ -412,6 +412,16 @@ export function ServiceDetail() {
       </div>
       <div className="form-group">
         <div className="col-12">
+          <label class="form-label d-block">No of booking</label>
+        </div>
+        <div className="d-flex">
+          <div className="col-12">
+          <input placeholder="1" type="text" className={`form-control`} name="firstname"/>
+          </div>
+        </div>
+      </div>
+      <div className="form-group">
+        <div className="col-12">
           <label class="form-label d-block">Service URL</label>
         </div>
         <div className="d-flex">
@@ -477,7 +487,7 @@ export function CategoryDropdownMenu() {
           </li>
           <li className="navi-item">
             <div className="d-flex catgry_add align-items-center">
-              <span type="button" className="font-size-12">+ Add New</span>
+              <span className="ml-auto">+ Add New</span>
             </div>
             <div className="catgry_lst">
               <input type="text" placeholder="Enter Category" className="form-control" />

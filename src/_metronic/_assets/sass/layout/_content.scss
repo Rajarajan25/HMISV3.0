@@ -2602,7 +2602,7 @@ input.edit_mobile[type="text"] {
     letter-spacing: 0px;
     color: #3f4254;
     text-transform: capitalize;
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin-bottom: 0;
     padding-bottom: 4px;
   }
@@ -6672,6 +6672,15 @@ $large-desktops: 1730px;
 }
 
 .staff_first {
+  .break_select {
+    label{
+      color: #C0C0C0;
+      line-height: 13px;    
+      .circle-border{
+        border-radius: 3px !important;
+      }
+    }
+  }
   .catgry_srh .drop_search {
     position: absolute;
     top: 15px;
@@ -6731,8 +6740,10 @@ $large-desktops: 1730px;
   }
   .catgry_add { 
     padding: 10px 15px;
-    color: #7c828d;
+    color: #1c6afc;
     font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
   }
   .catgry_lst { 
     margin: 0 15px 10px 15px;
@@ -6825,16 +6836,6 @@ $large-desktops: 1730px;
       &::after {
         display: none;
       }
-    }
-  }
-}
-
-.break_select {
-  label{
-    color: #C0C0C0;
-    line-height: 13px;    
-    .circle-border{
-      border-radius: 3px !important;
     }
   }
 }
