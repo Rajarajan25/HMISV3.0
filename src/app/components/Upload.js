@@ -30,8 +30,8 @@ const loadingContainer = {
   display: "flex",
   flexDirection: "row",
   flexWrap: "wrap",
-  marginTop: "-10px",
-  marginLeft: "-8px",
+  marginTop: "-17px",
+  marginLeft: "-15px",
   padding: 0,
   position: "absolute"
 };
@@ -76,27 +76,6 @@ const thumbButton = {
   borderRadius: "50%"
 };
 
-const editImage = (image, done) => {
-  const imageFile = image.doka ? image.doka.file : image;
-  const imageState = image.doka ? image.doka.data : {};
-  // create({
-  //   // recreate previous state
-  //   ...imageState,
-
-  //   // load original image file
-  //   src: imageFile,
-  //   outputData: true,
-
-  //   onconfirm: ({ file, data }) => {
-  //     Object.assign(file, {
-  //       doka: { file: imageFile, data }
-  //     });
-  //     done(file);
-  //   }
-  // });
-};
-
-
 function readFile(file) {
   return new Promise((resolve) => {
     const reader = new FileReader()
@@ -105,7 +84,7 @@ function readFile(file) {
   })
 }
 export function Upload(props) {
-  const { imageURL, name, path, setFieldValue, subName, upload_type, upload_id } = props;
+  const { imageURL, name,setFieldValue, subName, upload_type, upload_id } = props;
   const previewURL = baseURL + imageURL;
   const imagePreview = {
     name: imageURL,
@@ -121,9 +100,6 @@ export function Upload(props) {
   const [aspect, setAspect] = useState(1);
   const [imgType, setImageType] = useState(null);
   const [croppedImage, setCroppedImage] = useState(null)
-  // const [imgObj, setImgObj] = useState({
-  //   imageSrc:'https://img.huffingtonpost.com/asset/5ab4d4ac2000007d06eb2c56.jpeg?cache=sih0jwle4e&ops=1910_1000',
-  // });
   DevConsoleLog("files-->", files);
   const { getRootProps, getInputProps } = useDropzone({
     accept: "image/*",
@@ -143,29 +119,48 @@ export function Upload(props) {
 
     }
   };
-  const blobToFile = (theBlob, fileName, imgType) => {
-    return new File([theBlob], fileName, { lastModified: new Date().getTime(), type: imgType })
+  
+  const dataURLtoFile = (dataurl, filename) => {
+    var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+      bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+    while (n--) {
+      u8arr[n] = bstr.charCodeAt(n);
+    }
+    return new File([u8arr], filename, { type: mime });
   }
   const onFileUpload = async (files) => {
     if (storageConfigured) {
-      //setUploading(true);
       const image = upload_type + ".png";
-      const blobToFile = new File([files], 'imageCrop.png', {
-        lastModified: new Date().getTime(),
-        type: files.type,
-      })
-      const imagePreview = {
-        name: 'imageCrop.png',
-        preview: files
-      }
-      setFiles([imagePreview]);
-      await uploadFileToBlobWithSite(files, upload_id, image).then((url) => {
-        DevConsoleLog("name-->", name);
-        DevConsoleLog("fileSelected.path-->", url);
-        setFieldValue(name, url);
-        //setFieldValue(subName, "siteid_900/workid_900/userid_900");
-        setUploading(false);
+      fetch(files).then(data => {
+        const blob = data.blob();
+        return blob;
+      }).then(blob => {
+        let reader = new window.FileReader();
+        reader.onloadend = async function () {
+          const data = reader.result;
+          console.log(data);
+          const imagePreview = {
+            name: 'imageCrop.png',
+            preview: data
+          }
+          setFiles([imagePreview]);
+          //Usage example:
+          var file = dataURLtoFile(data, 'imageCrop.png');
+          console.log(file);
+          setUploading(true);
+          await uploadFileToBlobWithSite(file, upload_id, image).then((url) => {
+            DevConsoleLog("name-->", name);
+            DevConsoleLog("fileSelected.path-->", url);
+            setFieldValue(name, url);
+            //setFieldValue(subName, "siteid_900/workid_900/userid_900");
+            setUploading(false);
+          });
+        };
+        reader.readAsDataURL(blob);
+
       });
+
+
 
     }
   };
@@ -239,7 +234,6 @@ export function Upload(props) {
         {uploading && <div className="image-circle-loading" style={loadingContainer}>
           <div></div>
         </div>}
-        <Button onClick={() => setModalOpen(true)}>upload</Button>
         <div {...getRootProps({ className: "dropzone" })}>
           <input {...getInputProps()} />
           <label htmlFor="raised-button-file" className="up_avatar">
@@ -260,8 +254,8 @@ export function Upload(props) {
           Crop your image then click Save
           <Button
             onClick={showCroppedImage}
-            variant="contained"
-            color="primary"
+            className="btn btn-primary"
+            style={{position:"absolute",right:60}}
           >
             Save
           </Button>
@@ -279,7 +273,7 @@ export function Upload(props) {
             onZoomChange={setZoom}
           />
 
-{/* <CropImage/> */}
+          {/* <CropImage/> */}
         </Modal.Body>
       </Modal>
     </>
