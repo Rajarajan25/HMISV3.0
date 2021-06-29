@@ -256,8 +256,16 @@ export function AsideMenuList({ layoutProps }) {
                   className="menu-link"
                   to="/available-patients/profile-overview"
                 >
-                  <i className="menu-bullet menu-bullet-dot">
-                    <span />
+                   <i className="menu-bullet">
+                    <span
+                      className="menu-sub-icons"
+                      style={{ backgroundColor: `#6bc950` }}
+                    >
+                      <img
+                        src={toAbsoluteUrl("/media/events/cogwheel.svg")}
+                        alt="staff"
+                      />
+                    </span>
                   </i>
                   <span className="menu-text">Class</span>
                 </NavLink>
@@ -275,8 +283,16 @@ export function AsideMenuList({ layoutProps }) {
                   className="menu-link"
                   to="/available-patients/profile-overview"
                 >
-                  <i className="menu-bullet menu-bullet-dot">
-                    <span />
+                  <i className="menu-bullet">
+                    <span
+                      className="menu-sub-icons"
+                      style={{ backgroundColor: `#e6511b` }}
+                    >
+                      <img
+                        src={toAbsoluteUrl("/media/events/cogwheel.svg")}
+                        alt="staff"
+                      />
+                    </span>
                   </i>
                   <span className="menu-text">Leave</span>
                 </NavLink>
