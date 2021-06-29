@@ -469,7 +469,9 @@ export function CategoryDropdownMenu() {
               <div className="lst-detail">
                 <span>List 1</span> 
                 <span>List 2</span>
-                <span>List 3</span> 
+                <span>List 3</span>
+                <span>List 4</span> 
+                <span>List 5</span>
               </div>
             </div>
           </li>

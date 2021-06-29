@@ -3188,7 +3188,7 @@ p.setting_color {
     }
   }
   .tm_area {
-    max-width: 190px;
+    max-width: 240px;
     padding-left: 12px;
     text-align: center;
     .st_tm,
@@ -3198,7 +3198,7 @@ p.setting_color {
       font-size: 1em;
     }
     .se_to {
-      min-width: 20px;
+      min-width: 80px;
       font-size: 0.9em;
       color: #303030;
     }
@@ -6674,13 +6674,13 @@ $large-desktops: 1730px;
 .staff_first {
   .catgry_srh .drop_search {
     position: absolute;
-    top: 11px;
-    left: 10px;
+    top: 15px;
+    left: 12px;
   }
   .catgry_srh .form-control {
     border: 0;
     border-bottom: 1px solid #e9ebf0;
-    padding: 7px 20px 7px 30px;
+    padding: 9px 20px 9px 30px;
     height: auto;
     font-size: 1rem;
     font-weight: normal;
@@ -6690,7 +6690,7 @@ $large-desktops: 1730px;
   }
   .dropdown-menu-catgry-srh {
     width: 100%;
-    max-height: 100px;
+    max-height: 150px;
     padding: 5px 0px;
     position: relative;
     overflow: hidden;
@@ -6716,24 +6716,31 @@ $large-desktops: 1730px;
     }
     
     .lst-detail {
+      padding: 5px 5px;
       span {
         display: block;
         padding: 7px 12px;
+        &:hover, &.active {
+          cursor: pointer;
+          background: #1d6aff;
+          border-radius: 5px;
+          color: #fff
+        }
       }
     }
   }
   .catgry_add { 
-    padding: 10px;
+    padding: 10px 15px;
     color: #7c828d;
     font-size: 1rem;
   }
   .catgry_lst { 
-    margin: 0 10px 10px 10px;
+    margin: 0 15px 10px 15px;
     .form-control {  
       border: 1px solid #e9ebf0;
       border-radius: 5px;
       height: auto;
-      padding: 8px 10px;
+      padding: 7px 10px;
       font-weight: normal;
       font-size: 1rem;
       &:focus {
@@ -6780,7 +6787,7 @@ $large-desktops: 1730px;
     }
     input[type="radio"]:checked + label {
       .circle-border {
-        border: 1px solid #0089ff;
+        border: 1px solid #121414;
         background-color: #0089ff;
         &:before {
           content: "";
