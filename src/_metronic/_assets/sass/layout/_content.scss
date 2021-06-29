@@ -6828,3 +6828,13 @@ $large-desktops: 1730px;
     }
   }
 }
+
+.break_select {
+  label{
+    color: #C0C0C0;
+    line-height: 13px;    
+    .circle-border{
+      border-radius: 3px !important;
+    }
+  }
+}
