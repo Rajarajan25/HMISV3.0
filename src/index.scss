@@ -182,12 +182,22 @@
   padding: 22px 0px;
 }
 
-.filter-popup{
+.filter-popup {
   z-index: 5000;
-    position: absolute;
-    width: 500px;
-    border: 1px solid;
-    background: #fff;
+  position: absolute;
+  width: 500px;
+  border: 1px solid;
+  background: #fff;
+}
+
+.hover:hover {
+  border: 1px solid;
+  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 55px;
+  padding-right: 55px;
+  width: 50px;
 }
 
 // .ql-container{

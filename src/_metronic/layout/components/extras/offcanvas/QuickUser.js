@@ -52,7 +52,7 @@ let Quick = [
   },
 ];
 
-export function QuickUser() {
+export function QuickUser(props) {
   const history = useHistory();
   const user = useSelector((state) => state.auth.user, shallowEqual);
   const [selectQuick, setSelectQuick] = React.useState(Quick[0]);

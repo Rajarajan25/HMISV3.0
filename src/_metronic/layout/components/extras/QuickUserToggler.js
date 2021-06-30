@@ -9,7 +9,9 @@ import objectPath from "object-path";
 import { useHtmlClassService } from "../../_core/MetronicLayout";
 import { UserProfileDropdown } from "./dropdowns/UserProfileDropdown";
 
-export function QuickUserToggler() {
+export function QuickUserToggler(props) {
+  const { item } = props;
+  console.log(item);
   // const { user } = useSelector((state) => state.auth);
   const uiService = useHtmlClassService();
   const layoutProps = useMemo(() => {
@@ -36,7 +38,7 @@ export function QuickUserToggler() {
           >
             <span className="symbol userIcon symbol-30 symbol-lg-40">
               <span className="svg-icon svg-icon-lg">
-                AS
+                SK
               </span>
             </span>
             <span className="symbol userIcon symbol-30 symbol-lg-40 bg-primary">
