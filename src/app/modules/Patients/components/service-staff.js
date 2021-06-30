@@ -56,7 +56,7 @@ export function ServiceStaff() {
       <div className="form-group">
         <div className="d-flex mb-3">
 
-          <div className="d-flex justify-items-center service_search">
+          <div className="d-flex justify-items-center service_search ml-auto">
             <button type="button" className="service_search_icon">
               <img src="/media/patients/cat_search.svg" alt="" className="" />
             </button>

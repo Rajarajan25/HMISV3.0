@@ -187,23 +187,23 @@ export function ServiceCost() {
         <div className="add-ons">
           <div className="clearfix">
             <div className="row mb-3">
-              <div className="col-xl-4">
+              <div className="col-xl-3">
                 <label class="form-label">Name</label>
               </div>
-              <div className="col-xl-3">
+              <div className="col-xl-2">
                 <label class="form-label">Price</label>
               </div>
-              <div className="col-xl-5"></div>
+              <div className="col-xl-7"></div>
             </div>
-            <div className="row mb-2">
-              <div className="col-xl-4">
+            <div className="addon_part row mb-2">
+              <div className="col-xl-3">
                 <label class="label-cont d-block">Pediatrics</label>
               </div>
-              <div className="col-xl-3">
+              <div className="col-xl-2">
                 <label class="label-cont d-block">100</label>
               </div>
-              <div className="col-xl-5">
-              <span className="perdi-remove"><img src={toAbsoluteUrl("/media/events/delete-pink.svg")} alt="" className="d-block" /></span>
+              <div className="col-xl-7">
+                <span className="perdi-remove"><img src={toAbsoluteUrl("/media/events/delete-pink.svg")} alt="" className="d-block" /></span>
               </div>
             </div>
           </div>

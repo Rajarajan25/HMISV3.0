@@ -6831,9 +6831,12 @@ label {
   height: 25px;
   padding: 7px;
   padding-top: 6px;
-  display: block;
+  display: none;
   img{
     width: 100%;
     object-fit: cover;
   }
+}
+.addon_part:hover .perdi-remove {
+  display: block;
 }
