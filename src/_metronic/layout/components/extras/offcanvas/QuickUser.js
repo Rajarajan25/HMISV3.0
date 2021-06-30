@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../../_helpers";
 import { Item } from "devextreme-react/accordion";
 
-const Quick = [
+let Quick = [
   {
     id: 1,
     name: "S",
@@ -55,6 +55,17 @@ const Quick = [
 export function QuickUser() {
   const history = useHistory();
   const user = useSelector((state) => state.auth.user, shallowEqual);
+  const [selectQuick, setSelectQuick] = React.useState(Quick[0]);
+  React.useEffect(() => {
+    let updatedQuickSetting = sessionStorage.getItem("quickSetting");
+    if (updatedQuickSetting) {
+      let updatedSettings = JSON.parse(updatedQuickSetting);
+      let topItemIndex = Quick.findIndex((item) => item.id === updatedSettings.id);
+      let topItem = Quick.splice(topItemIndex, 1);
+      Quick = [...topItem, ...Quick]
+      setSelectQuick(updatedSettings);
+    }
+  }, [])
 
   const logoutClick = () => {
     const toggle = document.getElementById("kt_quick_user_toggle");
@@ -63,6 +74,10 @@ export function QuickUser() {
     }
     history.push("/logout");
   };
+  const handleQuick = (item) => {
+    setSelectQuick(item)
+    sessionStorage.setItem("quickSetting", JSON.stringify(item));
+  }
 
   return (
     <div>
@@ -361,6 +376,7 @@ export function QuickUser() {
                       item: item
                     }
                   }}
+                  onClick={() => handleQuick(item)}
                 >
                   <span
                     className={item.className}
@@ -389,8 +405,8 @@ export function QuickUser() {
               <div className="d-inline-block w-100 h-100">
                 <div className="d-flex">
                   <div className="modaluserIcon w-100 mb-3">
-                    <span className="userIcon">SK</span>
-                    <span className="userName">Sivakumar</span>
+                    <span className="userIcon">{selectQuick.name}</span>
+                    <span className="userName">{selectQuick.name}</span>
                   </div>
                 </div>
                 <ul className="list-inline">
