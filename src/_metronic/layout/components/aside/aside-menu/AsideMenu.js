@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { AsideMenuList } from "./AsideMenuList";
 import { useHtmlClassService } from "../../../_core/MetronicLayout";
 
-export function AsideMenu({ isActive }) {
+export function AsideMenu({ isActive,menuList }) {
   const uiService = useHtmlClassService();
   const layoutProps = useMemo(() => {
     return {
@@ -23,7 +23,7 @@ export function AsideMenu({ isActive }) {
           className={`aside-menu  min-h-lg-800px ${layoutProps.asideClassesFromConfig}`}
           {...layoutProps.asideMenuAttr}
         >
-          <AsideMenuList layoutProps={layoutProps} />
+          <AsideMenuList layoutProps={layoutProps} menuList={menuList}/>
         </div>
         {/* end::Menu Container */}
       </div>

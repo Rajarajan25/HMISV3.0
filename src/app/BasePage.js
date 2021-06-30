@@ -10,7 +10,7 @@ const GoogleMaterialPage = lazy(() =>
   import("./modules/GoogleMaterialExamples/GoogleMaterialPage")
 );
 const ManagePage = lazy(() =>
-  import("./modules/Components/ManagePage")
+  import("./modules/Manage/ManagePage")
 );
 const ReactBootstrapPage = lazy(() =>
   import("./modules/ReactBootstrapExamples/ReactBootstrapPage")

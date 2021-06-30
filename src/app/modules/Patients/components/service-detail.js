@@ -4,7 +4,7 @@ import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import {DatePickersUtil} from '../../Components/DateAndTimePicker'
+import {DatePickersUtil} from '../../../components/DateAndTimePicker'
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';

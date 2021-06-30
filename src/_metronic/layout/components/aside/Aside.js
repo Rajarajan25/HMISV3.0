@@ -13,6 +13,185 @@ import { Brand } from "../brand/Brand";
 import { KTUtil } from "./../../../_assets/js/components/util";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
+const AsideHeaderList=[
+  {
+    name:"Dashboard",
+    tooltip:"Dashboard",
+    key:"dashboard",
+    icon:"/media/svg/left-menu/Dashboard.svg",
+    visible:true,
+  },
+  {
+    name:"Calendar",
+    tooltip:"Calendar",
+    key:"calender",
+    icon:"/media/svg/left-menu/Calender.svg",
+    visible:true,
+  },
+  {
+    name:"Manage",
+    tooltip:"Manage",
+    key:"manage",
+    icon:"/media/svg/left-menu/Services.svg",
+    visible:true,
+  }
+]
+const AsideMiddleList=[
+  {
+    name:"Payments",
+    tooltip:"Payments",
+    key:"payment",
+    icon:"/media/svg/left-menu/Payment.svg",
+    visible:true,
+  },
+  {
+    name:"Marketing",
+    tooltip:"Marketing",
+    key:"marketing",
+    icon:"/media/svg/left-menu/Speaker.svg",
+    visible:true,
+  },
+  {
+    name:"Products",
+    tooltip:"Products",
+    key:"product",
+    icon:"/media/svg/left-menu/Chart.svg",
+    visible:true,
+  },
+  {
+    name:"Reports",
+    tooltip:"Reports",
+    key:"reports",
+    icon:"/media/svg/left-menu/Products.svg",
+    visible:true,
+  },
+  {
+    name:"Setting",
+    tooltip:"Setting",
+    key:"setting",
+    icon:"/media/svg/left-menu/Setting.svg",
+    visible:false,
+  },
+  {
+    name:"User Management",
+    tooltip:"User Management",
+    key:"user_manager",
+    icon:"/media/svg/left-menu/Help.svg",
+    visible:false,
+  }
+]
+
+const AsideSubMenuList={
+  dashboard:[
+    {
+      name:"Dashboard",
+      isMenu:false,
+      visible:true,
+      shortName:"D",
+      to:"/dashboard",
+      icon:"/media/svg/icons/Design/Layers.svg",
+      backgroundColor:""
+    }
+  ],
+  calender:[
+    {
+      name:"Calendar",
+      isMenu:false,
+      visible:true,
+      shortName:"C",
+      to:"/builder",
+      icon:"/media/svg/icons/Home/Library.svg",
+      backgroundColor:""
+    }
+  ],
+  manage:[
+    {
+      name:"Manage",
+      isMenu:true,
+      visible:true,
+      shortName:"M",
+      to:"/manage",
+      icon:"",
+      backgroundColor:"",
+      subMenuList:[
+        {
+          name:"Staff",
+          visible:true,
+          to:"/manage/staff-management/profile-overview",
+          icon:"/media/events/cogwheel.svg",
+          backgroundColor:"#FD5D81"
+        },
+        {
+          name:"Customers",
+          visible:true,
+          to:"/manage/patients-details",
+          icon:"/media/events/patient.svg",
+          backgroundColor:"#FEC55D"
+        },
+        {
+          name:"Service",
+          visible:true,
+          to:"/manage/service-provider",
+          icon:"/media/events/customer.svg",
+          backgroundColor:"#7F5DFC"
+        },
+        {
+          name:"Events",
+          visible:true,
+          to:"/manage/event-details",
+          icon:"/media/events/doctor.svg",
+          backgroundColor:"#FD905D"
+        },
+        {
+          name:"Class",
+          visible:true,
+          to:"/available-patients/profile-overview",
+          icon:"/media/events/cogwheel.svg",
+          backgroundColor:"#6bc950"
+        },
+        {
+          name:"Leave",
+          visible:true,
+          to:"/available-patients/profile-overview",
+          icon:"/media/events/cogwheel.svg",
+          backgroundColor:"#e6511b"
+        }
+      ]
+    }
+  ],
+  payment:[
+    {
+      name:"Billing & Invoices",
+      isMenu:false,
+      visible:true,
+      shortName:"B",
+      to:"/Payments/billinginvoice",
+      icon:"/media/events/cogwheel.svg",
+      backgroundColor:"#fd7fab",
+    }
+  ],
+  marketing:[
+    {
+      name:"Coupons",
+      isMenu:false,
+      visible:true,
+      shortName:"C",
+      to:"/marketing/coupons",
+      icon:"/media/events/cogwheel.svg",
+      backgroundColor:"#bf55ec",
+    },
+    {
+      name:"SMS",
+      isMenu:false,
+      visible:true,
+      shortName:"S",
+      to:"/marketing/sms",
+      icon:"/media/events/cogwheel.svg",
+      backgroundColor:"#0a32e8",
+    }
+  ]
+}
+
 export function Aside() {
   const uiService = useHtmlClassService();
 
@@ -55,14 +234,15 @@ export function Aside() {
   }, [uiService]);
 
   const tabs = {
-    tabId1: "kt_aside_tab_1",
-    tabId2: "kt_aside_tab_2",
-    tabId3: "kt_aside_tab_3",
-    tabId4: "kt_aside_tab_4", 
+    tabId1: "tab_1",
+    tabId2: "tab_2",
+    tabId3: "tab_3",
+    tabId4: "tab_4", 
   };
   const [activeTab, setActiveTab] = useState(tabs.tabId2);
   const handleTabChange = (id) => {
     setActiveTab(id);
+    console.log("Aside menu",AsideSubMenuList[id]);
     const asideWorkspace = KTUtil.find(
       document.getElementById("kt_aside"),
       ".aside-secondary .aside-workspace"
@@ -85,114 +265,41 @@ export function Aside() {
           {/* begin::Header */}
           <div className="aside-header d-flex
            flex-column align-items-center flex-column-auto">
-
             <ul className="list-unstyled flex-column asideTopleftfixedmenu" role="tablist">
               {/* begin::Item */}
-              
-              <li
-                className="nav-item"
-                data-toggle="tooltip"
-                data-placement="rigth"
-                data-container="body"
-                data-boundary="window"
-               
-              >
-              <OverlayTrigger
-                  placement="right"
-                  overlay={
-                    <Tooltip id="quick-search-tooltip" className="tool_bg">Dashboard</Tooltip>
-                  }
+              {AsideHeaderList.map((item,i)=>{
+                return(<li
+                  className={`nav-item ${!item.visible && "d-none"}`}
+                  data-toggle="tooltip"
+                  data-placement="rigth"
+                  data-container="body"
+                  key={i}
+                  data-boundary="window"
+                 
                 >
-                  <a
-                    href="#"
-                    className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===
-                    tabs.tabId2 && "active"}`}
-                    data-toggle="tab"
-                    data-target={`#${tabs.tabId2}`}
-                    role="tab"
-                    onClick={() => handleTabChange(tabs.tabId2)}
-                  >
-                    <span className="svg-icon svg-icon-md d-inline-flex">
-                      <SVG
-                        src={toAbsoluteUrl(
-                          "/media/svg/left-menu/Dashboard.svg"
-                        )}
-                      />
-                    </span>
-                  </a>
-                  </OverlayTrigger>
-              </li>
-              
-              {/* end::Item */}
-
-              {/* begin::Item */}
-              <li
-                className="nav-item"
-                data-toggle="tooltip"
-                data-placement="rigth"
-                data-container="body"
-                data-boundary="window"
-
-              >
                 <OverlayTrigger
-                  placement="right"
-                  overlay={
-                    <Tooltip id="quick-search-tooltip" className="tool_bg">Calendar</Tooltip>
-                  }
-                >
-                  <a
-                    href="#"
-                    className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===
-                      tabs.tabId4 && "active"}`}
-                    data-toggle="tab"
-                    data-target={`#${tabs.tabId4}`}
-                    onClick={() => handleTabChange(tabs.tabId4)}
-                    role="tab"
+                    placement="right"
+                    overlay={
+                      <Tooltip id="quick-search-tooltip" className="tool_bg">{item.tooltip}</Tooltip>
+                    }
                   >
-                    <span className="svg-icon svg-icon-md d-inline-flex">
-                      <SVG
-                        src={toAbsoluteUrl(
-                          "/media/svg/left-menu/Calender.svg"
-                        )}
-                      />
-                    </span>
-                  </a>
-                </OverlayTrigger>
-              </li>
-              {/* end::Item */}
-
-              {/* begin::Item */}
-              <li
-                className="nav-item"
-                data-toggle="tooltip"
-                data-placement="rigth"
-                data-container="body"
-                data-boundary="window"
-           
-              >
-                <OverlayTrigger
-                  placement="right"
-                  overlay={
-                    <Tooltip id="quick-search-tooltip" className="tool_bg">Manage</Tooltip>
-                  }
-                >
-                  <a
-                    href="#"
-                    className="nav-link btn btn-icon btn-clean btn-lg"
-                    data-toggle="tab"
-                    data-target="#kt_aside_tab_3"
-                    role="tab"
-                  >
-                    <span className="svg-icon svg-icon-md d-inline-flex">
-                      <SVG
-                        src={toAbsoluteUrl(
-                          "/media/svg/left-menu/Services.svg"
-                        )}
-                      />
-                    </span>
-                  </a>
-                </OverlayTrigger>
-              </li>
+                    <a
+                      href="#"
+                      className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===item.key && "active"}`}
+                      data-toggle="tab"
+                      data-target={`#${item.key}`}
+                      role="tab"
+                      onClick={() => handleTabChange(item.key)}
+                    >
+                      <span className="svg-icon svg-icon-md d-inline-flex">
+                        <SVG
+                          src={toAbsoluteUrl(item.icon)}
+                        />
+                      </span>
+                    </a>
+                    </OverlayTrigger>
+                </li>)
+              })}
               {/* end::Item */}
             </ul>                        
           </div>
@@ -203,209 +310,40 @@ export function Aside() {
             {/* begin::Nav */}
             <ul className="list-unstyled flex-column" role="tablist">
               {/* begin::Item */}
-              <li
-                className="nav-item"
-                data-toggle="tooltip"
-                data-placement="rigth"
-                data-container="body"
-                data-boundary="window"
-         
-              >
-                <OverlayTrigger
-                  placement="right"
-                  overlay={
-                    <Tooltip id="quick-search-tooltip" className="tool_bg">Payments</Tooltip>
-                  }
-                >
-                  <a
-                    href="#"
-                    className="nav-link btn btn-icon btn-clean btn-lg"
-                    data-toggle="tab"
-                    data-target="#kt_aside_tab_3"
-                    role="tab"
+              {AsideMiddleList.map((item,i)=>{
+                return(
+                  <li
+                  className={`nav-item ${!item.visible && "d-none"}`}
+                  data-toggle="tooltip"
+                  data-placement="rigth"
+                  data-container="body"
+                  key={i}
+                  data-boundary="window">
+                  <OverlayTrigger
+                    placement="right"
+                    overlay={
+                      <Tooltip id="quick-search-tooltip" className="tool_bg">{item.tooltip}</Tooltip>
+                    }
                   >
-                    <span className="svg-icon svg-icon-md d-inline-flex">
-                      <SVG
-                        src={toAbsoluteUrl(
-                          "/media/svg/left-menu/Payment.svg"
-                        )}
-                      />
-                    </span>
-                  </a>
-                </OverlayTrigger>
-              </li>
+                    <a
+                      href="#"
+                      className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===item.key && "active"}`}
+                      data-toggle="tab"
+                      data-target={`#${item.key}`}
+                      role="tab"
+                      onClick={() => handleTabChange(item.key)}
+                    >
+                      <span className="svg-icon svg-icon-md d-inline-flex">
+                        <SVG
+                          src={toAbsoluteUrl(item.icon)}
+                        />
+                      </span>
+                    </a>
+                  </OverlayTrigger>
+                </li>
+                )
+              })}
               {/* end::Item */}
-
-              {/* begin::Item */}
-              <li
-                className="nav-item"
-                data-toggle="tooltip"
-                data-placement="rigth"
-                data-container="body"
-                data-boundary="window"
-       
-              >
-                <OverlayTrigger
-                  placement="right"
-                  overlay={
-                    <Tooltip id="quick-search-tooltip" className="tool_bg">Marketing</Tooltip>
-                  }
-                >
-                  <a
-                    href="#"
-                    className="nav-link btn btn-icon btn-clean btn-lg"
-                    data-toggle="tab"
-                    data-target="#kt_aside_tab_3"
-                    role="tab"
-                  >
-                    <span className="svg-icon svg-icon-md d-inline-flex">
-                      <SVG
-                        src={toAbsoluteUrl(
-                          "/media/svg/left-menu/Speaker.svg"
-                        )}
-                      />
-                    </span>
-                  </a>
-                </OverlayTrigger>
-              </li>
-              {/* end::Item */}
-
-              {/* begin::Item */}
-              <li
-                className="nav-item"
-                data-toggle="tooltip"
-                data-placement="rigth"
-                data-container="body"
-                data-boundary="window"
-      
-              >
-                <OverlayTrigger
-                  placement="right"
-                  overlay={
-                    <Tooltip id="quick-search-tooltip" className="tool_bg">Products</Tooltip>
-                  }
-                >
-                  <a
-                    href="#"
-                    className="nav-link btn btn-icon btn-clean btn-lg"
-                    data-toggle="tab"
-                    data-target="#kt_aside_tab_3"
-                    role="tab"
-                  >
-                    <span className="svg-icon svg-icon-md d-inline-flex">
-                      <SVG
-                        src={toAbsoluteUrl(
-                          "/media/svg/left-menu/Chart.svg"
-                        )}
-                      />
-                    </span>
-                  </a>
-                </OverlayTrigger>
-              </li>
-              {/* end::Item */}
-
-              {/* begin::Item */}
-              <li
-                className="nav-item"
-                data-toggle="tooltip"
-                data-placement="rigth"
-                data-container="body"
-                data-boundary="window"
-           
-              >
-                <OverlayTrigger
-                  placement="right"
-                  overlay={
-                    <Tooltip id="quick-search-tooltip" className="tool_bg">Reports</Tooltip>
-                  }
-                >
-                  <a
-                    href="#"
-                    className="nav-link btn btn-icon btn-clean btn-lg"
-                    data-toggle="tab"
-                    data-target="#kt_aside_tab_3"
-                    role="tab"
-                  >
-                    <span className="svg-icon svg-icon-md d-inline-flex">
-                      <SVG
-                        src={toAbsoluteUrl(
-                          "/media/svg/left-menu/Products.svg"
-                        )}
-                      />
-                    </span>
-                  </a>
-                </OverlayTrigger>
-              </li>
-              {/* end::Item */}
-
-              {/* begin::Item */}
-              <li
-                className="nav-item d-none"
-                data-toggle="tooltip"
-                data-placement="rigth"
-                data-container="body"
-                data-boundary="window"
-                title="Project Management"
-              >
-                <OverlayTrigger
-                  placement="right"
-                  overlay={
-                    <Tooltip id="quick-search-tooltip" className="tool_bg">
-                      Project Management
-                    </Tooltip>
-                  }
-                >
-                  <a
-                    href="#"
-                    className="nav-link btn btn-icon btn-clean btn-lg"
-                    data-toggle="tab"
-                    data-target="#kt_aside_tab_4"
-                    role="tab"
-                  >
-                    <span className="svg-icon svg-icon-md d-inline-flex">
-                      <SVG
-                        src={toAbsoluteUrl(
-                          "/media/svg/left-menu/Setting.svg"
-                        )}
-                      />
-                    </span>
-                  </a>
-                </OverlayTrigger>
-              </li>
-              {/* end::Item */}
-
-              {/* begin::Item */}
-              <li
-                className="nav-item d-none"
-                data-toggle="tooltip"
-                data-placement="rigth"
-                data-container="body"
-                data-boundary="window"
-                title="User Management"
-              >
-                <OverlayTrigger
-                  placement="right"
-                  overlay={
-                    <Tooltip id="user-management" className="tool_bg">User Management</Tooltip>
-                  }
-                >
-                  <a
-                    href="#"
-                    className="nav-link btn btn-icon btn-clean btn-lg"
-                    data-toggle="tab"
-                    data-target="#kt_aside_tab_5"
-                    role="tab"
-                  >
-                    <span className="svg-icon svg-icon-md d-inline-flex">
-                      <SVG
-                        src={toAbsoluteUrl("/media/svg/left-menu/Help.svg")}
-                      />
-                    </span>
-                  </a>
-                </OverlayTrigger>
-              </li>
-              {/* end::Item */}
-
             </ul>
             {/* end::Nav */}
           </div>
@@ -596,10 +534,10 @@ export function Aside() {
               {/* begin::Workspace */}
               <div className="aside-workspace scroll scroll-push">
                 <div className="tab-content">
-                  <AsideSearch isActive={activeTab === tabs.tabId1} />
-                  <AsideMenu isActive={activeTab === tabs.tabId2} />
-                  <AsideMenu isActive={activeTab === tabs.tabId3} />
-                  <AsideSubmenu isActive={activeTab === tabs.tabId4} />
+                  {/* <AsideSearch isActive={activeTab === tabs.tabId1} /> */}
+                  <AsideMenu isActive={true} menuList={AsideSubMenuList[activeTab]}/>
+                  {/* <AsideMenu isActive={activeTab === tabs.tabId3} />
+                  <AsideSubmenu isActive={activeTab === tabs.tabId4} /> */}
                 </div>
               </div>
               {/* end::Workspace */}

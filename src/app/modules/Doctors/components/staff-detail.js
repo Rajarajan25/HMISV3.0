@@ -9,7 +9,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import Grid from '@material-ui/core/Grid';
-import {DatePickersUtil} from '../../Components/DateAndTimePicker'
+import {DatePickersUtil} from '../../../components/DateAndTimePicker'
 
 const useStyles = makeStyles(theme => ({
   container: {
