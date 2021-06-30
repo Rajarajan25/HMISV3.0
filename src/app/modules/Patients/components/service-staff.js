@@ -55,7 +55,7 @@ export function ServiceStaff() {
       </div>
       <div className="form-group">
         <div className="d-flex mb-3">
-          <label className="d-block staff_title_text mt-2 mr-auto">Staff</label>
+
           <div className="d-flex justify-items-center service_search">
             <button type="button" className="service_search_icon">
               <img src="/media/patients/cat_search.svg" alt="" className="" />
@@ -330,9 +330,9 @@ export function ServiceStaff() {
           </div>
         </div>
       </div>
-      <div className="form-group">
+      <div className="form-group mb-1">
         <div className="d-flex">
-          <label class="staff_title_text">staff commission</label>
+          <label class="label-cont ser-dets">Staff commission</label>
           <div className="pre_status staff_commission">
               <SwitchLabels />
           </div>
@@ -342,7 +342,7 @@ export function ServiceStaff() {
       <div className="form-group">
         <div className="d-flex row">
           <div className="col-6">
-            <label class="form-label d-block">Commission</label>
+            <label class="form-label d-block">Commission (%)</label>
             <input placeholder="100" type="text" className={`form-control`} name=""/>
           </div>
         </div>

@@ -393,7 +393,7 @@ export function ServiceDetail() {
       <div className="form-group">
         <div className="col-12">
           <div className="d-flex">
-            <label class="form-label d-block">Recurring Service</label>
+            <label class="form-label ser-dets d-block">Recurring Service</label>
             <div className="pre_status staff_commission">
                 <SwitchLabels />
             </div>
@@ -403,7 +403,7 @@ export function ServiceDetail() {
       <div className="form-group">
         <div className="col-12">
           <div className="d-flex">
-            <label class="form-label d-block">Limit booking</label>
+            <label class="form-label ser-dets d-block">Limit booking</label>
             <div className="pre_status staff_commission">
                 <SwitchLabels />
             </div>
@@ -415,7 +415,7 @@ export function ServiceDetail() {
           <label class="form-label d-block">No of booking</label>
         </div>
         <div className="d-flex">
-          <div className="col-12">
+          <div className="col-6">
           <input placeholder="1" type="text" className={`form-control`} name="firstname"/>
           </div>
         </div>

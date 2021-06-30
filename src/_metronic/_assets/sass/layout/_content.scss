@@ -3218,36 +3218,7 @@ p.setting_color {
   .MuiInputAdornment-positionEnd {
     display: none;
   }
-  .MuiFormControlLabel-root {
-    margin: 3px 0 0 3px;
-  }
-  .MuiSwitch-root {
-    width: 48px;
-    height: 16px;
-    padding: 0 6px;
-  }
-  .MuiSwitch-switchBase {
-    padding: 0 8px;
-    top: 2px;
-  }
-  .MuiSwitch-thumb {
-    width: 12px;
-    height: 12px;
-    background-color: #c0c0c0;
-  }
-  .MuiSwitch-track {
-    opacity: 1;
-    background-color: #dddddd;
-  }
-  .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
-    opacity: 1;
-  }
-  .MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
-    background-color: #dddddd !important;
-  }
-  .MuiSwitch-colorSecondary.Mui-checked .MuiSwitch-thumb {
-    background-color: #1d6aff;
-  }
+
   .color_C0C0C0 {
     color: #c0c0c0;
     margin-bottom: 0;
@@ -6627,12 +6598,8 @@ $large-desktops: 1730px;
   }
 }
 .add-ons {
-  min-height: 200px;
   margin-top: 20px;
 }
-
-
-
   .menu-submenu{
     .menu-subnav{
       .menu-bullet{
@@ -6837,5 +6804,17 @@ $large-desktops: 1730px;
         display: none;
       }
     }
+  }
+}
+.ser-dets {
+  max-width: 160px;
+  width: 100%;
+}
+label {
+  &.label-cont {
+    letter-spacing: -0.05px;
+    color: #303030;
+    font-size: 1rem;
+    font-weight: 500;
   }
 }
