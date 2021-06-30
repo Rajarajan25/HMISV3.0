@@ -259,10 +259,10 @@ export function AsideMenuList({ layoutProps }) {
                    <i className="menu-bullet">
                     <span
                       className="menu-sub-icons"
-                      style={{ backgroundColor: `#6bc950` }}
+                      style={{ backgroundColor: `#FD5D5D` }}
                     >
                       <img
-                        src={toAbsoluteUrl("/media/events/cogwheel.svg")}
+                        src={toAbsoluteUrl("/media/events/class.svg")}
                         alt="staff"
                       />
                     </span>
@@ -286,10 +286,10 @@ export function AsideMenuList({ layoutProps }) {
                   <i className="menu-bullet">
                     <span
                       className="menu-sub-icons"
-                      style={{ backgroundColor: `#e6511b` }}
+                      style={{ backgroundColor: `#5D76FC` }}
                     >
                       <img
-                        src={toAbsoluteUrl("/media/events/cogwheel.svg")}
+                        src={toAbsoluteUrl("/media/events/leave.svg")}
                         alt="staff"
                       />
                     </span>
@@ -336,10 +336,10 @@ export function AsideMenuList({ layoutProps }) {
                   <i className="menu-bullet">
                   <span
                       className="menu-sub-icons"
-                      style={{ backgroundColor: `#fd7fab` }}
+                      style={{ backgroundColor: `#1096D1` }}
                     >
                       <img
-                        src={toAbsoluteUrl("/media/events/cogwheel.svg")}
+                        src={toAbsoluteUrl("/media/events/billing-&-invoice.svg")}
                         alt="staff"
                       />
                     </span>
@@ -387,10 +387,10 @@ export function AsideMenuList({ layoutProps }) {
                   <i className="menu-bullet ">
                   <span
                       className="menu-sub-icons"
-                      style={{ backgroundColor: `#bf55ec` }}
+                      style={{ backgroundColor: `#00D0B8` }}
                     >
                       <img
-                        src={toAbsoluteUrl("/media/events/cogwheel.svg")}
+                        src={toAbsoluteUrl("/media/events/coupon.svg")}
                         alt="staff"
                       />
                     </span>
@@ -413,10 +413,35 @@ export function AsideMenuList({ layoutProps }) {
                   <i className="menu-bullet ">
                   <span
                       className="menu-sub-icons"
-                      style={{ backgroundColor: `#0a32e8` }}
+                      style={{ backgroundColor: `#FDB72B` }}
                     >
                       <img
-                        src={toAbsoluteUrl("/media/events/cogwheel.svg")}
+                        src={toAbsoluteUrl("/media/events/email.svg")}
+                        alt="staff"
+                      />
+                    </span>
+                  </i>
+                  <span className="menu-text">Email</span>
+                </NavLink>
+              </li>
+
+              <li
+                className={`menu-item  ${getMenuItemActive(
+                  "/payments/payment-overview"
+                )}`}
+                aria-haspopup="true"
+              >
+                <NavLink
+                  className="menu-link"
+                  to="/staff-management/profile-overview"
+                >
+                  <i className="menu-bullet ">
+                  <span
+                      className="menu-sub-icons"
+                      style={{ backgroundColor: `#3478F7` }}
+                    >
+                      <img
+                        src={toAbsoluteUrl("/media/events/sms.svg")}
                         alt="staff"
                       />
                     </span>
