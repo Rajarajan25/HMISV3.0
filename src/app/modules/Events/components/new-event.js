@@ -6,7 +6,7 @@ import {Button} from "react-bootstrap";
 import { EventTab } from "./event-tab";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import Drawer from '@material-ui/core/Drawer';
-import {EventDashboard} from "./even-dahboard";
+import {EventDashboard} from "./event-dahboard";
 
 const useStyles = makeStyles({
   list: {
@@ -68,7 +68,7 @@ export class NewEvent extends React.Component {
                 <div className="flex-column-fluid d-flex flex-column justify-content-center h-100">
                   <div className="d-flex flex-column h-100">
                     <div className="bk_aw text-white font-weight-500 font-size-15 position-absolute ml-5 mt-7 pointer" onClick={this.handleHide}>
-                      <img src="/media/auth-screen/back_arrow.svg" className="mr-2" alt="arrow" /> <span>Back</span>
+                        <img src="/media/auth-screen/back_arrow.svg" className="mr-2" alt="arrow" /> <span>Back</span>
                     </div>
                     <div className="mt-25 mb-10 mx-auto loginRightimg1 col-lg-11 col-11 flex-column-fluid text-center">
                       <h3 className="font-size-h1 text-uppercase font-weight-600 mb-5 text-white">
