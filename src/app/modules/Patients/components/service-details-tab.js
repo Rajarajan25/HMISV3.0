@@ -62,7 +62,6 @@ export function ServiceDetailsTab() {
                   <Tab label={<TabCost />} />
                   <Tab label={<TabStaff />} />
                   <Tab label={<TabTiming />} />
-                  <Tab label={<TabSales />} />
                   <Tab label={<TabNotify />} />
                   <Tab label={<TabServiceSettings />} />
                 </Tabs>
@@ -74,9 +73,8 @@ export function ServiceDetailsTab() {
             {value === 1 && <TabContainer> <ServiceCost /> </TabContainer>}
             {value === 2 && <TabContainer> <ServiceStaff /> </TabContainer>}
             {value === 3 && <TabContainer> <ServiceTiming /> </TabContainer>}
-            {value === 4 && <TabContainer> <ServiceSales /> </TabContainer>}
-            {value === 5 && <TabContainer> <ServiceNotify /> </TabContainer>}
-            {value === 6 && <TabContainer> <ServiceSettings /> </TabContainer>}
+            {value === 4 && <TabContainer> <ServiceNotify /> </TabContainer>}
+            {value === 5 && <TabContainer> <ServiceSettings /> </TabContainer>}
           </div>
         </div>
       </Col>
