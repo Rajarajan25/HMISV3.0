@@ -137,7 +137,7 @@ export function ServiceCost() {
           </Link>
         </div>
       </div>
-      <div className="form-group border-bottom">
+      <div className="form-group">
         <div className="d-flex">
           <label class="staff_title_text">Advanced Pricing Option <span className="font-weight-normal">(Optional)</span></label>
         </div>
@@ -177,8 +177,8 @@ export function ServiceCost() {
 
       <div className="form-group">
         <div className="d-flex row">
-          <div className="col-4">
-            <label class="form-label d-block">Add On</label>
+          <div className="col-6">
+            <label class="staff_title_text d-block">Add On</label>
             <div className="re_select">
               <Select options={addons} />
             </div>
@@ -187,29 +187,63 @@ export function ServiceCost() {
         <div className="add-ons">
           <div className="clearfix">
             <div className="row mb-3">
-              <div className="col-xl-4">
-                <label class="staff_title_text">Name</label>
-              </div>
               <div className="col-xl-3">
-                <label class="staff_title_text">Price</label>
+                <label class="form-label">Name</label>
               </div>
-              <div className="col-xl-5"></div>
+              <div className="col-xl-2">
+                <label class="form-label">Price</label>
+              </div>
+              <div className="col-xl-7"></div>
             </div>
-            <div className="row mb-2">
-              <div className="col-xl-4">
-                <label class="form-label d-block">Pediatrics</label>
-              </div>
+            <div className="addon_part row mb-2">
               <div className="col-xl-3">
-                <label class="form-label d-block">100</label>
+                <label class="label-cont d-block">Pediatrics</label>
               </div>
-              <div className="col-xl-5">
-                <span className=""><img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="" className="d-block" /></span>
+              <div className="col-xl-2">
+                <label class="label-cont d-block">100</label>
+              </div>
+              <div className="col-xl-7">
+                <span className="perdi-remove"><img src={toAbsoluteUrl("/media/events/delete-pink.svg")} alt="" className="d-block" /></span>
               </div>
             </div>
           </div>
         </div>
       </div>
-            
+      <div className="form-group">
+        <label className="d-block staff_title_text mt-2 mr-auto">Sales</label>
+      </div>
+      <div className="form-group  mb-1">
+        <div className="d-flex">
+          <label class="label-cont ser-dets">Set Service tax</label>
+          <div className="pre_status staff_commission">
+              <SwitchLabels />
+          </div>
+        </div>
+      </div>
+      <div className="form-group">
+        <div className="d-flex row">
+          <div className="col-6">
+            <label class="form-label d-block">Percentage (%)</label>
+            <input placeholder="10%" type="text" className={`form-control`} name=""/>
+          </div>
+        </div>
+      </div>
+      <div className="form-group  mb-1">
+        <div className="d-flex">
+          <label class="label-cont ser-dets">Set Voucher/Coupon Sales</label>
+          <div className="pre_status staff_commission">
+              <SwitchLabels />
+          </div>
+        </div>
+      </div>
+      <div className="form-group">
+        <div className="d-flex row">
+          <div className="col-6">
+          <label class="form-label d-block">Percentage (%)</label>
+            <input placeholder="10%" type="text" className={`form-control`} name=""/>
+          </div>
+        </div>
+      </div>    
       <div className="form-group mb-0">
         <div className="d-flex justify-content-end patientButton pos_fix">
           <button type="button" className="btn btn-primary">Save</button>

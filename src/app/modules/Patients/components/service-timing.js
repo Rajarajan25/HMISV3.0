@@ -79,11 +79,6 @@ export function ServiceTiming() {
   const classes = useStyles();
   return (
     <div className="staff_first staff_second w-100 p-6">
-      <div className="form-group border-bottom">
-        <div className="d-flex align-items-center">
-          <label class="staff_title_text">Timings</label>
-        </div>
-      </div>
       <div className="busi_cus ser_tme mt-3 mb-5 clearfix">
         <SelectHours />
       </div>
@@ -91,10 +86,10 @@ export function ServiceTiming() {
         <div className="session_part row mb-3">
           <div className="col-4 pr-2 min_width100">
             <div className="session_select">
-              <label className="staff_title_text min_wid">Sunday</label>
+              <label className="label-cont min_wid">Sunday</label>
             </div>
           </div>
-          <div className="col-4 p-0 d-flex">
+          <div className="col-5 p-0 d-flex">
             <div className="tm_area text-left pl-0 my-auto">
               <span className="day_off">Week Off</span>
             </div>
@@ -103,10 +98,10 @@ export function ServiceTiming() {
         <div className="session_part row mb-3">
           <div className="col-4 pr-2 min_width100">
             <div className="session_select">
-              <label className="staff_title_text min_wid">Monday</label>
+              <label className="label-cont min_wid">Monday</label>
             </div>
           </div>
-          <div className="col-4 p-0 d-flex">
+          <div className="col-5 p-0 d-flex">
             <div className="tm_area text-left pl-0">
               <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
             </div>
@@ -115,10 +110,10 @@ export function ServiceTiming() {
         <div className="session_part row mb-3">
           <div className="col-4 pr-2 min_width100">
             <div className="session_select">
-              <label className="staff_title_text min_wid">Tuesday</label>
+              <label className="label-cont min_wid">Tuesday</label>
             </div>
           </div>
-          <div className="col-4 p-0 d-flex">
+          <div className="col-5 p-0 d-flex">
             <div className="tm_area text-left pl-0">
               <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
             </div>
@@ -127,10 +122,10 @@ export function ServiceTiming() {
         <div className="session_part row mb-3">
           <div className="col-4 pr-2 min_width100">
             <div className="session_select">
-              <label className="staff_title_text min_wid">Wednesday</label>
+              <label className="label-cont min_wid">Wednesday</label>
             </div>
           </div>
-          <div className="col-4 p-0 d-flex">
+          <div className="col-5 p-0 d-flex">
             <div className="tm_area text-left pl-0">
               <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
             </div>
@@ -139,10 +134,10 @@ export function ServiceTiming() {
         <div className="session_part row mb-3">
           <div className="col-4 pr-2 min_width100">
             <div className="session_select">
-              <label className="staff_title_text min_wid">Thursday</label>
+              <label className="label-cont min_wid">Thursday</label>
             </div>
           </div>
-          <div className="col-4 p-0 d-flex">
+          <div className="col-5 p-0 d-flex">
             <div className="tm_area text-left pl-0">
               <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
             </div>
@@ -151,10 +146,10 @@ export function ServiceTiming() {
         <div className="session_part row mb-3">
           <div className="col-4 pr-2 min_width100">
             <div className="session_select">
-              <label className="staff_title_text min_wid">Friday</label>
+              <label className="label-cont min_wid">Friday</label>
             </div>
           </div>
-          <div className="col-4 p-0 d-flex">
+          <div className="col-5 p-0 d-flex">
             <div className="tm_area text-left pl-0">
               <span className="st_tm"><TimePickers /></span> <span className="se_to">to</span> <span className="end_tm"><TimePickers /></span>
             </div>
@@ -163,10 +158,10 @@ export function ServiceTiming() {
         <div className="session_part row mb-3">
           <div className="col-4 pr-2 min_width100">
             <div className="session_select">
-              <label className="staff_title_text min_wid">Saturday</label>
+              <label className="label-cont min_wid">Saturday</label>
             </div>
           </div>
-          <div className="col-4 p-0 d-flex">
+          <div className="col-5 p-0 d-flex">
             <div className="tm_area text-left pl-0 my-auto">
               <span className="day_off">Week Off</span>
             </div>
