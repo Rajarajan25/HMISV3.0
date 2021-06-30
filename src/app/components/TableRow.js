@@ -221,7 +221,7 @@ export function TableRow(props) {
                                     handleChangeDropDown={handleChangeDropDown}
                                   />
                                 </li>}
-                                {field.email && <li className="col-lg-2 activeStatuscontent my-auto d-flex justify-content-center">
+                                {field.email && <li className="col-lg-2 activeStatuscontent my-auto d-flex pl-10">
                                   {selectedIndexMail === i ? (
                                     <input
                                     ref={updatedValue}
@@ -235,7 +235,7 @@ export function TableRow(props) {
                                   />
                                     
                                   ) : (
-                                    <span className="d-inline-flex">
+                                    <span className="limt-col">
                                       {item.email}
                                     </span>
                                   )}
@@ -261,7 +261,7 @@ export function TableRow(props) {
                                       defaultValue={item.phone_no}
                                     />
                                     ) : (
-                                      <span className="d-inline-flex">
+                                      <span className="limt-col">
                                         {item.phone_no}
                                       </span>
                                     )}
