@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState,useEffect} from "react";
 import objectPath from "object-path";
+import { useLocation } from "react-router-dom";
 import SVG from "react-inlinesvg";
 import { useHtmlClassService } from "../../_core/MetronicLayout";
 import { toAbsoluteUrl } from "../../../_helpers";
@@ -12,7 +13,6 @@ import { QuickUserToggler } from "../extras/QuickUserToggler";
 import { Brand } from "../brand/Brand";
 import { KTUtil } from "./../../../_assets/js/components/util";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
-
 const AsideHeaderList=[
   {
     name:"Dashboard",
@@ -146,15 +146,15 @@ const AsideSubMenuList={
           name:"Class",
           visible:true,
           to:"/available-patients/profile-overview",
-          icon:"/media/events/cogwheel.svg",
-          backgroundColor:"#6bc950"
+          icon:"/media/events/class.svg",
+          backgroundColor:"#FD5D5D"
         },
         {
           name:"Leave",
           visible:true,
           to:"/available-patients/profile-overview",
-          icon:"/media/events/cogwheel.svg",
-          backgroundColor:"#e6511b"
+          icon:"/media/events/leave.svg",
+          backgroundColor:"#5D76FC"
         }
       ]
     }
@@ -165,9 +165,9 @@ const AsideSubMenuList={
       isMenu:false,
       visible:true,
       shortName:"B",
-      to:"/Payments/billinginvoice",
-      icon:"/media/events/cogwheel.svg",
-      backgroundColor:"#fd7fab",
+      to:"/payments/billinginvoice",
+      icon:"/media/events/billing-&-invoice.svg",
+      backgroundColor:"#1096D1",
     }
   ],
   marketing:[
@@ -177,8 +177,17 @@ const AsideSubMenuList={
       visible:true,
       shortName:"C",
       to:"/marketing/coupons",
-      icon:"/media/events/cogwheel.svg",
-      backgroundColor:"#bf55ec",
+      icon:"/media/events/coupon.svg",
+      backgroundColor:"#00D0B8",
+    },
+    {
+      name:"Email",
+      isMenu:false,
+      visible:true,
+      shortName:"S",
+      to:"/marketing/email",
+      icon:"/media/events/email.svg",
+      backgroundColor:"#FDB72B",
     },
     {
       name:"SMS",
@@ -186,15 +195,16 @@ const AsideSubMenuList={
       visible:true,
       shortName:"S",
       to:"/marketing/sms",
-      icon:"/media/events/cogwheel.svg",
-      backgroundColor:"#0a32e8",
+      icon:"/media/events/sms.svg",
+      backgroundColor:"#3478F7",
     }
   ]
 }
 
 export function Aside() {
   const uiService = useHtmlClassService();
-
+  const location = useLocation();
+  let activepage="dashboard";
   const layoutProps = useMemo(() => {
     return {
       asideClassesFromConfig: uiService.getClasses("aside", true),
@@ -233,16 +243,22 @@ export function Aside() {
     };
   }, [uiService]);
 
+  useEffect(() => {
+    let active = AsideHeaderList.filter(values =>values.key.includes(location.pathname));
+    if(active){
+      activepage=active.key;
+    }
+  },[location.pathname]);
+
   const tabs = {
     tabId1: "tab_1",
     tabId2: "tab_2",
     tabId3: "tab_3",
     tabId4: "tab_4", 
   };
-  const [activeTab, setActiveTab] = useState(tabs.tabId2);
+  const [activeTab, setActiveTab] = useState(activepage);
   const handleTabChange = (id) => {
     setActiveTab(id);
-    console.log("Aside menu",AsideSubMenuList[id]);
     const asideWorkspace = KTUtil.find(
       document.getElementById("kt_aside"),
       ".aside-secondary .aside-workspace"
