@@ -332,7 +332,7 @@ export function ServiceStaff() {
       </div>
       <div className="form-group mb-1">
         <div className="d-flex">
-          <label class="label-cont ser-dets">Staff commission</label>
+          <label className="label-cont ser-dets">Staff commission</label>
           <div className="pre_status staff_commission">
               <SwitchLabels />
           </div>
@@ -342,7 +342,7 @@ export function ServiceStaff() {
       <div className="form-group">
         <div className="d-flex row">
           <div className="col-6">
-            <label class="form-label d-block">Commission (%)</label>
+            <label className="form-label d-block">Commission (%)</label>
             <input placeholder="100" type="text" className={`form-control`} name=""/>
           </div>
         </div>

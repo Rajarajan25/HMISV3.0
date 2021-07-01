@@ -1737,7 +1737,7 @@ span.avails {
   }
 }
 .tool_bg {
-  z-index: 1000 !important;
+  z-index: 1400 !important;
   .tooltip-inner {
     background: #394148;
     color: #ffffff;
@@ -3266,7 +3266,7 @@ p.setting_color {
     }
   }
   .dropdown-menu.dropdown-menu-md {
-    width: 185px;
+    /*width: 185px;*/
   }
   .locate_avail {
     .MuiInputBase-root {
@@ -5997,7 +5997,7 @@ p.setting_color {
 .timemodal {
   z-index: 1450;
   .modal-dialog {
-    max-width: 600px;
+    max-width: 650px;
   }
   .modal-header .close span {
     display: block;
@@ -6051,43 +6051,43 @@ p.setting_color {
       font-weight: normal;
     }
   }
-  .avail-list {
-    box-shadow: 0px 3px 6px #0000001a;
-    border: 1px solid #e6e6e6;
-    .navi-item {
-      padding: 15px;
-      border-radius: 7px !important;
+}
+.avail-list {
+  box-shadow: 0px 3px 6px #0000001a;
+  border: 1px solid #e6e6e6;
+  .navi-item {
+    padding: 15px;
+    border-radius: 7px !important;
+  }
+  .availexpan {
+    .MuiPaper-root {
+      box-shadow: none !important;
+      border: 0 !important;
+      border-bottom: 0px solid #edeef2 !important;
+      background-color: transparent;
+      &.Mui-expanded {
+        box-shadow: 0px 3px 6px #0000000d !important;
+        border-radius: 7px;
+      }
     }
-    .availexpan {
-      .MuiPaper-root {
-        box-shadow: none !important;
-        border: 0 !important;
-        border-bottom: 0px solid #edeef2 !important;
-        background-color: transparent;
-        &.Mui-expanded {
-          box-shadow: 0px 3px 6px #0000000d !important;
-          border-radius: 7px;
-        }
-      }
-      .MuiExpansionPanelSummary-root {
-        padding: 0px 10px;
-        min-height: 45px;
-        border-bottom: 1px solid #edeef2;
-        margin-bottom: 0;
-        background-color: transparent;
-      }
-      span.avails {
-        width: 23px;
-        height: 23px;
-      }
-      span.staff_tab_title {
-        font-size: 1.1rem;
-        color: #0f0f0f;
-        text-transform: capitalize;
-        margin: 0;
-        font-weight: 500;
-        min-width: 32px;
-      }
+    .MuiExpansionPanelSummary-root {
+      padding: 0px 10px;
+      min-height: 45px;
+      border-bottom: 1px solid #edeef2;
+      margin-bottom: 0;
+      background-color: transparent;
+    }
+    span.avails {
+      width: 23px;
+      height: 23px;
+    }
+    span.staff_tab_title {
+      font-size: 1.1rem;
+      color: #0f0f0f;
+      text-transform: capitalize;
+      margin: 0;
+      font-weight: 500;
+      min-width: 32px;
     }
   }
 }
@@ -6106,6 +6106,9 @@ p.setting_color {
       border: 0px solid #1c6afc;
       animation: shadow-pulse 1s infinite;
     }
+    &.active {
+      background: #EAF4FF;
+    }
     img {
       margin-right: 10px;
       height: 18px;
@@ -6116,14 +6119,15 @@ p.setting_color {
         background: #1caaf4;
       }
       &.phone_bg {
-        background: #1caaf4;
+        background: #fd7822;
       }
       &.chat_bg {
-        background: #1caaf4;
+        background: #1d6aff;
       }
       img {
         margin-right: auto;
         height: auto;
+        margin-top: 0;
         .avails {
           background-color: transparent;
           &.visit_bg {
@@ -6597,23 +6601,17 @@ $large-desktops: 1730px;
 .add-ons {
   margin-top: 20px;
 }
-.menu-submenu {
-  .menu-subnav {
-    .menu-bullet {
-      flex: 0 0 37px !important;
-      margin: 5px 0px;
-      .menu-sub-icons {
-        height: 30px;
-        width: 30px;
-        border-radius: 5px;
-        text-align: center;
-        line-height: 27px;
-        display: block;
-      }
-    }
+.menu-link {
+  .menu-sub-icons{
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 27px;
+    display: block;
+    margin-right: 8px;
   }
 }
-
 .quill-ui {
   .ql-toolbar,
   .ql-container {
@@ -6741,6 +6739,7 @@ $large-desktops: 1730px;
       display: flex;
       font-size: 1rem;
       align-items: center;
+      cursor: pointer;
     }
     label:after {
       content: inherit;
@@ -6749,7 +6748,7 @@ $large-desktops: 1730px;
       content: inherit;
     }
     input[type="radio"]:checked + label {
-      color: #0e53f3;
+      color: #0089ff;
       font-weight: 500;
     }
     .circle-border {
@@ -6763,7 +6762,7 @@ $large-desktops: 1730px;
     }
     input[type="radio"]:checked + label {
       .circle-border {
-        border: 1px solid #121414;
+        border: 1px solid #0089ff;
         background-color: #0089ff;
         &:before {
           content: "";
@@ -6830,7 +6829,8 @@ label {
   padding: 7px;
   padding-top: 6px;
   display: none;
-  img {
+  cursor: pointer;
+  img{
     width: 100%;
     object-fit: cover;
   }
@@ -6903,4 +6903,15 @@ label {
   .dx-scheduler-group-header{
     width: 100% !important;
   }
+}
+label.label-tooltip {
+  width: 15px;
+  height: 15px;
+  border: 1px solid #3F4254;
+  text-align: center;
+  line-height: 12px;
+  border-radius: 50%;
+  margin: 0;
+  font-size: 0.8rem;
+  margin-left: 8px;
 }

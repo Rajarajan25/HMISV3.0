@@ -104,8 +104,9 @@ export function AsideMenuList({ layoutProps, menuList = [] }) {
                     {item.shortName}
                   </span>
                 </>)}
-                {!item.isMenu && <span className="svg-icon menu-icon menu-sub-icons" style={{ backgroundColor: item.backgroundColor }}>
-                  <SVG src={toAbsoluteUrl(item.icon)} />
+                {!item.isMenu && <span className="menu-sub-icons" style={{ backgroundColor: item.backgroundColor }}>
+                  {/* <SVG src={toAbsoluteUrl(item.icon)} /> */}
+                    <img src={toAbsoluteUrl(item.icon)}  alt={item.name} />
                 </span>}
                 <span className="menu-text">{item.name}</span>
               </NavLink>

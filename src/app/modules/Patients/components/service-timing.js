@@ -79,8 +79,21 @@ export function ServiceTiming() {
   const classes = useStyles();
   return (
     <div className="staff_first staff_second w-100 p-6">
-      <div className="busi_cus ser_tme mt-3 mb-5 clearfix">
-        <SelectHours />
+      <div className="d-flex radio-header">
+        <div className="radio-section">
+            <input type="radio" id="timings_01" name="timings" className="" />
+            <label className="eprice" for="timings_01">
+                <span className="circle-border"></span>
+                <span className="chk_txt">Business Hours</span>
+            </label>
+        </div>
+        <div className="radio-section">
+            <input type="radio" id="timings_02" name="timings" className=""/>
+            <label className="eprice" for="timings_02">
+                <span className="circle-border"></span>
+                <span className="chk_txt">Custom</span>
+            </label>
+        </div>
       </div>
       <div className="text-left  mt-3 pb-2 session_start border-bottom">
         <div className="session_part row mb-3">
@@ -209,46 +222,5 @@ export function TimePickers() {
       <TimePickersUtil
       />
     </Grid>
-  );
-}
-
-
-
-function SelectHours() {
-
-  const useStyles = makeStyles(theme => ({
-    root: {
-      display: 'flex',
-    },
-    formControl: {
-      margin: theme.spacing(3),
-    },
-    group: {
-      margin: theme.spacing(1, 0),
-    },
-  }));
-
-  const classes = useStyles();
-  const [value, setValue] = React.useState('female');
-
-  function handleChange(event) {
-    setValue(event.target.value);
-  }
-
-  return (
-    <div className={classes.root}>
-      <FormControl component="fieldset" className={classes.formControl}>
-        <RadioGroup
-          name="business"
-          className={classes.group}
-          value={value}
-          onChange={handleChange}
-        >
-          <FormControlLabel value="business" control={<Radio />} label="Business hours" />
-          <FormControlLabel value="custom" control={<Radio />} label="Custom" />
-        </RadioGroup>
-      </FormControl>
-      
-    </div>
   );
 }

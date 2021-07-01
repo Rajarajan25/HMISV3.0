@@ -89,8 +89,8 @@ const AsideSubMenuList={
       visible:true,
       shortName:"D",
       to:"/dashboard",
-      icon:"/media/svg/icons/Design/Layers.svg",
-      backgroundColor:""
+      icon:"/media/svg/icons/Menu/dashboard.svg",
+      backgroundColor:"#0FC1D8"
     }
   ],
   calender:[
@@ -100,8 +100,8 @@ const AsideSubMenuList={
       visible:true,
       shortName:"C",
       to:"/builder",
-      icon:"/media/svg/icons/Home/Library.svg",
-      backgroundColor:""
+      icon:"/media/svg/icons/Menu/calendar.svg",
+      backgroundColor:"#0F64D8"
     }
   ],
   manage:[

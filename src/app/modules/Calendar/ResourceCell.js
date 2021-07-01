@@ -11,7 +11,7 @@ class ResourceCell extends React.PureComponent {
           </div>
           <div className="infos">
             <div className="group-name">
-              <span>{text},</span><span>Age: {age}</span>
+              <span>{text},</span><span className="d-none">Age: {age}</span>
             </div>
             <span>{discipline}</span>
           </div>
