@@ -162,7 +162,7 @@ const AsideSubMenuList={
   payment:[
     {
       name:"Billing & Invoices",
-      isMenu:false,
+      isMenu:false,     
       visible:true,
       shortName:"B",
       to:"/payments/billinginvoice",
