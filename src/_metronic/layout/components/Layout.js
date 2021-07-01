@@ -18,7 +18,12 @@ import { StickyToolbar } from "./extras/StickyToolbar";
 import { AnimateLoading } from "../../_partials/controls";
 
 export function Layout({ children }) {
+  const [selectedUser, setSelectedUser] = React.useState({});
   const uiService = useHtmlClassService();
+  const handleUsers = (data) => {
+    setSelectedUser(data);
+  }
+
   // Layout settings (cssClasses/cssAttributes)
   const layoutProps = useMemo(() => {
     return {
@@ -38,7 +43,7 @@ export function Layout({ children }) {
       <div className="d-flex flex-column flex-root">
         {/*begin::Page*/}
         <div className="d-flex flex-row flex-column-fluid page">
-          <Aside />
+          <Aside selectedUser={selectedUser} />
 
           {/*begin::Wrapper*/}
           <div
@@ -75,7 +80,7 @@ export function Layout({ children }) {
         </div>
         {/*end::Page*/}
       </div>
-      <QuickUser />
+      <QuickUser handleUsers={handleUsers} />
       <QuickPanel />
       <QuickNotification />
       <ScrollTop />

@@ -10,8 +10,15 @@ import { useHtmlClassService } from "../../_core/MetronicLayout";
 import { UserProfileDropdown } from "./dropdowns/UserProfileDropdown";
 
 export function QuickUserToggler(props) {
-  const { item } = props;
-  console.log(item);
+  const { selectedUser } = props;
+  const [selectUser, setSelectUser] = React.useState(selectedUser);
+  React.useEffect(() => {
+    let updatedQuickSetting = sessionStorage.getItem("quickSetting");
+    if (updatedQuickSetting) {
+      let updatedSettings = JSON.parse(updatedQuickSetting);
+      setSelectUser(updatedSettings);
+    }
+  }, [])
   // const { user } = useSelector((state) => state.auth);
   const uiService = useHtmlClassService();
   const layoutProps = useMemo(() => {
@@ -43,7 +50,8 @@ export function QuickUserToggler(props) {
             </span>
             <span className="symbol userIcon symbol-30 symbol-lg-40 bg-primary">
               <span className="svg-icon svg-icon-lg">
-                A
+                {selectUser.name ? selectUser.name.substr(0, 1).toUpperCase() : ""}
+
               </span>
             </span>
           </div>
