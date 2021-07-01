@@ -87,3 +87,19 @@ export function TimePickersUtil(props) {
       </MuiPickersUtilsProvider>
   );
 }
+export function TimePickersUtils(props) {
+  const{value,onChange}=props;
+  // const selectedDate = useState(value||new Date('2014-08-18T21:11:54'));
+ 
+  
+  return (
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+         <TimePicker
+         {...props}
+        variant="inline"
+        value={value}
+        autoOk={true}
+      />
+      </MuiPickersUtilsProvider>
+  );
+}

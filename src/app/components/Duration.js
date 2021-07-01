@@ -54,12 +54,12 @@ const buffertime = [
 
 export function Duration(props) {
   const classes = useStyles();
-  const { current, handleSave, fields,index,handleUpdate ,isloading } = props
-  const { duration,timings, payments } = current;
+  const { data, handleSave, fields,index,handleUpdate ,isloading } = props
+  const { timings } = data;
   const initValue = {
-    duration:duration,
+    // duration:duration,
     timings: timings,
-    payments: payments,
+    // payments: payments,
   }
   DevConsoleLog("initValue", initValue);
   let timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -160,7 +160,7 @@ export function Duration(props) {
               {fields.price &&
                 <Price formikValues={values} setFieldValue={setFieldValue} />
               }
-              {fields.timing && <Timings formikValues={values} setFieldValue={setFieldValue}/>}
+              {/* {fields.timing && <Timings formikValues={values} setFieldValue={setFieldValue}/>} */}
               <ButtonLoading label="Save" loading={isloading}/>
             </div>
           </div>

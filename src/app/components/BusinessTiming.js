@@ -1,32 +1,97 @@
 import 'date-fns';
 import React, { useState } from "react";
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
 import Grid from '@material-ui/core/Grid';
-import DateFnsUtils from '@date-io/date-fns';
-import { TimePickersUtil } from "../components/DateAndTimePicker"
+import { TimePickersUtils } from "../components/DateAndTimePicker"
 import { Link } from 'react-router-dom';
+import { Modal } from "react-bootstrap";
+import { BusinessProvider } from '../modules/Auth/pages/BusinessContext';
+import { useQuery, gql,NetworkStatus } from "@apollo/client";
+import BusinessTime from './BusinessTime'
 
-const days = [
-    { work_day_id: 1, name: "Sunday", start_time: "Week Off", isWorking: false },
-    { work_day_id: 2, name: "Monday", start_time: "9:00 AM", end_time: "6:30 PM", isWorking: false },
-    { work_day_id: 3, name: "Tuesday", start_time: "9:00 AM", end_time: "6:30 PM", isWorking: false },
-    { work_day_id: 4, name: "Wednesday", start_time: "9:00 AM", end_time: "6:30 PM", isWorking: false },
-    { work_day_id: 5, name: "Thursday", start_time: "9:00 AM", end_time: "6:30 PM", isWorking: false },
-    { work_day_id: 6, name: "Friday", start_time: "9:00 AM", end_time: "6:30 PM", isWorking: false },
-    { work_day_id: 7, name: "Saturday", start_time: "Week Off", isWorking: false },
-];
+const GET_BUSINESS = gql`
+  {
+    getBusiness {
+      sub_category_ids
+      phone_no
+      name
+      billingAddress
+      size
+      type
+      phone_country
+      phone_no
+      _id
+      parent_category_ids
+      timezone
+      applyWeek
+      applyMonth
+      acceptTerms
+      timings {
+        timing {
+          start_time
+          end_time
+          work_day_id
+        }
+      }
+    }
+  }
+`;
+
+
 export default function BusinessTiming(props) {
-    const [businessHours, setBusinessHours] = useState(days);
     const { current } = props
+    let startdate = new Date();
+    startdate = new Date(startdate.setHours(10));
+    let enddate = new Date();
+    enddate = new Date(startdate.setHours(19));
     const [state, setState] = React.useState({
         checkedA: false,
     });
+    const days = [
+        { work_day_id: 1, short_name: "S" ,color:"sun_d", name:"Sunday", bg_color:"sun_bg" ,start_time: startdate, end_time:enddate},
+        { work_day_id: 2, short_name: "M" ,color:"mon_d" ,name:"Monday", bg_color:"mon_bg",start_time: startdate, end_time: enddate},
+        { work_day_id: 3, short_name: "T" ,color:"tue_d" ,name:"Tuesday", bg_color:"tue_bg",start_time: startdate, end_time: enddate},
+        { work_day_id: 4, short_name: "W" ,color:"wed_d" ,name:"Wednesday", bg_color:"wed_bg",start_time: startdate, end_time: enddate},
+        { work_day_id: 5, short_name: "T" ,color:"thu_d" ,name:"Thursday", bg_color:"thu_bg",start_time: startdate, end_time: enddate},
+        { work_day_id: 6, short_name: "F" ,color:"fri_d" ,name:"Friday", bg_color:"fri_bg",start_time: startdate, end_time: enddate},
+        { work_day_id: 7, short_name: "S" ,color:"sat_d" ,name:"Saturday", bg_color:"sat_bg",start_time: startdate, end_time: enddate},
+      ];
+    const [businessHours, setBusinessHours] = useState(days);
 
-    const handleChange = name => event => {
-        setState({ ...state, [name]: event.target.checked });
+    const { data, refetch, networkStatus,} = useQuery(GET_BUSINESS, { notifyOnNetworkStatusChange: true} );
+    let business_id = localStorage.getItem("Business_id");
+    const [selectedDays, setSelectedDays] = useState([]);
+
+    let currentBusiness;
+    React.useEffect(() => {
+        if (data || networkStatus === NetworkStatus.refetch) {
+            currentBusiness = data.getBusiness.filter(e => e._id === business_id)
+            const sDays = [];
+            const sTimes = [...days];
+            currentBusiness[0].timings.timing.map((item) => {
+                let WorkingId = parseInt(item.work_day_id);
+                sDays.push(WorkingId);
+                const findIndex = sTimes.findIndex(x => x.work_day_id === WorkingId);
+                if (findIndex != -1) {
+                    const findItem = sTimes[findIndex];
+                    findItem.work_day_id = WorkingId;
+                    findItem.start_time = new Date('Fri Apr 20 2020 ' + item.start_time);
+                    findItem.end_time = new Date('Fri Apr 20 2020 ' + item.end_time);
+                    setSelectedDays(findIndex)
+                    sTimes[findIndex] = findItem;
+                }
+            });
+            setBusinessHours(sTimes);
+            setSelectedDays(sDays);
+        }
+    }, [data]);
+    const [show, setShow] = React.useState(false);
+    const handleShow = () => {
+        setShow(true);
     };
+
+    const handleHide = () => {
+        setShow(false);
+    }
     return (
         <div>
             <div className="text-left  mt-3 pb-2 session_start border-bottom">
@@ -39,30 +104,38 @@ export default function BusinessTiming(props) {
                                     <label className="staff_title_text min_wid">{value.name}</label>
                                 </div>
                             </div>
-                            {value.name === "Sunday" || value.name === "Saturday" ?
-                                <div className="col-4 p-0 d-flex">
-                                    <div className="tm_area text-left pl-0 my-auto">
-                                        <span className="day_off">Week Off</span>
-                                    </div>
-                                </div> :
+                        
                                 <div className="col-4 p-0 d-flex">
                                     <div className="tm_area text-left pl-0">
-                                        <span className="st_tm"><TimePickers value={new Date('Fri Apr 20 2020 ' + value.start_time)} disabled={true} /></span> <span className="se_to">to</span> <span className="end_tm"><EndTimePickers value={new Date('Fri Apr 20 2020 ' + value.end_time)} disabled={true} /></span>
+                                        <span className="st_tm"><TimePickers value={value.start_time} disabled={true} /></span> 
+                                        <span className="se_to">to</span> 
+                                        <span className="end_tm"><EndTimePickers value={ value.end_time} disabled={true} /></span>
                                     </div>
                                 </div>
-                            }
+                            
 
                         </div>
                     )
                 })}
                 <div className="d-flex">
-                    <Link to="#" className="ml-auto add_setting">Modify</Link>
+                    <Link to="#" className="ml-auto add_setting" onClick={handleShow}>Modify</Link>
                 </div>
-                {/* <div className="form-group mb-0">
-                    <div className="d-flex justify-content-end patientButton pos_fix">
-                        <button type="submit" className="btn btn-primary">Save</button>
-                    </div>
-                </div> */}
+                <Modal
+                    className="timemodal"
+                    show={show}
+                    onHide={handleHide}
+                    dialogClassName="modal-90w"
+                    aria-labelledby="example-custom-modal-styling-title"
+                >
+                    <Modal.Header closeButton>
+                        <label class="staff_title_text m-0">Business Hours</label>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <BusinessProvider>
+                            <BusinessTime businessHours={businessHours} selectedDays={selectedDays} handleHide={handleHide}/>
+                        </BusinessProvider>
+                    </Modal.Body>
+                </Modal>
 
             </div>
 
@@ -70,34 +143,12 @@ export default function BusinessTiming(props) {
 
     )
 }
-export function SwitchLabels(value) {
-    const [state, setState] = React.useState({
-        checkedA: false,
-    });
-    const handleChange = (name, values) => event => {
-        setState({ ...state, [name]: event.target.checked });
-        days.map(val => {
-            if (val.name === values) {
-                val.isWorking = true;
-            }
-        })
-    };
-    let values = value.value;
-    return (
-        <FormGroup row>
-            <FormControlLabel
-                control={
-                    <Switch checked={state.checkedA} onChange={handleChange('checkedA', values)} value="checkedA" />
-                }
-            />
-        </FormGroup>
-    );
-}
+
 
 export function TimePickers(props) {
     return (
         <Grid container justify="space-around">
-            <TimePickersUtil {...props} />
+            <TimePickersUtils {...props} />
         </Grid>
     );
 }
@@ -107,7 +158,7 @@ export function TimePickers(props) {
 export function EndTimePickers(props) {
     return (
         <Grid container justify="space-around">
-            <TimePickersUtil {...props} />
+            <TimePickersUtils {...props} />
         </Grid>
     );
 }
