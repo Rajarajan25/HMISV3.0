@@ -176,7 +176,16 @@ export function ServiceDetail() {
     <div className="staff_first w-100 p-4">
       <div className="form-group">
         <div className="col-12">
-          <label class="form-label d-block">Service Name</label>
+          <div className="d-flex align-items-center">
+            <label className="form-label d-block">Service Name</label>
+              <OverlayTrigger 
+                placement="right"
+                overlay={
+                <Tooltip id="quick-search-tooltip" className="tool_bg">Service Name</Tooltip>
+                }>
+                  <label className="label-tooltip">i</label>
+              </OverlayTrigger>
+          </div>
         </div>
         <div className="d-flex">
           <div className="col-12">
@@ -186,7 +195,7 @@ export function ServiceDetail() {
       </div>
       <div className="form-group">
         <div className="col-12">
-          <label class="form-label d-block">Description</label>
+          <label className="form-label d-block">Description</label>
         </div>
         <div className="d-flex">
           <div className="col-12">
@@ -196,7 +205,7 @@ export function ServiceDetail() {
       </div>
       <div className="form-group">
         <div className="col-12">
-          <label class="form-label d-block">Category</label>
+          <label className="form-label d-block">Category</label>
         </div>
         <div className="d-flex">
           <div className="col-12">
@@ -225,109 +234,109 @@ export function ServiceDetail() {
           </div>
           <div className="col-9 pr-0">
             <div className="color_select">
-              <div class="d-inline-flex color_col p-3">
+              <div className="d-inline-flex color_col p-3">
                 <input type="radio" id="color_01" name="color-code" className=""/>
                 <label className="" for="color_01">
                   <span style={{backgroundColor: `#41BC87`}}></span>
                 </label>
               </div>
-              <div class="d-inline-flex color_col p-3">
+              <div className="d-inline-flex color_col p-3">
                 <input type="radio" id="color_02" name="color-code" className="" />
                 <label className="" for="color_02">
                   <span style={{backgroundColor: `#1DBC9C`}}></span>
                 </label>
               </div>
-              <div class="d-inline-flex color_col p-3">
+              <div className="d-inline-flex color_col p-3">
                 <input type="radio" id="color_03" name="color-code" className="" />
                 <label className="" for="color_03">
                   <span style={{backgroundColor: `#27AE60`}}></span>
                 </label>
               </div>
-              <div class="d-inline-flex color_col p-3">
+              <div className="d-inline-flex color_col p-3">
                 <input type="radio" id="color_04" name="color-code" className="" />
                 <label className="" for="color_04">
                   <span style={{backgroundColor: `#21D726`}}></span>
                 </label>
               </div>
-              <div class="d-inline-flex color_col p-3">
+              <div className="d-inline-flex color_col p-3">
                 <input type="radio" id="color_05" name="color-code" className="" />
                 <label className="" for="color_05">
                   <span style={{backgroundColor: `#F41D2F`}}></span>
                 </label>
               </div>
-              <div class="d-inline-flex color_col p-3">
+              <div className="d-inline-flex color_col p-3">
                 <input type="radio" id="color_06" name="color-code" className="" />
                 <label className="" for="color_06">
                   <span style={{backgroundColor: `#181D21`}}></span>
                 </label>
               </div>
-              <div class="d-inline-flex color_col p-3">
+              <div className="d-inline-flex color_col p-3">
                 <input type="radio" id="color_07" name="color-code" className="" />
                 <label className="" for="color_07">
                   <span style={{backgroundColor: `#FD575E`}}></span>
                 </label>
               </div>
-              <div class="d-inline-flex color_col p-3">
+              <div className="d-inline-flex color_col p-3">
                 <input type="radio" id="color_08" name="color-code" className="" />
                 <label className="" for="color_08">
                   <span style={{backgroundColor: `#FDB42B`}}></span>
                 </label>
               </div>
-              <div class="d-inline-flex color_col p-3">
+              <div className="d-inline-flex color_col p-3">
                 <input type="radio" id="color_09" name="color-code" className="" />
                 <label className="" for="color_09">
                   <span style={{backgroundColor: `#B17F22`}}></span>
                 </label>
               </div>
-              <div class="d-inline-flex color_col p-3">
+              <div className="d-inline-flex color_col p-3">
                 <input type="radio" id="color_10" name="color-code" className="" />
                 <label className="" for="color_10">
                   <span style={{backgroundColor: `#F34D1D`}}></span>
                 </label>
               </div>
-              <div class="d-inline-flex color_col p-3">
+              <div className="d-inline-flex color_col p-3">
                 <input type="radio" id="color_11" name="color-code" className="" />
                 <label className="" for="color_11">
                   <span style={{backgroundColor: `#FD8624`}}></span>
                 </label>
               </div>
-              <div class="d-inline-flex color_col p-3">
+              <div className="d-inline-flex color_col p-3">
                 <input type="radio" id="color_12" name="color-code" className="" />
                 <label className="" for="color_12">
                   <span style={{backgroundColor: `#2798B7`}}></span>
                 </label>
               </div>
-              <div class="d-inline-flex color_col p-3">
+              <div className="d-inline-flex color_col p-3">
               <input type="radio" id="color_13" name="color-code" className="" />
                 <label className="" for="color_13">
                   <span style={{backgroundColor: `#2980B9`}}></span>
                 </label>
               </div>
-              <div class="d-inline-flex color_col p-3">
+              <div className="d-inline-flex color_col p-3">
               <input type="radio" id="color_14" name="color-code" className="" />
                 <label className="" for="color_14">
                   <span style={{backgroundColor: `#3598DC`}}></span>
                 </label>
               </div>
-              <div class="d-inline-flex color_col p-3">
+              <div className="d-inline-flex color_col p-3">
               <input type="radio" id="color_15" name="color-code" className="" />
                 <label className="" for="color_15">
                   <span style={{backgroundColor: `#528CCB`}}></span>
                 </label>
               </div>
-              <div class="d-inline-flex color_col p-3">
+              <div className="d-inline-flex color_col p-3">
               <input type="radio" id="color_16" name="color-code" className="" />
                 <label className="" for="color_16">
                   <span style={{backgroundColor: `#0921EC`}}></span>
                 </label>
               </div>
-              <div class="d-inline-flex color_col p-3">
+              <div className="d-inline-flex color_col p-3">
                 <input type="radio" id="color_17" name="color-code" className="" />
                 <label className="" for="color_17">
                   <span style={{backgroundColor: `#199EC7`}}></span>
                 </label>
               </div>
-              <div class="d-inline-flex color_col p-3">
+              <div className="d-inline-flex color_col p-3">
                 <span className="color_add"><i>+</i></span>
               </div>
             </div>
@@ -336,7 +345,7 @@ export function ServiceDetail() {
       </div>
       <div className="form-group">
         <div className="col-12">
-          <label class="form-label d-block">Preferred Gender</label>
+          <label className="form-label d-block">Preferred Gender</label>
         </div>
         <div className="d-flex">
           <div className="col-12">
@@ -368,18 +377,18 @@ export function ServiceDetail() {
       </div>
       <div className="form-group">
         <div className="col-12">
-          <label class="form-label d-block">Service Type</label>
+          <label className="form-label d-block">Service Type</label>
         </div>
         <div className="col-12 event-tab pb-3">
-          <div className="d-flex event-range">
-            <div className="event-radio">
+          <div className="d-flex radio-header">
+            <div className="radio-section">
               <input type="radio" id="service_type_01" name="service_type" className="" />
               <label className="eprice" for="service_type_01">
                   <span className="circle-border"></span>
                   <span className="chk_txt">Public</span>
               </label>
             </div>
-            <div className="event-radio">
+            <div className="radio-section">
               <input type="radio" id="service_type_02" name="service_type" className=""/>
               <label className="eprice" for="service_type_02">
                   <span className="circle-border"></span>
@@ -393,17 +402,17 @@ export function ServiceDetail() {
       <div className="form-group">
         <div className="col-12">
           <div className="d-flex">
-            <label class="form-label ser-dets d-block">Recurring Service</label>
+            <label className="form-label ser-dets d-block">Recurring Service</label>
             <div className="pre_status staff_commission">
                 <SwitchLabels />
             </div>
           </div>
         </div>
       </div>
-      <div className="form-group">
+      <div className="form-group mb-1">
         <div className="col-12">
           <div className="d-flex">
-            <label class="form-label ser-dets d-block">Limit booking</label>
+            <label className="form-label ser-dets d-block">Limit booking</label>
             <div className="pre_status staff_commission">
                 <SwitchLabels />
             </div>
@@ -412,7 +421,7 @@ export function ServiceDetail() {
       </div>
       <div className="form-group">
         <div className="col-12">
-          <label class="form-label d-block">No of booking</label>
+          <label className="form-label d-block">No of booking</label>
         </div>
         <div className="d-flex">
           <div className="col-6">
@@ -422,7 +431,7 @@ export function ServiceDetail() {
       </div>
       <div className="form-group">
         <div className="col-12">
-          <label class="form-label d-block">Service URL</label>
+          <label className="form-label d-block">Service URL</label>
         </div>
         <div className="d-flex">
           <div className="col-12">

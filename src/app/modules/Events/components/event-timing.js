@@ -45,8 +45,8 @@ export function PersonDropdownMenu() {
         <li className="navi-item">
           <label class="staff_title_text mb-3">In Person</label>
           <div className="clearfix">
-            <div className="event-range">
-              <div className="event-radio">
+            <div className="radio-header">
+              <div className="radio-section">
                 <input
                   type="radio"
                   id="availperson_01"
@@ -58,7 +58,7 @@ export function PersonDropdownMenu() {
                   <span className="chk_txt">My Business Address</span>
                 </label>
               </div>
-              <div className="event-radio">
+              <div className="radio-section">
                 <input
                   type="radio"
                   id="availperson_02"
@@ -86,8 +86,8 @@ export function PhoneDropdownMenu() {
         <li className="navi-item">
           <label class="staff_title_text mb-3">In Call</label>
           <div className="clearfix">
-            <div className="event-range">
-              <div className="event-radio">
+            <div className="radio-header">
+              <div className="radio-section">
                 <input
                   type="radio"
                   id="availcall_01"
@@ -99,7 +99,7 @@ export function PhoneDropdownMenu() {
                   <span className="chk_txt">Client will call you</span>
                 </label>
               </div>
-              <div className="event-radio">
+              <div className="radio-section">
                 <input
                   type="radio"
                   id="availcall_02"
@@ -507,38 +507,6 @@ export function Availability() {
   }
   return (
     <div className="staff_first">
-      <div className="event-tab">
-        <div className={'timingavail'+' '+classes.root}>
-          <div className="d-flex border-bottom">
-            <div className="col mx-100 pl-0 my-auto">
-              <label className="staff_title_text m-0">Availability</label>
-            </div>
-            <div className="col p-0">
-              <AppBar position="static" color="default">
-                <Tabs
-                  value={value}
-                  onChange={handleChange}
-                  indicatorColor="primary"
-                  textColor="primary"
-                  variant="scrollable"
-                  scrollButtons="auto"
-                >
-                  <Tab label={<TabPerson />} />
-                  <Tab label={<TabCall />} />
-                  <Tab label={<TabVideo />} />
-                  <Tab label={<TabChat />} />
-                </Tabs>
-              </AppBar>
-            </div>
-          </div>
-          <div className="p-0">
-            {value === 0 && <TabContainer> <AvailPerson />  </TabContainer>}
-            {value === 1 && <TabContainer> <AvailCall /> </TabContainer>}
-            {value === 2 && <TabContainer> <AvailVideo /> </TabContainer>}
-            {value === 3 && <TabContainer> <AvailChat /> </TabContainer>}
-          </div>
-        </div>
-      </div>
       <div className="event_detail timingavail">
       <label class="staff_title_text mb-3">Availability</label> 
         <div className="clearfix">
@@ -550,7 +518,7 @@ export function Availability() {
                   id="kt_quick_actions_search_toggle"
                   className="h-100"
                 >
-                  <label className="d-flex vid_bg">
+                  <label className="d-flex vid_bg active">
                     <span className="avails visit_bg">
                       <img
                         src={toAbsoluteUrl("/media/patients/avail_visit.svg")}
@@ -573,7 +541,7 @@ export function Availability() {
                   id="kt_quick_actions_search_toggle"
                   className="h-100"
                 >
-                  <label className="d-flex vid_bg">
+                  <label className="d-flex vid_bg active">
                     <span className="avails phone_bg">
                       <img
                         src={toAbsoluteUrl("/media/patients/avail_phone.svg")}

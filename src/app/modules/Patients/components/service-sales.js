@@ -22,7 +22,7 @@ export function ServiceSales() {
       
       <div className="form-group">
         <div className="d-flex">
-          <label class="staff_title_text">Set Service tax</label>
+          <label className="staff_title_text">Set Service tax</label>
           <div className="pre_status staff_commission">
               <SwitchLabels />
           </div>
@@ -31,14 +31,14 @@ export function ServiceSales() {
       <div className="form-group">
         <div className="d-flex row">
           <div className="col-6">
-            <label class="form-label d-block">Percentage (%)</label>
+            <label className="form-label d-block">Percentage (%)</label>
             <input placeholder="10%" type="text" className={`form-control`} name=""/>
           </div>
         </div>
       </div>
       <div className="form-group">
         <div className="d-flex">
-          <label class="staff_title_text">Set Voucher/Coupon Sales</label>
+          <label className="staff_title_text">Set Voucher/Coupon Sales</label>
           <div className="pre_status staff_commission">
               <SwitchLabels />
           </div>
@@ -47,7 +47,7 @@ export function ServiceSales() {
       <div className="form-group">
         <div className="d-flex row">
           <div className="col-6">
-          <label class="form-label d-block">Percentage (%)</label>
+          <label className="form-label d-block">Percentage (%)</label>
             <input placeholder="10%" type="text" className={`form-control`} name=""/>
           </div>
         </div>

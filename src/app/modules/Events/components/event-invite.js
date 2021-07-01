@@ -94,187 +94,7 @@ const useStyles = makeStyles((theme) => ({
 export function ContentEventInvite() {
   return (
     <div className="clearfix staff_first">
-      <div className="event_detail timingavail">
-        <label class="staff_title_text mb-3">Availability</label>
-        <div className="clearfix">
-          <div className="device_avail">
-            <div className="d-inline-flex">
-              <Dropdown drop="down" alignCenter className="dropdown h-100">
-                <Dropdown.Toggle
-                  as={DropdownItemToggler}
-                  id="kt_quick_actions_search_toggle"
-                  className="h-100"
-                >
-                  <label className="d-flex vid_bg">
-                    <span className="avails visit_bg">
-                      <img
-                        src={toAbsoluteUrl("/media/patients/avail_visit.svg")}
-                        alt=""
-                        className=""
-                      />
-                    </span>
-                    <span>In Person </span>
-                  </label>
-                </Dropdown.Toggle>
-                <Dropdown.Menu className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav avail-list">
-                  <PersonDropdownMenu />
-                </Dropdown.Menu>
-              </Dropdown>
-            </div>
-            <div className="d-inline-flex">
-              <Dropdown drop="down" alignCenter className="dropdown h-100">
-                <Dropdown.Toggle
-                  as={DropdownItemToggler}
-                  id="kt_quick_actions_search_toggle"
-                  className="h-100"
-                >
-                  <label className="d-flex vid_bg">
-                    <span className="avails phone_bg">
-                      <img
-                        src={toAbsoluteUrl("/media/patients/avail_phone.svg")}
-                        alt=""
-                        className=""
-                      />
-                    </span>
-                    <span>In Call</span>
-                  </label>
-                </Dropdown.Toggle>
-                <Dropdown.Menu className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav avail-list">
-                  <PhoneDropdownMenu />
-                </Dropdown.Menu>
-              </Dropdown>
-            </div>
-            <div className="d-inline-flex">
-              <label className="d-flex vid_bg">
-                <span className="avails chat_bg">
-                  <img
-                    src={toAbsoluteUrl("/media/patients/avail_chat.svg")}
-                    alt=""
-                    className=""
-                  />
-                </span>
-                <span>Chat</span>
-              </label>
-            </div>
-            <div className="d-inline-flex">
-              <label className="d-flex vid_bg">
-                <img
-                  src={toAbsoluteUrl("/media/patients/zoom_icon.png")}
-                  alt=""
-                  className=""
-                />
-                <span>Zoom</span>
-              </label>
-            </div>
-            <div className="d-inline-flex">
-              <label className="d-flex vid_bg" for="video_02">
-                <img
-                  src={toAbsoluteUrl("/media/patients/webex_icon.png")}
-                  alt=""
-                  className=""
-                />
-                <span>Webex</span>
-              </label>
-            </div>
-            <div className="d-inline-flex">
-              <label className="d-flex vid_bg">
-                <img
-                  src={toAbsoluteUrl("/media/patients/skype_icon.png")}
-                  alt=""
-                  className=""
-                />
-                <span>Skype</span>
-              </label>
-            </div>
-            <div className="d-inline-flex">
-              <label className="d-flex vid_bg" for="video_04">
-                <img
-                  src={toAbsoluteUrl("/media/patients/goto_icon.png")}
-                  alt=""
-                  className=""
-                />
-                <span>Goto Meeting</span>
-              </label>
-            </div>
-            <div className="d-inline-flex">
-              <label className="d-flex vid_bg">
-                <img
-                  src={toAbsoluteUrl("/media/patients/webex1_icon.png")}
-                  alt=""
-                  className=""
-                />
-                <span>Webex</span>
-              </label>
-            </div>
-            <div className="d-inline-flex">
-              <label className="d-flex vid_bg">
-                <img
-                  src={toAbsoluteUrl("/media/patients/google-meet_icon.png")}
-                  alt=""
-                  className=""
-                />
-                <span>Google Meet</span>
-              </label>
-            </div>
-          </div>
-        </div>
-        <div className="mb-5 d-none">
-          <Dropdown drop="down" alignCenter className="dropdown h-100">
-            <Dropdown.Toggle
-              as={DropdownItemToggler}
-              id="kt_quick_actions_search_toggle"
-              className="h-100"
-            >
-              <div className="availi-border border align-items-center d-flex px-5 py-3">
-                <span>Add Availability</span>
-                <span className="ml-auto font-size-18">+</span>
-              </div>
-            </Dropdown.Toggle>
-            <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav avail-list">
-              <PersonDropdownMenu />
-            </Dropdown.Menu>
-          </Dropdown>
-        </div>
-      </div>
-      <div className="">
-        <div className="staff_first staff_second w-100">
-        <div className="form-group">
-          <label className="form-label d-block mr-5 mb-2"></label>
-          <div className="form-group mb-2">
-            <div className="d-flex radio-header">
-              <div className="radio-section">
-                <input type="radio" id="range_01" name="time-range" className=""/>
-                <label className="eprice" for="range_01">
-                  <span className="circle-border"></span>
-                  <span className="chk_txt">Range</span>
-                </label>
-              </div>
-              <div className="radio-section">
-                <input type="radio" id="range_02" name="time-range" className=""/>
-                <label className="eprice" for="range_02">
-                  <span className="circle-border"></span>
-                  <span className="chk_txt">Indefinitely</span>
-                </label>
-              </div>
-              <div className="radio-section">
-                <input type="radio" id="range_03" name="time-range" className=""/>
-                <label className="eprice" for="range_03">
-                  <span className="circle-border"></span>
-                  <span className="chk_txt">Advance</span>
-                </label>
-              </div>
-              <div className="radio-section">
-                <input type="radio" id="range_04" name="time-range" className=""/>
-                <label className="eprice" for="range_04">
-                  <span className="circle-border"></span>
-                  <span className="chk_txt">Time</span>
-                </label>
-              </div>
-            </div>
-          </div>   
-        </div>
-        </div>
-      </div>
+      Invite
     </div>
   );
 }
@@ -285,7 +105,7 @@ export function PersonDropdownMenu() {
       {/*begin::Navigation*/}
       <ul className="navi navi-hover">
         <li className="navi-item">
-          <label class="staff_title_text mb-3">In Person</label>
+          <label className="staff_title_text mb-3">In Person</label>
           <div className="clearfix">
             <div className="event-range">
               <div className="event-radio">
@@ -326,7 +146,7 @@ export function PhoneDropdownMenu() {
       {/*begin::Navigation*/}
       <ul className="navi navi-hover">
         <li className="navi-item">
-          <label class="staff_title_text mb-3">In Call</label>
+          <label className="staff_title_text mb-3">In Call</label>
           <div className="clearfix">
             <div className="event-range">
               <div className="event-radio">

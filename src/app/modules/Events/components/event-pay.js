@@ -54,17 +54,17 @@ export function ContentEventPay() {
         <div className="form-group">
           <div className="d-flex row">
             <div className="col-4">
-              <label class="form-label d-block">Price Type</label>
+              <label className="form-label d-block">Price Type</label>
               <div className="re_select">
                 <Select options={pricetype} />
               </div>
             </div>
             <div className="col-4">
-              <label class="form-label d-block">Price (&#2352;)</label>
+              <label className="form-label d-block">Price (&#2352;)</label>
               <input placeholder="500" type="text" className={`form-control`} name=""/>
             </div>
             <div className="col-4">
-              <label class="form-label d-block">Special Price (&#2352;)</label>
+              <label className="form-label d-block">Special Price (&#2352;)</label>
               <input placeholder="500" type="text" className={`form-control`} name=""/>
             </div>
           </div>
@@ -81,31 +81,31 @@ export function ContentEventPay() {
             </Link>
           </div>
         </div>
-        <div className="form-group border-bottom">
+        <div className="form-group">
           <div className="d-flex">
-            <label class="staff_title_text">Advanced Pricing Option <span className="font-weight-normal">(Optional)</span></label>
+            <label className="staff_title_text">Advanced Pricing Option <span className="font-weight-normal">(Optional)</span></label>
           </div>
         </div>
         <div className="form-group">
           <div className="d-flex row">
             <div className="col-4">
-              <label class="form-label d-block">Provider/Staff Name</label>
+              <label className="form-label d-block">Provider/Staff Name</label>
               <input placeholder="Gopinath" type="text" className={`form-control`} name=""/>
             </div>
             <div className="col-3">
-              <label class="form-label d-block">Duration</label>
+              <label className="form-label d-block">Duration</label>
               <div className="re_select">
                 <Select options={durationtime} />
               </div>
             </div>
             <div className="col-3">
-              <label class="form-label d-block">Price Type</label>
+              <label className="form-label d-block">Price Type</label>
               <div className="re_select">
                 <Select options={pricetype} />
               </div>
             </div>
             <div className="col-2">
-              <label class="form-label d-block">Price (&#2352;)</label>
+              <label className="form-label d-block">Price (&#2352;)</label>
               <input placeholder="500" type="text" className={`form-control`} name=""/>
             </div>
           </div>
@@ -200,13 +200,13 @@ export function ContentEventPay() {
             <div className="event-radio pb-5">
               <input type="radio" id="extra_01" name="event-Eprice" className=""/>
               <label className="eprice" for="extra_01">
-                <span class="chk_txt">Do not display a price</span>
+                <span className="chk_txt">Do not display a price</span>
               </label>
             </div>
             <div className="event-radio pb-5">
               <input type="radio" id="extra_02" name="event-Eprice" className=""/>
               <label className="eprice" for="extra_02">
-                <span class="chk_txt">Display a price but do not collect payment via schedule once</span>
+                <span className="chk_txt">Display a price but do not collect payment via schedule once</span>
                 <div className="form-group mt-1 mb-0">
                   <div className="row">
                     <div className="col-6">
@@ -222,7 +222,7 @@ export function ContentEventPay() {
             <div className="event-radio pb-5">
               <input type="radio" id="extra_03" name="event-Eprice" className=""/>
               <label className="eprice" for="extra_03">
-                <span class="chk_txt">Display a price and collect payment via schedule once</span>
+                <span className="chk_txt">Display a price and collect payment via schedule once</span>
               </label>
             </div>
           </div>

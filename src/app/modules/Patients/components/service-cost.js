@@ -88,19 +88,19 @@ export function ServiceCost() {
       <div className="form-group">
         <div className="d-flex row">
           <div className="col-4">
-            <label class="form-label d-block">Duration</label>
+            <label className="form-label d-block">Duration</label>
             <div className="re_select">
               <Select options={durationtime} />
             </div>
           </div>
           <div className="col-4">
-            <label class="form-label d-block">Buffer Time Before</label>
+            <label className="form-label d-block">Buffer Time Before</label>
             <div className="re_select">
               <Select options={buffertime} />
             </div>
           </div>
           <div className="col-4">
-            <label class="form-label d-block">Buffer Time After</label>
+            <label className="form-label d-block">Buffer Time After</label>
             <div className="re_select">
               <Select options={buffertime} />
             </div>
@@ -113,17 +113,17 @@ export function ServiceCost() {
       <div className="form-group">
         <div className="d-flex row">
           <div className="col-4">
-            <label class="form-label d-block">Price Type</label>
+            <label className="form-label d-block">Price Type</label>
             <div className="re_select">
               <Select options={pricetype} />
             </div>
           </div>
           <div className="col-4">
-            <label class="form-label d-block">Price (&#2352;)</label>
+            <label className="form-label d-block">Price (&#2352;)</label>
             <input placeholder="500" type="text" className={`form-control`} name=""/>
           </div>
           <div className="col-4">
-            <label class="form-label d-block">Special Price (&#2352;)</label>
+            <label className="form-label d-block">Special Price (&#2352;)</label>
             <input placeholder="500" type="text" className={`form-control`} name=""/>
           </div>
           
@@ -139,29 +139,29 @@ export function ServiceCost() {
       </div>
       <div className="form-group">
         <div className="d-flex">
-          <label class="staff_title_text">Advanced Pricing Option <span className="font-weight-normal">(Optional)</span></label>
+          <label className="staff_title_text">Advanced Pricing Option <span className="font-weight-normal">(Optional)</span></label>
         </div>
       </div>
       <div className="form-group">
         <div className="d-flex row">
           <div className="col-4">
-            <label class="form-label d-block">Provider/Staff Name</label>
+            <label className="form-label d-block">Provider/Staff Name</label>
             <input placeholder="Gopinath" type="text" className={`form-control`} name=""/>
           </div>
           <div className="col-3">
-            <label class="form-label d-block">Duration</label>
+            <label className="form-label d-block">Duration</label>
             <div className="re_select">
               <Select options={durationtime} />
             </div>
           </div>
           <div className="col-3">
-            <label class="form-label d-block">Price Type</label>
+            <label className="form-label d-block">Price Type</label>
             <div className="re_select">
               <Select options={pricetype} />
             </div>
           </div>
           <div className="col-2">
-            <label class="form-label d-block">Price (&#2352;)</label>
+            <label className="form-label d-block">Price (&#2352;)</label>
             <input placeholder="500" type="text" className={`form-control`} name=""/>
           </div>
         </div>
@@ -178,7 +178,7 @@ export function ServiceCost() {
       <div className="form-group">
         <div className="d-flex row">
           <div className="col-6">
-            <label class="staff_title_text d-block">Add On</label>
+            <label className="staff_title_text d-block">Add On</label>
             <div className="re_select">
               <Select options={addons} />
             </div>
@@ -188,19 +188,19 @@ export function ServiceCost() {
           <div className="clearfix">
             <div className="row mb-3">
               <div className="col-xl-3">
-                <label class="form-label">Name</label>
+                <label className="form-label">Name</label>
               </div>
               <div className="col-xl-2">
-                <label class="form-label">Price</label>
+                <label className="form-label">Price</label>
               </div>
               <div className="col-xl-7"></div>
             </div>
             <div className="addon_part row mb-2">
               <div className="col-xl-3">
-                <label class="label-cont d-block">Pediatrics</label>
+                <label className="label-cont d-block">Pediatrics</label>
               </div>
               <div className="col-xl-2">
-                <label class="label-cont d-block">100</label>
+                <label className="label-cont d-block">100</label>
               </div>
               <div className="col-xl-7">
                 <span className="perdi-remove"><img src={toAbsoluteUrl("/media/events/delete-pink.svg")} alt="" className="d-block" /></span>
@@ -214,7 +214,7 @@ export function ServiceCost() {
       </div>
       <div className="form-group  mb-1">
         <div className="d-flex">
-          <label class="label-cont ser-dets">Set Service tax</label>
+          <label className="label-cont ser-dets">Set Service tax</label>
           <div className="pre_status staff_commission">
               <SwitchLabels />
           </div>
@@ -223,14 +223,14 @@ export function ServiceCost() {
       <div className="form-group">
         <div className="d-flex row">
           <div className="col-6">
-            <label class="form-label d-block">Percentage (%)</label>
+            <label className="form-label d-block">Percentage (%)</label>
             <input placeholder="10%" type="text" className={`form-control`} name=""/>
           </div>
         </div>
       </div>
       <div className="form-group  mb-1">
         <div className="d-flex">
-          <label class="label-cont ser-dets">Set Voucher/Coupon Sales</label>
+          <label className="label-cont ser-dets">Set Voucher/Coupon Sales</label>
           <div className="pre_status staff_commission">
               <SwitchLabels />
           </div>
@@ -239,7 +239,7 @@ export function ServiceCost() {
       <div className="form-group">
         <div className="d-flex row">
           <div className="col-6">
-          <label class="form-label d-block">Percentage (%)</label>
+          <label className="form-label d-block">Percentage (%)</label>
             <input placeholder="10%" type="text" className={`form-control`} name=""/>
           </div>
         </div>
