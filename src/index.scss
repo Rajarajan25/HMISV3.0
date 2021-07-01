@@ -189,7 +189,7 @@
   border: 1px solid;
   background: #fff;
 }
-.emptyhover{
+.emptyhover {
   width: 100px;
   font-weight: 600;
   font-size: 20px;
@@ -198,12 +198,22 @@
   border: 1px solid #b9bec780;
 }
 
-.limt-col{
+.emptyhover:hover {
+  border: 0.5px solid;
+  padding: 5px 55px 7px 55px;
+}
+
+// .ql-container{
+//   min-height: 100px !important;
+//   max-height: 200px !important;
+//   overflow: auto;
+// }
+.limt-col {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   flex-grow: 1;
   text-align: center;
   align-self: stretch;
-  max-width: 110px;
+  max-width: 130px;
 }

@@ -13,7 +13,8 @@ import { Brand } from "../brand/Brand";
 import { KTUtil } from "./../../../_assets/js/components/util";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
-export function Aside() {
+export function Aside(props) {
+  const { selectedUser } = props;
   const uiService = useHtmlClassService();
 
   const layoutProps = useMemo(() => {
@@ -58,7 +59,7 @@ export function Aside() {
     tabId1: "kt_aside_tab_1",
     tabId2: "kt_aside_tab_2",
     tabId3: "kt_aside_tab_3",
-    tabId4: "kt_aside_tab_4", 
+    tabId4: "kt_aside_tab_4",
   };
   const [activeTab, setActiveTab] = useState(tabs.tabId2);
   const handleTabChange = (id) => {
@@ -88,16 +89,16 @@ export function Aside() {
 
             <ul className="list-unstyled flex-column asideTopleftfixedmenu" role="tablist">
               {/* begin::Item */}
-              
+
               <li
                 className="nav-item"
                 data-toggle="tooltip"
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-               
+
               >
-              <OverlayTrigger
+                <OverlayTrigger
                   placement="right"
                   overlay={
                     <Tooltip id="quick-search-tooltip" className="tool_bg">Dashboard</Tooltip>
@@ -106,7 +107,7 @@ export function Aside() {
                   <a
                     href="#"
                     className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===
-                    tabs.tabId2 && "active"}`}
+                      tabs.tabId2 && "active"}`}
                     data-toggle="tab"
                     data-target={`#${tabs.tabId2}`}
                     role="tab"
@@ -120,9 +121,9 @@ export function Aside() {
                       />
                     </span>
                   </a>
-                  </OverlayTrigger>
+                </OverlayTrigger>
               </li>
-              
+
               {/* end::Item */}
 
               {/* begin::Item */}
@@ -168,7 +169,7 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-           
+
               >
                 <OverlayTrigger
                   placement="right"
@@ -194,7 +195,7 @@ export function Aside() {
                 </OverlayTrigger>
               </li>
               {/* end::Item */}
-            </ul>                        
+            </ul>
           </div>
           {/* end::Header */}
 
@@ -209,7 +210,7 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-         
+
               >
                 <OverlayTrigger
                   placement="right"
@@ -243,7 +244,7 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-       
+
               >
                 <OverlayTrigger
                   placement="right"
@@ -277,7 +278,7 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-      
+
               >
                 <OverlayTrigger
                   placement="right"
@@ -311,7 +312,7 @@ export function Aside() {
                 data-placement="rigth"
                 data-container="body"
                 data-boundary="window"
-           
+
               >
                 <OverlayTrigger
                   placement="right"
@@ -432,157 +433,157 @@ export function Aside() {
               )}
             {/* end::Aside Toggle */}
             <div className="d-flex flex-column asideFooterbottommenu">
-            {/* begin::Search */}
-            {layoutProps.extrasSearchDisplay && (
-              <OverlayTrigger
-                placement="right"
-                overlay={<Tooltip id="toggle-search" className="tool_bg">Quick Search</Tooltip>}
-              >
-                <a
-                  href="#"
-                  className="btn btn-icon btn-clean btn-lg"
-                  id="kt_quick_search_toggle"
+              {/* begin::Search */}
+              {layoutProps.extrasSearchDisplay && (
+                <OverlayTrigger
+                  placement="right"
+                  overlay={<Tooltip id="toggle-search" className="tool_bg">Quick Search</Tooltip>}
                 >
-                  <span className="svg-icon svg-icon-md d-inline-flex">
-                    <SVG
-                      src={toAbsoluteUrl("/media/svg/icons/General/Search.svg")}
-                    />
-                  </span>
-                </a>
-              </OverlayTrigger>
-            )}
-            {/* end::Search */}
+                  <a
+                    href="#"
+                    className="btn btn-icon btn-clean btn-lg"
+                    id="kt_quick_search_toggle"
+                  >
+                    <span className="svg-icon svg-icon-md d-inline-flex">
+                      <SVG
+                        src={toAbsoluteUrl("/media/svg/icons/General/Search.svg")}
+                      />
+                    </span>
+                  </a>
+                </OverlayTrigger>
+              )}
+              {/* end::Search */}
 
-            {/* begin::Notifications */}
-            {layoutProps.extrasNotificationsDisplay && (
-              <OverlayTrigger
-                placement="right"
-                overlay={
-                  <Tooltip id="toggle-notifications" className="tool_bg">Notifications</Tooltip>
-                }
-              >
-                <a
-                  href="#"
-                  className="btn btn-icon btn-clean btn-lg position-relative"
-                  id="kt_quick_notifications_toggle"
-                  data-placement="right"
-                  data-container="body"
-                  data-boundary="window"
+              {/* begin::Notifications */}
+              {layoutProps.extrasNotificationsDisplay && (
+                <OverlayTrigger
+                  placement="right"
+                  overlay={
+                    <Tooltip id="toggle-notifications" className="tool_bg">Notifications</Tooltip>
+                  }
                 >
-                  <span className="svg-icon svg-icon-md d-inline-flex">
-                    <SVG
-                      src={toAbsoluteUrl("/media/svg/icons/Design/Layers.svg")}
-                    />
-                  </span>
-                </a>
-              </OverlayTrigger>
-            )}
-            {/* end::Notifications */}
+                  <a
+                    href="#"
+                    className="btn btn-icon btn-clean btn-lg position-relative"
+                    id="kt_quick_notifications_toggle"
+                    data-placement="right"
+                    data-container="body"
+                    data-boundary="window"
+                  >
+                    <span className="svg-icon svg-icon-md d-inline-flex">
+                      <SVG
+                        src={toAbsoluteUrl("/media/svg/icons/Design/Layers.svg")}
+                      />
+                    </span>
+                  </a>
+                </OverlayTrigger>
+              )}
+              {/* end::Notifications */}
 
-            {/* begin::Quick Actions */}
-            {layoutProps.extrasQuickActionsDisplay && (
-              <OverlayTrigger
-                placement="right"
-                overlay={
-                  <Tooltip id="toggle-quick-actions" className="tool_bg">Settings</Tooltip>
-                }
-              >
-                <a
-                  href="#"
-                  className="btn btn-icon btn-clean btn-lg"
-                  id="kt_quick_actions_toggle"
+              {/* begin::Quick Actions */}
+              {layoutProps.extrasQuickActionsDisplay && (
+                <OverlayTrigger
+                  placement="right"
+                  overlay={
+                    <Tooltip id="toggle-quick-actions" className="tool_bg">Settings</Tooltip>
+                  }
                 >
-                  <span className="svg-icon svg-icon-md d-inline-flex">
-                    <SVG
-                      src={toAbsoluteUrl(
-                        "/media/svg/left-menu/Setting.svg"
-                      )}
-                    />
-                  </span>
-                </a>
-              </OverlayTrigger>
-            )}
-            {/* end::Quick Actions */}
-            {/* begin::Quick Actions */}
-            {layoutProps.extrasQuickActionsDisplay && (
-              <OverlayTrigger
-                placement="right"
-                overlay={
-                  <Tooltip id="toggle-quick-actions" className="tool_bg">Help</Tooltip>
-                }
-              >
-                <a
-                  href="#"
-                  className="btn btn-icon btn-clean btn-lg"
-                  id="kt_quick_actions_toggle"
+                  <a
+                    href="#"
+                    className="btn btn-icon btn-clean btn-lg"
+                    id="kt_quick_actions_toggle"
+                  >
+                    <span className="svg-icon svg-icon-md d-inline-flex">
+                      <SVG
+                        src={toAbsoluteUrl(
+                          "/media/svg/left-menu/Setting.svg"
+                        )}
+                      />
+                    </span>
+                  </a>
+                </OverlayTrigger>
+              )}
+              {/* end::Quick Actions */}
+              {/* begin::Quick Actions */}
+              {layoutProps.extrasQuickActionsDisplay && (
+                <OverlayTrigger
+                  placement="right"
+                  overlay={
+                    <Tooltip id="toggle-quick-actions" className="tool_bg">Help</Tooltip>
+                  }
                 >
-                  <span className="svg-icon svg-icon-md d-inline-flex">
-                    <SVG
-                      src={toAbsoluteUrl(
-                        "/media/svg/left-menu/Help.svg"
-                      )}
-                    />
-                  </span>
-                </a>
-              </OverlayTrigger>
-            )}
-            {/* end::Quick Actions */}
-            {/* begin::Quick Actions */}
-            {layoutProps.extrasQuickActionsDisplay && (
-              <OverlayTrigger
-                placement="right"
-                overlay={
-                  <Tooltip id="toggle-quick-actions" className="tool_bg">Quick Actions</Tooltip>
-                }
-              >
-                <a
-                  href="#"
-                  className="btn btn-icon btn-clean btn-lg"
-                  id="kt_quick_actions_toggle"
+                  <a
+                    href="#"
+                    className="btn btn-icon btn-clean btn-lg"
+                    id="kt_quick_actions_toggle"
+                  >
+                    <span className="svg-icon svg-icon-md d-inline-flex">
+                      <SVG
+                        src={toAbsoluteUrl(
+                          "/media/svg/left-menu/Help.svg"
+                        )}
+                      />
+                    </span>
+                  </a>
+                </OverlayTrigger>
+              )}
+              {/* end::Quick Actions */}
+              {/* begin::Quick Actions */}
+              {layoutProps.extrasQuickActionsDisplay && (
+                <OverlayTrigger
+                  placement="right"
+                  overlay={
+                    <Tooltip id="toggle-quick-actions" className="tool_bg">Quick Actions</Tooltip>
+                  }
                 >
-                  <span className="svg-icon svg-icon-md d-inline-flex">
-                  <img src={toAbsoluteUrl("/media/svg/left-menu/Thunder.png")} alt="Thunder" />
-                  </span>
-                </a>
-              </OverlayTrigger>
-            )}
-            {/* end::Quick Actions */}
+                  <a
+                    href="#"
+                    className="btn btn-icon btn-clean btn-lg"
+                    id="kt_quick_actions_toggle"
+                  >
+                    <span className="svg-icon svg-icon-md d-inline-flex">
+                      <img src={toAbsoluteUrl("/media/svg/left-menu/Thunder.png")} alt="Thunder" />
+                    </span>
+                  </a>
+                </OverlayTrigger>
+              )}
+              {/* end::Quick Actions */}
 
-            {/* begin::Quick Panel */}
-            {layoutProps.extrasQuickPanelDisplay && (
-              <OverlayTrigger
-                placement="right"
-                overlay={<Tooltip id="toggle-quick-panel" className="tool_bg">Notifications</Tooltip>}
-              >
-                <a
-                  href="#"
-                  className="btn btn-icon btn-clean btn-lg position-relative"
-                  id="kt_quick_panel_toggle"
-                  data-placement="right"
-                  data-container="body"
-                  data-boundary="window"
+              {/* begin::Quick Panel */}
+              {layoutProps.extrasQuickPanelDisplay && (
+                <OverlayTrigger
+                  placement="right"
+                  overlay={<Tooltip id="toggle-quick-panel" className="tool_bg">Notifications</Tooltip>}
                 >
-                  <span className="svg-icon svg-icon-md d-inline-flex">
-                    <SVG
-                      src={toAbsoluteUrl(
-                        "/media/svg/left-menu/Notification.svg"
-                      )}
-                    />
-                  </span>
-                  <span className="label label-sm label-light-danger label-rounded font-weight-bolder position-absolute top-0 right-0 mt-1 mr-1">
-                    3
-                  </span>
-                </a>
-              </OverlayTrigger>
-            )}
-            {/* end::Quick Panel */}
+                  <a
+                    href="#"
+                    className="btn btn-icon btn-clean btn-lg position-relative"
+                    id="kt_quick_panel_toggle"
+                    data-placement="right"
+                    data-container="body"
+                    data-boundary="window"
+                  >
+                    <span className="svg-icon svg-icon-md d-inline-flex">
+                      <SVG
+                        src={toAbsoluteUrl(
+                          "/media/svg/left-menu/Notification.svg"
+                        )}
+                      />
+                    </span>
+                    <span className="label label-sm label-light-danger label-rounded font-weight-bolder position-absolute top-0 right-0 mt-1 mr-1">
+                      3
+                    </span>
+                  </a>
+                </OverlayTrigger>
+              )}
+              {/* end::Quick Panel */}
             </div>
             {/* begin::Languages*/}
             {layoutProps.extrasLanguagesDisplay && <LanguageSelectorDropdown />}
             {/* end::Languages */}
 
             {/* begin::User*/}
-            {layoutProps.extrasUserDisplay && <QuickUserToggler />}
+            {layoutProps.extrasUserDisplay && <QuickUserToggler selectedUser={selectedUser} />}
             {/* end::User */}
           </div>
           {/* end::Footer */}

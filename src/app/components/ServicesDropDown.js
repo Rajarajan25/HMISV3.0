@@ -75,23 +75,9 @@ export function ServicesDropDown(props) {
             <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle1" className="h-100">
                 <div className="d-flex flex-wrap h-100 align-items-center justify-content-center flex-column pointer">
                     <div className="d-flex mt-1 mb-1 justify-content-center">
-                        {props.pagename === PageName.STAFF ? <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#E6511B` }}>{props.item.services || "Select service"}
-                            <span className="dropdown_label_remove" style={{ backgroundColor: `#E6511B` }}>
-                                <span className="dropdown_label_remove_icon">x</span>
-                            </span>
-                        </span> :
-                            <>
-                                {item.service_relationships.service_staff.map(val => {
-                                    return (
-                                        <>
-                                            <span className="ProviderIcon" style={{ backgroundColor: val.staff_id.color_code || `#2ecd6f` }}>{val.staff_id.booking_url ? <img src={toAbsoluteUrl(val.staff_id.booking_url)} alt="" className="mh-100 d-block rounded-circle" /> : val.staff_id.name ? val.staff_id.name.substr(0, 2).toUpperCase() : ""}</span>
-
-
-                                        </>
-                                    )
-                                })}
-
-                            </>}
+                        {props.pagename === PageName.STAFF ? <SelectedService {...props} />
+                            : <SelectedProvider {...props} />
+                        }
                     </div>
                 </div>
             </Dropdown.Toggle>
@@ -166,4 +152,44 @@ export function ServicesDropdownMenu(props) {
         {/*end::Navigation*/}
 
     </>
+}
+
+export function SelectedProvider(props) {
+    const { item } = props;
+    const { service_relationships } = item;
+    if (!service_relationships.service_staff || service_relationships.service_staff.length === 0) {
+        return (
+            <span className="text-muted font-size-sm font-style-italic">Select Provider</span>
+        )
+    }
+    return (
+        <>
+            {service_relationships.service_staff.map(val => {
+                return (
+                    <span className="ProviderIcon" style={{ backgroundColor: val.staff_id.color_code || `#2ecd6f` }}>
+                        {val.staff_id.booking_url ?
+                            <img src={toAbsoluteUrl(val.staff_id.booking_url)} alt="" className="mh-100 d-block rounded-circle" /> :
+                            val.staff_id.name ? val.staff_id.name.substr(0, 2).toUpperCase() : ""}
+                    </span>
+                )
+            })}
+        </>
+    )
+
+}
+
+export function SelectedService(props) {
+    if (!props.item.services) {
+        return (
+            <span className="text-muted font-size-sm font-style-italic">Select service</span>
+        )
+    }
+    return (
+        <span className="specialInfo text-white position-relative" style={{ backgroundColor: `#E6511B` }}>
+            {props.item.services || "Select service"}
+            <span className="dropdown_label_remove" style={{ backgroundColor: `#E6511B` }}>
+                <span className="dropdown_label_remove_icon">x</span>
+            </span>
+        </span>
+    )
 }

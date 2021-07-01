@@ -56,6 +56,7 @@ export function QuickUser(props) {
   const history = useHistory();
   const user = useSelector((state) => state.auth.user, shallowEqual);
   const [selectQuick, setSelectQuick] = React.useState(Quick[0]);
+  const { handleUsers } = props;
   React.useEffect(() => {
     let updatedQuickSetting = sessionStorage.getItem("quickSetting");
     if (updatedQuickSetting) {
@@ -64,6 +65,7 @@ export function QuickUser(props) {
       let topItem = Quick.splice(topItemIndex, 1);
       Quick = [...topItem, ...Quick]
       setSelectQuick(updatedSettings);
+      handleUsers(selectQuick);
     }
   }, [])
 
@@ -75,7 +77,8 @@ export function QuickUser(props) {
     history.push("/logout");
   };
   const handleQuick = (item) => {
-    setSelectQuick(item)
+    setSelectQuick(item);
+    handleUsers(selectQuick);
     sessionStorage.setItem("quickSetting", JSON.stringify(item));
   }
 
@@ -381,7 +384,8 @@ export function QuickUser(props) {
                   <span
                     className={item.className}
                     style={{ backgroundColor: item.bg_color }}
-                  >{item.name}</span>
+                  >                {item.name ? item.name.substr(0, 1).toUpperCase() : ""}
+                  </span>
                 </Link>
 
               );
@@ -405,7 +409,7 @@ export function QuickUser(props) {
               <div className="d-inline-block w-100 h-100">
                 <div className="d-flex">
                   <div className="modaluserIcon w-100 mb-3">
-                    <span className="userIcon">{selectQuick.name}</span>
+                    <span className="userIcon"> {selectQuick.name ? selectQuick.name.substr(0, 1).toUpperCase() : ""}</span>
                     <span className="userName">{selectQuick.name}</span>
                   </div>
                 </div>
