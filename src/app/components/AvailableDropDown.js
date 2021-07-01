@@ -69,7 +69,7 @@ export function AvailableDropDown(props) {
   }
 
   if (selectOpt.length === 0) {
-    selectOpt.push(<span>Select availability</span>);
+    selectOpt.push(<span className="text-muted font-size-sm font-style-italic">Select availability</span>);
   }
 
 

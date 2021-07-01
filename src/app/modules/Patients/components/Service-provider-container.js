@@ -286,26 +286,9 @@ export default function ServiceProviderContainer(props) {
     )
   }
   return (
+
     <div className="clearfix">
       <SpinnerLarge loading={loading} />
-
-      <RightSideDrawer isOpen={state.isDrawerOpen} toggleDrawer={toggleDrawer}>
-        <ServiceDetailsTab
-          handleUpdate={handleUpdate}
-          handleChangeServices={handleChangeServices}
-          currentIndex={state.currentIndex}
-          currentService={currentService}
-          isloading={state.isloading}
-        />
-      </RightSideDrawer>
-      <DeleteDialog
-        show={state.showDialog}
-        onHide={dialogHide}
-        deleteAction={handleDelete}
-        content={state.dialogContent}
-        isloading={state.isloading}
-      />
-
       <Accordion
         square
         expanded={expanded}
@@ -338,6 +321,23 @@ export default function ServiceProviderContainer(props) {
           />
         </AccordionDetails>
       </Accordion>
+
+      <RightSideDrawer isOpen={state.isDrawerOpen} toggleDrawer={toggleDrawer}>
+        <ServiceDetailsTab
+          handleUpdate={handleUpdate}
+          handleChangeServices={handleChangeServices}
+          currentIndex={state.currentIndex}
+          currentService={currentService}
+          isloading={state.isloading}
+        />
+      </RightSideDrawer>
+      <DeleteDialog
+        show={state.showDialog}
+        onHide={dialogHide}
+        deleteAction={handleDelete}
+        content={state.dialogContent}
+        isloading={state.isloading}
+      />
     </div>
   );
 }
