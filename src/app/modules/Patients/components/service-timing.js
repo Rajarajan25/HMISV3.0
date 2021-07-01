@@ -102,7 +102,7 @@ export function ServiceTiming(props) {
 
         <form onSubmit={handleSubmit}>
     <div className="staff_first staff_second w-100 p-6">
-    {fields.timing && <Timings formikValues={values} setFieldValue={setFieldValue}/>}
+     <Timings formikValues={values} setFieldValue={setFieldValue}/>
               <ButtonLoading label="Save" loading={isloading}/>
     </div>
     </form>

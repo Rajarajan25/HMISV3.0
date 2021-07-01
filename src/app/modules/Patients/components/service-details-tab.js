@@ -66,7 +66,7 @@ export function ServiceDetailsTab(props) {
   const timing_field = {
     // timezone: "Time Zone",
     // price: "Price",
-    timing: "Timing",
+    // timing: "Timing",
     // duration: "Duration",
     // daterange: "Date Range"
   };

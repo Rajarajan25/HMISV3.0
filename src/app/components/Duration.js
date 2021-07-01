@@ -160,7 +160,7 @@ export function Duration(props) {
               {fields.price &&
                 <Price formikValues={values} setFieldValue={setFieldValue} />
               }
-              {/* {fields.timing && <Timings formikValues={values} setFieldValue={setFieldValue}/>} */}
+              {fields.timing && <Timings formikValues={values} setFieldValue={setFieldValue}/>}
               <ButtonLoading label="Save" loading={isloading}/>
             </div>
           </div>
