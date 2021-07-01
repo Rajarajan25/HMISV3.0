@@ -203,11 +203,10 @@
   padding: 5px 55px 7px 55px;
 }
 
-// .ql-container{
-//   min-height: 100px !important;
-//   max-height: 200px !important;
-//   overflow: auto;
-// }
+.disable_event{
+  pointer-events: none;
+  opacity: 0.4;
+}
 .limt-col {
   white-space: nowrap;
   overflow: hidden;

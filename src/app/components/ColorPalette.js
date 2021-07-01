@@ -78,10 +78,7 @@ export function ColorPalette(props) {
 }
 
 export function ColorPaletteFormik(props) {
-  const { handleChangeDropDown, item } = props;
-  const handleColorChange = (eve, id) => {
-    handleChangeDropDown(eve.hex, id, "color_code");
-  };
+  const { name } = props;
   return (
     <>
       <div className="col-12 pr-0">
@@ -92,8 +89,7 @@ export function ColorPaletteFormik(props) {
                 <Field
                   type="radio"
                   id={"color_" + index}
-                  name={props.name}
-                  name="color_code"
+                  name={name || "color_code"}
                   value={colors}
                 />
                 <label className="" htmlFor={"color_" + index}>

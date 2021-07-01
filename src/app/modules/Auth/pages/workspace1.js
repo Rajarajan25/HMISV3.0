@@ -4,176 +4,122 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import { Upload } from "../../../components/Upload";
 import { Formik, Field } from "formik";
-import { ColorPalette } from "../../../components/ColorPalette";
-import { colors } from "@material-ui/core";
-import { findLastKey, values } from "lodash";
-import { scroller, animateScroll as scroll, Events } from "react-scroll";
+import { ColorPaletteFormik } from "../../../components/ColorPalette";
+import { scroller } from "react-scroll";
 import Scrollspy from "react-scrollspy";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    width: "100%",
-
-    backgroundColor: theme.palette.background.paper,
-  },
-}));
+const fieldType = {
+  Name: "Name",
+  Color: "Color",
+  Business: "Business",
+  Go: "Go"
+};
+const defAction = {
+  Name: false,
+  Color: false,
+  Business: false,
+  Go: false
+}
 
 export default function WorkSpace1(props) {
-
+  let handle = null;
   const [obj, setObj] = React.useState({
     name: "",
     colors: "",
     bussiness_type: "",
   });
-  const [formActions, setFormActions] = React.useState({
-    enableName: true,
-    enableColor: false,
-    enableBusiness: false,
-    enableGo: false,
-  });
+  const [formActions, setFormActions] = React.useState({ ...defAction, Name: true });
 
   React.useEffect(() => {
     setTimeout(() => {
-      handleScroll("enableName");
+      handleScroll(fieldType.Name);
     });
-    let updateObj = { name: props.location.hasOwnProperty("aboutProps") ? props.location.aboutProps.item.name : "", colors: props.location.hasOwnProperty("aboutProps") ? props.location.aboutProps.item.bg_color : "", bussiness_type: props.location.hasOwnProperty("aboutProps") ? props.location.aboutProps.item.bussiness_type : "" };
-    setObj(updateObj);
+    if (props.location.hasOwnProperty("aboutProps")) {
+      let updateObj = {
+        name: props.location.aboutProps.item.name,
+        colors: props.location.aboutProps.item.bg_color,
+        bussiness_type: props.location.aboutProps.item.bussiness_type
+      };
+      setObj(updateObj);
+    }
+
   }, []);
 
   const handleScroll = (enableType) => {
     scroller.scrollTo(enableType, {
-      duration: 800,
+      duration: 400,
       delay: 0,
-      smooth: "easeInOutQuart",
+      smooth: "linear",
     });
   };
 
-  const scrollTo = (disableType, enableType) => {
+  const scrollTo = (disableType, enableType, name, fieldValue) => {
     handleScroll(enableType);
+    setObj((oldObj) => {
+      const value = { [name]: fieldValue };
+      const newObj = { ...oldObj, ...value };
+      return newObj
+    })
     setFormActions((oldObj) => {
       const value = { [disableType]: false, [enableType]: true };
       const newObj = { ...oldObj, ...value };
       return newObj;
     });
   };
-  const handleChangeDropDown = (colors) => {
-    setObj({ ...obj, colors: colors });
-  };
+
+  const onMoveToLayout = (elem) => {
+    if (handle) {
+      clearTimeout(handle);
+    }
+    handle = setTimeout(() => {
+      console.log("is scroll stop");
+      handleOnScroll(elem);
+    }, 400); // default 400 ms
+  }
+
   const handleOnScroll = (elem) => {
+    console.log("Element-->", elem);
+    let scrollEle = fieldType.Name;
     if (elem && elem.id) {
       let updatedValue = { ...formActions };
-      Object.keys(formActions, {}).forEach((item, i) => {
-        if (obj.name === "" && obj.colors === "" && obj.bussiness_type === "") {
-          setTimeout(() => {
-            handleScroll("enableName");
-          }, 600);
-        } else if ((obj.name !== "" && obj.colors === "" && obj.bussiness_type === "") && elem.id === "enableName") {
-          setTimeout(() => {
-            handleScroll("enableName");
-          }, 600);
-          updatedValue.enableName = true;
-          updatedValue.enableBusiness = false;
-          updatedValue.enableColor = false;
-          updatedValue.enableGo = false;
-        } else if ((obj.name !== "" && obj.colors === "" && obj.bussiness_type === "") && elem.id === "enableColor") {
-          setTimeout(() => {
-            handleScroll("enableColor");
-          }, 600);
-          updatedValue.enableName = false;
-          updatedValue.enableBusiness = false;
-          updatedValue.enableColor = true;
-          updatedValue.enableGo = false;
-        } else if ((obj.name !== "" && obj.colors === "" && obj.bussiness_type === "") && (elem.id === "enableBusiness" || elem.id === "enableGo")) {
-          setTimeout(() => {
-            handleScroll("enableColor");
-          }, 600);
-          updatedValue.enableName = false;
-          updatedValue.enableBusiness = false;
-          updatedValue.enableColor = true;
-          updatedValue.enableGo = false;
-        } else if ((obj.name !== "" && obj.colors !== "" && obj.bussiness_type === "") && elem.id === "enableColor") {
-          setTimeout(() => {
-            handleScroll("enableColor");
-          }, 600);
-          updatedValue.enableName = false;
-          updatedValue.enableBusiness = false;
-          updatedValue.enableColor = true;
-          updatedValue.enableGo = false;
-        } else if ((obj.name !== "" && obj.colors !== "" && obj.bussiness_type === "") && elem.id === "enableName") {
-          setTimeout(() => {
-            handleScroll("enableName");
-          }, 600);
-          updatedValue.enableName = true;
-          updatedValue.enableBusiness = false;
-          updatedValue.enableColor = false;
-          updatedValue.enableGo = false;
-        } else if ((obj.name !== "" && obj.colors !== "" && obj.bussiness_type === "") && elem.id === "enableBusiness") {
-          setTimeout(() => {
-            handleScroll("enableBusiness");
-          }, 600);
-          updatedValue.enableName = false;
-          updatedValue.enableBusiness = true;
-          updatedValue.enableColor = false;
-          updatedValue.enableGo = false;
-        } else if ((obj.name !== "" && obj.colors !== "" && obj.bussiness_type === "") && elem.id === "enableGo") {
-          setTimeout(() => {
-            handleScroll("enableBusiness");
-          }, 600);
-          updatedValue.enableName = false;
-          updatedValue.enableBusiness = true;
-          updatedValue.enableColor = false;
-          updatedValue.enableGo = false;
-        } else if ((obj.name !== "" && obj.colors !== "" && obj.bussiness_type !== "")) {
-          if (item === elem.id) {
-            updatedValue[item] = true;
+      switch (elem.id) {
+        case fieldType.Name:
+          updatedValue = { ...defAction, Name: true };
+          break;
+        case fieldType.Color:
+          if (obj.name) {
+            updatedValue = { ...defAction, Color: true };
+            scrollEle = fieldType.Color;
           } else {
-            updatedValue[item] = false;
+            scrollEle = fieldType.Name;
           }
-          // setTimeout(() => {
-          //   handleScroll("enableBusiness");
-          // }, 600);
-
-        }
-        //  else if (obj.name !== "" && obj.colors === "" && obj.bussiness_type === "") {
-        //   setTimeout(() => {
-        //     handleScroll("enableColor");
-        //   }, 600);
-        // } else if (obj.name !== "" && obj.colors !== "" && obj.bussiness_type === "") {
-        //   setTimeout(() => {
-        //     handleScroll("enableBusiness");
-        //   }, 600);
-        // }
-        // if (obj.name === "" && elem.id === "enableColor") {
-        //   handleScroll("enableName");
-        // } else if (obj.colors === "" && elem.id === "enableBusiness") {
-        //   handleScroll("enableColor");
-        // } else if (obj.bussiness_type === "" && elem.id === "enableGo") {
-        //   handleScroll("enableBusiness");
-        // }
-
-        // if (elem.id === "enableColor" && obj.colors !== "") {
-        //   updatedValue.enableColor = true;
-        // } else if (elem.id === "enableBusiness" && obj.bussiness_type !== "") {
-        //   updatedValue.enableBusiness = true;
-        // } else if (elem.id === "enableGo" && (obj.bussiness_type !== "" && obj.colors !== "" && obj.name !== "")) {
-        //   updatedValue.enableGo = true;
-        // } else {
-        //   if (elem.id === "enableName") {
-        //     updatedValue[item] = true;
-        //   }
-        // }
-      });
+          break;
+        case fieldType.Business:
+          if (obj.colors) {
+            updatedValue = { ...defAction, Business: true };
+            scrollEle = fieldType.Business;
+          } else {
+            scrollEle = fieldType.Color;
+          }
+          break;
+        case fieldType.Go:
+          if (obj.bussiness_type) {
+            updatedValue = { ...defAction, Go: true };
+            scrollEle = fieldType.Go;
+          } else {
+            scrollEle = fieldType.Business;
+          }
+          break;
+      }
       setFormActions(updatedValue);
     }
+    handleScroll(scrollEle);
   };
 
   return (
     <Formik
-      initialValues={{ name: props.location.hasOwnProperty("aboutProps") ? props.location.aboutProps.item.name : "", colors: props.location.hasOwnProperty("aboutProps") ? props.location.aboutProps.item.bg_color : "", bussiness_type: props.location.hasOwnProperty("aboutProps") ? props.location.aboutProps.item.bussiness_type : "" }}
+      initialValues={obj}
       onSubmit={(values) => {
-        values.colors = obj.colors;
-        setObj(values)
+        setObj(values);
         console.log(JSON.stringify(values));
       }}
     >
@@ -193,34 +139,18 @@ export default function WorkSpace1(props) {
                   <Scrollspy
                     className="scrollspy"
                     items={[
-                      "enableName",
-                      "enableColor",
-                      "enableBusiness",
-                      "enableGo",
+                      fieldType.Name,
+                      fieldType.Color,
+                      fieldType.Business,
+                      fieldType.Go,
                     ]}
                     currentClassName="isCurrent"
-                    onUpdate={handleOnScroll}
+                    onUpdate={onMoveToLayout}
                   ></Scrollspy>
-                  <div
-                    className="space1 mb150"
-                    id="enableName"
-                    style={
-                      formActions.enableName
-                        ? {}
-                        : { pointerEvents: "none", opacity: "0.4" }
-                    }
-                  >
-                    <div
-                      className="d-flex w-100 loginMaincontent min-heis"
-                      name="enableName"
-                    >
+                  <div className={`space1 mb150 ${!formActions.Name && "disable_event"}`} id={fieldType.Name}>
+                    <div className="d-flex w-100 loginMaincontent min-heis" name={fieldType.Name}>
                       <div className="d-flex w-100">
-                        <Link to="/" className="flex-column-auto logo-tb mb-5">
-                          <img
-                            alt="Logo"
-                            src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
-                          />
-                        </Link>
+                        <Logo />
                         <div className="ml-10 mt-5 workspace-con">
                           <h1>Workspace Name</h1>
                           <div className="input-contain">
@@ -232,128 +162,65 @@ export default function WorkSpace1(props) {
                               value={values.name || ""}
                             />
                           </div>
-                          <div className="space-btn">
-                            <button
-                              onClick={() =>
-                                scrollTo("enableName", "enableColor")
-                              }
-                              className="btn btn-btn-primary"
-                              style={
-                                values.name
-                                  ? {}
-                                  : { pointerEvents: "none", opacity: "0.4" }
-                              }
-                            >
-                              Next
-                            </button>
-                          </div>
+                          <NextButton
+                            lable="Next"
+                            scrollTo={scrollTo}
+                            disableType={fieldType.Name}
+                            enableType={fieldType.Color}
+                            name="name"
+                            value={values.name} />
                         </div>
                       </div>
                     </div>
                   </div>
-
-                  <div
-                    className="space2 mb150"
-                    id="enableColor"
-                    style={
-                      formActions.enableColor
-                        ? {}
-                        : { pointerEvents: "none", opacity: "0.4" }
-                    }
-                  >
-                    <div
-                      className="d-flex w-100 loginMaincontent min-heis"
-                      name="enableColor"
-                    >
+                  <div className={`space2 mb150 ${!formActions.Color && "disable_event"}`} id={fieldType.Color}>
+                    <div className="d-flex w-100 loginMaincontent min-heis" name={fieldType.Color}>
                       <div className="d-flex w-100">
-                        <Link to="/" className="flex-column-auto logo-tb mb-5">
-                          <img
-                            alt="Logo"
-                            src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
-                          />
-                        </Link>
+                        <Logo />
                         <div className="ml-10 mt-5 workspace-con">
                           <h1>Choose your Logo and Colour</h1>
                           <div className="form-group">
                             <div className="d-flex pb-2">
                               <Upload />
                               <div className="col-8 pr-0">
-                                <ColorPalette
-                                  handleChangeDropDown={handleChangeDropDown}
+                                <ColorPaletteFormik
+                                  name="colors"
                                   colorsCode={values.colors}
-                                  item={{ id: 1 }}
                                 />
                               </div>
                             </div>
                           </div>
-                          <div className="space-btn">
-                            <button
-                              onClick={() =>
-                                scrollTo("enableColor", "enableBusiness")
-                              }
-                              className="btn btn-btn-primary"
-                              style={
-                                obj.colors
-                                  ? {}
-                                  : { pointerEvents: "none", opacity: "0.4" }
-                              }
-                            >
-                              Next
-                            </button>
-                          </div>
+                          <NextButton
+                            lable="Next"
+                            scrollTo={scrollTo}
+                            name="colors"
+                            disableType={fieldType.Color}
+                            enableType={fieldType.Business}
+                            value={values.colors} />
                         </div>
                       </div>
                     </div>
                   </div>
-
-                  <div
-                    className="space3 mb150"
-                    id="enableBusiness"
-                    style={
-                      formActions.enableBusiness
-                        ? {}
-                        : { pointerEvents: "none", opacity: "0.4" }
-                    }
-                  >
-                    <div
-                      className="d-flex w-100 loginMaincontent min-heis"
-                      name="enableBusiness"
-                    >
+                  <div className={`space3 mb150 ${!formActions.Business && "disable_event"}`} id={fieldType.Business}>
+                    <div className="d-flex w-100 loginMaincontent min-heis" name={fieldType.Business}>
                       <div className="d-flex w-100">
-                        <Link to="/" className="flex-column-auto logo-tb mb-5">
-                          <img
-                            alt="Logo"
-                            src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
-                          />
-                        </Link>
+                        <Logo />
                         <Bussinessformik
                           name="bussiness_type"
+                          value={values.bussiness_type}
                           handleScrollTo={scrollTo}
                         />
+
                       </div>
                     </div>
                   </div>
-
-                  <div
-                    className="space4 mb150"
-                    id="enableGo"
-                    style={
-                      formActions.enableGo
-                        ? {}
-                        : { pointerEvents: "none", opacity: "0.4" }
-                    }
-                  >
+                  <div className={`space4 mb150 ${!formActions.Go && "disable_event"}`} id={fieldType.Go} >
                     <div
                       className="d-flex w-100 loginMaincontent min-heis"
-                      name="enableGo"
+                      name={fieldType.Go}
                     >
                       <div className="d-flex w-100">
-                        <Link to="/" className="flex-column-auto logo-tb mb-5">
-                          <img
-                            alt="Logo"
-                            src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
-                          />
-                        </Link>
+                        <Logo />
                         <div className="ml-10 mt-5 workspace-con">
                           <h1>Yor’re ready for takeoff!</h1>
                           <p className="takeoff">
@@ -387,126 +254,9 @@ export default function WorkSpace1(props) {
   );
 }
 
-export function ColorCode() {
-  const classes = useStyles();
-  return (
-    <div className="color_select">
-      <div class="d-inline-flex color_col p-6">
-        <input type="radio" id="color_01" name="color-code" className="" />
-        <label className="" for="color_01">
-          <span style={{ backgroundColor: `#41BC87` }}></span>
-        </label>
-      </div>
-      <div class="d-inline-flex color_col p-6">
-        <input type="radio" id="color_02" name="color-code" className="" />
-        <label className="" for="color_02">
-          <span style={{ backgroundColor: `#1DBC9C` }}></span>
-        </label>
-      </div>
-      <div class="d-inline-flex color_col p-6">
-        <input type="radio" id="color_03" name="color-code" className="" />
-        <label className="" for="color_03">
-          <span style={{ backgroundColor: `#27AE60` }}></span>
-        </label>
-      </div>
-      <div class="d-inline-flex color_col p-6">
-        <input type="radio" id="color_04" name="color-code" className="" />
-        <label className="" for="color_04">
-          <span style={{ backgroundColor: `#21D726` }}></span>
-        </label>
-      </div>
-      <div class="d-inline-flex color_col p-6">
-        <input type="radio" id="color_05" name="color-code" className="" />
-        <label className="" for="color_05">
-          <span style={{ backgroundColor: `#F41D2F` }}></span>
-        </label>
-      </div>
-      <div class="d-inline-flex color_col p-6">
-        <input type="radio" id="color_06" name="color-code" className="" />
-        <label className="" for="color_06">
-          <span style={{ backgroundColor: `#181D21` }}></span>
-        </label>
-      </div>
-      <div class="d-inline-flex color_col p-6">
-        <input type="radio" id="color_07" name="color-code" className="" />
-        <label className="" for="color_07">
-          <span style={{ backgroundColor: `#FD575E` }}></span>
-        </label>
-      </div>
-      <div class="d-inline-flex color_col p-6">
-        <input type="radio" id="color_08" name="color-code" className="" />
-        <label className="" for="color_08">
-          <span style={{ backgroundColor: `#FDB42B` }}></span>
-        </label>
-      </div>
-      <div class="d-inline-flex color_col p-6">
-        <input type="radio" id="color_09" name="color-code" className="" />
-        <label className="" for="color_09">
-          <span style={{ backgroundColor: `#B17F22` }}></span>
-        </label>
-      </div>
-      <div class="d-inline-flex color_col p-6">
-        <input type="radio" id="color_10" name="color-code" className="" />
-        <label className="" for="color_10">
-          <span style={{ backgroundColor: `#F34D1D` }}></span>
-        </label>
-      </div>
-      <div class="d-inline-flex color_col p-6">
-        <input type="radio" id="color_11" name="color-code" className="" />
-        <label className="" for="color_11">
-          <span style={{ backgroundColor: `#FD8624` }}></span>
-        </label>
-      </div>
-      <div class="d-inline-flex color_col p-6">
-        <input type="radio" id="color_12" name="color-code" className="" />
-        <label className="" for="color_12">
-          <span style={{ backgroundColor: `#2798B7` }}></span>
-        </label>
-      </div>
-      <div class="d-inline-flex color_col p-6">
-        <input type="radio" id="color_13" name="color-code" className="" />
-        <label className="" for="color_13">
-          <span style={{ backgroundColor: `#2980B9` }}></span>
-        </label>
-      </div>
-      <div class="d-inline-flex color_col p-6">
-        <input type="radio" id="color_14" name="color-code" className="" />
-        <label className="" for="color_14">
-          <span style={{ backgroundColor: `#3598DC` }}></span>
-        </label>
-      </div>
-      <div class="d-inline-flex color_col p-6">
-        <input type="radio" id="color_15" name="color-code" className="" />
-        <label className="" for="color_15">
-          <span style={{ backgroundColor: `#528CCB` }}></span>
-        </label>
-      </div>
-      <div class="d-inline-flex color_col p-6">
-        <input type="radio" id="color_16" name="color-code" className="" />
-        <label className="" for="color_16">
-          <span style={{ backgroundColor: `#0921EC` }}></span>
-        </label>
-      </div>
-      <div class="d-inline-flex color_col p-6">
-        <input type="radio" id="color_17" name="color-code" className="" />
-        <label className="" for="color_17">
-          <span style={{ backgroundColor: `#199EC7` }}></span>
-        </label>
-      </div>
-      <div class="d-none color_col p-6">
-        <span className="color_add">
-          <i>+</i>
-        </span>
-      </div>
-    </div>
-  );
-}
-export function Bussinessformik(props) {
-  const { handleScrollTo } = props;
-  const scrollTo = (disableType, enableType) => {
-    handleScrollTo(disableType, enableType);
-  };
 
+export function Bussinessformik(props) {
+  const { handleScrollTo, value, name } = props;
   const bussiness = [
     {
       id: "pet_box_01",
@@ -532,7 +282,6 @@ export function Bussinessformik(props) {
   return (
     <div className="ml-10 mt-5 workspace-con">
       <h1>Select your business type</h1>
-
       <div className="serve_sec">
         <div className="row">
           {bussiness.map((item) => {
@@ -541,8 +290,7 @@ export function Bussinessformik(props) {
                 <Field
                   type="radio"
                   id={item.id}
-                  name={props.name}
-                  className=""
+                  name={name}
                   value={item.value}
                 />
                 <label className="pat_box" htmlFor={item.id}>
@@ -550,7 +298,7 @@ export function Bussinessformik(props) {
                     <div className="service_img d-flex">
                       <img
                         src={item.ulr}
-                        alt=""
+                        alt={item.name}
                         className="m-auto align-items-center"
                       />
                     </div>
@@ -564,18 +312,44 @@ export function Bussinessformik(props) {
           })}
         </div>
       </div>
+      <NextButton
+        lable="Next"
+        scrollTo={handleScrollTo}
+        disableType={fieldType.Business}
+        enableType={fieldType.Go}
+        name={name}
+        value={value} />
 
-      <div className="space-btn">
-        <button
-          onClick={() => {
-            scrollTo("enableBusiness", "enableGo");
-            // handleBusinessType(businessType)
-          }}
-          className="btn btn-btn-primary"
-        >
-          Next
-        </button>
-      </div>
     </div>
   );
+}
+export function Logo() {
+
+  return (
+    <Link to="/" className="flex-column-auto logo-tb mb-5">
+      <img
+        alt="Logo"
+        src={toAbsoluteUrl("/media/logos/Logo-HMIS.svg")}
+      />
+    </Link>
+  )
+}
+
+export function NextButton(props) {
+  const { scrollTo, disableType, enableType, value, lable, name } = props;
+  return (
+    <div className="space-btn">
+      <button
+        type='button'
+        onClick={(event) => {
+          console.log("name-->", name);
+          console.log("value-->", value);
+          scrollTo(disableType, enableType, name, value);
+        }}
+        className={`btn btn-btn-primary ${!value && "disable_event"}`}
+      >
+        {lable}
+      </button>
+    </div>
+  )
 }
