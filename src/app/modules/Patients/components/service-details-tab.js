@@ -64,11 +64,11 @@ export function ServiceDetailsTab(props) {
 
 
   const timing_field = {
-    timezone: "Time Zone",
-    price: "Price",
-    timing: "Timing",
-    duration: "Duration",
-    daterange: "Date Range"
+    // timezone: "Time Zone",
+    // price: "Price",
+    // timing: "Timing",
+    // duration: "Duration",
+    // daterange: "Date Range"
   };
   const service_field = {
     service: "Service",
@@ -129,7 +129,7 @@ export function ServiceDetailsTab(props) {
             index={currentIndex} handleUpdate={handleUpdate} handleSave={editService}
             fields={service_field} isloading={isloading}
           /> </TabContainer>}
-          {value === 3 && <TabContainer> <ServiceTiming /> </TabContainer>}
+          {value === 3 && <TabContainer> <ServiceTiming data={currentService} fields={timing_field} handleSave={editService}/> </TabContainer>}
           {value === 4 && <TabContainer> <StaffService handleChangeServices={handleChangeServices}
             {...props} current={currentservice}
             index={currentIndex} handleUpdate={handleUpdate} handleSave={editService}
