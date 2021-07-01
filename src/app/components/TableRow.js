@@ -221,7 +221,7 @@ export function TableRow(props) {
                                     handleChangeDropDown={handleChangeDropDown}
                                   />
                                 </li>}
-                                {field.email && <li className="col-lg-2 activeStatuscontent my-auto d-flex pl-10">
+                                {field.email && <li className="col-lg-2 activeStatuscontent my-auto d-flex justify-content-center">
                                   {selectedIndexMail === i ? (
                                     <input
                                     ref={updatedValue}
@@ -230,12 +230,12 @@ export function TableRow(props) {
                                     name="email"
                                     className="edit_mail"
                                     type="text"
-                                    style={{ width: "100%" }}
+                                    style={{ width: "80%" }}
                                     defaultValue={item.email}
                                   />
                                     
                                   ) : (
-                                    <span className="limt-col">
+                                    <span className={item.email&&`limt-col`}>
                                       {item.email}
                                     </span>
                                   )}
@@ -246,6 +246,7 @@ export function TableRow(props) {
                                     clickEdit={handleEdit}
                                     selectedIndex={selectedIndexMail}
                                   ></ServiceEdit>
+                                  
                                 </li>}
                                 {field.phone && <li className="col-lg-2 my-auto d-flex justify-content-center">
                                   <span>
