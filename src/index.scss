@@ -189,6 +189,14 @@
   border: 1px solid;
   background: #fff;
 }
+.emptyhover {
+  width: 100px;
+  font-weight: 600;
+  font-size: 20px;
+}
+.emptyhover:hover {
+  border: 1px solid #b9bec780;
+}
 
 .hover:hover {
   border: 0.5px solid;
@@ -200,3 +208,12 @@
 //   max-height: 200px !important;
 //   overflow: auto;
 // }
+.limt-col {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+  text-align: center;
+  align-self: stretch;
+  max-width: 130px;
+}

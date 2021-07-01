@@ -230,12 +230,12 @@ export function TableRow(props) {
                                     name="email"
                                     className="edit_mail"
                                     type="text"
-                                    style={{ width: "100%" }}
+                                    style={{ width: "80%" }}
                                     defaultValue={item.email}
                                   />
                                     
                                   ) : (
-                                    <span className="d-inline-flex">
+                                    <span className={item.email&&`limt-col`}>
                                       {item.email}
                                     </span>
                                   )}
@@ -246,6 +246,7 @@ export function TableRow(props) {
                                     clickEdit={handleEdit}
                                     selectedIndex={selectedIndexMail}
                                   ></ServiceEdit>
+                                  
                                 </li>}
                                 {field.phone && <li className="col-lg-2 my-auto d-flex justify-content-center">
                                   <span>
@@ -261,7 +262,7 @@ export function TableRow(props) {
                                       defaultValue={item.phone_no}
                                     />
                                     ) : (
-                                      <span className="d-inline-flex">
+                                      <span className="limt-col">
                                         {item.phone_no}
                                       </span>
                                     )}
