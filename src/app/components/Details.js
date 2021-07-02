@@ -16,6 +16,7 @@ import { DevAlertPopUp } from "../SiteUtill";
 import { ButtonLoading } from "./ButtonLoading";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css"; // ES6
+import PropTypes from 'prop-types';
 
 const detailSchema = Yup.object().shape({
   name: Yup.string()
@@ -228,6 +229,23 @@ export function Details(props) {
     </Formik>
   );
 }
+// const { current, fields, index, handleUpdate, addNew, isloading, handleProvider, type } = props;
+
+Details.propTypes={
+  current:PropTypes.array,
+  fields:PropTypes.array,
+  index:PropTypes.number,
+  handleUpdate:PropTypes.func,
+  addNew:PropTypes.func,
+  isloading:PropTypes.bool,
+  handleProvider:PropTypes.func,
+  type:PropTypes.string
+}
+
+Details.propTypes={
+  children:PropTypes.element.isRequired,
+}
+
 
 export function DatePicker(props) {
   return (
@@ -237,6 +255,15 @@ export function DatePicker(props) {
   );
 }
 
+DatePicker.propTypes={
+  value:PropTypes.string,
+  name:PropTypes.string,
+  onChange:PropTypes.func
+}
+
+DatePicker.propTypes={
+  children:PropTypes.element.isRequired
+}
 export default function SwitchLabels(props) {
   const { lable } = props;
 
@@ -250,4 +277,16 @@ export default function SwitchLabels(props) {
       />
     </FormGroup>
   );
+}
+
+SwitchLabels.propTypes={
+  lable:PropTypes.string,
+  name:PropTypes.string,
+  value:PropTypes.string,
+  checked:PropTypes.bool,
+  onChange:PropTypes.func
+}
+
+SwitchLabels.propTypes={
+  children:PropTypes.element.isRequired
 }

@@ -144,6 +144,14 @@ export function ServiceDetailsTab(props) {
   );
 }
 
+
+ServiceDetailsTab.propTypes={
+  handleUpdate:PropTypes.func.isRequired,
+  currentIndex:PropTypes.number.isRequired,
+  currentService:PropTypes.object.isRequired,
+  handleChangeServices:PropTypes.func.isRequired,
+  isloading:PropTypes.bool.isRequired
+}
 export function StaffName(props) {
   const { currentService } = props
   if (currentService.description) var strippedHtml = currentService.description.replace(/<[^>]+>/g, '');
@@ -158,7 +166,9 @@ export function StaffName(props) {
     </div>
   );
 }
-
+StaffName.propTypes={
+  currentService:PropTypes.object.isRequired
+}
 export function TabServiceDetails() {
   return (
     <div className="clearfix">

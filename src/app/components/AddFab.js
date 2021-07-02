@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../_metronic/_helpers";
+import PropTypes from 'prop-types';
 
 export function AddFab(props) {
     const{onClick}=props;
@@ -17,4 +18,7 @@ export function AddFab(props) {
             </div>
         </div>
     )
+}
+AddFab.propTypes = {
+    onClick: PropTypes.func,
 }

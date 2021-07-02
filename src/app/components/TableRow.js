@@ -16,6 +16,8 @@ import { Dropdown } from "react-bootstrap";
 import { DropdownItemToggler } from "../../_metronic/_partials/dropdowns";
 import { ProviderDropDown } from './ProviderDropdownMenu'
 import { DevConsoleLog } from "../SiteUtill";
+import PropTypes from 'prop-types';
+
 export function TableRow(props) {
   const {
     row,
@@ -412,4 +414,20 @@ export function MoreDropdownMenu(props) {
       </li>
     </ul>
   </>
+}
+
+TableRow.propTypes={
+  row:PropTypes.object.isRequired,
+  drawer:PropTypes.func.isRequired,
+  addButton:PropTypes.bool.isRequired,
+  addText:PropTypes.string.isRequired,
+  handleSave:PropTypes.func.isRequired,
+  addNew:PropTypes.func.isRequired,
+  handleChangeDropDown:PropTypes.func.isRequired,
+  handleDataSource:PropTypes.func.isRequired,
+  handleChangeServices:PropTypes.func.isRequired,
+  pagename:PropTypes.string,
+  isDragDisabled:PropTypes.bool.isRequired,
+  searchValue:PropTypes.string,
+  field:PropTypes.object.isRequired
 }

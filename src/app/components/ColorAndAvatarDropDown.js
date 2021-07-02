@@ -4,6 +4,8 @@ import { ColorPalette } from './ColorPalette';
 import { Dropdown } from "react-bootstrap";
 import { DropdownItemToggler } from "../../_metronic/_partials/dropdowns";
 import { AzureImageview } from './AzureImageview';
+import PropTypes from 'prop-types';
+
 export function ColorAndAvatarDropDown(props) {
     const { item, handleChangeDropDown } = props;
     return (
@@ -16,6 +18,11 @@ export function ColorAndAvatarDropDown(props) {
             </Dropdown.Menu>
         </Dropdown>
     )
+}
+
+ColorAndAvatarDropDown.propTypes={
+    handleChangeDropDown:PropTypes.func,
+    item:PropTypes.array    
 }
 
 export function ColorAndAvatarDropDownMenu(props) {

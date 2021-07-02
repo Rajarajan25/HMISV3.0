@@ -6,6 +6,7 @@ import { Formik, Field } from 'formik';
 import 'date-fns';
 import {TimePickersUtil} from "./DateAndTimePicker"
 import { DevConsoleLog } from '../SiteUtill';
+import PropTypes from 'prop-types';
 
 const UPDATE_BUSINESS = gql`
       mutation updateBusiness($businessID: ID!,$business: BusinessInput) {
@@ -209,6 +210,15 @@ export default function BusinessTiming(props) {
   )
 }
 
+BusinessTiming.propTypes={
+  handleHide:PropTypes.func,
+  selectedDays:PropTypes.array,
+  businessHours:PropTypes.array
+}
+
+BusinessTiming.propTypes = {
+  children: PropTypes.element.isRequired
+};
 
 
 

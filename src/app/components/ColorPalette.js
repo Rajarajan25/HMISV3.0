@@ -1,6 +1,8 @@
 import { Field } from "formik";
 import React from "react";
 import ColorPicker from "rsuite-color-picker";
+import PropTypes from 'prop-types';
+
 //import 'rsuite-color-picker/lib/styles.less'
 import "rsuite-color-picker/lib/styles.css";
 const colorDropDown = [
@@ -104,4 +106,12 @@ export function ColorPaletteFormik(props) {
       </div>
     </>
   );
+}
+
+ColorPaletteFormik.propTypes={
+  name:PropTypes.string
+}
+
+ColorPaletteFormik.propTypes={
+  name:PropTypes.element.isRequired
 }

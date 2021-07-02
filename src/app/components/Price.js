@@ -10,6 +10,8 @@ import { Field, FieldArray } from 'formik'
 import SelectDropDown from './SelectDropDown'
 import { DevConsoleLog } from "../SiteUtill";
 import {AdvanceServicePriceModel} from "../models/AdvanceServicePriceModel"
+import PropTypes from 'prop-types';
+
 const pricetype = [
   { value: 'free', label: 'Free' },
   { value: 'fixed', label: 'Fixed' }
@@ -152,3 +154,7 @@ export function Price(props) {
 }
 
 
+Price.propTypes={
+  setFieldValue:PropTypes.object.isRequired,
+  formikValues:PropTypes.object.isRequired
+}

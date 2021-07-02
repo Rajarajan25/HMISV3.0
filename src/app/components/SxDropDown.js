@@ -1,6 +1,7 @@
 import { Dropdown } from "react-bootstrap";
 import React from 'react';
 import { DropdownItemToggler } from "../../_metronic/_partials/dropdowns";
+import PropTypes from 'prop-types';
 
 const sxData = [
   { name: "Male", hover: "" },
@@ -22,6 +23,11 @@ export function SxDropDown(props) {
   )
 }
 
+SxDropDown.propTypes={
+  item:PropTypes.object.isRequired,
+  handleChangeDropDown:PropTypes.func.isRequired
+}
+
 export function SxDropdownMenu(props) {
   const { handleChangeDropDown, item } = props;
   return <>
@@ -40,4 +46,9 @@ export function SxDropdownMenu(props) {
     {/*end::Navigation*/}
 
   </>
+}
+
+SxDropdownMenu.propTypes={
+  item:PropTypes.object.isRequired,
+  handleChangeDropDown:PropTypes.func.isRequired
 }

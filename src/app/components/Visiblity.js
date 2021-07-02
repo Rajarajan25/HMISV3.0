@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field } from 'formik';
+import PropTypes from 'prop-types';
 
 export default function VisiblityFormik(props){
     return(
@@ -23,4 +24,8 @@ export default function VisiblityFormik(props){
         </div>
       </div>
     )
+}
+
+VisiblityFormik.propTypes={
+  name:PropTypes.string.isRequired
 }

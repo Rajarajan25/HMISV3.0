@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 export function SpinnerLarge(props) {
     const { loading } = props;
@@ -12,6 +13,10 @@ export function SpinnerLarge(props) {
     )
 }
 
+SpinnerLarge.propTypes={
+    loading:PropTypes.bool.isRequired
+}
+
 export function SpinnerSmall(props) {
     const { loading } = props;
     if (!loading) {
@@ -20,4 +25,7 @@ export function SpinnerSmall(props) {
     return (
         <><span className="ml-3 mr-3 spinner spinner-white" {...props}></span></>
     )
+}
+SpinnerSmall.propTypes={
+    loading:PropTypes.bool.isRequired
 }

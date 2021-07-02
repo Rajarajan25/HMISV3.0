@@ -7,6 +7,8 @@ import { OncallModel } from "../models/OncallModel";
 import { VideoData } from "../models/VideoData";
 import { InpersionModel } from "../models/InpersionModel";
 import { TimingsModel } from "../models/TimingsModel";
+import PropTypes from 'prop-types';
+
 const Type = {
   INPERSON: "Inperson",
   PHONE: "Oncall",
@@ -111,4 +113,8 @@ export function ChatUI(props) {
   )
 }
 
+StaffAvailablity.propTypes={
+  handleChangeDropDown:PropTypes.func.isRequired,
+  item:PropTypes.object.isRequired
+}
 

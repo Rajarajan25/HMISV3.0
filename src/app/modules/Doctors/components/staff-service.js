@@ -6,6 +6,7 @@ import StaffCommission from "../../../components/StaffCommission"
 import { Formik } from 'formik';
 import { StaffServiceList } from "../../../components/StaffServiceList";
 import { ButtonLoading } from "../../../components/ButtonLoading";
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles({
   list: {
@@ -54,4 +55,13 @@ export function StaffService(props) {
     </Formik>
 
   </>);
+}
+
+
+StaffServiceList.propTypes={
+  current:PropTypes.object.isRequired,
+  fields:PropTypes.object.isRequired,
+  index:PropTypes.number.isRequired,
+  handleChangeServices:PropTypes.func.isRequired,
+  isloading:PropTypes.bool.isRequired
 }

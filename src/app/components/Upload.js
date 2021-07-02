@@ -10,6 +10,8 @@ import Cropper from 'react-easy-crop'
 import { stubTrue } from 'lodash';
 import { getCroppedImg } from '../canvasUtils';
 import CropImage from './CropImage';
+import PropTypes from 'prop-types';
+
 const storageConfigured = isStorageConfigured();
 const Type = {
   "image/png": "png",
@@ -278,4 +280,15 @@ export function Upload(props) {
       </Modal>
     </>
   );
+}
+
+
+
+Upload.propTypes={
+  imageURL:PropTypes.string.isRequired,
+  name:PropTypes.string.isRequired,
+  setFieldValue:PropTypes.object.isRequired,
+  subName:PropTypes.string,
+  upload_type:PropTypes.string.isRequired,
+  upload_id:PropTypes.string.isRequired
 }

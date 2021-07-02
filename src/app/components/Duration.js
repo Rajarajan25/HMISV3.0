@@ -54,7 +54,7 @@ const buffertime = [
 
 export function Duration(props) {
   const classes = useStyles();
-  const { data, handleSave, fields,index,handleUpdate ,isloading } = props
+  const { data, handleSave, fields ,isloading } = props
   const { timings } = data;
   const initValue = {
     // duration:duration,
@@ -168,6 +168,16 @@ export function Duration(props) {
       )}
     </Formik>
   );
+}
+Duration.propTypes={
+  fields:PropTypes.array,
+  data:PropTypes.array,
+  handleSave:PropTypes.func,
+  isloading:PropTypes.bool
+}
+
+Duration.propTypes={
+  children:PropTypes.element.isRequired
 }
 
 function DateRange() {

@@ -4,6 +4,8 @@ import { DropdownItemToggler } from "../../_metronic/_partials/dropdowns";
 import { toAbsoluteUrl } from "../../_metronic/_helpers";
 import { useQuery, gql } from "@apollo/client";
 import Search from "./Search"
+import PropTypes from 'prop-types';
+
 const PageName = {
     STAFF: "staff",
     SERVICE: "service"
@@ -87,6 +89,12 @@ export function ServicesDropDown(props) {
         </Dropdown>
     )
 }
+
+ServicesDropDown.propTypes={
+    pagename:PropTypes.string.isRequired,
+    item:PropTypes.object.isRequired
+}
+
 export function ServicesDropdownMenu(props) {
     const { handleItemSelect, item, data, pagename } = props;
     const [listData, setListData] = React.useState(data);
@@ -153,6 +161,12 @@ export function ServicesDropdownMenu(props) {
 
     </>
 }
+ServicesDropdownMenu.propTypes={
+    pagename:PropTypes.string.isRequired,
+    item:PropTypes.object.isRequired,
+    data:PropTypes.array.isRequired,
+    handleItemSelect:PropTypes.func.isRequired
+}
 
 export function SelectedProvider(props) {
     const { item } = props;
@@ -178,6 +192,10 @@ export function SelectedProvider(props) {
 
 }
 
+SelectedProvider.propTypes={
+    item:PropTypes.object.isRequired
+}
+
 export function SelectedService(props) {
     if (!props.item.services) {
         return (
@@ -192,4 +210,8 @@ export function SelectedService(props) {
             </span>
         </span>
     )
+}
+
+SelectedService.propTypes={
+    item:PropTypes.object.isRequired
 }

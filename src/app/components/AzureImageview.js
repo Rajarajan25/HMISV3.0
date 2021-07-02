@@ -1,6 +1,8 @@
 import React from 'react';
 import { toImageUrl } from '../../azure-storage-blob';
 import { DevConsoleLog } from '../SiteUtill';
+import PropTypes from 'prop-types';
+
 export function AzureImageview(props) {
   const { data } = props;
   DevConsoleLog("AzureImageview--->", data.avatar_or_icon);
@@ -13,4 +15,11 @@ export function AzureImageview(props) {
       </span>
     </div>
   )
+}
+
+AzureImageview.propTypes={
+  data:PropTypes.array
+}
+AzureImageview.prototype={
+  data:PropTypes.element.isRequired
 }

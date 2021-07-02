@@ -1,5 +1,6 @@
 import React from 'react';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
+import PropTypes from 'prop-types';
 export function TableHeader(props) {
     const { column, listCount, toggleList, expand,countLable } = props;
     return (<div className="topHeadercontent d-flex row w-100 ml-0" style={{background:"#00000000"}}>
@@ -25,4 +26,12 @@ export function TableHeader(props) {
         </ul>
         
     </div>)
+}
+
+TableHeader.propTypes={
+    column:PropTypes.object.isRequired,
+    listCount:PropTypes.number.isRequired,
+    toggleList:PropTypes.func.isRequired,
+    expand:PropTypes.bool.isRequired,
+    countLable:PropTypes.string.isRequired
 }

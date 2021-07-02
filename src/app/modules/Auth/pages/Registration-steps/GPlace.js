@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { DevConsoleLog } from "../../../../SiteUtill";
+import PropTypes from 'prop-types';
 
 const GPlace = (props) => {
   let autocomplete;
@@ -92,3 +93,8 @@ const GPlace = (props) => {
 };
 
 export default GPlace;
+
+GPlace.propTypes={
+  searchField:PropTypes.string.isRequired,
+  callback:PropTypes.func.isRequired
+}

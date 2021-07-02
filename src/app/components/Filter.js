@@ -5,6 +5,8 @@ import { Modal } from "react-bootstrap";
 import { FilterDropDown } from './FilterDropDown';
 import Search from '../components/Search';
 import SortBy from '../components/SortBy';
+import PropTypes from 'prop-types';
+
 const options = [
   { value: 'newest', label: 'Newest' },
   { value: 'oldest', label: 'Oldest' },
@@ -67,21 +69,16 @@ export function Filter(props) {
   );
 }
 
-const duedate = [
-  { value: 'duedate', label: 'Due Date' },
-  { value: 'date', label: 'Date' },
-]
+Filter.propTypes={
+  value:PropTypes.string,
+  fields:PropTypes.array,
+  handleDataSource:PropTypes.func,
+  handleSort:PropTypes.func
+}
 
-const Isdate = [
-  { value: 'is', label: 'Is' },
-  { value: 'is1', label: 'Is1' },
-]
-
-const Tom = [
-  { value: 'tommorrow', label: 'Tommorrow' },
-  { value: 'today', label: 'Today' },
-]
-
+Filter.propTypes={
+  children:PropTypes.element.isRequired
+}
 
 
 

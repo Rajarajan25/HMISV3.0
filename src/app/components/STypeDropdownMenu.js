@@ -1,6 +1,8 @@
 import { Dropdown } from "react-bootstrap";
 import React from 'react';
 import { DropdownItemToggler } from "../../_metronic/_partials/dropdowns";
+import PropTypes from 'prop-types';
+
 const statusData = [
   { name: "Public", hover: "", value: "true" },
   { name: "Private", hover: "ina_hover",  value: "false" },
@@ -15,6 +17,11 @@ export function STypeDropdown(props) {
     <STypeDropdownMenu item={item} handleChangeDropDown={handleChangeDropDown}/>
   </Dropdown.Menu>
 </Dropdown>)
+}
+
+STypeDropdown.propTypes={
+  item:PropTypes.object.isRequired,
+  handleChangeDropDown:PropTypes.func.isRequired
 }
 export function STypeDropdownMenu(props) {
   const { handleChangeDropDown, item } = props;
@@ -58,4 +65,9 @@ export function STypeDropdownMenu(props) {
     {/*end::Navigation*/}
 
   </>
+}
+
+STypeDropdownMenu.propTypes={
+  item:PropTypes.object.isRequired,
+  handleChangeDropDown:PropTypes.func.isRequired
 }

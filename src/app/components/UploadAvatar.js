@@ -3,6 +3,8 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import { toAbsoluteUrl } from "../../_metronic/_helpers";
 import { Upload } from './Upload';
+import PropTypes from 'prop-types';
+
 export function UploadAvatar(props) {
     return (
         <>
@@ -19,10 +21,17 @@ export function UploadAvatar(props) {
     );
 }
 
+UploadAvatar.propTypes={
+    classes:PropTypes.func
+}
 export function UploadAvatarFormik(props) {
     return (
         <>
             <Upload {...props}/>
         </>
     );
+}
+
+UploadAvatarFormik.propTypes={
+    classes:PropTypes.func
 }

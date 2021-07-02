@@ -1,6 +1,8 @@
 import { Dropdown } from "react-bootstrap";
 import React from 'react';
 import { DropdownItemToggler } from "../../_metronic/_partials/dropdowns";
+import PropTypes from 'prop-types';
+
 const statusData = [
   { name: "Active", hover: "", icon: "active_bg", value: true },
   { name: "Inavtive", hover: "ina_hover", icon: "inactive_bg", value: false },
@@ -16,6 +18,12 @@ export function StatusDropDown(props) {
     </Dropdown.Menu>
   </Dropdown>)
 }
+
+StatusDropDown.propTypes={
+  handleChangeDropDown:PropTypes.func.isRequired,
+  item:PropTypes.object.isRequired
+}
+
 export function StatusDropdownMenu(props) {
   const { handleChangeDropDown, item } = props;
   return <>
@@ -59,4 +67,9 @@ export function StatusDropdownMenu(props) {
     {/*end::Navigation*/}
 
   </>
+}
+
+StatusDropdownMenu.propTypes={
+  item:PropTypes.object.isRequired,
+  handleChangeDropDown:PropTypes.func.isRequired
 }
