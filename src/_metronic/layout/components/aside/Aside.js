@@ -4,7 +4,7 @@ import objectPath from "object-path";
 import { useLocation } from "react-router-dom";
 import SVG from "react-inlinesvg";
 import { useHtmlClassService } from "../../_core/MetronicLayout";
-import { toAbsoluteUrl } from "../../../_helpers";
+import { checkIsActive, toAbsoluteUrl } from "../../../_helpers";
 import { AsideSearch } from "./AsideSearch";
 import { AsideSubmenu } from "./aside-menu/AsideSubmenu";
 import { AsideMenu } from "./aside-menu/AsideMenu";
@@ -18,6 +18,7 @@ const AsideHeaderList=[
     name:"Dashboard",
     tooltip:"Dashboard",
     key:"dashboard",
+    to:"/dashboard",
     icon:"/media/svg/left-menu/Dashboard.svg",
     visible:true,
   },
@@ -25,6 +26,7 @@ const AsideHeaderList=[
     name:"Calendar",
     tooltip:"Calendar",
     key:"calender",
+    to:"/builder",
     icon:"/media/svg/left-menu/Calender.svg",
     visible:true,
   },
@@ -32,6 +34,7 @@ const AsideHeaderList=[
     name:"Manage",
     tooltip:"Manage",
     key:"manage",
+    to:"/manage",
     icon:"/media/svg/left-menu/Services.svg",
     visible:true,
   }
@@ -41,6 +44,7 @@ const AsideMiddleList=[
     name:"Payments",
     tooltip:"Payments",
     key:"payment",
+    to:"/payment",
     icon:"/media/svg/left-menu/Payment.svg",
     visible:true,
   },
@@ -48,6 +52,7 @@ const AsideMiddleList=[
     name:"Marketing",
     tooltip:"Marketing",
     key:"marketing",
+    to:"/marketing",
     icon:"/media/svg/left-menu/Speaker.svg",
     visible:true,
   },
@@ -55,6 +60,7 @@ const AsideMiddleList=[
     name:"Products",
     tooltip:"Products",
     key:"product",
+    to:"/product",
     icon:"/media/svg/left-menu/Chart.svg",
     visible:true,
   },
@@ -62,6 +68,7 @@ const AsideMiddleList=[
     name:"Reports",
     tooltip:"Reports",
     key:"reports",
+    to:"/reports",
     icon:"/media/svg/left-menu/Products.svg",
     visible:true,
   },
@@ -69,6 +76,7 @@ const AsideMiddleList=[
     name:"Setting",
     tooltip:"Setting",
     key:"setting",
+    to:"/setting",
     icon:"/media/svg/left-menu/Setting.svg",
     visible:false,
   },
@@ -76,6 +84,7 @@ const AsideMiddleList=[
     name:"User Management",
     tooltip:"User Management",
     key:"user_manager",
+    to:"/user_manager",
     icon:"/media/svg/left-menu/Help.svg",
     visible:false,
   }
@@ -206,7 +215,13 @@ const AsideSubMenuList={
 export function Aside() {
   const uiService = useHtmlClassService();
   const location = useLocation();
-  let activepage="dashboard";
+  const [activeTab, setActiveTab] = useState(AsideHeaderList[0]);
+  let selectedTab=AsideHeaderList[0];
+  const getMenuItemActive = (item, hasSubmenu = false) => {
+     let isSelect=checkIsActive(location, item.to);
+      if(isSelect&&item.to!==activeTab.to) selectedTab=item;
+      return isSelect? ` ${!hasSubmenu && "active"} `: "";
+  };
   const layoutProps = useMemo(() => {
     return {
       asideClassesFromConfig: uiService.getClasses("aside", true),
@@ -244,21 +259,7 @@ export function Aside() {
       ),
     };
   }, [uiService]);
-
-  useEffect(() => {
-    let active = AsideHeaderList.filter(values =>values.key.includes(location.pathname));
-    if(active){
-      activepage=active.key;
-    }
-  },[location.pathname]);
-
-  const tabs = {
-    tabId1: "tab_1",
-    tabId2: "tab_2",
-    tabId3: "tab_3",
-    tabId4: "tab_4", 
-  };
-  const [activeTab, setActiveTab] = useState(AsideHeaderList[0]);
+  
   const handleTabChange = (item) => {
     setActiveTab(item);
     const asideWorkspace = KTUtil.find(
@@ -270,6 +271,9 @@ export function Aside() {
     }
   };
 
+  useEffect(()=>{
+    setActiveTab(selectedTab);
+  },[]);
   return (
     <>
       {/* begin::Aside */}
@@ -303,7 +307,7 @@ export function Aside() {
                   >
                     <a
                       href="#"
-                      className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===item.key && "active"}`}
+                      className={`nav-link btn btn-icon btn-clean btn-lg ${getMenuItemActive(item)}`}
                       data-toggle="tab"
                       data-target={`#${item.key}`}
                       role="tab"
@@ -345,7 +349,7 @@ export function Aside() {
                   >
                     <a
                       href="#"
-                      className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===item.key && "active"}`}
+                      className={`nav-link btn btn-icon btn-clean btn-lg ${getMenuItemActive(item)}`}
                       data-toggle="tab"
                       data-target={`#${item.key}`}
                       role="tab"
