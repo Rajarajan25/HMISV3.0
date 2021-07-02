@@ -175,7 +175,7 @@ $text-white: #fff;
 			height: 35px;
 			padding-top: 18px;
 			padding-left:9px;
-			font: 500 14px/1 Gotham Pro,Proxima Nova,arial,serif;
+			font: 500 14px/1 Segoe UI,Proxima Nova,arial,serif;
 			text-transform: capitalize;
 			color: #292d34;
 			display: block;
@@ -184,7 +184,7 @@ $text-white: #fff;
 			height: 35px;
 			margin-top: 8px;
 			padding-left:9px;
-			font: 500 14px/1 Gotham Pro,Proxima Nova,arial,serif;
+			font: 500 14px/1 Segoe UI,Proxima Nova,arial,serif;
 			text-transform: capitalize;
 			color: #292d34;
 			display: block;
@@ -244,7 +244,7 @@ $text-white: #fff;
 				background-color: $pink;
 			}
 			.menu-text{
-				font-family: Gotham Pro,Proxima Nova,arial,serif;
+				font-family: Segoe UI,Proxima Nova,arial,serif;
     			font-weight: 500;
 			}
 		}
@@ -268,7 +268,7 @@ $text-white: #fff;
 			line-height: 20px;
 			font-size: 12px !important;
 			margin-right: 8px;
-			font-family: Gotham Pro,arial,serif;
+			font-family: Segoe UI,arial,serif;
 			font-weight: 500;			
 		}
 		.aside-menu .menu-nav > .menu-item > .menu-submenu .menu-subnav > .menu-item > .menu-link
@@ -317,7 +317,7 @@ $text-white: #fff;
 				stroke: #b9bec7;
 				.menu-text{
 					color: #fff;
-					font-family: Gotham Pro,arial,serif;
+					font-family: Segoe UI,arial,serif;
 					font-weight: 500;	
 				}
 				span{
@@ -348,11 +348,11 @@ $text-white: #fff;
 			}
 		}
 		.aside-menu .menu-nav > .menu-item.menu-item-active > .menu-heading, .aside-menu .menu-nav > .menu-item.menu-item-active > .menu-link{
-			background-color: #4169e1;
+			background-color: #F3F6F9;
 		}
 		.aside-menu .menu-nav > .menu-item.menu-item-active > .menu-heading .menu-text, .aside-menu .menu-nav > .menu-item.menu-item-active > .menu-link .menu-text{
-			color:#fff;
-			font-family: Gotham Pro,Proxima Nova,arial,serif;
+			color:#4169e1;
+			font-family: Segoe UI,Proxima Nova,arial,serif;
 			font-weight: 500;
 			font-size: 14px;
 		}

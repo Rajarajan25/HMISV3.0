@@ -88,7 +88,7 @@ export function AsideMenuList({ layoutProps, menuList = [], title = "" }) {
 
       {/* begin::Menu Nav */}
       <ul className={`menu-nav ${layoutProps.ulClasses}`}>
-        {title && <span>{title}</span>}
+        {title && <li className="font-weight-500 font-size-14 color_292D34 mt-3 mb-3 d-block text-uppercase ml-2">{title}</li>}
         {/*begin::1 Level*/}
         {menuList.map((item, i) => {
           return (
