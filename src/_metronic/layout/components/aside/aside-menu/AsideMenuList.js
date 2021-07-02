@@ -11,7 +11,7 @@ import {
   DropdownMenu4,
 } from "../../../../_partials/dropdowns";
 
-export function AsideMenuList({ layoutProps, menuList = [],title="" }) {
+export function AsideMenuList({ layoutProps, menuList = [], title = "" }) {
   const location = useLocation();
   const getMenuItemActive = (url, hasSubmenu = false) => {
     return checkIsActive(location, url)
@@ -88,7 +88,7 @@ export function AsideMenuList({ layoutProps, menuList = [],title="" }) {
 
       {/* begin::Menu Nav */}
       <ul className={`menu-nav ${layoutProps.ulClasses}`}>
-        {title&&<span>{title}</span>}
+        {title && <span>{title}</span>}
         {/*begin::1 Level*/}
         {menuList.map((item, i) => {
           return (
@@ -98,7 +98,7 @@ export function AsideMenuList({ layoutProps, menuList = [],title="" }) {
               data-menu-toggle="hover"
               key={i}
             >
-              <NavLink className={`menu-link menu-toggle ${item.isMenu&&"ml-5"}`} to={item.to}>
+              <NavLink className={`menu-link menu-toggle ${item.isMenu && "ml-5"}`} to={item.to}>
                 {item.isMenu && (<>
                   <i className="fas fa-caret-right" />
                   <span className="svg-icon menu-icon d-flex flex-column rounded customMenutexticon bgCustom1">
@@ -106,8 +106,7 @@ export function AsideMenuList({ layoutProps, menuList = [],title="" }) {
                   </span>
                 </>)}
                 {!item.isMenu && <span className="menu-sub-icons" style={{ backgroundColor: item.backgroundColor }}>
-                  {/* <SVG src={toAbsoluteUrl(item.icon)} /> */}
-                    <img src={toAbsoluteUrl(item.icon)}  alt={item.name} />
+                  <img src={toAbsoluteUrl(item.icon)} alt={item.name} />
                 </span>}
                 <span className="menu-text">{item.name}</span>
               </NavLink>
