@@ -1024,7 +1024,7 @@ span.listprofileIcon {
 .patientProfileinfo {
   .MuiBackdrop-root {
     background: rgba(0, 0, 0, 0.4) !important;
-}
+  }
   .MuiDrawer-paper {
     top: 0;
     bottom: 0;
@@ -3129,7 +3129,6 @@ input.edit_mobile[type="text"] {
   .MuiTypography-h4 {
     font-size: 1.5rem;
   }
-
 }
 label.staff_title_text {
   font-size: 1rem;
@@ -6310,7 +6309,6 @@ p.setting_color {
   }
 }
 
-
 .overflow-service03 {
   height: auto;
   overflow: auto;
@@ -6324,21 +6322,21 @@ p.setting_color {
 
 .overflow-service03::-webkit-scrollbar-track {
   border-radius: 10px;
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 .overflow-service03::-webkit-scrollbar {
   width: 7px;
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 .overflow-service03::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #ccc;
 }
 .dx-scheduler-header-panel .dx-scheduler-group-row {
   box-shadow: 0px 10px 20px #0000000d;
-  border-bottom: 1px solid #ECEEF1;
+  border-bottom: 1px solid #eceef1;
 }
 .dx-template-wrapper {
   .group-staff {
@@ -6364,45 +6362,44 @@ p.setting_color {
   }
 }
 
-.group-staff{
-  .infos{
+.group-staff {
+  .infos {
     line-height: 20px;
     margin-top: 4px;
-    font-family: 'Proxima Nova';
-    .group-name{
+    font-family: "Proxima Nova";
+    .group-name {
       span {
         display: inline !important;
         padding: 0px 5px 0px 0px;
-        color: #171B1C;       
+        color: #171b1c;
         font-family: ProximaNova_Bold !important;
       }
     }
-    &>span{
+    & > span {
       font-size: 13px;
-      color: #424D51;
+      color: #424d51;
     }
   }
 }
 
-
-// media query  even section edit 
+// media query  even section edit
 $tablets: 992px;
 $Medium-desktops: 1729px;
 $large-desktops: 1730px;
 
-.event-selector{
+.event-selector {
   @media screen and (max-width: $Medium-desktops) {
-    .col-lg-4{
+    .col-lg-4 {
       flex: 0 0 50% !important;
       max-width: 50% !important;
     }
   }
   @media screen and (max-width: $tablets) {
-    .col-lg-4{
+    .col-lg-4 {
       flex: 0 0 100% !important;
       max-width: 100% !important;
     }
-    .col-xl-4{
+    .col-xl-4 {
       flex: 0 0 100% !important;
       max-width: 100% !important;
     }
@@ -6437,7 +6434,7 @@ $large-desktops: 1730px;
           position: absolute;
           width: 12px;
           height: 12px;
-          border: 1px solid #E9E9E9;
+          border: 1px solid #e9e9e9;
           border-radius: 3px;
           display: block;
           text-align: center;
@@ -6449,27 +6446,27 @@ $large-desktops: 1730px;
       }
       input[type="checkbox"] ~ .mon_d {
         &::before {
-          border-color: #EF5AB3;
+          border-color: #ef5ab3;
         }
       }
       input[type="checkbox"] ~ .tue_d {
         &::before {
-          border-color: #1FBBFA;
+          border-color: #1fbbfa;
         }
       }
       input[type="checkbox"] ~ .wed_d {
         &::before {
-          border-color: #150D85;
+          border-color: #150d85;
         }
       }
       input[type="checkbox"] ~ .thu_d {
         &::before {
-          border-color: #0D716A;
+          border-color: #0d716a;
         }
       }
       input[type="checkbox"] ~ .fri_d {
         &::before {
-          border-color: #CB3A27;
+          border-color: #cb3a27;
         }
       }
       input[type="checkbox"] ~ .sat_d {
@@ -6483,7 +6480,7 @@ $large-desktops: 1730px;
             left: 0;
             right: 0;
             position: absolute;
-            border: 1px solid #E9E9E9;
+            border: 1px solid #e9e9e9;
             width: 12px;
             height: 12px;
             display: block;
@@ -6512,42 +6509,42 @@ $large-desktops: 1730px;
         }
         &:checked + .sun_d {
           &::before {
-            background-color: #E9E9E9;
+            background-color: #e9e9e9;
           }
         }
         &:checked + .mon_d {
           &::before {
-            border-color: #EF5AB3;
-            background-color: #EF5AB3;
+            border-color: #ef5ab3;
+            background-color: #ef5ab3;
           }
         }
         &:checked + .tue_d {
           &::before {
-            border-color: #1FBBFA;
-            background-color: #1FBBFA;
+            border-color: #1fbbfa;
+            background-color: #1fbbfa;
           }
         }
         &:checked + .wed_d {
           &::before {
-            border-color: #150D85;
-            background-color: #150D85;
+            border-color: #150d85;
+            background-color: #150d85;
           }
         }
         &:checked + .thu_d {
           &::before {
-            border-color: #0D716A;
-            background-color: #0D716A;
+            border-color: #0d716a;
+            background-color: #0d716a;
           }
         }
         &:checked + .fri_d {
           &::before {
-            border-color: #CB3A27;
-            background-color: #CB3A27;
+            border-color: #cb3a27;
+            background-color: #cb3a27;
           }
         }
         &:checked + .sat_d {
           &::before {
-            background-color: #E9E9E9;
+            background-color: #e9e9e9;
           }
         }
       }
@@ -6586,14 +6583,14 @@ $large-desktops: 1730px;
         margin-left: 0px;
       }
     }
-    .remove_line {    
-        background-color: #FFCCCC;
-        border-radius: 50%;
-        text-align: center;
-        width: 25px;
-        height: 25px;
-        padding: 7px;
-        padding-top: 6px;      
+    .remove_line {
+      background-color: #ffcccc;
+      border-radius: 50%;
+      text-align: center;
+      width: 25px;
+      height: 25px;
+      padding: 7px;
+      padding-top: 6px;
       img {
         filter: none;
         -webkit-filter: none;
@@ -6616,14 +6613,15 @@ $large-desktops: 1730px;
   }
 }
 .quill-ui {
-  .ql-toolbar, .ql-container {
-      &.ql-snow {
-          border-color: #eee;
-      }
+  .ql-toolbar,
+  .ql-container {
+    &.ql-snow {
+      border-color: #eee;
+    }
   }
   .ql-container {
-      height: 80px;
-      overflow: hidden;
+    height: 80px;
+    overflow: hidden;
   }
 }
 
@@ -6638,10 +6636,10 @@ $large-desktops: 1730px;
 
 .staff_first {
   .break_select {
-    label{
-      color: #C0C0C0;
-      line-height: 13px;    
-      .circle-border{
+    label {
+      color: #c0c0c0;
+      line-height: 13px;
+      .circle-border {
         border-radius: 3px !important;
       }
     }
@@ -6676,43 +6674,44 @@ $large-desktops: 1730px;
     border-bottom: 1px solid #e9ebf0;
     &::-webkit-scrollbar-track {
       border-radius: 10px;
-      background-color: #F5F5F5;
+      background-color: #f5f5f5;
     }
     &::-webkit-scrollbar {
       width: 7px;
-      background-color: #F5F5F5;
+      background-color: #f5f5f5;
     }
     &::-webkit-scrollbar-thumb {
       border-radius: 10px;
-      box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
       background-color: #1d6aff;
     }
-    
+
     .lst-detail {
       padding: 5px 5px;
       span {
         display: block;
         padding: 7px 12px;
-        &:hover, &.active {
+        &:hover,
+        &.active {
           cursor: pointer;
           background: #1d6aff;
           border-radius: 5px;
-          color: #fff
+          color: #fff;
         }
       }
     }
   }
-  .catgry_add { 
+  .catgry_add {
     padding: 10px 15px;
     color: #1c6afc;
     font-size: 1rem;
     font-weight: 500;
     cursor: pointer;
   }
-  .catgry_lst { 
+  .catgry_lst {
     margin: 0 15px 10px 15px;
-    .form-control {  
+    .form-control {
       border: 1px solid #e9ebf0;
       border-radius: 5px;
       height: auto;
@@ -6725,7 +6724,6 @@ $large-desktops: 1730px;
     }
   }
 }
-
 
 // event page radio design
 
@@ -6822,8 +6820,8 @@ label {
   padding-top: 0;
   color: #343434;
 }
-.perdi-remove{
-  background-color: #FFCCCC;
+.perdi-remove {
+  background-color: #ffcccc;
   border-radius: 50%;
   text-align: center;
   width: 25px;
@@ -6839,6 +6837,72 @@ label {
 }
 .addon_part:hover .perdi-remove {
   display: block;
+}
+
+// calendar 01-07-2021
+
+.dx-scheduler-appointment-tooltip-wrapper {
+  .dx-overlay-content {
+    box-shadow: rgba(0, 0, 0, 0.03) 0px 0px 10px 3px;
+    border: 0px none;
+  }
+}
+
+.dx-scheduler-overlay-panel {
+  .dx-overlay-content {
+    box-shadow: rgba(0, 0, 0, 0.03) 0px 0px 10px 3px;
+    border: 0px none;
+  }
+}
+
+.dx-popover-wrapper {
+  .dx-popover-arrow {
+    &::after {
+      border: 1px solid #fbf9f9 !important;
+      border-radius: 3px;
+    }
+  }
+}
+
+.dx-scheduler-agenda {
+  .group-staff {
+    display: block;
+    padding: 5px !important;
+    .avatar {
+      margin: 0 auto;
+    }
+    & > span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 13px;
+    }
+    span {
+      text-align: center;
+      display: block !important;
+    }
+    .infos {
+      span {
+        text-align: center;
+        display: block !important;
+        &:first-child {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+  .dx-scheduler-group-header-content{
+    & > div{
+      &:nth-child(1){
+        display: none;
+      }
+    }
+  }
+  .dx-scheduler-group-header{
+    width: 100% !important;
+  }
 }
 label.label-tooltip {
   width: 15px;
