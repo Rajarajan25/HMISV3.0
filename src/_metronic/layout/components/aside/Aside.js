@@ -89,7 +89,7 @@ const AsideSubMenuList={
       visible:true,
       shortName:"D",
       to:"/dashboard",
-      icon:"/media/svg/icons/Menu/dashboard.svg",
+      icon:"/media/svg/left-menu/dashboard-sub.svg",
       backgroundColor:"#0FC1D8"
     }
   ],
@@ -100,7 +100,7 @@ const AsideSubMenuList={
       visible:true,
       shortName:"C",
       to:"/builder",
-      icon:"/media/svg/icons/Menu/calendar.svg",
+      icon:"/media/svg/left-menu/calendar.svg",
       backgroundColor:"#0F64D8"
     }
   ],
@@ -111,7 +111,7 @@ const AsideSubMenuList={
       visible:true,
       shortName:"S",
       to:"/manage/staff-management/profile-overview",
-      icon:"/media/events/cogwheel.svg",
+      icon:"/media/svg/left-menu/cogwheel.svg",
       backgroundColor:"#FD5D81",
       subMenuList:[]
     },
@@ -121,7 +121,7 @@ const AsideSubMenuList={
       visible:true,
       shortName:"C",
       to:"/manage/patients-details",
-      icon:"/media/events/patient.svg",
+      icon:"/media/svg/left-menu/patient.svg",
       backgroundColor:"#FEC55D"
     },
     {
@@ -130,7 +130,7 @@ const AsideSubMenuList={
       visible:true,
       shortName:"S",
       to:"/manage/service-provider",
-      icon:"/media/events/customer.svg",
+      icon:"/media/svg/left-menu/customer.svg",
       backgroundColor:"#7F5DFC"
     },
     {
@@ -139,7 +139,7 @@ const AsideSubMenuList={
       visible:true,
       shortName:"E",
       to:"/manage/event-details",
-      icon:"/media/events/doctor.svg",
+      icon:"/media/svg/left-menu/events.svg",
       backgroundColor:"#FD905D"
     },
     {
@@ -148,7 +148,7 @@ const AsideSubMenuList={
       visible:true,
       shortName:"C",
       to:"/available-patients/profile-overview",
-      icon:"/media/events/class.svg",
+      icon:"/media/svg/left-menu/class.svg",
       backgroundColor:"#FD5D5D"
     },
     {
@@ -157,7 +157,7 @@ const AsideSubMenuList={
       visible:true,
       shortName:"L",
       to:"/available-patients/profile-overview",
-      icon:"/media/events/leave.svg",
+      icon:"/media/svg/left-menu/leave.svg",
       backgroundColor:"#5D76FC"
     }
   ],
@@ -168,7 +168,7 @@ const AsideSubMenuList={
       visible:true,
       shortName:"B",
       to:"/payments/billinginvoice",
-      icon:"/media/events/billing-&-invoice.svg",
+      icon:"/media/svg/left-menu/billing-invoice.svg",
       backgroundColor:"#1096D1",
     }
   ],
@@ -179,7 +179,7 @@ const AsideSubMenuList={
       visible:true,
       shortName:"C",
       to:"/marketing/coupons",
-      icon:"/media/events/coupon.svg",
+      icon:"/media/svg/left-menu/coupon.svg",
       backgroundColor:"#00D0B8",
     },
     {
@@ -188,7 +188,7 @@ const AsideSubMenuList={
       visible:true,
       shortName:"S",
       to:"/marketing/email",
-      icon:"/media/events/email.svg",
+      icon:"/media/svg/left-menu/email.svg",
       backgroundColor:"#FDB72B",
     },
     {
@@ -197,7 +197,7 @@ const AsideSubMenuList={
       visible:true,
       shortName:"S",
       to:"/marketing/sms",
-      icon:"/media/events/sms.svg",
+      icon:"/media/svg/left-menu/sms.svg",
       backgroundColor:"#3478F7",
     }
   ]
