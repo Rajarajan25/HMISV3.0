@@ -7,6 +7,7 @@ import { Formik, Field } from "formik";
 import { ColorPaletteFormik } from "../../../components/ColorPalette";
 import { scroller } from "react-scroll";
 import Scrollspy from "react-scrollspy";
+import { Hidden } from "@material-ui/core";
 const fieldType = {
   Name: "Name",
   Color: "Color",
@@ -116,19 +117,21 @@ export default function WorkSpace1(props) {
   };
 
   return (
-    <Formik
-      initialValues={obj}
-      onSubmit={(values) => {
-        setObj(values);
-        console.log(JSON.stringify(values));
-      }}
-    >
-      {({ handleSubmit, values }) => (
-        <form onSubmit={handleSubmit}>
-          <div className="d-flex flex-column flex-root">
+    <div className="d-flex flex-column flex-root">
+      <Formik
+       enableReinitialize={true}
+        initialValues={obj}
+        onSubmit={(values) => {
+          setObj(values);
+          console.log(JSON.stringify(values));
+        }}
+      >
+        {({ handleSubmit, values }) => (
+          <form onSubmit={handleSubmit}>
+
             {/*begin::Page*/}
             <div className="d-flex flex-row flex-column-fluid page">
-              <div className="workspace staff_first position-relative bg_FAFBFC p-7 col bor-20 h-100">
+              <div className="workspace staff_first position-relative bg_FAFBFC p-7 col bor-20 h-100" style={{overflow:"hidden"}}>
                 <div className="d-flex justify-content-center flex-column col-xl-9 col-lg-11 mx1460 col mb150">
                   <Link to="/" className="cancel_clr">
                     Cancel
@@ -158,7 +161,6 @@ export default function WorkSpace1(props) {
                               type="text"
                               placeholder="Name"
                               name="name"
-                              className=""
                               value={values.name || ""}
                             />
                           </div>
@@ -247,10 +249,11 @@ export default function WorkSpace1(props) {
                 </div>
               </div>
             </div>
-          </div>
-        </form>
-      )}
-    </Formik>
+          </form>
+        )}
+      </Formik>
+    </div>
+
   );
 }
 
