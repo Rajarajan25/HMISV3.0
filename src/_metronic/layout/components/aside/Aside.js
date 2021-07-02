@@ -258,7 +258,7 @@ export function Aside() {
     tabId3: "tab_3",
     tabId4: "tab_4", 
   };
-  const [activeTab, setActiveTab] = useState(activepage);
+  const [activeTab, setActiveTab] = useState(AsideHeaderList[0]);
   const handleTabChange = (item) => {
     setActiveTab(item);
     const asideWorkspace = KTUtil.find(
