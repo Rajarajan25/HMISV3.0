@@ -170,3 +170,10 @@ export function TabPerson() {
       </div>
     );
   }
+  Availability.propTypes = {
+    formikValues: PropTypes.array,
+    setFieldValue: PropTypes.array
+}
+Availability.propTypes = {
+  children: PropTypes.element.isRequired
+};

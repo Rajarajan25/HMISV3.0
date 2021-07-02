@@ -9,6 +9,7 @@ import { DevConsoleLog } from '../SiteUtill';
 import { Field } from 'formik'
 import { TimingsModel } from '../models/TimingsModel';
 import Availability from './Availability';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -56,4 +57,9 @@ export default function Timings(props) {
       </div>
     </div>
   )
+}
+
+Timings.propTypes={
+  formikValues:PropTypes.object.isRequired,
+  setFieldValue:PropTypes.object.isRequired
 }

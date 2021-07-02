@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { toAbsoluteUrl } from "../../_metronic/_helpers";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
+import PropTypes from 'prop-types';
 
 const SynwithOption = [
   { name: "Google", svg: "/media/patients/google.svg" },
@@ -41,4 +42,8 @@ export function Syncwith(props) {
   </>
   )
   
+}
+
+Syncwith.propType={
+  providerEnable:PropTypes.bool.isRequired
 }

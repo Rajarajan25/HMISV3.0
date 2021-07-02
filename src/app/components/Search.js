@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { toAbsoluteUrl } from '../../_metronic/_helpers';
+import PropTypes from 'prop-types';
 
 export default function Search(props) {
     const { data, handleSearch, placeholder, uiType } = props;
@@ -40,4 +41,12 @@ export default function Search(props) {
         </div>
 
     </>
+}
+
+Search.propTypes={
+    data:PropTypes.array.isRequired,
+    handleSearch:PropTypes.func.isRequired,
+    placeholder:PropTypes.string,
+    uiType:PropTypes.string
+
 }

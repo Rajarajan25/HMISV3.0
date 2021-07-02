@@ -5,6 +5,8 @@ import { gql, useQuery } from "@apollo/client";
 import { toAbsoluteUrl } from "../../_metronic/_helpers";
 import { DevConsoleLog } from "../SiteUtill";
 import { StaffAvailablity } from "./StaffAvailablity";
+import PropTypes from 'prop-types';
+
 const PageName = {
     STAFF: "staff",
     SERVICE: "service"
@@ -123,6 +125,12 @@ export function StaffServiceList(props) {
     )
 }
 
+StaffServiceList.propTypes={
+    selectedItem:PropTypes.object.isRequired,
+    pagename:PropTypes.string.isRequired,
+    setFieldValue:PropTypes.object.isRequired
+}
+
 
 function StaffItems(props) {
     const { item, index, handleItemSelect, getActive } = props;
@@ -148,6 +156,13 @@ function StaffItems(props) {
     )
 
 }
+
+StaffItems.propTypes={
+    item:PropTypes.object.isRequired,
+    index:PropTypes.number.isRequired,
+    handleItemSelect:PropTypes.func.isRequired,
+    getActive:PropTypes.func.isRequired
+}
 function ServiceItems(props) {
     const { item, index, handleItemSelect,getActive } = props;
 
@@ -172,6 +187,12 @@ function ServiceItems(props) {
         </div>
     )
 
+}
+ServiceItems.propTypes={
+    item:PropTypes.object.isRequired,
+    index:PropTypes.number.isRequired,
+    handleItemSelect:PropTypes.func.isRequired,
+    getActive:PropTypes.func.isRequired
 }
 export function InpersonUI(props) {
     const { deleteUI } = props;

@@ -2,6 +2,7 @@ import React from 'react';
 import FilterBuilder from 'devextreme-react/filter-builder';
 import Button from 'devextreme-react/button';
 import DataSource from 'devextreme/data/data_source';
+import PropTypes from 'prop-types';
 
 
 class FilterQuery extends React.Component {
@@ -56,3 +57,12 @@ class FilterQuery extends React.Component {
 }
 
 export default FilterQuery;
+
+FilterQuery.propTypes={
+  fields:PropTypes.array,
+  handleDataSource:PropTypes.func,
+}
+
+FilterQuery.propTypes={
+  children:PropTypes.element.isRequired
+}

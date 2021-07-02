@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { toAbsoluteUrl } from "../../_metronic/_helpers";
 import EmptyColumn from "./EmptyColumn";
+import PropTypes from 'prop-types';
 
 export function ServiceEdit(props) {
   const { value, type, index, clickEdit, selectedIndex } = props;
@@ -42,4 +43,12 @@ export function ServiceEdit(props) {
       )}
     </div>
   );
+}
+
+ServiceEdit.propTypes={
+  value:PropTypes.string.isRequired,
+  type:PropTypes.string.isRequired,
+  index:PropTypes.number.isRequired,
+  clickEdit:PropTypes.func.isRequired,
+  selectedIndex:PropTypes.number.isRequired
 }

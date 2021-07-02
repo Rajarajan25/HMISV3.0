@@ -1,5 +1,7 @@
 import React from 'react';
 import FilterQuery from './FilterQuery'
+import PropTypes from 'prop-types';
+
 const duedate = [
     { value: 'duedate', label: 'Due Date' },
     { value: 'date', label: 'Date' },
@@ -23,4 +25,14 @@ export function FilterDropDown(props) {
         {/*end::Navigation*/}
   
     </>
+  }
+
+  FilterDropDown.propTypes={
+    value:PropTypes.string,
+    fields:PropTypes.array,
+    handleDataSource:PropTypes.func,
+  }
+  
+  FilterDropDown.propTypes={
+    children:PropTypes.element.isRequired
   }

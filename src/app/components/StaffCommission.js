@@ -4,6 +4,8 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { Field, FieldArray } from 'formik'
 import { CommissionModel } from '../models/CommissionModel';
+import PropTypes from 'prop-types';
+
 export default function StaffCommission(props) {
   const { fields, formikValues, setFieldValue } = props;
   return (
@@ -74,6 +76,11 @@ export default function StaffCommission(props) {
   )
 }
 
+StaffCommission.propTypes={
+  fields:PropTypes.object.isRequired,
+  setFieldValue:PropTypes.object.isRequired,
+  formikValues:PropTypes.object.isRequired
+}
 export function SwitchLabels(props) {
   const { lable } = props;
 
@@ -87,4 +94,8 @@ export function SwitchLabels(props) {
       />
     </FormGroup>
   );
+}
+
+SwitchLabels.propTypes={
+  lable:PropTypes.string.isRequired
 }

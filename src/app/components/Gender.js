@@ -1,6 +1,8 @@
 import { Field } from "formik";
 import React from "react";
 import { toAbsoluteUrl } from "../../_metronic/_helpers";
+import PropTypes from 'prop-types';
+
 export function Gender(props) {
   return (
     <>
@@ -155,7 +157,15 @@ export function GenderFormik(props) {
   );
 }
 
+GenderFormik.propTypes={
+  type:PropTypes.string,
+  label:PropTypes.string,
+  name:PropTypes.string
+}
 
+GenderFormik.propTypes={
+  children:PropTypes.element.isRequired
+}
 
 
 

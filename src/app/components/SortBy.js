@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../_metronic/_helpers";
 import Select from "react-select";
+import PropTypes from 'prop-types';
 
 export default function SortBy(props) {
   const { data, handleSort } = props;
@@ -101,4 +102,9 @@ export default function SortBy(props) {
       </div>
     </div>
   );
+}
+
+SortBy.propTypes={
+  data:PropTypes.array.isRequired,
+  handleSort:PropTypes.func.isRequired
 }

@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../_metronic/_helpers";
 import Drawer from "@material-ui/core/Drawer";
+import PropTypes from 'prop-types';
+
 export function RightSideDrawer({ children, ...props }) {
     const { toggleDrawer, isOpen } = props;
     return (
@@ -35,4 +37,9 @@ export function RightSideDrawer({ children, ...props }) {
             </Drawer>
         </div>
     )
+}
+
+RightSideDrawer.propTypes={
+    open:PropTypes.bool.isRequired,
+    toggleDrawer:PropTypes.func.isRequired
 }

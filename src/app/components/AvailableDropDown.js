@@ -7,6 +7,8 @@ import { OncallModel } from "../models/OncallModel";
 import { VideoData } from "../models/VideoData";
 import { InpersionModel } from "../models/InpersionModel";
 import { TimingsModel } from "../models/TimingsModel";
+import PropTypes from 'prop-types';
+
 const Type = {
   INPERSON: "Inperson",
   PHONE: "Oncall",
@@ -90,7 +92,13 @@ export function AvailableDropDown(props) {
     </Dropdown.Menu>
   </Dropdown>)
 }
-
+AvailableDropDown.propTypes = {
+  children: PropTypes.element.isRequired
+};
+AvailableDropDown.propTypes = {
+  handleChangeDropDown: PropTypes.func,
+  item: PropTypes.array
+}
 export function AvailableDropdownMenu(props) {
   const { handleChangeDropDown, item } = props;
   const avaiableArray = [
@@ -166,7 +174,10 @@ export function AvailableDropdownMenu(props) {
     </>
   );
 }
-
+AvailableDropdownMenu.propTypes={
+  handleChangeDropDown:PropTypes.func,
+  item:PropTypes.array
+}
 export function InpersonUI(props) {
   const { deleteUI } = props;
   return (
