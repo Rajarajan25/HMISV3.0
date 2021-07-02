@@ -136,7 +136,11 @@ export function StaffDetailsTab(props) {
   );
 }
 
-
+StaffDetailsTab.propTypes={
+  data:PropTypes.array.isRequired,
+  index:PropTypes.number.isRequired,
+  handleUpdate:PropTypes.func.isRequired
+}
 
 export function StaffName(props) {
   const { data } = props;
@@ -153,6 +157,9 @@ export function StaffName(props) {
   );
 }
 
+StaffName.propTypes={
+  data:PropTypes.object.isRequired
+}
 export function TabDetails() {
   return (
     <div className="clearfix">

@@ -16,6 +16,8 @@ import { gql, useQuery, useMutation } from "@apollo/client";
 import { BusinessContext } from "../BusinessContext";
 import LocationSearchInput from "./LocationSearchInput";
 import { DevConsoleLog } from "../../../../SiteUtill";
+import PropTypes from 'prop-types';
+
 const ADD_BUSINESS = gql`
   mutation addBusiness($business: BusinessInput) {
     addBusiness(business: $business) {
@@ -627,3 +629,7 @@ function Registration(props) {
 }
 
 export default injectIntl(connect(null, auth.actions)(Registration));
+
+Registration.propTypes={
+  handleNext:PropTypes.func.isRequired,
+}

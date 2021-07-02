@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import GPlace from './GPlace';
+import PropTypes from 'prop-types';
 
 // API key of the google map
 
@@ -33,3 +34,8 @@ const LocationSearchInput = (props) => {
 }
 
 export default LocationSearchInput;
+
+LocationSearchInput.propTypes={
+  searchField:PropTypes.string.isRequired,
+  callback:PropTypes.func.isRequired
+}

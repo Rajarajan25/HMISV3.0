@@ -22,7 +22,7 @@ export function UploadAvatar(props) {
 }
 
 UploadAvatar.propTypes={
-    classes=PropTypes.func
+    classes:PropTypes.func
 }
 export function UploadAvatarFormik(props) {
     return (
@@ -33,5 +33,5 @@ export function UploadAvatarFormik(props) {
 }
 
 UploadAvatarFormik.propTypes={
-    classes=PropTypes.func
+    classes:PropTypes.func
 }

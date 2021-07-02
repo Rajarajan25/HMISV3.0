@@ -5,6 +5,8 @@ import { gql, useQuery, useMutation } from "@apollo/client";
 import { Formik } from 'formik';
 import { BusinessContext } from '../BusinessContext';
 import { DevConsoleLog } from '../../../../SiteUtill';
+import PropTypes from 'prop-types';
+
 const GET_CATEGORY = gql`
 {
   getCategory{
@@ -152,4 +154,8 @@ export default function Step2(props) {
       </Formik>
     </>
   );
+}
+
+Step2.propTypes={
+  handleNext:PropTypes.func.isRequired
 }

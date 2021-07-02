@@ -8,6 +8,8 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import PropTypes from 'prop-types';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
@@ -68,12 +70,12 @@ export function ListActivity01(props) {
   );
 }
 
-
-export function StaffDetails() {
-  const classes = useStyles();
-  return (
-    <div className="staff_detail">
-      <StaffDetailsTab />
-    </div>
-  );
+ListActivity01.propType={
+    dataList:PropTypes.array.isRequired,
+    toggleDrawer:PropTypes.func.isRequired,
+    handleDelete:PropTypes.func,
+    handleDuplicate:PropTypes.func.isRequired,
+    loading:PropTypes.bool.isRequired,
+    handleChangeServices:PropTypes.isRequired
 }
+

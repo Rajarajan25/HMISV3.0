@@ -6,6 +6,7 @@ import { Formik, Field } from 'formik';
 import 'date-fns';
 import {TimePickersUtil} from "../../../../components/DateAndTimePicker"
 import { DevConsoleLog } from '../../../../SiteUtill';
+import PropTypes from 'prop-types';
 
 const UPDATE_BUSINESS = gql`
       mutation updateBusiness($businessID: ID!,$business: BusinessInput) {
@@ -233,7 +234,9 @@ export default function Step4(props) {
   )
 }
 
-
+Step4.propTypes={
+  handleNext:PropTypes.func.isRequired
+}
 
 
 

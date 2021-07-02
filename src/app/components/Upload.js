@@ -283,7 +283,6 @@ export function Upload(props) {
 }
 
 
-const { imageURL, name,setFieldValue, subName, upload_type, upload_id } = props;
 
 Upload.propTypes={
   imageURL:PropTypes.string.isRequired,
