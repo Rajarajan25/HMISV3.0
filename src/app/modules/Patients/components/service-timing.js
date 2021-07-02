@@ -16,6 +16,7 @@ import { Formik, Field } from 'formik';
 import { ButtonLoading } from '../../../components/ButtonLoading';
 import Timings from '../../../components/Timings'
 import { DevConsoleLog } from '../../../SiteUtill';
+import PropTypes from 'prop-types';
 
 
 const useStyles = makeStyles(theme => ({
@@ -81,7 +82,7 @@ const availability = [
 
 export function ServiceTiming(props) {
   const classes = useStyles();
-  const { data, handleSave, fields,index,handleUpdate ,isloading } = props
+  const { data, handleSave ,isloading } = props
   const { timings } = data;
   const initValue = {
     // duration:duration,
@@ -182,4 +183,10 @@ function SelectHours() {
       
     </div>
   );
+}
+
+ServiceTiming.propTypes={
+  data:PropTypes.object.isRequired,
+  handleSave:PropTypes.func.isRequired,
+  isloading:PropTypes.bool.isRequired
 }

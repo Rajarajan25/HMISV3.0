@@ -8,6 +8,7 @@ import { Formik, Field } from 'formik';
 import { GenderFormik } from '../../../components/Gender'
 import { ColorPaletteFormik } from '../../../components/ColorPalette';
 import { UploadAvatar } from '../../../components/UploadAvatar';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -97,5 +98,10 @@ export function ServiceDetail(props) {
   );
 
 
+}
+
+ServiceDetail.propTypes={
+  editService:PropTypes.func.isRequired,
+  currentService:PropTypes.object.isRequired
 }
 

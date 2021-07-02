@@ -21,6 +21,8 @@ import { DeleteDialog } from "../../../components/DeleteDialog";
 import { SpinnerLarge } from "../../../components/Spinner";
 import { NetworkStatus } from '@apollo/client';
 import Toast from '../../../components/Toast';
+import PropTypes from 'prop-types';
+
 const { actions } = ServiceSlice;
 
 export default function ServiceProviderContainer(props) {
@@ -340,4 +342,8 @@ export default function ServiceProviderContainer(props) {
       />
     </div>
   );
+}
+
+ServiceProviderContainer.propTypes={
+  filterListService:PropTypes.array
 }
