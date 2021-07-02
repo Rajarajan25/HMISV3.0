@@ -106,57 +106,59 @@ const AsideSubMenuList={
   ],
   manage:[
     {
-      name:"Manage",
-      isMenu:true,
+      name:"Staff",
+      isMenu:false,
       visible:true,
-      shortName:"M",
-      to:"/manage",
-      icon:"",
-      backgroundColor:"",
-      subMenuList:[
-        {
-          name:"Staff",
-          visible:true,
-          to:"/manage/staff-management/profile-overview",
-          icon:"/media/events/cogwheel.svg",
-          backgroundColor:"#FD5D81"
-        },
-        {
-          name:"Customers",
-          visible:true,
-          to:"/manage/patients-details",
-          icon:"/media/events/patient.svg",
-          backgroundColor:"#FEC55D"
-        },
-        {
-          name:"Service",
-          visible:true,
-          to:"/manage/service-provider",
-          icon:"/media/events/customer.svg",
-          backgroundColor:"#7F5DFC"
-        },
-        {
-          name:"Events",
-          visible:true,
-          to:"/manage/event-details",
-          icon:"/media/events/doctor.svg",
-          backgroundColor:"#FD905D"
-        },
-        {
-          name:"Class",
-          visible:true,
-          to:"/available-patients/profile-overview",
-          icon:"/media/events/class.svg",
-          backgroundColor:"#FD5D5D"
-        },
-        {
-          name:"Leave",
-          visible:true,
-          to:"/available-patients/profile-overview",
-          icon:"/media/events/leave.svg",
-          backgroundColor:"#5D76FC"
-        }
-      ]
+      shortName:"S",
+      to:"/manage/staff-management/profile-overview",
+      icon:"/media/events/cogwheel.svg",
+      backgroundColor:"#FD5D81",
+      subMenuList:[]
+    },
+    {
+      name:"Customers",
+      isMenu:false,
+      visible:true,
+      shortName:"C",
+      to:"/manage/patients-details",
+      icon:"/media/events/patient.svg",
+      backgroundColor:"#FEC55D"
+    },
+    {
+      name:"Service",
+      isMenu:false,
+      visible:true,
+      shortName:"S",
+      to:"/manage/service-provider",
+      icon:"/media/events/customer.svg",
+      backgroundColor:"#7F5DFC"
+    },
+    {
+      name:"Events",
+      isMenu:false,
+      visible:true,
+      shortName:"E",
+      to:"/manage/event-details",
+      icon:"/media/events/doctor.svg",
+      backgroundColor:"#FD905D"
+    },
+    {
+      name:"Class",
+      isMenu:false,
+      visible:true,
+      shortName:"C",
+      to:"/available-patients/profile-overview",
+      icon:"/media/events/class.svg",
+      backgroundColor:"#FD5D5D"
+    },
+    {
+      name:"Leave",
+      isMenu:false,
+      visible:true,
+      shortName:"L",
+      to:"/available-patients/profile-overview",
+      icon:"/media/events/leave.svg",
+      backgroundColor:"#5D76FC"
     }
   ],
   payment:[
@@ -257,8 +259,8 @@ export function Aside() {
     tabId4: "tab_4", 
   };
   const [activeTab, setActiveTab] = useState(activepage);
-  const handleTabChange = (id) => {
-    setActiveTab(id);
+  const handleTabChange = (item) => {
+    setActiveTab(item);
     const asideWorkspace = KTUtil.find(
       document.getElementById("kt_aside"),
       ".aside-secondary .aside-workspace"
@@ -305,7 +307,7 @@ export function Aside() {
                       data-toggle="tab"
                       data-target={`#${item.key}`}
                       role="tab"
-                      onClick={() => handleTabChange(item.key)}
+                      onClick={() => handleTabChange(item)}
                     >
                       <span className="svg-icon svg-icon-md d-inline-flex">
                         <SVG
@@ -347,7 +349,7 @@ export function Aside() {
                       data-toggle="tab"
                       data-target={`#${item.key}`}
                       role="tab"
-                      onClick={() => handleTabChange(item.key)}
+                      onClick={() => handleTabChange(item)}
                     >
                       <span className="svg-icon svg-icon-md d-inline-flex">
                         <SVG
@@ -551,7 +553,7 @@ export function Aside() {
               <div className="aside-workspace scroll scroll-push">
                 <div className="tab-content">
                   {/* <AsideSearch isActive={activeTab === tabs.tabId1} /> */}
-                  <AsideMenu isActive={true} menuList={AsideSubMenuList[activeTab]}/>
+                  <AsideMenu isActive={true} menuList={AsideSubMenuList[activeTab.key]} title={activeTab.name}/>
                   {/* <AsideMenu isActive={activeTab === tabs.tabId3} />
                   <AsideSubmenu isActive={activeTab === tabs.tabId4} /> */}
                 </div>

@@ -11,7 +11,7 @@ import {
   DropdownMenu4,
 } from "../../../../_partials/dropdowns";
 
-export function AsideMenuList({ layoutProps, menuList = [] }) {
+export function AsideMenuList({ layoutProps, menuList = [],title="" }) {
   const location = useLocation();
   const getMenuItemActive = (url, hasSubmenu = false) => {
     return checkIsActive(location, url)
@@ -88,6 +88,7 @@ export function AsideMenuList({ layoutProps, menuList = [] }) {
 
       {/* begin::Menu Nav */}
       <ul className={`menu-nav ${layoutProps.ulClasses}`}>
+        {title&&<span>{title}</span>}
         {/*begin::1 Level*/}
         {menuList.map((item, i) => {
           return (
