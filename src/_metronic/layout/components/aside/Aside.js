@@ -4,7 +4,7 @@ import objectPath from "object-path";
 import { useLocation } from "react-router-dom";
 import SVG from "react-inlinesvg";
 import { useHtmlClassService } from "../../_core/MetronicLayout";
-import { toAbsoluteUrl } from "../../../_helpers";
+import { checkIsActive, toAbsoluteUrl } from "../../../_helpers";
 import { AsideSearch } from "./AsideSearch";
 import { AsideSubmenu } from "./aside-menu/AsideSubmenu";
 import { AsideMenu } from "./aside-menu/AsideMenu";
@@ -18,6 +18,7 @@ const AsideHeaderList=[
     name:"Dashboard",
     tooltip:"Dashboard",
     key:"dashboard",
+    to:"/dashboard",
     icon:"/media/svg/left-menu/Dashboard.svg",
     visible:true,
   },
@@ -25,6 +26,7 @@ const AsideHeaderList=[
     name:"Calendar",
     tooltip:"Calendar",
     key:"calender",
+    to:"/builder",
     icon:"/media/svg/left-menu/Calender.svg",
     visible:true,
   },
@@ -32,6 +34,7 @@ const AsideHeaderList=[
     name:"Manage",
     tooltip:"Manage",
     key:"manage",
+    to:"/manage",
     icon:"/media/svg/left-menu/Services.svg",
     visible:true,
   }
@@ -41,6 +44,7 @@ const AsideMiddleList=[
     name:"Payments",
     tooltip:"Payments",
     key:"payment",
+    to:"/payment",
     icon:"/media/svg/left-menu/Payment.svg",
     visible:true,
   },
@@ -48,6 +52,7 @@ const AsideMiddleList=[
     name:"Marketing",
     tooltip:"Marketing",
     key:"marketing",
+    to:"/marketing",
     icon:"/media/svg/left-menu/Speaker.svg",
     visible:true,
   },
@@ -55,6 +60,7 @@ const AsideMiddleList=[
     name:"Products",
     tooltip:"Products",
     key:"product",
+    to:"/product",
     icon:"/media/svg/left-menu/Chart.svg",
     visible:true,
   },
@@ -62,6 +68,7 @@ const AsideMiddleList=[
     name:"Reports",
     tooltip:"Reports",
     key:"reports",
+    to:"/reports",
     icon:"/media/svg/left-menu/Products.svg",
     visible:true,
   },
@@ -69,6 +76,7 @@ const AsideMiddleList=[
     name:"Setting",
     tooltip:"Setting",
     key:"setting",
+    to:"/setting",
     icon:"/media/svg/left-menu/Setting.svg",
     visible:false,
   },
@@ -76,6 +84,7 @@ const AsideMiddleList=[
     name:"User Management",
     tooltip:"User Management",
     key:"user_manager",
+    to:"/user_manager",
     icon:"/media/svg/left-menu/Help.svg",
     visible:false,
   }
@@ -89,7 +98,7 @@ const AsideSubMenuList={
       visible:true,
       shortName:"D",
       to:"/dashboard",
-      icon:"/media/svg/icons/Menu/dashboard.svg",
+      icon:"/media/svg/left-menu/dashboard-sub.svg",
       backgroundColor:"#0FC1D8"
     }
   ],
@@ -100,63 +109,65 @@ const AsideSubMenuList={
       visible:true,
       shortName:"C",
       to:"/builder",
-      icon:"/media/svg/icons/Menu/calendar.svg",
+      icon:"/media/svg/left-menu/calendar.svg",
       backgroundColor:"#0F64D8"
     }
   ],
   manage:[
     {
-      name:"Manage",
-      isMenu:true,
+      name:"Staff",
+      isMenu:false,
       visible:true,
-      shortName:"M",
-      to:"/manage",
-      icon:"",
-      backgroundColor:"",
-      subMenuList:[
-        {
-          name:"Staff",
-          visible:true,
-          to:"/manage/staff-management/profile-overview",
-          icon:"/media/events/cogwheel.svg",
-          backgroundColor:"#FD5D81"
-        },
-        {
-          name:"Customers",
-          visible:true,
-          to:"/manage/patients-details",
-          icon:"/media/events/patient.svg",
-          backgroundColor:"#FEC55D"
-        },
-        {
-          name:"Service",
-          visible:true,
-          to:"/manage/service-provider",
-          icon:"/media/events/customer.svg",
-          backgroundColor:"#7F5DFC"
-        },
-        {
-          name:"Events",
-          visible:true,
-          to:"/manage/event-details",
-          icon:"/media/events/doctor.svg",
-          backgroundColor:"#FD905D"
-        },
-        {
-          name:"Class",
-          visible:true,
-          to:"/available-patients/profile-overview",
-          icon:"/media/events/class.svg",
-          backgroundColor:"#FD5D5D"
-        },
-        {
-          name:"Leave",
-          visible:true,
-          to:"/available-patients/profile-overview",
-          icon:"/media/events/leave.svg",
-          backgroundColor:"#5D76FC"
-        }
-      ]
+      shortName:"S",
+      to:"/manage/staff-management/profile-overview",
+      icon:"/media/svg/left-menu/cogwheel.svg",
+      backgroundColor:"#FD5D81",
+      subMenuList:[]
+    },
+    {
+      name:"Customers",
+      isMenu:false,
+      visible:true,
+      shortName:"C",
+      to:"/manage/patients-details",
+      icon:"/media/svg/left-menu/patient.svg",
+      backgroundColor:"#FEC55D"
+    },
+    {
+      name:"Service",
+      isMenu:false,
+      visible:true,
+      shortName:"S",
+      to:"/manage/service-provider",
+      icon:"/media/svg/left-menu/customer.svg",
+      backgroundColor:"#7F5DFC"
+    },
+    {
+      name:"Events",
+      isMenu:false,
+      visible:true,
+      shortName:"E",
+      to:"/manage/event-details",
+      icon:"/media/svg/left-menu/events.svg",
+      backgroundColor:"#FD905D"
+    },
+    {
+      name:"Class",
+      isMenu:false,
+      visible:true,
+      shortName:"C",
+      to:"/available-patients/profile-overview",
+      icon:"/media/svg/left-menu/class.svg",
+      backgroundColor:"#FD5D5D"
+    },
+    {
+      name:"Leave",
+      isMenu:false,
+      visible:true,
+      shortName:"L",
+      to:"/available-patients/profile-overview",
+      icon:"/media/svg/left-menu/leave.svg",
+      backgroundColor:"#5D76FC"
     }
   ],
   payment:[
@@ -166,7 +177,7 @@ const AsideSubMenuList={
       visible:true,
       shortName:"B",
       to:"/payments/billinginvoice",
-      icon:"/media/events/billing-&-invoice.svg",
+      icon:"/media/svg/left-menu/billing-invoice.svg",
       backgroundColor:"#1096D1",
     }
   ],
@@ -177,7 +188,7 @@ const AsideSubMenuList={
       visible:true,
       shortName:"C",
       to:"/marketing/coupons",
-      icon:"/media/events/coupon.svg",
+      icon:"/media/svg/left-menu/coupon.svg",
       backgroundColor:"#00D0B8",
     },
     {
@@ -186,7 +197,7 @@ const AsideSubMenuList={
       visible:true,
       shortName:"S",
       to:"/marketing/email",
-      icon:"/media/events/email.svg",
+      icon:"/media/svg/left-menu/email.svg",
       backgroundColor:"#FDB72B",
     },
     {
@@ -195,7 +206,7 @@ const AsideSubMenuList={
       visible:true,
       shortName:"S",
       to:"/marketing/sms",
-      icon:"/media/events/sms.svg",
+      icon:"/media/svg/left-menu/sms.svg",
       backgroundColor:"#3478F7",
     }
   ]
@@ -204,7 +215,13 @@ const AsideSubMenuList={
 export function Aside() {
   const uiService = useHtmlClassService();
   const location = useLocation();
-  let activepage="dashboard";
+  const [activeTab, setActiveTab] = useState(AsideHeaderList[0]);
+  let selectedTab=AsideHeaderList[0];
+  const getMenuItemActive = (item, hasSubmenu = false) => {
+     let isSelect=checkIsActive(location, item.to);
+      if(isSelect&&item.to!==activeTab.to) selectedTab=item;
+      return isSelect? ` ${!hasSubmenu && "active"} `: "";
+  };
   const layoutProps = useMemo(() => {
     return {
       asideClassesFromConfig: uiService.getClasses("aside", true),
@@ -242,23 +259,9 @@ export function Aside() {
       ),
     };
   }, [uiService]);
-
-  useEffect(() => {
-    let active = AsideHeaderList.filter(values =>values.key.includes(location.pathname));
-    if(active){
-      activepage=active.key;
-    }
-  },[location.pathname]);
-
-  const tabs = {
-    tabId1: "tab_1",
-    tabId2: "tab_2",
-    tabId3: "tab_3",
-    tabId4: "tab_4", 
-  };
-  const [activeTab, setActiveTab] = useState(activepage);
-  const handleTabChange = (id) => {
-    setActiveTab(id);
+  
+  const handleTabChange = (item) => {
+    setActiveTab(item);
     const asideWorkspace = KTUtil.find(
       document.getElementById("kt_aside"),
       ".aside-secondary .aside-workspace"
@@ -268,6 +271,9 @@ export function Aside() {
     }
   };
 
+  useEffect(()=>{
+    setActiveTab(selectedTab);
+  },[]);
   return (
     <>
       {/* begin::Aside */}
@@ -301,11 +307,11 @@ export function Aside() {
                   >
                     <a
                       href="#"
-                      className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===item.key && "active"}`}
+                      className={`nav-link btn btn-icon btn-clean btn-lg ${getMenuItemActive(item)}`}
                       data-toggle="tab"
                       data-target={`#${item.key}`}
                       role="tab"
-                      onClick={() => handleTabChange(item.key)}
+                      onClick={() => handleTabChange(item)}
                     >
                       <span className="svg-icon svg-icon-md d-inline-flex">
                         <SVG
@@ -343,11 +349,11 @@ export function Aside() {
                   >
                     <a
                       href="#"
-                      className={`nav-link btn btn-icon btn-clean btn-lg ${activeTab ===item.key && "active"}`}
+                      className={`nav-link btn btn-icon btn-clean btn-lg ${getMenuItemActive(item)}`}
                       data-toggle="tab"
                       data-target={`#${item.key}`}
                       role="tab"
-                      onClick={() => handleTabChange(item.key)}
+                      onClick={() => handleTabChange(item)}
                     >
                       <span className="svg-icon svg-icon-md d-inline-flex">
                         <SVG
@@ -551,7 +557,7 @@ export function Aside() {
               <div className="aside-workspace scroll scroll-push">
                 <div className="tab-content">
                   {/* <AsideSearch isActive={activeTab === tabs.tabId1} /> */}
-                  <AsideMenu isActive={true} menuList={AsideSubMenuList[activeTab]}/>
+                  <AsideMenu isActive={true} menuList={AsideSubMenuList[activeTab.key]} title={activeTab.name}/>
                   {/* <AsideMenu isActive={activeTab === tabs.tabId3} />
                   <AsideSubmenu isActive={activeTab === tabs.tabId4} /> */}
                 </div>

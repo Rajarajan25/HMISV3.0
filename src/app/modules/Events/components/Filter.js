@@ -35,7 +35,7 @@ export function Filter() {
                         </div>
                         <div className="d-flex ml-auto align-items-center">   
                           <div className="sort-text">Sort By:</div>
-                          <div className="select-box p-3">
+                          <div className="select-box px-3 pt-0 pb-3">
                               <Select className="form-control-select" options={options} />
                           </div>
                           <div className="HoverView">
