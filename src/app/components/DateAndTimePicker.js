@@ -62,6 +62,28 @@ export function DatePickersUtil(props) {
   );
 }
 
+export function DatePickersKeyboardUtil(props) {
+  const [selectedDate, setDateChange] = useState(new Date());
+  return (
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+         <KeyboardDatePicker
+        {...props}
+        autoOk
+        orientation="portrait"
+        variant="static"
+        openTo="date"
+        disableToolbar={true}
+        value={selectedDate}
+        InputAdornmentProps={{ position: "start" }}
+        KeyboardButtonProps={{
+          "aria-label": "change date"
+        }}
+        onChange={setDateChange}
+      />
+        
+      </MuiPickersUtilsProvider>
+  );
+}
 
 export function TimePickersUtil(props) {
   const [selectedDate, setSelectedDate] = useState(new Date('2014-08-18T21:11:54'));

@@ -125,3 +125,18 @@
 .react-google-flight-datepicker .reset-button {
   display: none !important;
 }
+
+.custom-picker{
+  .MuiPickersCalendarHeader-switchHeader{
+    display: inline-flex;
+  }
+  .MuiPickersCalendarHeader-transitionContainer{
+    position: absolute;
+  }
+  .MuiTypography-body1{
+    font-weight: bold;
+  }
+  .MuiPickersCalendarHeader-daysHeader,.MuiPickersCalendar-transitionContainer{
+    max-width: 280px;
+  }
+}
