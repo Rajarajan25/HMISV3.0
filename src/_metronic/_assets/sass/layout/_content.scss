@@ -5192,7 +5192,7 @@ p.setting_color {
   }
   .dx-button-has-text .dx-button-content {
     text-align: left;
-    padding-top: 0px;
+    // padding-top: 0px;
   }
 }
 .dx-widget {
@@ -5243,6 +5243,8 @@ p.setting_color {
 .dx-scheduler-appointment-collector.dx-button.dx-button-default {
   padding: 3px;
   border-radius: 5px;
+  margin-top: -18px !important;
+  margin-left: 13px !important;
 }
 .dx-calendar-navigator
   .dx-calendar-caption-button.dx-button
@@ -6864,6 +6866,18 @@ label {
   }
 }
 
+label.label-tooltip {
+  width: 15px;
+  height: 15px;
+  border: 1px solid #3F4254;
+  text-align: center;
+  line-height: 12px;
+  border-radius: 50%;
+  margin: 0;
+  font-size: 0.8rem;
+  margin-left: 8px;
+}
+
 .dx-scheduler-agenda {
   .group-staff {
     display: block;
@@ -6904,14 +6918,71 @@ label {
     width: 100% !important;
   }
 }
-label.label-tooltip {
-  width: 15px;
-  height: 15px;
-  border: 1px solid #3F4254;
-  text-align: center;
-  line-height: 12px;
-  border-radius: 50%;
-  margin: 0;
-  font-size: 0.8rem;
-  margin-left: 8px;
+.dx-scheduler-date-table-scrollable{
+  .dx-item-content{
+    .movie{
+      .service_name{
+        font-size: 0.9rem !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .service_time{
+        font-size: 9px !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .movie-img{
+        margin-right: 5px !important;
+      }
+    }
+  }
 }
+
+// .dx-scheduler-scrollable-appointments{
+//   display: flex;
+//   flex-direction: column;
+//   flex-wrap: wrap;
+//   align-content: center;
+//   justify-content: flex-end;
+//   align-items: flex-start;
+// }
+
+.dx-scheduler{
+  .dx-scheduler-appointment{
+    margin-bottom: 3px;
+    padding: 0px 5px;
+    display: block;
+    width: 100% !important;
+  }
+  .dx-button-text{
+    font-size: 20px;  
+  }
+  .dx-button-content{
+    padding: 5px 18px 8px;
+  }
+
+}
+
+.dx-scheduler-view-switcher{ 
+    .dx-tab{
+      padding: 5px 13px !important;
+    }  
+}
+
+// .dx-scheduler-scrollable-appointments {
+//   display: block;
+//   height: 100%;
+//   padding: 0px !important;
+//   margin: 0px !important;
+// }
+
+.dx-scheduler-appointment-collector-content{
+  span{
+    &:last-child{
+      font-size: 14px;
+    }
+  }
+}
+
