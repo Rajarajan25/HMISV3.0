@@ -1,5 +1,4 @@
-import { NewReleasesTwoTone } from "@material-ui/icons";
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../_metronic/_helpers";
 import Select from "react-select";
@@ -56,16 +55,16 @@ export default function SortBy(props) {
         sVal.name.toLowerCase() > fVal.name.toLowerCase()
           ? -1
           : fVal.name.toLowerCase() > sVal.name.toLowerCase()
-          ? 1
-          : 0
+            ? 1
+            : 0
       );
     } else if (e.value === "descending") {
       sortedArr = data.slice().sort((fVal, sVal) =>
         fVal.name.toLowerCase() > sVal.name.toLowerCase()
           ? -1
           : sVal.name.toLowerCase() > fVal.name.toLowerCase()
-          ? 1
-          : 0
+            ? 1
+            : 0
       );
     }
 
@@ -104,7 +103,7 @@ export default function SortBy(props) {
   );
 }
 
-SortBy.propTypes={
-  data:PropTypes.array.isRequired,
-  handleSort:PropTypes.func.isRequired
+SortBy.propTypes = {
+  data: PropTypes.array.isRequired,
+  handleSort: PropTypes.func.isRequired
 }

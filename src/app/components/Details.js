@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import { Formik, Field } from 'formik';
 import { ColorPaletteFormik } from "./ColorPalette";
-import { UploadAvatar, UploadAvatarFormik } from "./UploadAvatar"
+import { UploadAvatarFormik } from "./UploadAvatar"
 import Visiblity from './Visiblity'
 import Grid from '@material-ui/core/Grid';
 import { DatePickersUtil } from './DateAndTimePicker'
@@ -12,7 +12,7 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import * as Yup from 'yup';
-import { DevAlertPopUp } from "../SiteUtill";
+// import { DevAlertPopUp } from "../SiteUtill";
 import { ButtonLoading } from "./ButtonLoading";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css"; // ES6
@@ -60,7 +60,7 @@ export function Details(props) {
         //values.phone_no = "" + values.phone_no;
         values.description = "" + editor.content
         console.log("values", JSON.stringify(values));
-        if (index != -1) {
+        if (index !== -1) {
           delete values.created_at;
           handleUpdate(values, index);
           return;
@@ -100,7 +100,7 @@ export function Details(props) {
                 <div className="col-12">
                   <label className="form-label d-block">{fields.description}</label>
                   <div className="w-100 quill-ui">
-                    <ReactQuill value={editor.content} theme="snow" onChange={handleChange}/>
+                    <ReactQuill value={editor.content} theme="snow" onChange={handleChange} />
                   </div>
                 </div>
               </div>}
@@ -231,19 +231,19 @@ export function Details(props) {
 }
 // const { current, fields, index, handleUpdate, addNew, isloading, handleProvider, type } = props;
 
-Details.propTypes={
-  current:PropTypes.array,
-  fields:PropTypes.array,
-  index:PropTypes.number,
-  handleUpdate:PropTypes.func,
-  addNew:PropTypes.func,
-  isloading:PropTypes.bool,
-  handleProvider:PropTypes.func,
-  type:PropTypes.string
+Details.propTypes = {
+  current: PropTypes.array,
+  fields: PropTypes.array,
+  index: PropTypes.number,
+  handleUpdate: PropTypes.func,
+  addNew: PropTypes.func,
+  isloading: PropTypes.bool,
+  handleProvider: PropTypes.func,
+  type: PropTypes.string
 }
 
-Details.propTypes={
-  children:PropTypes.element.isRequired,
+Details.propTypes = {
+  children: PropTypes.element.isRequired,
 }
 
 
@@ -255,14 +255,14 @@ export function DatePicker(props) {
   );
 }
 
-DatePicker.propTypes={
-  value:PropTypes.string,
-  name:PropTypes.string,
-  onChange:PropTypes.func
+DatePicker.propTypes = {
+  value: PropTypes.string,
+  name: PropTypes.string,
+  onChange: PropTypes.func
 }
 
-DatePicker.propTypes={
-  children:PropTypes.element.isRequired
+DatePicker.propTypes = {
+  children: PropTypes.element.isRequired
 }
 export default function SwitchLabels(props) {
   const { lable } = props;
@@ -279,14 +279,14 @@ export default function SwitchLabels(props) {
   );
 }
 
-SwitchLabels.propTypes={
-  lable:PropTypes.string,
-  name:PropTypes.string,
-  value:PropTypes.string,
-  checked:PropTypes.bool,
-  onChange:PropTypes.func
+SwitchLabels.propTypes = {
+  lable: PropTypes.string,
+  name: PropTypes.string,
+  value: PropTypes.string,
+  checked: PropTypes.bool,
+  onChange: PropTypes.func
 }
 
-SwitchLabels.propTypes={
-  children:PropTypes.element.isRequired
+SwitchLabels.propTypes = {
+  children: PropTypes.element.isRequired
 }

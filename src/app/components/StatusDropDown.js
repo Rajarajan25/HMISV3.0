@@ -9,9 +9,9 @@ const statusData = [
 ];
 export function StatusDropDown(props) {
   const { handleChangeDropDown, item } = props;
-  return (<Dropdown drop="down" aligncenter="true" className={`dropdown h-100 activeStatuscontent text-white ${item.is_active? "active_clr" : "inactive_clr"}`}>
+  return (<Dropdown drop="down" aligncenter="true" className={`dropdown h-100 activeStatuscontent text-white ${item.is_active ? "active_clr" : "inactive_clr"}`}>
     <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-      <div className="d-flex text-white h-100 align-items-center justify-content-center pointer">{item.is_active? "Active" : "Inactive"}</div>
+      <div className="d-flex text-white h-100 align-items-center justify-content-center pointer">{item.is_active ? "Active" : "Inactive"}</div>
     </Dropdown.Toggle>
     <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav status_hover" >
       <StatusDropdownMenu handleChangeDropDown={handleChangeDropDown} item={item} />
@@ -19,9 +19,9 @@ export function StatusDropDown(props) {
   </Dropdown>)
 }
 
-StatusDropDown.propTypes={
-  handleChangeDropDown:PropTypes.func.isRequired,
-  item:PropTypes.object.isRequired
+StatusDropDown.propTypes = {
+  handleChangeDropDown: PropTypes.func.isRequired,
+  item: PropTypes.object.isRequired
 }
 
 export function StatusDropdownMenu(props) {
@@ -32,7 +32,7 @@ export function StatusDropdownMenu(props) {
       {statusData.map((status, index) => {
         return (
           <li className={`navi-item ${status.hover}`} onClick={() => handleChangeDropDown(status.value, item.id, 'is_active')} key={index}>
-            <a href="#" className="navi-link">
+            <a href="/#" className="navi-link">
               <span className={`navi-circle  ${status.icon}`}></span>
               <span className="navi-text">{status.name}</span>
             </a>
@@ -69,7 +69,7 @@ export function StatusDropdownMenu(props) {
   </>
 }
 
-StatusDropdownMenu.propTypes={
-  item:PropTypes.object.isRequired,
-  handleChangeDropDown:PropTypes.func.isRequired
+StatusDropdownMenu.propTypes = {
+  item: PropTypes.object.isRequired,
+  handleChangeDropDown: PropTypes.func.isRequired
 }

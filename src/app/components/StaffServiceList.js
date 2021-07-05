@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { SpinnerLarge, SpinnerSmall } from "./Spinner";
+import { SpinnerLarge } from "./Spinner";
 import Search from "./Search";
 import { gql, useQuery } from "@apollo/client";
 import { toAbsoluteUrl } from "../../_metronic/_helpers";
-import { DevConsoleLog } from "../SiteUtill";
 import { StaffAvailablity } from "./StaffAvailablity";
 import PropTypes from 'prop-types';
 
@@ -11,12 +10,12 @@ const PageName = {
     STAFF: "staff",
     SERVICE: "service"
 };
-const Type = {
-    INPERSON: "Inperson",
-    PHONE: "Oncall",
-    VIDEO: "Video",
-    CHAT: "Chat"
-};
+// const Type = {
+//     INPERSON: "Inperson",
+//     PHONE: "Oncall",
+//     VIDEO: "Video",
+//     CHAT: "Chat"
+// };
 const GET_SERVICE = gql`
   query{
     getService{
@@ -59,7 +58,7 @@ const GET_STAFF = gql`
     }
   `;
 export function StaffServiceList(props) {
-    const { pagename, selectedItem,setFieldValue } = props;
+    const { pagename, selectedItem, setFieldValue } = props;
     const queryData = pagename === PageName.STAFF ? GET_SERVICE : GET_STAFF;
     const { data, loading } = useQuery(queryData);
     const [listData, setListData] = useState([]);
@@ -74,25 +73,25 @@ export function StaffServiceList(props) {
         setListData(data);
     }
     const handleItemSelect = (item) => {
-        let selectedVal =[...selectedItem];
+        let selectedVal = [...selectedItem];
         if (pagename === PageName.SERVICE) {
             let index = selectedVal.findIndex(value => value.staff_id.id === item.id);
-            if (index != -1) {
+            if (index !== -1) {
                 selectedVal = selectedVal.filter(el => el.staff_id.id !== item.id);
             } else {
-                let id = { staff_id: {id:item.id} }
+                let id = { staff_id: { id: item.id } }
                 selectedVal.push(id);
             }
-            setFieldValue("staff",selectedVal);
+            setFieldValue("staff", selectedVal);
         } else {
             let index = selectedVal.findIndex(value => value.service_id.id === item.id);
-            if (index != -1) {
+            if (index !== -1) {
                 selectedVal = selectedVal.filter(el => el.service_id.id !== item.id);
             } else {
-                let id = { service_id: {id:item.id} }
+                let id = { service_id: { id: item.id } }
                 selectedVal.push(id);
             }
-            setFieldValue("service",selectedVal);
+            setFieldValue("service", selectedVal);
         }
 
 
@@ -115,7 +114,7 @@ export function StaffServiceList(props) {
                     {listData.map((item, i) => {
                         return (pagename === PageName.SERVICE ?
                             <StaffItems item={item} index={i} key={i} handleItemSelect={handleItemSelect} getActive={getActive} />
-                            : <ServiceItems item={item} index={i} key={i} handleItemSelect={handleItemSelect} getActive={getActive}/>
+                            : <ServiceItems item={item} index={i} key={i} handleItemSelect={handleItemSelect} getActive={getActive} />
 
                         )
                     })}
@@ -125,10 +124,10 @@ export function StaffServiceList(props) {
     )
 }
 
-StaffServiceList.propTypes={
-    selectedItem:PropTypes.object.isRequired,
-    pagename:PropTypes.string.isRequired,
-    setFieldValue:PropTypes.object.isRequired
+StaffServiceList.propTypes = {
+    selectedItem: PropTypes.object.isRequired,
+    pagename: PropTypes.string.isRequired,
+    setFieldValue: PropTypes.object.isRequired
 }
 
 
@@ -157,18 +156,18 @@ function StaffItems(props) {
 
 }
 
-StaffItems.propTypes={
-    item:PropTypes.object.isRequired,
-    index:PropTypes.number.isRequired,
-    handleItemSelect:PropTypes.func.isRequired,
-    getActive:PropTypes.func.isRequired
+StaffItems.propTypes = {
+    item: PropTypes.object.isRequired,
+    index: PropTypes.number.isRequired,
+    handleItemSelect: PropTypes.func.isRequired,
+    getActive: PropTypes.func.isRequired
 }
 function ServiceItems(props) {
-    const { item, index, handleItemSelect,getActive } = props;
+    const { item, index, handleItemSelect, getActive } = props;
 
     return (
         <div className="col-3 px-1">
-            <input type="checkbox" id={"pet_box_" + index} onClick={() => handleItemSelect(item)} checked={getActive(item.id)}/>
+            <input type="checkbox" id={"pet_box_" + index} onClick={() => handleItemSelect(item)} checked={getActive(item.id)} />
             <label className="pat_box" htmlFor={"pet_box_" + index}>
                 <div className="d-flex serve_act">
                     <span className="publicbg">{item.service_type}</span>
@@ -188,11 +187,11 @@ function ServiceItems(props) {
     )
 
 }
-ServiceItems.propTypes={
-    item:PropTypes.object.isRequired,
-    index:PropTypes.number.isRequired,
-    handleItemSelect:PropTypes.func.isRequired,
-    getActive:PropTypes.func.isRequired
+ServiceItems.propTypes = {
+    item: PropTypes.object.isRequired,
+    index: PropTypes.number.isRequired,
+    handleItemSelect: PropTypes.func.isRequired,
+    getActive: PropTypes.func.isRequired
 }
 export function InpersonUI(props) {
     const { deleteUI } = props;

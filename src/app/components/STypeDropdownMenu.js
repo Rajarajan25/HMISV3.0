@@ -5,23 +5,23 @@ import PropTypes from 'prop-types';
 
 const statusData = [
   { name: "Public", hover: "", value: "true" },
-  { name: "Private", hover: "ina_hover",  value: "false" },
+  { name: "Private", hover: "ina_hover", value: "false" },
 ];
 export function STypeDropdown(props) {
   const { handleChangeDropDown, item } = props;
   return (<Dropdown drop="down" aligncenter="true" className="dropdown h-100 w_130">
-  <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
-    <span className="d-flex pointer h-100 align-items-center justify-content-center font_weight_medium">{item.service_type||"Select Type"}</span>
-  </Dropdown.Toggle>
-  <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav st_hover">
-    <STypeDropdownMenu item={item} handleChangeDropDown={handleChangeDropDown}/>
-  </Dropdown.Menu>
-</Dropdown>)
+    <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
+      <span className="d-flex pointer h-100 align-items-center justify-content-center font_weight_medium">{item.service_type || "Select Type"}</span>
+    </Dropdown.Toggle>
+    <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav st_hover">
+      <STypeDropdownMenu item={item} handleChangeDropDown={handleChangeDropDown} />
+    </Dropdown.Menu>
+  </Dropdown>)
 }
 
-STypeDropdown.propTypes={
-  item:PropTypes.object.isRequired,
-  handleChangeDropDown:PropTypes.func.isRequired
+STypeDropdown.propTypes = {
+  item: PropTypes.object.isRequired,
+  handleChangeDropDown: PropTypes.func.isRequired
 }
 export function STypeDropdownMenu(props) {
   const { handleChangeDropDown, item } = props;
@@ -31,7 +31,7 @@ export function STypeDropdownMenu(props) {
       {statusData.map((gender, index) => {
         return (
           <li className={`navi-item ${gender.hover}`} onClick={() => handleChangeDropDown(gender.name, item.id, 'service_type')} key={index}>
-            <a href="#" className="navi-link">
+            <a href="/#" className="navi-link">
               <span className="navi-text">{gender.name}</span>
             </a>
           </li>
@@ -67,7 +67,7 @@ export function STypeDropdownMenu(props) {
   </>
 }
 
-STypeDropdownMenu.propTypes={
-  item:PropTypes.object.isRequired,
-  handleChangeDropDown:PropTypes.func.isRequired
+STypeDropdownMenu.propTypes = {
+  item: PropTypes.object.isRequired,
+  handleChangeDropDown: PropTypes.func.isRequired
 }

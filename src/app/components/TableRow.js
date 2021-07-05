@@ -9,12 +9,12 @@ import { AvailableDropDown } from "../components/AvailableDropDown";
 import { ColorAndAvatarDropDown } from "../components/ColorAndAvatarDropDown";
 import { ServiceEdit } from "../components/ServiceEdit";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import { AccordionDetails } from "@material-ui/core";
+// import AccordionSummary from '@material-ui/core/AccordionSummary';
+// import { AccordionDetails } from "@material-ui/core";
 import { STypeDropdownMenu } from './STypeDropdownMenu'
 import { Dropdown } from "react-bootstrap";
 import { DropdownItemToggler } from "../../_metronic/_partials/dropdowns";
-import { ProviderDropDown } from './ProviderDropdownMenu'
+// import { ProviderDropDown } from './ProviderDropdownMenu'
 import { DevConsoleLog } from "../SiteUtill";
 import PropTypes from 'prop-types';
 
@@ -27,10 +27,8 @@ export function TableRow(props) {
     handleSave,
     addNew,
     handleChangeDropDown,
-    pagename,
     handleDataSource,
     isDragDisabled,
-    searchValue,
     field,
     handleChangeServices
   } = props;
@@ -40,9 +38,9 @@ export function TableRow(props) {
   const [selectedIndexMobile, setSelectedIndexMobile] = React.useState(-1);
   const updatedValue = React.useRef("");
   const newName = React.useRef("");
-  useEffect(()=>{
+  useEffect(() => {
     if (updatedValue && updatedValue.current) {
-    updatedValue.current.addEventListener('blur', onBlur);
+      updatedValue.current.addEventListener('blur', onBlur);
     }
   })
   function handleOnDragEnd(result) {
@@ -62,30 +60,30 @@ export function TableRow(props) {
     if (type === "phone_no") setSelectedIndexMobile(index);
   };
 
-  const handleSaved = (type, index, id) => {
-    handleSave(updatedValue.current.value, id, type,index);
-    handleCancel(type);
-  };
+  // const handleSaved = (type, index, id) => {
+  //   handleSave(updatedValue.current.value, id, type, index);
+  //   handleCancel(type);
+  // };
   const handleCancel = (type) => {
     if (type === "name") setSelectedIndexName(-1);
     if (type === "email") setSelectedIndexMail(-1);
     if (type === "phone_no") setSelectedIndexMobile(-1);
   };
 
-  const onBlur=(event)=>{
-    let id=event.target.id;
-    let name=event.target.name;
-    let newValue=event.target.value;
-    let oldValue=event.target.defaultValue;
-    DevConsoleLog("New onBlur-->",id);
-    DevConsoleLog("New onBlur-->",name);
-    DevConsoleLog("New onBlur-->",newValue);
-    DevConsoleLog("New onBlur-->",oldValue);
-    if(newValue!==oldValue&&newValue.length!==0){
-      handleSave(newValue,id,name,0);
+  const onBlur = (event) => {
+    let id = event.target.id;
+    let name = event.target.name;
+    let newValue = event.target.value;
+    let oldValue = event.target.defaultValue;
+    DevConsoleLog("New onBlur-->", id);
+    DevConsoleLog("New onBlur-->", name);
+    DevConsoleLog("New onBlur-->", newValue);
+    DevConsoleLog("New onBlur-->", oldValue);
+    if (newValue !== oldValue && newValue.length !== 0) {
+      handleSave(newValue, id, name, 0);
     }
     handleCancel(name);
-    
+
   }
 
   return (
@@ -135,7 +133,7 @@ export function TableRow(props) {
                                       />
                                       <div className="">
                                         <div className="d-flex">
-                                          <span  className="serv_title">
+                                          <span className="serv_title">
                                             {selectedIndexName === i ? (
                                               <input
                                                 ref={updatedValue}
@@ -148,12 +146,12 @@ export function TableRow(props) {
                                                 defaultValue={item.name}
                                               />
                                             ) : (
-                                                <Link
-                                                  to="#"
-                                                  onClick={drawer(true, item, i)}
-                                                >
-                                                  {item.name}
-                                                </Link>
+                                              <Link
+                                                to="#"
+                                                onClick={drawer(true, item, i)}
+                                              >
+                                                {item.name}
+                                              </Link>
                                             )}
                                           </span>
                                           <ServiceEdit
@@ -170,7 +168,7 @@ export function TableRow(props) {
                                       </div>
                                     </div>
                                   </li>}
-                                  
+
                                 {field.experience && <li className="col-lg-1 my-auto">
                                   <div className="d-flex justify-content-center">
                                     <span className="f-12 font-weight-500">
@@ -226,18 +224,18 @@ export function TableRow(props) {
                                 {field.email && <li className="col-lg-2 activeStatuscontent my-auto d-flex justify-content-center">
                                   {selectedIndexMail === i ? (
                                     <input
-                                    ref={updatedValue}
-                                    autoFocus
-                                    id={item.id}
-                                    name="email"
-                                    className="edit_mail"
-                                    type="text"
-                                    style={{ width: "80%" }}
-                                    defaultValue={item.email}
-                                  />
-                                    
+                                      ref={updatedValue}
+                                      autoFocus
+                                      id={item.id}
+                                      name="email"
+                                      className="edit_mail"
+                                      type="text"
+                                      style={{ width: "80%" }}
+                                      defaultValue={item.email}
+                                    />
+
                                   ) : (
-                                    <span className={item.email&&`limt-col`}>
+                                    <span className={item.email && `limt-col`}>
                                       {item.email}
                                     </span>
                                   )}
@@ -248,21 +246,21 @@ export function TableRow(props) {
                                     clickEdit={handleEdit}
                                     selectedIndex={selectedIndexMail}
                                   ></ServiceEdit>
-                                  
+
                                 </li>}
                                 {field.phone && <li className="col-lg-2 my-auto d-flex justify-content-center">
                                   <span>
                                     {selectedIndexMobile === i ? (
                                       <input
-                                      ref={updatedValue}
-                                      autoFocus
-                                      id={item.id}
-                                      name="phone_no"
-                                      className="edit_mobile"
-                                      type="text"
-                                      style={{ width: "100%" }}
-                                      defaultValue={item.phone_no}
-                                    />
+                                        ref={updatedValue}
+                                        autoFocus
+                                        id={item.id}
+                                        name="phone_no"
+                                        className="edit_mobile"
+                                        type="text"
+                                        style={{ width: "100%" }}
+                                        defaultValue={item.phone_no}
+                                      />
                                     ) : (
                                       <span className="limt-col">
                                         {item.phone_no}
@@ -361,7 +359,7 @@ export function AddNewField(props) {
 export function MoreOption(props) {
   return (
     <div className="d-flex justify-content-end more_icon">
-      <Dropdown drop="down"  aligncenter="true" className="dropdown h-100">
+      <Dropdown drop="down" aligncenter="true" className="dropdown h-100">
         <Dropdown.Toggle as={DropdownItemToggler} id="kt_quick_actions_search_toggle" className="h-100">
           <OverlayTrigger
             placement="top"
@@ -389,7 +387,7 @@ export function MoreDropdownMenu(props) {
     {/*begin::Navigation*/}
     <ul className="navi navi-hover more_hover">
       <li className="navi-item" onClick={drawer(true, item, index)}>
-        <a href="#" className="navi-link">
+        <a href="/#" className="navi-link">
           <div className="more_imgs mt-0 mb-0">
             <img src={toAbsoluteUrl("/media/patients/blue_edit_icon.svg")} alt="Edit" className="mai1" />
           </div>
@@ -397,7 +395,7 @@ export function MoreDropdownMenu(props) {
         </a>
       </li>
       <li className="navi-item" onClick={() => handleDelete(item)}>
-        <a href="#" className="navi-link">
+        <a href="/#" className="navi-link">
           <div className="more_imgs mt-0 mb-0">
             <img src={toAbsoluteUrl("/media/patients/blue_delete_icon.svg")} alt="Delete" className="mai" />
           </div>
@@ -405,7 +403,7 @@ export function MoreDropdownMenu(props) {
         </a>
       </li>
       <li className="navi-item" onClick={() => handleDuplicate(item)} >
-        <a href="#" className="navi-link">
+        <a href="/#" className="navi-link">
           <div className="more_imgs mt-0 mb-0">
             <img src={toAbsoluteUrl("/media/patients/blue_copy_icon.svg")} alt="Copy" className="" />
           </div>
@@ -416,18 +414,18 @@ export function MoreDropdownMenu(props) {
   </>
 }
 
-TableRow.propTypes={
-  row:PropTypes.object.isRequired,
-  drawer:PropTypes.func.isRequired,
-  addButton:PropTypes.bool.isRequired,
-  addText:PropTypes.string.isRequired,
-  handleSave:PropTypes.func.isRequired,
-  addNew:PropTypes.func.isRequired,
-  handleChangeDropDown:PropTypes.func.isRequired,
-  handleDataSource:PropTypes.func.isRequired,
-  handleChangeServices:PropTypes.func.isRequired,
-  pagename:PropTypes.string,
-  isDragDisabled:PropTypes.bool.isRequired,
-  searchValue:PropTypes.string,
-  field:PropTypes.object.isRequired
+TableRow.propTypes = {
+  row: PropTypes.object.isRequired,
+  drawer: PropTypes.func.isRequired,
+  addButton: PropTypes.bool.isRequired,
+  addText: PropTypes.string.isRequired,
+  handleSave: PropTypes.func.isRequired,
+  addNew: PropTypes.func.isRequired,
+  handleChangeDropDown: PropTypes.func.isRequired,
+  handleDataSource: PropTypes.func.isRequired,
+  handleChangeServices: PropTypes.func.isRequired,
+  pagename: PropTypes.string,
+  isDragDisabled: PropTypes.bool.isRequired,
+  searchValue: PropTypes.string,
+  field: PropTypes.object.isRequired
 }

@@ -1,6 +1,6 @@
 import 'date-fns';
 import React, { useState } from "react";
-import { duration, makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import FormControl from '@material-ui/core/FormControl';
 import { RadioGroup } from 'formik-material-ui';
@@ -54,7 +54,7 @@ const buffertime = [
 
 export function Duration(props) {
   const classes = useStyles();
-  const { data, handleSave, fields ,isloading } = props
+  const { data, handleSave, fields, isloading } = props
   const { timings } = data;
   const initValue = {
     // duration:duration,
@@ -153,15 +153,15 @@ export function Duration(props) {
                     </div>
                   </div>
 
-                {values.duration.date_range==="range"?  <input placeholder="Date Range" type="text" className="form-control" name="" />:null}
+                  {values.duration.date_range === "range" ? <input placeholder="Date Range" type="text" className="form-control" name="" /> : null}
                 </div>
 
               }
               {fields.price &&
                 <Price formikValues={values} setFieldValue={setFieldValue} />
               }
-              {fields.timing && <Timings formikValues={values} setFieldValue={setFieldValue}/>}
-              <ButtonLoading label="Save" loading={isloading}/>
+              {fields.timing && <Timings formikValues={values} setFieldValue={setFieldValue} />}
+              <ButtonLoading label="Save" loading={isloading} />
             </div>
           </div>
         </form>
@@ -169,15 +169,15 @@ export function Duration(props) {
     </Formik>
   );
 }
-Duration.propTypes={
-  fields:PropTypes.array,
-  data:PropTypes.array,
-  handleSave:PropTypes.func,
-  isloading:PropTypes.bool
+Duration.propTypes = {
+  fields: PropTypes.array,
+  data: PropTypes.array,
+  handleSave: PropTypes.func,
+  isloading: PropTypes.bool
 }
 
-Duration.propTypes={
-  children:PropTypes.element.isRequired
+Duration.propTypes = {
+  children: PropTypes.element.isRequired
 }
 
 function DateRange() {
