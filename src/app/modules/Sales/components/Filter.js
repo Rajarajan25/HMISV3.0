@@ -44,6 +44,7 @@ export function Filter() {
                           <div className="HoverView">
                               <Link to="#" className="d-block p-3 active"><img src={toAbsoluteUrl("/media/health/listview.svg")} alt="" className="mx-auto" /></Link>
                           </div>         
+
                         </div>
                       </form>
                     </div>
