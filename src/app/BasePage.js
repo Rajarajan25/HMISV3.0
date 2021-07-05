@@ -36,6 +36,10 @@ const EventDetails = lazy(() =>
   import("./modules/Events/event-details")
 );
 
+const SalesDetails = lazy(() =>
+  import("./modules/Sales/sales-details")
+);
+
 
 export default function BasePage() {
   // useEffect(() => {

@@ -93,7 +93,7 @@ export function EventName() {
 export function TabEventDetails() {
   return (
     <div className="clearfix">
-      <div className="d-flex  evn_bg">
+      <div className="d-flex align-items-center  evn_bg">
       <span className="staff_tab_img">
         <img src={toAbsoluteUrl("/media/events/event-details.svg")} alt="" className="" />
       </span>
@@ -106,7 +106,7 @@ export function TabEventDetails() {
 export function TabEventTiming() {
   return (
     <div className="clearfix">
-      <div className="d-flex evn_bg">
+      <div className="d-flex align-items-center evn_bg">
         <span className="staff_tab_img">
           <img src={toAbsoluteUrl("/media/events/event-timing.svg")} alt="" className="" />
         </span>
@@ -119,7 +119,7 @@ export function TabEventTiming() {
 export function TabEventAdditional() {
   return (
     <div className="clearfix">
-      <div className="d-flex evn_bg">
+      <div className="d-flex align-items-center evn_bg">
         <span className="staff_tab_img">
           <img src={toAbsoluteUrl("/media/events/event-additional.svg")} alt="" className="" />
         </span>
