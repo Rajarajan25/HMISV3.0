@@ -8,10 +8,10 @@ import objectPath from "object-path";
 //import { toAbsoluteUrl } from "../../../_helpers";
 import { useHtmlClassService } from "../../_core/MetronicLayout";
 import { UserProfileDropdown } from "./dropdowns/UserProfileDropdown";
+import { shortName } from "../../../../app/SiteUtill";
 
 export function QuickUserToggler(props) {
-  const { selectedUser } = props;
-  const [selectUser, setSelectUser] = React.useState(selectedUser);
+  const [selectUser, setSelectUser] = React.useState({});
   React.useEffect(() => {
     let updatedQuickSetting = sessionStorage.getItem("quickSetting");
     if (updatedQuickSetting) {
@@ -50,8 +50,7 @@ export function QuickUserToggler(props) {
             </span>
             <span className="symbol userIcon symbol-30 symbol-lg-40 bg-primary">
               <span className="svg-icon svg-icon-lg">
-                {selectUser.name ? selectUser.name.substr(0, 1).toUpperCase() : ""}
-
+                {shortName(selectUser.name)}
               </span>
             </span>
           </div>

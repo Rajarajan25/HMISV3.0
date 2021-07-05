@@ -5,7 +5,6 @@ import { shallowEqual, useSelector } from "react-redux";
 import SVG from "react-inlinesvg";
 import { useHistory } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../../_helpers";
-import { Item } from "devextreme-react/accordion";
 
 let Quick = [
   {
@@ -56,7 +55,6 @@ export function QuickUser(props) {
   const history = useHistory();
   const user = useSelector((state) => state.auth.user, shallowEqual);
   const [selectQuick, setSelectQuick] = React.useState(Quick[0]);
-  const { handleUsers } = props;
   React.useEffect(() => {
     let updatedQuickSetting = sessionStorage.getItem("quickSetting");
     if (updatedQuickSetting) {
@@ -65,7 +63,6 @@ export function QuickUser(props) {
       let topItem = Quick.splice(topItemIndex, 1);
       Quick = [...topItem, ...Quick]
       setSelectQuick(updatedSettings);
-      handleUsers(selectQuick);
     }
   }, [])
 
@@ -78,7 +75,6 @@ export function QuickUser(props) {
   };
   const handleQuick = (item) => {
     setSelectQuick(item);
-    handleUsers(selectQuick);
     sessionStorage.setItem("quickSetting", JSON.stringify(item));
   }
 

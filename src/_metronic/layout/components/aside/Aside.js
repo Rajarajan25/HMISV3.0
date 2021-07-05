@@ -14,7 +14,6 @@ import { KTUtil } from "./../../../_assets/js/components/util";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
 export function Aside(props) {
-  const { selectedUser } = props;
   const uiService = useHtmlClassService();
 
   const layoutProps = useMemo(() => {
@@ -583,7 +582,7 @@ export function Aside(props) {
             {/* end::Languages */}
 
             {/* begin::User*/}
-            {layoutProps.extrasUserDisplay && <QuickUserToggler selectedUser={selectedUser} />}
+            {layoutProps.extrasUserDisplay && <QuickUserToggler/>}
             {/* end::User */}
           </div>
           {/* end::Footer */}

@@ -9,6 +9,9 @@ import { FormattedMessage, injectIntl } from "react-intl";
 import * as auth from "../_redux/authRedux";
 import { gql, useMutation } from "@apollo/client";
 import { DevConsoleLog } from "../../../SiteUtill";
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
+import { GoogleLogin } from 'react-google-login';
+import TwitterLogin from "react-twitter-login";
 
 /*
   INTL (i18n) docs:
@@ -74,6 +77,15 @@ function Login(props) {
     }
     return "";
   };
+  const responseFacebook = (response) => {
+    console.log(response);
+  }
+  const responseGoogle = (response) => {
+    console.log(response);
+  }
+  const authHandler = (err, data) => {
+    console.log(err, data);
+  };
 
   const formik = useFormik({
     initialValues,
@@ -82,14 +94,14 @@ function Login(props) {
       enableLoading();
       setSubmitting(true);
       setTimeout(() => {
-        login({variables:{data:{email:values.email, password_salt:values.password}}})
+        login({ variables: { data: { email: values.email, password_salt: values.password } } })
           .then((data) => {
             disableLoading();
             setSubmitting(false);
-            DevConsoleLog("accessToken-->",data.data.loginUser.accessToken);
-            localStorage.setItem("authToken",data.data.loginUser.accessToken);
-            localStorage.setItem("site_id","60740ce68a0121235077068e");
-            localStorage.setItem("workspace_id","60814438a874bc0057b6af59");
+            DevConsoleLog("accessToken-->", data.data.loginUser.accessToken);
+            localStorage.setItem("authToken", data.data.loginUser.accessToken);
+            localStorage.setItem("site_id", "60740ce68a0121235077068e");
+            localStorage.setItem("workspace_id", "60814438a874bc0057b6af59");
             props.login(data.data.loginUser.accessToken);
           }).catch((e) => {
             disableLoading();
@@ -239,15 +251,7 @@ function Login(props) {
                     Login using Google
                     {loading && <span className="ml-3 spinner spinner-white"></span>}
                   </button>
-                  <button
-                    id="social_facebook_signin_submit"
-                    type="submit"
-                    className={`btn btn-default borderRadius-10 h-77 text-dark border`}
-                  >
-                    <img src="/media/auth-screen/facebook.svg" alt="facebook Icon" className="mr-3 socialIcon" />
-                    Login using Facebook
-                    {loading && <span className="ml-3 spinner spinner-white"></span>}
-                  </button>
+
                 </div>
                 <div className="form-group font-size-16 or_bor d-none flex-wrap justify-content-between align-items-center mt-10 mb-0">
                   <span className="m-auto or_txt">Or</span>
@@ -268,30 +272,55 @@ function Login(props) {
                 </div>
 
                 <div className="form-group reg_icon text-center align-items-center">
-                  <button
-                    id="social_google_signin_submit"
-                    type="submit"
-                    className="soci"
-                  >
-                    <img src="/media/auth-screen/google.svg" alt="Goolge Icon" className="socialIcon" />
+                  <GoogleLogin
+                    clientId="206134211850-dkt6kchknhkhvhjln3aojhjfbkkmfabf.apps.googleusercontent.com"
+                    render={renderProps => (
+                      <button
+                        id="social_google_signin_submit"
+                        type="button"
+                        className="soci"
+                        onClick={renderProps.onClick}
+                      >
+                        <img src="/media/auth-screen/google.svg" alt="Goolge Icon" className="socialIcon" />
 
-                  </button>
-                  <button
-                    id="social_facebook_signin_submit"
-                    type="submit"
-                    className="soci"
-                  >
-                    <img src="/media/auth-screen/facebook.svg" alt="facebook Icon" className="socialIcon" />
+                      </button>
+                    )}
+                    buttonText="Login"
+                    onSuccess={responseGoogle}
+                    onFailure={responseGoogle}
+                    cookiePolicy={'single_host_origin'}
+                  />
 
-                  </button>
-                  <button
-                    id="social_facebook_signin_submit"
-                    type="submit"
-                    className="soci"
-                  >
-                    <img src="/media/auth-screen/twitter.svg" alt="facebook Icon" className="socialIcon" />
+                  <FacebookLogin
+                    appId="2842748732635735"
+                    callback={responseFacebook}
+                    render={renderProps => (
+                      <button
+                        id="social_facebook_signin_submit"
+                        type="button"
+                        className="soci"
+                        onClick={renderProps.onClick}
+                      >
+                        <img src="/media/auth-screen/facebook.svg" alt="facebook Icon" className="socialIcon" />
 
-                  </button>
+                      </button>)}
+                  />
+
+                  <TwitterLogin
+                    authCallback={authHandler}
+                    consumerKey="hBkgsivCUcpn2DDWCfWnLuj7h"
+                    consumerSecret="2EVm49gQVUHG6phCzSc0fUzQpTmG0Q39iLNdnVv9DeayNajnJY"
+                    render={renderProps => (
+                      <button
+                        id="social_facebook_signin_submit"
+                        type="button"
+                        className="soci"
+                        onClick={renderProps.onClick}
+                      >
+                        <img src="/media/auth-screen/twitter.svg" alt="facebook Icon" className="socialIcon" />
+
+                      </button>)}
+                  />
                 </div>
 
                 {/*begin::Content*/}
@@ -383,7 +412,7 @@ function Login(props) {
             <div className="flex-column-fluid d-flex flex-column justify-content-center">
               <div className="m-auto loginRightimg d-flex flex-column">
                 <div className="text-center d-flex mx-7">
-                  <img  src={toAbsoluteUrl("/media/auth-screen/Login.svg")}   className="m-auto col-10" alt="Login screen" />
+                  <img src={toAbsoluteUrl("/media/auth-screen/Login.svg")} className="m-auto col-10" alt="Login screen" />
                 </div>
                 <div className="mt-30 flex-column-fluid d-flex flex-column text-center">
                   <h1 className="font-size-30 color_01234B font-weight-600 mb-5">Welcome to HMIS!</h1>
