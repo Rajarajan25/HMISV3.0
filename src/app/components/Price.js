@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../_metronic/_helpers";
-import { makeStyles } from '@material-ui/core/styles';
-import FormControl from '@material-ui/core/FormControl';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import Radio from '@material-ui/core/Radio';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+// import { makeStyles } from '@material-ui/core/styles';
+// import FormControl from '@material-ui/core/FormControl';
+// import RadioGroup from '@material-ui/core/RadioGroup';
+// import Radio from '@material-ui/core/Radio';
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { Field, FieldArray } from 'formik'
 import SelectDropDown from './SelectDropDown'
 import { DevConsoleLog } from "../SiteUtill";
-import {AdvanceServicePriceModel} from "../models/AdvanceServicePriceModel"
+import { AdvanceServicePriceModel } from "../models/AdvanceServicePriceModel"
 import PropTypes from 'prop-types';
 
 const pricetype = [
@@ -36,10 +36,10 @@ export function Price(props) {
   const { formikValues, setFieldValue } = props
   DevConsoleLog("formikValues-->", formikValues);
   const expandServiceField = () => {
-    if(formikValues.payments.service_pricing_by_staff.length===0){
+    if (formikValues.payments.service_pricing_by_staff.length === 0) {
       formikValues.payments.service_pricing_by_staff.push(AdvanceServicePriceModel);
     }
-    setFieldValue("payments.isAdvancedPrice",!formikValues.payments.isAdvancedPrice);
+    setFieldValue("payments.isAdvancedPrice", !formikValues.payments.isAdvancedPrice);
   }
 
   const addServiceField = () => {
@@ -75,12 +75,12 @@ export function Price(props) {
         <div className="form-group">
           <div className="d-flex justify-content-end">
             <div className="btn btn-link" onClick={expandServiceField}>
-              <img src={formikValues.payments.isAdvancedPrice?toAbsoluteUrl("/media/patients/minus.svg"):toAbsoluteUrl("/media/patients/add-advanced.svg")} alt="" className="" />
+              <img src={formikValues.payments.isAdvancedPrice ? toAbsoluteUrl("/media/patients/minus.svg") : toAbsoluteUrl("/media/patients/add-advanced.svg")} alt="" className="" />
               <span className="color_6B58B6 pl-2 font-weight-500">Advanced Pricing</span>
             </div>
           </div>
         </div>
-        {formikValues.payments.isAdvancedPrice? (
+        {formikValues.payments.isAdvancedPrice ? (
           <div>
             <div className="form-group border-bottom">
               <div className="d-flex">
@@ -154,7 +154,7 @@ export function Price(props) {
 }
 
 
-Price.propTypes={
-  setFieldValue:PropTypes.object.isRequired,
-  formikValues:PropTypes.object.isRequired
+Price.propTypes = {
+  setFieldValue: PropTypes.object.isRequired,
+  formikValues: PropTypes.object.isRequired
 }

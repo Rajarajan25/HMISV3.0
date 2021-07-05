@@ -1,5 +1,5 @@
 import { Dropdown } from "react-bootstrap";
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { DropdownItemToggler } from "../../_metronic/_partials/dropdowns";
 import { toAbsoluteUrl } from "../../_metronic/_helpers";
 import { useQuery, gql } from "@apollo/client";
@@ -51,7 +51,7 @@ export function ServicesDropDown(props) {
         let selectedItem = JSON.parse(JSON.stringify(initValue.staff))
         if (pagename === PageName.SERVICE) {
             let index = selectedItem.findIndex(value => value.staff_id.id === item.id);
-            if (index != -1) {
+            if (index !== -1) {
                 selectedItem = selectedItem.filter(el => el.staff_id.id !== item.id);
             } else {
                 let id = { "staff_id": item.id }
@@ -61,7 +61,7 @@ export function ServicesDropDown(props) {
         }
         else {
             let index = selectedItem.findIndex(value => value.service_id.id === item.id);
-            if (index != -1) {
+            if (index !== -1) {
                 selectedItem = selectedItem.filter(el => el.service_id.id !== item.id);
             } else {
                 let id = { "service_id": item.id }
@@ -90,9 +90,9 @@ export function ServicesDropDown(props) {
     )
 }
 
-ServicesDropDown.propTypes={
-    pagename:PropTypes.string.isRequired,
-    item:PropTypes.object.isRequired
+ServicesDropDown.propTypes = {
+    pagename: PropTypes.string.isRequired,
+    item: PropTypes.object.isRequired
 }
 
 export function ServicesDropdownMenu(props) {
@@ -161,11 +161,11 @@ export function ServicesDropdownMenu(props) {
 
     </>
 }
-ServicesDropdownMenu.propTypes={
-    pagename:PropTypes.string.isRequired,
-    item:PropTypes.object.isRequired,
-    data:PropTypes.array.isRequired,
-    handleItemSelect:PropTypes.func.isRequired
+ServicesDropdownMenu.propTypes = {
+    pagename: PropTypes.string.isRequired,
+    item: PropTypes.object.isRequired,
+    data: PropTypes.array.isRequired,
+    handleItemSelect: PropTypes.func.isRequired
 }
 
 export function SelectedProvider(props) {
@@ -192,8 +192,8 @@ export function SelectedProvider(props) {
 
 }
 
-SelectedProvider.propTypes={
-    item:PropTypes.object.isRequired
+SelectedProvider.propTypes = {
+    item: PropTypes.object.isRequired
 }
 
 export function SelectedService(props) {
@@ -212,6 +212,6 @@ export function SelectedService(props) {
     )
 }
 
-SelectedService.propTypes={
-    item:PropTypes.object.isRequired
+SelectedService.propTypes = {
+    item: PropTypes.object.isRequired
 }

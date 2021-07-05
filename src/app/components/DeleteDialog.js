@@ -1,8 +1,8 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect } from "react";
 import { Modal } from "react-bootstrap";
-import {ModalProgressBar} from "../../_metronic/_partials/controls";
+import { ModalProgressBar } from "../../_metronic/_partials/controls";
 
-export function DeleteDialog({show,onHide,isloading,content,deleteAction }) {
+export function DeleteDialog({ show, onHide, isloading, content, deleteAction }) {
   // if !content we should close modal
   useEffect(() => {
     if (!content) {
@@ -30,7 +30,7 @@ export function DeleteDialog({show,onHide,isloading,content,deleteAction }) {
           // <span>Are you sure to permanently delete this customer?</span>
           <span>{content.message}</span>
         )}
-        {isloading && <span>{content.loadingMsg||"Deleting..."}</span>}
+        {isloading && <span>{content.loadingMsg || "Deleting..."}</span>}
       </Modal.Body>
       <Modal.Footer>
         <div>
@@ -39,8 +39,8 @@ export function DeleteDialog({show,onHide,isloading,content,deleteAction }) {
             onClick={onHide}
             className="btn btn-light btn-elevate"
           >
-            {content.cancelLable||"Cancel"}
-            
+            {content.cancelLable || "Cancel"}
+
           </button>
           <> </>
           <button
@@ -48,8 +48,8 @@ export function DeleteDialog({show,onHide,isloading,content,deleteAction }) {
             onClick={deleteAction}
             className="btn btn-primary btn-elevate"
           >
-            {content.okLable||"Delete"}
-            
+            {content.okLable || "Delete"}
+
           </button>
         </div>
       </Modal.Footer>

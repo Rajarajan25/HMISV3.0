@@ -1,12 +1,12 @@
-import { Dropdown } from "react-bootstrap";
-import { DropdownItemToggler } from "../../_metronic/_partials/dropdowns";
+// import { Dropdown } from "react-bootstrap";
+// import { DropdownItemToggler } from "../../_metronic/_partials/dropdowns";
 import { toAbsoluteUrl } from "../../_metronic/_helpers";
 import React from 'react';
 import { AvailabilityModel } from "../models/AvailabilityModel";
 import { OncallModel } from "../models/OncallModel";
-import { VideoData } from "../models/VideoData";
+// import { VideoData } from "../models/VideoData";
 import { InpersionModel } from "../models/InpersionModel";
-import { TimingsModel } from "../models/TimingsModel";
+// import { TimingsModel } from "../models/TimingsModel";
 import PropTypes from 'prop-types';
 
 const Type = {
@@ -113,8 +113,8 @@ export function ChatUI(props) {
   )
 }
 
-StaffAvailablity.propTypes={
-  handleChangeDropDown:PropTypes.func.isRequired,
-  item:PropTypes.object.isRequired
+StaffAvailablity.propTypes = {
+  handleChangeDropDown: PropTypes.func.isRequired,
+  item: PropTypes.object.isRequired
 }
 

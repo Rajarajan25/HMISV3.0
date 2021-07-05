@@ -1,26 +1,26 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import { shallowEqual, useSelector } from "react-redux";
-import { Modal } from "react-bootstrap";
+// import { Modal } from "react-bootstrap";
 import { FilterDropDown } from './FilterDropDown';
 import Search from '../components/Search';
 import SortBy from '../components/SortBy';
 import PropTypes from 'prop-types';
 
-const options = [
-  { value: 'newest', label: 'Newest' },
-  { value: 'oldest', label: 'Oldest' },
-]
+// const options = [
+//   { value: 'newest', label: 'Newest' },
+//   { value: 'oldest', label: 'Oldest' },
+// ]
 
 export function Filter(props) {
   const user = useSelector(({ auth }) => auth.user, shallowEqual);
   const { value, handleDataSource, fields, handleSort } = props;
-  const [isdropOpen,setDropOpen]=useState(false);
+  const [isdropOpen, setDropOpen] = useState(false);
   useEffect(() => {
     return () => { };
   }, [user]);
 
-  const handleClose=(values)=>{
+  const handleClose = (values) => {
     setDropOpen(values);
   }
   return (
@@ -34,12 +34,12 @@ export function Filter(props) {
                   <form autoComplete="off" className="filterForm w-100">
                     <div className="d-flex">
                       <div className="filters">
-                        <div className="d-flex mt-1 mb-1" onClick={()=>handleClose(!isdropOpen)}>
+                        <div className="d-flex mt-1 mb-1" onClick={() => handleClose(!isdropOpen)}>
                           <span className="fas fa-filter filter-icon"></span>
                         </div>
 
                         {isdropOpen && <div className="filter-popup">
-                          <FilterDropDown value={value} handleDataSource={handleDataSource} fields={fields}/>
+                          <FilterDropDown value={value} handleDataSource={handleDataSource} fields={fields} />
                         </div>}
                       </div>
                       <Search handleSearch={handleDataSource} data={value}></Search>
@@ -69,15 +69,15 @@ export function Filter(props) {
   );
 }
 
-Filter.propTypes={
-  value:PropTypes.string,
-  fields:PropTypes.array,
-  handleDataSource:PropTypes.func,
-  handleSort:PropTypes.func
+Filter.propTypes = {
+  value: PropTypes.string,
+  fields: PropTypes.array,
+  handleDataSource: PropTypes.func,
+  handleSort: PropTypes.func
 }
 
-Filter.propTypes={
-  children:PropTypes.element.isRequired
+Filter.propTypes = {
+  children: PropTypes.element.isRequired
 }
 
 

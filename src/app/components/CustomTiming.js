@@ -1,31 +1,31 @@
 import 'date-fns';
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../_metronic/_helpers";
 import { makeStyles } from '@material-ui/core/styles';
 import FormGroup from '@material-ui/core/FormGroup';
 import Switch from '@material-ui/core/Switch';
 import Grid from '@material-ui/core/Grid';
 import { TimePickersUtil } from "../components/DateAndTimePicker"
-import FormControl from '@material-ui/core/FormControl';
-import Select from 'react-select';
+// import FormControl from '@material-ui/core/FormControl';
+// import Select from 'react-select';
 import { withStyles } from '@material-ui/core/styles';
 import MuiExpansionPanel from '@material-ui/core/ExpansionPanel';
 import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
+// import Radio from '@material-ui/core/Radio';
+// import RadioGroup from '@material-ui/core/RadioGroup';
 import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
+// import AppBar from '@material-ui/core/AppBar';
+// import Tabs from '@material-ui/core/Tabs';
+// import Tab from '@material-ui/core/Tab';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import { Field } from 'formik'
+// import { Field } from 'formik'
 import Availability from './Availability'
 import { Modal } from "react-bootstrap";
-import { SessionModel } from '../models/SessionModel';
+// import { SessionModel } from '../models/SessionModel';
 import { CommonTiming } from '../models/CommonTiming';
 const ExpansionPanel = withStyles({
   root: {
@@ -182,13 +182,13 @@ export default function CustomTiming(props) {
       seletedItem = [...seletedDays, { ...CommonTiming, work_day_id: item.work_day_id, work_day_name: item.short_name }];
     }
     setSelectedDays(seletedItem);
-    if(addsession.length===0){
+    if (addsession.length === 0) {
       handleAddSession(0);
     }
   }
-  const handleAddSession = (indexId) =>{
+  const handleAddSession = (indexId) => {
     var seletedItem = [];
-    seletedItem = [...seletedItem, { ...CommonTiming, index: indexId}];
+    seletedItem = [...seletedItem, { ...CommonTiming, index: indexId }];
     setAddSession(seletedItem);
   }
 
@@ -226,7 +226,7 @@ export default function CustomTiming(props) {
                   </div>
                 </div>
                 <div className="col-5 d-flex justify-content-start align-items-center pl-2 pr-2">
-                  <span className="add_session pointer" onClick={()=>handleAddSession(1)}>+ Add Session</span>
+                  <span className="add_session pointer" onClick={() => handleAddSession(1)}>+ Add Session</span>
                   <span className="add_line">|</span>
                   <span className="add_break pointer">+ Add Break</span>
                   <span className="add_line">|</span>

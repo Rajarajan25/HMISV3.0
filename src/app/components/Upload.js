@@ -1,15 +1,15 @@
-import { makeStyles } from '@material-ui/core';
+// import { makeStyles } from '@material-ui/core';
 import React, { useEffect, useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { toAbsoluteUrl } from '../../_metronic/_helpers';
 import Button from '@material-ui/core/Button';
-import uploadFileToBlob, { isStorageConfigured, azureBaseURL, uploadFileToBlobWithSite } from '../../azure-storage-blob';
+import { isStorageConfigured, azureBaseURL, uploadFileToBlobWithSite } from '../../azure-storage-blob';
 import { DevConsoleLog } from '../SiteUtill';
 import { Modal } from "react-bootstrap";
 import Cropper from 'react-easy-crop'
-import { stubTrue } from 'lodash';
+// import { stubTrue } from 'lodash';
 import { getCroppedImg } from '../canvasUtils';
-import CropImage from './CropImage';
+// import CropImage from './CropImage';
 import PropTypes from 'prop-types';
 
 const storageConfigured = isStorageConfigured();
@@ -86,7 +86,7 @@ function readFile(file) {
   })
 }
 export function Upload(props) {
-  const { imageURL, name,setFieldValue, subName, upload_type, upload_id } = props;
+  const { imageURL, name, setFieldValue, upload_type, upload_id } = props;
   const previewURL = baseURL + imageURL;
   const imagePreview = {
     name: imageURL,
@@ -121,7 +121,7 @@ export function Upload(props) {
 
     }
   };
-  
+
   const dataURLtoFile = (dataurl, filename) => {
     var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
       bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
@@ -257,7 +257,7 @@ export function Upload(props) {
           <Button
             onClick={showCroppedImage}
             className="btn btn-primary"
-            style={{position:"absolute",right:60}}
+            style={{ position: "absolute", right: 60 }}
           >
             Save
           </Button>
@@ -284,11 +284,11 @@ export function Upload(props) {
 
 
 
-Upload.propTypes={
-  imageURL:PropTypes.string.isRequired,
-  name:PropTypes.string.isRequired,
-  setFieldValue:PropTypes.object.isRequired,
-  subName:PropTypes.string,
-  upload_type:PropTypes.string.isRequired,
-  upload_id:PropTypes.string.isRequired
+Upload.propTypes = {
+  imageURL: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  setFieldValue: PropTypes.object.isRequired,
+  subName: PropTypes.string,
+  upload_type: PropTypes.string.isRequired,
+  upload_id: PropTypes.string.isRequired
 }

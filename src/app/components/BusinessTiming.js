@@ -5,7 +5,7 @@ import { TimePickersUtils } from "../components/DateAndTimePicker"
 import { Link } from 'react-router-dom';
 import { Modal } from "react-bootstrap";
 import { BusinessProvider } from '../modules/Auth/pages/BusinessContext';
-import { useQuery, gql,NetworkStatus } from "@apollo/client";
+import { useQuery, gql, NetworkStatus } from "@apollo/client";
 import BusinessTime from './BusinessTime'
 
 const GET_BUSINESS = gql`
@@ -47,17 +47,17 @@ export default function BusinessTiming(props) {
         checkedA: false,
     });
     const days = [
-        { work_day_id: 1, short_name: "S" ,color:"sun_d", name:"Sunday", bg_color:"sun_bg" ,start_time: startdate, end_time:enddate},
-        { work_day_id: 2, short_name: "M" ,color:"mon_d" ,name:"Monday", bg_color:"mon_bg",start_time: startdate, end_time: enddate},
-        { work_day_id: 3, short_name: "T" ,color:"tue_d" ,name:"Tuesday", bg_color:"tue_bg",start_time: startdate, end_time: enddate},
-        { work_day_id: 4, short_name: "W" ,color:"wed_d" ,name:"Wednesday", bg_color:"wed_bg",start_time: startdate, end_time: enddate},
-        { work_day_id: 5, short_name: "T" ,color:"thu_d" ,name:"Thursday", bg_color:"thu_bg",start_time: startdate, end_time: enddate},
-        { work_day_id: 6, short_name: "F" ,color:"fri_d" ,name:"Friday", bg_color:"fri_bg",start_time: startdate, end_time: enddate},
-        { work_day_id: 7, short_name: "S" ,color:"sat_d" ,name:"Saturday", bg_color:"sat_bg",start_time: startdate, end_time: enddate},
-      ];
+        { work_day_id: 1, short_name: "S", color: "sun_d", name: "Sunday", bg_color: "sun_bg", start_time: startdate, end_time: enddate },
+        { work_day_id: 2, short_name: "M", color: "mon_d", name: "Monday", bg_color: "mon_bg", start_time: startdate, end_time: enddate },
+        { work_day_id: 3, short_name: "T", color: "tue_d", name: "Tuesday", bg_color: "tue_bg", start_time: startdate, end_time: enddate },
+        { work_day_id: 4, short_name: "W", color: "wed_d", name: "Wednesday", bg_color: "wed_bg", start_time: startdate, end_time: enddate },
+        { work_day_id: 5, short_name: "T", color: "thu_d", name: "Thursday", bg_color: "thu_bg", start_time: startdate, end_time: enddate },
+        { work_day_id: 6, short_name: "F", color: "fri_d", name: "Friday", bg_color: "fri_bg", start_time: startdate, end_time: enddate },
+        { work_day_id: 7, short_name: "S", color: "sat_d", name: "Saturday", bg_color: "sat_bg", start_time: startdate, end_time: enddate },
+    ];
     const [businessHours, setBusinessHours] = useState(days);
 
-    const { data, refetch, networkStatus,} = useQuery(GET_BUSINESS, { notifyOnNetworkStatusChange: true} );
+    const { data, refetch, networkStatus, } = useQuery(GET_BUSINESS, { notifyOnNetworkStatusChange: true });
     let business_id = localStorage.getItem("Business_id");
     const [selectedDays, setSelectedDays] = useState([]);
 
@@ -71,7 +71,7 @@ export default function BusinessTiming(props) {
                 let WorkingId = parseInt(item.work_day_id);
                 sDays.push(WorkingId);
                 const findIndex = sTimes.findIndex(x => x.work_day_id === WorkingId);
-                if (findIndex != -1) {
+                if (findIndex !== -1) {
                     const findItem = sTimes[findIndex];
                     findItem.work_day_id = WorkingId;
                     findItem.start_time = new Date('Fri Apr 20 2020 ' + item.start_time);
@@ -104,15 +104,15 @@ export default function BusinessTiming(props) {
                                     <label className="staff_title_text min_wid">{value.name}</label>
                                 </div>
                             </div>
-                        
-                                <div className="col-4 p-0 d-flex">
-                                    <div className="tm_area text-left pl-0">
-                                        <span className="st_tm"><TimePickers value={value.start_time} disabled={true} /></span> 
-                                        <span className="se_to">to</span> 
-                                        <span className="end_tm"><EndTimePickers value={ value.end_time} disabled={true} /></span>
-                                    </div>
+
+                            <div className="col-4 p-0 d-flex">
+                                <div className="tm_area text-left pl-0">
+                                    <span className="st_tm"><TimePickers value={value.start_time} disabled={true} /></span>
+                                    <span className="se_to">to</span>
+                                    <span className="end_tm"><EndTimePickers value={value.end_time} disabled={true} /></span>
                                 </div>
-                            
+                            </div>
+
 
                         </div>
                     )
@@ -132,7 +132,7 @@ export default function BusinessTiming(props) {
                     </Modal.Header>
                     <Modal.Body>
                         <BusinessProvider>
-                            <BusinessTime businessHours={businessHours} selectedDays={selectedDays} handleHide={handleHide}/>
+                            <BusinessTime businessHours={businessHours} selectedDays={selectedDays} handleHide={handleHide} />
                         </BusinessProvider>
                     </Modal.Body>
                 </Modal>
