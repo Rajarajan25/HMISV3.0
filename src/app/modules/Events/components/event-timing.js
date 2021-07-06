@@ -9,7 +9,9 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import {TimePickersUtil,DateRangePickersUtil} from '../../../components/DateAndTimePicker'
+import {TimePickersUtil} from '../../../components/DateAndTimePicker'
+import {DateRangePickersUtil} from '../../../components/DateAndTimePicker'
+import {DateRangePickersUtilFailed} from '../../../components/DateAndTimePicker'
   import FormControl from '@material-ui/core/FormControl';
   import RadioGroup from '@material-ui/core/RadioGroup';
   import Radio from '@material-ui/core/Radio';
@@ -34,6 +36,89 @@ function TabContainer(props) {
     </Typography>
   );
 }
+
+export function PersonDropdownMenu() {
+  return (
+    <>
+      {/*begin::Navigation*/}
+      <ul className="navi navi-hover">
+        <li className="navi-item">
+          <label class="staff_title_text mb-3">In Person</label>
+          <div className="clearfix">
+            <div className="radio-header">
+              <div className="radio-section">
+                <input
+                  type="radio"
+                  id="availperson_01"
+                  name="availperson"
+                  className=""
+                />
+                <label className="eprice pr-0" for="availperson_01">
+                  <span className="circle-border"></span>
+                  <span className="chk_txt">My Business Address</span>
+                </label>
+              </div>
+              <div className="radio-section">
+                <input
+                  type="radio"
+                  id="availperson_02"
+                  name="availperson"
+                  className=""
+                />
+                <label className="eprice pr-0" for="availperson_02">
+                  <span className="circle-border"></span>
+                  <span className="chk_txt">Client Address At Booking</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </>
+  );
+}
+
+export function PhoneDropdownMenu() {
+  return (
+    <>
+      {/*begin::Navigation*/}
+      <ul className="navi navi-hover">
+        <li className="navi-item">
+          <label class="staff_title_text mb-3">In Call</label>
+          <div className="clearfix">
+            <div className="radio-header">
+              <div className="radio-section">
+                <input
+                  type="radio"
+                  id="availcall_01"
+                  name="availcall"
+                  className=""
+                />
+                <label className="eprice pr-0" for="availcall_01">
+                  <span className="circle-border"></span>
+                  <span className="chk_txt">Client will call you</span>
+                </label>
+              </div>
+              <div className="radio-section">
+                <input
+                  type="radio"
+                  id="availcall_02"
+                  name="availcall"
+                  className=""
+                />
+                <label className="eprice pr-0" for="availcall_02">
+                  <span className="circle-border"></span>
+                  <span className="chk_txt">You will call the client</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </>
+  );
+}
+
 
 TabContainer.propTypes = {
   children: PropTypes.node.isRequired,
@@ -422,36 +507,146 @@ export function Availability() {
   }
   return (
     <div className="staff_first">
-      <div className="event-tab">
-        <div className={'timingavail'+' '+classes.root}>
-          <div className="d-flex border-bottom">
-            <div className="col mx-100 pl-0 my-auto">
-              <label className="staff_title_text m-0">Availability</label>
-            </div>
-            <div className="col p-0">
-              <AppBar position="static" color="default">
-                <Tabs
-                  value={value}
-                  onChange={handleChange}
-                  indicatorColor="primary"
-                  textColor="primary"
-                  variant="scrollable"
-                  scrollButtons="auto"
+      <div className="event_detail timingavail">
+      <label class="staff_title_text mb-3">Availability</label> 
+        <div className="clearfix">
+          <div className="device_avail">
+            <div className="d-inline-flex">
+              <Dropdown drop="down" alignCenter className="dropdown h-100">
+                <Dropdown.Toggle
+                  as={DropdownItemToggler}
+                  id="kt_quick_actions_search_toggle"
+                  className="h-100"
                 >
-                  <Tab label={<TabPerson />} />
-                  <Tab label={<TabCall />} />
-                  <Tab label={<TabVideo />} />
-                  <Tab label={<TabChat />} />
-                </Tabs>
-              </AppBar>
+                  <label className="d-flex vid_bg active">
+                    <span className="avails visit_bg">
+                      <img
+                        src={toAbsoluteUrl("/media/patients/avail_visit.svg")}
+                        alt=""
+                        className=""
+                      />
+                    </span>
+                    <span>In Person </span>
+                  </label>
+                </Dropdown.Toggle>
+                <Dropdown.Menu className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav avail-list">
+                  <PersonDropdownMenu />
+                </Dropdown.Menu>
+              </Dropdown>
+            </div>
+            <div className="d-inline-flex">
+              <Dropdown drop="down" alignCenter className="dropdown h-100">
+                <Dropdown.Toggle
+                  as={DropdownItemToggler}
+                  id="kt_quick_actions_search_toggle"
+                  className="h-100"
+                >
+                  <label className="d-flex vid_bg active">
+                    <span className="avails phone_bg">
+                      <img
+                        src={toAbsoluteUrl("/media/patients/avail_phone.svg")}
+                        alt=""
+                        className=""
+                      />
+                    </span>
+                    <span>In Call</span>
+                  </label>
+                </Dropdown.Toggle>
+                <Dropdown.Menu className="dropdown-menu p-0 mt-1 dropdown-menu-md drop_nav avail-list">
+                  <PhoneDropdownMenu />
+                </Dropdown.Menu>
+              </Dropdown>
+            </div>
+            <div className="d-inline-flex">
+              <label className="d-flex vid_bg">
+                <span className="avails chat_bg">
+                  <img
+                    src={toAbsoluteUrl("/media/patients/avail_chat.svg")}
+                    alt=""
+                    className=""
+                  />
+                </span>
+                <span>Chat</span>
+              </label>
+            </div>
+            <div className="d-inline-flex">
+              <label className="d-flex vid_bg">
+                <img
+                  src={toAbsoluteUrl("/media/patients/zoom_icon.png")}
+                  alt=""
+                  className=""
+                />
+                <span>Zoom</span>
+              </label>
+            </div>
+            <div className="d-inline-flex">
+              <label className="d-flex vid_bg" for="video_02">
+                <img
+                  src={toAbsoluteUrl("/media/patients/webex_icon.png")}
+                  alt=""
+                  className=""
+                />
+                <span>Webex</span>
+              </label>
+            </div>
+            <div className="d-inline-flex">
+              <label className="d-flex vid_bg">
+                <img
+                  src={toAbsoluteUrl("/media/patients/skype_icon.png")}
+                  alt=""
+                  className=""
+                />
+                <span>Skype</span>
+              </label>
+            </div>
+            <div className="d-inline-flex">
+              <label className="d-flex vid_bg" for="video_04">
+                <img
+                  src={toAbsoluteUrl("/media/patients/goto_icon.png")}
+                  alt=""
+                  className=""
+                />
+                <span>Goto Meeting</span>
+              </label>
+            </div>
+            <div className="d-inline-flex">
+              <label className="d-flex vid_bg">
+                <img
+                  src={toAbsoluteUrl("/media/patients/webex1_icon.png")}
+                  alt=""
+                  className=""
+                />
+                <span>Webex</span>
+              </label>
+            </div>
+            <div className="d-inline-flex">
+              <label className="d-flex vid_bg">
+                <img
+                  src={toAbsoluteUrl("/media/patients/google-meet_icon.png")}
+                  alt=""
+                  className=""
+                />
+                <span>Google Meet</span>
+              </label>
             </div>
           </div>
-          <div className="p-0">
-            {value === 0 && <TabContainer> <AvailPerson />  </TabContainer>}
-            {value === 1 && <TabContainer> <AvailCall /> </TabContainer>}
-            {value === 2 && <TabContainer> <AvailVideo /> </TabContainer>}
-            {value === 3 && <TabContainer> <AvailChat /> </TabContainer>}
-          </div>
+        </div>
+        <div className="mb-5 d-none">
+          <Dropdown drop="down" alignCenter className="dropdown h-100">
+            <Dropdown.Toggle
+              as={DropdownItemToggler}
+              id="kt_quick_actions_search_toggle"
+              className="h-100"
+            >
+              <div className="availi-border border align-items-center d-flex px-5 py-3">
+                <span>Add Availability</span>
+                <span className="ml-auto font-size-18">+</span>
+              </div>
+            </Dropdown.Toggle>
+            <Dropdown.Menu className="dropdown-menu p-0 mt-1 w-100 drop_nav avail-list">
+              <PersonDropdownMenu />
+            </Dropdown.Menu>
+          </Dropdown>
         </div>
       </div>
     </div>
