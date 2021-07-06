@@ -6,6 +6,7 @@ import SVG from "react-inlinesvg";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Dropdown } from "react-bootstrap";
 import { toAbsoluteUrl, checkIsActive } from "../../../../_helpers";
+import {DatePickersKeyboardUtil} from "../../../../../app/components/DateAndTimePicker"
 import {
   DropdownItemToggler,
   DropdownMenu4,
@@ -91,60 +92,60 @@ export function AsideMenuList({ layoutProps, menuList = [], title = "" }) {
         {title && <li className="font-weight-500 font-size-14 color_292D34 mt-3 mb-3 d-block text-uppercase ml-2">{title}</li>}
         {/*begin::1 Level*/}
         {menuList.map((item, i) => {
-          return (
-            <li
-              className={`menu-item ${getMenuItemActive(item.to, item.isMenu)}`}
-              aria-haspopup="true"
-              data-menu-toggle="hover"
-              key={i}
-            >
-              <NavLink className={`menu-link menu-toggle ${item.isMenu && "ml-5"}`} to={item.to}>
-                {item.isMenu && (<>
-                  <i className="fas fa-caret-right" />
-                  <span className="svg-icon menu-icon d-flex flex-column rounded customMenutexticon bgCustom1">
-                    {item.shortName}
-                  </span>
-                </>)}
-                {!item.isMenu && <span className="menu-sub-icons" style={{ backgroundColor: item.backgroundColor }}>
-                  <img src={toAbsoluteUrl(item.icon)} alt={item.name} />
-                </span>}
-                <span className="menu-text">{item.name}</span>
-              </NavLink>
-              {item.isMenu && <div className="menu-submenu">
-                <i className="menu-arrow" />
-                <ul className="menu-subnav">
-                  {item.subMenuList && item.subMenuList.map((subitem, i) => {
-                    return (
-                      <li
-                        key={i}
-                        className={`menu-item  ${getMenuItemActive(
-                          subitem.to
-                        )}`}
-                        aria-haspopup="true"
-                      >
-                        <NavLink
-                          className="menu-link"
-                          to={subitem.to}
-                        >
-                          <i className="menu-bullet">
-                            <span
-                              className="menu-sub-icons"
-                              style={{ backgroundColor: subitem.backgroundColor }}
+          return (item.custom_ui ? 
+          <div className="custom-picker"><DatePickersKeyboardUtil /> </div>:
+                <li
+                  className={`menu-item ${getMenuItemActive(item.to, item.isMenu)}`}
+                  aria-haspopup="true"
+                  data-menu-toggle="hover"
+                  key={i}
+                >
+                  <NavLink className={`menu-link menu-toggle ${item.isMenu && "ml-5"}`} to={item.to}>
+                    {item.isMenu && (<>
+                      <i className="fas fa-caret-right" />
+                      <span className="svg-icon menu-icon d-flex flex-column rounded customMenutexticon bgCustom1">
+                        {item.shortName}
+                      </span>
+                    </>)}
+                    {!item.isMenu && <span className="menu-sub-icons" style={{ backgroundColor: item.backgroundColor }}>
+                      <img src={toAbsoluteUrl(item.icon)} alt={item.name} />
+                    </span>}
+                    <span className="menu-text">{item.name}</span>
+                  </NavLink>
+                  {item.isMenu && <div className="menu-submenu">
+                    <i className="menu-arrow" />
+                    <ul className="menu-subnav">
+                      {item.subMenuList && item.subMenuList.map((subitem, i) => {
+                        return (
+                          <li
+                            key={i}
+                            className={`menu-item  ${getMenuItemActive(subitem.to)}`}
+                            aria-haspopup="true"
+                          >
+                            <NavLink
+                              className="menu-link"
+                              to={subitem.to}
                             >
-                              <img
-                                src={toAbsoluteUrl(subitem.icon)}
-                                alt={subitem.name}
-                              />
-                            </span>
-                          </i>
-                          <span className="menu-text">{subitem.name}</span>
-                        </NavLink>
-                      </li>
-                    )
-                  })}
-                </ul>
-              </div>}
-            </li>
+                              <i className="menu-bullet">
+                                <span
+                                  className="menu-sub-icons"
+                                  style={{ backgroundColor: subitem.backgroundColor }}
+                                >
+                                  <img
+                                    src={toAbsoluteUrl(subitem.icon)}
+                                    alt={subitem.name}
+                                  />
+                                </span>
+                              </i>
+                              <span className="menu-text">{subitem.name}</span>
+                            </NavLink>
+                          </li>
+                        )
+                      })}
+                    </ul>
+                  </div>}
+                </li>
+            
           )
         })}
         {/*end::1 Level*/}
