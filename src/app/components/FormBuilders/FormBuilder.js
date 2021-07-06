@@ -1,5 +1,6 @@
 import React from 'react';
 import { ReactFormBuilder, ElementStore } from 'react-form-builder2';
+import 'react-form-builder2/dist/app.css';
 
 import { get, post } from './requests';
 

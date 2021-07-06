@@ -1,6 +1,6 @@
 import React from 'react';
 import { ReactFormGenerator, ElementStore } from 'react-form-builder2';
-
+import './styles.css'
 export default  class FormBuilder extends React.Component {
   constructor(props) {
     super(props);
