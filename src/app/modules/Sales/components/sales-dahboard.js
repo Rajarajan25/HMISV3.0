@@ -122,7 +122,7 @@ export function BookDetail() {
           </div>
         </div>
         
-        <div className="form-group">
+        <div className="form-group d-none">
           <div className="col-12">
             <label class="form-label d-block">Gender</label>
           </div>

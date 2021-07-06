@@ -6985,7 +6985,6 @@ label.label-tooltip {
     }
   }
 }
-
 .book_detail {
   .staff_first {
     .form-group {
@@ -7024,6 +7023,16 @@ label.label-tooltip {
       background: #2A63FB;
       color: #fff;
       border: 1px solid #2A63FB;
+    }
+    .re_select .css-yk16xz-control, .re_select .css-1pahdxg-control {
+      letter-spacing: 0.5px;
+      color: #2D2D2E;
+      font-size: 1.05rem;
+      padding: 0px 10px;
+      border: 1px solid #DAE0F3;
+      height: 40px;
+      border-radius: 5px;
+      box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0.07) inset;
     }
   }
 }

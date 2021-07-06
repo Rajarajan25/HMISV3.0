@@ -57,10 +57,10 @@ const AsideMiddleList = [
     visible: true,
   },
   {
-    name: "Products",
-    tooltip: "Products",
-    key: "product",
-    to: "/product",
+    name: "Sales",
+    tooltip: "Sales",
+    key: "sales",
+    to: "/Sales",
     icon: "/media/svg/left-menu/Chart.svg",
     visible: true,
   },
@@ -224,6 +224,80 @@ const AsideSubMenuList = {
       to: "/marketing/sms",
       icon: "/media/svg/left-menu/sms.svg",
       backgroundColor: "#3478F7",
+    }
+  ],
+  sales: [
+    {
+      name: "Product",
+      isMenu: true,
+      visible: true,
+      shortName: "P",
+      to: "/",
+      icon: "/media/svg/left-menu/events.svg",
+      backgroundColor: "#4397D5",
+      subMenuList: [{
+        name: "New Form",
+        visible: true,
+        shortName: "N",
+        to: "/manage/sales-details",
+        icon: "/media/svg/left-menu/events.svg",
+        backgroundColor: "#FD905D",
+      }, {
+        name: "Old Event",
+        visible: true,
+        shortName: "O",
+        to: "/manage/event-old-event",
+        icon: "/media/svg/left-menu/events.svg",
+        backgroundColor: "#FD905D",
+      }]
+    },
+    {
+      name: "Sales",
+      isMenu: true,
+      visible: true,
+      shortName: "S",
+      to: "/",
+      icon: "/media/svg/left-menu/events.svg",
+      backgroundColor: "#43D5AE",
+      subMenuList: [{
+        name: "Cardiology",
+        visible: true,
+        shortName: "C",
+        to: "/",
+        icon: "/media/svg/left-menu/events.svg",
+        backgroundColor: "#FD5D81",
+      }, {
+        name: "Nephrology",
+        visible: true,
+        shortName: "N",
+        to: "/",
+        icon: "/media/svg/left-menu/events.svg",
+        backgroundColor: "#FEC55D",
+      },
+      {
+        name: "Pulmonology",
+        visible: true,
+        shortName: "P",
+        to: "/",
+        icon: "/media/svg/left-menu/events.svg",
+        backgroundColor: "#7F5DFC",
+      },
+      {
+        name: "ENT",
+        visible: true,
+        shortName: "E",
+        to: "/",
+        icon: "/media/svg/left-menu/events.svg",
+        backgroundColor: "#FD905D",
+      },
+      {
+        name: "Gastro",
+        visible: true,
+        shortName: "E",
+        to: "/",
+        icon: "/media/svg/left-menu/events.svg",
+        backgroundColor: "#FC69AE",
+      },]
     }
   ]
 }
