@@ -20,7 +20,9 @@ import { StaffService } from "./service-sales";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { ServiceSlice } from "./ServiceSlice";
 import { AzureImageview } from '../../../components/AzureImageview';
-import { FormBuilder } from '../../../components/FormBuilder';
+import  FormBuilder  from '../../../components/FormBuilders/FormBuilder';
+import FormGenerator from '../../../components/FormBuilders/FormGenerator'
+import * as variables from '../../../components/FormBuilders/variables'
 const { actions } = ServiceSlice;
 function TabContainer(props) {
   return (
@@ -123,7 +125,7 @@ export function ServiceDetailsTab(props) {
             index={currentIndex} handleUpdate={handleUpdate} isloading={isloading} /> </TabContainer>}
           {value === 1 && <TabContainer> 
             {/* <Duration data={currentservice} handleSave={editService} fields={timing_field} />  */}
-            <FormBuilder/>
+            <FormGenerator variables={variables}/><FormBuilder/>
           </TabContainer>}
           {/* {value === 1 && <TabContainer> <ServiceCost/> </TabContainer>} */}
           {value === 2 && <TabContainer> <StaffService handleChangeServices={handleChangeServices}

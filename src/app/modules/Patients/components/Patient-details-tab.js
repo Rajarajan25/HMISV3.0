@@ -5,8 +5,6 @@ import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { PatientHistory } from "./Patient-history";
 import { PatientApponiment } from "./Patient-appoinment";
 import { PatientInvoice } from "./Patient-invoice";
-
-
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
@@ -17,7 +15,9 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
-
+import  FormBuilder  from '../../../components/FormBuilders/FormBuilder';
+import FormGenerator from '../../../components/FormBuilders/FormGenerator';
+import * as variables from '../../../components/FormBuilders/variables'
 
 export  class PatientDetailsTab extends React.Component {
   constructor(props, context) {
@@ -75,7 +75,9 @@ export  class PatientDetailsTab extends React.Component {
           <Col sm={12} className="p-0">
             <Tab.Content className="p-5">
               <Tab.Pane eventKey="first">
-                <PatientBasicDetails/>
+                <FormGenerator variables={variables}/>
+                <FormBuilder/>
+                
               </Tab.Pane>
               <Tab.Pane eventKey="second">
                 <div className="d-flex flex-wrap">

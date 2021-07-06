@@ -312,7 +312,7 @@ function Login(props) {
                     consumerSecret="2EVm49gQVUHG6phCzSc0fUzQpTmG0Q39iLNdnVv9DeayNajnJY"
                     render={renderProps => (
                       <button
-                        id="social_facebook_signin_submit"
+                        id="social_twitter_signin_submit"
                         type="button"
                         className="soci"
                         onClick={renderProps.onClick}
