@@ -126,6 +126,40 @@
   display: none !important;
 }
 
+.appointment{
+    background-color: #1d6aff !important;
+    border-color: #1d6aff !important;
+    border-radius: 2.42rem;
+    padding: 0 15px;
+  .dx-button-content{
+    padding: 0 15px;
+  }
+  .dx-button-text{
+    font-size: 15px;
+    color: #fff;
+  }
+}
+#grouptab{
+  width: 25%;
+  border: none;
+}
+
+#schedulerTodayButton{
+  background-color: #ebf2ff !important;
+  border-color: #1C6AFC !important;
+  border: 1px solid;
+  border-radius: 2.42rem;
+  padding: 0 15px;
+  font-weight: bold;
+.dx-button-content{
+  padding: 0 15px;
+}
+.dx-button-text{
+  font-size: 15px;
+  color: #08585F;
+}
+}
+
 .custom-picker{
   .MuiPickersCalendarHeader-switchHeader{
     display: inline-flex;
@@ -139,4 +173,5 @@
   .MuiPickersCalendarHeader-daysHeader,.MuiPickersCalendar-transitionContainer{
     max-width: 280px;
   }
+  
 }

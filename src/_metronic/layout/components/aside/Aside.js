@@ -155,7 +155,7 @@ const AsideSubMenuList = {
         name: "New Event",
         visible: true,
         shortName: "N",
-        to: "/manage/event-new-event",
+        to: "/manage/event-details",
         icon: "/media/svg/left-menu/events.svg",
         backgroundColor: "#FD905D",
       }, {
