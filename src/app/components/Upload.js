@@ -1,4 +1,3 @@
-// import { makeStyles } from '@material-ui/core';
 import React, { useEffect, useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { toAbsoluteUrl } from '../../_metronic/_helpers';
@@ -7,16 +6,11 @@ import { isStorageConfigured, azureBaseURL, uploadFileToBlobWithSite } from '../
 import { DevConsoleLog } from '../SiteUtill';
 import { Modal } from "react-bootstrap";
 import Cropper from 'react-easy-crop'
-// import { stubTrue } from 'lodash';
 import { getCroppedImg } from '../canvasUtils';
-// import CropImage from './CropImage';
 import PropTypes from 'prop-types';
 
 const storageConfigured = isStorageConfigured();
-const Type = {
-  "image/png": "png",
-  "image/jpeg": "jpeg",
-};
+
 const baseURL = azureBaseURL();
 const thumbsContainer = {
   display: "flex",
@@ -58,9 +52,8 @@ const thumbInner = {
 
 const img = {
   display: "block",
-  width: "auto",
+  width: "auto 100%",
   height: "100%",
-  width: "100%",
   borderRadius: "50%",
   margin: "0",
   outline: "0",
@@ -99,9 +92,9 @@ export function Upload(props) {
   const [croppedAreaPixels, setCroppedAreaPixels] = useState(null)
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
-  const [aspect, setAspect] = useState(1);
-  const [imgType, setImageType] = useState(null);
-  const [croppedImage, setCroppedImage] = useState(null)
+  const [aspect] = useState(1);
+  const [ setImageType] = useState(null);
+  const [ setCroppedImage] = useState(null)
   DevConsoleLog("files-->", files);
   const { getRootProps, getInputProps } = useDropzone({
     accept: "image/*",

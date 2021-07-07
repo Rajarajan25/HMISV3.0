@@ -43,11 +43,6 @@ const UPDATE_BUSINESS = gql`
 export default function BusinessTiming(props) {
   let timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   let business_id = localStorage.getItem("Business_id");
-  let startdate = new Date();
-  startdate = new Date(startdate.setHours(10));
-  let enddate = new Date();
-  enddate = new Date(startdate.setHours(19));
-
   const [updateBusiness] = useMutation(UPDATE_BUSINESS);
   const [loading, setLoading] = useState(false);
   const [preloading, setPreLoading] = useState(false);
@@ -105,7 +100,7 @@ export default function BusinessTiming(props) {
     setSelectedTimezone({ value: currentBusiness.timezone, label: currentBusiness.timezone });
     const sDays = [];
     const sTimes = [props.businessHours];
-    currentBusiness.timings.timing.map((item) => {
+    currentBusiness.timings.timing.forEach((item) => {
       let WorkingId = parseInt(item.work_day_id);
       sDays.push(WorkingId);
       const findIndex = sTimes.findIndex(x => x.work_day_id === WorkingId);
@@ -132,7 +127,7 @@ export default function BusinessTiming(props) {
         onSubmit={
           () => {
             let timing = [];
-            businessHours.map((item) => {
+            businessHours.forEach((item) => {
               if (seletedDays.includes(item.work_day_id)) {
                 const { short_name, bg_color, color, ...rItem } = item;
                 rItem.work_day_id = rItem.work_day_id.toString();
@@ -192,7 +187,7 @@ export default function BusinessTiming(props) {
                       <span className="se_to">to</span>
                       <Field component={TimePickersUtil} timezone={selectedTimezone} autoOk={true} name={`end_time_${index}`} variant="inline" value={item.end_time} disabled={!getActive(item.work_day_id)} onChange={(e) => handleDateChange(e, index, "end_time")} onOpen={e => clickTimePicker(e, index)} />
                     </div>
-                    {index === timePickerIndex && seletedDays.length > 1 && <a><button className="btn btn-link" type="button" onClick={handleAppyAll}>Apply All</button></a>}
+                    {index === timePickerIndex && seletedDays.length > 1 && <a href="/#"><button className="btn btn-link" type="button" onClick={handleAppyAll}>Apply All</button></a>}
                   </div>
                 })}
               </div>

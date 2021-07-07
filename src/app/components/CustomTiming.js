@@ -1,31 +1,20 @@
 import 'date-fns';
 import React, { useState } from "react";
-// import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../_metronic/_helpers";
-import { makeStyles } from '@material-ui/core/styles';
 import FormGroup from '@material-ui/core/FormGroup';
 import Switch from '@material-ui/core/Switch';
 import Grid from '@material-ui/core/Grid';
 import { TimePickersUtil } from "../components/DateAndTimePicker"
-// import FormControl from '@material-ui/core/FormControl';
-// import Select from 'react-select';
 import { withStyles } from '@material-ui/core/styles';
 import MuiExpansionPanel from '@material-ui/core/ExpansionPanel';
 import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-// import Radio from '@material-ui/core/Radio';
-// import RadioGroup from '@material-ui/core/RadioGroup';
 import PropTypes from 'prop-types';
-// import AppBar from '@material-ui/core/AppBar';
-// import Tabs from '@material-ui/core/Tabs';
-// import Tab from '@material-ui/core/Tab';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-// import { Field } from 'formik'
 import Availability from './Availability'
 import { Modal } from "react-bootstrap";
-// import { SessionModel } from '../models/SessionModel';
 import { CommonTiming } from '../models/CommonTiming';
 const ExpansionPanel = withStyles({
   root: {
@@ -68,59 +57,6 @@ const ExpansionPanelDetails = withStyles(theme => ({
   },
 }))(MuiExpansionPanelDetails);
 
-const useStyles = makeStyles(theme => ({
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-  },
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-    maxWidth: 300,
-  },
-  chips: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  chip: {
-    margin: 2,
-  },
-  noLabel: {
-    marginTop: theme.spacing(3),
-  },
-  root: {
-    flexGrow: 1,
-    width: '100%',
-  },
-}));
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
-};
-
-
-function getStyles(name, personName, theme) {
-  return {
-    fontWeight:
-      personName.indexOf(name) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium,
-  };
-}
 
 function TabContainer(props) {
   return (
@@ -134,20 +70,6 @@ TabContainer.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-const locationselect = [
-  { value: 'adayar', label: 'Adayar' },
-  { value: 'tambaram', label: 'Tambaram' }
-]
-const availability = [
-  { value: 'chat', label: 'Chat' },
-  { value: 'call', label: 'Call' },
-  { value: 'video', label: 'Video' },
-  { value: 'inperson', label: 'In Person' }
-]
-
-const breakTime = [
-  { id: 1, start_time: "10:30 AM", end_time: "11:00 AM" }
-]
 export default function CustomTiming(props) {
   const { addTiming } = props;
   let startdate = new Date();
@@ -164,10 +86,8 @@ export default function CustomTiming(props) {
     { work_day_id: 7, short_name: "Sat", color: "sat_d", name: "Saturday", bg_color: "sat_bg", start_time: startdate, end_time: enddate },
   ];
   const [seletedDays, setSelectedDays] = useState([]);
-  const [Break, setBreak] = React.useState(Break);
-  const [customHours, setCustomHours] = useState(days);
+  const [customHours] = useState(days);
   const [addsession, setAddSession] = useState([]);
-  const [value, setValue] = React.useState(0);
 
   const getActive = (id) => {
     const found = seletedDays.find(value => value.work_day_id === id);

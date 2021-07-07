@@ -2,7 +2,6 @@ import 'date-fns';
 import React, { useState } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import FormControl from '@material-ui/core/FormControl';
 import { RadioGroup } from 'formik-material-ui';
 import Radio from '@material-ui/core/Radio';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -178,38 +177,4 @@ Duration.propTypes = {
 
 Duration.propTypes = {
   children: PropTypes.element.isRequired
-}
-
-function DateRange() {
-
-  const useStyles = makeStyles(theme => ({
-    root: {
-      display: 'flex',
-    },
-    formControl: {
-      margin: theme.spacing(3),
-    },
-    group: {
-      margin: theme.spacing(1, 0),
-    },
-  }));
-
-  const classes = useStyles();
-
-
-  return (
-    <div className={classes.root}>
-      <FormControl component="fieldset" className={classes.formControl}>
-        <Field component={RadioGroup}
-          name="date_range"
-          className={classes.group}
-        >
-          <FormControlLabel value="range" control={<Radio />} label="Range" />
-          <FormControlLabel value="infinity" control={<Radio />} label="Infinity" />
-          <FormControlLabel value="default" control={<Radio />} label="Default" />
-        </Field>
-      </FormControl>
-
-    </div>
-  );
 }
