@@ -5115,6 +5115,7 @@ p.setting_color {
   }
   .dx-scheduler-view-switcher.dx-tabs {
     float: right;
+    max-width: 65%;
   }
   .dx-scheduler-navigator {
     float: left;
@@ -6968,6 +6969,7 @@ label.label-tooltip {
 }
 
 .dx-scheduler-view-switcher{ 
+  display: flex;
     .dx-tab{
       padding: 5px 13px !important;
     }  
