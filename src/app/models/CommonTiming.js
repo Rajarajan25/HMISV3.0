@@ -1,4 +1,3 @@
-import { BreakTimeModel } from "./BreakTimeModel";
 
 export const CommonTiming={
     name: "Session1",

@@ -1,20 +1,11 @@
 import React from "react";
-import {Tab, Tabs, Nav, Col, Row} from "react-bootstrap";
+import {Tab, Nav, Col, Row} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { PatientHistory } from "./Patient-history";
 import { PatientApponiment } from "./Patient-appoinment";
 import { PatientInvoice } from "./Patient-invoice";
-import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
-import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import  FormBuilder  from '../../../components/FormBuilders/FormBuilder';
 import FormGenerator from '../../../components/FormBuilders/FormGenerator';
 import * as variables from '../../../components/FormBuilders/variables'
@@ -53,22 +44,22 @@ export  class PatientDetailsTab extends React.Component {
             </div>
             <div className="d-flex justify-content-end flex-fill">
               <div className="tab_col">
-                <img src={toAbsoluteUrl("/media/patients/edit_icon.svg")} alt="edit" />
+                <img src={toAbsoluteUrl("/media/patients/edit_icon.svg")}  alt="edit"/>
               </div>
               <div className="tab_col">
-                <img src={toAbsoluteUrl("/media/patients/email_icon.svg")} alt="msg" className="mai" />
+                <img src={toAbsoluteUrl("/media/patients/email_icon.svg")}  className="mai" alt="email"/>
               </div>
               <div className="tab_col">
-                <img src={toAbsoluteUrl("/media/patients/attch_icon.svg")} alt="attach" />
+                <img src={toAbsoluteUrl("/media/patients/attch_icon.svg")}  alt="email"/>
               </div>
               <div className="tab_col">
-                <img src={toAbsoluteUrl("/media/patients/print_icon.svg")} alt="print" />
+                <img src={toAbsoluteUrl("/media/patients/print_icon.svg")}  alt="email"/>
               </div>
               <div className="tab_col">
-                <img src={toAbsoluteUrl("/media/patients/share_icon.svg")} alt="share" />
+                <img src={toAbsoluteUrl("/media/patients/share_icon.svg")} alt="email" />
               </div>
               <div className="tab_col no-bg">
-                <img src={toAbsoluteUrl("/media/patients/close_icon.svg")} alt="close" />
+                <img src={toAbsoluteUrl("/media/patients/close_icon.svg")} alt="email"  />
               </div>
             </div>
           </Col>
@@ -110,20 +101,8 @@ export  class PatientDetailsTab extends React.Component {
 
 export default PatientDetailsTab;
 
-
-const useStyles = makeStyles({
-  list: {
-    width: 650,
-  },
-  fullList: {
-    width: 'auto',
-  },
-});
-
-
 export function PatientBasicDetails(){
 
-  const classes = useStyles();
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -142,43 +121,12 @@ export function PatientBasicDetails(){
   const toggleDrawerClose = () => {
     setState(false);
   };
-
-  
-  
-  const sideList = side => (
-    <div
-      className={classes.list}
-      role="presentation"
-      onClick={toggleDrawer(side, false)}
-      onKeyDown={toggleDrawer(side, false)}
-    >
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-    </div>
-  );
-
-
   return(
     <div className="d-flex flex-column patientDetailsoverview">
       <div className="d-flex flex-row patientPersoanlinfo">
         <div className="d-flex flex-column align-items-start col-4">
           <div className="bg-light-primary rounded-circle overflow-hidden mb-5 p-0 mh-100 patientProfileimg">
-            <img src={toAbsoluteUrl("/media/users/300_21.jpg")} alt="" className="mh-100" />
+            <img src={toAbsoluteUrl("/media/users/300_21.jpg")}  className="mh-100" alt="user"/>
           </div>
           <div className="d-flex flex-column w-100">
             <div className="d-flex mb-1">
@@ -249,15 +197,15 @@ export function PatientBasicDetails(){
         </div>
         <div className="d-flex w-100">
           <div className="d-flex flex-column testReports p-5 text-center m-3">
-            <img src={toAbsoluteUrl("/media/patients/lab_test.svg")} alt="" className="mx-auto" />
+            <img src={toAbsoluteUrl("/media/patients/lab_test.svg")}  className="mx-auto" alt="test"/>
             <span className="mt-5 font-size-12 font-weight-500">Vitamin B12</span>
           </div>
           <div className="d-flex flex-column testReports p-5 text-center m-3">
-            <img src={toAbsoluteUrl("/media/patients/virus_issues.svg")} alt="" className="mx-auto" />
+            <img src={toAbsoluteUrl("/media/patients/virus_issues.svg")}  className="mx-auto" alt="virus" />
             <span className="mt-5 font-size-12 font-weight-500">Corona Test</span>
           </div>
           <div className="d-flex flex-column testReports p-5 text-center m-3">
-            <img src={toAbsoluteUrl("/media/patients/heart_beat.svg")} alt="" className="mx-auto" />
+            <img src={toAbsoluteUrl("/media/patients/heart_beat.svg")}  className="mx-auto" alt="heart" />
             <span className="mt-5 font-size-12 font-weight-500 text-wrap">Heart Beat</span>
           </div>
         </div>
@@ -268,7 +216,7 @@ export function PatientBasicDetails(){
           <div className="py-5 px-10 overflow-auto">
             <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}>
               <span className="my-auto font-weight-500">
-                <img src={toAbsoluteUrl("/media/patients/drawer_close.svg")} alt="" className="d-block" />
+                <img src={toAbsoluteUrl("/media/patients/drawer_close.svg")}  className="d-block" alt="close" />
               </span>  
             </Link>
             <BookDetail />
@@ -284,7 +232,7 @@ export function PatientFileList() {
   return (
     <div className="d-flex w-100 patientFiles">
       <div className="d-flex w-100 patientFiles_inner">
-        <img alt="patient image" className="mh-100 rounded align-self-center mr-5" src={toAbsoluteUrl("/media/patients/patient_files.svg")} />
+        <img className="mh-100 rounded align-self-center mr-5" src={toAbsoluteUrl("/media/patients/patient_files.svg")} alt="files" />
         <div className="d-flex my-auto w-100">
           <Link to="#" className="font-weight-500 font-size-14 userName">
               Check up result.pdf
@@ -292,8 +240,8 @@ export function PatientFileList() {
           <span className="my-auto ml-auto font-size-12 file_hover"> 
             <span class="file_size">12 kb</span> 
             <span class="file_icon">
-              <img alt="image" className="mh-100 rounded align-self-center ml-2" src={toAbsoluteUrl("/media/patients/delete_icon.svg")} /> 
-              <img alt="image" className="mh-100 rounded align-self-center ml-2" src={toAbsoluteUrl("/media/patients/down_icon.svg")} />
+              <img  className="mh-100 rounded align-self-center ml-2" src={toAbsoluteUrl("/media/patients/delete_icon.svg")} alt="delete" /> 
+              <img  className="mh-100 rounded align-self-center ml-2" src={toAbsoluteUrl("/media/patients/down_icon.svg")} alt="down" />
             </span>
           </span>
         </div>

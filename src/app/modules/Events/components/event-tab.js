@@ -1,8 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { makeStyles } from '@material-ui/core/styles';
-import {Button} from "react-bootstrap";
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
@@ -67,7 +65,7 @@ export function EventTab() {
           </div>
         </div>
 
-      <div className={'timingavail p-4'+' '+classes.root}>
+      <div className={'timingavail p-4 '+classes.root}>
         <div className="tab-right">
           {value === 0 && <TabContainer> <ContentEventDetails />  </TabContainer>}
           {value === 1 && <TabContainer> <ContentEventTiming /> </TabContainer>}
@@ -156,7 +154,7 @@ export function ContentEventAdditional() {
           </AppBar>
         </div>
       </div>
-      <div className={'timingavail px-0 py-4'+' '+classes.root}>
+      <div className={'timingavail px-0 py-4 '+classes.root}>
         <div className="">
           {value === 0 && <TabContainer> <ContentEventBook /> </TabContainer>}
           {value === 1 && <TabContainer> <ContentEventInvite /> </TabContainer>}

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, Row, Col} from "react-bootstrap";
+import {Image} from "react-bootstrap";
 import { toAbsoluteUrl } from "../../../../../../_metronic/_helpers";
 
 export default function Stepper1() {

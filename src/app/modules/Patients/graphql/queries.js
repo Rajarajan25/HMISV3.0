@@ -1,21 +1,4 @@
 import gql from "graphql-tag";
-
-const service_relationships = `
-service_relationships {
-    service_duration{
-      duration_id{
-        time_zone
-        status
-        duration_hours
-        duration_minutes
-        buffer_before_min
-        buffer_after_min
-        
-      }
-    }
-  }
-`;
-
 export const GET_SERVICE = gql`
   query{
     getService{

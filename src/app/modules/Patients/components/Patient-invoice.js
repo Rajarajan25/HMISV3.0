@@ -2,32 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Table from '@material-ui/core/Table';
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
-import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 
-const useStyles = makeStyles({
-  list: {
-    width: 650,
-  },
-  fullList: {
-    width: 'auto',
-  },
-});
 
 export function PatientInvoice() {
   
-  const classes = useStyles();
   const [state, setState] = React.useState({
     top: false,
     left: false,
     bottom: false,
     right: false,
   });
-  const styles = {
-    BackdropProps: {
-      background: 'transparent'
-    }
-  };
+  
   const toggleDrawer = (side, open) => event => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;

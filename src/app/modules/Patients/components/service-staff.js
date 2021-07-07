@@ -1,22 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
-import { makeStyles } from '@material-ui/core/styles';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 
-const useStyles = makeStyles({
-  list: {
-    width: 650,
-  },
-  fullList: {
-    width: 'auto',
-  },
-});
-
 export function ServiceStaff() {
-  const classes = useStyles();
   return (
     <div className="staff_first staff_third w-100 p-6">
       <div className="form-group border-bottom d-none">

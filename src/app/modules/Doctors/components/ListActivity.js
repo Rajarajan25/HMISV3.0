@@ -1,30 +1,9 @@
-import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { StaffDetailsTab } from "./staff-details-tab";
+import React from 'react';
 import { TableHeader } from '../../../components/TableHeader';
 import { TableRow } from '../../../components/TableRow';
 import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
-import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import PropTypes from 'prop-types';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-  },
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular,
-  },
-  list: {
-    width: 650,
-  },
-  fullList: {
-    width: "auto",
-  },
-}));
 
 const Column = [
   { name: "Service Provider", hide: false,col_size:"3"},
@@ -48,7 +27,6 @@ const field={
   phone:{lable:"phone",col_size:"2"},
 }
 export function ListActivity01(props) {
-  const classes = useStyles();
   const { dataList, toggleDrawer,handleDelete, handleDuplicate, loading,handleChangeServices} = props;
   const [expanded, setExpanded] = React.useState(true);
   const handleChange = () => {

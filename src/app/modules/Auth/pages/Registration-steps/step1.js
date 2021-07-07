@@ -12,7 +12,7 @@ import FormLabel from "@material-ui/core/FormLabel";
 import countryList from "react-select-country-list";
 import Select from "react-select";
 import { Formik, Field } from "formik";
-import { gql, useQuery, useMutation } from "@apollo/client";
+import { gql, useMutation } from "@apollo/client";
 import { BusinessContext } from "../BusinessContext";
 import LocationSearchInput from "./LocationSearchInput";
 import { DevConsoleLog } from "../../../../SiteUtill";
@@ -39,32 +39,6 @@ const ADD_BUSINESS = gql`
       state
       zip_code
       applyMonth
-      timings {
-        timing {
-          start_time
-          end_time
-        }
-      }
-    }
-  }
-`;
-const GET_BUSINESS = gql`
-  {
-    getBusiness {
-      sub_category_ids
-      phone_no
-      name
-      billingAddress
-      size
-      type
-      phone_country
-      phone_no
-      _id
-      parent_category_ids
-      timezone
-      applyWeek
-      applyMonth
-      acceptTerms
       timings {
         timing {
           start_time
@@ -127,7 +101,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Registration(props) {
-  const { intl } = props;
   const { handleNext } = props;
   let business_id = localStorage.getItem("Business_id");
   let formPrefill = localStorage.getItem("BackFlag") === "Y";
@@ -152,7 +125,6 @@ function Registration(props) {
   const [phone, setPhone] = useState(options[0]);
   const [addBusiness] = useMutation(ADD_BUSINESS);
   const [updateBusiness] = useMutation(UPDATE_BUSINESS);
-  const { data } = useQuery(GET_BUSINESS);
   const [formValues, setFormValues] = useState(null);
   const [googleAddress, setGoogleAddress] = useState(null);
   const enableLoading = () => {
@@ -584,7 +556,7 @@ function Registration(props) {
                   <Field type="checkbox" name="acceptTerms" className="m-1" />
                   <span />
                   <Link
-                    to="javascript:void(0);"
+                    to="/#"
                     target="_blank"
                     className="mr-1 terms_c"
                     rel="noopener noreferrer"

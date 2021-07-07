@@ -1,13 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
-import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import { Upload } from "../../../components/Upload";
 import { Formik, Field } from "formik";
 import { ColorPaletteFormik } from "../../../components/ColorPalette";
 import { scroller } from "react-scroll";
 import Scrollspy from "react-scrollspy";
-import { Hidden } from "@material-ui/core";
 const fieldType = {
   Name: "Name",
   Color: "Color",
@@ -109,6 +107,8 @@ export default function WorkSpace1(props) {
           } else {
             scrollEle = fieldType.Business;
           }
+          break;
+        default:
           break;
       }
       setFormActions(updatedValue);

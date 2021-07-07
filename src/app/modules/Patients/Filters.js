@@ -10,7 +10,7 @@ export  function Filters(props){
     shallowEqual
   );
 
-  const { listService, currentService } = currentState;
+  const { listService } = currentState;
     const fields = [
         {
          dataField: 'name',

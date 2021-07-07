@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { ServiceContext } from "./ServiceContext";
+import React, {  useEffect } from "react";
 import { ServiceDetailsTab } from "./service-details-tab";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
@@ -35,7 +33,6 @@ export default function ServiceProviderContainer(props) {
     (state) => ({ currentState: state.service }),
     shallowEqual
   );
-  const [show, setShow] = useState(true);
   const [toastOpen, setToast] = React.useState(true);
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
@@ -76,15 +73,11 @@ export default function ServiceProviderContainer(props) {
 
   const handleDuplicate = (duplicatedItem) => {
     let duplicate = JSON.parse(JSON.stringify(duplicatedItem));
-    let tempPickItem = JSON.parse(JSON.stringify(listService));
-    let duplicatedIndex = tempPickItem.findIndex(
-      (elm) => elm.id === duplicate.id
-    );
     delete duplicate.id;
     let isDuplicateID = 1;
     let duplicateName = duplicate.name;
     let i = 1;
-    while (isDuplicateID != -1) {
+    while (isDuplicateID !== -1) {
       duplicateName = duplicateName.replace(/[0-9]\s*$/, "") + "" + i;
       isDuplicateID = checkDuplicate(duplicateName);
       i++;
@@ -100,7 +93,7 @@ export default function ServiceProviderContainer(props) {
     });
   };
   const checkDuplicate = (value) => {
-    let checkIndex = -1;
+    let checkIndex ;
     return (checkIndex = listService.findIndex((elm) => elm.name === value));
   };
   const handleDelete = () => {
@@ -116,7 +109,7 @@ export default function ServiceProviderContainer(props) {
       dialogHide();
     });
   };
-  const handleChangeDropDown = (selectedVal, id, type, indexs) => {
+  const handleChangeDropDown = (selectedVal, id, type) => {
     let index = 0;
     let tempPickList = JSON.parse(JSON.stringify(listService));
     const currentServiceList = tempPickList.map((item, i) => {
@@ -141,11 +134,10 @@ export default function ServiceProviderContainer(props) {
     });
   };
   const handleChangeServices = (selectedVal, type, id) => {
-    let index = 0;
     state.isloading = true
     let tempPickList = JSON.parse(JSON.stringify(listService));
     let currentServiceList = JSON.parse(JSON.stringify(currentService));
-    const currentServiceLists = tempPickList.map((item, i) => {
+    tempPickList.map((item) => {
       if (id === item.id) {
         currentServiceList = item
       }
@@ -189,12 +181,6 @@ export default function ServiceProviderContainer(props) {
         dispatch(actions.editService(res.data.updateService));
       })
 
-  };
-
-  const handleCancel = (props) => {
-    this.setState({
-      isDrawerOpen: !this.state.isDrawerOpen,
-    });
   };
 
   const toggleDrawer = (open, selectedItem, index) => (event) => {

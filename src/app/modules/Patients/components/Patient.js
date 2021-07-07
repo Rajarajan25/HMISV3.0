@@ -10,7 +10,7 @@ export function PatientList() {
       <div className="symbol symbol-50 symbol-light">
         <span className="symbol-label">
           <img
-            alt="patient image" 
+            alt="patient" 
             className="mh-100 rounded-circle align-self-center"
             src={toAbsoluteUrl("/media/users/300_20.jpg")}
           />

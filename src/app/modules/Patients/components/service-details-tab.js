@@ -7,17 +7,13 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
-import { ServiceDetail } from "./service-detail";
-import { ServiceCost } from "./service-cost";
-import { ServiceStaff } from "./service-staff";
 import { ServiceTiming } from "./service-timing";
 import { ServiceNotify } from "./service-notify";
 import { ServiceSettings } from "./service-settings";
-import { ServiceContext } from './ServiceContext'
 import { Details } from '../../../components/Details'
 import { Duration } from '../../../components/Duration'
 import { StaffService } from "./service-sales";
-import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import {  useDispatch } from "react-redux";
 import { ServiceSlice } from "./ServiceSlice";
 import { AzureImageview } from '../../../components/AzureImageview';
 import  FormBuilder  from '../../../components/FormBuilders/FormBuilder';
@@ -158,8 +154,9 @@ ServiceDetailsTab.propTypes={
 }
 export function StaffName(props) {
   const { currentService } = props
-  if (currentService.description) var strippedHtml = currentService.description.replace(/<[^>]+>/g, '');
-  else var strippedHtml = ""
+  let strippedHtml=""
+  if (currentService.description)  strippedHtml = currentService.description.replace(/<[^>]+>/g, '');
+  else  strippedHtml = ""
   return (
     <div class="d-flex">
       <AzureImageview data={currentService} />

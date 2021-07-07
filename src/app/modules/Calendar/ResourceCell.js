@@ -2,12 +2,12 @@ import React from 'react';
 
 class ResourceCell extends React.PureComponent {
   render() {
-    const { data: { color, text, data: { avatar, age, discipline } } } = this.props;
+    const { data: { text, data: { avatar, age, discipline } } } = this.props;
     return (
       <div className="dx-template-wrapper">
         <div className="group-staff">
           <div className="avatar">
-            <img src={avatar} />
+            <img src={avatar} alt="avatar"/>
           </div>
           <div className="infos">
             <div className="group-name">

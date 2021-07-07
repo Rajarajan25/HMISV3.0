@@ -1,24 +1,10 @@
-import React, { useState } from "react";
-import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
-import { makeStyles } from '@material-ui/core/styles';
-import Search from '../../../components/Search';
+import React from "react";
 import { Formik } from 'formik';
 import { StaffServiceList } from "../../../components/StaffServiceList";
 import { ButtonLoading } from "../../../components/ButtonLoading";
 import PropTypes from 'prop-types';
 
-const useStyles = makeStyles({
-  list: {
-    width: 650,
-  },
-  fullList: {
-    width: 'auto',
-  },
-});
-
-
 export function StaffService(props) {
-  const classes = useStyles();
   const { current,index,handleChangeServices,isloading } = props;
   const { service_relationships} = current;
   const initValue = {
@@ -31,7 +17,7 @@ export function StaffService(props) {
       enableReinitialize={true}
       onSubmit={(values) => {
         console.log("values", JSON.stringify(values));
-        if (index != -1) {
+        if (index !== -1) {
           handleChangeServices(values.staff,"service_staff", current.id);
           return;
         }

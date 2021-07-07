@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ListGroup, ListGroupItem } from "react-bootstrap";
+import { ListGroup } from "react-bootstrap";
 import Dropdown from "react-bootstrap/Dropdown";
 import Switch from "@material-ui/core/Switch";
 import FormGroup from "@material-ui/core/FormGroup";
@@ -11,8 +11,6 @@ import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import Card from "react-bootstrap/Card";
 import CloseIcon from "@material-ui/icons/Close";
 import { DropdownItemToggler } from "../../../../_metronic/_partials/dropdowns";
-import Menu from "@material-ui/core/Menu";
-import { styled } from "@material-ui/core/styles";
 import { EventTab } from "./event-tab";
 import Drawer from '@material-ui/core/Drawer';
 
@@ -45,43 +43,6 @@ const useStyles = makeStyles({
 });
 
 // menubutton
-const StyledMenu = styled((props) => (
-  <Menu
-    elevation={0}
-    anchorOrigin={{
-      vertical: "bottom",
-      horizontal: "left",
-    }}
-    transformOrigin={{
-      vertical: "top",
-      horizontal: "left",
-    }}
-    {...props}
-  />
-))(({ theme }) => ({
-  "& .MuiPaper-root": {
-    borderRadius: 6,
-    marginTop: theme.spacing(1),
-    minWidth: 100,
-    color:
-      theme.palette.mode === "light"
-        ? "rgb(55, 65, 81)"
-        : theme.palette.grey[300],
-    boxShadow:
-      "rgb(255, 255, 255) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px",
-    "& .MuiList-root": {
-      padding: "4px 0",
-    },
-    "& .MuiListItem-root": {
-      ...theme.typography.body1,
-      "& .MuiSvgIcon-root": {
-        fontSize: 18,
-        color: theme.palette.text.secondary,
-        marginRight: theme.spacing(1.5),
-      },
-    },
-  },
-}));
 
 // check box-end
 
@@ -185,12 +146,6 @@ export function EventDashboard() {
     bottom: false,
     right: false,
   });
-  const styles = {
-    BackdropProps: {
-      background: 'transparent'
-    }
-  };
-  
   const toggleDrawer = (side, open) => event => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;

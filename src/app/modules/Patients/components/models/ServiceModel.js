@@ -1,5 +1,3 @@
-import { duration } from '@material-ui/core';
-import {TimingsModel} from '../../../../models/TimingsModel';
 export const ServiceModel={
     allow_multiple_appointment: false,
     allow_waitlist: false,
