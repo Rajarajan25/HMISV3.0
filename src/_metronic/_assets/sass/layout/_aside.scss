@@ -296,8 +296,9 @@ $text-white: #fff;
 				margin-left:8px ;
 			> .menu-item > {
 				.menu-link {
-				padding: 0 8px;
-				min-height: 36px;
+					padding: 0 8px 0 15px;
+					min-height: 36px;
+					margin: 5px 0;
 				}
 			}
 		}
@@ -354,7 +355,7 @@ $text-white: #fff;
 			color:#4169e1;
 			font-family: Segoe UI,Proxima Nova,arial,serif;
 			font-weight: 500;
-			font-size: 14px;
+			font-size: 1.05rem;
 		}
 		.aside-menu .menu-nav > .menu-item.menu-item-active > .menu-heading .menu-icon.svg-icon svg g [fill], .aside-menu .menu-nav > .menu-item.menu-item-active > .menu-link .menu-icon.svg-icon svg g [fill]{
 			fill:#fff;

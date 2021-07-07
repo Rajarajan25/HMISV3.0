@@ -93,7 +93,8 @@ export function AsideMenuList({ layoutProps, menuList = [], title = "" }) {
         {/*begin::1 Level*/}
         {menuList.map((item, i) => {
           return (item.custom_ui ? 
-          <div className="custom-picker"><DatePickersKeyboardUtil /> </div>:
+          
+                <li><div className="custom-picker"><DatePickersKeyboardUtil /> </div></li>:
                 <li
                   className={`menu-item ${getMenuItemActive(item.to, item.isMenu)}`}
                   aria-haspopup="true"
@@ -153,4 +154,13 @@ export function AsideMenuList({ layoutProps, menuList = [], title = "" }) {
       {/* end::Menu Nav */}
     </div>
   );
+}
+
+
+export function CalendarPicker() {
+  return (
+    <div className="clearfix">
+
+    </div>
+  )
 }
