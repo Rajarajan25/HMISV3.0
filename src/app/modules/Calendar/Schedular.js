@@ -137,7 +137,7 @@ export default function Schedular  () {
         groupByDate={groupByDate}
         defaultCurrentDate={currentDate}
         editing={state}
-        height={800}
+        height={600}
         appointmentRender={AppointmentTemplate}
         onContentReady={onContentReady}
         resourceCellComponent={ResourceCell}

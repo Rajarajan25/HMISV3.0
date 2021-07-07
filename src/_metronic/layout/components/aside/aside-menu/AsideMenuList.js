@@ -95,7 +95,7 @@ export function AsideMenuList({ layoutProps, menuList = [], title = "" }) {
           return (item.custom_ui ? 
           <div className="custom-picker"><DatePickersKeyboardUtil /> </div>:
                 <li
-                  className={`menu-item ${getMenuItemActive(item.to, item.isMenu)}`}
+                  className={`menu-item ${item.isMenu&&"menu-item-submenu"} ${getMenuItemActive(item.to, item.isMenu)}`}
                   aria-haspopup="true"
                   data-menu-toggle="hover"
                   key={i}
@@ -103,7 +103,7 @@ export function AsideMenuList({ layoutProps, menuList = [], title = "" }) {
                   <NavLink className={`menu-link menu-toggle ${item.isMenu && "ml-5"}`} to={item.to}>
                     {item.isMenu && (<>
                       <i className="fas fa-caret-right" />
-                      <span className="svg-icon menu-icon d-flex flex-column rounded customMenutexticon bgCustom1">
+                      <span className="svg-icon menu-icon d-flex flex-column rounded customMenutexticon bgCustom1" style={{ backgroundColor: item.backgroundColor }}>
                         {item.shortName}
                       </span>
                     </>)}
