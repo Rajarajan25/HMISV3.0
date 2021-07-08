@@ -121,9 +121,9 @@ export function ServiceDetailsTab(props) {
         <div className="p-0">
           {value === 0 && <TabContainer> <Details current={currentservice} type={"service"} handleSave={editService} fields={field}
             index={currentIndex} handleUpdate={handleUpdate} isloading={isloading} /> </TabContainer>}
-          {value === 1 && <TabContainer> 
+          {value === 1 && <TabContainer>
             {/* <Duration data={currentservice} handleSave={editService} fields={timing_field} />  */}
-            <FormBuilder/>
+            <FormBuilder />
           </TabContainer>}
           {/* {value === 1 && <TabContainer> <ServiceCost/> </TabContainer>} */}
           {value === 2 && <TabContainer> <StaffService handleChangeServices={handleChangeServices}
@@ -131,7 +131,7 @@ export function ServiceDetailsTab(props) {
             index={currentIndex} handleUpdate={handleUpdate} handleSave={editService}
             fields={service_field} isloading={isloading}
           /> </TabContainer>}
-          {value === 3 && <TabContainer> <ServiceTiming data={currentService} fields={timing_field} handleSave={editService}/> </TabContainer>}
+          {value === 3 && <TabContainer> <ServiceTiming data={currentService} fields={timing_field} handleSave={editService} /> </TabContainer>}
           {value === 4 && <TabContainer> <StaffService handleChangeServices={handleChangeServices}
             {...props} current={currentservice}
             index={currentIndex} handleUpdate={handleUpdate} handleSave={editService}
@@ -147,12 +147,12 @@ export function ServiceDetailsTab(props) {
 }
 
 
-ServiceDetailsTab.propTypes={
-  handleUpdate:PropTypes.func.isRequired,
-  currentIndex:PropTypes.number.isRequired,
-  currentService:PropTypes.object.isRequired,
-  handleChangeServices:PropTypes.func.isRequired,
-  isloading:PropTypes.bool.isRequired
+ServiceDetailsTab.propTypes = {
+  handleUpdate: PropTypes.func.isRequired,
+  currentIndex: PropTypes.number.isRequired,
+  currentService: PropTypes.object.isRequired,
+  handleChangeServices: PropTypes.func.isRequired,
+  isloading: PropTypes.bool.isRequired
 }
 export function StaffName(props) {
   const { currentService } = props
@@ -168,8 +168,8 @@ export function StaffName(props) {
     </div>
   );
 }
-StaffName.propTypes={
-  currentService:PropTypes.object.isRequired
+StaffName.propTypes = {
+  currentService: PropTypes.object.isRequired
 }
 export function TabServiceDetails() {
   return (

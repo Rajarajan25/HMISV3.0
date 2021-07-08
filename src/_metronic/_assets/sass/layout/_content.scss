@@ -6103,13 +6103,29 @@ p.setting_color {
     margin: 8px 13px 8px 0;
     cursor: pointer;
     border: 0;
+    .chat_bg {
+      background: #1caaf4;
+      display: inline-block;
+      line-height: 19px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      text-align: center;
+      margin-right: 7px;
+      font-size: 1rem;
+      img {
+        margin-right: auto;
+        height: auto;
+        margin-top: 0;
+      }
+    }
     &:hover {
       transform: scale(1.05);
-      border: 0px solid #1c6afc;
+      //border: 0px solid #1c6afc;
       animation: shadow-pulse 1s infinite;
     }
     &.active {
-      background: #EAF4FF;
+      background: #eaf4ff;
     }
     img {
       margin-right: 10px;
@@ -6153,6 +6169,19 @@ p.setting_color {
         font-weight: 500;
         font-size: 12px;
       }
+    }
+  }
+  .active {
+    position: relative;
+    border: 1px solid blue;
+    &::before {
+      content: "";
+      background: url(/media/patients/select_avatar.svg);
+      position: absolute;
+      width: 13px;
+      height: 13px;
+      bottom: -4px;
+      right: -6px;
     }
   }
 }
@@ -6604,7 +6633,7 @@ $large-desktops: 1730px;
   margin-top: 20px;
 }
 .menu-link {
-  .menu-sub-icons{
+  .menu-sub-icons {
     height: 30px;
     width: 30px;
     border-radius: 5px;
@@ -6832,7 +6861,7 @@ label {
   padding-top: 6px;
   display: none;
   cursor: pointer;
-  img{
+  img {
     width: 100%;
     object-fit: cover;
   }
@@ -6869,7 +6898,7 @@ label {
 label.label-tooltip {
   width: 15px;
   height: 15px;
-  border: 1px solid #3F4254;
+  border: 1px solid #3f4254;
   text-align: center;
   line-height: 12px;
   border-radius: 50%;
@@ -6907,33 +6936,33 @@ label.label-tooltip {
       }
     }
   }
-  .dx-scheduler-group-header-content{
-    & > div{
-      &:nth-child(1){
+  .dx-scheduler-group-header-content {
+    & > div {
+      &:nth-child(1) {
         display: none;
       }
     }
   }
-  .dx-scheduler-group-header{
+  .dx-scheduler-group-header {
     width: 100% !important;
   }
 }
-.dx-scheduler-date-table-scrollable{
-  .dx-item-content{
-    .movie{
-      .service_name{
+.dx-scheduler-date-table-scrollable {
+  .dx-item-content {
+    .movie {
+      .service_name {
         font-size: 0.9rem !important;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
       }
-      .service_time{
+      .service_time {
         font-size: 9px !important;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
       }
-      .movie-img{
+      .movie-img {
         margin-right: 5px !important;
       }
     }
@@ -6949,26 +6978,25 @@ label.label-tooltip {
 //   align-items: flex-start;
 // }
 
-.dx-scheduler{
-  .dx-scheduler-appointment{
+.dx-scheduler {
+  .dx-scheduler-appointment {
     margin-bottom: 3px;
     padding: 0px 5px;
     display: block;
     width: 100% !important;
   }
-  .dx-button-text{
-    font-size: 20px;  
+  .dx-button-text {
+    font-size: 20px;
   }
-  .dx-button-content{
+  .dx-button-content {
     padding: 5px 18px 8px;
   }
-
 }
 
-.dx-scheduler-view-switcher{ 
-    .dx-tab{
-      padding: 5px 13px !important;
-    }  
+.dx-scheduler-view-switcher {
+  .dx-tab {
+    padding: 5px 13px !important;
+  }
 }
 
 // .dx-scheduler-scrollable-appointments {
@@ -6978,11 +7006,10 @@ label.label-tooltip {
 //   margin: 0px !important;
 // }
 
-.dx-scheduler-appointment-collector-content{
-  span{
-    &:last-child{
+.dx-scheduler-appointment-collector-content {
+  span {
+    &:last-child {
       font-size: 14px;
     }
   }
 }
-

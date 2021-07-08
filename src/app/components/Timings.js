@@ -1,15 +1,16 @@
 import React from 'react'
 import BusinessTiming from './BusinessTiming';
 import CustomTiming from './CustomTiming'
-import RadioGroup from '@material-ui/core/RadioGroup';
-import Radio from '@material-ui/core/Radio';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+// import RadioGroup from '@material-ui/core/RadioGroup';
+// import Radio from '@material-ui/core/Radio';
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { makeStyles } from '@material-ui/core/styles';
 // import { DevConsoleLog } from '../SiteUtill';
 import { Field } from 'formik'
 import { TimingsModel } from '../models/TimingsModel';
 import Availability from './Availability';
 import PropTypes from 'prop-types';
+import AvailabilityNew from './AvailablityNew';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -80,7 +81,8 @@ export default function Timings(props) {
             <FormControlLabel value={false} checked={formikValues.timings.timing_id.sessions.custome_hour} control={<Radio />} label="Custom" />
           </Field>
         </div> */}
-        <Availability {...props} />
+        {/* <Availability {...props} /> */}
+        <AvailabilityNew />
         {formikValues.timings.timing_id.sessions.business_hour ?
           <BusinessTiming {...props} /> :
           <CustomTiming {...props} addTiming={false} />}

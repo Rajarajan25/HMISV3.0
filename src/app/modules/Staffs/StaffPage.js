@@ -55,7 +55,7 @@ class StaffPage extends React.Component {
             isDrawerOpen: false,
             currentStaff: false,
             currentIndex: -1,
-            staffList: [],
+            staffList: [{ name: "Agilan" }],
             isUpdate: true,
             isDragDisabled: false,
             isloading: false,
@@ -67,7 +67,7 @@ class StaffPage extends React.Component {
     }
 
     componentDidMount() {
-      //  BookingURL.zoomMeeting();
+        //  BookingURL.zoomMeeting();
     }
 
     componentDidUpdate() {
@@ -96,8 +96,8 @@ class StaffPage extends React.Component {
         this.setState({ isDrawerOpen: false, currentStaff: false });
     };
 
-    handleChangeDropDown = (selectedVal, id, type,indexes) => {
-        DevConsoleLog("type-->",type);
+    handleChangeDropDown = (selectedVal, id, type, indexes) => {
+        DevConsoleLog("type-->", type);
         let index = 0;
         const currentStaffList = this.state.staffList.map((item, i) => {
             if (id === item.id) {
@@ -124,7 +124,7 @@ class StaffPage extends React.Component {
                 DevAlertPopUp(error.message);
             });
     };
-     handleChangeServices = (selectedVal, type,id) => {
+    handleChangeServices = (selectedVal, type, id) => {
         let index = 0;
         const currentStaffList = this.state.staffList.map((item, i) => {
             if (id === item.id) {
@@ -151,7 +151,7 @@ class StaffPage extends React.Component {
             .catch((error) => {
                 DevAlertPopUp(error.message);
             });
-      };
+    };
     handleUpdate = (updatedValue, index) => {
         let tempPickList = JSON.parse(JSON.stringify(this.state.staffList));
         let updatedItem = tempPickList[index];
@@ -277,7 +277,7 @@ class StaffPage extends React.Component {
     handleSearch = (value) => {
         this.setState({ searchValue: value });
     }
-    handleSort  = (value) => {
+    handleSort = (value) => {
         this.setState({ staffList: value });
     }
     dragableDisable = (value) => {
@@ -347,9 +347,9 @@ class StaffPage extends React.Component {
                         handleDataSource={this.handleDataSource}
                         handleDelete={this.deletePopUp}
                         handleDuplicate={this.handleDuplicate}
-                        searchValue={this.state.searchValue}/>
+                        searchValue={this.state.searchValue} />
 
-                    
+
                 </div>
                 <AddFab onClick={this.toggleDrawer(true)} />
                 <RightSideDrawer
@@ -364,7 +364,7 @@ class StaffPage extends React.Component {
                         addNew={this.addNewStaff} />
                 </RightSideDrawer>
 
-                <DeleteDialog 
+                <DeleteDialog
                     show={this.state.showDialog}
                     onHide={this.dialogHide}
                     deleteAction={this.handleDelete}

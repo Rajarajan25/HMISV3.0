@@ -11,7 +11,7 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import { AvailabilityModel } from '../models/AvailabilityModel';
 import { toAbsoluteUrl } from "../../_metronic/_helpers";
-
+import AvailabilityNew from "./AvailablityNew";
 function TabContainer(props) {
   return (
     <Typography component="div">
@@ -59,6 +59,7 @@ export default function Availability(props) {
               <Tab label={<TabPerson />} />
               <Tab label={<TabCall />} />
               <Tab label={<TabVideo />} />
+
             </Tabs>
           </AppBar>
         </div>

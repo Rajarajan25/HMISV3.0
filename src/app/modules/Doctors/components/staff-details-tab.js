@@ -40,7 +40,7 @@ export function StaffDetailsTab(props) {
   const [value, setValue] = React.useState(0);
   const [toastOpen, setToast] = React.useState(false);
   const { data, index, handleUpdate } = props;
-  const [isProviderEnable, setIsProviderEnable] = React.useState(data.is_service_provider);
+  const [isProviderEnable, setIsProviderEnable] = React.useState(true);
   const { staff_timings } = data;
   const durationData = {
     timings: staff_timings ? staff_timings[0] : {},
@@ -93,7 +93,7 @@ export function StaffDetailsTab(props) {
   }
   const handleProvider = (values, checked) => {
     setIsProviderEnable(checked);
-    data.is_service_provider=checked;
+    data.is_service_provider = checked;
   }
   return (
 
@@ -128,7 +128,7 @@ export function StaffDetailsTab(props) {
               <StaffSetting />}
           </TabContainer>}
           {value === 2 && <TabContainer> <StaffService {...props} current={data} handleSave={editStaff} fields={service_field} /> </TabContainer>}
-          {value === 3 && <TabContainer> <StaffSetting/> </TabContainer>}
+          {value === 3 && <TabContainer> <StaffSetting /> </TabContainer>}
         </div>
       </div>
       <Toast message={"Please fill and save,after move to the tab"} open={toastOpen} handleClose={handleClose} />
@@ -136,15 +136,15 @@ export function StaffDetailsTab(props) {
   );
 }
 
-StaffDetailsTab.propTypes={
-  data:PropTypes.array.isRequired,
-  index:PropTypes.number.isRequired,
-  handleUpdate:PropTypes.func.isRequired
+StaffDetailsTab.propTypes = {
+  data: PropTypes.array.isRequired,
+  index: PropTypes.number.isRequired,
+  handleUpdate: PropTypes.func.isRequired
 }
 
 export function StaffName(props) {
   const { data } = props;
-  var strippedHtml = data.description.replace(/<[^>]+>/g, '');
+  var strippedHtml = (data.description) ? data.description.replace(/<[^>]+>/g, '') : "";
 
   return (
     <div className="d-flex">
@@ -157,8 +157,8 @@ export function StaffName(props) {
   );
 }
 
-StaffName.propTypes={
-  data:PropTypes.object.isRequired
+StaffName.propTypes = {
+  data: PropTypes.object.isRequired
 }
 export function TabDetails() {
   return (
