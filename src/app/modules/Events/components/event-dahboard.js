@@ -14,8 +14,7 @@ import { DropdownItemToggler } from "../../../../_metronic/_partials/dropdowns";
 import Menu from "@material-ui/core/Menu";
 import { styled } from "@material-ui/core/styles";
 import { EventTab } from "./event-tab";
-import Drawer from '@material-ui/core/Drawer';
-
+import Drawer from "@material-ui/core/Drawer";
 const useStyles = makeStyles({
   avatar: {
     margin: 5,
@@ -134,46 +133,46 @@ export function ColorDropdownMenu() {
 }
 
 export function Bottomeventselector() {
-  return ( 
-  <div>
-    <div className="drawer-icons-bottom-content">
-      <div className="drawer-close-icon">
-        <span className="close-icon">
-          <CloseIcon />
-        </span>
-        <span className="even-number-of-count">1 Event Selected</span>
-      </div>
-      <span className="v-br"></span>
-      <div className="drawer-icons-bottom">
-        <ul className="ul-event-selected-menu">
-          <li>
-            <span>
-              <img
-                alt="icons"
-                src={toAbsoluteUrl("/media/events/copy-event.svg")}
-              />
-            </span>
-          </li>
-          <li>
-            <span>
-              <img
-                alt="icons"
-                src={toAbsoluteUrl("/media/events/calendar.svg")}
-              />
-            </span>
-          </li>
-          <li>
-            <span>
-              <img
-                alt="icons"
-                src={toAbsoluteUrl("/media/events/event-delete.svg")}
-              />
-            </span>{" "}
-          </li>
-        </ul>
+  return (
+    <div>
+      <div className="drawer-icons-bottom-content">
+        <div className="drawer-close-icon">
+          <span className="close-icon">
+            <CloseIcon />
+          </span>
+          <span className="even-number-of-count">1 Event Selected</span>
+        </div>
+        <span className="v-br"></span>
+        <div className="drawer-icons-bottom">
+          <ul className="ul-event-selected-menu">
+            <li>
+              <span>
+                <img
+                  alt="icons"
+                  src={toAbsoluteUrl("/media/events/copy-event.svg")}
+                />
+              </span>
+            </li>
+            <li>
+              <span>
+                <img
+                  alt="icons"
+                  src={toAbsoluteUrl("/media/events/calendar.svg")}
+                />
+              </span>
+            </li>
+            <li>
+              <span>
+                <img
+                  alt="icons"
+                  src={toAbsoluteUrl("/media/events/event-delete.svg")}
+                />
+              </span>{" "}
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
   );
 }
 
@@ -187,33 +186,47 @@ export function EventDashboard() {
   });
   const styles = {
     BackdropProps: {
-      background: 'transparent'
-    }
+      background: "transparent",
+    },
   };
-  
-  const toggleDrawer = (side, open) => event => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+
+  const toggleDrawer = (side, open) => (event) => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
       return;
     }
     setState({ ...state, [side]: open });
   };
-  
+
   const toggleDrawerClose = () => {
     setState(false);
   };
+
+  // tab view demo
   return (
     <div className="clearfix event-selector">
       <div className="event-selector-sub row">
         <div className="even-box-selector col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
           <input type="checkbox" id="event_box_01" />
-          <label className="card-box-02" for="event_box_01" ></label>
+          <label className="card-box-02" for="event_box_01"></label>
           <div className="event_box card-box-02-sub event_box_003">
             {/* <Link to="#" onClick={toggleDrawer('bottom', true)}>Anand</Link> */}
             <Card className="event-card">
               <Card.Body>
                 <div className="event-provider">
                   <div className="card-swich-button">
-                    <span    style={{ backgroundColor: `#c5f0c0`,border:`1px solid #1b850f`,color:`#166e0c`}} > viral meningitis</span>
+                    <span
+                      style={{
+                        backgroundColor: `#c5f0c0`,
+                        border: `1px solid #1b850f`,
+                        color: `#166e0c`,
+                      }}
+                    >
+                      {" "}
+                      viral meningitis
+                    </span>
                     <Swithces />
                     <Dropdown
                       drop="down"
@@ -245,7 +258,9 @@ export function EventDashboard() {
                       </span>
                     </div>
                     <div className="card-summary">
-                      <span onClick={toggleDrawer('right', true)}>New Event For Medicine</span>
+                      <span onClick={toggleDrawer("right", true)}>
+                        New Event For Medicine
+                      </span>
                       <span>
                         Some quick example text to build on the card title and
                         make up the bulk of the card's content.
@@ -284,28 +299,47 @@ export function EventDashboard() {
               </Card.Body>
             </Card>
           </div>
-          <Drawer variant="temporary" className="patientProfileinfo EventDrawer StaffInfo" anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
-          <div className="p-0 overflow-auto">
-            <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}>
-              <span className="my-auto font-weight-500">
-                <img src={toAbsoluteUrl("/media/patients/drawer_close.svg")} alt="" className="d-block" />
-              </span>
-            </Link>
-            <EventTab />
-          </div>
-        </Drawer>
+          <Drawer
+            variant="temporary"
+            className="patientProfileinfo EventDrawer StaffInfo"
+            anchor="right"
+            open={state.right}
+            onClose={toggleDrawer("right", false)}
+          >
+            <div className="p-0 overflow-auto">
+              <Link to="#" className="closeDrawer" onClick={toggleDrawerClose}>
+                <span className="my-auto font-weight-500">
+                  <img
+                    src={toAbsoluteUrl("/media/patients/drawer_close.svg")}
+                    alt=""
+                    className="d-block"
+                  />
+                </span>
+              </Link>
+              <EventTab />
+            </div>
+          </Drawer>
         </div>
 
         <div className="even-box-selector col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
           <input type="checkbox" id="event_box_03" />
-          <label className="card-box-02" for="event_box_03" ></label>
-          <div className="event_box card-box-02-sub event_box_003" >
+          <label className="card-box-02" for="event_box_03"></label>
+          <div className="event_box card-box-02-sub event_box_003">
             {/* <Link to="#" onClick={toggleDrawer('bottom', true)}>Anand</Link> */}
             <Card className="event-card">
               <Card.Body>
                 <div className="event-provider">
                   <div className="card-swich-button">
-                    <span style={{ backgroundColor: `#fdebeb`,border:`1px solid #e02525`,color:`#ce1e1e`}} > viral meningitis</span>
+                    <span
+                      style={{
+                        backgroundColor: `#fdebeb`,
+                        border: `1px solid #e02525`,
+                        color: `#ce1e1e`,
+                      }}
+                    >
+                      {" "}
+                      viral meningitis
+                    </span>
                     <Swithces />
                     <Dropdown
                       drop="down"
@@ -327,7 +361,7 @@ export function EventDashboard() {
 
                   <div className="card-profile-content">
                     <div className="card-lable">
-                    <span
+                      <span
                         className="listprofileIcon-event"
                         style={{ backgroundColor: `#1D58FF` }}
                       >
@@ -376,18 +410,26 @@ export function EventDashboard() {
             </Card>
           </div>
         </div>
-        
 
         <div className="even-box-selector col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
           <input type="checkbox" id="event_box_04" />
-          <label className="card-box-02" for="event_box_04" ></label>
-          <div className="event_box card-box-02-sub event_box_003" >
+          <label className="card-box-02" for="event_box_04"></label>
+          <div className="event_box card-box-02-sub event_box_003">
             {/* <Link to="#" onClick={toggleDrawer('bottom', true)}>Anand</Link> */}
             <Card className="event-card">
               <Card.Body>
                 <div className="event-provider">
                   <div className="card-swich-button">
-                    <span style={{ backgroundColor: `#fff`,border:`1px solid #f9d66f`,color:`#f8cf57`}}> viral meningitis</span>
+                    <span
+                      style={{
+                        backgroundColor: `#fff`,
+                        border: `1px solid #f9d66f`,
+                        color: `#f8cf57`,
+                      }}
+                    >
+                      {" "}
+                      viral meningitis
+                    </span>
                     <Swithces />
                     <Dropdown
                       drop="down"
@@ -461,14 +503,14 @@ export function EventDashboard() {
 
         <div className="even-box-selector col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
           <input type="checkbox" id="event_box_05" />
-          <label className="card-box-02" for="event_box_05" ></label>
-          <div className="event_box card-box-02-sub event_box_003" >
+          <label className="card-box-02" for="event_box_05"></label>
+          <div className="event_box card-box-02-sub event_box_003">
             {/* <Link to="#" onClick={toggleDrawer('bottom', true)}>Anand</Link> */}
             <Card className="event-card">
               <Card.Body>
                 <div className="event-provider">
                   <div className="card-swich-button">
-                    <span > viral meningitis</span>
+                    <span> viral meningitis</span>
                     <Swithces />
                     <Dropdown
                       drop="down"
@@ -543,17 +585,26 @@ export function EventDashboard() {
             </Card>
           </div>
         </div>
- 
+
         <div className="even-box-selector col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
           <input type="checkbox" id="event_box_06" />
-          <label className="card-box-02" for="event_box_06" ></label>
+          <label className="card-box-02" for="event_box_06"></label>
           <div className="event_box card-box-02-sub event_box_003">
             {/* <Link to="#" onClick={toggleDrawer('bottom', true)}>Anand</Link> */}
             <Card className="event-card">
               <Card.Body>
                 <div className="event-provider">
                   <div className="card-swich-button">
-                    <span style={{ backgroundColor: `#fdebeb`,border:`1px solid #e02525`,color:`#ce1e1e`}}> viral meningitis</span>
+                    <span
+                      style={{
+                        backgroundColor: `#fdebeb`,
+                        border: `1px solid #e02525`,
+                        color: `#ce1e1e`,
+                      }}
+                    >
+                      {" "}
+                      viral meningitis
+                    </span>
                     <Swithces />
                     <Dropdown
                       drop="down"
@@ -630,8 +681,11 @@ export function EventDashboard() {
 
         <div className="even-box-selector col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
           <input type="checkbox" id="event_box_07" />
-          <label className="card-box-02" for="event_box_07" ></label>
-          <div className="event_box card-box-02-sub event_box_003" for="event_box_07">
+          <label className="card-box-02" for="event_box_07"></label>
+          <div
+            className="event_box card-box-02-sub event_box_003"
+            for="event_box_07"
+          >
             {/* <Link to="#" onClick={toggleDrawer('bottom', true)}>Anand</Link> */}
             <Card className="event-card">
               <Card.Body>
@@ -715,14 +769,23 @@ export function EventDashboard() {
 
         <div className="even-box-selector col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
           <input type="checkbox" id="event_box_08" />
-          <label className="card-box-02" for="event_box_08" ></label>
+          <label className="card-box-02" for="event_box_08"></label>
           <div className="event_box card-box-02-sub event_box_003">
             {/* <Link to="#" onClick={toggleDrawer('bottom', true)}>Anand</Link> */}
             <Card className="event-card">
               <Card.Body>
                 <div className="event-provider">
                   <div className="card-swich-button">
-                    <span  style={{ backgroundColor: `#c5f0c0`,border:`1px solid #1b850f`,color:`#166e0c`}}> viral meningitis</span>
+                    <span
+                      style={{
+                        backgroundColor: `#c5f0c0`,
+                        border: `1px solid #1b850f`,
+                        color: `#166e0c`,
+                      }}
+                    >
+                      {" "}
+                      viral meningitis
+                    </span>
                     <Swithces />
                     <Dropdown
                       drop="down"
@@ -796,7 +859,7 @@ export function EventDashboard() {
 
         <div className="even-box-selector col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
           <input type="checkbox" id="event_box_09" />
-          <label className="card-box-02" for="event_box_09" ></label>
+          <label className="card-box-02" for="event_box_09"></label>
           <div className="event_box card-box-02-sub event_box_003">
             <Card className="event-card">
               <Card.Body>
@@ -879,14 +942,23 @@ export function EventDashboard() {
 
         <div className="even-box-selector col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
           <input type="checkbox" id="event_box_010" />
-          <label className="card-box-02" for="event_box_010" ></label>
+          <label className="card-box-02" for="event_box_010"></label>
           <div className="event_box card-box-02-sub event_box_003">
             {/* <Link to="#" onClick={toggleDrawer('bottom', true)}>Anand</Link> */}
             <Card className="event-card">
               <Card.Body>
                 <div className="event-provider">
                   <div className="card-swich-button">
-                    <span style={{ backgroundColor: `#fff`,border:`1px solid #f9d66f`,color:`#f8cf57`}}> viral meningitis</span>
+                    <span
+                      style={{
+                        backgroundColor: `#fff`,
+                        border: `1px solid #f9d66f`,
+                        color: `#f8cf57`,
+                      }}
+                    >
+                      {" "}
+                      viral meningitis
+                    </span>
                     <Swithces />
                     <Dropdown
                       drop="down"
@@ -962,4 +1034,3 @@ export function EventDashboard() {
     </div>
   );
 }
-
