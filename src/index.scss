@@ -126,19 +126,26 @@
   display: none !important;
 }
 
-.appointment{
+  .appointment{
     background-color: #1d6aff !important;
     border-color: #1d6aff !important;
-    border-radius: 2.42rem;
-    padding: 0 15px;
-  .dx-button-content{
-    padding: 0 15px;
+    border-radius: 50%;
+    padding: 0;
+    width: 45px;
+    height: 45px;
+    .dx-button-content{
+      padding: 0 0;
+      text-align: center !important;
+      width: 100%;
+    }
+    .dx-button-text{
+      font-size: 2.5rem;
+      color: #fff;
+      font-weight: bold;
+      display: block;
+      line-height: 45px;
+    }
   }
-  .dx-button-text{
-    font-size: 15px;
-    color: #fff;
-  }
-}
 #grouptab{
   width: 25%;
   border: none;

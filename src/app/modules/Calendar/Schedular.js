@@ -101,7 +101,7 @@ export default function Schedular  () {
       newAddEle.className="m-5 appointment";
       element[0].appendChild(newAddEle);
       new Button(newAddEle, {  
-        text:'+ Appointment',
+        text:'+',
         type:'normal',
         onClick: () => {  
         }  

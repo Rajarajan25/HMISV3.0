@@ -234,7 +234,7 @@ const AsideSubMenuList = {
       isMenu: true,
       visible: true,
       shortName: "S",
-      to: "/sales",
+      to: "/service",
       icon: "/media/svg/left-menu/events.svg",
       backgroundColor: "#43D5AE",
       subMenuList: [{

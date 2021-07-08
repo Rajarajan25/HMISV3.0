@@ -418,3 +418,7 @@ $text-white: #fff;
 
 // Build Aside Offcanvas Panel for mobile mode
 @include offcanvas-build(aside, tablet-and-mobile, get($aside-config, offcanvas-mobile));
+
+.aside .aside-menu .menu-nav > .menu-item-submenu {
+    padding-left: 0;
+}
