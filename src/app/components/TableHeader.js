@@ -14,7 +14,7 @@ export function TableHeader(props) {
         <ul className="list-inline w-100 row">
             {column.map((item, i) => {
                 if (i === 0) return (<li className={`col-lg-${item.col_size} my-auto`} key={i}>
-                    <span className="headingHighlight customProfileBG11 text-white">{item.name}<a className="ml-3"><i className="fa fa-pen"></i></a></span>
+                    <span className="headingHighlight customProfileBG11 text-white">{item.name}<a href="/#" className="ml-3"><i className="fa fa-pen"></i></a></span>
                     <span className="tasklistCount">{listCount}{" "}{countLable}</span>
                 </li>);
                 else if (i === column.length - 1) return (<li className={`col-lg-${item.col_size} position-relative`} key={i} >

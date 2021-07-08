@@ -5,7 +5,7 @@ import { TimePickersUtils } from "../components/DateAndTimePicker"
 import { Link } from 'react-router-dom';
 import { Modal } from "react-bootstrap";
 import { BusinessProvider } from '../modules/Auth/pages/BusinessContext';
-import { useQuery, gql, NetworkStatus } from "@apollo/client";
+import { useQuery, gql } from "@apollo/client";
 import BusinessTime from './BusinessTime'
 
 const GET_BUSINESS = gql`
@@ -38,14 +38,11 @@ const GET_BUSINESS = gql`
 
 
 export default function BusinessTiming(props) {
-    const { current } = props
     let startdate = new Date();
     startdate = new Date(startdate.setHours(10));
     let enddate = new Date();
     enddate = new Date(startdate.setHours(19));
-    const [state, setState] = React.useState({
-        checkedA: false,
-    });
+    
     const days = [
         { work_day_id: 1, short_name: "S", color: "sun_d", name: "Sunday", bg_color: "sun_bg", start_time: startdate, end_time: enddate },
         { work_day_id: 2, short_name: "M", color: "mon_d", name: "Monday", bg_color: "mon_bg", start_time: startdate, end_time: enddate },
@@ -57,17 +54,17 @@ export default function BusinessTiming(props) {
     ];
     const [businessHours, setBusinessHours] = useState(days);
 
-    const { data, refetch, networkStatus, } = useQuery(GET_BUSINESS, { notifyOnNetworkStatusChange: true });
+    const { data } = useQuery(GET_BUSINESS, { notifyOnNetworkStatusChange: true });
     let business_id = localStorage.getItem("Business_id");
     const [selectedDays, setSelectedDays] = useState([]);
 
     let currentBusiness;
     React.useEffect(() => {
-        if (data || networkStatus === NetworkStatus.refetch) {
+        if (data) {
             currentBusiness = data.getBusiness.filter(e => e._id === business_id)
             const sDays = [];
             const sTimes = [...days];
-            currentBusiness[0].timings.timing.map((item) => {
+            currentBusiness[0].timings.timing.forEach((item) => {
                 let WorkingId = parseInt(item.work_day_id);
                 sDays.push(WorkingId);
                 const findIndex = sTimes.findIndex(x => x.work_day_id === WorkingId);

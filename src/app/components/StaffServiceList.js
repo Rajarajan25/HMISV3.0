@@ -97,7 +97,7 @@ export function StaffServiceList(props) {
 
     }
     const getActive = (id) => {
-        if (selectedItem.length === 0) return
+        if (selectedItem===undefined || selectedItem.length === 0) return
         if (pagename === PageName.SERVICE) return !!selectedItem.find(value => value.staff_id.id === id);
         else return !!selectedItem.find(value => value.service_id.id === id);
     };
@@ -194,7 +194,6 @@ ServiceItems.propTypes = {
     getActive: PropTypes.func.isRequired
 }
 export function InpersonUI(props) {
-    const { deleteUI } = props;
     return (
         <span className="avails visit_bg">
             <img src={toAbsoluteUrl("/media/patients/avail_visit.svg")} alt="In Person" className="m-0" />

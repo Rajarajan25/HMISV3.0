@@ -2,31 +2,17 @@ import React from "react";
 import {Col, Row} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
-import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 
-const useStyles = makeStyles({
-  list: {
-    width: 650,
-  },
-  fullList: {
-    width: 'auto',
-  },
-});
 
 export function NewCustomer() {
-  const classes = useStyles();
   const [state, setState] = React.useState({
     top: false,
     left: false,
     bottom: false,
     right: false,
   });
-  const styles = {
-    BackdropProps: {
-      background: 'transparent'
-    }
-  };
+  
   const toggleDrawer = (side, open) => event => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;

@@ -41,7 +41,7 @@ export default function Availability(props) {
     setValue(newValue);
   }
   return (<>
-    <div className={'timingavail' + " " + classes.root}>
+    <div className={'timingavail ' + classes.root}>
       <div className="d-flex border-bottom">
         <div className="col mx-150 pl-0 my-auto">
           <label className="staff_title_text m-0">Availability</label>
@@ -129,7 +129,7 @@ export function AvailCall(props) {
 }
 export function AvailVideo(props) {
   const { formikValues, setFieldValue } = props;
-  const selectedVideo = formikValues.timings.timing_id.availability_id.video || [];
+  let selectedVideo = formikValues.timings.timing_id.availability_id.video || [];
   const avaiableVideoOption = [
     { name: "Zoom", svg: "/media/patients/zoom_icon.png" },
     { name: "Micro shoft", svg: "/media/patients/webex_icon.png" },

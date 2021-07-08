@@ -2,12 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { makeStyles } from '@material-ui/core/styles';
-import {Button} from "react-bootstrap";
-import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
 import FormControl from '@material-ui/core/FormControl';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import Radio from '@material-ui/core/Radio';
@@ -34,18 +28,7 @@ const durationtime = [
   { value: '55mins', label: '55 Mins' },
   { value: '1hour', label: '1 Hour' }
 ]
-const buffertime = [
-  { value: '5mins', label: '5 Mins' },
-  { value: '10mins', label: '10 Mins' },
-  { value: '15mins', label: '15 Mins' },
-  { value: '20mins', label: '20 Mins' }
-]
-const availability = [
-  { value: 'chat', label: 'Chat' },
-  { value: 'call', label: 'Call' },
-  { value: 'video', label: 'Video' },
-  { value: 'inperson', label: 'In Person' }
-]
+
 
 export function ContentEventPay() {
   return (

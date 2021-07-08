@@ -35,7 +35,7 @@ const option = [
   'Group By Date',
 ];
 export default function Schedular  () {
-  const [state,setState]=React.useState({
+  const [state]=React.useState({
     allowAdding: true,
     allowDeleting: true,
     allowResizing: true,

@@ -1,6 +1,5 @@
 import { InpersionModel } from "./InpersionModel";
 import { OncallModel } from "./OncallModel";
-import { VideoData } from "./VideoData";
 
 export const AvailabilityModel = {
     //id:"0",

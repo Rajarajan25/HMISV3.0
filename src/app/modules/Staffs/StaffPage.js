@@ -1,15 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Filter } from "../../components/Filter"
-import {
-    ListActivity01,
-    ListActivity02,
-    ListActivity03,
-    ListActivity04,
-} from "../Doctors/components/ListActivity";
+import {ListActivity01} from "../Doctors/components/ListActivity";
 import { StaffDetailsTab } from "../Doctors/components/staff-details-tab";
 import { mutations, queries } from "./graphql";
-import { gql, useMutation } from "@apollo/client";
+import { gql } from "@apollo/client";
 import * as compose from "lodash.flowright";
 import { graphql } from "@apollo/client/react/hoc";
 import { DevAlertPopUp, DevConsoleLog } from "../../SiteUtill";
@@ -248,7 +242,7 @@ class StaffPage extends React.Component {
         let isDuplicateID = 1;
         let duplicateName = duplicatedItem.name;
         let i = 1;
-        while (isDuplicateID != -1) {
+        while (isDuplicateID !== -1) {
             duplicateName = duplicateName.replace(/[0-9]\s*$/, "") + "" + i;
             isDuplicateID = this.checkDuplicate(duplicateName);
             i++;

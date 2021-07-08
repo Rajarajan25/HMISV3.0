@@ -1,36 +1,13 @@
 import React from 'react'
 import BusinessTiming from './BusinessTiming';
 import CustomTiming from './CustomTiming'
-// import RadioGroup from '@material-ui/core/RadioGroup';
-// import Radio from '@material-ui/core/Radio';
-// import FormControlLabel from '@material-ui/core/FormControlLabel';
-import { makeStyles } from '@material-ui/core/styles';
-// import { DevConsoleLog } from '../SiteUtill';
 import { Field } from 'formik'
 import { TimingsModel } from '../models/TimingsModel';
-import Availability from './Availability';
+// import Availability from './Availability';
 import PropTypes from 'prop-types';
 import AvailabilityNew from './AvailablityNew';
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-    width: '100%',
-    backgroundColor: theme.palette.background.paper,
-    display: 'flex',
-  },
-  formControl: {
-    margin: theme.spacing(3),
-  },
-  group: {
-    margin: theme.spacing(1, 0),
-  },
-
-}));
-
 export default function Timings(props) {
   const { formikValues, setFieldValue } = props;
-  const classes = useStyles();
 
   if (!formikValues.timings || !formikValues.timings.timing_id) {
     formikValues.timings = TimingsModel;

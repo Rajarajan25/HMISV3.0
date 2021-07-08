@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 export default function SortBy(props) {
   const { data, handleSort } = props;
-  const [optionsArr, setOptionsArr] = React.useState([
+  const [optionsArr] = React.useState([
     {
       id: 123,
       label: "Newest",

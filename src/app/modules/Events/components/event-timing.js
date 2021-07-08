@@ -1,33 +1,15 @@
 import 'date-fns';
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
-import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import {TimePickersUtil} from '../../../components/DateAndTimePicker'
 import {DateRangePickersUtil} from '../../../components/DateAndTimePicker'
-import {DateRangePickersUtilFailed} from '../../../components/DateAndTimePicker'
-  import FormControl from '@material-ui/core/FormControl';
-  import RadioGroup from '@material-ui/core/RadioGroup';
-  import Radio from '@material-ui/core/Radio';
-  import FormControlLabel from '@material-ui/core/FormControlLabel';
-  import Select from 'react-select';
-  import { Dropdown } from "react-bootstrap";
-  import {DropdownItemToggler} from "../../../../_metronic/_partials/dropdowns";
-  import { Modal } from "react-bootstrap";
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-    width: '100%',
-    backgroundColor: theme.palette.background.paper,
-  },
-}));
+import Select from 'react-select';
+import { Dropdown } from "react-bootstrap";
+import { DropdownItemToggler } from "../../../../_metronic/_partials/dropdowns";
+import { Modal } from "react-bootstrap";
 
 function TabContainer(props) {
   return (
@@ -170,11 +152,6 @@ const week = [
 ]
 
 export function ContentEventTiming() {
-  const classes = useStyles();
-  const [value, setValue] = React.useState(0);
-  function handleChange(event, newValue) {
-    setValue(newValue);
-  }
   return (
     <div className="clearfix">
       <div className="staff_first staff_second w-100">
@@ -500,11 +477,6 @@ export function ServicesDropdownMenu() {
 
 
 export function Availability() {
-  const classes = useStyles();
-  const [value, setValue] = React.useState(0);
-  function handleChange(event, newValue) {
-    setValue(newValue);
-  }
   return (
     <div className="staff_first">
       <div className="event_detail timingavail">

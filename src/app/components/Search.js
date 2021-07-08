@@ -37,7 +37,7 @@ export default function Search(props) {
                 onChange={(e) => setTextValue(e.target.value)}
                 onKeyUp={(e) => onHandleSearch(e)}
             />
-            <a href="#" className="search_icon"><img src={toAbsoluteUrl("/media/patients/cat_search.svg")} alt="" className="" /></a>
+            <a href="/#" className="search_icon"><img src={toAbsoluteUrl("/media/patients/cat_search.svg")} alt="" className="" /></a>
         </div>
 
     </>

@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { makeStyles } from '@material-ui/core/styles';
 import {Button} from "react-bootstrap";
@@ -103,7 +102,6 @@ export function ContentEventDetails() {
 
 
 export function ColorCode() {
-  const classes = useStyles();
   return (
     <div className="color_select">
           <div className="d-inline-flex color_col p-3">

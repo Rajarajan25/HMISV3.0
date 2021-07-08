@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Helmet } from "react-helmet";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import { connect } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { gql, useMutation } from "@apollo/client";
 import * as Yup from "yup";
 import { Formik, Field, Form } from "formik";
@@ -25,7 +24,6 @@ function ResetPassword(props) {
   const { intl } = props;
   const [isRequested, setIsRequested] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [passwordShown, setPasswordShown] = useState(true);
   const [resetPassword] = useMutation(RESET_PASSWORD);
   const ResetPasswordSchema = Yup.object().shape({
     password: Yup.string()
@@ -46,27 +44,12 @@ function ResetPassword(props) {
       ),
   });
 
-  const getInputClasses = (props, fieldname) => {
-    if (props.touched[fieldname] && props.errors[fieldname]) {
-      return "is-invalid";
-    }
-
-    if (props.touched[fieldname] && !props.errors[fieldname]) {
-      return "is-valid";
-    }
-
-    return "";
-  };
   const enableLoading = () => {
     setLoading(true);
   };
 
   const disableLoading = () => {
     setLoading(false);
-  };
-
-  const togglePasswordVisiblity = () => {
-    setPasswordShown(passwordShown ? false : true);
   };
   return (
     <>

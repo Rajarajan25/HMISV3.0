@@ -1,22 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { makeStyles } from '@material-ui/core/styles';
 import { Modal } from "react-bootstrap";
 import {Button} from "react-bootstrap";
 import { EventTab } from "./event-tab";
 import { toAbsoluteUrl } from "../../../../_metronic/_helpers";
 import Drawer from '@material-ui/core/Drawer';
 import {EventDashboard} from "./event-dahboard";
-
-const useStyles = makeStyles({
-  list: {
-    width: 650,
-  },
-  fullList: {
-    width: 'auto',
-  },
-});
-
 
 
 export class NewEvent extends React.Component {
@@ -170,18 +159,12 @@ export class PopEvent extends React.Component {
 
 
 export function EventDrawer() {  
-  const classes = useStyles();
 const [state, setState] = React.useState({
   top: false,
   left: false,
   bottom: false,
   right: false,
 });
-const styles = {
-  BackdropProps: {
-    background: 'transparent'
-  }
-};
 
 const toggleDrawer = (side, open) => event => {
   if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {

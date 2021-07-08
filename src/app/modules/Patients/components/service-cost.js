@@ -44,12 +44,6 @@ const useStyles = makeStyles(theme => ({
   noLabel: {
     marginTop: theme.spacing(3),
   },
-  root: {
-    display: 'flex',
-  },
-  formControl: {
-    margin: theme.spacing(3),
-  },
   group: {
     margin: theme.spacing(1, 0),
   },
@@ -78,12 +72,6 @@ const buffertime = [
   { value: '10mins', label: '10 Mins' },
   { value: '15mins', label: '15 Mins' },
   { value: '20mins', label: '20 Mins' }
-]
-const availability = [
-  { value: 'chat', label: 'Chat' },
-  { value: 'call', label: 'Call' },
-  { value: 'video', label: 'Video' },
-  { value: 'inperson', label: 'In Person' }
 ]
 
 export function ServiceCost() {
@@ -304,13 +292,6 @@ export function ServiceCost() {
 
   export function TimePickers() {
     // The first commit of Material-UI
-    const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
-
-    const handleDateChange = (date) => {
-      setSelectedDate(date);
-    };
-    const [isOpen, setIsOpen] = useState(false);
-
     return (
         <Grid container justify="space-around">
           <TimePickersUtil />
@@ -320,41 +301,4 @@ export function ServiceCost() {
 
 
 
-  function SelectHours() {
-
-    const useStyles = makeStyles(theme => ({
-      root: {
-        display: 'flex',
-      },
-      formControl: {
-        margin: theme.spacing(3),
-      },
-      group: {
-        margin: theme.spacing(1, 0),
-      },
-    }));
-
-    const classes = useStyles();
-    const [value, setValue] = React.useState('female');
-
-    function handleChange(event) {
-      setValue(event.target.value);
-    }
-
-    return (
-      <div className={classes.root}>
-        <FormControl component="fieldset" className={classes.formControl}>
-          <RadioGroup
-            name="business"
-            className={classes.group}
-            value={value}
-            onChange={handleChange}
-          >
-            <FormControlLabel value="business" control={<Radio />} label="Business hours" />
-            <FormControlLabel value="custom" control={<Radio />} label="Custom" />
-          </RadioGroup>
-        </FormControl>
-
-      </div>
-    );
-  }
+  
