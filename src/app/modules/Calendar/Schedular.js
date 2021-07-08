@@ -7,9 +7,22 @@ import AppointmentTemplate from './AppointmentTemplate.js';
 import SelectBox from 'devextreme-react/select-box';
 import ResourceCell from './ResourceCell.js';
 import Button from "devextreme/ui/button";
+import Tabs from "devextreme/ui/tabs";
+//import Button from '@material-ui/core/Button';
 import { toAbsoluteUrl } from "../../../_metronic/_helpers";
 
 const currentDate = new Date();
+export const tabs = [
+  {
+    id: 0,
+    icon: 'bulletlist'
+  },
+  {
+    id: 1,
+    icon: 'event'
+  }
+];
+
 // const views = ['day', 'week','month','workWeek','timelineWeek','agenda'];
 const views = [{
   type: 'day',
@@ -22,9 +35,6 @@ const views = [{
   name: 'Month',
   maxAppointmentsPerCell:1
 },{
-  type: 'timelineWeek',
-  name: 'TimelineWeek',
-}, {
   type: 'agenda',
   name: 'Agenda',
 }, ];
@@ -44,7 +54,7 @@ export default function Schedular  () {
     showCurrentTimeIndicator: true,
     showTodayButton:true
   });
-  const [value, setValue] = React.useState('Group By Staff');
+  const [selectedTabIndex, setTabValue] = React.useState(1);
   const [groupByDate,setgroupbyDate]=React.useState(true);
   function onContentReady(e){
     const currentHour = new Date().getHours() - 1;
@@ -55,9 +65,7 @@ export default function Schedular  () {
             let element = document.querySelectorAll('.dx-scheduler-navigator');  
             const container = document.createElement('div');
             container.id = 'schedulerTodayButton';
-
             element[0].appendChild(container);  
-
             new Button(container, {  
                 text:    'Today',  
                 onClick: () => {  
@@ -65,24 +73,61 @@ export default function Schedular  () {
                 }  
             });  
         }
+    const grouptab = document.getElementById('grouptab');
+    if(!grouptab){
+      let groupEle = document.querySelectorAll('.dx-scheduler-view-switcher');
+      const groupCon = document.createElement('div');
+      groupCon.id = 'grouptab';
+      groupEle[0].appendChild(groupCon);  
+      new Tabs(groupCon, {
+        dataSource:tabs,
+        selectedIndex:selectedTabIndex,
+        onOptionChanged:(e)=>{
+          if(e.name == 'selectedIndex') {
+            setTabValue(e.value);
+            console.log(selectedTabIndex);
+            if(!groupByDate)setgroupbyDate(true);
+            else setgroupbyDate(false);
+            }
+        }
+      }); 
+    }
+
+    const newAdd = document.getElementById('newappointment');
+    if(!newAdd){
+      let element = document.querySelectorAll('.dx-scheduler-view-switcher');
+      const newAddEle = document.createElement('div');
+      newAddEle.id = 'newappointment';
+      newAddEle.className="m-5 appointment";
+      element[0].appendChild(newAddEle);
+      new Button(newAddEle, {  
+        text:'+',
+        type:'normal',
+        onClick: () => {  
+        }  
+    }); 
+    }
   }
   let id="ownerid"
     let datas=owners
-  function onValueChanged(e) {
-    setValue(e.value);
-    console.log(value)
+  const onValueChanged=(e)=> {
+    if(e.name == 'selectedIndex') {
+    setTabValue(e.value);
+    console.log(selectedTabIndex);
     if(!groupByDate)setgroupbyDate(true);
     else setgroupbyDate(false);
+    }
   }
+
     return (
       <React.Fragment>
-       <div className="option align-items-center border-0 group-by">
+       {/* <div className="option align-items-center border-0 group-by">
           <img src={toAbsoluteUrl("/media/events/group_by.svg")} alt="Group By" className="mr-5" />
           <SelectBox
             items={option}
             onValueChanged={onValueChanged}
           />
-          </div>
+          </div> */}
       <Scheduler
         dataSource={data}
         views={views}
@@ -92,21 +137,18 @@ export default function Schedular  () {
         groupByDate={groupByDate}
         defaultCurrentDate={currentDate}
         editing={state}
-        height={800}
+        height={600}
         appointmentRender={AppointmentTemplate}
         onContentReady={onContentReady}
         resourceCellComponent={ResourceCell}
-        showAllDayPanel={false}
-        
+        showAllDayPanel={true}
       >
         {!groupByDate&&<Resource
           dataSource={datas}
           fieldExpr={id}       />}
         <Resource
           dataSource={moviesData}
-          fieldExpr="movieId"
-          
-        />
+          fieldExpr="movieId"/>
         
         <Editing
             allowTimeZoneEditing={true}
