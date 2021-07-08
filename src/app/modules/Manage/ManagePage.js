@@ -17,7 +17,6 @@ export default function ManagePage() {
         <Route path="/manage/patients-details" component={PatientDetailspage} />
         <Route path="/manage/service-provider" component={ServiceProvider} />
         <Route path="/manage/event-details" component={EventDetails} />
-        <Route path="/manage/sales-details" component={SalesDetails} />
       {/* Surfaces */}
       {/* <ContentRoute from="/manage/staff-management" component={StaffPage} /> */}
 

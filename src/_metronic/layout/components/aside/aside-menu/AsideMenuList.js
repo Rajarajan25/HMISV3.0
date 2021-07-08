@@ -150,7 +150,7 @@ export function AsideMenuList({ layoutProps, menuList = [], title = "" }) {
                   data-menu-toggle="hover"
                   key={i}
                 >
-                  <NavLink className={`menu-link menu-toggle ${item.isMenu && "ml-5"}`} to={item.to}>
+                  <NavLink className={`menu-link  ${item.isMenu && "menu-toggle ml-5"}`} to={item.to}>
                     {item.isMenu && (<>
                       <i className="fas fa-caret-right" />
                       <span className="svg-icon menu-icon d-flex flex-column rounded customMenutexticon bgCustom1" style={{ backgroundColor: item.backgroundColor }}>

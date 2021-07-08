@@ -62,6 +62,8 @@ export default function BasePage() {
         <Route path="/e-commerce" component={ECommercePage} />
         <Route path="/user-profile" component={UserProfilepage} />
         <Route path="/manage" component={ManagePage} />
+        <Route path="/product/sales-details" component={SalesDetails} />
+        <Route path="/cardiology" component={ECommercePage} />
         {/* <Route path="/manage/staff-management" component={StaffPage} />
         <Route path="/manage/patients-details" component={PatientDetailspage} />
         <Route path="/manage/service-provider" component={ServiceProvider} />

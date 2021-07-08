@@ -60,7 +60,7 @@ const AsideMiddleList = [
     name: "Sales",
     tooltip: "Sales",
     key: "sales",
-    to: "/Sales",
+    to: "/sales",
     icon: "/media/svg/left-menu/Chart.svg",
     visible: true,
   },
@@ -224,7 +224,7 @@ const AsideSubMenuList = {
         name: "New Form",
         visible: true,
         shortName: "N",
-        to: "/manage/sales-details",
+        to: "/product/sales-details",
         icon: "/media/svg/left-menu/events.svg",
         backgroundColor: "#FD905D",
       }]
