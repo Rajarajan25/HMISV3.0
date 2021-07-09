@@ -6,6 +6,8 @@ import Typography from "@material-ui/core/Typography";
 import MuiExpansionPanel from "@material-ui/core/ExpansionPanel";
 import MuiExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import MuiExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+import { Dropdown } from "react-bootstrap";
+import { DropdownItemToggler } from "../../../../_metronic/_partials/dropdowns";
 
 const ExpansionPanel = withStyles({
   root: {
